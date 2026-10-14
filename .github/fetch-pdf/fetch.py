@@ -154,28 +154,32 @@ def download(url: str, dest_dir: pathlib.Path,
 # ---------------------------------------------------------------- providers
 def from_yandex(url: str, workdir: pathlib.Path) -> list[pathlib.Path]:
     api = "https://cloud-api.yandex.net/v1/disk/public/resources"
+
+    def download_href(params: dict) -> str:
+        try:
+            return get_json(f"{api}/download?{urllib.parse.urlencode(params)}")["href"]
+        except urllib.error.HTTPError as exc:
+            fail("Яндекс Диск не отдал файл: " + http_error_text(exc))
+        raise AssertionError  # unreachable
+
+    meta: dict = {}
     try:
         meta = get_json(f"{api}?{urllib.parse.urlencode({'public_key': url, 'limit': 1000})}")
-    except urllib.error.HTTPError as exc:
-        fail("Яндекс Диск не отдал файл: " + http_error_text(exc))
-    if meta.get("type") == "file":
-        items = [meta]
-    else:
-        items = [item for item in meta.get("_embedded", {}).get("items", [])
-                 if item.get("type") == "file"
-                 and is_pdf_name(item.get("name", ""), item.get("mime_type", ""))]
-        if not items:
-            fail("В папке на Яндекс Диске нет PDF-файлов.")
-    files = []
-    for item in items:
-        direct = item.get("file")
-        if not direct:
-            params = {"public_key": url}
-            if meta.get("type") != "file":
-                params["path"] = item["path"]
-            direct = get_json(f"{api}/download?{urllib.parse.urlencode(params)}")["href"]
-        files.append(download(direct, workdir, fallback_name=item.get("name")))
-    return files
+    except Exception as exc:  # metadata is optional for a single file
+        log(f"Яндекс Диск: не удалось получить описание ссылки ({exc}), пробую скачать напрямую")
+
+    if meta.get("type") != "dir":
+        href = download_href({"public_key": url})
+        return [download(href, workdir, fallback_name=meta.get("name"))]
+
+    items = [item for item in meta.get("_embedded", {}).get("items", [])
+             if item.get("type") == "file"
+             and is_pdf_name(item.get("name", ""), item.get("mime_type", ""))]
+    if not items:
+        fail("В папке на Яндекс Диске нет PDF-файлов.")
+    return [download(item.get("file") or download_href({"public_key": url, "path": item["path"]}),
+                     workdir, fallback_name=item.get("name"))
+            for item in items]
 
 
 def from_google_drive(url: str, workdir: pathlib.Path) -> list[pathlib.Path]:
