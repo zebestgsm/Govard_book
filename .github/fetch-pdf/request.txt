@@ -4,7 +4,7 @@
 # Файлы больше 95 МБ попадут в раздел Releases.
 # Подходят публичные ссылки: Яндекс Диск, Google Drive, Dropbox,
 # Облако Mail.ru, OneDrive или прямая ссылка на файл.
-url=https://disk.yandex.ru/i/GvR8Mz3j7mX1vw
+url=https://drive.google.com/file/d/1avRWnJER6DvLeM4sGsWesGYcJbnZwque/view?usp=sharing
 # Имя файла (необязательно). Пусто — оставить исходное имя.
 name=
 # Папка в репозитории (необязательно). Пусто — корень репозитория.

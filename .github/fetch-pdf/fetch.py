@@ -145,9 +145,10 @@ def download(url: str, dest_dir: pathlib.Path,
             last_error = exc
         log(f"Попытка {attempt} не удалась: {last_error}")
         time.sleep(5 * attempt)
+    host = urllib.parse.urlparse(url).hostname
     if isinstance(last_error, urllib.error.HTTPError):
-        fail("Не удалось скачать: " + http_error_text(last_error))
-    fail(f"Не удалось скачать файл: {last_error}")
+        fail(f"Не удалось скачать с {host}: " + http_error_text(last_error))
+    fail(f"Не удалось скачать файл с {host}: {last_error}")
     raise AssertionError  # unreachable
 
 
@@ -160,6 +161,8 @@ def from_yandex(url: str, workdir: pathlib.Path) -> list[pathlib.Path]:
             return get_json(f"{api}/download?{urllib.parse.urlencode(params)}")["href"]
         except urllib.error.HTTPError as exc:
             fail("Яндекс Диск не отдал файл: " + http_error_text(exc))
+        except Exception as exc:
+            fail(f"Яндекс Диск не отвечает: {exc}")
         raise AssertionError  # unreachable
 
     meta: dict = {}
@@ -195,6 +198,15 @@ def from_google_drive(url: str, workdir: pathlib.Path) -> list[pathlib.Path]:
     except Exception as exc:  # gdown raises many different exceptions
         log(f"gdown: {exc}")
     files = sorted(p for p in outdir.rglob("*") if p.is_file())
+    if not files and "/folders/" not in url:
+        match = (re.search(r"/d/([\w-]{10,})", url)
+                 or re.search(r"[?&]id=([\w-]{10,})", url))
+        if match:
+            log("gdown не справился, пробую прямую ссылку Google Drive")
+            direct = ("https://drive.usercontent.google.com/download?"
+                      + urllib.parse.urlencode({"id": match.group(1),
+                                                "export": "download", "confirm": "t"}))
+            files = [download(direct, outdir)]
     if not files:
         fail("Google Drive не отдал файл. Проверьте, что доступ открыт: "
              "«Все, у кого есть ссылка».")
