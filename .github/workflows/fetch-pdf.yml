@@ -1,0 +1,51 @@
+name: Загрузить PDF по ссылке
+
+# Скачивает PDF по ссылке (Яндекс Диск, Google Drive, Dropbox, Облако Mail.ru,
+# OneDrive или прямая ссылка) и добавляет его в репозиторий.
+# Запуск: впишите ссылку в .github/fetch-pdf/request.txt или запустите вручную
+# во вкладке Actions (кнопка «Run workflow»).
+
+on:
+  push:
+    paths:
+      - ".github/fetch-pdf/request.txt"
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "Ссылка на PDF (Яндекс Диск, Google Drive, Dropbox, Облако Mail.ru или прямая ссылка)"
+        required: true
+        type: string
+      name:
+        description: "Имя файла в репозитории (необязательно)"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-pdf-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Установить gdown (для Google Drive)
+        run: pip install --quiet gdown
+
+      - name: Скачать PDF и добавить в репозиторий
+        env:
+          GH_TOKEN: ${{ github.token }}
+          INPUT_URL: ${{ inputs.url }}
+          INPUT_NAME: ${{ inputs.name }}
+        run: python .github/fetch-pdf/fetch.py
