@@ -292,7 +292,8 @@ def main() -> None:
         for path in files:
             lines.append(f"- `{path.name}` — {human_size(path.stat().st_size)} (проверка, без сохранения)")
         summary("### Проверка ссылки прошла успешно\n\n" + "\n".join(lines))
-        log("\n".join(lines))
+        for line in lines:
+            print(f"::notice::{line.lstrip('- ')}", flush=True)
         return
 
     branch = os.environ.get("GITHUB_REF_NAME", "main")
@@ -334,7 +335,8 @@ def main() -> None:
         run("git", "push", "origin", f"HEAD:{branch}")
 
     summary("### Готово\n\n" + "\n".join(lines))
-    log("\n".join(lines))
+    for line in lines:
+        print(f"::notice::{line.lstrip('- ')}", flush=True)
 
 
 if __name__ == "__main__":
