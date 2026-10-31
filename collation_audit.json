@@ -2476,68 +2476,52 @@
     "user_segments": []
   },
   "16": {
-    "score": 95,
+    "score": 98,
     "candidates": [
       {
-        "segment": "s1",
+        "segment": "s3",
         "kind": "omission",
         "confidence": "medium",
         "old": "",
-        "new": "not consistent with the attention that is requisite for fecuring the",
+        "new": "Yet the little probability there is of an in dustrious woman being of",
+        "left": " (especially those in London) with their wives and children.",
+        "right": "",
+        "sources": [
+          "DOCX · William Eyres",
+          "EPUB · William Eyres"
+        ],
+        "ocr_support": false,
+        "ref_score": 88.2
+      },
+      {
+        "segment": "s3",
+        "kind": "omission",
+        "confidence": "medium",
+        "old": "",
+        "new": "by this means ten or twelve people in a middle-fized room increasing the",
         "left": "",
-        "right": "Some gaolers live distant from the prison,in houses that do ",
+        "right": "Debtors crowd the gaols (especially those in London) with th",
         "sources": [
           "EPUB · William Eyres",
           "DOCX · William Eyres"
         ],
         "ocr_support": false,
-        "ref_score": 95.2
-      },
-      {
-        "segment": "s1",
-        "kind": "omission",
-        "confidence": "medium",
-        "old": "",
-        "new": "with their wives",
-        "left": "Some gaolers live distant from the prison,in houses ",
-        "right": "that do not belong to the county.Non-residence is not consis",
-        "sources": [
-          "PDF · Internet Archive",
-          "DOCX · William Eyres",
-          "EPUB · William Eyres"
-        ],
-        "ocr_support": false,
-        "ref_score": 85.5
+        "ref_score": 88.2
       },
       {
         "segment": "s3",
         "kind": "omission",
         "confidence": "medium",
         "old": "",
-        "new": "Yet the little probability there is of an in dustrious woman being of much",
-        "left": "ally those in London)with minster; their wives and children.",
-        "right": "",
-        "sources": [
-          "DOCX · William Eyres",
-          "EPUB · William Eyres"
-        ],
-        "ocr_support": false,
-        "ref_score": 85.7
-      },
-      {
-        "segment": "s3",
-        "kind": "omission",
-        "confidence": "medium",
-        "old": "",
-        "new": "ought no doubt to be treated with tenderness Man and wife should not be totally",
-        "left": "ally those in London)with minster; their wives and children.",
+        "new": "ought no doubt to be treated with tenderness Man and wife should not",
+        "left": " (especially those in London) with their wives and children.",
         "right": "",
         "sources": [
           "EPUB · William Eyres",
           "DOCX · William Eyres"
         ],
         "ocr_support": false,
-        "ref_score": 84.5
+        "ref_score": 88.2
       },
       {
         "segment": "s5",
@@ -2545,22 +2529,37 @@
         "confidence": "high",
         "old": "",
         "new": "who was upon that",
-        "left": " gaoler to confine his prisoners took All that a method, tha",
-        "right": "t was really shocking. Some years before that, reckonedi a p",
+        "left": "it, the gaoler to confine his prisoners took a method, that ",
+        "right": "was really shocking.¹ Some years before that, a prisoner in ",
         "sources": [
           "DOCX · William Eyres",
           "EPUB · William Eyres",
           "PDF · Internet Archive"
         ],
         "ocr_support": true,
-        "ref_score": 88.1
+        "ref_score": 96.0
+      },
+      {
+        "segment": "s5",
+        "kind": "omission",
+        "confidence": "medium",
+        "old": "",
+        "new": "of particular prisons To that account I refer for evidence and fact",
+        "left": "r in another of these gaols was tormented with thumb-screws.",
+        "right": "",
+        "sources": [
+          "DOCX · William Eyres",
+          "EPUB · William Eyres"
+        ],
+        "ocr_support": false,
+        "ref_score": 96.0
       },
       {
         "segment": "s5",
         "kind": "omission",
         "confidence": "high",
         "old": "",
-        "new": "prison the number of men in the same room and of lewd women admitted under the name",
+        "new": "the same room and of lewd women admitted under the name",
         "left": "",
         "right": "Yet the little probability there is of an industrious woman ",
         "sources": [
@@ -2568,7 +2567,7 @@
           "DOCX · William Eyres"
         ],
         "ocr_support": true,
-        "ref_score": 88.0
+        "ref_score": 95.8
       },
       {
         "segment": "s5",
@@ -2576,45 +2575,61 @@
         "confidence": "high",
         "old": "",
         "new": "the proprietor",
-        "left": " gaoler to confine his prisoners took All that a method, tha",
-        "right": "t was really shocking. Some years before that, reckonedi a p",
+        "left": "it, the gaoler to confine his prisoners took a method, that ",
+        "right": "was really shocking.¹ Some years before that, a prisoner in ",
         "sources": [
           "EPUB · William Eyres",
           "DOCX · William Eyres",
           "PDF · Internet Archive"
         ],
         "ocr_support": true,
-        "ref_score": 88.0
+        "ref_score": 95.8
       },
       {
-        "segment": "s6",
+        "segment": "s5",
         "kind": "omission",
         "confidence": "medium",
         "old": "",
-        "new": "I have hitherto made only in general terms I shall give in stances in the account",
-        "left": "",
-        "right": "The grand jury took up the case,and remonstrated In thet to ",
-        "sources": [
-          "DOCX · William Eyres",
-          "EPUB · William Eyres"
-        ],
-        "ocr_support": false,
-        "ref_score": 88.4
-      },
-      {
-        "segment": "s6",
-        "kind": "omission",
-        "confidence": "medium",
-        "old": "",
-        "new": "sundry prisons I have not altered the list since my latter visits in which I saw the number",
-        "left": "orthy few felons friend of mine,who was upon that very jury?",
+        "new": "hitherto made only in general terms I shall give instances in the account",
+        "left": "r in another of these gaols was tormented with thumb-screws.",
         "right": "",
         "sources": [
+          "EPUB · William Eyres",
+          "DOCX · William Eyres"
+        ],
+        "ocr_support": false,
+        "ref_score": 95.8
+      },
+      {
+        "segment": "s5",
+        "kind": "omission",
+        "confidence": "high",
+        "old": "",
+        "new": "was upon that very",
+        "left": "it, the gaoler to confine his prisoners took a method, that ",
+        "right": "was really shocking.¹ Some years before that, a prisoner in ",
+        "sources": [
+          "PDF · Internet Archive",
+          "DOCX · William Eyres",
+          "EPUB · William Eyres"
+        ],
+        "ocr_support": true,
+        "ref_score": 90.2
+      },
+      {
+        "segment": "s6",
+        "kind": "omission",
+        "confidence": "medium",
+        "old": "",
+        "new": "have hitherto made only in general terms I shall give in stances in the account",
+        "left": "",
+        "right": "The grand jury took up the case, and remonstrated to the pro",
+        "sources": [
           "DOCX · William Eyres",
           "EPUB · William Eyres"
         ],
         "ocr_support": false,
-        "ref_score": 88.4
+        "ref_score": 98.4
       },
       {
         "segment": "s6",
@@ -2623,14 +2638,60 @@
         "old": "",
         "new": "worthy friend of mine who was upon that very jury OF the complaints which I have",
         "left": "",
-        "right": "The grand jury took up the case,and remonstrated In thet to ",
+        "right": "The grand jury took up the case, and remonstrated to the pro",
         "sources": [
           "EPUB · William Eyres",
           "DOCX · William Eyres",
           "PDF · Internet Archive"
         ],
         "ocr_support": false,
-        "ref_score": 88.4
+        "ref_score": 98.4
+      },
+      {
+        "segment": "s11",
+        "kind": "omission",
+        "confidence": "medium",
+        "old": "",
+        "new": "County-Bridewells PETTY offenders blank in third column fourth line are included",
+        "left": "",
+        "right": "Petty offenders in the Welsh county gaols, blank in the thir",
+        "sources": [
+          "DOCX · William Eyres",
+          "EPUB · William Eyres"
+        ],
+        "ocr_support": false,
+        "ref_score": 89.0
+      },
+      {
+        "segment": "s11",
+        "kind": "omission",
+        "confidence": "medium",
+        "old": "",
+        "new": "a deficiency among Felons c reduces the average of Dependants to that which I stated If the n to the total number in England and Wales IT appears from the foregoing Table",
+        "left": "the distress arising from the confinement of their children.",
+        "right": "",
+        "sources": [
+          "DOCX · William Eyres",
+          "EPUB · William Eyres"
+        ],
+        "ocr_support": false,
+        "ref_score": 89.0
+      },
+      {
+        "segment": "s11",
+        "kind": "omission",
+        "confidence": "medium",
+        "old": "",
+        "new": "In the third column under Petty",
+        "left": "27: most of the gaols in those counties being also bridewell",
+        "right": "s.\n\nPetty offenders, blank in third column fourth line, are ",
+        "sources": [
+          "PDF · Internet Archive",
+          "DOCX · William Eyres",
+          "EPUB · William Eyres"
+        ],
+        "ocr_support": false,
+        "ref_score": 91.1
       }
     ],
     "user_segments": []
@@ -2641,50 +2702,95 @@
     "user_segments": []
   },
   "18": {
-    "score": 85,
+    "score": 98,
     "candidates": [
       {
-        "segment": "s2",
+        "segment": "s0",
         "kind": "omission",
         "confidence": "medium",
         "old": "",
-        "new": "fewers I SAID a Gaol should be near a stream but I must annex this caution that it be not so",
+        "new": "will set him to work That I believe is the principal cause of his being rejected",
         "left": "",
-        "right": "They generally have not(they could not their bei well have) ",
+        "right": "acquitted upon trial, terrified by his narrow escape, seeks ",
+        "sources": [
+          "EPUB · William Eyres",
+          "DOCX · William Eyres"
+        ],
+        "ocr_support": false,
+        "ref_score": 87.6
+      },
+      {
+        "segment": "s1",
+        "kind": "omission",
+        "confidence": "medium",
+        "old": "",
+        "new": "new ones must be built in their stead Others are very in commodious but may be improved",
+        "left": "",
+        "right": "In order to redress these various evils, the first thing to ",
         "sources": [
           "DOCX · William Eyres",
           "EPUB · William Eyres"
         ],
         "ocr_support": false,
-        "ref_score": 85.4
+        "ref_score": 97.5
+      },
+      {
+        "segment": "s1",
+        "kind": "omission",
+        "confidence": "medium",
+        "old": "",
+        "new": "decayed and ruinous or for other reasons so totally unfit for the purpose",
+        "left": "",
+        "right": "In order to redress these various evils, the first thing to ",
+        "sources": [
+          "EPUB · William Eyres",
+          "DOCX · William Eyres"
+        ],
+        "ocr_support": false,
+        "ref_score": 97.7
       },
       {
         "segment": "s2",
         "kind": "omission",
         "confidence": "medium",
         "old": "",
-        "new": "nearness to running water another evil almost as noxious is prevented that is the stench of",
+        "new": "have fubterraneous dungeons which have been destructive to thousands",
         "left": "",
-        "right": "They generally have not(they could not their bei well have) ",
+        "right": "A county gaol, and indeed every prison, should be built on a",
+        "sources": [
+          "DOCX · William Eyres",
+          "EPUB · William Eyres"
+        ],
+        "ocr_support": false,
+        "ref_score": 96.8
+      },
+      {
+        "segment": "s2",
+        "kind": "omission",
+        "confidence": "medium",
+        "old": "",
+        "new": "near a river the cleanest and most healthy They generally have not they",
+        "left": "",
+        "right": "A county gaol, and indeed every prison, should be built on a",
         "sources": [
           "EPUB · William Eyres",
           "DOCX · William Eyres"
         ],
         "ocr_support": false,
-        "ref_score": 85.4
+        "ref_score": 96.8
       }
     ],
     "user_segments": []
   },
   "19": {
-    "score": 87,
+    "score": 95,
     "candidates": [
       {
         "segment": "s1",
         "kind": "omission",
         "confidence": "medium",
         "old": "",
-        "new": "well as civil respect how persons live than how they die THE separation I am pleading for especially",
+        "new": "respect how persons live than how they die THE separation I am pleading for especially",
         "left": "",
         "right": "The like provision for such as return to society cannot be l",
         "sources": [
@@ -2692,29 +2798,29 @@
           "EPUB · William Eyres"
         ],
         "ocr_support": false,
-        "ref_score": 86.7
+        "ref_score": 94.8
       },
       {
         "segment": "s1",
         "kind": "omission",
         "confidence": "medium",
         "old": "",
-        "new": "criminals ad SEE the importance of this separation strongly urged in a letter to Sir",
-        "left": " as civil respect, warmt how persons live thanhow they die.\"",
+        "new": "criminals ad SEE the importance of this separation strongly urged in",
+        "left": " well as civil respect, how persons live than how they die.”",
         "right": "",
         "sources": [
           "DOCX · William Eyres",
           "EPUB · William Eyres"
         ],
         "ocr_support": false,
-        "ref_score": 86.7
+        "ref_score": 94.8
       },
       {
         "segment": "s1",
         "kind": "omission",
         "confidence": "medium",
         "old": "",
-        "new": "that it is much more so since it must be acknowledged of greater consequence in a religious",
+        "new": "more so since it must be acknowledged of greater consequence in a religious",
         "left": "",
         "right": "The like provision for such as return to society cannot be l",
         "sources": [
@@ -2722,15 +2828,31 @@
           "DOCX · William Eyres"
         ],
         "ocr_support": false,
-        "ref_score": 86.7
+        "ref_score": 94.8
+      },
+      {
+        "segment": "s1",
+        "kind": "omission",
+        "confidence": "high",
+        "old": "",
+        "new": "would prevent",
+        "left": "edful. Bishop Butler, one of the writers cited in the note, ",
+        "right": "affirms that it is much more so, “since it must be acknowled",
+        "sources": [
+          "EPUB · William Eyres",
+          "DOCX · William Eyres",
+          "PDF · Internet Archive"
+        ],
+        "ocr_support": true,
+        "ref_score": 94.8
       },
       {
         "segment": "s1",
         "kind": "omission",
         "confidence": "medium",
         "old": "",
-        "new": "free gaolers from a difficulty of which I have heard them complain they hardly know where",
-        "left": " as civil respect, warmt how persons live thanhow they die.\"",
+        "new": "free gaolers from a difficulty of which I have heard them complain they hardly",
+        "left": " well as civil respect, how persons live than how they die.”",
         "right": "",
         "sources": [
           "EPUB · William Eyres",
@@ -2738,29 +2860,183 @@
           "PDF · Internet Archive"
         ],
         "ocr_support": false,
-        "ref_score": 86.7
+        "ref_score": 94.8
+      },
+      {
+        "segment": "s1",
+        "kind": "omission",
+        "confidence": "high",
+        "old": "",
+        "new": "I have heard them",
+        "left": "edful. Bishop Butler, one of the writers cited in the note, ",
+        "right": "affirms that it is much more so, “since it must be acknowled",
+        "sources": [
+          "PDF · Internet Archive",
+          "DOCX · William Eyres",
+          "EPUB · William Eyres"
+        ],
+        "ocr_support": true,
+        "ref_score": 89.6
+      },
+      {
+        "segment": "s2",
+        "kind": "omission",
+        "confidence": "medium",
+        "old": "",
+        "new": "gaolers from a difficulty of which I have heard them complain they hardly know where to keep",
+        "left": "",
+        "right": "The separation I am pleading for, especially at night, would",
+        "sources": [
+          "DOCX · William Eyres",
+          "EPUB · William Eyres",
+          "PDF · Internet Archive"
+        ],
+        "ocr_support": false,
+        "ref_score": 83.1
+      },
+      {
+        "segment": "s2",
+        "kind": "omission",
+        "confidence": "medium",
+        "old": "",
+        "new": "they are generally planned and effected Another reason for separation is that it would",
+        "left": "",
+        "right": "The separation I am pleading for, especially at night, would",
+        "sources": [
+          "EPUB · William Eyres",
+          "DOCX · William Eyres"
+        ],
+        "ocr_support": false,
+        "ref_score": 83.1
       },
       {
         "segment": "s6",
         "kind": "omission",
         "confidence": "medium",
         "old": "",
-        "new": "wanted and when the wind or fail-ventilator is of no service that is in calm",
-        "left": "square,for a ofair;covered with a shutter or hatch at night.",
+        "new": "be an Oven nothing so effectually destroys vermin in cloaths and bedding nor purifies",
+        "left": "",
+        "right": "It should be filled every morning, and let off in the evenin",
+        "sources": [
+          "DOCX · William Eyres",
+          "EPUB · William Eyres"
+        ],
+        "ocr_support": false,
+        "ref_score": 90.9
+      },
+      {
+        "segment": "s6",
+        "kind": "omission",
+        "confidence": "medium",
+        "old": "",
+        "new": "seventy-five tons of air in a minute THE in firmary and sheds will not render the yard unsafe provided the",
+        "left": "ame contrivance might also be convenient in the other wards.",
+        "right": "",
+        "sources": [
+          "DOCX · William Eyres",
+          "EPUB · William Eyres"
+        ],
+        "ocr_support": false,
+        "ref_score": 90.9
+      },
+      {
+        "segment": "s6",
+        "kind": "omission",
+        "confidence": "medium",
+        "old": "",
+        "new": "quantity of water sufficient to warm that in the bath for washing those that are fickly There should",
+        "left": "",
+        "right": "It should be filled every morning, and let off in the evenin",
+        "sources": [
+          "EPUB · William Eyres",
+          "DOCX · William Eyres"
+        ],
+        "ocr_support": false,
+        "ref_score": 90.6
+      }
+    ],
+    "user_segments": []
+  },
+  "20": {
+    "score": 92,
+    "candidates": [
+      {
+        "segment": "s5",
+        "kind": "omission",
+        "confidence": "medium",
+        "old": "",
+        "new": "man for a Gaoler one that is honest active and humane Such was Abel Dagge who",
+        "left": "",
+        "right": "Without a due attention to the economy and government of a p",
+        "sources": [
+          "DOCX · William Eyres",
+          "EPUB · William Eyres"
+        ],
+        "ocr_support": false,
+        "ref_score": 92.3
+      },
+      {
+        "segment": "s5",
+        "kind": "omission",
+        "confidence": "medium",
+        "old": "",
+        "new": "with neglect those who are poor and have nothing to spend which is the case of far the greater number while he shall caress dishonest",
+        "left": "nterest whatever in the sale of liquors of any kind. Gaolers",
+        "right": "",
+        "sources": [
+          "DOCX · William Eyres",
+          "EPUB · William Eyres"
+        ],
+        "ocr_support": false,
+        "ref_score": 92.3
+      },
+      {
+        "segment": "s5",
+        "kind": "omission",
+        "confidence": "medium",
+        "old": "",
+        "new": "mifery I shall therefore offer a few hints for the better regulation of a Gaol THE first care",
+        "left": "",
+        "right": "Without a due attention to the economy and government of a p",
+        "sources": [
+          "EPUB · William Eyres",
+          "DOCX · William Eyres"
+        ],
+        "ocr_support": false,
+        "ref_score": 92.2
+      },
+      {
+        "segment": "s5",
+        "kind": "omission",
+        "confidence": "medium",
+        "old": "",
+        "new": "conniving at but",
+        "left": "r vices in his prison. To remove a strong temptation to the ",
+        "right": "contrary, it is highly requisite that no gaoler, turnkey, or",
+        "sources": [
+          "EPUB · William Eyres",
+          "DOCX · William Eyres",
+          "PDF · Internet Archive"
+        ],
+        "ocr_support": false,
+        "ref_score": 92.2
+      },
+      {
+        "segment": "s5",
+        "kind": "omission",
+        "confidence": "medium",
+        "old": "",
+        "new": "the sale of liquors may prompt him to be partial in his behaviour to his prisoners to treat at least with neglect",
+        "left": "nterest whatever in the sale of liquors of any kind. Gaolers",
         "right": "",
         "sources": [
           "EPUB · William Eyres",
           "DOCX · William Eyres"
         ],
         "ocr_support": false,
-        "ref_score": 83.4
+        "ref_score": 92.2
       }
     ],
-    "user_segments": []
-  },
-  "20": {
-    "score": 0,
-    "candidates": [],
     "user_segments": []
   },
   "21": {
@@ -6364,36 +6640,83 @@
         "kind": "omission",
         "confidence": "medium",
         "old": "",
-        "new": "was settled after that inquiry and that it contained the Warden's Fees also But upon",
+        "new": "settled after that inquiry and that it contained the Warden's Fees also But upon",
         "left": "",
-        "right": "I need not say how much riot these able;kept occasion;and ho",
+        "right": "I need not say how much riot these occasion; and how the sob",
         "sources": [
           "EPUB · William Eyres",
           "DOCX · William Eyres"
         ],
         "ocr_support": false,
-        "ref_score": 83.6
+        "ref_score": 89.0
       },
       {
         "segment": "s10",
         "kind": "omission",
         "confidence": "medium",
         "old": "",
-        "new": "A TABLE of",
-        "left": "ose that are sick, heststory are annoyed by them. viz.those ",
-        "right": "Seeing the prison crowded withwomen and children,Ipro- ne ch",
+        "new": "follows A TABLE of",
+        "left": "r prisoners, and those that are sick, are annoyed by them.\n\n",
+        "right": "Seeing the prison crowded with women and children, I procure",
         "sources": [
-          "EPUB · William Eyres"
+          "EPUB · William Eyres",
+          "DOCX · William Eyres"
         ],
-        "ocr_support": true,
-        "ref_score": 83.6
+        "ocr_support": false,
+        "ref_score": 89.0
       }
     ],
     "user_segments": []
   },
   "91": {
-    "score": 98,
+    "score": 97,
     "candidates": [
+      {
+        "segment": "s1",
+        "kind": "omission",
+        "confidence": "medium",
+        "old": "",
+        "new": "repetition and have prefumed to abridge",
+        "left": "\t£\ts.\td.\nBesides the 1s. a piece for each of the said first ",
+        "right": "three causes\t\t\t\n7th. That there is due and ought to be paid ",
+        "sources": [
+          "EPUB · William Eyres",
+          "DOCX · William Eyres"
+        ],
+        "ocr_support": false,
+        "ref_score": 88.7
+      },
+      {
+        "segment": "s1",
+        "kind": "omission",
+        "confidence": "medium",
+        "old": "",
+        "new": "three months to pay his chamber-rent the Warden may not lock him up but remove",
+        "left": "nd for his certificate to the warden of such discharge\t0\t2\t6",
+        "right": "",
+        "sources": [
+          "EPUB · William Eyres",
+          "DOCX · William Eyres",
+          "PDF · Internet Archive"
+        ],
+        "ocr_support": false,
+        "ref_score": 88.7
+      },
+      {
+        "segment": "s3",
+        "kind": "omission",
+        "confidence": "medium",
+        "old": "",
+        "new": "it to be boarded wholesome",
+        "left": "eturn of the first cause and 2s. for every other cause and n",
+        "right": "o more.",
+        "sources": [
+          "DOCX · William Eyres",
+          "EPUB · William Eyres"
+        ],
+        "ocr_support": false,
+        "ref_score": 94.8
+      },
       {
         "segment": "s8",
         "kind": "omission",
@@ -6552,7 +6875,7 @@
     "user_segments": []
   },
   "95": {
-    "score": 85,
+    "score": 97,
     "candidates": [
       {
         "segment": "s1",
@@ -6570,19 +6893,79 @@
         "ref_score": 82.2
       },
       {
+        "segment": "s4",
+        "kind": "omission",
+        "confidence": "medium",
+        "old": "",
+        "new": "sends a Guinea twice a year which her Servant diftributes equally among the",
+        "left": "",
+        "right": "The common-side debtors are in two long rooms in the court, ",
+        "sources": [
+          "DOCX · William Eyres",
+          "EPUB · William Eyres"
+        ],
+        "ocr_support": false,
+        "ref_score": 92.1
+      },
+      {
+        "segment": "s7",
+        "kind": "omission",
+        "confidence": "medium",
+        "old": "",
+        "new": "At one end are two large rooms of which little use has been made since the",
+        "left": "per entitled Rules and Orders to be observed in this Prison.",
+        "right": "",
+        "sources": [
+          "EPUB · William Eyres",
+          "DOCX · William Eyres"
+        ],
+        "ocr_support": false,
+        "ref_score": 94.7
+      },
+      {
         "segment": "s9",
         "kind": "omission",
         "confidence": "medium",
         "old": "",
-        "new": "a room with barrack bedsteads",
-        "left": "ef. ” 38 41 servant distributes equally among the prisoners.",
+        "new": "a room with barrack bedsteads and beds both rooms very close and unhealthy",
+        "left": ", which her servant distributes equally among the prisoners.",
         "right": "",
         "sources": [
           "DOCX · William Eyres",
           "EPUB · William Eyres"
         ],
         "ocr_support": false,
-        "ref_score": 82.8
+        "ref_score": 97.4
+      },
+      {
+        "segment": "s9",
+        "kind": "omission",
+        "confidence": "medium",
+        "old": "",
+        "new": "the other end of the yard on the ground-floor is a day-room or closet",
+        "left": "At ",
+        "right": "my first visit there were on the common-side two prisoners i",
+        "sources": [
+          "EPUB · William Eyres",
+          "DOCX · William Eyres"
+        ],
+        "ocr_support": false,
+        "ref_score": 96.7
+      },
+      {
+        "segment": "s9",
+        "kind": "omission",
+        "confidence": "medium",
+        "old": "",
+        "new": "Keeper but no Prisoners I have since that called two or three times and always",
+        "left": ", which her servant distributes equally among the prisoners.",
+        "right": "",
+        "sources": [
+          "EPUB · William Eyres",
+          "DOCX · William Eyres"
+        ],
+        "ocr_support": false,
+        "ref_score": 96.7
       }
     ],
     "user_segments": []

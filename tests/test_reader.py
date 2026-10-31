@@ -149,10 +149,12 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertFalse(reader.scan_dropdown_label(14))  # persisted
         self.assertEqual(self.form('/scan-action/14', {'action':'restore-scan-mark'})[0], 200)
         self.assertTrue(reader.scan_dropdown_label(14))
-        self.assertEqual(self.form('/scan-action/21', {'action':'dismiss-ocr'})[0], 200)
+        # All 165 spreads have passed the completeness collation, so there is
+        # no pending-OCR mark left to dismiss; scan marks remain independent.
+        self.assertEqual(self.form('/scan-action/21', {'action':'dismiss-ocr'})[0], 400)
         self.assertNotIn('OCR', reader.quality_label(21))
         self.assertIn('скан повёрнут', reader.quality_label(14))
-        self.assertIn('пометка OCR снята', self.request('/spread/21')[1])
+        self.assertNotIn('пометка OCR снята', self.request('/spread/21')[1])
 
         pdf = reader.pymupdf.open()
         pdf.new_page(width=100, height=50)
@@ -173,8 +175,8 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertFalse(reader.replacement_path(14).exists())
         self.assertTrue(reader.scan_dropdown_label(14))
         self.assertNotIn('OCR', reader.quality_label(14))
-        self.assertEqual(self.form('/scan-action/21', {'action':'restore-ocr'})[0], 200)
-        self.assertIn('☑ OCR', reader.quality_label(21))
+        self.assertEqual(self.form('/scan-action/21', {'action':'restore-ocr'})[0], 400)
+        self.assertNotIn('☑ OCR', reader.quality_label(21))
 
     def test_legacy_quality_decisions_are_preserved_when_migrated(self):
         reader.QUALITY_FILE.write_text(json.dumps({'dismissed': [2, 14, 153], 'other': 'keep'}))
@@ -273,8 +275,8 @@ class ReaderHTTPTests(unittest.TestCase):
     def test_verified_spreads_and_pending_ocr_labels(self):
         for number in (5, 6, 151, 153, 161, 162, 163, 164, 165):
             self.assertNotIn('OCR', reader.quality_label(number))
-        for number in (7, 8, 9, 21, 148, 160):
-            self.assertIn('☑ OCR', reader.quality_label(number))
+        for number in range(1, 166):
+            self.assertNotIn('☑ OCR', reader.quality_label(number))
         self.assertIn('скан повёрнут', reader.quality_label(14))
         _, s5 = reader.segment_state(5)
         self.assertIn('descriptions of individual prisons have been omitted', s5['s3'])

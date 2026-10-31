@@ -163,3 +163,11 @@ NOTE_TARGETS[2] = {'s3': {'1': 's6'}}
 
 from restored_tables_145 import VERIFIED_TABLE_SPREADS
 VERIFIED_PROSE.update(VERIFIED_TABLE_SPREADS)
+
+from restored_tables_all import VERIFIED_TABLE_SPREADS_ALL
+for _spread, _segments in VERIFIED_TABLE_SPREADS_ALL.items():
+    VERIFIED_PROSE.setdefault(_spread, {}).update(_segments)
+
+from restored_tables_148 import VERIFIED_TABLE_SPREADS_148
+for _spread, _segments in VERIFIED_TABLE_SPREADS_148.items():
+    VERIFIED_PROSE.setdefault(_spread, {}).update(_segments)

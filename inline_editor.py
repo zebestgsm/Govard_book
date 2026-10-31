@@ -14,6 +14,34 @@ from verified_tables import TABLE151_LEFT, TABLE151_RIGHT, TABLE152_LEFT, TABLE1
 ROOT = Path(__file__).resolve().parent
 EDITS_FILE = ROOT / 'text_edits.json'
 
+# Labels and layout hints for restored tabular material. `mixed` tables have
+# more than one text column and must not use the narrow money-column grid.
+TABLE_META = {
+    (68, 's3'): ('Diet table for San Fernando', 'diet'),
+    (79, 's3'): ('Prisoners of war received at Forton, 1777–1782', 'mixed'),
+    (88, 's12'): ('Newgate fees, 1729 and keeper’s table', 'fee'),
+    (90, 's10'): ('Fleet Prison — Clerk of the Papers fees, 1727', 'fee'),
+    (91, 's1'): ('Fleet Prison — Clerk of the Papers fees, continued', 'fee'),
+    (91, 's2'): ('Fleet Prison — Clerk of the Inquiries fee', 'fee'),
+    (95, 's3'): ('Bridewell commitments and prisoners found', 'mixed'),
+    (95, 's6'): ('Whitechapel prison fees, 1776', 'fee'),
+    (112, 's0'): ('Abingdon prisoners', 'mixed'),
+    (112, 's12'): ('Oxford Castle prisoners', 'mixed'),
+    (119, 's3'): ('Bodmin fees — debtors, first class', 'fee'),
+    (119, 's4'): ('Bodmin fees — debtors, second class', 'fee'),
+    (119, 's5'): ('Bodmin fees — debtors in general', 'fee'),
+    (119, 's8'): ('Bodmin fees — felons and bridewell', 'fee'),
+    (137, 's3'): ('Contractors’ receipts for passage to Maryland', 'mixed'),
+    (144, 's3'): ('Prison diet schedule', 'diet'),
+    (106, 's13'): ('Cambridge bridewell prisoners', 'mixed'),
+    (148, 's1'): ('Table I (continued) and Table II — Ireland, 1787–1788', 'fee'),
+    (148, 's3'): ('Table III — England and Wales, 1787–1788 (part)', 'fee'),
+    (149, 's1'): ('Table III — England and Wales, continued', 'fee'),
+    (149, 's3'): ('Table III — totals and London prisons, 1788', 'fee'),
+    (150, 's2'): ('Table IV — convicts ordered for transportation, 1769–1776', 'fee'),
+    (150, 's5'): ('Table IV — convicts ordered for transportation, continued', 'fee'),
+}
+
 # Publisher imprint on the final scan: verified against the original image.
 # Defaults never replace a user's saved segment. Segment IDs remain unchanged.
 PUBLISHER_IMPRINT = ('PUBLISHERS:\n\nJ. M. DENT & SONS LTD.\n'
@@ -108,19 +136,21 @@ def render_verified_block(value, spread, segment_id, query):
         elif '\t' in chunk:
             # Group only consecutive tab-separated lines. Prose introducing or
             # following a table must not become a one-cell table row.
-            has_header = not ((spread == 16 and segment_id in ('s7', 's11')) or (spread == 17 and segment_id == 's1'))
-            if spread == 16 and segment_id == 's10':
-                label = 'Number of prisoners, spring 1776'
+            has_header = not ((spread == 16 and segment_id in ('s7', 's11')) or (spread == 17 and segment_id == 's1') or (spread, segment_id) in ((79, 's3'), (112, 's0')))
+            if (spread, segment_id) in TABLE_META:
+                label, table_kind = TABLE_META[(spread, segment_id)]
+            elif spread == 16 and segment_id == 's10':
+                label, table_kind = 'Number of prisoners, spring 1776', 'fee'
             elif spread == 16 and segment_id == 's11':
-                label = 'Thatched House Society, 27 March 1782'
+                label, table_kind = 'Thatched House Society, 27 March 1782', 'fee'
             elif spread == 17 and segment_id == 's1':
-                label = 'Bristol and Dublin small-debt societies'
+                label, table_kind = 'Bristol and Dublin small-debt societies', 'fee'
             elif spread == 16 and segment_id == 's7':
-                label = 'Fees for the copy of a calendar, 1735'
+                label, table_kind = 'Fees for the copy of a calendar, 1735', 'fee'
             elif spread in (145, 146, 147):
-                label = 'Table I — prisoners in England and Wales, 1779 and 1782'
+                label, table_kind = 'Table I — prisoners in England and Wales, 1779 and 1782', 'statistical'
             else:
-                label = 'Fees of the Clerk of the Peace'
+                label, table_kind = 'Fees of the Clerk of the Peace', 'fee'
             table_lines = []
             prose_lines = []
             def flush_prose():
@@ -140,7 +170,8 @@ def render_verified_block(value, spread, segment_id, query):
                     for cell_index, cell in enumerate(cells):
                         rows.append('<span class="restored-cell" role="' + role + '">' + highlight(('\t' if cell_index else '') + cell, query) + '</span>')
                     rows.append('</span>' + ending)
-                output.append('<span class="restored-table fee-table" role="table" aria-label="' + label + '">' + ''.join(rows) + '</span>')
+                table_class = {'fee': 'fee-table', 'mixed': 'mixed-table', 'statistical': 'statistical-table', 'diet': 'diet-table'}.get(table_kind, 'fee-table')
+                output.append('<span class="restored-table ' + table_class + '" role="table" aria-label="' + label + '">' + ''.join(rows) + '</span>')
                 table_lines.clear()
             for line in chunk.splitlines(keepends=True):
                 if '\t' in line:
