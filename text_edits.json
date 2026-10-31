@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "spreads": {
+    "1": {
+      "segments": {
+        "s2": "“Humanitarian” is a modern word coined to expressa modern idea,and it is not to be found in Johnson's Dictionary.Life for theprivileged classesinhisdaywasamore comfortable business than it had ever been before,or has been since."
+      },
+      "history": [
+        {
+          "id": "s2",
+          "before": "\"HuMANITARIAN\"isamodern word coined to expressa modern idea,and it is not to be found in Johnson's Dictionary.Life for theprivileged classesinhisdaywasamore comfortable business than it had ever been before,or has been since.",
+          "after": "“Humanitarian” is a modern word coined to expressa modern idea,and it is not to be found in Johnson's Dictionary.Life for theprivileged classesinhisdaywasamore comfortable business than it had ever been before,or has been since.",
+          "time": "2026-10-31T06:55:44+00:00",
+          "kind": "scan-verified"
+        }
+      ]
+    },
+    "2": {
+      "segments": {
+        "s6": "His industry，indeed,was untiring.Another, and a con- scientious man,mighthave thoughthisworkwell done when\n1 The continued practice of placing herbs before the judge at the Old Bailey is a reminder of the former prevalence of gaol fever at Newgate.",
+        "s9": "Not so Howard. Before writing his book he visited every English prison two or three times, then toured Europe twice “conjecturing that something useful to my purpose might be collected abroad.” And this is the manner in which he prepared his work for the Press: “so indefatigable was he in his attention to the business that during a very severe winter he was always called up by two in the morning, though he did not retire to rest until ten, and sometimes half after ten, at night. His reason for his early rising was that he found the morning the stillest part of the day, and that in which he was least disturbed in his work of revising the sheets as they came from the Press.”",
+        "s3": "Courage,for instance,had little scope in a country village even in the eighteenth century，but only the most fearless would enter even a single dungeon in those days,knowing that the gaol-fever was notonly widelyprevalent,butalso acutelyinfectious andveryoftenfatal."
+      },
+      "history": [
+        {
+          "id": "s6",
+          "before": "His industry，indeed,was untiring.Another, and a con- scientious man,mighthave thoughthisworkwell donewhen 1The continuedpractice ofplacingherbsbefore the judge at the Old Baileyisareminderof the formerprevalenceofgaolfeveratNewgate.",
+          "after": "His industry，indeed,was untiring.Another, and a con- scientious man,mighthave thoughthisworkwell donewhen \n1 The continued practice of placing herbs before the judge at the Old Bailey is a reminder of the former prevalence of gaol fever at Newgate.",
+          "time": "2026-10-31T06:55:44+00:00",
+          "kind": "scan-verified"
+        },
+        {
+          "id": "s9",
+          "before": "Not so Howard.Before writing his book he visited every English prison two or three times,then toured Europe twice“conjecturing that something useful to my purpose might be collected abroad.\"And this is the manner in which he prepared his work for the Press:“so indefatigable washeinhisattention tothebusiness that inthe morning,though he did not retire to rest until ten, and sometimes half after ten,at night.His reason for his earlyrisingwasthathe found themorningthestillestpartof the day，and thatinwhichhewasleast disturbedinhiswork ofrevising the sheets as they came from thePress.",
+          "after": "Not so Howard. Before writing his book he visited every English prison two or three times, then toured Europe twice “conjecturing that something useful to my purpose might be collected abroad.” And this is the manner in which he prepared his work for the Press: “so indefatigable was he in his attention to the business that during a very severe winter he was always called up by two in the morning, though he did not retire to rest until ten, and sometimes half after ten, at night. His reason for his early rising was that he found the morning the stillest part of the day, and that in which he was least disturbed in his work of revising the sheets as they came from the Press.”",
+          "time": "2026-10-31T06:55:44+00:00",
+          "kind": "scan-verified"
+        },
+        {
+          "id": "s3",
+          "before": "Courage,for instance,had little scope in a country village even in the eighteenth century，but only the most fearless would enter even a single dungeon in those days,knowing that the gaol-feverwas notonly widelyprevalent,butalso acutelyinfectious andveryoftenfatal.",
+          "after": "Courage,for instance,had little scope in a country village even in the eighteenth century，but only the most fearless would enter even a single dungeon in those days,knowing that the gaol-fever was notonly widelyprevalent,butalso acutelyinfectious andveryoftenfatal.",
+          "time": "2026-10-31T06:56:15+00:00",
+          "kind": "scan-verified"
+        },
+        {
+          "id": "s6",
+          "before": "His industry，indeed,was untiring.Another, and a con- scientious man,mighthave thoughthisworkwell donewhen \n1 The continued practice of placing herbs before the judge at the Old Bailey is a reminder of the former prevalence of gaol fever at Newgate.",
+          "after": "His industry，indeed,was untiring.Another, and a con- scientious man,mighthave thoughthisworkwell done when\n1 The continued practice of placing herbs before the judge at the Old Bailey is a reminder of the former prevalence of gaol fever at Newgate.",
+          "time": "2026-10-31T06:56:27+00:00",
+          "kind": "scan-verified"
+        }
+      ]
+    },
+    "3": {
+      "segments": {
+        "s11": "Minorpoetsforsook theirbirthday odes andwroteverses on “The Triumph of Benevolence.”And here and there a soul wasstirred,aspiritkindled,so thatagenerationlaterHoward's biographer,in dedicating his book to Wilberforce,could say thatitwasinHoward'sfootstepsthatWilberforcehad trodden, by Howard's motives that he was actuated,while in 178o, whenHowardyetlived,Burke spoke thesewordsofhim:"
+      },
+      "history": [
+        {
+          "id": "s11",
+          "before": "Minorpoetsforsook theirbirthday odes andwroteverses on “TheTriumph of Benevolence.And here and there a soul wasstirred,aspiritkindled,so thatagenerationlaterHoward's biographer,in dedicating his book to Wilberforce,could say thatitwasinHoward'sfootstepsthatWilberforcehad trodden, by Howard's motives that he was actuated,while in 178o, whenHowardyetlived,Burke spoke thesewordsofhim:",
+          "after": "Minorpoetsforsook theirbirthday odes andwroteverses on “The Triumph of Benevolence.”And here and there a soul wasstirred,aspiritkindled,so thatagenerationlaterHoward's biographer,in dedicating his book to Wilberforce,could say thatitwasinHoward'sfootstepsthatWilberforcehad trodden, by Howard's motives that he was actuated,while in 178o, whenHowardyetlived,Burke spoke thesewordsofhim:",
+          "time": "2026-10-31T06:55:44+00:00",
+          "kind": "scan-verified"
+        }
+      ]
+    },
+    "154": {
+      "segments": {
+        "s1": "In this process three main periods can be The first,from the time of Howard's appeara reformer until 1835 may be called the peric Endeavour;the second,from 1835 to 1877 tha Supervision;the third,from 1877 to the pres of National Administration.",
+        "s2": "The first period contains many famous names Eden,Romilly, Nield, Paul, Buxton,Elizab these kept burning the torch kindled byHow prisonsgenerally showed little sign of improve isolated cases where the local authorities were conscientious.Acts passed in 1779 and 1791 the establishment of a National Penitentiary applying the principles of the penitentiary to detention,were inoperative."
+      },
+      "history": [
+        {
+          "id": "s1",
+          "before": "In this process three main periods can be The first,from the time of Howard's appeara reformer until 1835 may be called the peric Endeavour;the second,from 1835 to 1877 tha Supervision;the third,from 1877 to the pres ofNational Administration.",
+          "after": "In this process three main periods can be The first,from the time of Howard's appeara reformer until 1835 may be called the peric Endeavour;the second,from 1835 to 1877 tha Supervision;the third,from 1877 to the pres of National Administration.",
+          "time": "2026-10-31T08:23:27+00:00",
+          "kind": "edit",
+          "suggestion": "154-1"
+        },
+        {
+          "id": "s2",
+          "before": "The first period contains many famous names Eden,Romilly, Nield, Paul, Buxton,Elizab these kept burning the torchkindled byHow prisonsgenerally showed little sign of improve isolated cases where the local authorities were conscientious.Acts passed in 1779 and 1791 the establishment of a National Penitentiary applying the principles of the penitentiary to detention,were inoperative.",
+          "after": "The first period contains many famous names Eden,Romilly, Nield, Paul, Buxton,Elizab these kept burning the torch kindled byHow prisonsgenerally showed little sign of improve isolated cases where the local authorities were conscientious.Acts passed in 1779 and 1791 the establishment of a National Penitentiary applying the principles of the penitentiary to detention,were inoperative.",
+          "time": "2026-10-31T08:24:55+00:00",
+          "kind": "edit",
+          "suggestion": "154-2"
+        }
+      ],
+      "suggestions": {
+        "154-1": {
+          "status": "accepted",
+          "time": "2026-10-31T08:23:27+00:00"
+        },
+        "154-2": {
+          "status": "accepted",
+          "time": "2026-10-31T08:24:55+00:00"
+        }
+      }
+    }
+  }
+}
