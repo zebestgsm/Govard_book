@@ -153,5 +153,13 @@ NOTE_TARGETS = {
     20: {'s1': {'1': 's2'}},
 }
 
+CONTINUED_NOTES = {
+    20: {'s6': {'number': '1', 'from_segment': 's2'}},
+}
+
+from verified_front import VERIFIED_FRONT
+VERIFIED_PROSE.update(VERIFIED_FRONT)
+NOTE_TARGETS[2] = {'s3': {'1': 's6'}}
+
 from restored_tables_145 import VERIFIED_TABLE_SPREADS
 VERIFIED_PROSE.update(VERIFIED_TABLE_SPREADS)

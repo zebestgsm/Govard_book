@@ -18,6 +18,7 @@ import inline_editor
 import omission_detection
 import reference_sources
 import translation
+import restored_tables_145
 
 try:
     import pymupdf
@@ -57,7 +58,7 @@ OCR_ISSUES = {
 # OCR marks mean the displayed text has not been fully checked against the
 # scan; they are not judgments about physical scan quality. Existing user
 # decisions to dismiss marks remain in force.
-VERIFIED_SPREADS = {5, 6, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 145, 146, 147, 151, 153, 161, 162, 163, 164, 165}
+VERIFIED_SPREADS = {1, 2, 3, 4, 5, 6, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 145, 146, 147, 151, 153, 161, 162, 163, 164, 165}
 for _number in range(1, len(PAGES) + 1):
     if _number in VERIFIED_SPREADS:
         OCR_ISSUES.pop(_number, None)
@@ -288,6 +289,26 @@ STYLE = '''
 .translation-panel{margin-top:18px}.translation-text{font:16px/1.65 Georgia,serif}.translation-text .verified-paragraph{display:block;margin:0 0 .85em}.translation-edit{margin-top:12px}.translation-textarea{width:100%;min-height:220px;font:14px/1.5 Georgia,serif;white-space:pre-wrap}.translation-panel .fee-table{font-size:13px}.verified-prose-page p:empty{display:none}.verified-prose-page .verified-paragraph{display:block;margin:0 0 .85em}.verified-prose-page .verified-paragraph:last-child{margin-bottom:0}.verified-prose-page .verified-footnote{font-size:.78em;line-height:1.5;margin-top:1em}.verified-note-ref{vertical-align:super;font-size:.72em;line-height:0;color:var(--green);scroll-margin-top:20px}.verified-footnote{scroll-margin-top:20px}.book-verse{display:block;white-space:pre-line;font-size:.86em;line-height:1.5;margin:1.2em auto;max-width:34em}.fee-table{font:14px/1.5 Georgia,serif;margin:.5em 0 1em}.fee-table .restored-row{grid-template-columns:minmax(0,1fr) repeat(var(--numeric-cols),minmax(0,.18fr));padding:3px 0}.fee-table .restored-cell{padding:3px 2px}.fee-table .restored-row:first-child{font-weight:700;border-bottom:1px solid #aaa797}.is-editing .verified-prose-page p:empty{display:block}.is-editing .verified-paragraph,.is-editing .book-verse{display:inline}.is-editing .verified-footnote{display:inline;border:0;margin:0;padding:0;font:inherit}.is-editing .verified-note-ref{vertical-align:baseline;font:inherit}
 @media(max-width:650px){.restored-table{font-size:10px}.restored-row{grid-template-columns:minmax(40px,2fr) repeat(var(--numeric-cols),minmax(0,1fr))}.restored-cell{padding:3px 0}.fee-table{font-size:13px}.fee-table .restored-row{grid-template-columns:minmax(0,1fr) repeat(var(--numeric-cols),minmax(0,.22fr))}}
 
+/* Translation reader: comfortable measure, real grid tables, visible history. */
+.translation-panel>.translation-text{padding:26px clamp(20px,3vw,48px);max-width:1100px;margin:0 auto}
+.translation-text .verified-paragraph{white-space:pre-line}
+.translation-text .chapter-heading{margin:1.1em 0 .8em}
+.translation-source-note{padding:0 clamp(20px,3vw,48px) 8px}
+.translation-tools{display:flex;flex-wrap:wrap;gap:10px;align-items:start;padding:0 clamp(20px,3vw,48px) 16px}
+.translation-tools .translation-edit{margin:0;flex:1 1 100%}
+.translation-tools .translation-edit[open]{border:1px solid var(--line);border-radius:6px;padding:12px;background:#faf9f4}
+.translation-tools .translation-edit form{display:grid;gap:10px;margin-top:12px}
+.translation-tools .translation-edit .button{width:auto}
+.translation-coverage{padding:0 clamp(20px,3vw,48px) 18px;margin:0}
+.translation-table{margin:.7em 0 1.2em}
+.translation-table.statistical-table{font-size:12px;line-height:1.4}
+.translation-table.statistical-table .restored-row{grid-template-columns:minmax(58px,2.4fr) repeat(8,minmax(0,1fr))}
+.translation-table .table-group-header{background:#f3f1e8;font-weight:700}
+.translation-table .group-start{border-left:1px solid #d8d4c8;padding-left:4px}
+.translation-table .restored-cell{padding:4px 2px}
+.footnote-continuation{border-top:1px solid #d8d4c8}
+.footnote-continuation::before{content:"Сноска 1 · продолжение с левой страницы";display:block;font:600 10px/1.4 Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--green);margin-bottom:.45em}
+@media(max-width:650px){.translation-panel>.translation-text{padding:20px 16px}.translation-tools{padding:0 16px 14px}.translation-coverage{padding:0 16px 16px}.translation-table.statistical-table{font-size:10px}.translation-table.statistical-table .restored-row{grid-template-columns:minmax(44px,2.2fr) repeat(8,minmax(0,1fr))}.translation-table .restored-cell{padding:3px 1px}}
 
 '''
 
@@ -495,7 +516,7 @@ def shell(content, number=1, query='', active='reader'):
     options = ''.join(f'<option value="{i}"' + (' selected' if i == number else '') + f'>Разворот {i:03}' + (' — ' + escape(scan_dropdown_label(i)) if scan_dropdown_label(i) else '') + '</option>' for i in range(1, len(PAGES) + 1))
     return f'''<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The State of the Prisons — электронная книга</title><style>{STYLE}</style></head><body id="top">
 <header class="header"><a href="/" class="logo"><i>✳</i> Howard Archive</a><span class="header-note">ЦИФРОВАЯ КОЛЛЕКЦИЯ &nbsp; / &nbsp; JOHN HOWARD</span></header>
-<div class="layout"><aside class="sidebar"><span class="eyebrow">Электронная книга</span><h1>The State of<br>the Prisons</h1><div class="author">John Howard</div><hr class="divider"><div class="sidebar-links"><a class="{'current' if active == 'reader' else ''}" href="/spread/{number}">◧ &nbsp; Читать книгу</a><a class="{'current' if active == 'search' else ''}" href="/search">⌕ &nbsp; Поиск по книге</a><a class="{'current' if active == 'quality' else ''}" href="/quality">⚠ &nbsp; Проверка сканов</a></div><hr class="divider"><form action="/search" method="get"><label class="label" for="query">Поиск по тексту</label><input class="input" id="query" name="q" type="search" placeholder="Английское слово…" value="{escape(query, quote=True)}" maxlength="200"><button class="button primary" type="submit">Найти</button></form><hr class="divider"><form action="/go" method="get"><label class="label" for="spread">Перейти к развороту</label><select id="spread" name="spread">{options}</select><button class="button" type="submit">Открыть</button></form><p class="small">Каждый разворот соответствует одному исходному PDF-файлу.</p></aside><main class="content">{content}</main></div></body></html>'''
+<div class="layout"><aside class="sidebar"><span class="eyebrow">Электронная книга</span><h1>The State of<br>the Prisons</h1><div class="author">John Howard</div><hr class="divider"><div class="sidebar-links"><a class="{'current' if active == 'reader' else ''}" href="/spread/{number}">◧ &nbsp; Читать книгу</a><a class="{'current' if active == 'search' else ''}" href="/search">⌕ &nbsp; Поиск по книге</a><a class="{'current' if active == 'quality' else ''}" href="/quality">⚠ &nbsp; Проверка сканов</a></div><hr class="divider"><form action="/search" method="get"><label class="label" for="query">Поиск по тексту</label><input class="input" id="query" name="q" type="search" placeholder="Слово в книге или переводе…" value="{escape(query, quote=True)}" maxlength="200"><button class="button primary" type="submit">Найти</button></form><hr class="divider"><form action="/go" method="get"><label class="label" for="spread">Перейти к развороту</label><select id="spread" name="spread">{options}</select><button class="button" type="submit">Открыть</button></form><p class="small">Каждый разворот соответствует одному исходному PDF-файлу.</p></aside><main class="content">{content}</main></div></body></html>'''
 
 def segment_state(number, edits=None, query='', rules=None):
     # Caller holds _CORRECTIONS_LOCK for a consistent snapshot.
@@ -506,7 +527,7 @@ def segment_state(number, edits=None, query='', rules=None):
     token = _current_corrections.set(rules)
     try:
         base = render_pages(number, PAGES[number - 1][1], '')
-        if 10 <= number <= 20 or number in (145, 146, 147):
+        if 1 <= number <= 4 or 10 <= number <= 20 or number in (145, 146, 147):
             base = base.replace('<article class="book-page"', '<article class="book-page verified-prose-page spread-' + str(number) + '"')
         if number in (145, 146, 147):
             base = base.replace('<div class="book-spread">', '<div class="book-spread wide-table-spread">', 1)
@@ -583,7 +604,8 @@ def _reader_page(number, query=''):
                   ('Исходный скан повёрнут; загруженная замена не оценена.' if kind == 'scan' and replacement else ''))
         controls.append(f'<form method="post" action="/scan-action/{number}"><input type="hidden" name="action" value="{action}"><button class="button" type="submit">{text}</button><span class="small"> {status}</span></form>')
     issue_control = ''.join(controls)
-    page_notice = ('<p class="scan-fallback">В таблице VIII за 1782–1783 в оригинале напечатано 49, хотя сумма чисел строки — 59. Оставлено значение из книги.</p>' if number == 152 else '')
+    page_notice = table_one_audit_html() if number == 147 else ''
+    page_notice += ('<p class="scan-fallback">В таблице VIII за 1782–1783 в оригинале напечатано 49, хотя сумма чисел строки — 59. Оставлено значение из книги.</p>' if number == 152 else '')
     text_status = ('ENGLISH · ТЕКСТ' if number in VERIFIED_SPREADS else ('ENGLISH · пометка OCR снята' if number in dismissed_issues()['ocr'] else 'ENGLISH · ☑ OCR'))
     text_note = ('Базовый текст этого разворота сверен со сканом; ваши сохранённые правки имеют приоритет.' if number in VERIFIED_SPREADS else ('Пометка OCR снята вами; базовый текст получен автоматическим распознаванием.' if number in dismissed_issues()['ocr'] else 'Текст получен автоматическим распознаванием и не вычитан полностью: возможны слитные слова, ошибки и неточности в сносках.'))
     source_label = 'Загруженный вами скан' if replacement else 'Оригинальный скан для сверки'
@@ -593,7 +615,7 @@ def _reader_page(number, query=''):
     scan_controls = f'<div class="scan-controls"><details><summary class="button">Заменить скан</summary><form action="/scan-upload/{number}" method="post" enctype="multipart/form-data"{upload_confirm}><label for="scan-file-{number}">Файл целого разворота: JPG, PNG или одностраничный PDF, до 20 МБ</label><input id="scan-file-{number}" name="scan" type="file" accept="image/jpeg,image/png,application/pdf,.jpg,.jpeg,.png,.pdf" required><button class="button primary" type="submit">Загрузить скан</button></form></details>{restore_scan}{issue_control}<p class="small">{source_note}</p></div>'
     pilot_link = f'<a class="button" href="/review/{number}">Проверка OCR</a>' if has_review(number) else ''
     omissions_link = f'<a class="button" href="/omissions/{number}">Возможные пропуски</a>'
-    translation_panel = translation.panel(number, query)
+    translation_panel = translation.panel(number, query, english_verified=number in VERIFIED_SPREADS)
     content = f'''<div class="heading-row"><div><span class="eyebrow">Режим чтения</span><h2>Книжный разворот</h2><p>Читайте разворот слева и сверяйте его со сканом справа.</p>{badge}</div><div class="top-actions edit-actions"><button type="button" id="edit-toggle" class="button primary">✎ Редактировать текст</button><button type="button" id="edit-save" class="button primary" hidden>Сохранить</button><button type="button" id="edit-cancel" class="button" hidden>Отмена</button><a class="button" href="/history/{number}">История правок</a>{pilot_link}{omissions_link}<a class="button" href="#translation">Русский перевод</a><a class="button" href="#original-scan">К скану</a><a class="button" href="{scan}" target="_blank" rel="noopener">Открыть PDF ↗</a></div></div>
 <nav class="nav" aria-label="Перелистывание"><div class="nav-group">{prev}{next_}</div><span class="muted">Разворот {number:03} / {len(PAGES)}</span></nav>
 <p id="edit-status" class="edit-status" role="status" aria-live="polite" hidden></p><noscript><p class="notice">Для редактирования прямо в тексте включите JavaScript или используйте <a href="/edit/{number}"><u>замену слов</u></a>.</p></noscript><div class="reader"><section class="panel"><div class="panel-header"><span class="panel-title">Распознанный текст</span><span class="panel-subtitle">{text_status}</span></div>{page_notice}<div class="book-text" id="editable-book" data-spread="{number}" lang="en">{paragraphs}</div></section><section class="panel scan-panel" id="original-scan"><div class="panel-header"><span class="panel-title">{source_label}</span><span class="panel-subtitle">{escape(filename) if not replacement else "замена"}</span></div><div class="scan-wrap"><a href="{image_url}" target="_blank" rel="noopener" title="Открыть изображение скана крупнее"><img class="scan-frame" src="{image_url}" alt="Скан разворота {number}. Нажмите, чтобы открыть изображение крупнее." loading="lazy"></a></div>{scan_controls}<p class="scan-fallback">Нажмите на изображение для увеличения · <a href="{scan}" target="_blank" rel="noopener"><u>Открыть оригинальный PDF ↗</u></a></p></section></div>{translation_panel}<nav class="nav bottom-nav" aria-label="Перелистывание в конце"><div class="nav-group">{prev}{next_}</div><a href="#top" class="muted">↑ В начало</a></nav><p class="notice book-note">{text_note} Скан показан рядом для сверки; на узких экранах — ниже. Номера страниц вводной части переведены из римских цифр в арабские; границы по OCR могут быть неточными.</p>'''
@@ -748,28 +770,95 @@ def quality_page():
 
 def search_page(query):
     if not query:
-        content = '<div class="results"><span class="eyebrow">Поиск</span><h2>Поиск по книге</h2><p class="empty">Введите английское слово или фразу в поле поиска слева.</p></div>'
+        content = '<div class="results"><span class="eyebrow">Поиск</span><h2>Поиск по книге и переводу</h2><p class="empty">Введите слово или фразу на английском либо русском языке. Поиск охватывает оригинал и подготовленные переводы.</p></div>'
     else:
         results = []
+        matched_spreads = set()
         with _CORRECTIONS_LOCK:
             all_rules = load_corrections()
             all_edits = inline_editor.load_edits()
+            translation_edits = translation.load_edits()
         for i in range(1, len(PAGES) + 1):
-            # Search what is actually displayed, including tables, manual
-            # edits and legacy replacements. Avoid false matches across
-            # adjacent paragraphs or table cells.
+            # Search what is actually displayed, including tables and user
+            # edits. Never join neighbouring paragraphs or unrelated cells.
             _, visible_segments = segment_state(i, all_edits, rules=all_rules.get(str(i), []))
-            for flat in visible_segments.values():
-                match = re.search(re.escape(query), flat, re.IGNORECASE)
-                if not match:
-                    continue
-                excerpt = ('…' if match.start() > 100 else '') + flat[max(0,match.start()-100):min(len(flat),match.end()+150)] + ('…' if match.end()+150 < len(flat) else '')
-                results.append(f'<a class="result" href="/spread/{i}?q={quote(query)}"><strong>РАЗВОРОТ {i:03} &nbsp; →</strong><p lang="en">{inline_editor.highlight(excerpt, query)}</p></a>')
-                break
-        count = len(results)
-        results_html = ''.join(results) if results else '<p class="empty">Совпадений не найдено. Из-за ошибок распознавания некоторые слова могут быть написаны слитно или с ошибками.</p>'
-        content = f'<div class="results"><span class="eyebrow">Поиск по книге</span><h2>Результаты поиска</h2><p class="notice">Запрос: <strong>{escape(query)}</strong> · найдено разворотов: {count}</p>{results_html}</div>'
+            ru_text, _, _ = translation.translation_state(i, translation_edits)
+            sources = [('en', 'Оригинал', visible_segments.values(), ''),
+                       ('ru', 'Русский перевод', [ru_text] if ru_text else [], '#translation')]
+            for lang, label, texts, anchor in sources:
+                for flat in texts:
+                    match = re.search(re.escape(query), flat, re.IGNORECASE)
+                    if not match:
+                        continue
+                    excerpt = ('…' if match.start() > 100 else '') + flat[max(0,match.start()-100):min(len(flat),match.end()+150)] + ('…' if match.end()+150 < len(flat) else '')
+                    suffix = ('&q=' + quote(query)) if not anchor else ('?q=' + quote(query))
+                    results.append(f'<a class="result" href="/spread/{i}{suffix}{anchor}"><strong>{label} · РАЗВОРОТ {i:03} &nbsp; →</strong><p lang="{lang}">{inline_editor.highlight(excerpt, query)}</p></a>')
+                    matched_spreads.add(i)
+                    break
+        count = len(matched_spreads)
+        results_html = ''.join(results) if results else '<p class="empty">Совпадений не найдено. Перевод подготовлен не для всех разворотов; в нераспознанном английском тексте возможны слитные слова и ошибки.</p>'
+        content = f'<div class="results"><span class="eyebrow">Поиск по книге и переводу</span><h2>Результаты поиска</h2><p class="notice">Запрос: <strong>{escape(query)}</strong> · найдено разворотов: {count}</p>{results_html}</div>'
     return shell(content, 1, query, 'search')
+
+def table_one_audit_html():
+    """Show arithmetic discrepancies without silently correcting the book."""
+    names = ('145L', '145R', '146L', '146R', '147L', '147R')
+    tables = [getattr(restored_tables_145, 'T' + name) for name in names]
+    page_totals = [[int(x) for x in table.splitlines()[-1].split('\t')[1:]] for table in tables]
+    sums = [sum(row[j] for row in page_totals) for j in range(8)]
+    printed = [int(x) for x in restored_tables_145.SUMMARY.splitlines()[-1].split('\t')[1:]]
+    columns = ('1779: должники, муж.', '1779: должницы', '1779: фелоны и пр.', '1779: мелкие',
+               '1782: должники, муж.', '1782: должницы', '1782: фелоны и пр.', '1782: мелкие')
+    rows = ''.join(f'<tr><td>{label}</td><td>{value}</td><td>{total}</td><td>{total-value:+d}</td></tr>'
+                   for label, value, total in zip(columns, sums, printed) if value != total)
+    return ('<details class="scan-fallback table-audit"><summary>Арифметика оригинала: расхождения в итогах таблицы I</summary>'
+            '<p>Все числа оставлены как в книге. В сводке на стр. 281 за 1779 год для мелких правонарушителей напечатано 282, '
+            'а в итоге соответствующей страницы — 262; за 1782 год в сводке 284, а в итоге страницы — 283. '
+            'Кроме того, напечатанные общие итоги не всегда равны сумме шести страничных итогов:</p>'
+            '<table class="book-table"><thead><tr><th>Столбец</th><th>Сумма страниц</th><th>Напечатано</th><th>Разница</th></tr></thead>'
+            f'<tbody>{rows}</tbody></table><p>Это расхождения самого издания, а не исправления читалки.</p></details>')
+
+
+def translation_history_page(number, message=''):
+    data = translation.load_edits()
+    entry = data['spreads'].get(str(number), {})
+    entries = entry.get('history', [])
+    current = translation.current_text(number, data)
+    expected = translation.revision(number, data)
+    blocks = []
+    kinds = {'edit': 'Изменение', 'reset': 'Возврат к подготовленному переводу', 'restore': 'Восстановление версии'}
+    for i in reversed(range(len(entries))):
+        event = entries[i]
+        action = (f'<form method="post" action="/translation-history/{number}" '
+                  f'onsubmit="return confirm(&quot;Восстановить вариант «Было»? Текущий текст сохранится в истории.&quot;)">'
+                  f'<input type="hidden" name="index" value="{i}"><input type="hidden" name="expected" value="{expected}">'
+                  f'<button type="submit" class="button">Вернуть вариант «Было»</button></form>')
+        blocks.append(f'<section class="editor-card history-item"><div class="heading-row"><div><span class="eyebrow">{kinds.get(event.get("kind"), "Изменение")}</span><p>{escape(event.get("time", ""))}</p></div>{action}</div><div class="history-values"><div class="history-text"><strong>Было</strong>{escape(event.get("before", "")) or "<em>Пусто</em>"}</div><div class="history-text"><strong>Стало</strong>{escape(event.get("after", "")) or "<em>Пусто / подготовленный перевод</em>"}</div></div></section>')
+    items = ''.join(blocks) or '<div class="empty">У перевода этого разворота пока нет сохранённых изменений.</div>'
+    notice = '<p class="editor-message" role="status">' + escape(message) + '</p>' if message else ''
+    content = (f'<div class="editor"><div class="heading-row"><div><span class="eyebrow">История перевода</span><h2>Разворот {number:03}</h2>'
+               f'<p>Русский перевод. Время указано в UTC. Английский текст и его история хранятся отдельно.</p></div>'
+               f'<a class="button" href="/spread/{number}#translation">← К переводу</a></div>{notice}'
+               f'<details class="editor-card"><summary>Текущий текст перевода</summary><div class="history-text">{escape(current) or "<em>Перевод ещё не добавлен</em>"}</div></details>{items}</div>')
+    return shell(content, number)
+
+
+def translation_error_page(number, message, status=400, draft=None):
+    data = translation.load_edits()
+    expected = translation.revision(number, data)
+    body = ''
+    if draft is not None:
+        body = (f'<form method="post" action="/translation/{number}" class="editor-card">'
+                f'<p class="notice">Ниже сохранён ваш несохранённый текст. Перед повторным сохранением сравните его с текущей версией в истории: повторная отправка заменит текущий текст, но не удалит историю.</p>'
+                f'<input type="hidden" name="expected" value="{expected}">'
+                f'<label class="label" for="translation-draft">Ваш текст</label>'
+                f'<textarea id="translation-draft" class="input translation-textarea" name="text" rows="14">{escape(draft)}</textarea>'
+                f'<button class="button primary" type="submit">Сохранить мой текст поверх текущей версии</button></form>')
+    content = (f'<div class="editor"><h2>Перевод не сохранён</h2><p class="editor-message error" role="alert">{escape(message)}</p>'
+               f'<div class="top-actions"><a class="button" href="/spread/{number}#translation">К развороту</a>'
+               f'<a class="button" href="/translation-history/{number}">История перевода</a></div>{body}</div>')
+    return shell(content, number).encode('utf-8'), status
+
 
 def scan_image(number):
     replacement = replacement_path(number)
@@ -977,43 +1066,77 @@ class Handler(SimpleHTTPRequestHandler):
         except OSError:
             return self.scan_error(number, 'Не удалось сохранить изменение.', 500)
 
-    def handle_translation_post(self, number):
-        if not 1 <= number <= len(PAGES):
-            self.send_error(404)
-            return
+    def _translation_request(self, number, fields=6):
         if self.headers.get_content_type() != 'application/x-www-form-urlencoded':
-            self.send_error(415)
-            return
+            return None, ('Поддерживается только отправка формы.', 415)
         try:
             length = int(self.headers.get('Content-Length', '0'))
         except ValueError:
-            self.send_error(400)
-            return
+            return None, ('Некорректная длина запроса.', 400)
         if not 0 < length <= 200000:
-            self.send_error(413)
-            return
+            return None, ('Запрос пуст или слишком велик.', 413)
         try:
-            params = parse_qs(self.rfile.read(length).decode('utf-8'), keep_blank_values=True, max_num_fields=4)
+            params = parse_qs(self.rfile.read(length).decode('utf-8'), keep_blank_values=True, max_num_fields=fields)
         except (UnicodeDecodeError, ValueError):
-            self.send_error(400)
-            return
-        text = params.get('text', [''])[0].replace('\r\n', '\n').strip()
+            return None, ('Не удалось прочитать форму.', 400)
+        return params, None
+
+    def _translation_redirect(self, number, history=False):
+        self.send_response(303)
+        self.send_header('Location', f'/translation-history/{number}?restored=1' if history else f'/spread/{number}#translation')
+        self.send_header('Content-Length', '0')
+        self.end_headers()
+
+    def handle_translation_post(self, number):
+        if not 1 <= number <= len(PAGES):
+            return self.send_error(404)
+        params, error = self._translation_request(number)
+        if error:
+            data, status = translation_error_page(number, error[0], error[1])
+            return self._html_response(data, status)
+        text = params.get('text', [''])[0].replace('\r\n', '\n').replace('\r', '\n').strip()
+        expected = params.get('expected', [''])[0]
+        if len(text) > translation.MAX_TRANSLATION_CHARS or '\x00' in text:
+            data, status = translation_error_page(number, 'Перевод пуст, содержит недопустимый символ или превышает 50 000 знаков.', 400, text)
+            return self._html_response(data, status)
         with _CORRECTIONS_LOCK:
             data = translation.load_edits()
-            entry = data['spreads'].setdefault(str(number), {})
-            before = entry.get('text', translation.BASE_TRANSLATIONS.get(number, ''))
-            if text == before:
-                pass
-            elif not text:
-                entry.pop('text', None)
-                entry.setdefault('history', []).append({'time': translation.stamp(), 'before': before, 'after': ''})
-            else:
-                entry['text'] = text
-                entry.setdefault('history', []).append({'time': translation.stamp(), 'before': before, 'after': text})
-            translation.save_edits(data)
-        self.send_response(303)
-        self.send_header('Location', f'/spread/{number}#translation')
-        self.end_headers()
+            if expected != translation.revision(number, data):
+                page, status = translation_error_page(number, 'Перевод уже изменён в другой вкладке. Ваши изменения не отброшены и не записаны поверх новой версии.', 409, text)
+                return self._html_response(page, status)
+            before = translation.current_text(number, data)
+            if text != before:
+                translation.record_change(data, number, text, 'edit')
+                try:
+                    translation.save_edits(data)
+                except OSError:
+                    page, status = translation_error_page(number, 'Не удалось записать файл перевода. Изменения не сохранены.', 500, text)
+                    return self._html_response(page, status)
+        self._translation_redirect(number)
+
+    def handle_translation_restore(self, number):
+        if not 1 <= number <= len(PAGES):
+            return self.send_error(404)
+        params, error = self._translation_request(number, fields=4)
+        if error:
+            return self.send_error(error[1], error[0])
+        index = params.get('index', [''])[0]
+        expected = params.get('expected', [''])[0]
+        with _CORRECTIONS_LOCK:
+            data = translation.load_edits()
+            entries = data['spreads'].get(str(number), {}).get('history', [])
+            if not index.isdigit() or int(index) >= len(entries):
+                return self.send_error(400, 'Запись истории не найдена.')
+            if expected != translation.revision(number, data):
+                page, status = translation_error_page(number, 'Перевод изменился после открытия истории. Обновите историю перед восстановлением.', 409)
+                return self._html_response(page, status)
+            before = entries[int(index)].get('before', '')
+            translation.record_change(data, number, before, 'restore')
+            try:
+                translation.save_edits(data)
+            except OSError:
+                return self.send_error(500, 'Не удалось записать файл перевода.')
+        self._translation_redirect(number, history=True)
 
     def do_POST(self):
         path = urlsplit(self.path).path
@@ -1029,6 +1152,9 @@ class Handler(SimpleHTTPRequestHandler):
         translation_post = re.fullmatch(r'/translation/(\d+)', path)
         if translation_post:
             return self.handle_translation_post(int(translation_post.group(1)))
+        translation_restore = re.fullmatch(r'/translation-history/(\d+)', path)
+        if translation_restore:
+            return self.handle_translation_restore(int(translation_restore.group(1)))
         api = re.fullmatch(r'/api/edits/(\d+)', path)
         restore = re.fullmatch(r'/restore/(\d+)', path)
         if api or restore:
@@ -1110,15 +1236,22 @@ class Handler(SimpleHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(data)
 
+    def _html_response(self, data, status=200, head_only=False):
+        self.send_response(status)
+        self.send_header('Content-Type', 'text/html; charset=utf-8')
+        self.send_header('Content-Length', str(len(data)))
+        self.send_header('Cache-Control', 'no-store')
+        self.end_headers()
+        if not head_only:
+            self.wfile.write(data)
+
     def do_HEAD(self):
-        # The default SimpleHTTPRequestHandler would otherwise expose metadata
-        # for arbitrary workspace files even when GET is restricted.
-        path = urlsplit(self.path).path
-        if re.fullmatch(r'/govard\d{3}\.pdf', path) or re.fullmatch(r'/ocr_review/\d+_[01]\.txt', path):
-            return super().do_HEAD()
-        self.send_error(404)
+        return self._handle_get(head_only=True)
 
     def do_GET(self):
+        return self._handle_get(head_only=False)
+
+    def _handle_get(self, head_only=False):
         parsed = urlsplit(self.path)
         path = parsed.path
         params = parse_qs(parsed.query)
@@ -1139,7 +1272,8 @@ class Handler(SimpleHTTPRequestHandler):
             self.send_header('Content-Length', str(len(image)))
             self.send_header('Cache-Control', 'no-store')
             self.end_headers()
-            self.wfile.write(image)
+            if not head_only:
+                self.wfile.write(image)
             return
         if path == '/go':
             number = params.get('spread', ['1'])[0]
@@ -1154,17 +1288,18 @@ class Handler(SimpleHTTPRequestHandler):
             if not 1 <= number <= len(PAGES):
                 self.send_error(404, 'Spread not found')
                 return
-            data = omissions_page(number).encode('utf-8')
-            self.send_response(200)
-            self.send_header('Content-Type', 'text/html; charset=utf-8')
-            self.send_header('Content-Length', str(len(data)))
-            self.end_headers()
-            self.wfile.write(data)
-            return
+            return self._html_response(omissions_page(number).encode('utf-8'), head_only=head_only)
         review_match = re.fullmatch(r'/review/(\d+)', path)
         history_match = re.fullmatch(r'/history/(\d+)', path)
         edit_match = re.fullmatch(r'/edit/(\d+)', path)
-        if review_match:
+        translation_history_match = re.fullmatch(r'/translation-history/(\d+)', path)
+        if translation_history_match:
+            number = int(translation_history_match.group(1))
+            if not 1 <= number <= len(PAGES):
+                self.send_error(404, 'Spread not found')
+                return
+            page = translation_history_page(number, 'Предыдущий вариант восстановлен; история сохранена.' if 'restored' in params else '')
+        elif review_match:
             number = int(review_match.group(1))
             if not has_review(number):
                 self.send_error(404, 'Suggestions not available')
@@ -1194,16 +1329,11 @@ class Handler(SimpleHTTPRequestHandler):
         elif path == '/quality':
             page = quality_page()
         elif re.fullmatch(r'/govard\d{3}\.pdf', path) or re.fullmatch(r'/ocr_review/\d+_[01]\.txt', path):
-            return super().do_GET()
+            return super().do_HEAD() if head_only else super().do_GET()
         else:
             self.send_error(404)
             return
-        data = page.encode('utf-8')
-        self.send_response(200)
-        self.send_header('Content-Type', 'text/html; charset=utf-8')
-        self.send_header('Content-Length', str(len(data)))
-        self.end_headers()
-        self.wfile.write(data)
+        return self._html_response(page.encode('utf-8'), head_only=head_only)
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', '8080'))

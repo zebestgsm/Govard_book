@@ -8,7 +8,10 @@ import urllib.parse
 import urllib.request
 from http.server import ThreadingHTTPServer
 from pathlib import Path
+import sys
 from unittest.mock import patch
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import inline_editor
 import reader
@@ -21,6 +24,8 @@ class ReaderHTTPTests(unittest.TestCase):
         cls.server = ThreadingHTTPServer(('127.0.0.1', 0), reader.Handler)
         cls.thread = threading.Thread(target=cls.server.serve_forever, daemon=True)
         cls.thread.start()
+        cls.log_patch = patch.object(reader.Handler, 'log_message', lambda *args, **kwargs: None)
+        cls.log_patch.start()
         cls.base = f'http://127.0.0.1:{cls.server.server_port}'
 
     @classmethod
@@ -28,6 +33,7 @@ class ReaderHTTPTests(unittest.TestCase):
         cls.server.shutdown()
         cls.server.server_close()
         cls.thread.join()
+        cls.log_patch.stop()
 
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
@@ -35,7 +41,8 @@ class ReaderHTTPTests(unittest.TestCase):
         self.patches = [patch.object(inline_editor, 'EDITS_FILE', root / 'text_edits.json'),
                         patch.object(reader, 'CORRECTIONS_FILE', root / 'corrections.json'),
                         patch.object(reader, 'QUALITY_FILE', root / 'scan_quality.json'),
-                        patch.object(reader, 'SCAN_OVERRIDES', root / 'scan_overrides')]
+                        patch.object(reader, 'SCAN_OVERRIDES', root / 'scan_overrides'),
+                        patch.object(translation, 'EDITS_FILE', root / 'translation_edits.json')]
         for item in self.patches:
             item.start()
         reader.dismissed_issues.cache_clear()
@@ -102,12 +109,21 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertEqual(reader.segment_state(1)[1][key], second)
 
     def test_accept_and_restore_suggestion(self):
-        suggestion = reader.review_suggestions(1)[0]
-        self.assertEqual(self.form('/review/1', {'id': suggestion['id'], 'action': 'accept'})[0], 200)
-        state = inline_editor.load_edits()['spreads']['1']
+        suggestion = None
+        for number in range(1, 166):
+            _, segments = reader.segment_state(number)
+            for candidate in reader.review_suggestions(number):
+                if segments.get(candidate['segment'], '').count(candidate['old']) == 1:
+                    suggestion = candidate
+                    break
+            if suggestion:
+                break
+        self.assertIsNotNone(suggestion)
+        self.assertEqual(self.form(f'/review/{number}', {'id': suggestion['id'], 'action': 'accept'})[0], 200)
+        state = inline_editor.load_edits()['spreads'][str(number)]
         self.assertEqual(state['suggestions'][suggestion['id']]['status'], 'accepted')
-        self.assertEqual(self.form('/restore/1', {'index': len(state['history']) - 1})[0], 200)
-        self.assertNotIn(suggestion['id'], inline_editor.load_edits()['spreads']['1']['suggestions'])
+        self.assertEqual(self.form(f'/restore/{number}', {'index': len(state['history']) - 1})[0], 200)
+        self.assertNotIn(suggestion['id'], inline_editor.load_edits()['spreads'][str(number)]['suggestions'])
 
     def test_static_access_is_restricted(self):
         for method in ('GET', 'HEAD'):
@@ -257,7 +273,7 @@ class ReaderHTTPTests(unittest.TestCase):
     def test_verified_spreads_and_pending_ocr_labels(self):
         for number in (5, 6, 151, 153, 161, 162, 163, 164, 165):
             self.assertNotIn('OCR', reader.quality_label(number))
-        for number in (1, 4, 7, 21, 148, 160):
+        for number in (7, 8, 9, 21, 148, 160):
             self.assertIn('☑ OCR', reader.quality_label(number))
         self.assertIn('скан повёрнут', reader.quality_label(14))
         _, s5 = reader.segment_state(5)
@@ -350,6 +366,65 @@ class ReaderHTTPTests(unittest.TestCase):
         image = reader.pymupdf.Pixmap(reader.scan_image(14))
         self.assertGreater(image.width, image.height)
 
+    def test_head_matches_get_without_a_body_and_stays_restricted(self):
+        paths = ['/', '/spread/10', '/spread/145', '/spread/14', '/search?q=prison',
+                 '/quality', '/history/1', '/edit/1', '/review/1', '/omissions/9',
+                 '/translation-history/10', '/scan/14.jpg', '/govard001.pdf', '/ocr_review/1_1.txt']
+        for path in paths:
+            with urllib.request.urlopen(urllib.request.Request(self.base + path, method='HEAD')) as head:
+                self.assertEqual(head.status, 200, path)
+                self.assertEqual(head.read(), b'', path)
+                length = head.headers['Content-Length']
+                ctype = head.headers['Content-Type']
+            with urllib.request.urlopen(self.base + path) as get:
+                self.assertEqual(get.headers['Content-Length'], length, path)
+                self.assertEqual(get.headers['Content-Type'], ctype, path)
+                self.assertGreater(len(get.read()), 0, path)
+        for path in ['/spread/0', '/spread/166', '/translation-history/0', '/translation-history/166',
+                     '/text_edits.json', '/translation_edits.json', '/reader.py', '/.git/HEAD']:
+            self.assertEqual(self.request(path, method='HEAD')[0], 404, path)
+
+    def test_translation_http_history_conflict_and_english_isolation(self):
+        _, english_before = reader.segment_state(10)
+        page = self.request('/spread/10')[1]
+        import re
+        token = re.search(r'name="expected" value="([a-f0-9]+)"', page).group(1)
+        self.assertEqual(self.form('/translation/10', {'text': 'Мой проверенный перевод', 'expected': token})[0], 200)
+        self.assertEqual(translation.current_text(10), 'Мой проверенный перевод')
+        self.assertEqual(reader.segment_state(10)[1], english_before)
+        self.assertFalse(inline_editor.EDITS_FILE.exists())
+        data = translation.load_edits()
+        self.assertEqual(len(data['spreads']['10']['history']), 1)
+        current = translation.revision(10, data)
+        # An unchanged submission is a no-op, not a new history entry.
+        self.assertEqual(self.form('/translation/10', {'text': 'Мой проверенный перевод', 'expected': current})[0], 200)
+        self.assertEqual(len(translation.load_edits()['spreads']['10']['history']), 1)
+        # A second tab must not silently overwrite the first tab's save.
+        status, body = self.form('/translation/10', {'text': 'Устаревшая вкладка', 'expected': token})
+        self.assertEqual(status, 409)
+        self.assertIn('Устаревшая вкладка', body)
+        self.assertEqual(translation.current_text(10), 'Мой проверенный перевод')
+        history = self.request('/translation-history/10')[1]
+        self.assertIn('Мой проверенный перевод', history)
+        # Clearing the override restores the authored translation, not English.
+        self.assertEqual(self.form('/translation/10', {'text': '', 'expected': current})[0], 200)
+        self.assertIn('ОБЗОР БЕДСТВИЙ', translation.current_text(10))
+        self.assertNotIn('text', translation.load_edits()['spreads']['10'])
+        reset_token = translation.revision(10)
+        self.assertEqual(self.form('/translation-history/10', {'index': '1', 'expected': reset_token})[0], 200)
+        self.assertEqual(translation.current_text(10), 'Мой проверенный перевод')
+        self.assertEqual(len(translation.load_edits()['spreads']['10']['history']), 3)
+        self.assertEqual(reader.segment_state(10)[1], english_before)
+        self.assertEqual(self.request('/translation/0', data=b'text=x', content_type='application/x-www-form-urlencoded')[0], 404)
+        self.assertEqual(self.request('/translation/10', data=b'{}', content_type='application/json')[0], 415)
+
+    def test_bilingual_search_links_to_the_translation_anchor(self):
+        page = reader.search_page('бальзама жизни')
+        self.assertIn('/spread/10?q=', page)
+        self.assertIn('#translation', page)
+        self.assertIn('Русский перевод', page)
+        self.assertIn('РАЗВОРОТ 010', reader.search_page('salutiferous'))
+
     def test_all_spreads_have_editable_text_and_review(self):
         for n in range(1, 166):
             _, segments = reader.segment_state(n)
@@ -439,10 +514,6 @@ class SequentialProofreadTests(unittest.TestCase):
             self.assertEqual(actual.samples, decoded_expected.samples)
         self.assertIn('original-v2', reader.scan_url(14))
 
-if __name__ == '__main__':
-    unittest.main()
-
-
 class TranslationTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
@@ -474,3 +545,68 @@ class TranslationTests(unittest.TestCase):
         text, status, user = translation.translation_state(10)
         self.assertIn('ОБЗОР БЕДСТВИЙ', text)
         self.assertFalse(user)
+
+    def test_translation_tables_have_nine_columns_and_matching_numbers(self):
+        from html.parser import HTMLParser
+        import re
+        class Rows(HTMLParser):
+            def __init__(self):
+                super().__init__(); self.tables=[]
+            def handle_starttag(self, tag, attrs):
+                a=dict(attrs)
+                if a.get('role')=='table': self.tables.append({'statistical':'statistical-table' in a.get('class',''),'rows':[]})
+                elif a.get('role')=='row' and self.tables: self.tables[-1]['rows'].append(0)
+                elif a.get('role') in ('cell','columnheader') and self.tables and self.tables[-1]['rows']: self.tables[-1]['rows'][-1]+=1
+        for number in (145,146,147):
+            html=translation.render_translation(translation.BASE_TRANSLATIONS[number])
+            parser=Rows(); parser.feed(html)
+            self.assertTrue(parser.tables)
+            for table in parser.tables:
+                widths=set(table['rows'])
+                self.assertEqual(len(widths),1,(number,table['rows']))
+                if table['statistical']:
+                    self.assertEqual(widths,{9})
+                else:
+                    self.assertIn(widths,({3},{5}))
+                self.assertNotIn(17,widths)
+        def numeric_cells(text):
+            values=[]
+            for chunk in re.split(r'\n\n',text):
+                if '\t' not in chunk: continue
+                for line in chunk.splitlines():
+                    for cell in line.split('\t'):
+                        cell=cell.strip().replace(' ','').replace(',','')
+                        if re.fullmatch(r'[0-9]+',cell) and cell not in ('1779','1782','1783'): values.append(cell)
+            return values
+        for number, ru in translation.BASE_TRANSLATIONS.items():
+            en='\n\n'.join(reader.segment_state(number)[1].values())
+            if number==2:
+                en='\n'.join(name+'\t'+miles for name,miles in reader.TABLE_2_ROWS)
+            self.assertEqual(numeric_cells(en),numeric_cells(ru),number)
+
+    def test_translation_coverage_footnotes_and_source_status_are_explicit(self):
+        self.assertEqual(len(translation.BASE_TRANSLATIONS),26)
+        panel=translation.panel(1,english_verified=False)
+        self.assertIn('частичный перевод книги',panel)
+        self.assertIn('черновому английскому тексту',panel)
+        self.assertIn('26 из 165',panel)
+        self.assertIn('footnote-continuation',reader.reader_page(20))
+        self.assertIn('[Сноска 1, продолжение]',translation.BASE_TRANSLATIONS[20])
+        self.assertIn('тисками для больших пальцев',translation.BASE_TRANSLATIONS[16])
+        self.assertNotIn('можно приходится',translation.BASE_TRANSLATIONS[16])
+        self.assertIn('бесстыдными и развратными мерзостями',translation.BASE_TRANSLATIONS[13])
+        html=reader.reader_page(147)
+        self.assertIn('Арифметика оригинала',html)
+        self.assertIn('282',html); self.assertIn('262',html)
+
+    def test_every_spread_renders_with_translation_below_english(self):
+        for number in range(1,166):
+            html=reader.reader_page(number)
+            self.assertIn('id="editable-book"',html)
+            self.assertIn('id="translation"',html)
+            self.assertLess(html.index('id="editable-book"'),html.index('id="translation"'))
+            self.assertIn(f'/translation-history/{number}',html)
+
+
+if __name__ == '__main__':
+    unittest.main()

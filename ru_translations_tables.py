@@ -6,10 +6,11 @@ introductory matter, column headings and notes are translated.
 from restored_tables_145 import (T145L, T145R, T146L, T146R, T147L, T147R,
                                  SUMMARY, TOTALS, LONDON1783)
 
-H_RU = ('Место\t1779 Должники муж.\tжен.\tФелоны и пр.\tМелкие\t'
-        '1782 Должники муж.\tжен.\tФелоны и пр.\tМелкие')
+H_RU = ('Место\t1779\t\t\t\t1782\t\t\t\n'
+        '\tДолжники, муж.\tжен.\tФелоны и пр.\tМелкие\tДолжники, муж.\tжен.\tФелоны и пр.\tМелкие\n')
 
 def tr(table):
+    # H_RU already ends in a newline: never join it to the first data row.
     return H_RU + table.split('\n', 1)[1]
 
 SUMMARY_RU = SUMMARY.replace('From foregoing pages', 'С предыдущих страниц').replace('Great Total', 'Общий итог')

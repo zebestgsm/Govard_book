@@ -8,7 +8,7 @@ from pathlib import Path
 import re
 from verified_spreads import VERIFIED_SEGMENTS
 from spacing_repairs import SPACING_REPAIRS
-from verified_prose import VERIFIED_PROSE, NOTE_TARGETS
+from verified_prose import VERIFIED_PROSE, NOTE_TARGETS, CONTINUED_NOTES
 from verified_tables import TABLE151_LEFT, TABLE151_RIGHT, TABLE152_LEFT, TABLE152_RIGHT
 
 ROOT = Path(__file__).resolve().parent
@@ -72,6 +72,11 @@ def render_verified_block(value, spread, segment_id, query):
     Every delimiter and tab remains a text node: contentEditable, search and
     saved overrides therefore round-trip the exact same plain text as before.
     """
+    continuation = CONTINUED_NOTES.get(spread, {}).get(segment_id)
+    if continuation and value:
+        target = 'footnote-' + str(spread) + '-' + segment_id + '-' + continuation['number']
+        return ('<span class="book-footnote verified-footnote footnote-continuation" id="' + target + '">'
+                + highlight(value, query) + '</span>')
     targets = NOTE_TARGETS.get(spread, {}).get(segment_id, {})
     superscripts = {'¹': '1', '²': '2', '³': '3'}
 
@@ -101,17 +106,9 @@ def render_verified_block(value, spread, segment_id, query):
             target = 'footnote-' + str(spread) + '-' + segment_id + '-' + number
             output.append('<span class="book-footnote verified-footnote" id="' + target + '">' + text_html(chunk, True) + '</span>')
         elif '\t' in chunk:
-            rows = []
+            # Group only consecutive tab-separated lines. Prose introducing or
+            # following a table must not become a one-cell table row.
             has_header = not ((spread == 16 and segment_id in ('s7', 's11')) or (spread == 17 and segment_id == 's1'))
-            for index, line in enumerate(chunk.splitlines(keepends=True)):
-                ending = '\n' if line.endswith('\n') else ''
-                row = line[:-1] if ending else line
-                cells = row.split('\t')
-                role = 'columnheader' if index == 0 and has_header else 'cell'
-                rows.append('<span class="restored-row" role="row" style="--numeric-cols:' + str(len(cells)-1) + '">')
-                for cell_index, cell in enumerate(cells):
-                    rows.append('<span class="restored-cell" role="' + role + '">' + highlight(('\t' if cell_index else '') + cell, query) + '</span>')
-                rows.append('</span>' + ending)
             if spread == 16 and segment_id == 's10':
                 label = 'Number of prisoners, spring 1776'
             elif spread == 16 and segment_id == 's11':
@@ -120,9 +117,40 @@ def render_verified_block(value, spread, segment_id, query):
                 label = 'Bristol and Dublin small-debt societies'
             elif spread == 16 and segment_id == 's7':
                 label = 'Fees for the copy of a calendar, 1735'
+            elif spread in (145, 146, 147):
+                label = 'Table I — prisoners in England and Wales, 1779 and 1782'
             else:
                 label = 'Fees of the Clerk of the Peace'
-            output.append('<span class="restored-table fee-table" role="table" aria-label="' + label + '">' + ''.join(rows) + '</span>')
+            table_lines = []
+            prose_lines = []
+            def flush_prose():
+                if prose_lines:
+                    output.append('<span class="verified-paragraph">' + text_html(''.join(prose_lines), False) + '</span>')
+                    prose_lines.clear()
+            def flush_table():
+                if not table_lines:
+                    return
+                rows = []
+                for index, line in enumerate(table_lines):
+                    ending = '\n' if line.endswith('\n') else ''
+                    row = line[:-1] if ending else line
+                    cells = row.split('\t')
+                    role = 'columnheader' if index == 0 and has_header else 'cell'
+                    rows.append('<span class="restored-row" role="row" style="--numeric-cols:' + str(len(cells)-1) + '">')
+                    for cell_index, cell in enumerate(cells):
+                        rows.append('<span class="restored-cell" role="' + role + '">' + highlight(('\t' if cell_index else '') + cell, query) + '</span>')
+                    rows.append('</span>' + ending)
+                output.append('<span class="restored-table fee-table" role="table" aria-label="' + label + '">' + ''.join(rows) + '</span>')
+                table_lines.clear()
+            for line in chunk.splitlines(keepends=True):
+                if '\t' in line:
+                    flush_prose()
+                    table_lines.append(line)
+                else:
+                    flush_table()
+                    prose_lines.append(line)
+            flush_table()
+            flush_prose()
         elif spread == 14 and (segment_id == 's1' or chunk.startswith(('Hail Patriot Band!', 'Much still untouch’d'))):
             output.append('<span class="book-verse">' + text_html(chunk) + '</span>')
         else:
