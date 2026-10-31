@@ -17,6 +17,7 @@ from functools import lru_cache
 import inline_editor
 import omission_detection
 import reference_sources
+import translation
 
 try:
     import pymupdf
@@ -284,7 +285,7 @@ STYLE = '''
 
 
 /* Sequential transcription: paragraph breaks, page-local notes and poetry. */
-.verified-prose-page p:empty{display:none}.verified-prose-page .verified-paragraph{display:block;margin:0 0 .85em}.verified-prose-page .verified-paragraph:last-child{margin-bottom:0}.verified-prose-page .verified-footnote{font-size:.78em;line-height:1.5;margin-top:1em}.verified-note-ref{vertical-align:super;font-size:.72em;line-height:0;color:var(--green);scroll-margin-top:20px}.verified-footnote{scroll-margin-top:20px}.book-verse{display:block;white-space:pre-line;font-size:.86em;line-height:1.5;margin:1.2em auto;max-width:34em}.fee-table{font:14px/1.5 Georgia,serif;margin:.5em 0 1em}.fee-table .restored-row{grid-template-columns:minmax(0,1fr) repeat(var(--numeric-cols),minmax(0,.18fr));padding:3px 0}.fee-table .restored-cell{padding:3px 2px}.fee-table .restored-row:first-child{font-weight:700;border-bottom:1px solid #aaa797}.is-editing .verified-prose-page p:empty{display:block}.is-editing .verified-paragraph,.is-editing .book-verse{display:inline}.is-editing .verified-footnote{display:inline;border:0;margin:0;padding:0;font:inherit}.is-editing .verified-note-ref{vertical-align:baseline;font:inherit}
+.translation-panel{margin-top:18px}.translation-text{font:16px/1.65 Georgia,serif}.translation-text .verified-paragraph{display:block;margin:0 0 .85em}.translation-edit{margin-top:12px}.translation-textarea{width:100%;min-height:220px;font:14px/1.5 Georgia,serif;white-space:pre-wrap}.translation-panel .fee-table{font-size:13px}.verified-prose-page p:empty{display:none}.verified-prose-page .verified-paragraph{display:block;margin:0 0 .85em}.verified-prose-page .verified-paragraph:last-child{margin-bottom:0}.verified-prose-page .verified-footnote{font-size:.78em;line-height:1.5;margin-top:1em}.verified-note-ref{vertical-align:super;font-size:.72em;line-height:0;color:var(--green);scroll-margin-top:20px}.verified-footnote{scroll-margin-top:20px}.book-verse{display:block;white-space:pre-line;font-size:.86em;line-height:1.5;margin:1.2em auto;max-width:34em}.fee-table{font:14px/1.5 Georgia,serif;margin:.5em 0 1em}.fee-table .restored-row{grid-template-columns:minmax(0,1fr) repeat(var(--numeric-cols),minmax(0,.18fr));padding:3px 0}.fee-table .restored-cell{padding:3px 2px}.fee-table .restored-row:first-child{font-weight:700;border-bottom:1px solid #aaa797}.is-editing .verified-prose-page p:empty{display:block}.is-editing .verified-paragraph,.is-editing .book-verse{display:inline}.is-editing .verified-footnote{display:inline;border:0;margin:0;padding:0;font:inherit}.is-editing .verified-note-ref{vertical-align:baseline;font:inherit}
 @media(max-width:650px){.restored-table{font-size:10px}.restored-row{grid-template-columns:minmax(40px,2fr) repeat(var(--numeric-cols),minmax(0,1fr))}.restored-cell{padding:3px 0}.fee-table{font-size:13px}.fee-table .restored-row{grid-template-columns:minmax(0,1fr) repeat(var(--numeric-cols),minmax(0,.22fr))}}
 
 
@@ -592,9 +593,10 @@ def _reader_page(number, query=''):
     scan_controls = f'<div class="scan-controls"><details><summary class="button">Заменить скан</summary><form action="/scan-upload/{number}" method="post" enctype="multipart/form-data"{upload_confirm}><label for="scan-file-{number}">Файл целого разворота: JPG, PNG или одностраничный PDF, до 20 МБ</label><input id="scan-file-{number}" name="scan" type="file" accept="image/jpeg,image/png,application/pdf,.jpg,.jpeg,.png,.pdf" required><button class="button primary" type="submit">Загрузить скан</button></form></details>{restore_scan}{issue_control}<p class="small">{source_note}</p></div>'
     pilot_link = f'<a class="button" href="/review/{number}">Проверка OCR</a>' if has_review(number) else ''
     omissions_link = f'<a class="button" href="/omissions/{number}">Возможные пропуски</a>'
-    content = f'''<div class="heading-row"><div><span class="eyebrow">Режим чтения</span><h2>Книжный разворот</h2><p>Читайте разворот слева и сверяйте его со сканом справа.</p>{badge}</div><div class="top-actions edit-actions"><button type="button" id="edit-toggle" class="button primary">✎ Редактировать текст</button><button type="button" id="edit-save" class="button primary" hidden>Сохранить</button><button type="button" id="edit-cancel" class="button" hidden>Отмена</button><a class="button" href="/history/{number}">История правок</a>{pilot_link}{omissions_link}<a class="button" href="#original-scan">К скану</a><a class="button" href="{scan}" target="_blank" rel="noopener">Открыть PDF ↗</a></div></div>
+    translation_panel = translation.panel(number, query)
+    content = f'''<div class="heading-row"><div><span class="eyebrow">Режим чтения</span><h2>Книжный разворот</h2><p>Читайте разворот слева и сверяйте его со сканом справа.</p>{badge}</div><div class="top-actions edit-actions"><button type="button" id="edit-toggle" class="button primary">✎ Редактировать текст</button><button type="button" id="edit-save" class="button primary" hidden>Сохранить</button><button type="button" id="edit-cancel" class="button" hidden>Отмена</button><a class="button" href="/history/{number}">История правок</a>{pilot_link}{omissions_link}<a class="button" href="#translation">Русский перевод</a><a class="button" href="#original-scan">К скану</a><a class="button" href="{scan}" target="_blank" rel="noopener">Открыть PDF ↗</a></div></div>
 <nav class="nav" aria-label="Перелистывание"><div class="nav-group">{prev}{next_}</div><span class="muted">Разворот {number:03} / {len(PAGES)}</span></nav>
-<p id="edit-status" class="edit-status" role="status" aria-live="polite" hidden></p><noscript><p class="notice">Для редактирования прямо в тексте включите JavaScript или используйте <a href="/edit/{number}"><u>замену слов</u></a>.</p></noscript><div class="reader"><section class="panel"><div class="panel-header"><span class="panel-title">Распознанный текст</span><span class="panel-subtitle">{text_status}</span></div>{page_notice}<div class="book-text" id="editable-book" data-spread="{number}" lang="en">{paragraphs}</div></section><section class="panel scan-panel" id="original-scan"><div class="panel-header"><span class="panel-title">{source_label}</span><span class="panel-subtitle">{escape(filename) if not replacement else "замена"}</span></div><div class="scan-wrap"><a href="{image_url}" target="_blank" rel="noopener" title="Открыть изображение скана крупнее"><img class="scan-frame" src="{image_url}" alt="Скан разворота {number}. Нажмите, чтобы открыть изображение крупнее." loading="lazy"></a></div>{scan_controls}<p class="scan-fallback">Нажмите на изображение для увеличения · <a href="{scan}" target="_blank" rel="noopener"><u>Открыть оригинальный PDF ↗</u></a></p></section></div><nav class="nav bottom-nav" aria-label="Перелистывание в конце"><div class="nav-group">{prev}{next_}</div><a href="#top" class="muted">↑ В начало</a></nav><p class="notice book-note">{text_note} Скан показан рядом для сверки; на узких экранах — ниже. Номера страниц вводной части переведены из римских цифр в арабские; границы по OCR могут быть неточными.</p>'''
+<p id="edit-status" class="edit-status" role="status" aria-live="polite" hidden></p><noscript><p class="notice">Для редактирования прямо в тексте включите JavaScript или используйте <a href="/edit/{number}"><u>замену слов</u></a>.</p></noscript><div class="reader"><section class="panel"><div class="panel-header"><span class="panel-title">Распознанный текст</span><span class="panel-subtitle">{text_status}</span></div>{page_notice}<div class="book-text" id="editable-book" data-spread="{number}" lang="en">{paragraphs}</div></section><section class="panel scan-panel" id="original-scan"><div class="panel-header"><span class="panel-title">{source_label}</span><span class="panel-subtitle">{escape(filename) if not replacement else "замена"}</span></div><div class="scan-wrap"><a href="{image_url}" target="_blank" rel="noopener" title="Открыть изображение скана крупнее"><img class="scan-frame" src="{image_url}" alt="Скан разворота {number}. Нажмите, чтобы открыть изображение крупнее." loading="lazy"></a></div>{scan_controls}<p class="scan-fallback">Нажмите на изображение для увеличения · <a href="{scan}" target="_blank" rel="noopener"><u>Открыть оригинальный PDF ↗</u></a></p></section></div>{translation_panel}<nav class="nav bottom-nav" aria-label="Перелистывание в конце"><div class="nav-group">{prev}{next_}</div><a href="#top" class="muted">↑ В начало</a></nav><p class="notice book-note">{text_note} Скан показан рядом для сверки; на узких экранах — ниже. Номера страниц вводной части переведены из римских цифр в арабские; границы по OCR могут быть неточными.</p>'''
     return shell(content, number, query).replace('</body>', inline_editor.SCRIPT + '</body>')
 
 def reader_page(number, query=''):
@@ -975,6 +977,44 @@ class Handler(SimpleHTTPRequestHandler):
         except OSError:
             return self.scan_error(number, 'Не удалось сохранить изменение.', 500)
 
+    def handle_translation_post(self, number):
+        if not 1 <= number <= len(PAGES):
+            self.send_error(404)
+            return
+        if self.headers.get_content_type() != 'application/x-www-form-urlencoded':
+            self.send_error(415)
+            return
+        try:
+            length = int(self.headers.get('Content-Length', '0'))
+        except ValueError:
+            self.send_error(400)
+            return
+        if not 0 < length <= 200000:
+            self.send_error(413)
+            return
+        try:
+            params = parse_qs(self.rfile.read(length).decode('utf-8'), keep_blank_values=True, max_num_fields=4)
+        except (UnicodeDecodeError, ValueError):
+            self.send_error(400)
+            return
+        text = params.get('text', [''])[0].replace('\r\n', '\n').strip()
+        with _CORRECTIONS_LOCK:
+            data = translation.load_edits()
+            entry = data['spreads'].setdefault(str(number), {})
+            before = entry.get('text', translation.BASE_TRANSLATIONS.get(number, ''))
+            if text == before:
+                pass
+            elif not text:
+                entry.pop('text', None)
+                entry.setdefault('history', []).append({'time': translation.stamp(), 'before': before, 'after': ''})
+            else:
+                entry['text'] = text
+                entry.setdefault('history', []).append({'time': translation.stamp(), 'before': before, 'after': text})
+            translation.save_edits(data)
+        self.send_response(303)
+        self.send_header('Location', f'/spread/{number}#translation')
+        self.end_headers()
+
     def do_POST(self):
         path = urlsplit(self.path).path
         upload = re.fullmatch(r'/scan-upload/(\d+)', path)
@@ -986,6 +1026,9 @@ class Handler(SimpleHTTPRequestHandler):
         review = re.fullmatch(r'/review/(\d+)', path)
         if review:
             return self.handle_review_post(int(review.group(1)))
+        translation_post = re.fullmatch(r'/translation/(\d+)', path)
+        if translation_post:
+            return self.handle_translation_post(int(translation_post.group(1)))
         api = re.fullmatch(r'/api/edits/(\d+)', path)
         restore = re.fullmatch(r'/restore/(\d+)', path)
         if api or restore:

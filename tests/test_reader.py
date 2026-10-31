@@ -12,6 +12,7 @@ from unittest.mock import patch
 
 import inline_editor
 import reader
+import translation
 
 
 class ReaderHTTPTests(unittest.TestCase):
@@ -440,3 +441,36 @@ class SequentialProofreadTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class TranslationTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.patch = patch.object(translation, 'EDITS_FILE', Path(self.tmp.name) / 'translation_edits.json')
+        self.patch.start()
+
+    def tearDown(self):
+        self.patch.stop()
+        self.tmp.cleanup()
+
+    def test_translation_panel_below_original_and_editable(self):
+        html = reader.reader_page(10)
+        self.assertIn('id="translation"', html)
+        self.assertIn('Русский перевод', html)
+        self.assertIn('ОБЗОР БЕДСТВИЙ В ТЮРЬМАХ', html)
+        self.assertLess(html.index('id="editable-book"'), html.index('id="translation"'))
+        missing = reader.reader_page(21)
+        self.assertIn('перевод готовится', missing)
+
+    def test_translation_override_and_restore(self):
+        saved = translation.load_edits()
+        saved['spreads']['10'] = {'text': 'Мой перевод', 'history': []}
+        translation.save_edits(saved)
+        text, status, user = translation.translation_state(10)
+        self.assertEqual(text, 'Мой перевод')
+        self.assertTrue(user)
+        saved['spreads']['10']['text'] = ''
+        translation.save_edits(saved)
+        text, status, user = translation.translation_state(10)
+        self.assertIn('ОБЗОР БЕДСТВИЙ', text)
+        self.assertFalse(user)
