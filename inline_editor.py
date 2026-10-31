@@ -7,6 +7,8 @@ import os
 from pathlib import Path
 import re
 from verified_spreads import VERIFIED_SEGMENTS
+from spacing_repairs import SPACING_REPAIRS
+from verified_prose import VERIFIED_PROSE, NOTE_TARGETS
 from verified_tables import TABLE151_LEFT, TABLE151_RIGHT, TABLE152_LEFT, TABLE152_RIGHT
 
 ROOT = Path(__file__).resolve().parent
@@ -62,6 +64,70 @@ def highlight(text, query):
         return escape(text)
     return ''.join('<mark>' + escape(part) + '</mark>' if i % 2 else escape(part)
                    for i, part in enumerate(re.split('(' + re.escape(query) + ')', text, flags=re.IGNORECASE)))
+
+
+def render_verified_block(value, spread, segment_id, query):
+    """Style verified paragraphs, notes, verse and tables without changing text.
+
+    Every delimiter and tab remains a text node: contentEditable, search and
+    saved overrides therefore round-trip the exact same plain text as before.
+    """
+    targets = NOTE_TARGETS.get(spread, {}).get(segment_id, {})
+    superscripts = {'¹': '1', '²': '2', '³': '3'}
+
+    def text_html(text, skip_initial_note=False):
+        prefix = ''
+        if skip_initial_note and text[:1] in superscripts:
+            prefix, text = text[:1], text[1:]
+        pieces = re.split(r'([¹²³])', text)
+        result = [highlight(prefix, query)] if prefix else []
+        for piece in pieces:
+            number = superscripts.get(piece)
+            if number and number in targets:
+                target = 'footnote-' + str(spread) + '-' + targets[number] + '-' + number
+                result.append('<a class="verified-note-ref" href="#' + target + '">' + highlight(piece, query) + '</a>')
+            else:
+                result.append(highlight(piece, query))
+        return ''.join(result)
+
+    output = []
+    for chunk in re.split(r'(\n\n)', value):
+        if chunk == '\n\n' or not chunk:
+            output.append(chunk)
+            continue
+        note = re.match(r'^([¹²³])\s', chunk)
+        if note:
+            number = superscripts[note.group(1)]
+            target = 'footnote-' + str(spread) + '-' + segment_id + '-' + number
+            output.append('<span class="book-footnote verified-footnote" id="' + target + '">' + text_html(chunk, True) + '</span>')
+        elif '\t' in chunk:
+            rows = []
+            has_header = not ((spread == 16 and segment_id in ('s7', 's11')) or (spread == 17 and segment_id == 's1'))
+            for index, line in enumerate(chunk.splitlines(keepends=True)):
+                ending = '\n' if line.endswith('\n') else ''
+                row = line[:-1] if ending else line
+                cells = row.split('\t')
+                role = 'columnheader' if index == 0 and has_header else 'cell'
+                rows.append('<span class="restored-row" role="row" style="--numeric-cols:' + str(len(cells)-1) + '">')
+                for cell_index, cell in enumerate(cells):
+                    rows.append('<span class="restored-cell" role="' + role + '">' + highlight(('\t' if cell_index else '') + cell, query) + '</span>')
+                rows.append('</span>' + ending)
+            if spread == 16 and segment_id == 's10':
+                label = 'Number of prisoners, spring 1776'
+            elif spread == 16 and segment_id == 's11':
+                label = 'Thatched House Society, 27 March 1782'
+            elif spread == 17 and segment_id == 's1':
+                label = 'Bristol and Dublin small-debt societies'
+            elif spread == 16 and segment_id == 's7':
+                label = 'Fees for the copy of a calendar, 1735'
+            else:
+                label = 'Fees of the Clerk of the Peace'
+            output.append('<span class="restored-table fee-table" role="table" aria-label="' + label + '">' + ''.join(rows) + '</span>')
+        elif spread == 14 and (segment_id == 's1' or chunk.startswith(('Hail Patriot Band!', 'Much still untouch’d'))):
+            output.append('<span class="book-verse">' + text_html(chunk) + '</span>')
+        else:
+            output.append('<span class="verified-paragraph">' + text_html(chunk) + '</span>')
+    return ''.join(output)
 
 
 class SegmentRenderer(HTMLParser):
@@ -156,6 +222,12 @@ class SegmentRenderer(HTMLParser):
             verified = VERIFIED_SEGMENTS.get(self.spread, {}).get(segment_id)
             if verified and original.startswith(verified[0]):
                 default = verified[1]
+            else:
+                spacing = SPACING_REPAIRS.get(self.spread, {}).get(segment_id)
+                if spacing and original.startswith(spacing[0]):
+                    for old, new in spacing[1]:
+                        if default.count(old) == 1:
+                            default = default.replace(old, new, 1)
             value = self.overrides.get(segment_id, default)
             if not isinstance(value, str):
                 raise ValueError('Неверный формат сохранённого текста')
@@ -253,6 +325,8 @@ class SegmentRenderer(HTMLParser):
                     content = (highlight(value[:at], self.query)
                                + '<span class="book-footnote" id="footnote-2-1">'
                                + highlight(value[at:], self.query) + '</span>')
+            if self.spread in VERIFIED_PROSE and value:
+                content = render_verified_block(value, self.spread, segment_id, self.query)
             self.output.append(raw_tag[:-1] + ' data-edit-id="' + segment_id + '">' + content + '</' + tag + '>')
         self.active = None
         self.captured = []

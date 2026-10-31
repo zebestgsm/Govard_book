@@ -56,7 +56,7 @@ OCR_ISSUES = {
 # OCR marks mean the displayed text has not been fully checked against the
 # scan; they are not judgments about physical scan quality. Existing user
 # decisions to dismiss marks remain in force.
-VERIFIED_SPREADS = {5, 6, 151, 153, 161, 162, 163, 164, 165}
+VERIFIED_SPREADS = {5, 6, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 145, 146, 147, 151, 153, 161, 162, 163, 164, 165}
 for _number in range(1, len(PAGES) + 1):
     if _number in VERIFIED_SPREADS:
         OCR_ISSUES.pop(_number, None)
@@ -283,6 +283,11 @@ STYLE = '''
 }
 
 
+/* Sequential transcription: paragraph breaks, page-local notes and poetry. */
+.verified-prose-page p:empty{display:none}.verified-prose-page .verified-paragraph{display:block;margin:0 0 .85em}.verified-prose-page .verified-paragraph:last-child{margin-bottom:0}.verified-prose-page .verified-footnote{font-size:.78em;line-height:1.5;margin-top:1em}.verified-note-ref{vertical-align:super;font-size:.72em;line-height:0;color:var(--green);scroll-margin-top:20px}.verified-footnote{scroll-margin-top:20px}.book-verse{display:block;white-space:pre-line;font-size:.86em;line-height:1.5;margin:1.2em auto;max-width:34em}.fee-table{font:14px/1.5 Georgia,serif;margin:.5em 0 1em}.fee-table .restored-row{grid-template-columns:minmax(0,1fr) repeat(var(--numeric-cols),minmax(0,.18fr));padding:3px 0}.fee-table .restored-cell{padding:3px 2px}.fee-table .restored-row:first-child{font-weight:700;border-bottom:1px solid #aaa797}.is-editing .verified-prose-page p:empty{display:block}.is-editing .verified-paragraph,.is-editing .book-verse{display:inline}.is-editing .verified-footnote{display:inline;border:0;margin:0;padding:0;font:inherit}.is-editing .verified-note-ref{vertical-align:baseline;font:inherit}
+@media(max-width:650px){.restored-table{font-size:10px}.restored-row{grid-template-columns:minmax(40px,2fr) repeat(var(--numeric-cols),minmax(0,1fr))}.restored-cell{padding:3px 0}.fee-table{font-size:13px}.fee-table .restored-row{grid-template-columns:minmax(0,1fr) repeat(var(--numeric-cols),minmax(0,.22fr))}}
+
+
 '''
 
 def highlighted(text, query):
@@ -500,6 +505,10 @@ def segment_state(number, edits=None, query='', rules=None):
     token = _current_corrections.set(rules)
     try:
         base = render_pages(number, PAGES[number - 1][1], '')
+        if 10 <= number <= 20 or number in (145, 146, 147):
+            base = base.replace('<article class="book-page"', '<article class="book-page verified-prose-page spread-' + str(number) + '"')
+        if number in (145, 146, 147):
+            base = base.replace('<div class="book-spread">', '<div class="book-spread wide-table-spread">', 1)
         if number in (5, 6):
             base = base.replace('<article class="book-page"', '<article class="book-page chapter-start-page spread-' + str(number) + '"', 1)
             base = base.replace('</article></div>', '<div class="chapter-start-number">' + ('17' if number == 5 else '19') + '</div></article></div>', 1)

@@ -125,17 +125,17 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertIn('скан повёрнут', self.request('/spread/14')[1])
         self.assertEqual(self.form('/scan-action/14', {'action':'dismiss-scan'})[0], 200)
         self.assertFalse(reader.scan_dropdown_label(14))
-        self.assertIn('☑ OCR', reader.quality_label(14))
+        self.assertNotIn('OCR', reader.quality_label(14))
         self.assertIn('Пометка снята вами', self.request('/spread/14')[1])
         self.assertIn('пометка снята', self.request('/quality')[1])
         reader.dismissed_issues.cache_clear()
         self.assertFalse(reader.scan_dropdown_label(14))  # persisted
         self.assertEqual(self.form('/scan-action/14', {'action':'restore-scan-mark'})[0], 200)
         self.assertTrue(reader.scan_dropdown_label(14))
-        self.assertEqual(self.form('/scan-action/14', {'action':'dismiss-ocr'})[0], 200)
-        self.assertNotIn('OCR', reader.quality_label(14))
+        self.assertEqual(self.form('/scan-action/21', {'action':'dismiss-ocr'})[0], 200)
+        self.assertNotIn('OCR', reader.quality_label(21))
         self.assertIn('скан повёрнут', reader.quality_label(14))
-        self.assertIn('пометка OCR снята', self.request('/spread/14')[1])
+        self.assertIn('пометка OCR снята', self.request('/spread/21')[1])
 
         pdf = reader.pymupdf.open()
         pdf.new_page(width=100, height=50)
@@ -156,8 +156,8 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertFalse(reader.replacement_path(14).exists())
         self.assertTrue(reader.scan_dropdown_label(14))
         self.assertNotIn('OCR', reader.quality_label(14))
-        self.assertEqual(self.form('/scan-action/14', {'action':'restore-ocr'})[0], 200)
-        self.assertIn('☑ OCR', reader.quality_label(14))
+        self.assertEqual(self.form('/scan-action/21', {'action':'restore-ocr'})[0], 200)
+        self.assertIn('☑ OCR', reader.quality_label(21))
 
     def test_legacy_quality_decisions_are_preserved_when_migrated(self):
         reader.QUALITY_FILE.write_text(json.dumps({'dismissed': [2, 14, 153], 'other': 'keep'}))
@@ -256,7 +256,7 @@ class ReaderHTTPTests(unittest.TestCase):
     def test_verified_spreads_and_pending_ocr_labels(self):
         for number in (5, 6, 151, 153, 161, 162, 163, 164, 165):
             self.assertNotIn('OCR', reader.quality_label(number))
-        for number in (1, 4, 7, 14, 145, 160):
+        for number in (1, 4, 7, 21, 148, 160):
             self.assertIn('☑ OCR', reader.quality_label(number))
         self.assertIn('скан повёрнут', reader.quality_label(14))
         _, s5 = reader.segment_state(5)
@@ -340,7 +340,7 @@ class ReaderHTTPTests(unittest.TestCase):
         selection = self.request('/spread/14')[1]
         self.assertIn('скан повёрнут', selection)
         self.assertIn('/scan/14.jpg?v=original-v2', selection)
-        self.assertIn('☑ OCR', selection)
+        self.assertNotIn('☑ OCR', selection)
         quality = self.request('/quality')[1]
         self.assertIn('не означает, что скан плохой', quality)
         self.assertIn('Разворот 014', quality)
@@ -355,6 +355,88 @@ class ReaderHTTPTests(unittest.TestCase):
             self.assertTrue(segments, n)
             self.assertTrue(reader.has_review(n), n)
 
+
+class SequentialProofreadTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.patch = patch.object(inline_editor, 'EDITS_FILE', Path(self.tmp.name) / 'text_edits.json')
+        self.patch.start()
+
+    def tearDown(self):
+        self.patch.stop()
+        self.tmp.cleanup()
+
+    def test_every_guarded_transcription_applies_without_changing_segment_ids(self):
+        from verified_prose import VERIFIED_PROSE
+        for number, replacements in VERIFIED_PROSE.items():
+            html, segments = reader.segment_state(number)
+            for key, (prefix, expected) in replacements.items():
+                self.assertEqual(segments[key], expected, (number, key))
+            self.assertNotIn('☑ OCR', reader.quality_label(number))
+            self.assertIn('verified-prose-page', html)
+
+    def test_restored_omissions_follow_the_scan_not_the_other_editions(self):
+        cases = {
+            (10, 's9'): 'of bedding or straw for prisoners to sleep on; and if by any means',
+            (11, 's8'): 'for which they suffered. I will give an abridgment of it in a table',
+            (12, 's1'): 'than by all other diseases or means of death put together.',
+            (12, 's2'): 'as they have been very properly called) of idleness and every vice.',
+            (12, 's13'): 'when a Lisbon packet (the “Hanover”) in which I went passenger',
+            (13, 's9'): '(as it is called in some London gaols) chummage. “Pay or strip,”',
+            (13, 's12'): 'John Berrisford of two half-guineas',
+            (14, 's3'): 'The number of turnkeys should be increased in proportion',
+            (15, 's7'): 'the judge ordering the clerk of assize to explain to him in London',
+        }
+        for (number, key), phrase in cases.items():
+            self.assertIn(phrase, reader.segment_state(number)[1][key])
+        # This edition retains Dinnan, unlike the other editions' Dinan.
+        self.assertIn('prisoner of war in Dinnan', reader.segment_state(12)[1]['s13'])
+        self.assertIn('1773, 1774, and 1775', reader.segment_state(11)[1]['s5'])
+
+    def test_notes_poetry_and_fee_table_round_trip_and_remain_editable(self):
+        from html.parser import HTMLParser
+        class Capture(HTMLParser):
+            def __init__(self):
+                super().__init__(); self.key = None; self.depth = 0; self.data = {}; self.ids = []; self.hrefs = []
+            def handle_starttag(self, tag, attrs):
+                attrs = dict(attrs)
+                if 'id' in attrs: self.ids.append(attrs['id'])
+                if tag == 'a' and attrs.get('href', '').startswith('#'): self.hrefs.append(attrs['href'][1:])
+                if self.key is not None: self.depth += 1
+                elif 'data-edit-id' in attrs:
+                    self.key = attrs['data-edit-id']; self.data[self.key] = ''; self.depth = 0
+            def handle_data(self, data):
+                if self.key is not None: self.data[self.key] += data
+            def handle_endtag(self, tag):
+                if self.key is not None:
+                    if self.depth: self.depth -= 1
+                    else: self.key = None
+        for number in range(10, 21):
+            html, segments = reader.segment_state(number, query='prisoners')
+            capture = Capture(); capture.feed(html)
+            self.assertEqual(capture.data, segments)
+            self.assertTrue(set(capture.hrefs) <= set(capture.ids))
+            self.assertEqual(len(capture.ids), len(set(capture.ids)))
+        html, segments = reader.segment_state(15)
+        self.assertIn('role="table"', html)
+        self.assertIn('role="columnheader"', html)
+        self.assertIn('For larceny and acquitted\t1\t7\t0', segments['s5'])
+        self.assertIn('Bastardy\t0\t17\t4', segments['s5'])
+        self.assertIn('book-verse', reader.segment_state(14)[0])
+        self.assertIn('РАЗВОРОТ 012', reader.search_page('Lisbon packet'))
+        before = segments['s5']
+        saved = inline_editor.load_edits()
+        saved['spreads']['15'] = {'segments': {'s5': 'User-owned table text'}, 'history': []}
+        self.assertEqual(reader.segment_state(15, edits=saved)[1]['s5'], 'User-owned table text')
+
+    def test_rotated_scan_is_upright_not_upside_down(self):
+        with reader.pymupdf.open(reader.ROOT / 'govard014.pdf') as doc:
+            expected = doc[0].get_pixmap(matrix=reader.pymupdf.Matrix(1.8, 1.8).prerotate(-90), alpha=False)
+            actual = reader.pymupdf.Pixmap(reader.original_scan_image(14))
+            decoded_expected = reader.pymupdf.Pixmap(expected.tobytes('jpg', jpg_quality=85))
+            self.assertEqual((actual.width, actual.height), (decoded_expected.width, decoded_expected.height))
+            self.assertEqual(actual.samples, decoded_expected.samples)
+        self.assertIn('original-v2', reader.scan_url(14))
 
 if __name__ == '__main__':
     unittest.main()

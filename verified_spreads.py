@@ -4,6 +4,8 @@ IDs refer to existing inline-editor segments. Prefix guards ensure a future
 segmentation change cannot silently apply these defaults to a different block.
 User-saved edits always take precedence.
 """
+from verified_prose import VERIFIED_PROSE
+
 VERIFIED_SEGMENTS = {
     # Individual omissions checked against the scans; the rest of these
     # spreads remain marked as OCR and require further checking.
@@ -46,3 +48,8 @@ VERIFIED_SEGMENTS = {
         's1': ("y.A EVERYMAN'SLIBRARY", 'EVERYMAN’S LIBRARY\nEDITED BY ERNEST RHYS\n\nSCIENCE\n\nTHE STATE OF THE PRISONS\nBY JOHN HOWARD · INTRO-\nDUCTION BY KENNETH RUCK'),
     },
 }
+
+# Full sequential proofread of printed pages 4–15. Keep the original prefix
+# guards when merging so that changed OCR segmentation cannot misapply text.
+for _spread, _segments in VERIFIED_PROSE.items():
+    VERIFIED_SEGMENTS.setdefault(_spread, {}).update(_segments)
