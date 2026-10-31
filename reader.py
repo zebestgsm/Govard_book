@@ -301,6 +301,10 @@ STYLE = '''
 .translation-tools .translation-edit form{display:grid;gap:10px;margin-top:12px}
 .translation-tools .translation-edit .button{width:auto}
 .translation-coverage{padding:0 clamp(20px,3vw,48px) 18px;margin:0}
+.context-notes{margin:0 clamp(20px,3vw,48px) 16px;border:1px solid #ddd8c8;border-radius:6px;background:#faf7ec;padding:10px 14px;font:14px/1.55 Georgia,serif}
+.context-notes summary{cursor:pointer;font:600 12px/1.5 Arial,sans-serif;letter-spacing:.04em;color:#5d6650}
+.context-notes ul{margin:8px 0 0;padding-left:20px}.context-notes li{margin:0 0 .55em}.context-notes .small{font:12px/1.5 Arial,sans-serif;color:#77705e;margin:8px 0 0}
+@media(max-width:650px){.context-notes{margin:0 16px 14px;padding:9px 12px}}
 .translation-table{margin:.7em 0 1.2em}
 .translation-table.statistical-table{font-size:12px;line-height:1.4}
 .translation-table.statistical-table .restored-row{grid-template-columns:minmax(58px,2.4fr) repeat(8,minmax(0,1fr))}

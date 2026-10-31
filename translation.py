@@ -1,8 +1,10 @@
 """Russian translation layer shown below the English reader text.
 
-Base translations are versioned in ru_translations_*.py. User overrides and
-their history live in translation_edits.json; the English text is never read
-from or written to that file. All writes replace the JSON file atomically.
+Base translations are versioned in ru_translations_*.py. Editorial context
+notes live separately in ru_context.py and are never merged into the editable
+translation string. User overrides and their history live in
+translation_edits.json; the English text is never read from or written to that
+file. All writes replace the JSON file atomically.
 """
 from datetime import datetime, timezone
 from hashlib import sha256
@@ -17,6 +19,7 @@ from ru_translations_front import TRANSLATIONS as FRONT
 from ru_translations_core import TRANSLATIONS as CORE
 from ru_translations_core2 import TRANSLATIONS as CORE2
 from ru_translations_tables import TRANSLATIONS as TABLES
+import ru_context
 
 ROOT = Path(__file__).resolve().parent
 EDITS_FILE = ROOT / 'translation_edits.json'
@@ -172,6 +175,19 @@ def render_translation(text, query=''):
     return ''.join(out)
 
 
+def context_notes_html(number):
+    """Editorial glosses, kept outside the editable translation string."""
+    notes = ru_context.notes_for(number)
+    if not notes:
+        return ''
+    items = ''.join('<li><strong>' + escape(title) + '.</strong> ' + escape(text) + '</li>'
+                    for title, text in notes)
+    return ('<details class="context-notes"><summary>Пояснения к переводу · '
+            f'{len(notes)}</summary><p class="small">Редакционные пояснения к терминам и контексту; '
+            'это не часть текста Говарда и не часть редактируемого перевода.</p>'
+            f'<ul>{items}</ul></details>')
+
+
 def panel(number, query='', english_verified=False, edits=None):
     saved = edits if edits is not None else load_edits()
     text, status, user = translation_state(number, saved)
@@ -200,6 +216,6 @@ def panel(number, query='', english_verified=False, edits=None):
     coverage = f'Подготовлено переводов: {len(BASE_TRANSLATIONS)} из 165 разворотов. Это частичный перевод книги.'
     return (f'<section class="panel translation-panel" id="translation"><div class="panel-header">'
             f'<span class="panel-title">Русский перевод</span><span class="panel-subtitle">{escape(status)}</span></div>'
-            f'{body}<div class="translation-tools">{edit}'
+            f'{body}{context_notes_html(number)}<div class="translation-tools">{edit}'
             f'<a class="button" href="/translation-history/{number}">История перевода</a></div>'
             f'<p class="small translation-coverage">{coverage}</p></section>')

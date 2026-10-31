@@ -421,7 +421,7 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertEqual(self.request('/translation/10', data=b'{}', content_type='application/json')[0], 415)
 
     def test_bilingual_search_links_to_the_translation_anchor(self):
-        page = reader.search_page('бальзама жизни')
+        page = reader.search_page('подлинного целебного дара жизни')
         self.assertIn('/spread/10?q=', page)
         self.assertIn('#translation', page)
         self.assertIn('Русский перевод', page)
@@ -600,6 +600,40 @@ class TranslationTests(unittest.TestCase):
         html=reader.reader_page(147)
         self.assertIn('Арифметика оригинала',html)
         self.assertIn('282',html); self.assertIn('262',html)
+
+    def test_context_notes_are_separate_from_editable_translation(self):
+        panel = translation.panel(1, english_verified=True)
+        self.assertIn('context-notes', panel)
+        self.assertIn('Кеннет Рак', panel)
+        self.assertIn('не часть текста Говарда', panel)
+        self.assertNotIn('Редакционные пояснения', translation.current_text(1))
+        saved = translation.load_edits()
+        saved['spreads']['1'] = {'text': 'Мой перевод', 'history': []}
+        translation.save_edits(saved)
+        panel = translation.panel(1, english_verified=True)
+        self.assertIn('Мой перевод', panel)
+        self.assertIn('context-notes', panel)
+        self.assertNotIn('Редакционные пояснения', translation.current_text(1))
+
+    def test_semantic_terminology_and_script_regressions(self):
+        import re
+        text = '\n'.join(translation.BASE_TRANSLATIONS.values()).lower()
+        for bad in ('фелон', 'гарнир', 'коттер', 'окружные тюрьмы', 'тюремь', 'чумаж'):
+            self.assertNotIn(bad, text)
+        self.assertFalse(re.search(r'[\u3400-\u9fff]', text))
+        for good in ('тюрьмы графств', 'вступительный побор', 'уголовных заключённых',
+                     'ссыльных', 'кеннет рак', 'эвримен'):
+            self.assertIn(good, text)
+        self.assertIn('42 033', translation.BASE_TRANSLATIONS[2])
+        self.assertIn('1909', translation.BASE_TRANSLATIONS[4])
+
+    def test_statistical_table_labels_are_translated_but_places_remain_cross_checkable(self):
+        table = translation.BASE_TRANSLATIONS[145]
+        self.assertIn('Испр. дом', table)
+        self.assertIn('Должницы, ж.', table)
+        self.assertIn('Уголовные и пр.', table)
+        self.assertIn('Abingdon', table)
+        self.assertNotIn('\nBridewell\t', table)
 
     def test_every_spread_renders_with_translation_below_english(self):
         for number in range(1,166):
