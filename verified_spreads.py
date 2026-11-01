@@ -1,0 +1,55 @@
+"""Selected OCR blocks transcribed against the original scans.
+
+IDs refer to existing inline-editor segments. Prefix guards ensure a future
+segmentation change cannot silently apply these defaults to a different block.
+User-saved edits always take precedence.
+"""
+from verified_prose import VERIFIED_PROSE
+
+VERIFIED_SEGMENTS = {
+    # Individual omissions checked against the scans; the rest of these
+    # spreads remain marked as OCR and require further checking.
+    4: {
+        's1': ("Secondly,Howard's proposals", "Secondly, Howard’s proposals for reform were so sweeping and so sane that they are likely to remain as the standard by which prison systems are judged so long as prisons exist."),
+        's7': ('Toreform prisoners', 'To reform prisoners . . . should always be the leading view in every house of correction . . . as rational and immortal beings we owe this to them; nor can any criminality of theirs justify our neglect in this particular.\nKENNETH RUCK.'),
+        's9': ('Howard.There is no really', 'Howard. There is no really satisfactory biography of Howard. The facts of his life are to be found in accounts by J. Aikin (1792), J. Baldwin Brown (1818), J. Field, “Life,” (1850); “Correspondence” (1855). Methuen’s published a life, by E. C. S. Gibson, in 1901.'),
+        's10': ('Brown（1818)', ''),
+        's11': ('ThePrisons.The mostvividpictures', 'The Prisons. The most vivid pictures of prison life are to be found in the imaginative writers: Goldsmith, “Vicar of Wakefield”; Fielding, “Amelia”; Dickens, “Pickwick Papers,” “Little Dorrit”; Reade, “It is never too late to mend”; Wilde, “Ballad of Reading Gaol,” “De Profundis.”\n\nThe facts can be studied in Sidney and Beatrice Webb, “Prisons under Local Government” (1922); Ives, “History of Penal Methods” (1914); Fielding, “Enquiry into the Cause of the Increase of Robbers” (1751); Nield, “The State of the Prisons” (1812); Clay, “The Prison Chaplain” (1861); Du Cane, “The Punishment and Prevention of Crime” (1885); Ruggles Brise, “The English Prison System” (1921); Hobhouse and Brockway, “English Prisons To-day” (1922). See also Beccaria, “Crimes and Punishments” (Trans. Farrer, 1880); Bentham, “Works,” vol. iv, ed. Sir J. Browning.'),
+        's12': ('For furterreading', 'For further reading, consult Wigmore, “Preliminary Bibliography of Modern Criminal Law and Criminology” (Chicago 1909); Cumming, “Contribution towards a Bibliography dealing with Crime” (1914).'),
+    },
+    7: {
+        's5': ('Theyboth passed', 'They both passed, that sessions: these two acts I had printed in a different character, and sent them to the keeper of every county gaol in England. By those acts, the tear was wiped from many an eye; and the legislature had for them “the blessing of many that were ready to perish.”\n\nThe great honour done me by the House has excited the curiosity of some to inquire what facts I had collected. This is one reason of the present publication: but it is not the only, nor yet the principal one.'),
+        's15': ('This I did constantly', 'This I did constantly and carefully when I began; but by degrees I grew less attentive to these precautions, and have long since entirely omitted them.¹ On account of the alteration made by the act for preserving the health of prisoners, one may now look into many a prison without gaining an idea of the condition it was in a few years ago. I wish the reformation to be not for the present only, but lasting. If the motive for amendment has anywhere been merely temporary, there is no doubt but the effect will cease with the cause: those who from such inducement have obeyed, will in future follow the example of others who have disregarded the law; and prisons that have been amended, will relapse into their former state.'),
+    },
+    9: {
+        's4': ('Ihave often seen these prisoners', 'I have often seen these prisoners eating their water-soup (bread boiled in mere water) and heard them say, “We are locked up and almost starved to death.”'),
+    },
+    5: {
+        's2': ('The Stateof thePrisons', 'The State of the Prisons was first published in 1777. Howard made additions and alterations in subsequent editions in 1780 and 1784, and gave an account of his observations after that date in a volume called An Account of the Principal Lazarettos in Europe, published in 1789. This volume was really a continuation of The State of the Prisons, giving rather more information about hospitals than that book, and rather less about prisons. A second volume of Lazarettos was published after Howard’s death in 1791, and a fourth edition of The State of the Prisons, a reprint of the third, appeared in 1792, but there has been no reprint of any kind since that date.'),
+        's3': ('The text given here', 'The text given here is taken from the third edition of The State of the Prisons (the last published in Howard’s lifetime) and from the first edition of Lazarettos. In view of the fact that the former work contains five hundred and five quarto pages and the latter two hundred and seventy-two, it is evident that all that Howard wrote could not be reproduced in an “Everyman” volume. Nor would it be desirable to reproduce it all. The greater part of both books consists of detailed descriptions of hundreds of prisons at home and abroad, all of which, with a few exceptions abroad and none at home, have long since been pulled down, and these descriptions now make tedious and unprofitable reading. Accordingly the following pages contain an abridgment of The State of the Prisons, together with some extracts from the volume on lazarettos. All Howard’s general observations on prisons have been retained as written, but a number of descriptions of individual prisons have been omitted altogether, and others much condensed, the principle aimed at being to retain only so much as will give a clear idea of the conditions prevailing at the time. '),
+        's4': ('Acompletelistof', 'A complete list of the English prisons found by Howard to be inhabited will be found among the statistical tables at the end of the book.'),
+        's5': ('Alldescriptions', 'All descriptions of hospitals and lazarettos have also been omitted, but his description of his own experience of quarantine has been retained, for its intrinsic interest. '),
+        's6': ('Someobservations', 'Some observations on schools and education, which appear in the Lazaretto volume, also seemed too interesting to be omitted.'),
+    },
+    6: {
+        's2': ('THE distress ofprisoners', 'THE distress of prisoners, of which there are few who have not some imperfect idea, came more immediately under my notice when I was sheriff of the county of Bedford; and the circumstance which excited me to activity in their behalf was, the seeing, some—who by the verdict of juries were declared not guilty; some—on whom the grand jury did not find such an appearance of guilt as subjected them to trial; and some—whose prosecutors did not appear against them;—after having been confined for months, dragged back to gaol, and locked up again till they should pay sundry fees to the gaoler, the clerk of assize, etc.'),
+        's3': ('In order toredress', 'In order to redress this hardship, I applied to the justices of the county for a salary to the gaoler in lieu of his fees. The bench were properly affected with the grievance, and willing to grant the relief desired: but they wanted a precedent for charging the county with the expense. I therefore rode into several neighbouring counties in search of one; but I soon learned that the same injustice was practised in them; and looking into the prisons, I beheld scenes of calamity, which I grew daily more and more anxious to alleviate. In order therefore to gain a more perfect knowledge of the particulars and extent of it, by various and accurate observation, I visited most of the county gaols in England.'),
+        's4': ('Seeingin two or three', 'Seeing in two or three of them some poor creatures whose aspect was singularly deplorable, and asking the cause of it, the answer was, “they were lately brought from the bridewells.”'),
+        's5': ('This started a fresh', 'This started a fresh subject of inquiry. I resolved to inspect the bridewells: and for that purpose travelled again into the counties where I had been; and, indeed into all the rest; examining houses of correction, city and town gaols. I beheld in many of them, as well as in the county gaols, a complication of distress; but my attention was principally fixed by the gaol-fever and the smallpox, which I saw prevailing to the'),
+    },
+    164: {
+        's0': ('Allrightsreserved', 'All rights reserved\nMade in Great Britain\nat The Temple Press Letchworth\nand decorated by Eric Ravilious\nfor\nJ. M. Dent & Sons Ltd.'),
+        's1': ('AldineHouseBedfordSt', 'Aldine House Bedford St. London\nFirst Published in this Edition 1929'),
+        's3': ("EDITOR'S INTRODUCTION", "EDITOR’S INTRODUCTION\t9"),
+        's5': ("ix EDITOR'S NOTE", 'EDITOR’S NOTE\t17\nINTRODUCTION\t19\nSECTION\nI. GENERAL VIEW OF DISTRESS IN PRISONS\t1\nII. BAD CUSTOMS IN PRISONS\t11\nIII. PROPOSED IMPROVEMENTS IN THE STRUCTURE AND MANAGEMENT OF PRISONS\t19\nIV. AN ACCOUNT OF FOREIGN PRISONS\t46\nV. PRISONERS OF WAR IN ENGLAND\t142\nVI. SCOTCH AND IRISH PRISONS\t147\nVII. A PARTICULAR ACCOUNT OF ENGLISH PRISONS\t157\nLondon, Home Circuit, Norfolk Circuit, Midland Circuit, Oxford Circuit, Western Circuit, Northern Circuit, Chester Circuit, North Wales Circuit, South Wales Circuit\nQUARANTINE IN VENICE (From An Account of Lazarettos)\t244\nREMARKS ON CHARTER SCHOOLS (From An Account of Lazarettos)\t246\nHULKS ON THE THAMES\t252\nTHE HULK AT PLYMOUTH\t254\nTHE HULK AT GOSPORT\t255\nTHE HULKS NEAR PORTSMOUTH\t255\nREMARKS ON THE GAOL-FEVER\t258\nREMARKS ON PENITENTIARY HOUSES\t260\nCONCLUSION (To The State of the Prisons)\t267\nCONCLUSION (To the Account of Lazarettos)\t268\nTABLES\t276\nNOTES\t293\nINDEX\t299'),
+    },
+    162: {
+        's0': ("This is No.835", 'This is No. 835 of Everyman’s Library. A list of authors and their works in this series will be found at the end of this volume. The publishers will be pleased to send freely to all applicants a separate, annotated list of the Library.\n\nJ. M. DENT & SONS LIMITED\n10–13 BEDFORD STREET LONDON W.C.2\n\nE. P. DUTTON & CO. INC.\n286–302 FOURTH AVENUE\nNEW YORK'),
+        's1': ("y.A EVERYMAN'SLIBRARY", 'EVERYMAN’S LIBRARY\nEDITED BY ERNEST RHYS\n\nSCIENCE\n\nTHE STATE OF THE PRISONS\nBY JOHN HOWARD · INTRO-\nDUCTION BY KENNETH RUCK'),
+    },
+}
+
+# Full sequential proofread of printed pages 4–15. Keep the original prefix
+# guards when merging so that changed OCR segmentation cannot misapply text.
+for _spread, _segments in VERIFIED_PROSE.items():
+    VERIFIED_SEGMENTS.setdefault(_spread, {}).update(_segments)
