@@ -18,9 +18,18 @@ def sentences(p:str):
     return [s for s in parts if s.strip()]
 
 def main():
-    from transformers import pipeline
+    import torch
+    from transformers import MarianMTModel, MarianTokenizer
+    name='Helsinki-NLP/opus-mt-en-ru'
     print('loading model',flush=True)
-    pipe=pipeline('translation',model='Helsinki-NLP/opus-mt-en-ru',tokenizer='Helsinki-NLP/opus-mt-en-ru',device=-1)
+    tok=MarianTokenizer.from_pretrained(name)
+    model=MarianMTModel.from_pretrained(name)
+    model.eval()
+    def translate_batch(batch):
+        with torch.no_grad():
+            inputs=tok(batch,return_tensors='pt',padding=True,truncation=True,max_length=512)
+            gen=model.generate(**inputs,num_beams=4,max_length=512)
+        return tok.batch_decode(gen,skip_special_tokens=True)
     src=json.loads(SRC.read_text())
     out={};stats={}
     for n in range(1,166):
@@ -33,8 +42,7 @@ def main():
             for i in range(0,len(ss),8):
                 batch=ss[i:i+8]
                 try:
-                    res=pipe(batch,max_length=512,truncation=True)
-                    tt.extend(r['translation_text'] for r in res)
+                    tt.extend(translate_batch(batch))
                 except Exception as e:
                     print('error',n,e,flush=True)
                     tt.extend(batch)
