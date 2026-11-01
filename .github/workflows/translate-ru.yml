@@ -1,12 +1,6 @@
 name: Build Russian translation draft
 on:
   workflow_dispatch:
-  push:
-    branches: [arena/2bdaeaa2-govard-book]
-    paths:
-      - 'translation_sources/clean-source.json'
-      - 'tools/translate_opus.py'
-      - '.github/workflows/translate-ru.yml'
 permissions:
   contents: write
   issues: write

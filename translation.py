@@ -30,6 +30,13 @@ MAX_TRANSLATION_CHARS = 50000
 BASE_TRANSLATIONS = {}
 for _part in (FRONT, CORE, CORE2, TABLES, SPREADS_007_009, TABLES2):
     BASE_TRANSLATIONS.update(_part)
+MANUAL_SPREADS = set(BASE_TRANSLATIONS)
+try:
+    from ru_translations_opus import TRANSLATIONS as OPUS
+except ImportError:  # the CI draft may not have been generated yet
+    OPUS = {}
+WORKING_SPREADS = set(OPUS) - MANUAL_SPREADS
+BASE_TRANSLATIONS = {**OPUS, **BASE_TRANSLATIONS}
 
 
 def load_edits():
@@ -90,7 +97,8 @@ def translation_state(number, edits=None):
     if user:
         return text, 'ваш перевод', True
     if text:
-        return text, 'перевод подготовлен', False
+        status = 'рабочий перевод' if number in WORKING_SPREADS else 'перевод подготовлен'
+        return text, status, False
     return '', 'перевод готовится', False
 
 
@@ -215,7 +223,12 @@ def panel(number, query='', english_verified=False, edits=None):
             f'В таблицах разделяйте ячейки табуляцией, строки — переносом строки.</p>'
             f'<button class="button primary" type="submit">Сохранить перевод</button>'
             f'</form></details>')
-    coverage = f'Подготовлено переводов: {len(BASE_TRANSLATIONS)} из 165 разворотов. Это частичный перевод книги.'
+    if len(BASE_TRANSLATIONS) >= 165:
+        coverage = (f'Перевод есть для всех 165 разворотов. {len(WORKING_SPREADS)} разворотов — '
+                    'рабочий машинный перевод, требующий редакторской вычитки; '
+                    f'{len(MANUAL_SPREADS)} разворотов подготовлены вручную.')
+    else:
+        coverage = f'Подготовлено переводов: {len(BASE_TRANSLATIONS)} из 165 разворотов. Это частичный перевод книги.'
     return (f'<section class="panel translation-panel" id="translation"><div class="panel-header">'
             f'<span class="panel-title">Русский перевод</span><span class="panel-subtitle">{escape(status)}</span></div>'
             f'{body}{context_notes_html(number)}<div class="translation-tools">{edit}'

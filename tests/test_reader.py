@@ -532,8 +532,9 @@ class TranslationTests(unittest.TestCase):
         self.assertIn('Русский перевод', html)
         self.assertIn('ОБЗОР БЕДСТВИЙ В ТЮРЬМАХ', html)
         self.assertLess(html.index('id="editable-book"'), html.index('id="translation"'))
-        missing = reader.reader_page(21)
-        self.assertIn('перевод готовится', missing)
+        working = reader.reader_page(21)
+        self.assertIn('рабочий перевод', working)
+        self.assertIn('Русский перевод', working)
 
     def test_translation_override_and_restore(self):
         saved = translation.load_edits()
@@ -580,18 +581,18 @@ class TranslationTests(unittest.TestCase):
                         cell=cell.strip().replace(' ','').replace(',','')
                         if re.fullmatch(r'[0-9]+',cell) and cell not in ('1779','1782','1783'): values.append(cell)
             return values
-        for number, ru in translation.BASE_TRANSLATIONS.items():
+        for number, ru in ((n,translation.BASE_TRANSLATIONS[n]) for n in translation.MANUAL_SPREADS):
             en='\n\n'.join(reader.segment_state(number)[1].values())
             if number==2:
                 en='\n'.join(name+'\t'+miles for name,miles in reader.TABLE_2_ROWS)
             self.assertEqual(numeric_cells(en),numeric_cells(ru),number)
 
     def test_translation_coverage_footnotes_and_source_status_are_explicit(self):
-        self.assertEqual(len(translation.BASE_TRANSLATIONS),26)
+        self.assertEqual(len(translation.BASE_TRANSLATIONS),165)
         panel=translation.panel(1,english_verified=False)
-        self.assertIn('частичный перевод книги',panel)
+        self.assertIn('всех 165',panel)
         self.assertIn('черновому английскому тексту',panel)
-        self.assertIn('26 из 165',panel)
+        self.assertIn('рабочий машинный перевод',panel)
         self.assertIn('footnote-continuation',reader.reader_page(20))
         self.assertIn('[Сноска 1, продолжение]',translation.BASE_TRANSLATIONS[20])
         self.assertIn('тисками для больших пальцев',translation.BASE_TRANSLATIONS[16])
