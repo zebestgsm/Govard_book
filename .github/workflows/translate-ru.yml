@@ -27,6 +27,17 @@ jobs:
         run: |
           set -o pipefail
           python tools/translate_opus.py 2>&1 | tee translate.log
+      - name: Post diagnostic log to PR
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -f translate.log ]; then
+            head -c 60000 translate.log > translate-log-excerpt.txt
+            jq -Rs '{body: ("CI translation log:\n```\n" + . + "\n```")}' translate-log-excerpt.txt > comment.json
+            curl -fsSL -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/issues/2/comments" -d @comment.json || true
+          fi
       - name: Commit diagnostics and any partial output
         if: always()
         run: |
