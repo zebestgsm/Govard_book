@@ -20,7 +20,7 @@ def sentences(p:str):
 def main():
     from transformers import pipeline
     print('loading model',flush=True)
-    pipe=pipeline('translation_en_to_ru',model='Helsinki-NLP/opus-mt-en-ru',device=-1)
+    pipe=pipeline('translation',model='Helsinki-NLP/opus-mt-en-ru',tokenizer='Helsinki-NLP/opus-mt-en-ru',device=-1)
     src=json.loads(SRC.read_text())
     out={};stats={}
     for n in range(1,166):
@@ -46,4 +46,8 @@ def main():
         (ROOT/'translation_sources'/'ru-opus-stats.json').write_text(json.dumps(stats,ensure_ascii=False))
         print(n,ns,stats[str(n)]['seconds'],flush=True)
     print('done',len(out),flush=True)
-if __name__=='__main__':main()
+if __name__=='__main__':
+    try:
+        main()
+    except Exception:
+        import traceback;traceback.print_exc();raise

@@ -19,6 +19,8 @@ from ru_translations_front import TRANSLATIONS as FRONT
 from ru_translations_core import TRANSLATIONS as CORE
 from ru_translations_core2 import TRANSLATIONS as CORE2
 from ru_translations_tables import TRANSLATIONS as TABLES
+from ru_translations_007_009 import TRANSLATIONS as SPREADS_007_009
+from ru_translations_tables2 import TRANSLATIONS as TABLES2
 import ru_context
 
 ROOT = Path(__file__).resolve().parent
@@ -26,7 +28,7 @@ EDITS_FILE = ROOT / 'translation_edits.json'
 MAX_TRANSLATION_CHARS = 50000
 
 BASE_TRANSLATIONS = {}
-for _part in (FRONT, CORE, CORE2, TABLES):
+for _part in (FRONT, CORE, CORE2, TABLES, SPREADS_007_009, TABLES2):
     BASE_TRANSLATIONS.update(_part)
 
 

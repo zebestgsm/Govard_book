@@ -22,8 +22,18 @@ jobs:
           pip install torch --index-url https://download.pytorch.org/whl/cpu
           pip install transformers sentencepiece sacremoses
       - name: Translate recovered source
-        run: python tools/translate_opus.py
+        run: |
+          set -o pipefail
+          python tools/translate_opus.py 2>&1 | tee translate.log
+      - name: Upload translation log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: translate-log
+          path: translate.log
+          retention-days: 7
       - name: Upload translation artifact
+        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: ru-opus-translation
