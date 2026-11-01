@@ -9,6 +9,8 @@ on:
       - '.github/workflows/translate-ru.yml'
 permissions:
   contents: write
+  issues: write
+  pull-requests: write
 jobs:
   translate:
     runs-on: ubuntu-latest
@@ -32,12 +34,22 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if [ -f translate.log ]; then
-            head -c 60000 translate.log > translate-log-excerpt.txt
-            jq -Rs '{body: ("CI translation log:\n```\n" + . + "\n```")}' translate-log-excerpt.txt > comment.json
-            curl -fsSL -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
-              "https://api.github.com/repos/${{ github.repository }}/issues/2/comments" -d @comment.json || true
-          fi
+          python - <<'PY'
+          import json,os,urllib.request
+          try:
+              log=open('translate.log',encoding='utf-8',errors='replace').read()[:60000]
+          except FileNotFoundError:
+              log='translate.log was not created'
+          body='CI translation log:\n```\n'+log+'\n```'
+          req=urllib.request.Request(
+              'https://api.github.com/repos/'+os.environ['GITHUB_REPOSITORY']+'/issues/2/comments',
+              data=json.dumps({'body':body}).encode(),
+              headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','Content-Type':'application/json'})
+          try:
+              print(urllib.request.urlopen(req).status)
+          except Exception as e:
+              print('comment failed',e)
+          PY
       - name: Commit diagnostics and any partial output
         if: always()
         run: |
