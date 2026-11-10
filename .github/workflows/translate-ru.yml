@@ -1,0 +1,70 @@
+name: Build Russian translation draft
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install translation dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install "transformers==4.57.1" sentencepiece sacremoses
+      - name: Translate recovered source
+        run: |
+          set -o pipefail
+          python tools/translate_opus.py 2>&1 | tee translate.log
+      - name: Post diagnostic log to PR
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json,os,urllib.request
+          try:
+              log=open('translate.log',encoding='utf-8',errors='replace').read()[:60000]
+          except FileNotFoundError:
+              log='translate.log was not created'
+          body='CI translation log:\n```\n'+log+'\n```'
+          req=urllib.request.Request(
+              'https://api.github.com/repos/'+os.environ['GITHUB_REPOSITORY']+'/issues/2/comments',
+              data=json.dumps({'body':body}).encode(),
+              headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','Content-Type':'application/json'})
+          try:
+              print(urllib.request.urlopen(req).status)
+          except Exception as e:
+              print('comment failed',e)
+          PY
+      - name: Commit diagnostics and any partial output
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add translate.log translation_sources/ru-opus.json translation_sources/ru-opus-stats.json || true
+          git commit -m "CI translation diagnostics [skip ci]" || true
+          git push origin HEAD:${{ github.ref_name }} || true
+      - name: Upload translation log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: translate-log
+          path: translate.log
+          retention-days: 7
+      - name: Upload translation artifact
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ru-opus-translation
+          path: |
+            translation_sources/ru-opus.json
+            translation_sources/ru-opus-stats.json
+          retention-days: 14
