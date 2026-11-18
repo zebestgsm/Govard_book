@@ -1712,7 +1712,7 @@
       "segments": {},
       "history": [],
       "spread_review": {
-        "state": "ready",
+        "state": "working",
         "before": {
           "s0": "BAD CUSTOMS IN PRISONS",
           "s1": "We have further confirmation by the account from the Bristol society; who in their list published 31 May, 1775, have\n\nPersons discharged\t73\nwho had wives\t45\nand children\t120\nTotal\t238\n\nAnd I find by the account of the society for the discharge of persons imprisoned for small debts in Dublin, that a greater number of dependants are there assigned. For the number of persons discharged by the society from the institution on the\n\n15th of May 1775, to May 1782, was\t1134\nDependants on them\t3611\nTotal relieved\t4745\n\nEach of these totals is considerably larger than the respective products of multiplication by my rule: the first exceeds by 3062, the second by 19, and the last by 1343. There is indeed commonly a surplus among debtors; but a deficiency among felons, etc. reduces the average of dependants to that which I stated.\n\nIf then to the total number in England and Wales,\n\nthat is\t4084\nYou add twice that number of dependants\t8168\nThe number of the distressed is\t12,252\n\nIt appears from the foregoing table of prisoners, that their number has been greatly magnified by conjectural computations; but surely the real numbers, with those partaking of their distress, is an object worthy the further attention of the legislature.",
@@ -1765,28 +1765,47 @@
               "s6": "No condemned malefactor may be secretly put to death; nor murdered in a prison directly or indirectly; much less ought those to be destroyed there whose sentence does not affect their life. Their destruction is not only unjust; it is inconsistent with prudence and sound policy. They might, no doubt, be useful at home or abroad; if proper care were taken of them in prison, to keep them healthy and fit for labour. But certain it is, that many of those who survive their long confinement, are by it rendered incapable of working. Some of them by scorbutic distempers; others by their toes mortified, or quite rotted from their feet; many instances of which I have seen. Messrs. Stephenson and Randolf of Bristol, great contractors for transport convicts, complained of this to Mr. Biggs, gaoler at Salisbury, in their letter to him 13 September, 1774. I will transcribe their words. “Sore feet prove very fatal. The mortality we met with in our last ship, if repeated in this, will so surfeit us, that we shall never take another. We lost an immense sum by them; and our ship is detained to this moment under quarantine.”\n\nIf one who has turned king’s evidence, or has been barely",
               "s7": "¹ See Note B at end of book.\n\n² See Note C at end of book."
             }
+          },
+          {
+            "state": "ready",
+            "before": {
+              "s0": "BAD CUSTOMS IN PRISONS",
+              "s1": "We have further confirmation by the account from the Bristol society; who in their list published 31 May, 1775, have\n\nPersons discharged\t73\nwho had wives\t45\nand children\t120\nTotal\t238\n\nAnd I find by the account of the society for the discharge of persons imprisoned for small debts in Dublin, that a greater number of dependants are there assigned. For the number of persons discharged by the society from the institution on the\n\n15th of May 1775, to May 1782, was\t1134\nDependants on them\t3611\nTotal relieved\t4745\n\nEach of these totals is considerably larger than the respective products of multiplication by my rule: the first exceeds by 3062, the second by 19, and the last by 1343. There is indeed commonly a surplus among debtors; but a deficiency among felons, etc. reduces the average of dependants to that which I stated.\n\nIf then to the total number in England and Wales,\n\nthat is\t4084\nYou add twice that number of dependants\t8168\nThe number of the distressed is\t12,252\n\nIt appears from the foregoing table of prisoners, that their number has been greatly magnified by conjectural computations; but surely the real numbers, with those partaking of their distress, is an object worthy the further attention of the legislature.",
+              "s2": "SECTION III",
+              "s3": "PROPOSED IMPROVEMENTS¹ IN THE STRUCTURE",
+              "s4": "AND MANAGEMENT OF PRISONS",
+              "s5": "However sanguinary the wish of an angry creditor may be when he arrests and imprisons his debtor; there is no doubt but every one who listens, not to his passions, but to reason, must know and will own, that it is a flagrant crime to take away the life of a man for debt. And as to felony, a gaol is not designed for the final punishment even of that; but for the safe custody of the accused to the time of trial, and of convicts² till a legal sentence can be executed upon them. “Humane treatment debtors have a claim to; nor can we consistently with any good principle, either of morals or government, refuse the same to persons accused, or even to the most atrocious convicts.”—Principles of Penal Law, p. 52. The laws of England do not suffer private executions.",
+              "s6": "No condemned malefactor may be secretly put to death; nor murdered in a prison directly or indirectly; much less ought those to be destroyed there whose sentence does not affect their life. Their destruction is not only unjust; it is inconsistent with prudence and sound policy. They might, no doubt, be useful at home or abroad; if proper care were taken of them in prison, to keep them healthy and fit for labour. But certain it is, that many of those who survive their long confinement, are by it rendered incapable of working. Some of them by scorbutic distempers; others by their toes mortified, or quite rotted from their feet; many instances of which I have seen. Messrs. Stephenson and Randolf of Bristol, great contractors for transport convicts, complained of this to Mr. Biggs, gaoler at Salisbury, in their letter to him 13 September, 1774. I will transcribe their words. “Sore feet prove very fatal. The mortality we met with in our last ship, if repeated in this, will so surfeit us, that we shall never take another. We lost an immense sum by them; and our ship is detained to this moment under quarantine.”\n\nIf one who has turned king’s evidence, or has been barely",
+              "s7": "¹ See Note B at end of book.\n\n² See Note C at end of book."
+            },
+            "events": [
+              {
+                "action": "start",
+                "time": "2026-11-18T10:19:47+00:00"
+              },
+              {
+                "action": "finish",
+                "time": "2026-11-18T10:20:48+00:00"
+              }
+            ],
+            "after": {
+              "s0": "BAD CUSTOMS IN PRISONS",
+              "s1": "We have further confirmation by the account from the Bristol society; who in their list published 31 May, 1775, have\n\nPersons discharged\t73\nwho had wives\t45\nand children\t120\nTotal\t238\n\nAnd I find by the account of the society for the discharge of persons imprisoned for small debts in Dublin, that a greater number of dependants are there assigned. For the number of persons discharged by the society from the institution on the\n\n15th of May 1775, to May 1782, was\t1134\nDependants on them\t3611\nTotal relieved\t4745\n\nEach of these totals is considerably larger than the respective products of multiplication by my rule: the first exceeds by 3062, the second by 19, and the last by 1343. There is indeed commonly a surplus among debtors; but a deficiency among felons, etc. reduces the average of dependants to that which I stated.\n\nIf then to the total number in England and Wales,\n\nthat is\t4084\nYou add twice that number of dependants\t8168\nThe number of the distressed is\t12,252\n\nIt appears from the foregoing table of prisoners, that their number has been greatly magnified by conjectural computations; but surely the real numbers, with those partaking of their distress, is an object worthy the further attention of the legislature.",
+              "s2": "SECTION III",
+              "s3": "PROPOSED IMPROVEMENTS¹ IN THE STRUCTURE",
+              "s4": "AND MANAGEMENT OF PRISONS",
+              "s5": "However sanguinary the wish of an angry creditor may be when he arrests and imprisons his debtor; there is no doubt but every one who listens, not to his passions, but to reason, must know and will own, that it is a flagrant crime to take away the life of a man for debt. And as to felony, a gaol is not designed for the final punishment even of that; but for the safe custody of the accused to the time of trial, and of convicts² till a legal sentence can be executed upon them. “Humane treatment debtors have a claim to; nor can we consistently with any good principle, either of morals or government, refuse the same to persons accused, or even to the most atrocious convicts.”—Principles of Penal Law, p. 52. The laws of England do not suffer private executions.",
+              "s6": "No condemned malefactor may be secretly put to death; nor murdered in a prison directly or indirectly; much less ought those to be destroyed there whose sentence does not affect their life. Their destruction is not only unjust; it is inconsistent with prudence and sound policy. They might, no doubt, be useful at home or abroad; if proper care were taken of them in prison, to keep them healthy and fit for labour. But certain it is, that many of those who survive their long confinement, are by it rendered incapable of working. Some of them by scorbutic distempers; others by their toes mortified, or quite rotted from their feet; many instances of which I have seen. Messrs. Stephenson and Randolf of Bristol, great contractors for transport convicts, complained of this to Mr. Biggs, gaoler at Salisbury, in their letter to him 13 September, 1774. I will transcribe their words. “Sore feet prove very fatal. The mortality we met with in our last ship, if repeated in this, will so surfeit us, that we shall never take another. We lost an immense sum by them; and our ship is detained to this moment under quarantine.”\n\nIf one who has turned king’s evidence, or has been barely",
+              "s7": "¹ See Note B at end of book.\n\n² See Note C at end of book."
+            }
           }
         ],
         "events": [
           {
             "action": "start",
-            "time": "2026-11-18T10:19:47+00:00"
-          },
-          {
-            "action": "finish",
-            "time": "2026-11-18T10:20:48+00:00"
+            "time": "2026-11-18T10:23:34+00:00"
           }
-        ],
-        "after": {
-          "s0": "BAD CUSTOMS IN PRISONS",
-          "s1": "We have further confirmation by the account from the Bristol society; who in their list published 31 May, 1775, have\n\nPersons discharged\t73\nwho had wives\t45\nand children\t120\nTotal\t238\n\nAnd I find by the account of the society for the discharge of persons imprisoned for small debts in Dublin, that a greater number of dependants are there assigned. For the number of persons discharged by the society from the institution on the\n\n15th of May 1775, to May 1782, was\t1134\nDependants on them\t3611\nTotal relieved\t4745\n\nEach of these totals is considerably larger than the respective products of multiplication by my rule: the first exceeds by 3062, the second by 19, and the last by 1343. There is indeed commonly a surplus among debtors; but a deficiency among felons, etc. reduces the average of dependants to that which I stated.\n\nIf then to the total number in England and Wales,\n\nthat is\t4084\nYou add twice that number of dependants\t8168\nThe number of the distressed is\t12,252\n\nIt appears from the foregoing table of prisoners, that their number has been greatly magnified by conjectural computations; but surely the real numbers, with those partaking of their distress, is an object worthy the further attention of the legislature.",
-          "s2": "SECTION III",
-          "s3": "PROPOSED IMPROVEMENTS¹ IN THE STRUCTURE",
-          "s4": "AND MANAGEMENT OF PRISONS",
-          "s5": "However sanguinary the wish of an angry creditor may be when he arrests and imprisons his debtor; there is no doubt but every one who listens, not to his passions, but to reason, must know and will own, that it is a flagrant crime to take away the life of a man for debt. And as to felony, a gaol is not designed for the final punishment even of that; but for the safe custody of the accused to the time of trial, and of convicts² till a legal sentence can be executed upon them. “Humane treatment debtors have a claim to; nor can we consistently with any good principle, either of morals or government, refuse the same to persons accused, or even to the most atrocious convicts.”—Principles of Penal Law, p. 52. The laws of England do not suffer private executions.",
-          "s6": "No condemned malefactor may be secretly put to death; nor murdered in a prison directly or indirectly; much less ought those to be destroyed there whose sentence does not affect their life. Their destruction is not only unjust; it is inconsistent with prudence and sound policy. They might, no doubt, be useful at home or abroad; if proper care were taken of them in prison, to keep them healthy and fit for labour. But certain it is, that many of those who survive their long confinement, are by it rendered incapable of working. Some of them by scorbutic distempers; others by their toes mortified, or quite rotted from their feet; many instances of which I have seen. Messrs. Stephenson and Randolf of Bristol, great contractors for transport convicts, complained of this to Mr. Biggs, gaoler at Salisbury, in their letter to him 13 September, 1774. I will transcribe their words. “Sore feet prove very fatal. The mortality we met with in our last ship, if repeated in this, will so surfeit us, that we shall never take another. We lost an immense sum by them; and our ship is detained to this moment under quarantine.”\n\nIf one who has turned king’s evidence, or has been barely",
-          "s7": "¹ See Note B at end of book.\n\n² See Note C at end of book."
-        }
+        ]
       }
     },
     "15": {
