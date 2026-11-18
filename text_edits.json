@@ -1871,8 +1871,18 @@
       }
     },
     "18": {
-      "segments": {},
-      "history": [],
+      "segments": {
+        "s2": "SITUATION\n\nA county gaol, and indeed every prison, should be built on a spot that is airy, and if possible near a river, or brook. I have commonly found prisons situated near a river, the cleanest and most healthy. They generally have not (they could not well have) subterraneous dungeons, which have been so fatal to thousands: and by their nearness to running water, another evil, almost as noxious, is prevented, that is the stench of sewers."
+      },
+      "history": [
+        {
+          "id": "s2",
+          "before": "A county gaol, and indeed every prison, should be built on a spot that is airy, and if possible near a river, or brook. I have commonly found prisons situated near a river, the cleanest and most healthy. They generally have not (they could not well have) subterraneous dungeons, which have been so fatal to thousands: and by their nearness to running water, another evil, almost as noxious, is prevented, that is the stench of sewers.",
+          "after": "SITUATION\n\nA county gaol, and indeed every prison, should be built on a spot that is airy, and if possible near a river, or brook. I have commonly found prisons situated near a river, the cleanest and most healthy. They generally have not (they could not well have) subterraneous dungeons, which have been so fatal to thousands: and by their nearness to running water, another evil, almost as noxious, is prevented, that is the stench of sewers.",
+          "time": "2026-11-18T10:28:44+00:00",
+          "kind": "edit"
+        }
+      ],
       "spread_review": {
         "state": "working",
         "before": {
