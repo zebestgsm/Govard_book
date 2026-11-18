@@ -246,6 +246,7 @@ STYLE = '''
 /* In-place editing keeps the book and its scan visible side by side. */
 .edit-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.edit-status{font:12px/1.5 Arial,sans-serif;color:#52664f;margin:10px 15px;padding:10px 12px;background:#eff5ea;border-radius:5px}.is-editing [data-edit-id]{outline:1px dashed #a1b49b;outline-offset:3px;cursor:text;white-space:pre-wrap}.is-editing [data-edit-id]:empty{display:block;min-height:1.4em}.is-editing [data-edit-id]:empty:before{content:"Пустой фрагмент — нажмите, чтобы добавить текст";color:#999;font:12px Arial,sans-serif}.is-editing [data-edit-id]:focus{outline:2px solid #52664f;background:#f5faef;border-radius:2px}.button[hidden],.edit-status[hidden]{display:none}.button:disabled{opacity:.5;cursor:not-allowed}.history-item{margin-bottom:14px}.history-values{display:grid;grid-template-columns:1fr 1fr;gap:12px}.history-text{font:15px/1.6 Georgia,serif;white-space:pre-wrap;overflow-wrap:anywhere;background:#f6f5ef;padding:12px;border-radius:5px}.history-text strong{display:block;font:600 10px Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#777;margin-bottom:8px}@media(max-width:700px){.history-values{grid-template-columns:1fr}}
 .history-review{border-top:1px solid var(--line);margin-top:15px;padding-top:8px}.history-review form{display:flex;flex-wrap:wrap;gap:8px}.history-review .button[disabled]{opacity:.6;cursor:default}
+.spread-review{background:#fffefa;border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin:0 0 16px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;font-size:13px}.spread-review form{display:flex;flex-wrap:wrap;gap:8px}.spread-review .small{flex-basis:100%;margin:0}.spread-review details{flex-basis:100%}.spread-review summary{cursor:pointer;color:var(--green)}.spread-review .button:disabled{opacity:.45;cursor:not-allowed}
 /* Second-pass OCR review */
 .review-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.9fr);gap:15px;align-items:start}.review-list{min-width:0}.review-card{padding:18px 20px;margin-bottom:10px;background:var(--paper);border:1px solid var(--line);border-radius:8px}.review-top{display:flex;align-items:center;justify-content:space-between;gap:12px;font:11px Arial,sans-serif;color:var(--muted)}.review-comparison{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}.review-word{background:#f5f4ee;padding:11px;overflow-wrap:anywhere;font:16px/1.45 Georgia,serif}.review-word small{display:block;font:10px Arial,sans-serif;text-transform:uppercase;color:var(--muted);margin-bottom:7px}.review-context{font:14px/1.6 Georgia,serif;color:#62635a}.review-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.review-actions form{margin:0}.review-scan{position:sticky;top:8px}.review-summary{display:flex;gap:15px;flex-wrap:wrap;font:12px Arial,sans-serif;color:var(--muted);margin:14px 0}.review-state{font:12px Arial,sans-serif;color:var(--green)}.ocr-flags{padding-left:20px}.ocr-flags li{font:12px/1.5 Arial,sans-serif;margin:0 0 14px}.ocr-flags p{font:14px/1.5 Georgia,serif;margin:5px 0;color:#555}.editor-card summary{cursor:pointer;font-size:13px;color:var(--green)}@media(max-width:1050px){.review-layout{grid-template-columns:1fr}.review-scan{position:static;order:-1}}@media(max-width:600px){.review-comparison{grid-template-columns:1fr}}
 /* Accessible, explicit word-replacement editor. */
@@ -617,11 +618,39 @@ def history_page(number, message=''):
     return shell(content, number)
 
 
+def spread_review_panel(number):
+    with _CORRECTIONS_LOCK:
+        data = inline_editor.load_edits()
+        review = data['spreads'].get(str(number), {}).get('spread_review', {})
+    state = review.get('state', 'unreviewed')
+    labels = {'unreviewed': 'Решение ещё не поставлено', 'working': 'Сверка в работе',
+              'ready': 'Сверка завершена — ожидает вашего решения',
+              'accepted': 'Вы приняли исправления', 'needs_work': 'Требует продолжения исправлений',
+              'restored': 'Возвращён текст до последней сверки'}
+    token = history_review_token(review)
+    actions = [('accept', 'Принять', state == 'working'),
+               ('needs_work', 'Доработать', state == 'working'),
+               ('restore', 'Вернуть предыдущее', not (isinstance(review.get('before'), dict) and isinstance(review.get('after'), dict) and state in ('ready', 'accepted', 'needs_work')))]
+    buttons = ''.join(f'<button class="button" type="submit" name="action" value="{action}"' + (' disabled' if disabled else '') + (' onclick="return confirm(&quot;Вернуть текст до последней сверки?&quot;)"' if action == 'restore' else '') + f'>{label}</button>' for action, label, disabled in actions)
+    workflow_action = ('finish', 'Завершить сверку') if state == 'working' else ('start', 'Начать новую сверку')
+    return (f'<section class="spread-review" id="spread-review"><strong>Решение по развороту</strong>'
+            f'<span role="status">{escape(labels.get(state, "Неизвестный статус"))}</span>'
+            f'<form method="post" action="/spread-review/{number}"><input type="hidden" name="token" value="{token}">{buttons}</form>'
+            '<p class="small">«Доработать» добавляет разворот в список для продолжения работы. '
+            '«Вернуть предыдущее» восстанавливает текст до последней сверки, если снимок был сохранён и исправленные фрагменты с тех пор не менялись. Решения не меняют перевод или скан.</p>'
+            f'<details><summary>Управление сверкой</summary><form method="post" action="/spread-review/{number}">'
+            f'<input type="hidden" name="token" value="{token}"><button class="button" type="submit" name="action" value="{workflow_action[0]}">{workflow_action[1]}</button></form>'
+            '<p class="small">Перед работой сохраняется снимок текста; после завершения сверки появляется возможность вернуть его. Для прежних сверок снимок автоматически не создаётся.</p></details></section>')
+
+
 def followup_page():
     with _CORRECTIONS_LOCK:
         saved = inline_editor.load_edits()
     items = []
     for number in range(1, len(PAGES) + 1):
+        review = saved['spreads'].get(str(number), {}).get('spread_review', {})
+        if review.get('state') == 'needs_work':
+            items.append(f'<div class="result"><strong>Разворот {number:03} · требуется доработка</strong><p>Вы попросили продолжить сверку разворота.</p><a class="button" href="/spread/{number}#spread-review">Открыть разворот</a></div>')
         entries = saved['spreads'].get(str(number), {}).get('history', [])
         for index, entry in enumerate(entries):
             if entry.get('review_decision') != 'rejected':
@@ -669,9 +698,10 @@ def _reader_page(number, query=''):
     pilot_link = f'<a class="button" href="/review/{number}">Проверка OCR</a>' if has_review(number) else ''
     omissions_link = f'<a class="button" href="/omissions/{number}">Возможные пропуски</a>'
     translation_panel = translation.panel(number, query, english_verified=number in VERIFIED_SPREADS)
+    spread_decision = spread_review_panel(number)
     content = f'''<div class="heading-row"><div><span class="eyebrow">Режим чтения</span><h2>Книжный разворот</h2><p>Читайте разворот слева и сверяйте его со сканом справа.</p>{badge}</div><div class="top-actions edit-actions"><button type="button" id="edit-toggle" class="button primary">✎ Редактировать текст</button><button type="button" id="edit-save" class="button primary" hidden>Сохранить</button><button type="button" id="edit-cancel" class="button" hidden>Отмена</button><a class="button" href="/history/{number}">История правок</a>{pilot_link}{omissions_link}<a class="button" href="#translation">Русский перевод</a><a class="button" href="#original-scan">К скану</a><a class="button" href="{scan}" target="_blank" rel="noopener">Открыть PDF ↗</a></div></div>
 <nav class="nav" aria-label="Перелистывание"><div class="nav-group">{prev}{next_}</div><span class="muted">Разворот {number:03} / {len(PAGES)}</span></nav>
-<p id="edit-status" class="edit-status" role="status" aria-live="polite" hidden></p><noscript><p class="notice">Для редактирования прямо в тексте включите JavaScript или используйте <a href="/edit/{number}"><u>замену слов</u></a>.</p></noscript><div class="reader"><section class="panel"><div class="panel-header"><span class="panel-title">Распознанный текст</span><span class="panel-subtitle">{text_status}</span></div>{page_notice}<div class="book-text" id="editable-book" data-spread="{number}" lang="en">{paragraphs}</div></section><section class="panel scan-panel" id="original-scan"><div class="panel-header"><span class="panel-title">{source_label}</span><span class="panel-subtitle">{escape(filename) if not replacement else "замена"}</span></div><div class="scan-zoom-toolbar" id="scan-zoom-toolbar" role="group" aria-label="Масштаб скана" hidden><button class="button" type="button" id="scan-zoom-out" aria-label="Уменьшить скан">−</button><output id="scan-zoom-level" aria-live="polite">100%</output><button class="button" type="button" id="scan-zoom-in" aria-label="Увеличить скан">+</button><button class="button" type="button" id="scan-zoom-reset">По ширине</button><span class="scan-zoom-hint">Прокручивайте увеличенный скан</span></div><div class="scan-wrap scan-zoom-viewport" id="scan-zoom-viewport" tabindex="0" aria-label="Скан: прокручиваемая область"><a id="scan-zoom-link" href="{image_url}&amp;detail=1" target="_blank" rel="noopener" title="Открыть скан на весь экран рабочей области"><img class="scan-frame scan-zoom-image" id="scan-zoom-image" src="{image_url}" data-detail-src="{image_url}&amp;detail=1" alt="Скан разворота {number}." loading="lazy"></a></div>{scan_controls}<p class="scan-fallback">Нажмите на скан, чтобы открыть его на всю рабочую область · <a href="{image_url}&amp;detail=1" target="_blank" rel="noopener"><u>Открыть скан отдельно ↗</u></a> · <a href="{scan}" target="_blank" rel="noopener"><u>Открыть оригинальный PDF ↗</u></a></p></section></div><section class="scan-fullscreen" id="scan-fullscreen" role="dialog" aria-modal="true" aria-labelledby="scan-fullscreen-title" hidden><div class="scan-fullscreen-bar"><span id="scan-fullscreen-title" class="scan-fullscreen-title">Скан · разворот {number:03}</span><button class="button" type="button" id="scan-fullscreen-out" aria-label="Уменьшить скан">−</button><output id="scan-fullscreen-level" aria-live="polite">100%</output><button class="button" type="button" id="scan-fullscreen-in" aria-label="Увеличить скан">+</button><button class="button" type="button" id="scan-fullscreen-fit">Вместить</button><span class="scan-fullscreen-help">Прокручивайте изображение · Esc — закрыть</span><button class="button" type="button" id="scan-fullscreen-close">Закрыть ✕</button></div><div class="scan-fullscreen-view" id="scan-fullscreen-view" tabindex="0" aria-label="Увеличенный скан, прокручиваемая область"><div class="scan-fullscreen-stage"><img id="scan-fullscreen-image" class="scan-fullscreen-image" alt="Скан разворота {number}" draggable="false"></div></div></section>{translation_panel}<nav class="nav bottom-nav" aria-label="Перелистывание в конце"><div class="nav-group">{prev}{next_}</div><a href="#top" class="muted">↑ В начало</a></nav><p class="notice book-note">{text_note} Скан показан рядом для сверки; на узких экранах — ниже. Номера страниц вводной части переведены из римских цифр в арабские; границы по OCR могут быть неточными.</p>'''
+{spread_decision}<p id="edit-status" class="edit-status" role="status" aria-live="polite" hidden></p><noscript><p class="notice">Для редактирования прямо в тексте включите JavaScript или используйте <a href="/edit/{number}"><u>замену слов</u></a>.</p></noscript><div class="reader"><section class="panel"><div class="panel-header"><span class="panel-title">Распознанный текст</span><span class="panel-subtitle">{text_status}</span></div>{page_notice}<div class="book-text" id="editable-book" data-spread="{number}" lang="en">{paragraphs}</div></section><section class="panel scan-panel" id="original-scan"><div class="panel-header"><span class="panel-title">{source_label}</span><span class="panel-subtitle">{escape(filename) if not replacement else "замена"}</span></div><div class="scan-zoom-toolbar" id="scan-zoom-toolbar" role="group" aria-label="Масштаб скана" hidden><button class="button" type="button" id="scan-zoom-out" aria-label="Уменьшить скан">−</button><output id="scan-zoom-level" aria-live="polite">100%</output><button class="button" type="button" id="scan-zoom-in" aria-label="Увеличить скан">+</button><button class="button" type="button" id="scan-zoom-reset">По ширине</button><span class="scan-zoom-hint">Прокручивайте увеличенный скан</span></div><div class="scan-wrap scan-zoom-viewport" id="scan-zoom-viewport" tabindex="0" aria-label="Скан: прокручиваемая область"><a id="scan-zoom-link" href="{image_url}&amp;detail=1" target="_blank" rel="noopener" title="Открыть скан на весь экран рабочей области"><img class="scan-frame scan-zoom-image" id="scan-zoom-image" src="{image_url}" data-detail-src="{image_url}&amp;detail=1" alt="Скан разворота {number}." loading="lazy"></a></div>{scan_controls}<p class="scan-fallback">Нажмите на скан, чтобы открыть его на всю рабочую область · <a href="{image_url}&amp;detail=1" target="_blank" rel="noopener"><u>Открыть скан отдельно ↗</u></a> · <a href="{scan}" target="_blank" rel="noopener"><u>Открыть оригинальный PDF ↗</u></a></p></section></div><section class="scan-fullscreen" id="scan-fullscreen" role="dialog" aria-modal="true" aria-labelledby="scan-fullscreen-title" hidden><div class="scan-fullscreen-bar"><span id="scan-fullscreen-title" class="scan-fullscreen-title">Скан · разворот {number:03}</span><button class="button" type="button" id="scan-fullscreen-out" aria-label="Уменьшить скан">−</button><output id="scan-fullscreen-level" aria-live="polite">100%</output><button class="button" type="button" id="scan-fullscreen-in" aria-label="Увеличить скан">+</button><button class="button" type="button" id="scan-fullscreen-fit">Вместить</button><span class="scan-fullscreen-help">Прокручивайте изображение · Esc — закрыть</span><button class="button" type="button" id="scan-fullscreen-close">Закрыть ✕</button></div><div class="scan-fullscreen-view" id="scan-fullscreen-view" tabindex="0" aria-label="Увеличенный скан, прокручиваемая область"><div class="scan-fullscreen-stage"><img id="scan-fullscreen-image" class="scan-fullscreen-image" alt="Скан разворота {number}" draggable="false"></div></div></section>{translation_panel}<nav class="nav bottom-nav" aria-label="Перелистывание в конце"><div class="nav-group">{prev}{next_}</div><a href="#top" class="muted">↑ В начало</a></nav><p class="notice book-note">{text_note} Скан показан рядом для сверки; на узких экранах — ниже. Номера страниц вводной части переведены из римских цифр в арабские; границы по OCR могут быть неточными.</p>'''
     return shell(content, number, query).replace('</body>', inline_editor.SCRIPT + SCAN_ZOOM_SCRIPT + '</body>')
 
 def reader_page(number, query=''):
@@ -1075,6 +1105,67 @@ class Handler(SimpleHTTPRequestHandler):
         except (ValueError, UnicodeDecodeError, OSError, KeyError):
             self.send_error(500, 'Unable to save review')
 
+    def handle_spread_review(self, number):
+        if not 1 <= number <= len(PAGES):
+            return self.send_error(404)
+        try:
+            length = int(self.headers.get('Content-Length', '0'))
+            if self.headers.get_content_type() != 'application/x-www-form-urlencoded' or not 0 < length <= 4096:
+                return self.send_error(400)
+            params = parse_qs(self.rfile.read(length).decode('utf-8'), max_num_fields=4)
+            action = params.get('action', [''])[0]
+            token = params.get('token', [''])[0]
+            if action not in ('start', 'finish', 'accept', 'needs_work', 'restore'):
+                return self.send_error(400)
+            with _CORRECTIONS_LOCK:
+                data = inline_editor.load_edits()
+                spread = data['spreads'].setdefault(str(number), {'segments': {}, 'history': []})
+                review = spread.get('spread_review', {})
+                if token != history_review_token(review):
+                    return self._html_response(shell('<p class="notice">Решение изменилось в другой вкладке. Обновите разворот и повторите.</p>' + f'<a class="button" href="/spread/{number}#spread-review">К развороту</a>', number).encode('utf-8'), 409)
+                state = review.get('state', 'unreviewed')
+                _, current = segment_state(number, data)
+                stamp = inline_editor.stamp()
+                if action == 'start':
+                    if state == 'working':
+                        return self.send_error(409)
+                    archive = review.get('cycles', [])
+                    previous = {k: v for k, v in review.items() if k != 'cycles'}
+                    if previous:
+                        archive = archive + [previous]
+                    review = {'state': 'working', 'before': current, 'cycles': archive,
+                              'events': [{'action': 'start', 'time': stamp}]}
+                elif action == 'finish':
+                    if state != 'working':
+                        return self.send_error(409)
+                    review['after'] = current
+                    review['state'] = 'ready'
+                    review.setdefault('events', []).append({'action': action, 'time': stamp})
+                elif action in ('accept', 'needs_work'):
+                    if state == 'working':
+                        return self.send_error(409)
+                    review['state'] = 'accepted' if action == 'accept' else 'needs_work'
+                    review.setdefault('events', []).append({'action': action, 'time': stamp})
+                else:
+                    before, after = review.get('before'), review.get('after')
+                    if state not in ('ready', 'accepted', 'needs_work') or not isinstance(before, dict) or not isinstance(after, dict) or set(before) != set(after):
+                        return self.send_error(409, 'Нет снимка предыдущего текста')
+                    changed = [key for key in before if before[key] != after[key]]
+                    if any(current.get(key) != after[key] for key in changed):
+                        return self._html_response(shell('<p class="notice">Текст после сверки уже изменился. Чтобы не потерять новые правки, автоматическое восстановление отменено; используйте историю правок.</p>' + f'<a class="button" href="/history/{number}">История правок</a>', number).encode('utf-8'), 409)
+                    for key in changed:
+                        spread['segments'][key] = before[key]
+                        spread['history'].append({'id': key, 'before': current[key], 'after': before[key], 'time': stamp, 'kind': 'restore'})
+                    review['state'] = 'restored'
+                    review.setdefault('events', []).append({'action': action, 'time': stamp})
+                spread['spread_review'] = review
+                inline_editor.save_edits(data)
+            self.send_response(303)
+            self.send_header('Location', f'/spread/{number}#spread-review')
+            self.end_headers()
+        except (ValueError, TypeError, UnicodeError, OSError, KeyError):
+            self.send_error(500, 'Не удалось сохранить решение по развороту')
+
     def handle_history_review(self, number):
         if not 1 <= number <= len(PAGES):
             return self.send_error(404)
@@ -1340,6 +1431,9 @@ class Handler(SimpleHTTPRequestHandler):
             return self.handle_scan_upload(int(upload.group(1)))
         if action:
             return self.handle_scan_action(int(action.group(1)))
+        spread_review = re.fullmatch(r'/spread-review/(\d+)', path)
+        if spread_review:
+            return self.handle_spread_review(int(spread_review.group(1)))
         history_review = re.fullmatch(r'/history-review/(\d+)', path)
         if history_review:
             return self.handle_history_review(int(history_review.group(1)))

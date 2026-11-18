@@ -188,6 +188,48 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertEqual(self.form('/restore/1', {'index': '0'})[0], 200)
         self.assertEqual(reader.segment_state(1)[1]['s2'], original)
 
+    def test_spread_review_workflow_and_safe_restore(self):
+        for n in (1, 2, 3, 107, 165):
+            page = self.request(f'/spread/{n}')[1]
+            for label in ('Решение по развороту', 'Принять', 'Доработать', 'Вернуть предыдущее'):
+                self.assertIn(label, page)
+        def state(n=1):
+            return inline_editor.load_edits()['spreads'].get(str(n), {}).get('spread_review', {})
+        def decision(action, token=None):
+            return self.form('/spread-review/1', {'action': action, 'token': token or reader.history_review_token(state())})
+        initial = reader.segment_state(1)[1]['s2']
+        stale = reader.history_review_token(state())
+        self.assertEqual(decision('start')[0], 200)
+        self.assertEqual(decision('accept', stale)[0], 409)
+        self.assertEqual(self.save(1, [{'id': 's2', 'old': initial, 'new': initial + ' changed'}])[0], 200)
+        self.assertEqual(decision('finish')[0], 200)
+        self.assertIn('ожидает вашего решения', self.request('/spread/1')[1])
+        self.assertEqual(decision('needs_work')[0], 200)
+        self.assertIn('/spread/1#spread-review', self.request('/followup')[1])
+        self.assertEqual(decision('accept')[0], 200)
+        self.assertNotIn('/spread/1#spread-review', self.request('/followup')[1])
+        self.assertEqual(decision('restore')[0], 200)
+        self.assertEqual(reader.segment_state(1)[1]['s2'], initial)
+        self.assertEqual(inline_editor.load_edits()['spreads']['1']['history'][-1]['kind'], 'restore')
+        self.assertEqual(state()['state'], 'restored')
+        # A later change to a modified segment must not be overwritten.
+        self.assertEqual(decision('start')[0], 200)
+        self.assertEqual(self.save(1, [{'id': 's2', 'old': initial, 'new': initial + ' one'}])[0], 200)
+        self.assertEqual(decision('finish')[0], 200)
+        self.assertEqual(self.save(1, [{'id': 's2', 'old': initial + ' one', 'new': initial + ' two'}])[0], 200)
+        self.assertEqual(decision('restore')[0], 409)
+        self.assertEqual(reader.segment_state(1)[1]['s2'], initial + ' two')
+        self.assertEqual(state()['state'], 'ready')
+        self.assertEqual(len(state()['cycles']), 1)
+
+    def test_spread_review_without_prior_snapshot(self):
+        token = reader.history_review_token({})
+        self.assertEqual(self.form('/spread-review/2', {'action': 'needs_work', 'token': token})[0], 200)
+        page = self.request('/spread/2')[1]
+        self.assertIn('Требует продолжения исправлений', page)
+        self.assertIn('value="restore" disabled', page)
+        self.assertIn('/spread/2#spread-review', self.request('/followup')[1])
+
     def test_scan_zoom_controls_and_detail_image(self):
         page = self.request('/spread/107')[1]
         for marker in ('scan-zoom-toolbar', 'scan-zoom-in', 'scan-zoom-out', 'scan-zoom-reset', 'data-detail-src', 'detail=1', 'scan-fullscreen', 'scan-fullscreen-close', 'scan-fullscreen-view', 'aria-modal="true"'):
