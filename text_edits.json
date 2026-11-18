@@ -342,7 +342,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "EDITOR'S INTRODUCTION",
           "s1": "Secondly, Howard’s proposals for reform were so sweeping and so sane that they are likely to remain as the standard by which prison systems are judged so long as prisons exist.",
@@ -367,6 +367,10 @@
           {
             "action": "finish",
             "time": "2026-11-18T07:55:24+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-18T07:58:00+00:00"
           }
         ],
         "after": {
