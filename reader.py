@@ -61,7 +61,7 @@ OCR_ISSUES = {
 
 # Manual scan proofreading is distinct from automated whole-book collation.
 # Restored fragments/tables alone do not certify an entire spread.
-VERIFIED_SPREADS = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20,
+VERIFIED_SPREADS = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
                     107, 151, 153, 161, 162, 163, 164, 165}
 for _number in range(1, len(PAGES) + 1):
     if _number in VERIFIED_SPREADS:
@@ -618,7 +618,12 @@ def segment_state(number, edits=None, query='', rules=None):
 
     finally:
         _current_corrections.reset(token)
-    return inline_editor.render_segments(base, spread.get('segments', {}), query, number)
+    rendered, segments = inline_editor.render_segments(base, spread.get('segments', {}), query, number)
+    if number == 14:
+        # Both printed running heads were lost by OCR. Add them after segment
+        # numbering so existing edits and history retain their stable IDs.
+        rendered = rendered.replace('<span class="running-title"></span>', '<span class="running-title">' + inline_editor.highlight('BAD CUSTOMS IN PRISONS', query) + '</span>')
+    return rendered, segments
 
 def history_review_token(entry):
     return sha256(json.dumps(entry, sort_keys=True, ensure_ascii=False).encode('utf-8')).hexdigest()

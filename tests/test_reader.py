@@ -230,6 +230,15 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertIn('value="restore" disabled', page)
         self.assertIn('/spread/2#spread-review', self.request('/followup')[1])
 
+    def test_spread_14_restored_running_heads_preserve_segment_ids(self):
+        html, segments = reader.segment_state(14)
+        self.assertEqual(html.count('<span class="running-title">BAD CUSTOMS IN PRISONS</span>'), 2)
+        self.assertIn('Into the horrors of the gloomy jail?', segments['s1'])
+        self.assertTrue(segments['s3'].startswith('prison, 20th March'))
+        old = segments['s1']
+        self.assertEqual(self.save(14, [{'id': 's1', 'old': old, 'new': old.replace('horrors', 'horrors corrected')}])[0], 200)
+        self.assertIn('horrors corrected of the gloomy jail', reader.segment_state(14)[1]['s1'])
+
     def test_scan_zoom_controls_and_detail_image(self):
         page = self.request('/spread/107')[1]
         for marker in ('scan-zoom-toolbar', 'scan-zoom-in', 'scan-zoom-out', 'scan-zoom-reset', 'data-detail-src', 'detail=1', 'scan-fullscreen', 'scan-fullscreen-close', 'scan-fullscreen-view', 'aria-modal="true"'):
