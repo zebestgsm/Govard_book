@@ -1618,7 +1618,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "lately in use. I am not an enemy to diverting exercise: yet the riot, brawling, and profaneness, that are the usual consequences of their play; the circumstances of debtors gaming away the property of their creditors, which I know they have done in some prisons to a considerable amount; accomplishing themselves in the frauds of gamblers, who, if they be not themselves prisoners, are sure to haunt where gaming is practised; hindering their fellow-prisoners from walking in the courts while they play, of which inconvenience I have heard them complain: these seem to me cogent reasons for prohibiting all kinds of gaming within the walls of a prison.\n\nLoading prisoners with heavy irons, which make their walking, and even lying down to sleep, difficult and painful, is another custom which I cannot but condemn. In some county gaols and even bridewells the women do not escape this severity: but in London they do: and therefore it is not necessary in the country.¹ The practice must be mere tyranny: unless it proceed from avarice; which I rather suspect; because county gaolers do sometimes grant dispensations, and indulge their prisoners, men as well as women, with what they call “the choice of irons,” if they will pay for it.\n\nThe author of A Letter to Sir Robert Ladbroke on prisons (particularly on Newgate, which was then to be rebuilt) cites in page 79, the opinion of Lord Coke, Horn’s Mirror of Justice, etc., against this oppression; and adds afterwards, “The learned editor of Hale’s History of the Pleas of the Crown likewise declares, that fetters ought not to be used, unless there is just reason to fear an escape, as where the prisoner is unruly, or makes an attempt to that purpose; otherwise, notwithstanding the common practice of gaolers, it seems altogether unwarrantable, and contrary to the mildness and humanity of the laws of England, by which gaolers are forbid to put their prisoners to any pain or torment.”\n\nThe gentlemen of the gaol committee, who distinguished themselves by an accurate and zealous inquiry into the abuses practised by gaolers²; in their report concerning the Fleet\n\n¹ Lord Loughborough, Lent assize 1782, at Thetford laid a fine of £20 on the gaoler of Norwich Castle, for putting irons on a woman.\n\n² This committee is celebrated by Thomson, in his poem entitled Winter, p. 340, etc., present edition 1738.",
           "s1": ". . . Can I forget the generous few,\nWho, touched with human woe, redressive sought\nInto the horrours of the gloomy jail?\nUnpitied, and unheard, where misery moans;\nWhere sickness pines . . .",
@@ -1634,6 +1634,10 @@
           {
             "action": "finish",
             "time": "2026-11-18T09:52:31+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-18T10:07:20+00:00"
           }
         ],
         "after": {
