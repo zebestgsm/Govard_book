@@ -1489,6 +1489,38 @@
           "s16": "Dr. Lind, physician to the Royal Hospital at Haslar, near Portsmouth, showed me in one of the wards a number of sailors\n\n¹ See Plot’s History of Oxfordshire, p. 25."
         }
       }
+    },
+    "12": {
+      "segments": {},
+      "history": [],
+      "spread_review": {
+        "state": "working",
+        "before": {
+          "s0": "VIEW OF DISTRESS IN PRISONS",
+          "s1": "ill of the gaol-fever, brought on board their ship by a man who had been discharged from a prison in London. The ship was laid up on the occasion. That gentleman, in his Essay on the Health of Seamen, asserts, that “The source of infection to our armies and fleets are undoubtedly the jails; we can often trace the importers of it directly from them.—It often proves fatal in impressing men on the hasty equipment of a fleet.—The first English fleet sent last war to America, lost by it above two thousand men.” In another place he assures us, that “the seeds of infection were carried from the guard-ships into our squadrons—and the mortality, thence occasioned, was greater than by all other diseases or means of death put together.”\n\nIt were easy to multiply instances of this mischief; but those which have been mentioned are, I presume, sufficient to show, even if no mercy were due to prisoners, that the gaol-distemper is a national concern of no small importance.",
+          "s2": "The general prevalence and spread of wickedness in prisons, and abroad by the discharged prisoners, will now be as easily accounted for, as the propagation of disease. It is often said, “A prison pays no debts”; I am sure it may be added, that a prison mends no morals. Sir John Fielding observes, that “a criminal discharged—generally by the next sessions, after the execution of his comrades, becomes the head of a gang of his own raising”:—improved, no doubt, in skill by the company he kept in gaol. And petty offenders who are committed to bridewell for a year or two, and spend that time, not in hard labour, but in idleness and wicked company, or are sent for that time to county gaols, generally grow desperate, and come out fitted for the perpetration of any villainy. Half the robberies committed in and about London, are planned in the prisons, by that dreadful assemblage of criminals, and the number of idle people who visit them.—How contrary this to the intention of our laws with regard to petty offenders; which certainly is to correct and reform them! Instead of which, their confinement doth notoriously promote and increase the very vices it was designed to suppress. Multitudes of young creatures, committed for some trifling offence, are totally ruined there. I make no scruple to affirm, that if it were the wish and aim of magistrates to effect the destruction present and future of young delinquents, they could not devise a more effectual method, than to confine them so long in our prisons, those seats and seminaries (as they have been very properly called) of idleness and every vice.",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "Shall these irregularities, the sources of misery, disease, and",
+          "s7": "VIEW OF DISTRESS IN PRISONS",
+          "s8": "wickedness, be endured in a nation celebrated for good sense and humanity; and who from these principles, do treat one sort of prisoners with tenderness and generosity? I mean prisoners of war. These have provision in plenty; some to spare and sell to the soldiers on guard¹; we frequently saw their stated allowance hung up for their inspection. Some prisons have large areas for them to walk in; and at night every man had a hammock to himself. It is the farthest thing in the world from my wish to deprive captives of any one of these benefits—I am only desirous of seeing the same humanity shown to our own countrymen in distress: so that a consistent and uniform practice may prove our benevolence to be a firm and steady principle; and that those who are censorious may find no occasion for ascribing our kind usage of foreigners to a less amiable motive.",
+          "s9": "",
+          "s10": "",
+          "s11": "Here it will be said, prisoners of war are not felons, nor yet debtors; and government is sometimes, at the end of a war, reimbursed the expense of maintaining them. This latter I believe is fact; and the former is true without dispute: we do not look upon foreign enemies, nor they upon us,² as either debtors or felons: we cut one another to pieces in battle, but",
+          "s12": "¹ I am now speaking of the practice the war before last. The daily allowance, to six prisoners was, nine pounds of bread—four pounds and a half of beef—three pints of peas, four days in a week—six quarts of beer. On Friday they had not the beef; but a pound and a half of butter instead of it. On board the men of war, indeed, they were upon short allowance.",
+          "s13": "² I must not be understood here to mean a compliment to the French. How they then treated English prisoners of war, I knew by experience in 1756; when a Lisbon packet (the “Hanover”) in which I went passenger, in order to make the tour of Portugal, was taken by a French privateer. Before we reached Brest, I suffered the extremity of thirst, not having for above forty hours one drop of water; nor hardly a morsel of food. In the castle at Brest, I lay six nights upon straw; and observing how cruelly my countrymen were used there, and at Morlaix, whither I was carried next; during the two months I was at Carhaix upon parole, I corresponded with the English prisoners at Brest, Morlaix, and Dinnan: at the last of those towns were several of our ship’s crew, and my servant. I had sufficient evidence of their being treated with such barbarity, that many hundreds had perished; and that thirty-six were buried in a hole at Dinnan in one day. When I came to England, still on parole, I made known to the commissioners of sick and wounded seamen, the sundry particulars: which gained their attention, and thanks. Remonstrance was made to the French court: our sailors had redress: and those that were in the three prisons mentioned above, were brought home in the first cartel-ships.—A lady from Ireland, who married in France, had bequeathed in trust with the magistrates of St. Malo’s, sundry charities; one of which was a penny a day to every English prisoner of war in Dinnan. This was duly paid; and saved the lives of many brave and useful men. Perhaps, what I suffered on this occasion, increased my sympathy with the unhappy people, whose case is the subject of this book.",
+          "s14": "",
+          "s15": ""
+        },
+        "cycles": [],
+        "events": [
+          {
+            "action": "start",
+            "time": "2026-11-18T09:50:22+00:00"
+          }
+        ]
+      }
     }
   }
 }
