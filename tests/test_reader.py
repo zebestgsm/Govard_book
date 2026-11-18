@@ -248,6 +248,16 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertEqual(rendered.count('role="table"'), 3)
         self.assertNotIn('role="columnheader"', rendered)
 
+    def test_spread_18_restored_heading_and_running_head(self):
+        _, segments = reader.segment_state(18)
+        original = segments['s2']
+        self.assertEqual(self.save(18, [{'id': 's2', 'old': original, 'new': 'SITUATION\n\n' + original.lstrip()}])[0], 200)
+        rendered, segments = reader.segment_state(18)
+        self.assertIn('<span class="restored-heading">SITUATION</span>', rendered)
+        self.assertEqual(segments['s2'], 'SITUATION\n\n' + original.lstrip())
+        self.assertEqual(rendered.count('PROPOSED IMPROVEMENTS'), 2)
+        self.assertIn('href="#footnote-18-s3-1"', rendered)
+
     def test_scan_zoom_controls_and_detail_image(self):
         page = self.request('/spread/107')[1]
         for marker in ('scan-zoom-toolbar', 'scan-zoom-in', 'scan-zoom-out', 'scan-zoom-reset', 'data-detail-src', 'detail=1', 'scan-fullscreen', 'scan-fullscreen-close', 'scan-fullscreen-view', 'aria-modal="true"'):

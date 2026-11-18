@@ -182,7 +182,7 @@ def render_verified_block(value, spread, segment_id, query):
                     prose_lines.append(line)
             flush_table()
             flush_prose()
-        elif spread == 107 and chunk in ('ELY GAOL', 'NORFOLK', 'COUNTY BRIDEWELL', 'SUFFOLK', 'COUNTY GAOL AT IPSWICH'):
+        elif (spread == 18 and segment_id == 's2' and chunk == 'SITUATION') or (spread == 107 and chunk in ('ELY GAOL', 'NORFOLK', 'COUNTY BRIDEWELL', 'SUFFOLK', 'COUNTY GAOL AT IPSWICH')):
             output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
         elif spread == 14 and (segment_id == 's1' or chunk.startswith(('Hail Patriot Band!', 'Much still untouch’d'))):
             output.append('<span class="book-verse">' + text_html(chunk) + '</span>')

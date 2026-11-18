@@ -629,6 +629,9 @@ def segment_state(number, edits=None, query='', rules=None):
     finally:
         _current_corrections.reset(token)
     rendered, segments = inline_editor.render_segments(base, spread.get('segments', {}), query, number)
+    if number == 18:
+        # The first running head is present in the scan but lost by OCR.
+        rendered = rendered.replace('<span class="running-title"></span>', '<span class="running-title">' + inline_editor.highlight('PROPOSED IMPROVEMENTS', query) + '</span>', 1)
     if number == 14:
         # Both printed running heads were lost by OCR. Add them after segment
         # numbering so existing edits and history retain their stable IDs.
