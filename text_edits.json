@@ -356,6 +356,51 @@
           }
         ]
       }
+    },
+    "5": {
+      "segments": {},
+      "history": [],
+      "spread_review": {
+        "state": "working",
+        "before": {
+          "s0": "Editor's Note",
+          "s1": "EDITOR'S NOTE",
+          "s2": "The State of the Prisons was first published in 1777. Howard made additions and alterations in subsequent editions in 1780 and 1784, and gave an account of his observations after that date in a volume called An Account of the Principal Lazarettos in Europe, published in 1789. This volume was really a continuation of The State of the Prisons, giving rather more information about hospitals than that book, and rather less about prisons. A second volume of Lazarettos was published after Howard’s death in 1791, and a fourth edition of The State of the Prisons, a reprint of the third, appeared in 1792, but there has been no reprint of any kind since that date.",
+          "s3": "The text given here is taken from the third edition of The State of the Prisons (the last published in Howard’s lifetime) and from the first edition of Lazarettos. In view of the fact that the former work contains five hundred and five quarto pages and the latter two hundred and seventy-two, it is evident that all that Howard wrote could not be reproduced in an “Everyman” volume. Nor would it be desirable to reproduce it all. The greater part of both books consists of detailed descriptions of hundreds of prisons at home and abroad, all of which, with a few exceptions abroad and none at home, have long since been pulled down, and these descriptions now make tedious and unprofitable reading. Accordingly the following pages contain an abridgment of The State of the Prisons, together with some extracts from the volume on lazarettos. All Howard’s general observations on prisons have been retained as written, but a number of descriptions of individual prisons have been omitted altogether, and others much condensed, the principle aimed at being to retain only so much as will give a clear idea of the conditions prevailing at the time. ",
+          "s4": "A complete list of the English prisons found by Howard to be inhabited will be found among the statistical tables at the end of the book.",
+          "s5": "All descriptions of hospitals and lazarettos have also been omitted, but his description of his own experience of quarantine has been retained, for its intrinsic interest. ",
+          "s6": "Some observations on schools and education, which appear in the Lazaretto volume, also seemed too interesting to be omitted."
+        },
+        "cycles": [],
+        "events": [
+          {
+            "action": "start",
+            "time": "2026-11-18T07:54:34+00:00"
+          }
+        ]
+      }
+    },
+    "6": {
+      "segments": {},
+      "history": [],
+      "spread_review": {
+        "state": "working",
+        "before": {
+          "s0": "Introduction",
+          "s1": "INTRODUCTION",
+          "s2": "THE distress of prisoners, of which there are few who have not some imperfect idea, came more immediately under my notice when I was sheriff of the county of Bedford; and the circumstance which excited me to activity in their behalf was, the seeing, some—who by the verdict of juries were declared not guilty; some—on whom the grand jury did not find such an appearance of guilt as subjected them to trial; and some—whose prosecutors did not appear against them;—after having been confined for months, dragged back to gaol, and locked up again till they should pay sundry fees to the gaoler, the clerk of assize, etc.",
+          "s3": "In order to redress this hardship, I applied to the justices of the county for a salary to the gaoler in lieu of his fees. The bench were properly affected with the grievance, and willing to grant the relief desired: but they wanted a precedent for charging the county with the expense. I therefore rode into several neighbouring counties in search of one; but I soon learned that the same injustice was practised in them; and looking into the prisons, I beheld scenes of calamity, which I grew daily more and more anxious to alleviate. In order therefore to gain a more perfect knowledge of the particulars and extent of it, by various and accurate observation, I visited most of the county gaols in England.",
+          "s4": "Seeing in two or three of them some poor creatures whose aspect was singularly deplorable, and asking the cause of it, the answer was, “they were lately brought from the bridewells.”",
+          "s5": "This started a fresh subject of inquiry. I resolved to inspect the bridewells: and for that purpose travelled again into the counties where I had been; and, indeed into all the rest; examining houses of correction, city and town gaols. I beheld in many of them, as well as in the county gaols, a complication of distress; but my attention was principally fixed by the gaol-fever and the smallpox, which I saw prevailing to the"
+        },
+        "cycles": [],
+        "events": [
+          {
+            "action": "start",
+            "time": "2026-11-18T07:54:34+00:00"
+          }
+        ]
+      }
     }
   }
 }
