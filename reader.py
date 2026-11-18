@@ -332,6 +332,14 @@ STYLE = '''
 .spread-7 p[data-edit-id="s5"] .verified-paragraph + .verified-paragraph::before{content:"";display:block;margin-bottom:1.15em}
 .spread-7 p[data-edit-id="s8"]::after{content:"";display:block;margin-bottom:1.15em}
 
+/* Keep scan-verified paragraphs continuous across OCR segment boundaries. */
+.spread-16 p[data-edit-id="s3"],.spread-16 p[data-edit-id="s4"],.spread-16 p[data-edit-id="s5"],.spread-16 p[data-edit-id="s6"],.spread-17 p[data-edit-id="s5"],.spread-17 p[data-edit-id="s6"]{display:inline;margin:0}
+.spread-16 p[data-edit-id="s3"] .verified-paragraph,.spread-16 p[data-edit-id="s4"] .verified-paragraph,.spread-16 p[data-edit-id="s5"] .verified-paragraph,.spread-16 p[data-edit-id="s6"] .verified-paragraph,.spread-17 p[data-edit-id="s5"] .verified-paragraph,.spread-17 p[data-edit-id="s6"] .verified-paragraph{display:inline;margin:0}
+.spread-16 p[data-edit-id="s4"]::before,.spread-16 p[data-edit-id="s5"]::before,.spread-16 p[data-edit-id="s6"]::before,.spread-17 p[data-edit-id="s6"]::before{content:" "}
+.spread-16 p[data-edit-id="s5"] .verified-paragraph + .verified-paragraph::before,.spread-17 p[data-edit-id="s6"] .verified-paragraph + .verified-paragraph::before{content:"";display:block;margin-bottom:1.15em}
+.spread-16 p[data-edit-id="s6"]::after,.spread-17 p[data-edit-id="s6"]::after{content:"";display:block;margin-bottom:1.15em}
+.spread-17 h3[data-edit-id="s3"]{margin-bottom:0}.spread-17 h3[data-edit-id="s4"]{margin-top:0}
+
 /* Full-workspace scan viewer. The original image link remains usable without JS. */
 .scan-fullscreen[hidden]{display:none}.scan-fullscreen{position:fixed;inset:0;z-index:1000;background:#282a27;color:#fff;display:flex;flex-direction:column;min-width:0}
 .scan-fullscreen-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 16px;background:#f9f8f3;color:var(--ink);border-bottom:1px solid var(--line)}
