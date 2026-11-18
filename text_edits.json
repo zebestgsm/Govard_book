@@ -329,8 +329,18 @@
       }
     },
     "4": {
-      "segments": {},
-      "history": [],
+      "segments": {
+        "s7": "To reform prisoners . . . should always be the leading view in every house of correction . . . as rational and immortal beings we owe this to them; nor can any criminality of theirs justify our neglect in this particular.\n\nKENNETH RUCK."
+      },
+      "history": [
+        {
+          "id": "s7",
+          "before": "To reform prisoners . . . should always be the leading view in every house of correction . . . as rational and immortal beings we owe this to them; nor can any criminality of theirs justify our neglect in this particular.\nKENNETH RUCK.",
+          "after": "To reform prisoners . . . should always be the leading view in every house of correction . . . as rational and immortal beings we owe this to them; nor can any criminality of theirs justify our neglect in this particular.\n\nKENNETH RUCK.",
+          "time": "2026-11-18T07:57:57+00:00",
+          "kind": "edit"
+        }
+      ],
       "spread_review": {
         "state": "ready",
         "before": {
