@@ -3,7 +3,7 @@
   "spreads": {
     "1": {
       "segments": {
-        "s2": "“Humanitarian” is a modern word coined to expressa modern idea,and it is not to be found in Johnson's Dictionary.Life for theprivileged classesinhisdaywasamore comfortable business than it had ever been before,or has been since."
+        "s2": "“Humanitarian” is a modern word coined to express a modern idea, and it is not to be found in Johnson's Dictionary. Life for the privileged classes in his day was a more comfortable business than it had ever been before, or has been since."
       },
       "history": [
         {
@@ -12,6 +12,13 @@
           "after": "“Humanitarian” is a modern word coined to expressa modern idea,and it is not to be found in Johnson's Dictionary.Life for theprivileged classesinhisdaywasamore comfortable business than it had ever been before,or has been since.",
           "time": "2026-10-31T06:55:44+00:00",
           "kind": "scan-verified"
+        },
+        {
+          "id": "s2",
+          "before": "“Humanitarian” is a modern word coined to expressa modern idea,and it is not to be found in Johnson's Dictionary.Life for theprivileged classesinhisdaywasamore comfortable business than it had ever been before,or has been since.",
+          "after": "“Humanitarian” is a modern word coined to express a modern idea, and it is not to be found in Johnson's Dictionary. Life for the privileged classes in his day was a more comfortable business than it had ever been before, or has been since.",
+          "time": "2026-11-18T06:57:34+00:00",
+          "kind": "edit"
         }
       ]
     },
