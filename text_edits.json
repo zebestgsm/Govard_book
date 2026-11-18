@@ -327,6 +327,35 @@
           "time": "2026-10-31T08:24:55+00:00"
         }
       }
+    },
+    "4": {
+      "segments": {},
+      "history": [],
+      "spread_review": {
+        "state": "working",
+        "before": {
+          "s0": "EDITOR'S INTRODUCTION",
+          "s1": "Secondly, Howard’s proposals for reform were so sweeping and so sane that they are likely to remain as the standard by which prison systems are judged so long as prisons exist.",
+          "s2": "Moreover, the method in which he conducted his inquiry and presented its results has been a model for similar investigations ever since. Any Royal Commission or Parliamentary Committee appointed to-day to produce a report to act as a basis for contemplated reform proceeds exactly on the plan first outlined by Howard—minute investigation, a careful weighing of the evidence, a consideration of current methods in other countries, and a summary of recommendations.",
+          "s3": "That Howard’s should be so infinitely more impressive and inspiring a document than any of its successors is less surprising when we remember that there was no need with him for compromise since he held his commission alone and held it, he devoutly and sincerely believed, from God.",
+          "s4": "Nor is it only the historian, and particularly the social historian, who can find interest in the book. Howard, by the time he began to write, had become a trained observer with an almost journalistic faculty for seizing on the facts most likely to strike the popular imagination.",
+          "s5": "Finally, he had his full share of the eighteenth century ability to write noble prose. As a proof of this and as a final introduction to what he was and what he stood for, let him speak in his own words:\n\nThose gentlemen who, when they are told of the misery our prisoners suffer, content themselves with saying let them keep out, prefaced perhaps with an angry prayer, seem not duly sensible of the favour of Providence which distinguishes them from the sufferers: they do not remember that we are required to imitate our gracious Heavenly Parent, who is kind to the unthankful and to the evil: they also forget the vicissitude of human affairs: the unexpected changes to which all men are liable; and that those whose circumstances are affluent, may in time be reduced to indigence and become debtors and prisoners. And as to criminality, it is possible that a man who has often shuddered at hearing the account of a murder may, on a sudden temptation, commit that very crime.",
+          "s6": "Let him that thinks he standeth take heed lest he fall, and commiserate those that are fallen.",
+          "s7": "To reform prisoners . . . should always be the leading view in every house of correction . . . as rational and immortal beings we owe this to them; nor can any criminality of theirs justify our neglect in this particular.\nKENNETH RUCK.",
+          "s8": "EDITOR'S INTRODUCTION",
+          "s9": "Howard. There is no really satisfactory biography of Howard. The facts of his life are to be found in accounts by J. Aikin (1792), J. Baldwin Brown (1818), J. Field, “Life,” (1850); “Correspondence” (1855). Methuen’s published a life, by E. C. S. Gibson, in 1901.",
+          "s10": "",
+          "s11": "The Prisons. The most vivid pictures of prison life are to be found in the imaginative writers: Goldsmith, “Vicar of Wakefield”; Fielding, “Amelia”; Dickens, “Pickwick Papers,” “Little Dorrit”; Reade, “It is never too late to mend”; Wilde, “Ballad of Reading Gaol,” “De Profundis.”\n\nThe facts can be studied in Sidney and Beatrice Webb, “Prisons under Local Government” (1922); Ives, “History of Penal Methods” (1914); Fielding, “Enquiry into the Cause of the Increase of Robbers” (1751); Nield, “The State of the Prisons” (1812); Clay, “The Prison Chaplain” (1861); Du Cane, “The Punishment and Prevention of Crime” (1885); Ruggles Brise, “The English Prison System” (1921); Hobhouse and Brockway, “English Prisons To-day” (1922). See also Beccaria, “Crimes and Punishments” (Trans. Farrer, 1880); Bentham, “Works,” vol. iv, ed. Sir J. Browning.",
+          "s12": "For further reading, consult Wigmore, “Preliminary Bibliography of Modern Criminal Law and Criminology” (Chicago 1909); Cumming, “Contribution towards a Bibliography dealing with Crime” (1914)."
+        },
+        "cycles": [],
+        "events": [
+          {
+            "action": "start",
+            "time": "2026-11-18T07:54:33+00:00"
+          }
+        ]
+      }
     }
   }
 }
