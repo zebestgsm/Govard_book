@@ -138,6 +138,24 @@ class ReaderHTTPTests(unittest.TestCase):
                 'Content-Type: application/octet-stream\r\n\r\n').encode() + payload + f'\r\n--{boundary}--\r\n'.encode()
         return self.request(f'/scan-upload/{number}', body, f'multipart/form-data; boundary={boundary}')
 
+    def test_front_spreads_spacing_and_footnote_with_saved_edits(self):
+        # Previously saved partial OCR corrections take priority over the clean
+        # transcription; corrections must be saved to the history as well.
+        examples = {1: ('s2', 'express a modern idea, and', 'classes in his day was a more'),
+                    2: ('s3', 'Courage, for instance, had', 'gaol-fever¹ was not only'),
+                    3: ('s11', 'Minor poets forsook their birthday', 'while in 1780, when Howard')}
+        for number, (segment, first, second) in examples.items():
+            current = reader.segment_state(number)[1][segment]
+            self.assertIn(first, current)
+            self.assertIn(second, current)
+            self.assertEqual(self.save(number, [{'id': segment, 'old': current, 'new': current + ' '}])[0], 200)
+            self.assertEqual(reader.segment_state(number)[1][segment], current + ' ')
+            self.assertEqual(inline_editor.load_edits()['spreads'][str(number)]['history'][-1]['before'], current)
+        page = self.request('/spread/2')[1]
+        self.assertIn('href="#footnote-2-s6-1"', page)
+        self.assertIn('id="footnote-2-s6-1"', page)
+        self.assertIn('might have thought his work well done', page)
+
     def test_scan_zoom_controls_and_detail_image(self):
         page = self.request('/spread/107')[1]
         for marker in ('scan-zoom-toolbar', 'scan-zoom-in', 'scan-zoom-out', 'scan-zoom-reset', 'data-detail-src', 'detail=1', 'scan-fullscreen', 'scan-fullscreen-close', 'scan-fullscreen-view', 'aria-modal="true"'):
