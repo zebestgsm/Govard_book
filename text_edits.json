@@ -1111,7 +1111,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "VIEW OF DISTRESS IN PRISONS",
           "s1": "have been answered, that the magistrates tell them the act does not extend to bridewells.¹\n\nIn consequence of this, at the quarter sessions you see prisoners covered (hardly covered) with rags; almost famished; and sick of diseases, which the discharged spread where they go; and with which those who are sent to the county gaols infect these prisons.",
@@ -1247,6 +1247,10 @@
           {
             "action": "finish",
             "time": "2026-11-18T09:45:00+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-18T09:49:10+00:00"
           }
         ],
         "after": {
