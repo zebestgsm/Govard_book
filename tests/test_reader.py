@@ -239,25 +239,14 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertEqual(self.save(14, [{'id': 's1', 'old': old, 'new': old.replace('horrors', 'horrors corrected')}])[0], 200)
         self.assertIn('horrors corrected of the gloomy jail', reader.segment_state(14)[1]['s1'])
 
-    def test_spread_17_editorial_table_headers_do_not_enter_editable_text(self):
-        from html.parser import HTMLParser
-        class Text(HTMLParser):
-            def __init__(self):
-                super().__init__(); self.parts = []
-            def handle_data(self, text): self.parts.append(text)
-        _, segments = reader.segment_state(17)
-        value = segments['s1']
-        html = inline_editor.render_verified_block(value, 17, 's1', '')
-        for title in ('Bristol society, 1775', 'Dublin society, 1775–1782', 'Prisoners and dependants, England and Wales'):
-            self.assertIn('data-editorial-caption="' + title + '"', html)
-        self.assertEqual(html.count('class="restored-row editorial-header"'), 3)
-        self.assertEqual(html.count('role="columnheader"'), 6)
-        parser = Text(); parser.feed(html)
-        self.assertEqual(''.join(parser.parts), value)
+    def test_spread_17_tables_have_no_invented_or_bold_headers(self):
         page = self.request('/spread/17')[1]
-        self.assertIn('в оригинале они не напечатаны', page)
-        self.assertEqual(self.save(17, [{'id': 's1', 'old': value, 'new': value.replace('Persons discharged', 'Persons discharged (edited)', 1)}])[0], 200)
-        self.assertNotIn('data-editorial-caption="Bristol society, 1775"', self.request('/spread/17')[1])
+        self.assertIn('.spread-17 .fee-table .restored-row:first-child{font-weight:normal;border-bottom:1px solid #e7e3d9}', page)
+        self.assertNotIn('data-editorial-caption', page)
+        self.assertNotIn('editorial-header', page)
+        rendered, _ = reader.segment_state(17)
+        self.assertEqual(rendered.count('role="table"'), 3)
+        self.assertNotIn('role="columnheader"', rendered)
 
     def test_scan_zoom_controls_and_detail_image(self):
         page = self.request('/spread/107')[1]

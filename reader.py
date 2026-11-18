@@ -340,11 +340,6 @@ STYLE = '''
 .spread-16 p[data-edit-id="s6"]::after,.spread-17 p[data-edit-id="s6"]::after{content:"";display:block;margin-bottom:1.15em}
 .spread-17 h3[data-edit-id="s3"]{margin-bottom:0}.spread-17 h3[data-edit-id="s4"]{margin-top:0}
 
-/* Added table headings are explanatory UI, never part of editable source text. */
-.restored-table[data-editorial-caption]::before{content:attr(data-editorial-caption);display:block;font:600 13px/1.4 Arial,sans-serif;color:#52664f;margin-bottom:6px}
-.editorial-header{font-weight:bold;border-bottom:1px solid #aaa797;color:#52664f}.editorial-header .restored-cell::before{content:attr(data-heading)}
-.is-editing .restored-table[data-editorial-caption]::before,.is-editing .editorial-header{display:none}
-
 /* Full-workspace scan viewer. The original image link remains usable without JS. */
 .scan-fullscreen[hidden]{display:none}.scan-fullscreen{position:fixed;inset:0;z-index:1000;background:#282a27;color:#fff;display:flex;flex-direction:column;min-width:0}
 .scan-fullscreen-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 16px;background:#f9f8f3;color:var(--ink);border-bottom:1px solid var(--line)}
@@ -354,6 +349,8 @@ STYLE = '''
 
 /* Sequential transcription: paragraph breaks, page-local notes and poetry. */
 .translation-panel{margin-top:18px}.translation-text{font:16px/1.65 Georgia,serif}.translation-text .verified-paragraph{display:block;margin:0 0 .85em}.translation-edit{margin-top:12px}.translation-textarea{width:100%;min-height:220px;font:14px/1.5 Georgia,serif;white-space:pre-wrap}.translation-panel .fee-table{font-size:13px}.verified-prose-page p:empty{display:none}.verified-prose-page .verified-paragraph{display:block;margin:0 0 .85em}.verified-prose-page .verified-paragraph:last-child{margin-bottom:0}.verified-prose-page .verified-footnote{font-size:.78em;line-height:1.5;margin-top:1em}.verified-note-ref{vertical-align:super;font-size:.72em;line-height:0;color:var(--green);scroll-margin-top:20px}.verified-footnote{scroll-margin-top:20px}.book-verse{display:block;white-space:pre-line;font-size:.86em;line-height:1.5;margin:1.2em auto;max-width:34em}.fee-table{font:14px/1.5 Georgia,serif;margin:.5em 0 1em}.fee-table .restored-row{grid-template-columns:minmax(0,1fr) repeat(var(--numeric-cols),minmax(0,.18fr));padding:3px 0}.fee-table .restored-cell{padding:3px 2px}.fee-table .restored-row:first-child{font-weight:700;border-bottom:1px solid #aaa797}.is-editing .verified-prose-page p:empty{display:block}.is-editing .verified-paragraph,.is-editing .book-verse{display:inline}.is-editing .verified-footnote{display:inline;border:0;margin:0;padding:0;font:inherit}.is-editing .verified-note-ref{vertical-align:baseline;font:inherit}
+/* On spread 17 the first rows are data, not column headings. */
+.spread-17 .fee-table .restored-row:first-child{font-weight:normal;border-bottom:1px solid #e7e3d9}
 @media(max-width:650px){.restored-table{font-size:10px}.restored-row{grid-template-columns:minmax(40px,2fr) repeat(var(--numeric-cols),minmax(0,1fr))}.restored-cell{padding:3px 0}.fee-table{font-size:13px}.fee-table .restored-row{grid-template-columns:minmax(0,1fr) repeat(var(--numeric-cols),minmax(0,.22fr))}.mixed-table .restored-row{grid-template-columns:minmax(0,1fr) repeat(var(--numeric-cols),minmax(0,1fr))}.diet-table .restored-row{grid-template-columns:minmax(64px,1fr) minmax(0,2.4fr)}.statistical-table .restored-row{grid-template-columns:minmax(44px,2.2fr) repeat(8,minmax(0,1fr))}}
 
 /* Translation reader: comfortable measure, real grid tables, visible history. */
@@ -740,8 +737,6 @@ def _reader_page(number, query=''):
         controls.append(f'<form method="post" action="/scan-action/{number}"><input type="hidden" name="action" value="{action}"><button class="button" type="submit">{text}</button><span class="small"> {status}</span></form>')
     issue_control = ''.join(controls)
     page_notice = table_one_audit_html() if number == 147 else ''
-    if number == 17:
-        page_notice += '<p class="notice" style="padding:0 20px">Названия и заголовки таблиц добавлены для удобства: в оригинале они не напечатаны. Числа и текст книги не изменены.</p>'
     page_notice += ('<p class="scan-fallback">В таблице VIII за 1782–1783 в оригинале напечатано 49, хотя сумма чисел строки — 59. Оставлено значение из книги.</p>' if number == 152 else '')
     text_status = ('ENGLISH · сверено' if number in VERIFIED_SPREADS else ('ENGLISH · пометка OCR снята' if number in dismissed_issues()['ocr'] else 'ENGLISH · ☑ OCR'))
     text_note = ('Базовый текст разворота вычитан по скану; отдельные ошибки всё ещё возможны. Ваши сохранённые правки имеют приоритет.' if number in VERIFIED_SPREADS else ('Пометка OCR снята вами; базовый текст получен автоматическим распознаванием.' if number in dismissed_issues()['ocr'] else 'Текст получен автоматическим распознаванием и не вычитан полностью: возможны слитные слова, ошибки и неточности в сносках.'))

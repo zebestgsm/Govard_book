@@ -171,20 +171,7 @@ def render_verified_block(value, spread, segment_id, query):
                         rows.append('<span class="restored-cell" role="' + role + '">' + highlight(('\t' if cell_index else '') + cell, query) + '</span>')
                     rows.append('</span>' + ending)
                 table_class = {'fee': 'fee-table', 'mixed': 'mixed-table', 'statistical': 'statistical-table', 'diet': 'diet-table'}.get(table_kind, 'fee-table')
-                caption = ''
-                table_label = label
-                if spread == 17 and segment_id == 's1':
-                    # Explanatory headings, not printed in the book. Match by
-                    # content rather than position so altered tables aren't mislabelled.
-                    first = table_lines[0].split('\t', 1)[0].strip()
-                    caption = {'Persons discharged': 'Bristol society, 1775',
-                               '15th of May 1775, to May 1782, was': 'Dublin society, 1775–1782',
-                               'that is': 'Prisoners and dependants, England and Wales'}.get(first, '')
-                    if caption:
-                        table_label = caption + ' (editorial headings)'
-                        rows.insert(0, '<span class="restored-row editorial-header" role="row" style="--numeric-cols:1" contenteditable="false"><span class="restored-cell" role="columnheader" aria-label="Category" data-heading="Category"></span><span class="restored-cell" role="columnheader" aria-label="People" data-heading="People"></span></span>')
-                caption_attr = (' data-editorial-caption="' + escape(caption, quote=True) + '"' if caption else '')
-                output.append('<span class="restored-table ' + table_class + '" role="table" aria-label="' + escape(table_label, quote=True) + '"' + caption_attr + '>' + ''.join(rows) + '</span>')
+                output.append('<span class="restored-table ' + table_class + '" role="table" aria-label="' + label + '">' + ''.join(rows) + '</span>')
                 table_lines.clear()
             for line in chunk.splitlines(keepends=True):
                 if '\t' in line:
