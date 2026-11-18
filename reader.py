@@ -297,6 +297,12 @@ STYLE = '''
 .scan-zoom-viewport:focus-visible{outline:3px solid var(--green);outline-offset:-3px}.scan-zoom-viewport.is-zoomed{max-height:min(70vh,850px);overflow:auto;overscroll-behavior:contain}
 .scan-zoom-viewport .scan-zoom-image{max-width:none}.scan-zoom-hint{font-size:12px;color:var(--muted)}
 
+/* Scan 001: OCR split two printed paragraphs into separate editable pieces. */
+.spread-1 p[data-edit-id="s2"],.spread-1 p[data-edit-id="s3"],.spread-1 p[data-edit-id="s5"],.spread-1 p[data-edit-id="s6"]{display:inline;margin:0}
+.spread-1 p[data-edit-id="s2"] .verified-paragraph,.spread-1 p[data-edit-id="s3"] .verified-paragraph,.spread-1 p[data-edit-id="s5"] .verified-paragraph,.spread-1 p[data-edit-id="s6"] .verified-paragraph{display:inline;margin:0}
+.spread-1 p[data-edit-id="s3"]::before,.spread-1 p[data-edit-id="s6"]::before{content:" "}
+.spread-1 p[data-edit-id="s3"]::after,.spread-1 p[data-edit-id="s6"]::after{content:"";display:block;margin-bottom:1.15em}
+
 /* Full-workspace scan viewer. The original image link remains usable without JS. */
 .scan-fullscreen[hidden]{display:none}.scan-fullscreen{position:fixed;inset:0;z-index:1000;background:#282a27;color:#fff;display:flex;flex-direction:column;min-width:0}
 .scan-fullscreen-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 16px;background:#f9f8f3;color:var(--ink);border-bottom:1px solid var(--line)}
