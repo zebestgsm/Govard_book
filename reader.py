@@ -61,7 +61,7 @@ OCR_ISSUES = {
 
 # Manual scan proofreading is distinct from automated whole-book collation.
 # Restored fragments/tables alone do not certify an entire spread.
-VERIFIED_SPREADS = {1, 2, 3, 5, 6, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20,
+VERIFIED_SPREADS = {1, 2, 3, 4, 5, 6, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20,
                     107, 151, 153, 161, 162, 163, 164, 165}
 for _number in range(1, len(PAGES) + 1):
     if _number in VERIFIED_SPREADS:
@@ -310,6 +310,14 @@ STYLE = '''
 .spread-3 p[data-edit-id="s5"] .verified-paragraph,.spread-3 p[data-edit-id="s6"] .verified-paragraph,.spread-3 p[data-edit-id="s10"] .verified-paragraph,.spread-3 p[data-edit-id="s11"] .verified-paragraph,.spread-3 p[data-edit-id="s16"] .verified-paragraph,.spread-3 p[data-edit-id="s17"] .verified-paragraph{display:inline;margin:0}
 .spread-2 p[data-edit-id="s4"]::before,.spread-2 p[data-edit-id="s9"]::before,.spread-3 p[data-edit-id="s6"]::before,.spread-3 p[data-edit-id="s11"]::before,.spread-3 p[data-edit-id="s17"]::before{content:" "}
 .spread-2 p[data-edit-id="s4"]::after,.spread-2 p[data-edit-id="s9"]::after,.spread-3 p[data-edit-id="s6"]::after,.spread-3 p[data-edit-id="s11"]::after{content:"";display:block;margin-bottom:1.15em}
+
+/* Printed paragraphs split by OCR on the next three spreads. */
+.spread-4 p[data-edit-id="s1"],.spread-4 p[data-edit-id="s2"],.spread-4 p[data-edit-id="s3"],.spread-4 p[data-edit-id="s5"],.spread-4 p[data-edit-id="s6"],
+.spread-5 p[data-edit-id="s3"],.spread-5 p[data-edit-id="s4"],.spread-5 p[data-edit-id="s5"],.spread-5 p[data-edit-id="s6"],
+.spread-6 p[data-edit-id="s4"],.spread-6 p[data-edit-id="s5"]{display:inline;margin:0}
+.spread-4 p[data-edit-id="s1"] .verified-paragraph,.spread-4 p[data-edit-id="s2"] .verified-paragraph,.spread-4 p[data-edit-id="s3"] .verified-paragraph,.spread-4 p[data-edit-id="s5"] .verified-paragraph:last-child,.spread-4 p[data-edit-id="s6"] .verified-paragraph{display:inline;margin:0}
+.spread-4 p[data-edit-id="s2"]::before,.spread-4 p[data-edit-id="s3"]::before,.spread-4 p[data-edit-id="s6"]::before,.spread-5 p[data-edit-id="s4"]::before,.spread-5 p[data-edit-id="s6"]::before,.spread-6 p[data-edit-id="s5"]::before{content:" "}
+.spread-4 p[data-edit-id="s3"]::after,.spread-4 p[data-edit-id="s6"]::after,.spread-5 p[data-edit-id="s4"]::after{content:"";display:block;margin-bottom:1.15em}
 
 /* Full-workspace scan viewer. The original image link remains usable without JS. */
 .scan-fullscreen[hidden]{display:none}.scan-fullscreen{position:fixed;inset:0;z-index:1000;background:#282a27;color:#fff;display:flex;flex-direction:column;min-width:0}
