@@ -113,7 +113,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "EDITOR'S INTRODUCTION",
           "s1": "estate of his father, a prosperous upholsterer. Then, after several tours abroad in search of health, he had remarried (this time a woman of his own age and station, whom he loved prudently and sincerely until her death in 1765), and settled on an estate in Bedfordshire. Now he seemed to have found his true vocation, that of a quiet country gentleman, sincerely interested in the welfare of his cottagers, but so little concerned with State affairs that his only bid for public notice had been three papers in the Philosophical Transactions of the Royal Society, on some meteorological observations he had made, since watching a thermometer had been one of his favourite occupations.",
@@ -165,6 +165,10 @@
           {
             "action": "finish",
             "time": "2026-11-18T07:31:10+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-18T07:51:13+00:00"
           }
         ],
         "after": {
