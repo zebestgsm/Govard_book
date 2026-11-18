@@ -538,7 +538,7 @@ def shell(content, number=1, query='', active='reader'):
     options = ''.join(f'<option value="{i}"' + (' selected' if i == number else '') + f'>Разворот {i:03}' + (' — ' + escape(scan_dropdown_label(i)) if scan_dropdown_label(i) else '') + '</option>' for i in range(1, len(PAGES) + 1))
     return f'''<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The State of the Prisons — электронная книга</title><style>{STYLE}</style></head><body id="top">
 <header class="header"><a href="/" class="logo"><i>✳</i> Howard Archive</a><span class="header-note">ЦИФРОВАЯ КОЛЛЕКЦИЯ &nbsp; / &nbsp; JOHN HOWARD</span><span id="sync-status" role="status" style="font:12px Arial,sans-serif;margin-left:auto">GitHub: проверка сохранения…</span></header>
-<div class="layout"><aside class="sidebar"><span class="eyebrow">Электронная книга</span><h1>The State of<br>the Prisons</h1><div class="author">John Howard</div><hr class="divider"><div class="sidebar-links"><a class="{'current' if active == 'reader' else ''}" href="/spread/{number}">◧ &nbsp; Читать книгу</a><a class="{'current' if active == 'search' else ''}" href="/search">⌕ &nbsp; Поиск по книге</a><a class="{'current' if active == 'quality' else ''}" href="/quality">⚠ &nbsp; Проверка сканов</a></div><hr class="divider"><form action="/search" method="get"><label class="label" for="query">Поиск по тексту</label><input class="input" id="query" name="q" type="search" placeholder="Слово в книге или переводе…" value="{escape(query, quote=True)}" maxlength="200"><button class="button primary" type="submit">Найти</button></form><hr class="divider"><form action="/go" method="get"><label class="label" for="spread">Перейти к развороту</label><select id="spread" name="spread">{options}</select><button class="button" type="submit">Открыть</button></form><p class="small">Каждый разворот соответствует одному исходному PDF-файлу.</p></aside><main class="content">{content}</main></div><script>
+<div class="layout"><aside class="sidebar"><span class="eyebrow">Электронная книга</span><h1>The State of<br>the Prisons</h1><div class="author">John Howard</div><hr class="divider"><div class="sidebar-links"><a class="{'current' if active == 'reader' else ''}" href="/spread/{number}">◧ &nbsp; Читать книгу</a><a class="{'current' if active == 'search' else ''}" href="/search">⌕ &nbsp; Поиск по книге</a><a class="{'current' if active == 'quality' else ''}" href="/quality">⚠ &nbsp; Проверка сканов</a><a class="{'current' if active == 'followup' else ''}" href="/followup">✎ &nbsp; Требуют доработки</a></div><hr class="divider"><form action="/search" method="get"><label class="label" for="query">Поиск по тексту</label><input class="input" id="query" name="q" type="search" placeholder="Слово в книге или переводе…" value="{escape(query, quote=True)}" maxlength="200"><button class="button primary" type="submit">Найти</button></form><hr class="divider"><form action="/go" method="get"><label class="label" for="spread">Перейти к развороту</label><select id="spread" name="spread">{options}</select><button class="button" type="submit">Открыть</button></form><p class="small">Каждый разворот соответствует одному исходному PDF-файлу.</p></aside><main class="content">{content}</main></div><script>
 (function(){{const el=document.getElementById('sync-status'); async function update(){{try{{const r=await fetch('/api/sync-status',{{cache:'no-store'}});const d=await r.json();el.textContent=({{saved:'GitHub: сохранено',pending:'GitHub: ожидает сохранения',syncing:'GitHub: сохранение…',error:'GitHub: ошибка отправки, повторяем',disabled:'GitHub: автосохранение не включено'}})[d.state]||'GitHub: состояние неизвестно';el.style.color=d.state==='error'?'#a22':'';}}catch(e){{el.textContent='GitHub: нет связи с читалкой';el.style.color='#a22';}}}}update();setInterval(update,3000);}})();
 </script></body></html>'''
 
@@ -604,17 +604,35 @@ def history_page(number, message=''):
             action = '<span class="small">Для этого фрагмента есть более новые изменения.</span>'
         kind = {'restore': 'Восстановление', 'scan-verified': 'Сверено со сканом'}.get(entry.get('kind'), 'Изменение')
         decision = entry.get('review_decision', 'pending')
-        labels = {'pending': 'Ожидает вашего решения', 'accepted': 'Вы приняли', 'rejected': 'Вы отклонили'}
+        labels = {'pending': 'Ожидает вашего решения', 'accepted': 'Вы приняли', 'rejected': 'Отклонено — требуется продолжить исправление'}
         decision_label = labels.get(decision, 'Неизвестная отметка')
         token = history_review_token(entry)
-        choices = [('accepted', 'Принять'), ('rejected', 'Отклонить'), ('pending', 'Вернуть на рассмотрение')]
+        choices = [('accepted', 'Принять'), ('rejected', 'Отклонить — доработать'), ('pending', 'Вернуть на рассмотрение')]
         buttons = ''.join(f'<button type="submit" class="button" name="decision" value="{value}"' + (' disabled aria-pressed="true"' if decision == value else '') + f'>{label}</button>' for value, label in choices)
         review = f'<div class="history-review"><p class="small" role="status">Решение: <strong>{decision_label}</strong></p><form method="post" action="/history-review/{number}"><input type="hidden" name="index" value="{i}"><input type="hidden" name="review_token" value="{token}">{buttons}</form></div>'
         blocks.append(f'<section class="editor-card history-item" id="history-{i}"><div class="heading-row"><div><span class="eyebrow">{kind}</span><p>{escape(entry["time"])} · {escape(seg)}</p></div>{action}</div><div class="history-values"><div class="history-text"><strong>Было</strong>{escape(before)}</div><div class="history-text"><strong>Стало</strong>{escape(after)}</div></div>{review}</section>')
     items = ''.join(blocks) or '<div class="empty">Пока нет изменений, сделанных прямо в тексте.</div>'
     notice = '<p class="editor-message">' + escape(message) + '</p>' if message else ''
-    content = f'<div class="editor"><div class="heading-row"><div><span class="eyebrow">История правок</span><h2>Разворот {number:03}</h2><p>Здесь сохранены предыдущие и новые варианты каждого изменённого фрагмента. Время указано в UTC. Решение показывает ваше отношение к правке и не меняет текст; для отмены используйте отдельную кнопку восстановления.</p></div><a class="button" href="/spread/{number}">← К чтению</a></div>{notice}{items}<p class="notice">Ранние замены слов хранятся отдельно. <a href="/edit/{number}"><u>Посмотреть прежние замены</u></a>.</p></div>'
+    content = f'<div class="editor"><div class="heading-row"><div><span class="eyebrow">История правок</span><h2>Разворот {number:03}</h2><p>Здесь сохранены предыдущие и новые варианты каждого изменённого фрагмента. Время указано в UTC. Отклонённое исправление остаётся в списке для доработки, пока вы не измените отметку. Решение не меняет текст; для отмены используйте отдельную кнопку восстановления.</p></div><a class="button" href="/spread/{number}">← К чтению</a></div>{notice}{items}<p class="notice">Ранние замены слов хранятся отдельно. <a href="/edit/{number}"><u>Посмотреть прежние замены</u></a>.</p></div>'
     return shell(content, number)
+
+
+def followup_page():
+    with _CORRECTIONS_LOCK:
+        saved = inline_editor.load_edits()
+    items = []
+    for number in range(1, len(PAGES) + 1):
+        entries = saved['spreads'].get(str(number), {}).get('history', [])
+        for index, entry in enumerate(entries):
+            if entry.get('review_decision') != 'rejected':
+                continue
+            segment = escape(str(entry.get('id', '')))
+            excerpt = escape(' '.join(entry.get('after', '').split())[:180])
+            items.append(f'<div class="result"><strong>Разворот {number:03} · {segment}</strong><p>{excerpt}</p><div class="top-actions"><a class="button" href="/history/{number}#history-{index}">К решению</a><a class="button" href="/spread/{number}">Открыть разворот</a></div></div>')
+    body = ''.join(items) or '<div class="empty">Пока нет исправлений, отмеченных для доработки.</div>'
+    content = ('<div class="results"><span class="eyebrow">Ваши решения</span><h2>Требуют доработки</h2>'
+               '<p class="notice">Здесь собраны правки, которые вы отклонили. Продолжите исправление на развороте, затем измените отметку у соответствующей записи в истории. Новая правка не снимает её автоматически.</p>' + body + '</div>')
+    return shell(content, active='followup')
 
 
 def _reader_page(number, query=''):
@@ -1464,6 +1482,8 @@ class Handler(SimpleHTTPRequestHandler):
             if not head_only:
                 self.wfile.write(image)
             return
+        if path == '/followup':
+            return self._html_response(followup_page().encode('utf-8'), head_only=head_only)
         if path == '/go':
             number = params.get('spread', ['1'])[0]
             dest = '/spread/' + number if number.isdigit() and 1 <= int(number) <= len(PAGES) else '/'

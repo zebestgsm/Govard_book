@@ -171,9 +171,17 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertEqual(reader.segment_state(1)[1]['s2'], revised)
         self.assertIn('Вы приняли', self.request('/history/1')[1])
         self.assertEqual(decide(first_token, 'rejected')[0], 409)
-        for decision in ('rejected', 'pending'):
-            entry = inline_editor.load_edits()['spreads']['1']['history'][0]
-            self.assertEqual(decide(reader.history_review_token(entry), decision)[0], 200)
+        entry = inline_editor.load_edits()['spreads']['1']['history'][0]
+        self.assertEqual(decide(reader.history_review_token(entry), 'rejected')[0], 200)
+        self.assertIn('требуется продолжить исправление', self.request('/history/1')[1])
+        self.assertIn('/history/1#history-0', self.request('/followup')[1])
+        # Further editing does not silently close the outstanding decision.
+        self.assertEqual(self.save(1, [{'id': 's2', 'old': revised, 'new': revised + '!'}])[0], 200)
+        self.assertIn('/history/1#history-0', self.request('/followup')[1])
+        entry = inline_editor.load_edits()['spreads']['1']['history'][0]
+        self.assertEqual(decide(reader.history_review_token(entry), 'pending')[0], 200)
+        self.assertNotIn('/history/1#history-0', self.request('/followup')[1])
+        self.assertEqual(self.form('/restore/1', {'index': '1'})[0], 200)
         entry = inline_editor.load_edits()['spreads']['1']['history'][0]
         self.assertEqual([e['after'] for e in entry['review_history']], ['accepted', 'rejected', 'pending'])
         self.assertEqual(reader.segment_state(1)[1]['s2'], revised)
