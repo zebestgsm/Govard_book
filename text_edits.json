@@ -1756,7 +1756,7 @@
       "segments": {},
       "history": [],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "BAD CUSTOMS IN PRISONS",
           "s1": "sessions or assizes are to be held. And in that town a proper prison ought to be built.\n\nGaol delivery is in some counties but once a year. What reparation can be made to a poor creature for the misery he has suffered, and the corruption of his morals, by confinement in a prison near twelve months before a trial, in which, perhaps he is at last declared by his country not guilty?\n\nThe judicious marquis, whom I quoted above, asserts that “Privation of liberty being a punishment, ought not to be inflicted before condemnation, but for as short a time as possible.” And in cases of guilt, his doctrine is, “The more immediately after the commission of a crime, a punishment is inflicted, the more just and useful it will be.” This sentiment is illustrated by a variety of acute remarks in the chapter of “The Advantage of immediate Punishment.” My mind reverts to an admirable thought of Mr. Eden’s, Principles of Penal Law, p. 330. “A very slight reflection, on the numberless unforeseen events which a day may bring forth, will be sufficient to show that we are all liable to the imputation of guilt; and consequently all interested, not only in the protection of innocence, but in the assignment to every particular offence, of the smallest punishment compatible with the safety of society.”",
@@ -1777,6 +1777,10 @@
           {
             "action": "finish",
             "time": "2026-11-18T10:12:03+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-18T10:15:00+00:00"
           }
         ],
         "after": {
