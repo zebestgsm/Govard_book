@@ -138,6 +138,26 @@ class ReaderHTTPTests(unittest.TestCase):
                 'Content-Type: application/octet-stream\r\n\r\n').encode() + payload + f'\r\n--{boundary}--\r\n'.encode()
         return self.request(f'/scan-upload/{number}', body, f'multipart/form-data; boundary={boundary}')
 
+    def test_scan_zoom_controls_and_detail_image(self):
+        page = self.request('/spread/107')[1]
+        for marker in ('scan-zoom-toolbar', 'scan-zoom-in', 'scan-zoom-out', 'scan-zoom-reset', 'data-detail-src', 'detail=1', 'scan-fullscreen', 'scan-fullscreen-close', 'scan-fullscreen-view', 'aria-modal="true"'):
+            self.assertIn(marker, page)
+        normal = reader.pymupdf.Pixmap(reader.scan_image(107))
+        detail = reader.pymupdf.Pixmap(reader.scan_image(107, detail=True))
+        self.assertGreater(detail.width, normal.width)
+        self.assertGreater(detail.height, normal.height)
+        self.assertEqual(self.request('/scan/107.jpg?detail=1')[0], 200)
+        original = reader.pymupdf.Pixmap(reader.scan_image(14))
+        rotated_detail = reader.pymupdf.Pixmap(reader.scan_image(14, detail=True))
+        self.assertGreater(rotated_detail.width, rotated_detail.height)
+        self.assertGreater(rotated_detail.width, original.width)
+        pdf = reader.pymupdf.open(); pdf.new_page(width=100, height=50)
+        payload = pdf.tobytes(); pdf.close()
+        self.assertEqual(self.upload_scan(107, payload)[0], 200)
+        replaced = reader.pymupdf.Pixmap(reader.scan_image(107, detail=True))
+        self.assertEqual((replaced.width, replaced.height), (350, 175))
+        self.assertIn('Загруженный вами скан', self.request('/spread/107')[1])
+
     def test_scan_replacement_and_quality_decision(self):
         self.assertIn('скан повёрнут', self.request('/spread/14')[1])
         self.assertEqual(self.form('/scan-action/14', {'action':'dismiss-scan'})[0], 200)
@@ -149,12 +169,12 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertFalse(reader.scan_dropdown_label(14))  # persisted
         self.assertEqual(self.form('/scan-action/14', {'action':'restore-scan-mark'})[0], 200)
         self.assertTrue(reader.scan_dropdown_label(14))
-        # All 165 spreads have passed the completeness collation, so there is
-        # no pending-OCR mark left to dismiss; scan marks remain independent.
-        self.assertEqual(self.form('/scan-action/21', {'action':'dismiss-ocr'})[0], 400)
+        # Automated collation does not replace manual proofreading.
+        self.assertIn('☑ OCR', reader.quality_label(21))
+        self.assertEqual(self.form('/scan-action/21', {'action':'dismiss-ocr'})[0], 200)
         self.assertNotIn('OCR', reader.quality_label(21))
         self.assertIn('скан повёрнут', reader.quality_label(14))
-        self.assertNotIn('пометка OCR снята', self.request('/spread/21')[1])
+        self.assertIn('пометка OCR снята', self.request('/spread/21')[1])
 
         pdf = reader.pymupdf.open()
         pdf.new_page(width=100, height=50)
@@ -175,8 +195,8 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertFalse(reader.replacement_path(14).exists())
         self.assertTrue(reader.scan_dropdown_label(14))
         self.assertNotIn('OCR', reader.quality_label(14))
-        self.assertEqual(self.form('/scan-action/21', {'action':'restore-ocr'})[0], 400)
-        self.assertNotIn('☑ OCR', reader.quality_label(21))
+        self.assertEqual(self.form('/scan-action/21', {'action':'restore-ocr'})[0], 200)
+        self.assertIn('☑ OCR', reader.quality_label(21))
 
     def test_legacy_quality_decisions_are_preserved_when_migrated(self):
         reader.QUALITY_FILE.write_text(json.dumps({'dismissed': [2, 14, 153], 'other': 'keep'}))
@@ -275,8 +295,9 @@ class ReaderHTTPTests(unittest.TestCase):
     def test_verified_spreads_and_pending_ocr_labels(self):
         for number in (5, 6, 151, 153, 161, 162, 163, 164, 165):
             self.assertNotIn('OCR', reader.quality_label(number))
-        for number in range(1, 166):
-            self.assertNotIn('☑ OCR', reader.quality_label(number))
+        for number in (21, 27, 33, 96, 106, 108):
+            self.assertIn('☑ OCR', reader.quality_label(number))
+        self.assertNotIn('☑ OCR', reader.quality_label(107))
         self.assertIn('скан повёрнут', reader.quality_label(14))
         _, s5 = reader.segment_state(5)
         self.assertIn('descriptions of individual prisons have been omitted', s5['s3'])
@@ -450,8 +471,20 @@ class SequentialProofreadTests(unittest.TestCase):
             html, segments = reader.segment_state(number)
             for key, (prefix, expected) in replacements.items():
                 self.assertEqual(segments[key], expected, (number, key))
-            self.assertNotIn('☑ OCR', reader.quality_label(number))
             self.assertIn('verified-prose-page', html)
+
+    def test_spread_107_transcription_notes_and_overrides(self):
+        page, segments = reader.segment_state(107)
+        self.assertIn('3s. 5½d.', segments['s7'])
+        self.assertIn('¹ This was by chaining', segments['s7'])
+        self.assertIn('² An unhappy debtor', segments['s7'])
+        self.assertIn('footnote-107-s7-1', page)
+        self.assertIn('footnote-107-s7-2', page)
+        self.assertIn('restored-heading', page)
+        self.assertEqual(segments['s13'], '')
+        self.assertNotIn('☑ OCR', reader.quality_label(107))
+        overrides = {'spreads': {'107': {'segments': {'s2': 'My correction'}}}}
+        self.assertEqual(reader.segment_state(107, edits=overrides)[1]['s2'], 'My correction')
 
     def test_restored_omissions_follow_the_scan_not_the_other_editions(self):
         cases = {
@@ -533,7 +566,7 @@ class TranslationTests(unittest.TestCase):
         self.assertIn('ОБЗОР БЕДСТВИЙ В ТЮРЬМАХ', html)
         self.assertLess(html.index('id="editable-book"'), html.index('id="translation"'))
         working = reader.reader_page(21)
-        self.assertIn('рабочий перевод', working)
+        self.assertIn('перевод по черновому английскому тексту', working)
         self.assertIn('Русский перевод', working)
 
     def test_translation_override_and_restore(self):

@@ -55,11 +55,10 @@ OCR_ISSUES = {
     165: 'Страница смещена относительно середины скана; автоматическое разделение текста ненадёжно.',
 }
 
-# Every spread 1–165 has been through the full-book completeness collation
-# (independent full-spread OCR plus the three supplied editions). This removes
-# the pending-OCR mark; it is not a claim that every OCR character is perfect.
-# Physical scan-quality marks remain independent.
-VERIFIED_SPREADS = set(range(1, len(PAGES) + 1))
+# Manual scan proofreading is distinct from automated whole-book collation.
+# Restored fragments/tables alone do not certify an entire spread.
+VERIFIED_SPREADS = {1, 2, 3, 5, 6, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20,
+                    107, 151, 153, 161, 162, 163, 164, 165}
 for _number in range(1, len(PAGES) + 1):
     if _number in VERIFIED_SPREADS:
         OCR_ISSUES.pop(_number, None)
@@ -130,7 +129,7 @@ def scan_kind(data):
         return 'jpeg'
     raise ValueError('Поддерживаются только JPG, PNG и одностраничный PDF.')
 
-def render_replacement(data):
+def render_replacement(data, detail=False):
     kind = scan_kind(data)
     with pymupdf.open(stream=data, filetype=kind) as doc:
         if doc.needs_pass or doc.page_count != 1:
@@ -139,7 +138,7 @@ def render_replacement(data):
         width, height = page.rect.width, page.rect.height
         if not all(math.isfinite(v) and 0 < v <= 20000 for v in (width, height)) or width * height > 60_000_000:
             raise ValueError('Слишком большие размеры изображения.')
-        scale = min(1.8, math.sqrt(20_000_000 / (width * height)))
+        scale = min(3.5 if detail else 1.8, math.sqrt(20_000_000 / (width * height)))
         pix = page.get_pixmap(matrix=pymupdf.Matrix(scale, scale), alpha=False)
         return pix.tobytes('jpg', jpg_quality=85)
 
@@ -285,6 +284,19 @@ STYLE = '''
  .scan-fallback{padding:10px 16px}
 }
 
+
+/* Scan zoom stays within the scan pane, leaving the editable text in place. */
+.scan-zoom-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:7px;padding:10px 16px;border-bottom:1px solid var(--line);background:#f9f8f3}
+.scan-zoom-toolbar[hidden]{display:none}.scan-zoom-toolbar .button{min-width:38px;padding:7px 10px}.scan-zoom-toolbar output{min-width:3.2em;text-align:center;font-size:12px;color:var(--muted)}
+.scan-zoom-viewport:focus-visible{outline:3px solid var(--green);outline-offset:-3px}.scan-zoom-viewport.is-zoomed{max-height:min(70vh,850px);overflow:auto;overscroll-behavior:contain}
+.scan-zoom-viewport .scan-zoom-image{max-width:none}.scan-zoom-hint{font-size:12px;color:var(--muted)}
+
+/* Full-workspace scan viewer. The original image link remains usable without JS. */
+.scan-fullscreen[hidden]{display:none}.scan-fullscreen{position:fixed;inset:0;z-index:1000;background:#282a27;color:#fff;display:flex;flex-direction:column;min-width:0}
+.scan-fullscreen-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 16px;background:#f9f8f3;color:var(--ink);border-bottom:1px solid var(--line)}
+.scan-fullscreen-title{font:600 14px Arial,sans-serif;margin-right:auto}.scan-fullscreen-bar .button{min-width:38px;padding:8px 11px}.scan-fullscreen-bar output{min-width:3.2em;text-align:center;font:12px Arial,sans-serif}.scan-fullscreen-view{flex:1;min-height:0;min-width:0;overflow:auto;overscroll-behavior:contain;touch-action:pan-x pan-y;outline-offset:-3px}.scan-fullscreen-view:focus-visible{outline:3px solid #b9d3a9}
+.scan-fullscreen-stage{display:grid;place-items:center;min-width:100%;min-height:100%;width:max-content}.scan-fullscreen-image{display:block;max-width:none;height:auto;box-shadow:0 4px 24px #0008}.scan-fullscreen-help{font:12px Arial,sans-serif;color:#657061}.scan-zoom-image{cursor:zoom-in}
+@media(max-width:650px){.scan-fullscreen-bar{padding:8px;gap:5px}.scan-fullscreen-title{flex-basis:100%}.scan-fullscreen-help{display:none}}
 
 /* Sequential transcription: paragraph breaks, page-local notes and poetry. */
 .translation-panel{margin-top:18px}.translation-text{font:16px/1.65 Georgia,serif}.translation-text .verified-paragraph{display:block;margin:0 0 .85em}.translation-edit{margin-top:12px}.translation-textarea{width:100%;min-height:220px;font:14px/1.5 Georgia,serif;white-space:pre-wrap}.translation-panel .fee-table{font-size:13px}.verified-prose-page p:empty{display:none}.verified-prose-page .verified-paragraph{display:block;margin:0 0 .85em}.verified-prose-page .verified-paragraph:last-child{margin-bottom:0}.verified-prose-page .verified-footnote{font-size:.78em;line-height:1.5;margin-top:1em}.verified-note-ref{vertical-align:super;font-size:.72em;line-height:0;color:var(--green);scroll-margin-top:20px}.verified-footnote{scroll-margin-top:20px}.book-verse{display:block;white-space:pre-line;font-size:.86em;line-height:1.5;margin:1.2em auto;max-width:34em}.fee-table{font:14px/1.5 Georgia,serif;margin:.5em 0 1em}.fee-table .restored-row{grid-template-columns:minmax(0,1fr) repeat(var(--numeric-cols),minmax(0,.18fr));padding:3px 0}.fee-table .restored-cell{padding:3px 2px}.fee-table .restored-row:first-child{font-weight:700;border-bottom:1px solid #aaa797}.is-editing .verified-prose-page p:empty{display:block}.is-editing .verified-paragraph,.is-editing .book-verse{display:inline}.is-editing .verified-footnote{display:inline;border:0;margin:0;padding:0;font:inherit}.is-editing .verified-note-ref{vertical-align:baseline;font:inherit}
@@ -532,7 +544,7 @@ def segment_state(number, edits=None, query='', rules=None):
     token = _current_corrections.set(rules)
     try:
         base = render_pages(number, PAGES[number - 1][1], '')
-        if 1 <= number <= 4 or 10 <= number <= 20 or number in (68, 79, 88, 90, 91, 95, 106, 112, 119, 137, 144, 145, 146, 147, 148, 149, 150):
+        if 1 <= number <= 4 or 10 <= number <= 20 or number in (68, 79, 88, 90, 91, 95, 106, 107, 112, 119, 137, 144, 145, 146, 147, 148, 149, 150):
             base = base.replace('<article class="book-page"', '<article class="book-page verified-prose-page spread-' + str(number) + '"')
         if number in (145, 146, 147, 148, 149, 150):
             base = base.replace('<div class="book-spread">', '<div class="book-spread wide-table-spread">', 1)
@@ -612,7 +624,7 @@ def _reader_page(number, query=''):
     page_notice = table_one_audit_html() if number == 147 else ''
     page_notice += ('<p class="scan-fallback">В таблице VIII за 1782–1783 в оригинале напечатано 49, хотя сумма чисел строки — 59. Оставлено значение из книги.</p>' if number == 152 else '')
     text_status = ('ENGLISH · сверено' if number in VERIFIED_SPREADS else ('ENGLISH · пометка OCR снята' if number in dismissed_issues()['ocr'] else 'ENGLISH · ☑ OCR'))
-    text_note = ('Полнота этого разворота сверена по скану и трём изданиям; отдельные ошибки распознавания возможны. Ваши сохранённые правки имеют приоритет.' if number in VERIFIED_SPREADS else ('Пометка OCR снята вами; базовый текст получен автоматическим распознаванием.' if number in dismissed_issues()['ocr'] else 'Текст получен автоматическим распознаванием и не вычитан полностью: возможны слитные слова, ошибки и неточности в сносках.'))
+    text_note = ('Базовый текст разворота вычитан по скану; отдельные ошибки всё ещё возможны. Ваши сохранённые правки имеют приоритет.' if number in VERIFIED_SPREADS else ('Пометка OCR снята вами; базовый текст получен автоматическим распознаванием.' if number in dismissed_issues()['ocr'] else 'Текст получен автоматическим распознаванием и не вычитан полностью: возможны слитные слова, ошибки и неточности в сносках.'))
     source_label = 'Загруженный вами скан' if replacement else 'Оригинальный скан для сверки'
     source_note = ('Показана замена. Исходный PDF и OCR не изменены; распознавание и его подсказки относятся к исходному скану.' if replacement else 'Загрузите целый разворот одним файлом; исходный PDF сохранится. OCR автоматически не пересчитывается.')
     restore_scan = f'<form method="post" action="/scan-action/{number}" onsubmit="return confirm(&quot;Вернуть исходный скан? Загруженная замена будет удалена.&quot;)"><input type="hidden" name="action" value="restore-scan"><button class="button" type="submit">Вернуть исходный скан</button></form>' if replacement else ''
@@ -623,8 +635,8 @@ def _reader_page(number, query=''):
     translation_panel = translation.panel(number, query, english_verified=number in VERIFIED_SPREADS)
     content = f'''<div class="heading-row"><div><span class="eyebrow">Режим чтения</span><h2>Книжный разворот</h2><p>Читайте разворот слева и сверяйте его со сканом справа.</p>{badge}</div><div class="top-actions edit-actions"><button type="button" id="edit-toggle" class="button primary">✎ Редактировать текст</button><button type="button" id="edit-save" class="button primary" hidden>Сохранить</button><button type="button" id="edit-cancel" class="button" hidden>Отмена</button><a class="button" href="/history/{number}">История правок</a>{pilot_link}{omissions_link}<a class="button" href="#translation">Русский перевод</a><a class="button" href="#original-scan">К скану</a><a class="button" href="{scan}" target="_blank" rel="noopener">Открыть PDF ↗</a></div></div>
 <nav class="nav" aria-label="Перелистывание"><div class="nav-group">{prev}{next_}</div><span class="muted">Разворот {number:03} / {len(PAGES)}</span></nav>
-<p id="edit-status" class="edit-status" role="status" aria-live="polite" hidden></p><noscript><p class="notice">Для редактирования прямо в тексте включите JavaScript или используйте <a href="/edit/{number}"><u>замену слов</u></a>.</p></noscript><div class="reader"><section class="panel"><div class="panel-header"><span class="panel-title">Распознанный текст</span><span class="panel-subtitle">{text_status}</span></div>{page_notice}<div class="book-text" id="editable-book" data-spread="{number}" lang="en">{paragraphs}</div></section><section class="panel scan-panel" id="original-scan"><div class="panel-header"><span class="panel-title">{source_label}</span><span class="panel-subtitle">{escape(filename) if not replacement else "замена"}</span></div><div class="scan-wrap"><a href="{image_url}" target="_blank" rel="noopener" title="Открыть изображение скана крупнее"><img class="scan-frame" src="{image_url}" alt="Скан разворота {number}. Нажмите, чтобы открыть изображение крупнее." loading="lazy"></a></div>{scan_controls}<p class="scan-fallback">Нажмите на изображение для увеличения · <a href="{scan}" target="_blank" rel="noopener"><u>Открыть оригинальный PDF ↗</u></a></p></section></div>{translation_panel}<nav class="nav bottom-nav" aria-label="Перелистывание в конце"><div class="nav-group">{prev}{next_}</div><a href="#top" class="muted">↑ В начало</a></nav><p class="notice book-note">{text_note} Скан показан рядом для сверки; на узких экранах — ниже. Номера страниц вводной части переведены из римских цифр в арабские; границы по OCR могут быть неточными.</p>'''
-    return shell(content, number, query).replace('</body>', inline_editor.SCRIPT + '</body>')
+<p id="edit-status" class="edit-status" role="status" aria-live="polite" hidden></p><noscript><p class="notice">Для редактирования прямо в тексте включите JavaScript или используйте <a href="/edit/{number}"><u>замену слов</u></a>.</p></noscript><div class="reader"><section class="panel"><div class="panel-header"><span class="panel-title">Распознанный текст</span><span class="panel-subtitle">{text_status}</span></div>{page_notice}<div class="book-text" id="editable-book" data-spread="{number}" lang="en">{paragraphs}</div></section><section class="panel scan-panel" id="original-scan"><div class="panel-header"><span class="panel-title">{source_label}</span><span class="panel-subtitle">{escape(filename) if not replacement else "замена"}</span></div><div class="scan-zoom-toolbar" id="scan-zoom-toolbar" role="group" aria-label="Масштаб скана" hidden><button class="button" type="button" id="scan-zoom-out" aria-label="Уменьшить скан">−</button><output id="scan-zoom-level" aria-live="polite">100%</output><button class="button" type="button" id="scan-zoom-in" aria-label="Увеличить скан">+</button><button class="button" type="button" id="scan-zoom-reset">По ширине</button><span class="scan-zoom-hint">Прокручивайте увеличенный скан</span></div><div class="scan-wrap scan-zoom-viewport" id="scan-zoom-viewport" tabindex="0" aria-label="Скан: прокручиваемая область"><a id="scan-zoom-link" href="{image_url}&amp;detail=1" target="_blank" rel="noopener" title="Открыть скан на весь экран рабочей области"><img class="scan-frame scan-zoom-image" id="scan-zoom-image" src="{image_url}" data-detail-src="{image_url}&amp;detail=1" alt="Скан разворота {number}." loading="lazy"></a></div>{scan_controls}<p class="scan-fallback">Нажмите на скан, чтобы открыть его на всю рабочую область · <a href="{image_url}&amp;detail=1" target="_blank" rel="noopener"><u>Открыть скан отдельно ↗</u></a> · <a href="{scan}" target="_blank" rel="noopener"><u>Открыть оригинальный PDF ↗</u></a></p></section></div><section class="scan-fullscreen" id="scan-fullscreen" role="dialog" aria-modal="true" aria-labelledby="scan-fullscreen-title" hidden><div class="scan-fullscreen-bar"><span id="scan-fullscreen-title" class="scan-fullscreen-title">Скан · разворот {number:03}</span><button class="button" type="button" id="scan-fullscreen-out" aria-label="Уменьшить скан">−</button><output id="scan-fullscreen-level" aria-live="polite">100%</output><button class="button" type="button" id="scan-fullscreen-in" aria-label="Увеличить скан">+</button><button class="button" type="button" id="scan-fullscreen-fit">Вместить</button><span class="scan-fullscreen-help">Прокручивайте изображение · Esc — закрыть</span><button class="button" type="button" id="scan-fullscreen-close">Закрыть ✕</button></div><div class="scan-fullscreen-view" id="scan-fullscreen-view" tabindex="0" aria-label="Увеличенный скан, прокручиваемая область"><div class="scan-fullscreen-stage"><img id="scan-fullscreen-image" class="scan-fullscreen-image" alt="Скан разворота {number}" draggable="false"></div></div></section>{translation_panel}<nav class="nav bottom-nav" aria-label="Перелистывание в конце"><div class="nav-group">{prev}{next_}</div><a href="#top" class="muted">↑ В начало</a></nav><p class="notice book-note">{text_note} Скан показан рядом для сверки; на узких экранах — ниже. Номера страниц вводной части переведены из римских цифр в арабские; границы по OCR могут быть неточными.</p>'''
+    return shell(content, number, query).replace('</body>', inline_editor.SCRIPT + SCAN_ZOOM_SCRIPT + '</body>')
 
 def reader_page(number, query=''):
     # Keep replacement rules and per-segment edits in one consistent snapshot.
@@ -865,17 +877,117 @@ def translation_error_page(number, message, status=400, draft=None):
     return shell(content, number).encode('utf-8'), status
 
 
-def scan_image(number):
+# Kept separate from the editor so scan controls never interfere with edits.
+SCAN_ZOOM_SCRIPT = r'''<script>
+(()=>{
+ const toolbar=document.getElementById('scan-zoom-toolbar');
+ const view=document.getElementById('scan-zoom-viewport');
+ const link=document.getElementById('scan-zoom-link');
+ const image=document.getElementById('scan-zoom-image');
+ const out=document.getElementById('scan-zoom-level');
+ const minus=document.getElementById('scan-zoom-out');
+ const plus=document.getElementById('scan-zoom-in');
+ const reset=document.getElementById('scan-zoom-reset');
+ if(!toolbar||!view||!link||!image||!out||!minus||!plus||!reset)return;
+ const steps=[100,125,150,200,250,300,400]; let index=0, requestedDetail=false;
+ function render(next){
+  const old=steps[index]/100;
+  const x=(view.scrollLeft+view.clientWidth/2)/old;
+  const y=(view.scrollTop+view.clientHeight/2)/old;
+  index=Math.max(0,Math.min(steps.length-1,next));
+  const scale=steps[index]/100;
+  link.style.width=steps[index]+'%';
+  view.classList.toggle('is-zoomed',index>0);
+  out.textContent=steps[index]+'%';
+  minus.disabled=index===0;plus.disabled=index===steps.length-1;
+  if(index>0&&!requestedDetail){requestedDetail=true;image.src=image.dataset.detailSrc;}
+  if(index===0){view.scrollLeft=0;view.scrollTop=0;}
+  else {view.scrollLeft=x*scale-view.clientWidth/2;view.scrollTop=y*scale-view.clientHeight/2;}
+ }
+ minus.addEventListener('click',()=>render(index-1));
+ plus.addEventListener('click',()=>render(index+1));
+ reset.addEventListener('click',()=>render(0));
+ view.addEventListener('keydown',e=>{
+  if(e.key==='+'||e.key==='='){e.preventDefault();render(index+1);}
+  else if(e.key==='-'){e.preventDefault();render(index-1);}
+  else if(e.key==='0'){e.preventDefault();render(0);}
+ });
+ toolbar.hidden=false;render(0);
+
+ const fullscreen=document.getElementById('scan-fullscreen');
+ const large=document.getElementById('scan-fullscreen-image');
+ const largeView=document.getElementById('scan-fullscreen-view');
+ const largeOut=document.getElementById('scan-fullscreen-out');
+ const largeIn=document.getElementById('scan-fullscreen-in');
+ const largeFit=document.getElementById('scan-fullscreen-fit');
+ const largeLevel=document.getElementById('scan-fullscreen-level');
+ const close=document.getElementById('scan-fullscreen-close');
+ if(!fullscreen||!large||!largeView||!largeOut||!largeIn||!largeFit||!largeLevel||!close)return;
+ let fullIndex=0, previousFocus=null, previousOverflow='';
+ function fullRender(next, preserve=true){
+  const old=steps[fullIndex]/100;
+  const oldWidth=parseFloat(large.style.width)||0;
+  const x=(largeView.scrollLeft+largeView.clientWidth/2)/old;
+  const y=(largeView.scrollTop+largeView.clientHeight/2)/old;
+  fullIndex=Math.max(0,Math.min(steps.length-1,next));
+  const ratio=(large.naturalWidth&&large.naturalHeight)?large.naturalWidth/large.naturalHeight:1;
+  const width=Math.min(largeView.clientWidth,largeView.clientHeight*ratio);
+  const scale=steps[fullIndex]/100;
+  large.style.width=(width*scale)+'px';
+  largeLevel.textContent=steps[fullIndex]+'%';
+  largeOut.disabled=fullIndex===0;largeIn.disabled=fullIndex===steps.length-1;
+  if(preserve&&oldWidth&&fullIndex>0){largeView.scrollLeft=x*scale-largeView.clientWidth/2;largeView.scrollTop=y*scale-largeView.clientHeight/2;}
+  else {largeView.scrollLeft=0;largeView.scrollTop=0;}
+ }
+ function openFull(){
+  previousFocus=document.activeElement; previousOverflow=document.body.style.overflow;
+  fullscreen.hidden=false;document.body.style.overflow='hidden';
+  fullIndex=0;large.src=image.src;fullRender(0,false);
+  if(large.src!==new URL(image.dataset.detailSrc,document.baseURI).href)large.src=image.dataset.detailSrc;
+  close.focus();
+ }
+ function closeFull(){
+  fullscreen.hidden=true;document.body.style.overflow=previousOverflow;
+  if(previousFocus&&typeof previousFocus.focus==='function')previousFocus.focus();
+ }
+ link.addEventListener('click',e=>{if(e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;e.preventDefault();openFull();});
+ large.addEventListener('load',()=>{if(!fullscreen.hidden)fullRender(fullIndex,false);});
+ large.addEventListener('error',()=>{if(large.src!==image.src)large.src=image.src;});
+ largeOut.addEventListener('click',()=>fullRender(fullIndex-1));
+ largeIn.addEventListener('click',()=>fullRender(fullIndex+1));
+ largeFit.addEventListener('click',()=>fullRender(0,false));
+ close.addEventListener('click',closeFull);
+ window.addEventListener('resize',()=>{if(!fullscreen.hidden)fullRender(fullIndex,false);});
+ fullscreen.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){e.preventDefault();closeFull();}
+  else if(e.key==='+'||e.key==='='){e.preventDefault();fullRender(fullIndex+1);}
+  else if(e.key==='-'){e.preventDefault();fullRender(fullIndex-1);}
+  else if(e.key==='0'){e.preventDefault();fullRender(0,false);}
+  else if(e.key==='Tab'){
+   const targets=[largeOut,largeIn,largeFit,close,largeView].filter(el=>!el.disabled);
+   const current=targets.indexOf(document.activeElement);
+   if(e.shiftKey&&(current<=0)){e.preventDefault();targets[targets.length-1].focus();}
+   else if(!e.shiftKey&&(current===targets.length-1||current<0)){e.preventDefault();targets[0].focus();}
+  }
+ });
+})();
+</script>'''
+
+
+def scan_image(number, detail=False):
     replacement = replacement_path(number)
     with _SCAN_LOCK:
         if replacement.exists():
-            return render_replacement(replacement.read_bytes())
-    return original_scan_image(number)
+            return render_replacement(replacement.read_bytes(), detail=detail)
+    return original_scan_image(number, detail=detail)
 
 @lru_cache(maxsize=12)
-def original_scan_image(number):
+def original_scan_image(number, detail=False):
     with pymupdf.open(ROOT / PAGES[number - 1][0]) as doc:
-        matrix = pymupdf.Matrix(1.8, 1.8).prerotate(-90 if number == 14 else 0)
+        scale = 3.5 if detail else 1.8
+        width, height = doc[0].rect.width, doc[0].rect.height
+        scale = min(scale, math.sqrt(20_000_000 / (width * height)))
+        matrix = pymupdf.Matrix(scale, scale).prerotate(-90 if number == 14 else 0)
         return doc[0].get_pixmap(matrix=matrix, alpha=False).tobytes('jpg', jpg_quality=85)
 
 class Handler(SimpleHTTPRequestHandler):
@@ -1268,7 +1380,7 @@ class Handler(SimpleHTTPRequestHandler):
                 self.send_error(404, 'Spread not found')
                 return
             try:
-                image = scan_image(number)
+                image = scan_image(number, detail=params.get('detail') == ['1'])
             except Exception:
                 self.send_error(500, 'Could not render scan')
                 return
