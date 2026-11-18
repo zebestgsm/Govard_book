@@ -191,3 +191,10 @@ VERIFIED_PROSE[107] = {
     's16': ('The on their legs, wat', 'The water from the pump is conveyed through the sewers, which prevents the courtyard, which is small, from being offensive.\n\nIn the centre of the ceiling of a neat chapel lately built, is an aperture covered by a small turret, which keeps the room airy and pleasant. (All prison chapels should be thus supplied with fresh air.) Mr. Brome, the chaplain, does not content himself merely with the regular and punctual performance of his stated duty; he is a friend to the prisoners on all occasions.'),
 }
 NOTE_TARGETS[107] = {"s2": {"1": "s7"}, "s7": {"2": "s7"}}
+
+# Spreads 7–9: guarded defaults; saved edits and their history retain priority.
+from verified_007_009 import VERIFIED_007_009
+VERIFIED_PROSE.update(VERIFIED_007_009)
+NOTE_TARGETS[7] = {'s15': {'1': 's17'}}
+NOTE_TARGETS[9] = {'s1': {'1': 's8'}, 's6': {'2': 's9'},
+                   's12': {'1': 's16'}, 's14': {'2': 's16'}}

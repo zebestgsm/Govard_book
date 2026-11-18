@@ -565,6 +565,22 @@ class SequentialProofreadTests(unittest.TestCase):
                 self.assertEqual(segments[key], expected, (number, key))
             self.assertIn('verified-prose-page', html)
 
+    def test_spreads_7_to_9_restored_words_and_footnotes(self):
+        page7, seg7 = reader.segment_state(7)
+        self.assertIn('Newgate and Ludgate', seg7['s2'])
+        self.assertIn('myself from infection in the prisons and hospitals', seg7['s17'])
+        self.assertIn('href="#footnote-7-s17-1"', page7)
+        self.assertIn('id="footnote-7-s17-1"', page7)
+        _, seg8 = reader.segment_state(8)
+        self.assertIn('sallow meagre countenances', seg8['s5'])
+        self.assertIn('in loathsome cells', seg8['s7'])
+        page9, seg9 = reader.segment_state(9)
+        self.assertIn('In 1782, the weight of a twopenny white loaf', seg9['s16'])
+        for target in ('footnote-9-s8-1', 'footnote-9-s9-2', 'footnote-9-s16-1', 'footnote-9-s16-2'):
+            self.assertIn('href="#' + target + '"', page9)
+            self.assertIn('id="' + target + '"', page9)
+        self.assertIn('My own text', reader.segment_state(7, {'spreads': {'7': {'segments': {'s1': 'My own text'}}}})[1]['s1'])
+
     def test_spread_107_transcription_notes_and_overrides(self):
         page, segments = reader.segment_state(107)
         self.assertIn('3s. 5½d.', segments['s7'])
