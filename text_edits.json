@@ -1521,6 +1521,55 @@
           }
         ]
       }
+    },
+    "13": {
+      "segments": {},
+      "history": [],
+      "spread_review": {
+        "state": "working",
+        "before": {
+          "s0": "VIEW OF DISTRESS IN PRISONS",
+          "s1": "when that is over we grow cool and compassionate. I grant there is a material difference in the circumstances of foreign and domestic prisoners, but there is none in their nature. Debtors and felons, as well as hostile foreigners, are men, and by men they ought to be treated as men.",
+          "s2": "",
+          "s3": "Those gentlemen who, when they are told of the misery which our prisoners suffer, content themselves with saying, Let them take care to keep out, prefaced perhaps, with an angry prayer; seem not duly sensible of the favour of Providence which distinguishes them from the sufferers: they do not remember that we are required to imitate our gracious Heavenly Parent, who is kind to the unthankful, and to the evil: they also forget the vicissitudes of human affairs; the unexpected changes to which all men are liable: and that those whose circumstances are affluent, may in time be reduced to indigence, and become debtors and prisoners. And as to criminality, it is possible, that a man who has often shuddered at hearing the account of a murder, may on a sudden temptation commit that very crime. Let him that thinks he standeth take heed lest he fall, and commiserate those that are fallen.",
+          "s4": "But it may be said, enough of the declamatory kind has been written by others. Much it is true, has been written: and I beg leave to transcribe almost verbatim a few lines from a celebrated author, which may be thought to come under that description. After representing the sufferings of prisoners, he goes on to this purpose, “The misery suffered in gaols is not half their evil; they are filled with every sort of corruption that poverty and wickedness can generate: with all the shameless and profligate enormities that can be produced by the impudence of ignominy, the rage of want, and the malignity of despair. In a prison the check of the public eye is removed; and the power of the law is spent. There are few fears, there are no blushes. The lewd inflame the more modest; the audacious harden the timid. Every one fortifies himself as he can against his own remaining sensibility; endeavouring to practise on others the arts that are practised on himself; and to gain the applause of his worst associates by imitating their manners.”",
+          "s5": "",
+          "s6": "Besides the grievances already mentioned; there are several bad customs in gaols, and relating to them, which aggravate the distress of prisoners. I shall enumerate these distinctly, yet concisely.",
+          "s7": "SECTION II",
+          "s8": "BAD CUSTOMS IN PRISONS",
+          "s9": "A CRUEL custom obtains in most of our gaols, which is that of the prisoners demanding of a new comer garnish, footing, or (as it is called in some London gaols) chummage. “Pay or strip,” are the fatal words. I say fatal, for they are so to some; who having no money, are obliged to give up part of their scanty apparel; and then if they have no bedding or straw to sleep on, contract diseases, which I have known to prove mortal.¹",
+          "s10": "In many gaols, to the garnish paid by the new-comer, those who were there before make an addition; and great part of the following night is often spent in riot and drunkenness. The gaoler or tapster finding his account in this practice, generally answers questions concerning it with reluctance. Of the garnish which I have set down to sundry prisons, I had my information from prisoners who paid it. But I am aware that the sum is sometimes varied by sets of succeeding prisoners, and the different circumstances of a new-comer. In some gaols, if a felon can pay the debtors’ garnish (which is commonly more than that of the felons) he is entitled to partake of the garnish paid afterwards by new-come debtors. In a few places, this demand has been lately waived; in two or three, strictly prohibited by the magistrates.",
+          "s11": "",
+          "s12": "Gaming in various forms is very frequent: cards, dice, skittles, mississippi and portobello-tables, billiards, fives, tennis, etc. In the country the three first are most common; and especially cards. There is scarce a county gaol but is furnished with them: and one can seldom go in without seeing prisoners at play. In London, all the sorts that I have named were till\n\n¹ “In the year 1730, Nicholas Bennet, Joseph Robinson, John Head, and George Taverner, were indicted at the Old Bailey for robbing John Berrisford of two half-guineas, two sixpences, and two halfpence, in New Prison under the pretence of garnish, which fact being plainly proved, they were all found guilty of an assault and robbery; and to deter others from the infamous and inhuman practice of taking the money, and if they had none, of stripping poor prisoners that were upon any account committed to prison, so that oftentimes they have perished for want of clothing and necessaries, they received sentence of death.”—Burton’s New View of London, p. 468."
+        },
+        "cycles": [],
+        "events": [
+          {
+            "action": "start",
+            "time": "2026-11-18T09:50:22+00:00"
+          }
+        ]
+      }
+    },
+    "14": {
+      "segments": {},
+      "history": [],
+      "spread_review": {
+        "state": "working",
+        "before": {
+          "s0": "lately in use. I am not an enemy to diverting exercise: yet the riot, brawling, and profaneness, that are the usual consequences of their play; the circumstances of debtors gaming away the property of their creditors, which I know they have done in some prisons to a considerable amount; accomplishing themselves in the frauds of gamblers, who, if they be not themselves prisoners, are sure to haunt where gaming is practised; hindering their fellow-prisoners from walking in the courts while they play, of which inconvenience I have heard them complain: these seem to me cogent reasons for prohibiting all kinds of gaming within the walls of a prison.\n\nLoading prisoners with heavy irons, which make their walking, and even lying down to sleep, difficult and painful, is another custom which I cannot but condemn. In some county gaols and even bridewells the women do not escape this severity: but in London they do: and therefore it is not necessary in the country.¹ The practice must be mere tyranny: unless it proceed from avarice; which I rather suspect; because county gaolers do sometimes grant dispensations, and indulge their prisoners, men as well as women, with what they call “the choice of irons,” if they will pay for it.\n\nThe author of A Letter to Sir Robert Ladbroke on prisons (particularly on Newgate, which was then to be rebuilt) cites in page 79, the opinion of Lord Coke, Horn’s Mirror of Justice, etc., against this oppression; and adds afterwards, “The learned editor of Hale’s History of the Pleas of the Crown likewise declares, that fetters ought not to be used, unless there is just reason to fear an escape, as where the prisoner is unruly, or makes an attempt to that purpose; otherwise, notwithstanding the common practice of gaolers, it seems altogether unwarrantable, and contrary to the mildness and humanity of the laws of England, by which gaolers are forbid to put their prisoners to any pain or torment.”\n\nThe gentlemen of the gaol committee, who distinguished themselves by an accurate and zealous inquiry into the abuses practised by gaolers²; in their report concerning the Fleet\n\n¹ Lord Loughborough, Lent assize 1782, at Thetford laid a fine of £20 on the gaoler of Norwich Castle, for putting irons on a woman.\n\n² This committee is celebrated by Thomson, in his poem entitled Winter, p. 340, etc., present edition 1738.",
+          "s1": ". . . Can I forget the generous few,\nWho, touched with human woe, redressive sought\nInto the horrours of the gloomy jail?\nUnpitied, and unheard, where misery moans;\nWhere sickness pines . . .",
+          "s2": "",
+          "s3": "prison, 20th March, 1728, after mentioning a petition presented to the judges by one who had been put in irons by the wardens, informs us, that the judges reprimanded the wardens, and declared, that “a gaoler could not answer the ironing of a man before he was found guilty of a crime.” To the plea which gaolers use in defence of this practice, that “it is necessary for safe custody,” an answer may be given in the words of Lord Chief Justice King (afterwards Lord Chancellor) to the wardens of the same prison, when he forbade dungeons, which they had made use of. That judge declared, “they might raise their walls higher, etc.” See the report of the same committee. To what Lord King suggested of raising the walls, one might presume to add: The number of turnkeys should be increased in proportion to the number of prisoners. If the daring character of our felons should seem, after all, to make it necessary to confine them in irons, it would be right, at least, to bring them into court without irons, unless they have escaped, or attempted it before their trial.¹\n\nThe Marquis Beccaria, in his Essay on Crimes and Punishments,² p. 75, observes that “Imprisonment, being only the means of securing the person of the accused, until he be tried . . . ought . . . to be attended with as little severity as possible.” The distress occasioned by chains is increased by:\n\nVarying the towns where quarter-sessions and assizes are held: so that prisoners have to walk in irons ten or fifteen miles to their trial: and sometimes to towns that have no prison; where numbers of both sexes are shut up together for many days and nights in one room. This occasions such confusion and distress, and such shrieks and outcries, as can be better conceived than described. Surely prisoners ought to be conveyed in carts; or else committed at first to the town where the\n\nHail Patriot Band! who, scorning secret scorn,\nWhen Justice, and when Mercy led the way,\nDragged the detected monsters into light,\nWrenched from their hand Oppression’s iron rod.\n\n. . .\n\nMuch still untouch’d remains . . .\nMuch is the patriot’s weeding hand requir’d.\n\n¹ “It is the law of the land, and certainly ever hath been so, that a prisoner ought not at any time to be charged with fetters; unless the jailer be constrained to have recourse to them by the actual necessity of safe custody.”—Principles of Penal Law, p. 187.\n\n² Published in 1764, this work shares with Howard’s the credit of awakening the conscience of Europe in regard to the treatment of malefactors.—[ED.]"
+        },
+        "cycles": [],
+        "events": [
+          {
+            "action": "start",
+            "time": "2026-11-18T09:50:22+00:00"
+          }
+        ]
+      }
     }
   }
 }
