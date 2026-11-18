@@ -340,6 +340,11 @@ STYLE = '''
 .spread-16 p[data-edit-id="s6"]::after,.spread-17 p[data-edit-id="s6"]::after{content:"";display:block;margin-bottom:1.15em}
 .spread-17 h3[data-edit-id="s3"]{margin-bottom:0}.spread-17 h3[data-edit-id="s4"]{margin-top:0}
 
+/* Added table headings are explanatory UI, never part of editable source text. */
+.restored-table[data-editorial-caption]::before{content:attr(data-editorial-caption);display:block;font:600 13px/1.4 Arial,sans-serif;color:#52664f;margin-bottom:6px}
+.editorial-header{font-weight:bold;border-bottom:1px solid #aaa797;color:#52664f}.editorial-header .restored-cell::before{content:attr(data-heading)}
+.is-editing .restored-table[data-editorial-caption]::before,.is-editing .editorial-header{display:none}
+
 /* Full-workspace scan viewer. The original image link remains usable without JS. */
 .scan-fullscreen[hidden]{display:none}.scan-fullscreen{position:fixed;inset:0;z-index:1000;background:#282a27;color:#fff;display:flex;flex-direction:column;min-width:0}
 .scan-fullscreen-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 16px;background:#f9f8f3;color:var(--ink);border-bottom:1px solid var(--line)}
@@ -735,6 +740,8 @@ def _reader_page(number, query=''):
         controls.append(f'<form method="post" action="/scan-action/{number}"><input type="hidden" name="action" value="{action}"><button class="button" type="submit">{text}</button><span class="small"> {status}</span></form>')
     issue_control = ''.join(controls)
     page_notice = table_one_audit_html() if number == 147 else ''
+    if number == 17:
+        page_notice += '<p class="notice" style="padding:0 20px">Названия и заголовки таблиц добавлены для удобства: в оригинале они не напечатаны. Числа и текст книги не изменены.</p>'
     page_notice += ('<p class="scan-fallback">В таблице VIII за 1782–1783 в оригинале напечатано 49, хотя сумма чисел строки — 59. Оставлено значение из книги.</p>' if number == 152 else '')
     text_status = ('ENGLISH · сверено' if number in VERIFIED_SPREADS else ('ENGLISH · пометка OCR снята' if number in dismissed_issues()['ocr'] else 'ENGLISH · ☑ OCR'))
     text_note = ('Базовый текст разворота вычитан по скану; отдельные ошибки всё ещё возможны. Ваши сохранённые правки имеют приоритет.' if number in VERIFIED_SPREADS else ('Пометка OCR снята вами; базовый текст получен автоматическим распознаванием.' if number in dismissed_issues()['ocr'] else 'Текст получен автоматическим распознаванием и не вычитан полностью: возможны слитные слова, ошибки и неточности в сносках.'))
