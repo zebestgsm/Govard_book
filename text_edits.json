@@ -22,7 +22,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "Editor's Introduction",
           "s1": "EDITOR'S INTRODUCTION",
@@ -43,6 +43,10 @@
           {
             "action": "finish",
             "time": "2026-11-18T07:11:42+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-18T07:18:31+00:00"
           }
         ],
         "after": {
