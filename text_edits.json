@@ -752,39 +752,8 @@
         }
       ],
       "spread_review": {
-        "state": "needs_work",
+        "state": "working",
         "before": {
-          "s0": "INTRODUCTION",
-          "s1": "amusement;and the collections are not published for general entertainment;butfor the perusal of those who have it in their power to give redress to the sufferers.",
-          "s2": "The writer begs hisreader to excuse the frequent egotisms; which he did not know how to avoid,without using circum- locutions that might have been more disgusting.",
-          "s3": "SECTION 1",
-          "s4": "GENERAL VIEW OF DISTRESS IN PRISONS",
-          "s5": "THERE are prisons,into which whoever looks will,at first sight of the people confined,be convinced,that there is some great error in the management of them: their sallow meagre coun- tenances declare,without words,that they are very miserable.",
-          "s6": "Many who went in healthy,are ina few months changed to emaciated dejected objects.",
-          "s7": "Some are seen pining under diseases,“sick,and in prison”;expiring on the floors,n loath- some cells,of pestilential fevers,and the confluent smallpox; victims,Imust not say to the cruelty,butIwill say to the inattention,of sheriffs,and gentlemen in the commission of thepeace.",
-          "s8": "The cause of this distress is,that many prisons are scantily supplied,and some almost totally destitute of the necessaries oflife.",
-          "s9": "There are several bridewells（to begin with them)in which prisoners have no allowance of food at all.In some,thekeeper farmswhatlittleis allowed them:and where he engages to supply each prisoner with one or two pennyworth of bread a day，I have known this shrunk to half,sometimes less than half the quantity,cut or broken from his own loaf.",
-          "s10": "Itwill perhaps be asked,doesnot their work maintain them? for everyoneknowsthatthoseoffendersarecommittedtohard labour.The answer to that question, though true,will hardly be believed.There are few bridewells in which any work is done,or can be done.The prisoners have neither tools,nor materialsof anykind:but spend their time in sloth,profaneness and debauchery,to a degree which,in some of those houses thatI have seen,is extremely shocking.",
-          "s11": "Some keepers of these houses,who have represented to the magistrates the wants of their prisoners,and desired for them necessary food,have been silenced with these inconsiderate words,Letthem work or starve.",
-          "s12": "When those gentlemen know the former is impossible,do they not by that thoughtless sentence,inevitably doom poor creatures to the latter?",
-          "s13": "Ihave asked some keepers,since the late act for preserving the health of prisoners,why no care is taken of their sick:and"
-        },
-        "cycles": [],
-        "events": [
-          {
-            "action": "start",
-            "time": "2026-11-18T07:58:37+00:00"
-          },
-          {
-            "action": "finish",
-            "time": "2026-11-18T08:01:14+00:00"
-          },
-          {
-            "action": "needs_work",
-            "time": "2026-11-18T08:06:08+00:00"
-          }
-        ],
-        "after": {
           "s0": "INTRODUCTION",
           "s1": "amusement; and the collections are not published for general entertainment; but for the perusal of those who have it in their power to give redress to the sufferers.",
           "s2": "The writer begs his reader to excuse the frequent egotisms; which he did not know how to avoid, without using circumlocutions that might have been more disgusting.",
@@ -799,7 +768,64 @@
           "s11": "Some keepers of these houses, who have represented to the magistrates the wants of their prisoners, and desired for them necessary food, have been silenced with these inconsiderate words, Let them work or starve.",
           "s12": "When those gentlemen know the former is impossible, do they not by that thoughtless sentence, inevitably doom poor creatures to the latter?",
           "s13": "I have asked some keepers, since the late act for preserving the health of prisoners, why no care is taken of their sick: and"
-        }
+        },
+        "cycles": [
+          {
+            "state": "needs_work",
+            "before": {
+              "s0": "INTRODUCTION",
+              "s1": "amusement;and the collections are not published for general entertainment;butfor the perusal of those who have it in their power to give redress to the sufferers.",
+              "s2": "The writer begs hisreader to excuse the frequent egotisms; which he did not know how to avoid,without using circum- locutions that might have been more disgusting.",
+              "s3": "SECTION 1",
+              "s4": "GENERAL VIEW OF DISTRESS IN PRISONS",
+              "s5": "THERE are prisons,into which whoever looks will,at first sight of the people confined,be convinced,that there is some great error in the management of them: their sallow meagre coun- tenances declare,without words,that they are very miserable.",
+              "s6": "Many who went in healthy,are ina few months changed to emaciated dejected objects.",
+              "s7": "Some are seen pining under diseases,“sick,and in prison”;expiring on the floors,n loath- some cells,of pestilential fevers,and the confluent smallpox; victims,Imust not say to the cruelty,butIwill say to the inattention,of sheriffs,and gentlemen in the commission of thepeace.",
+              "s8": "The cause of this distress is,that many prisons are scantily supplied,and some almost totally destitute of the necessaries oflife.",
+              "s9": "There are several bridewells（to begin with them)in which prisoners have no allowance of food at all.In some,thekeeper farmswhatlittleis allowed them:and where he engages to supply each prisoner with one or two pennyworth of bread a day，I have known this shrunk to half,sometimes less than half the quantity,cut or broken from his own loaf.",
+              "s10": "Itwill perhaps be asked,doesnot their work maintain them? for everyoneknowsthatthoseoffendersarecommittedtohard labour.The answer to that question, though true,will hardly be believed.There are few bridewells in which any work is done,or can be done.The prisoners have neither tools,nor materialsof anykind:but spend their time in sloth,profaneness and debauchery,to a degree which,in some of those houses thatI have seen,is extremely shocking.",
+              "s11": "Some keepers of these houses,who have represented to the magistrates the wants of their prisoners,and desired for them necessary food,have been silenced with these inconsiderate words,Letthem work or starve.",
+              "s12": "When those gentlemen know the former is impossible,do they not by that thoughtless sentence,inevitably doom poor creatures to the latter?",
+              "s13": "Ihave asked some keepers,since the late act for preserving the health of prisoners,why no care is taken of their sick:and"
+            },
+            "events": [
+              {
+                "action": "start",
+                "time": "2026-11-18T07:58:37+00:00"
+              },
+              {
+                "action": "finish",
+                "time": "2026-11-18T08:01:14+00:00"
+              },
+              {
+                "action": "needs_work",
+                "time": "2026-11-18T08:06:08+00:00"
+              }
+            ],
+            "after": {
+              "s0": "INTRODUCTION",
+              "s1": "amusement; and the collections are not published for general entertainment; but for the perusal of those who have it in their power to give redress to the sufferers.",
+              "s2": "The writer begs his reader to excuse the frequent egotisms; which he did not know how to avoid, without using circumlocutions that might have been more disgusting.",
+              "s3": "SECTION 1",
+              "s4": "GENERAL VIEW OF DISTRESS IN PRISONS",
+              "s5": "THERE are prisons, into which whoever looks will, at first sight of the people confined, be convinced, that there is some great error in the management of them: their sallow meagre countenances declare, without words, that they are very miserable.",
+              "s6": "Many who went in healthy, are in a few months changed to emaciated dejected objects.",
+              "s7": "Some are seen pining under diseases, “sick, and in prison”; expiring on the floors, in loathsome cells, of pestilential fevers, and the confluent smallpox; victims, I must not say to the cruelty, but I will say to the inattention, of sheriffs, and gentlemen in the commission of the peace.",
+              "s8": "The cause of this distress is, that many prisons are scantily supplied, and some almost totally destitute of the necessaries of life.",
+              "s9": "There are several bridewells (to begin with them) in which prisoners have no allowance of food at all. In some, the keeper farms what little is allowed them: and where he engages to supply each prisoner with one or two pennyworth of bread a day, I have known this shrunk to half, sometimes less than half the quantity, cut or broken from his own loaf.",
+              "s10": "It will perhaps be asked, does not their work maintain them? for every one knows that those offenders are committed to hard labour. The answer to that question, though true, will hardly be believed. There are few bridewells in which any work is done, or can be done. The prisoners have neither tools, nor materials of any kind: but spend their time in sloth, profaneness and debauchery, to a degree which, in some of those houses that I have seen, is extremely shocking.",
+              "s11": "Some keepers of these houses, who have represented to the magistrates the wants of their prisoners, and desired for them necessary food, have been silenced with these inconsiderate words, Let them work or starve.",
+              "s12": "When those gentlemen know the former is impossible, do they not by that thoughtless sentence, inevitably doom poor creatures to the latter?",
+              "s13": "I have asked some keepers, since the late act for preserving the health of prisoners, why no care is taken of their sick: and"
+            }
+          }
+        ],
+        "events": [
+          {
+            "action": "start",
+            "time": "2026-11-18T08:10:28+00:00"
+          }
+        ]
       }
     },
     "9": {
@@ -920,42 +946,8 @@
         }
       ],
       "spread_review": {
-        "state": "needs_work",
+        "state": "working",
         "before": {
-          "s0": "VIEW OF DISTRESS IN PRISONS",
-          "s1": "have been answered, that the magistrates tell them the act does not extend to bridewells.1 In consequence of this,at the quarter sessions you see prisoners covered (hardly covered) with rags;almost famished;and sick of diseases,which the discharged spread where theygo;and with which those who are sent to the county gaols infect these prisons.",
-          "s2": "The same complaint,want of food,is to be found in many county gaols. In above half these, debtors have no bread; although it is granted to the highwayman, the house-breaker, and the murderer:and medical assistance,which is provided for thelatter,is withheld from the former.",
-          "s3": "In many of these gaols,debtors who wouldwork are not permitted to have any tools,lest they should furnish felons with them for escape or other mischief.",
-          "s4": "I have often seen these prisoners eating their water-soup (bread boiled in mere water) and heard them say, “We are locked up and almost starved to death.”",
-          "s5": "As to the relief provided for debtors by the benevolent act, thirty-second of George II (commonly called the Lords Act, because it originated in their house)I did not find in all England andWales(except the counties of Middlesex andSurrey) twelve debtors who had obtained from their creditors the fourpence a day,to which they had a right by that act.The means of procuring it were out of their reach.In one of my journeys Ifound near six hundred prisoners,whose debts were under twenty pounds each:someof them did not owe above three orfour pounds:and the expense of suing for the aliment isin many places equal to the small debts;for which some of these prisoners had been confined several months.",
-          "s6": "At Carlisle but one debtor of theforty-nine whom I saw there in 1774,had obtained his groats:and the gaoler told me,that during the time he had held that office,which was fourteen years,no more than four or five had received it；and that they were soon discharged by their creditors neglecting to pay it.",
-          "s7": "Not one debtor had the aliment in York Castle,Devon,Cheshire, Kent,and many other counties. The truth is,some debtors are the most pitiable objects in our gaols.",
-          "s8": "To their wanting necessary food,Imust add not only the demands of gaolers,etc.for fees;but also the extortion of 1If the late act does not include bridewells,it is required,by an act of correction shall have some fit allowance...for the relieving of such as shall happen tobe weak andsickin their custody.\"",
-          "s9": "Thepopular name for the debtor's allowance under theabove named act.-[ED.]",
-          "s10": "VIEW OF DISTRESS IN PRISONS",
-          "s11": "bailiffs.These detain in their houses (properly enough denomi- nated spunging-houses), at an enormous expense, prisoners who have money.I know there is a legal provision against this oppression;but the mode of obtaining redress(like that of recovering thegroats)is attended with difficulty:and the abuse continues.",
-          "s12": "The rapine of these extortioners needs some more effectual and easy check:no bailiff should be suffered tokeep a public house;the mischiefs occasioned by their so doing,are complained of in many parts of the kingdom.",
-          "s13": "Here I begleave tomention the hard case of prisoners con- fined on exchequer processes;and those from the ecclesiastical courts:the latter are excluded from the privilege of bail;and the former,generally,from the benefit of insolvent acts.",
-          "s14": "Felons have in some gaols two pennyworth ofbread a day; in some three halfpennyworth;in some a pennyworth;in some none:the particulars will be seen hereafter in their proper places.I often weighed the bread in different prisons,and found the penny loaf seven ounces and a half to eight ounces, the other loaves in proportion.It is probable that when this allowance was fixed by its value,near double the quantity that the money will now purchase,might be bought for it:2 yet the allowance continues unaltered:and it is not uncommon to see thewhole purchase,especially of the smaller sums,eaten at breakfast;which is sometimes the case when they receive their pittance but once in two days:and then on the following day they must fast.",
-          "s15": "This allowance being so far short of the cravings of nature, and in some prisons lessened by farming to the gaoler,many criminals are half starved:such of them as at their commitment were in health,come out almost famished, scarce able to move, and for weeks incapable ofany labour.",
-          "s16": "Many prisons have no water. This defect is frequent in bride- wells,and town gaols.In the felons’courts of some county gaols there is no water:in some places where there is water, prisoners are always locked up within doors,and have no more bailiff，etc.. shall convey any person arrested...to any public victualling or other drinking-house.. .without the consentof theperson so arrestedNow if the bailiff himself keeps a public house, this seems topreclude the debtor'schoice;he must go to a public house,or directly togaol. n1557,apenny loaf of wheatbread weighed twenty-sixounces.In at Edinburgh,nineteen ounces and a half;at Dublin,sixteen ounces； in September 1783,at London,one pound three ounces;and the 4th of August,1783,in Dublin,only eleven ounces three drachms."
-        },
-        "cycles": [],
-        "events": [
-          {
-            "action": "start",
-            "time": "2026-11-18T07:58:37+00:00"
-          },
-          {
-            "action": "finish",
-            "time": "2026-11-18T08:01:14+00:00"
-          },
-          {
-            "action": "needs_work",
-            "time": "2026-11-18T08:07:18+00:00"
-          }
-        ],
-        "after": {
           "s0": "VIEW OF DISTRESS IN PRISONS",
           "s1": "have been answered, that the magistrates tell them the act does not extend to bridewells.¹ In consequence of this, at the quarter sessions you see prisoners covered (hardly covered) with rags; almost famished; and sick of diseases, which the discharged spread where they go; and with which those who are sent to the county gaols infect these prisons.",
           "s2": "The same complaint, want of food, is to be found in many county gaols. In above half these, debtors have no bread; although it is granted to the highwayman, the house-breaker, and the murderer: and medical assistance, which is provided for the latter, is withheld from the former.",
@@ -973,14 +965,77 @@
           "s14": "Felons have in some gaols two pennyworth of bread a day; in some three halfpennyworth; in some a pennyworth; in some none: the particulars will be seen hereafter in their proper places. I often weighed the bread in different prisons, and found the penny loaf seven ounces and a half to eight ounces, the other loaves in proportion. It is probable that when this allowance was fixed by its value, near double the quantity that the money will now purchase, might be bought for it:² yet the allowance continues unaltered: and it is not uncommon to see the whole purchase, especially of the smaller sums, eaten at breakfast; which is sometimes the case when they receive their pittance but once in two days: and then on the following day they must fast.",
           "s15": "This allowance being so far short of the cravings of nature, and in some prisons lessened by farming to the gaoler, many criminals are half starved: such of them as at their commitment were in health, come out almost famished, scarce able to move, and for weeks incapable of any labour.",
           "s16": "Many prisons have no water. This defect is frequent in bridewells, and town gaols. In the felons’ courts of some county gaols there is no water: in some places where there is water, prisoners are always locked up within doors, and have no more\n\n¹ By the statute thirty-second George II it is enacted, that “No sheriff, bailiff, etc. . . . shall convey any person arrested . . . to any public victualling or other drinking-house . . . without the consent of the person so arrested.” Now if the bailiff himself keeps a public house, this seems to preclude the debtor’s choice; he must go to a public house, or directly to gaol.\n\n² In 1557, a penny loaf of wheat bread weighed twenty-six ounces. In 1782, the weight of a twopenny white loaf, at London was eighteen ounces; at Edinburgh, nineteen ounces and a half; at Dublin, sixteen ounces; in September 1783, at London, one pound three ounces; and the 4th of August, 1783, in Dublin, only eleven ounces three drachms."
-        }
+        },
+        "cycles": [
+          {
+            "state": "needs_work",
+            "before": {
+              "s0": "VIEW OF DISTRESS IN PRISONS",
+              "s1": "have been answered, that the magistrates tell them the act does not extend to bridewells.1 In consequence of this,at the quarter sessions you see prisoners covered (hardly covered) with rags;almost famished;and sick of diseases,which the discharged spread where theygo;and with which those who are sent to the county gaols infect these prisons.",
+              "s2": "The same complaint,want of food,is to be found in many county gaols. In above half these, debtors have no bread; although it is granted to the highwayman, the house-breaker, and the murderer:and medical assistance,which is provided for thelatter,is withheld from the former.",
+              "s3": "In many of these gaols,debtors who wouldwork are not permitted to have any tools,lest they should furnish felons with them for escape or other mischief.",
+              "s4": "I have often seen these prisoners eating their water-soup (bread boiled in mere water) and heard them say, “We are locked up and almost starved to death.”",
+              "s5": "As to the relief provided for debtors by the benevolent act, thirty-second of George II (commonly called the Lords Act, because it originated in their house)I did not find in all England andWales(except the counties of Middlesex andSurrey) twelve debtors who had obtained from their creditors the fourpence a day,to which they had a right by that act.The means of procuring it were out of their reach.In one of my journeys Ifound near six hundred prisoners,whose debts were under twenty pounds each:someof them did not owe above three orfour pounds:and the expense of suing for the aliment isin many places equal to the small debts;for which some of these prisoners had been confined several months.",
+              "s6": "At Carlisle but one debtor of theforty-nine whom I saw there in 1774,had obtained his groats:and the gaoler told me,that during the time he had held that office,which was fourteen years,no more than four or five had received it；and that they were soon discharged by their creditors neglecting to pay it.",
+              "s7": "Not one debtor had the aliment in York Castle,Devon,Cheshire, Kent,and many other counties. The truth is,some debtors are the most pitiable objects in our gaols.",
+              "s8": "To their wanting necessary food,Imust add not only the demands of gaolers,etc.for fees;but also the extortion of 1If the late act does not include bridewells,it is required,by an act of correction shall have some fit allowance...for the relieving of such as shall happen tobe weak andsickin their custody.\"",
+              "s9": "Thepopular name for the debtor's allowance under theabove named act.-[ED.]",
+              "s10": "VIEW OF DISTRESS IN PRISONS",
+              "s11": "bailiffs.These detain in their houses (properly enough denomi- nated spunging-houses), at an enormous expense, prisoners who have money.I know there is a legal provision against this oppression;but the mode of obtaining redress(like that of recovering thegroats)is attended with difficulty:and the abuse continues.",
+              "s12": "The rapine of these extortioners needs some more effectual and easy check:no bailiff should be suffered tokeep a public house;the mischiefs occasioned by their so doing,are complained of in many parts of the kingdom.",
+              "s13": "Here I begleave tomention the hard case of prisoners con- fined on exchequer processes;and those from the ecclesiastical courts:the latter are excluded from the privilege of bail;and the former,generally,from the benefit of insolvent acts.",
+              "s14": "Felons have in some gaols two pennyworth ofbread a day; in some three halfpennyworth;in some a pennyworth;in some none:the particulars will be seen hereafter in their proper places.I often weighed the bread in different prisons,and found the penny loaf seven ounces and a half to eight ounces, the other loaves in proportion.It is probable that when this allowance was fixed by its value,near double the quantity that the money will now purchase,might be bought for it:2 yet the allowance continues unaltered:and it is not uncommon to see thewhole purchase,especially of the smaller sums,eaten at breakfast;which is sometimes the case when they receive their pittance but once in two days:and then on the following day they must fast.",
+              "s15": "This allowance being so far short of the cravings of nature, and in some prisons lessened by farming to the gaoler,many criminals are half starved:such of them as at their commitment were in health,come out almost famished, scarce able to move, and for weeks incapable ofany labour.",
+              "s16": "Many prisons have no water. This defect is frequent in bride- wells,and town gaols.In the felons’courts of some county gaols there is no water:in some places where there is water, prisoners are always locked up within doors,and have no more bailiff，etc.. shall convey any person arrested...to any public victualling or other drinking-house.. .without the consentof theperson so arrestedNow if the bailiff himself keeps a public house, this seems topreclude the debtor'schoice;he must go to a public house,or directly togaol. n1557,apenny loaf of wheatbread weighed twenty-sixounces.In at Edinburgh,nineteen ounces and a half;at Dublin,sixteen ounces； in September 1783,at London,one pound three ounces;and the 4th of August,1783,in Dublin,only eleven ounces three drachms."
+            },
+            "events": [
+              {
+                "action": "start",
+                "time": "2026-11-18T07:58:37+00:00"
+              },
+              {
+                "action": "finish",
+                "time": "2026-11-18T08:01:14+00:00"
+              },
+              {
+                "action": "needs_work",
+                "time": "2026-11-18T08:07:18+00:00"
+              }
+            ],
+            "after": {
+              "s0": "VIEW OF DISTRESS IN PRISONS",
+              "s1": "have been answered, that the magistrates tell them the act does not extend to bridewells.¹ In consequence of this, at the quarter sessions you see prisoners covered (hardly covered) with rags; almost famished; and sick of diseases, which the discharged spread where they go; and with which those who are sent to the county gaols infect these prisons.",
+              "s2": "The same complaint, want of food, is to be found in many county gaols. In above half these, debtors have no bread; although it is granted to the highwayman, the house-breaker, and the murderer: and medical assistance, which is provided for the latter, is withheld from the former.",
+              "s3": "In many of these gaols, debtors who would work are not permitted to have any tools, lest they should furnish felons with them for escape or other mischief.",
+              "s4": "I have often seen these prisoners eating their water-soup (bread boiled in mere water) and heard them say, “We are locked up and almost starved to death.”",
+              "s5": "As to the relief provided for debtors by the benevolent act, thirty-second of George II (commonly called the Lords Act, because it originated in their house) I did not find in all England and Wales (except the counties of Middlesex and Surrey) twelve debtors who had obtained from their creditors the fourpence a day, to which they had a right by that act. The means of procuring it were out of their reach. In one of my journeys I found near six hundred prisoners, whose debts were under twenty pounds each: some of them did not owe above three or four pounds: and the expense of suing for the aliment is in many places equal to the small debts; for which some of these prisoners had been confined several months.",
+              "s6": "At Carlisle but one debtor of the forty-nine whom I saw there in 1774, had obtained his groats²: and the gaoler told me, that during the time he had held that office, which was fourteen years, no more than four or five had received it; and that they were soon discharged by their creditors neglecting to pay it.",
+              "s7": "Not one debtor had the aliment in York Castle, Devon, Cheshire, Kent, and many other counties. The truth is, some debtors are the most pitiable objects in our gaols.",
+              "s8": "To their wanting necessary food, I must add not only the demands of gaolers, etc. for fees; but also the extortion of\n\n¹ If the late act does not include bridewells, it is required, by an act seventh James I, Cap. iv that “the masters and governors of . . . houses of correction shall have some fit allowance . . . for the relieving of such as shall happen to be weak and sick in their custody.”",
+              "s9": "² The popular name for the debtor’s allowance under the above named act.—[ED.]",
+              "s10": "VIEW OF DISTRESS IN PRISONS",
+              "s11": "bailiffs. These detain in their houses (properly enough denominated spunging-houses), at an enormous expense, prisoners who have money. I know there is a legal provision against this oppression; but the mode of obtaining redress (like that of recovering the groats) is attended with difficulty: and the abuse continues.",
+              "s12": "The rapine of these extortioners needs some more effectual and easy check: no bailiff should be suffered to keep a public house; the mischiefs occasioned by their so doing, are complained of in many parts of the kingdom.¹",
+              "s13": "Here I beg leave to mention the hard case of prisoners confined on exchequer processes; and those from the ecclesiastical courts: the latter are excluded from the privilege of bail; and the former, generally, from the benefit of insolvent acts.",
+              "s14": "Felons have in some gaols two pennyworth of bread a day; in some three halfpennyworth; in some a pennyworth; in some none: the particulars will be seen hereafter in their proper places. I often weighed the bread in different prisons, and found the penny loaf seven ounces and a half to eight ounces, the other loaves in proportion. It is probable that when this allowance was fixed by its value, near double the quantity that the money will now purchase, might be bought for it:² yet the allowance continues unaltered: and it is not uncommon to see the whole purchase, especially of the smaller sums, eaten at breakfast; which is sometimes the case when they receive their pittance but once in two days: and then on the following day they must fast.",
+              "s15": "This allowance being so far short of the cravings of nature, and in some prisons lessened by farming to the gaoler, many criminals are half starved: such of them as at their commitment were in health, come out almost famished, scarce able to move, and for weeks incapable of any labour.",
+              "s16": "Many prisons have no water. This defect is frequent in bridewells, and town gaols. In the felons’ courts of some county gaols there is no water: in some places where there is water, prisoners are always locked up within doors, and have no more\n\n¹ By the statute thirty-second George II it is enacted, that “No sheriff, bailiff, etc. . . . shall convey any person arrested . . . to any public victualling or other drinking-house . . . without the consent of the person so arrested.” Now if the bailiff himself keeps a public house, this seems to preclude the debtor’s choice; he must go to a public house, or directly to gaol.\n\n² In 1557, a penny loaf of wheat bread weighed twenty-six ounces. In 1782, the weight of a twopenny white loaf, at London was eighteen ounces; at Edinburgh, nineteen ounces and a half; at Dublin, sixteen ounces; in September 1783, at London, one pound three ounces; and the 4th of August, 1783, in Dublin, only eleven ounces three drachms."
+            }
+          }
+        ],
+        "events": [
+          {
+            "action": "start",
+            "time": "2026-11-18T08:10:28+00:00"
+          }
+        ]
       }
     },
     "10": {
       "segments": {},
       "history": [],
       "spread_review": {
-        "state": "accepted",
+        "state": "working",
         "before": {
           "s0": "VIEW OF DISTRESS IN PRISONS",
           "s1": "than the keeper or his servants think fit to bring them: in one place they were limited to three pints a day each: a scanty provision for drink and cleanliness!",
@@ -998,38 +1053,65 @@
           "s13": "¹ An act made in Ireland³ the third year of his present Majesty, “for better preventing the severities, etc,” has the following clause: “Whereas many infectious disorders are daily produced by the confinement of numbers in close prisons, whereunto there is no back-yard adjoining, and the lives of his Majesty’s subjects are endangered by the bringing of prisoners into public streets for air; be it enacted . . . that every grand jury at the assizes or quarter sessions . . . may be enabled, and they are hereby required and directed, to contract either by lease, or to purchase a piece of ground next adjoining the gaol, or as near as conveniently can be had thereto, and cause to be erected necessary houses, and a wall sufficient for the security of the said prisoners.”\n\n² This is also the case in many workhouses and farm-houses, where the poor and the labourer are lodged in rooms that have no light, nor fresh air: which may be the cause of our peasants not having the healthy ruddy complexions one used to see so common twenty or thirty years ago. The difference has often struck me in my various journeys.",
           "s14": "³ Ireland possessed an independent Parliament until 1800.—[ED.]"
         },
-        "cycles": [],
+        "cycles": [
+          {
+            "state": "accepted",
+            "before": {
+              "s0": "VIEW OF DISTRESS IN PRISONS",
+              "s1": "than the keeper or his servants think fit to bring them: in one place they were limited to three pints a day each: a scanty provision for drink and cleanliness!",
+              "s2": "And as to air, which is no less necessary than either of the two preceding articles, and given us by Providence quite gratis, without any care or labour of our own; yet, as if the bounteous goodness of Heaven excited our envy, methods are contrived to rob prisoners of this genuine cordial of life, as Dr. Hales very properly calls it: I mean by preventing that circulation and change of the salutiferous fluid, without which animals cannot live and thrive. It is well known that air which has performed its office in the lungs, is feculent and noxious. Writers upon the subject show, that a hogshead of air will last a man only an hour: but those who do not choose to consult philosophers; may judge from a notorious fact. In 1756, at Calcutta in Bengal, out of a hundred and seventy persons who were confined in a hole there one night, a hundred and fifty-four were taken out dead. The few survivors ascribed the mortality to their want of fresh air, and called the place Hell in miniature.",
+              "s3": "Air which has been breathed, is made poisonous to a more intense degree, by the effluvia from the sick, and what else in prisons is offensive. My reader will judge of its malignity, when I assure him, that my clothes were in my first journeys so offensive, that in a post-chaise I could not bear the windows drawn up; and was therefore obliged to travel commonly on horseback. The leaves of my memorandum-book were often so tainted, that I could not use it till after spreading it an hour or two before the fire: and even my antidote, a vial of vinegar, has, after using it in a few prisons, become intolerably disagreeable. I did not wonder that in those journeys many gaolers made excuses; and did not go with me into the felons’ wards.\n\nI learn from a letter to Sir Robert Ladbroke, printed in 1771, page 11, that “Dr Hales, Sir John Pringle, and others have observed, that air, corrupted and putrified, is of such a subtile and powerful nature, as to rot and dissolve heart of oak; and that the walls of buildings have been impregnated with this poisonous matter for years together.”",
+              "s4": "From hence any one may judge of the probability there is against the health, and life, of prisoners crowded in close rooms, cells, and subterraneous dungeons, for fourteen or fifteen hours out of the four and twenty. In some of those caverns the floor is very damp: in others there is sometimes an inch or two of water: and the straw, or bedding is laid on such floors; seldom",
+              "s5": "VIEW OF DISTRESS IN PRISONS",
+              "s6": "on barrack-bedsteads. Where prisoners are not kept in underground cells, they are often confined to their rooms, because there is no court belonging to the prison, which is the case in many city and town gaols: or because the walls round the yard are ruinous, or too low for safety: or because the gaoler has the ground for his own use. Prisoners confined in this manner, are generally unhealthy. Some gaols have no sewers or vaults; and in those that have, if they be not properly attended to, they are, even to a visitant, offensive beyond expression: how noxious then to people constantly confined in those prisons.¹",
+              "s7": "",
+              "s8": "",
+              "s9": "One cause why the rooms in some prisons are so close, is the window-tax which the gaolers have to pay: this tempts them to stop the windows, and stifle their prisoners.²\n\nIn many gaols, and in most bridewells, there is no allowance of bedding or straw for prisoners to sleep on; and if by any means they get a little, it is not changed for months together, so that it is offensive and almost worn to dust. Some lie upon rags, others upon the bare floors. When I have complained of this to the keepers, their justification has been “The county allows no straw; the prisoners have none but at my cost.”",
+              "s10": "",
+              "s11": "The evils mentioned hitherto affect the health and life of prisoners. I have now to complain of what is pernicious to their morals; and that is, the confining all sorts of prisoners together: debtors and felons, men and women, the young beginner and the old offender; and with all these, in some counties, such as are guilty of misdemeanors only; who should have been committed to bridewell to be corrected, by diligence and labour; but for want of food, and the means of procuring it in those prisons, are in pity sent to such county gaols as afford these offenders prison-allowance.",
+              "s12": "",
+              "s13": "¹ An act made in Ireland³ the third year of his present Majesty, “for better preventing the severities, etc,” has the following clause: “Whereas many infectious disorders are daily produced by the confinement of numbers in close prisons, whereunto there is no back-yard adjoining, and the lives of his Majesty’s subjects are endangered by the bringing of prisoners into public streets for air; be it enacted . . . that every grand jury at the assizes or quarter sessions . . . may be enabled, and they are hereby required and directed, to contract either by lease, or to purchase a piece of ground next adjoining the gaol, or as near as conveniently can be had thereto, and cause to be erected necessary houses, and a wall sufficient for the security of the said prisoners.”\n\n² This is also the case in many workhouses and farm-houses, where the poor and the labourer are lodged in rooms that have no light, nor fresh air: which may be the cause of our peasants not having the healthy ruddy complexions one used to see so common twenty or thirty years ago. The difference has often struck me in my various journeys.",
+              "s14": "³ Ireland possessed an independent Parliament until 1800.—[ED.]"
+            },
+            "events": [
+              {
+                "action": "start",
+                "time": "2026-11-18T07:58:37+00:00"
+              },
+              {
+                "action": "finish",
+                "time": "2026-11-18T08:01:14+00:00"
+              },
+              {
+                "action": "accept",
+                "time": "2026-11-18T08:08:35+00:00"
+              }
+            ],
+            "after": {
+              "s0": "VIEW OF DISTRESS IN PRISONS",
+              "s1": "than the keeper or his servants think fit to bring them: in one place they were limited to three pints a day each: a scanty provision for drink and cleanliness!",
+              "s2": "And as to air, which is no less necessary than either of the two preceding articles, and given us by Providence quite gratis, without any care or labour of our own; yet, as if the bounteous goodness of Heaven excited our envy, methods are contrived to rob prisoners of this genuine cordial of life, as Dr. Hales very properly calls it: I mean by preventing that circulation and change of the salutiferous fluid, without which animals cannot live and thrive. It is well known that air which has performed its office in the lungs, is feculent and noxious. Writers upon the subject show, that a hogshead of air will last a man only an hour: but those who do not choose to consult philosophers; may judge from a notorious fact. In 1756, at Calcutta in Bengal, out of a hundred and seventy persons who were confined in a hole there one night, a hundred and fifty-four were taken out dead. The few survivors ascribed the mortality to their want of fresh air, and called the place Hell in miniature.",
+              "s3": "Air which has been breathed, is made poisonous to a more intense degree, by the effluvia from the sick, and what else in prisons is offensive. My reader will judge of its malignity, when I assure him, that my clothes were in my first journeys so offensive, that in a post-chaise I could not bear the windows drawn up; and was therefore obliged to travel commonly on horseback. The leaves of my memorandum-book were often so tainted, that I could not use it till after spreading it an hour or two before the fire: and even my antidote, a vial of vinegar, has, after using it in a few prisons, become intolerably disagreeable. I did not wonder that in those journeys many gaolers made excuses; and did not go with me into the felons’ wards.\n\nI learn from a letter to Sir Robert Ladbroke, printed in 1771, page 11, that “Dr Hales, Sir John Pringle, and others have observed, that air, corrupted and putrified, is of such a subtile and powerful nature, as to rot and dissolve heart of oak; and that the walls of buildings have been impregnated with this poisonous matter for years together.”",
+              "s4": "From hence any one may judge of the probability there is against the health, and life, of prisoners crowded in close rooms, cells, and subterraneous dungeons, for fourteen or fifteen hours out of the four and twenty. In some of those caverns the floor is very damp: in others there is sometimes an inch or two of water: and the straw, or bedding is laid on such floors; seldom",
+              "s5": "VIEW OF DISTRESS IN PRISONS",
+              "s6": "on barrack-bedsteads. Where prisoners are not kept in underground cells, they are often confined to their rooms, because there is no court belonging to the prison, which is the case in many city and town gaols: or because the walls round the yard are ruinous, or too low for safety: or because the gaoler has the ground for his own use. Prisoners confined in this manner, are generally unhealthy. Some gaols have no sewers or vaults; and in those that have, if they be not properly attended to, they are, even to a visitant, offensive beyond expression: how noxious then to people constantly confined in those prisons.¹",
+              "s7": "",
+              "s8": "",
+              "s9": "One cause why the rooms in some prisons are so close, is the window-tax which the gaolers have to pay: this tempts them to stop the windows, and stifle their prisoners.²\n\nIn many gaols, and in most bridewells, there is no allowance of bedding or straw for prisoners to sleep on; and if by any means they get a little, it is not changed for months together, so that it is offensive and almost worn to dust. Some lie upon rags, others upon the bare floors. When I have complained of this to the keepers, their justification has been “The county allows no straw; the prisoners have none but at my cost.”",
+              "s10": "",
+              "s11": "The evils mentioned hitherto affect the health and life of prisoners. I have now to complain of what is pernicious to their morals; and that is, the confining all sorts of prisoners together: debtors and felons, men and women, the young beginner and the old offender; and with all these, in some counties, such as are guilty of misdemeanors only; who should have been committed to bridewell to be corrected, by diligence and labour; but for want of food, and the means of procuring it in those prisons, are in pity sent to such county gaols as afford these offenders prison-allowance.",
+              "s12": "",
+              "s13": "¹ An act made in Ireland³ the third year of his present Majesty, “for better preventing the severities, etc,” has the following clause: “Whereas many infectious disorders are daily produced by the confinement of numbers in close prisons, whereunto there is no back-yard adjoining, and the lives of his Majesty’s subjects are endangered by the bringing of prisoners into public streets for air; be it enacted . . . that every grand jury at the assizes or quarter sessions . . . may be enabled, and they are hereby required and directed, to contract either by lease, or to purchase a piece of ground next adjoining the gaol, or as near as conveniently can be had thereto, and cause to be erected necessary houses, and a wall sufficient for the security of the said prisoners.”\n\n² This is also the case in many workhouses and farm-houses, where the poor and the labourer are lodged in rooms that have no light, nor fresh air: which may be the cause of our peasants not having the healthy ruddy complexions one used to see so common twenty or thirty years ago. The difference has often struck me in my various journeys.",
+              "s14": "³ Ireland possessed an independent Parliament until 1800.—[ED.]"
+            }
+          }
+        ],
         "events": [
           {
             "action": "start",
-            "time": "2026-11-18T07:58:37+00:00"
-          },
-          {
-            "action": "finish",
-            "time": "2026-11-18T08:01:14+00:00"
-          },
-          {
-            "action": "accept",
-            "time": "2026-11-18T08:08:35+00:00"
+            "time": "2026-11-18T08:10:28+00:00"
           }
-        ],
-        "after": {
-          "s0": "VIEW OF DISTRESS IN PRISONS",
-          "s1": "than the keeper or his servants think fit to bring them: in one place they were limited to three pints a day each: a scanty provision for drink and cleanliness!",
-          "s2": "And as to air, which is no less necessary than either of the two preceding articles, and given us by Providence quite gratis, without any care or labour of our own; yet, as if the bounteous goodness of Heaven excited our envy, methods are contrived to rob prisoners of this genuine cordial of life, as Dr. Hales very properly calls it: I mean by preventing that circulation and change of the salutiferous fluid, without which animals cannot live and thrive. It is well known that air which has performed its office in the lungs, is feculent and noxious. Writers upon the subject show, that a hogshead of air will last a man only an hour: but those who do not choose to consult philosophers; may judge from a notorious fact. In 1756, at Calcutta in Bengal, out of a hundred and seventy persons who were confined in a hole there one night, a hundred and fifty-four were taken out dead. The few survivors ascribed the mortality to their want of fresh air, and called the place Hell in miniature.",
-          "s3": "Air which has been breathed, is made poisonous to a more intense degree, by the effluvia from the sick, and what else in prisons is offensive. My reader will judge of its malignity, when I assure him, that my clothes were in my first journeys so offensive, that in a post-chaise I could not bear the windows drawn up; and was therefore obliged to travel commonly on horseback. The leaves of my memorandum-book were often so tainted, that I could not use it till after spreading it an hour or two before the fire: and even my antidote, a vial of vinegar, has, after using it in a few prisons, become intolerably disagreeable. I did not wonder that in those journeys many gaolers made excuses; and did not go with me into the felons’ wards.\n\nI learn from a letter to Sir Robert Ladbroke, printed in 1771, page 11, that “Dr Hales, Sir John Pringle, and others have observed, that air, corrupted and putrified, is of such a subtile and powerful nature, as to rot and dissolve heart of oak; and that the walls of buildings have been impregnated with this poisonous matter for years together.”",
-          "s4": "From hence any one may judge of the probability there is against the health, and life, of prisoners crowded in close rooms, cells, and subterraneous dungeons, for fourteen or fifteen hours out of the four and twenty. In some of those caverns the floor is very damp: in others there is sometimes an inch or two of water: and the straw, or bedding is laid on such floors; seldom",
-          "s5": "VIEW OF DISTRESS IN PRISONS",
-          "s6": "on barrack-bedsteads. Where prisoners are not kept in underground cells, they are often confined to their rooms, because there is no court belonging to the prison, which is the case in many city and town gaols: or because the walls round the yard are ruinous, or too low for safety: or because the gaoler has the ground for his own use. Prisoners confined in this manner, are generally unhealthy. Some gaols have no sewers or vaults; and in those that have, if they be not properly attended to, they are, even to a visitant, offensive beyond expression: how noxious then to people constantly confined in those prisons.¹",
-          "s7": "",
-          "s8": "",
-          "s9": "One cause why the rooms in some prisons are so close, is the window-tax which the gaolers have to pay: this tempts them to stop the windows, and stifle their prisoners.²\n\nIn many gaols, and in most bridewells, there is no allowance of bedding or straw for prisoners to sleep on; and if by any means they get a little, it is not changed for months together, so that it is offensive and almost worn to dust. Some lie upon rags, others upon the bare floors. When I have complained of this to the keepers, their justification has been “The county allows no straw; the prisoners have none but at my cost.”",
-          "s10": "",
-          "s11": "The evils mentioned hitherto affect the health and life of prisoners. I have now to complain of what is pernicious to their morals; and that is, the confining all sorts of prisoners together: debtors and felons, men and women, the young beginner and the old offender; and with all these, in some counties, such as are guilty of misdemeanors only; who should have been committed to bridewell to be corrected, by diligence and labour; but for want of food, and the means of procuring it in those prisons, are in pity sent to such county gaols as afford these offenders prison-allowance.",
-          "s12": "",
-          "s13": "¹ An act made in Ireland³ the third year of his present Majesty, “for better preventing the severities, etc,” has the following clause: “Whereas many infectious disorders are daily produced by the confinement of numbers in close prisons, whereunto there is no back-yard adjoining, and the lives of his Majesty’s subjects are endangered by the bringing of prisoners into public streets for air; be it enacted . . . that every grand jury at the assizes or quarter sessions . . . may be enabled, and they are hereby required and directed, to contract either by lease, or to purchase a piece of ground next adjoining the gaol, or as near as conveniently can be had thereto, and cause to be erected necessary houses, and a wall sufficient for the security of the said prisoners.”\n\n² This is also the case in many workhouses and farm-houses, where the poor and the labourer are lodged in rooms that have no light, nor fresh air: which may be the cause of our peasants not having the healthy ruddy complexions one used to see so common twenty or thirty years ago. The difference has often struck me in my various journeys.",
-          "s14": "³ Ireland possessed an independent Parliament until 1800.—[ED.]"
-        }
+        ]
       }
     },
     "11": {
