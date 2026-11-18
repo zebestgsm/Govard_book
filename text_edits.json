@@ -722,7 +722,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "needs_work",
         "before": {
           "s0": "INTRODUCTION",
           "s1": "amusement;and the collections are not published for general entertainment;butfor the perusal of those who have it in their power to give redress to the sufferers.",
@@ -748,6 +748,10 @@
           {
             "action": "finish",
             "time": "2026-11-18T08:01:14+00:00"
+          },
+          {
+            "action": "needs_work",
+            "time": "2026-11-18T08:06:08+00:00"
           }
         ],
         "after": {
