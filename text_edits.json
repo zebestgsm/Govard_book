@@ -570,43 +570,8 @@
         }
       ],
       "spread_review": {
-        "state": "needs_work",
+        "state": "working",
         "before": {
-          "s0": "INTRODUCTION",
-          "s1": "destruction of multitudes,not only of felons in their dungeons， butof debtors also.",
-          "s2": "The gaol-fever is no new subject of complaint. Stow,in his Survey,mentions,that“in theyear1414,the gaolers of Newgat and Ludgate died,and prisoners in Newgate to the number of sixty-four.\"",
-          "s3": "And speaking of the King's Bench prison, says, that in the six years preceding the year 1579, one hundred prisoners died there:and twelve between Michaelmas and March of the last mentioned year,“through a certain contagion called the sickness of the house”;and I shall presently have occasion,among the fatal effects of this distemper propagated from prisons,and infecting many abroad,to mention another ancient instance of that sort also.These effects are now so notorious,that what terrifies most of us from looking into prisons,is thegaol-distemper so frequent in them.",
-          "s4": "Upon this subject I was examined in theHouse of Commons in March 1774:when I had thehonour of their thanks.Soon after that,Mr.Popham,member for Taunton,repeated the humane attempt which had miscarried a few years before; and brought inabill for therelief of prisoners who should be acquitted—respecting their fees;and another bill for preserving the health of prisoners,and preventing the gaol-distemper.",
-          "s5": "They both passed, that sessions: these two acts I had printed in a different character, and sent them to the keeper of every county gaol in England. By those acts, the tear was wiped from many an eye; and the legislature had for them “the blessing of many that were ready to perish.”\n\nThe great honour done me by the House has excited the curiosity of some to inquire what facts I had collected. This is one reason of the present publication: but it is not the only, nor yet the principal one.",
-          "s6": "There are still remaining,many disorders that ought to be rectified:prisoners suffer great hardships,from which Iam desirous that they should be set free:thegaol-fever is not,as I am persuaded it may be,totally eradicated.",
-          "s7": "These are my motives for printing this book.",
-          "s8": "Ithink it will show plainly,thatmuch isyet to be done for the regulation of prisons;and I am not without hope,that the legislature will finish whatwas so laudably begun.",
-          "s9": "I was called to the first part of my task by my office assheriff.",
-          "s10": "To the pursuit of it Iwas prompted by the sorrows of the sufferers,and love to my country. The work grew upon me insensibly.I could not enjoy my ease and leisure in the neglect ofan opportunity offered me by Providence of attempting the",
-          "s11": "INTRODUCTION",
-          "s12": "relief of the miserable.The attention of Parliament to the subject,led me to conclude that some additional labour would not be lost;and Iextended myplan.The difficulty I found in searching out evidence of fraud and cruelty in various articles, together with otherreal sources of distress,obligedme torepeat my visits,and travel over the kingdom more than once:and after all,I suspect that many frauds have been concealed from me;and that sometimes the interest of my informants prevailed over their veracity.",
-          "s13": "Besides,as I had in my first journeys gathered,from facts and experience,proofs of the mischievous effects of the want of cleanliness and fresh air,I had in my latter visits these strong arguments to enforce my persuasions; and,in consequence, some gaolers grew at last more mindful and complying,for the sake,not only of their prisoners,but of themselves and their own families.",
-          "s14": "It was not,I own,without some apprehensions of danger, thatI first visited the prisons;and I guarded myself by smeling tovinegar,while I was in those places,and changing my apparel afterwards.",
-          "s15": "This I did constantly and carefully when I began; but by degrees I grew less attentive to these precautions, and have long since entirely omitted them.¹ On account of the alteration made by the act for preserving the health of prisoners, one may now look into many a prison without gaining an idea of the condition it was in a few years ago. I wish the reformation to be not for the present only, but lasting. If the motive for amendment has anywhere been merely temporary, there is no doubt but the effect will cease with the cause: those who from such inducement have obeyed, will in future follow the example of others who have disregarded the law; and prisons that have been amended, will relapse into their former state.",
-          "s16": "As to whatis still wrong,I set down matter of fact without amplification;which would in the end rather impede than promote the object of my wishes;that is,the correction of whatisreally amiss.",
-          "s17": "The journeys were not undertaken for the traveller's 1Ihave been frequently asked what precautions Iuse,to preserve answer,next to the free goodness and mercy of the Author of my being， temperance and cleanliness are my preservatives.Trusting in Divine Providence,and believing myself in the way of my duty，Ivisit the most oxious cells;and while thus employed,“I fear no evil.”I never enter hospital or prison before breakfast,and in an offensive roomI seldom rawmybreath deeply."
-        },
-        "cycles": [],
-        "events": [
-          {
-            "action": "start",
-            "time": "2026-11-18T07:58:36+00:00"
-          },
-          {
-            "action": "finish",
-            "time": "2026-11-18T08:01:14+00:00"
-          },
-          {
-            "action": "needs_work",
-            "time": "2026-11-18T08:05:29+00:00"
-          }
-        ],
-        "after": {
           "s0": "INTRODUCTION",
           "s1": "destruction of multitudes, not only of felons in their dungeons, but of debtors also.",
           "s2": "The gaol-fever is no new subject of complaint. Stow, in his Survey, mentions, that “in the year 1414, the gaolers of Newgate and Ludgate died, and prisoners in Newgate to the number of sixty-four.”",
@@ -625,7 +590,72 @@
           "s15": "This I did constantly and carefully when I began; but by degrees I grew less attentive to these precautions, and have long since entirely omitted them.¹ On account of the alteration made by the act for preserving the health of prisoners, one may now look into many a prison without gaining an idea of the condition it was in a few years ago. I wish the reformation to be not for the present only, but lasting. If the motive for amendment has anywhere been merely temporary, there is no doubt but the effect will cease with the cause: those who from such inducement have obeyed, will in future follow the example of others who have disregarded the law; and prisons that have been amended, will relapse into their former state.",
           "s16": "As to what is still wrong, I set down matter of fact without amplification; which would in the end rather impede than promote the object of my wishes; that is, the correction of what is really amiss.",
           "s17": "The journeys were not undertaken for the traveller’s\n\n¹ I have been frequently asked what precautions I use, to preserve myself from infection in the prisons and hospitals which I visit. I here answer, next to the free goodness and mercy of the Author of my being, temperance and cleanliness are my preservatives. Trusting in Divine Providence, and believing myself in the way of my duty, I visit the most noxious cells; and while thus employed, “I fear no evil.” I never enter an hospital or prison before breakfast, and in an offensive room I seldom draw my breath deeply."
-        }
+        },
+        "cycles": [
+          {
+            "state": "needs_work",
+            "before": {
+              "s0": "INTRODUCTION",
+              "s1": "destruction of multitudes,not only of felons in their dungeons， butof debtors also.",
+              "s2": "The gaol-fever is no new subject of complaint. Stow,in his Survey,mentions,that“in theyear1414,the gaolers of Newgat and Ludgate died,and prisoners in Newgate to the number of sixty-four.\"",
+              "s3": "And speaking of the King's Bench prison, says, that in the six years preceding the year 1579, one hundred prisoners died there:and twelve between Michaelmas and March of the last mentioned year,“through a certain contagion called the sickness of the house”;and I shall presently have occasion,among the fatal effects of this distemper propagated from prisons,and infecting many abroad,to mention another ancient instance of that sort also.These effects are now so notorious,that what terrifies most of us from looking into prisons,is thegaol-distemper so frequent in them.",
+              "s4": "Upon this subject I was examined in theHouse of Commons in March 1774:when I had thehonour of their thanks.Soon after that,Mr.Popham,member for Taunton,repeated the humane attempt which had miscarried a few years before; and brought inabill for therelief of prisoners who should be acquitted—respecting their fees;and another bill for preserving the health of prisoners,and preventing the gaol-distemper.",
+              "s5": "They both passed, that sessions: these two acts I had printed in a different character, and sent them to the keeper of every county gaol in England. By those acts, the tear was wiped from many an eye; and the legislature had for them “the blessing of many that were ready to perish.”\n\nThe great honour done me by the House has excited the curiosity of some to inquire what facts I had collected. This is one reason of the present publication: but it is not the only, nor yet the principal one.",
+              "s6": "There are still remaining,many disorders that ought to be rectified:prisoners suffer great hardships,from which Iam desirous that they should be set free:thegaol-fever is not,as I am persuaded it may be,totally eradicated.",
+              "s7": "These are my motives for printing this book.",
+              "s8": "Ithink it will show plainly,thatmuch isyet to be done for the regulation of prisons;and I am not without hope,that the legislature will finish whatwas so laudably begun.",
+              "s9": "I was called to the first part of my task by my office assheriff.",
+              "s10": "To the pursuit of it Iwas prompted by the sorrows of the sufferers,and love to my country. The work grew upon me insensibly.I could not enjoy my ease and leisure in the neglect ofan opportunity offered me by Providence of attempting the",
+              "s11": "INTRODUCTION",
+              "s12": "relief of the miserable.The attention of Parliament to the subject,led me to conclude that some additional labour would not be lost;and Iextended myplan.The difficulty I found in searching out evidence of fraud and cruelty in various articles, together with otherreal sources of distress,obligedme torepeat my visits,and travel over the kingdom more than once:and after all,I suspect that many frauds have been concealed from me;and that sometimes the interest of my informants prevailed over their veracity.",
+              "s13": "Besides,as I had in my first journeys gathered,from facts and experience,proofs of the mischievous effects of the want of cleanliness and fresh air,I had in my latter visits these strong arguments to enforce my persuasions; and,in consequence, some gaolers grew at last more mindful and complying,for the sake,not only of their prisoners,but of themselves and their own families.",
+              "s14": "It was not,I own,without some apprehensions of danger, thatI first visited the prisons;and I guarded myself by smeling tovinegar,while I was in those places,and changing my apparel afterwards.",
+              "s15": "This I did constantly and carefully when I began; but by degrees I grew less attentive to these precautions, and have long since entirely omitted them.¹ On account of the alteration made by the act for preserving the health of prisoners, one may now look into many a prison without gaining an idea of the condition it was in a few years ago. I wish the reformation to be not for the present only, but lasting. If the motive for amendment has anywhere been merely temporary, there is no doubt but the effect will cease with the cause: those who from such inducement have obeyed, will in future follow the example of others who have disregarded the law; and prisons that have been amended, will relapse into their former state.",
+              "s16": "As to whatis still wrong,I set down matter of fact without amplification;which would in the end rather impede than promote the object of my wishes;that is,the correction of whatisreally amiss.",
+              "s17": "The journeys were not undertaken for the traveller's 1Ihave been frequently asked what precautions Iuse,to preserve answer,next to the free goodness and mercy of the Author of my being， temperance and cleanliness are my preservatives.Trusting in Divine Providence,and believing myself in the way of my duty，Ivisit the most oxious cells;and while thus employed,“I fear no evil.”I never enter hospital or prison before breakfast,and in an offensive roomI seldom rawmybreath deeply."
+            },
+            "events": [
+              {
+                "action": "start",
+                "time": "2026-11-18T07:58:36+00:00"
+              },
+              {
+                "action": "finish",
+                "time": "2026-11-18T08:01:14+00:00"
+              },
+              {
+                "action": "needs_work",
+                "time": "2026-11-18T08:05:29+00:00"
+              }
+            ],
+            "after": {
+              "s0": "INTRODUCTION",
+              "s1": "destruction of multitudes, not only of felons in their dungeons, but of debtors also.",
+              "s2": "The gaol-fever is no new subject of complaint. Stow, in his Survey, mentions, that “in the year 1414, the gaolers of Newgate and Ludgate died, and prisoners in Newgate to the number of sixty-four.”",
+              "s3": "And speaking of the King’s Bench prison, says, that in the six years preceding the year 1579, one hundred prisoners died there: and twelve between Michaelmas and March of the last mentioned year, “through a certain contagion called the sickness of the house”; and I shall presently have occasion, among the fatal effects of this distemper propagated from prisons, and infecting many abroad, to mention another ancient instance of that sort also. These effects are now so notorious, that what terrifies most of us from looking into prisons, is the gaol-distemper so frequent in them.",
+              "s4": "Upon this subject I was examined in the House of Commons in March 1774: when I had the honour of their thanks. Soon after that, Mr. Popham, member for Taunton, repeated the humane attempt which had miscarried a few years before; and brought in a bill for the relief of prisoners who should be acquitted—respecting their fees; and another bill for preserving the health of prisoners, and preventing the gaol-distemper.",
+              "s5": "They both passed, that sessions: these two acts I had printed in a different character, and sent them to the keeper of every county gaol in England. By those acts, the tear was wiped from many an eye; and the legislature had for them “the blessing of many that were ready to perish.”\n\nThe great honour done me by the House has excited the curiosity of some to inquire what facts I had collected. This is one reason of the present publication: but it is not the only, nor yet the principal one.",
+              "s6": "There are still remaining, many disorders that ought to be rectified: prisoners suffer great hardships, from which I am desirous that they should be set free: the gaol-fever is not, as I am persuaded it may be, totally eradicated.",
+              "s7": "These are my motives for printing this book.",
+              "s8": "I think it will show plainly, that much is yet to be done for the regulation of prisons; and I am not without hope, that the legislature will finish what was so laudably begun.",
+              "s9": "I was called to the first part of my task by my office as sheriff.",
+              "s10": "To the pursuit of it I was prompted by the sorrows of the sufferers, and love to my country. The work grew upon me insensibly. I could not enjoy my ease and leisure in the neglect of an opportunity offered me by Providence of attempting the",
+              "s11": "INTRODUCTION",
+              "s12": "relief of the miserable. The attention of Parliament to the subject, led me to conclude that some additional labour would not be lost; and I extended my plan. The difficulty I found in searching out evidence of fraud and cruelty in various articles, together with other real sources of distress, obliged me to repeat my visits, and travel over the kingdom more than once: and after all, I suspect that many frauds have been concealed from me; and that sometimes the interest of my informants prevailed over their veracity.",
+              "s13": "Besides, as I had in my first journeys gathered, from facts and experience, proofs of the mischievous effects of the want of cleanliness and fresh air, I had in my latter visits these strong arguments to enforce my persuasions; and, in consequence, some gaolers grew at last more mindful and complying, for the sake, not only of their prisoners, but of themselves and their own families.",
+              "s14": "It was not, I own, without some apprehensions of danger, that I first visited the prisons; and I guarded myself by smelling to vinegar, while I was in those places, and changing my apparel afterwards.",
+              "s15": "This I did constantly and carefully when I began; but by degrees I grew less attentive to these precautions, and have long since entirely omitted them.¹ On account of the alteration made by the act for preserving the health of prisoners, one may now look into many a prison without gaining an idea of the condition it was in a few years ago. I wish the reformation to be not for the present only, but lasting. If the motive for amendment has anywhere been merely temporary, there is no doubt but the effect will cease with the cause: those who from such inducement have obeyed, will in future follow the example of others who have disregarded the law; and prisons that have been amended, will relapse into their former state.",
+              "s16": "As to what is still wrong, I set down matter of fact without amplification; which would in the end rather impede than promote the object of my wishes; that is, the correction of what is really amiss.",
+              "s17": "The journeys were not undertaken for the traveller’s\n\n¹ I have been frequently asked what precautions I use, to preserve myself from infection in the prisons and hospitals which I visit. I here answer, next to the free goodness and mercy of the Author of my being, temperance and cleanliness are my preservatives. Trusting in Divine Providence, and believing myself in the way of my duty, I visit the most noxious cells; and while thus employed, “I fear no evil.” I never enter an hospital or prison before breakfast, and in an offensive room I seldom draw my breath deeply."
+            }
+          }
+        ],
+        "events": [
+          {
+            "action": "start",
+            "time": "2026-11-18T08:10:27+00:00"
+          }
+        ]
       }
     },
     "8": {
