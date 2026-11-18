@@ -94,6 +94,50 @@ def highlight(text, query):
                    for i, part in enumerate(re.split('(' + re.escape(query) + ')', text, flags=re.IGNORECASE)))
 
 
+# Exact contextual anchors for words crossed by the distorted fold on page 20.
+# Only unchanged matches are marked; edited text is never substituted.
+SCAN_18_FOLD = {
+    's0': [('upon trial,', 'trial'), ('honest employment;', 'employment'),
+           ('one will set', 'will'), ('cause of his being', 'his'),
+           ('that require but', 'require'), ('go from door', 'from'),
+           ('be lamented,', 'lamented'), ('being cherished,', 'cherished'),
+           ('penitent should', 'should'), ('again, though reluctant', 'though'),
+           ('back to his former', 'his'), ('might have been', 'have')],
+    's1': [('to redress these', 'redress'), ('into consideration is', 'consideration'),
+           ('other prisons are', 'prisons'), ('so totally unfit', 'totally'),
+           ('in their stead', 'their'), ('be improved upon', 'improved'),
+           ('by the keeper,', 'keeper'), ('a thorough repair', 'thorough'),
+           ('can to those who', 'those'), ('the liberty to', 'liberty'),
+           ('hopes that some', 'that'), ('and benevolent task', 'benevolent'),
+           ('which I can', 'I'), ('word of the', 'the')],
+    's2': [('gaol, and indeed', 'and'), ('airy, and if possible', 'and'),
+           ('found prisons situated', 'prisons'), ('have) subterraneous dungeons', 'subterraneous'),
+           ('and by their nearness', 'by'), ('almost as noxious,', 'noxious')],
+    's3': [('gaol should be near', 'should'), ('be not so near', 'not'),
+           ('within the reach of floods', 'reach'), ('first Discharged Prisoners’', 'Discharged'),
+           ('next century.', 'century')],
+}
+
+
+def highlight_scan_fold(text, segment_id, query):
+    matches = []
+    for context, word in SCAN_18_FOLD.get(segment_id, ()):
+        start = text.find(context)
+        if start >= 0 and text.find(context, start + 1) < 0:
+            start += context.index(word)
+            matches.append((start, start + len(word)))
+    matches.sort()
+    result, pos = [], 0
+    for start, end in matches:
+        if start < pos:
+            continue
+        result.append(highlight(text[pos:start], query))
+        result.append('<strong class="scan-fold-word">' + highlight(text[start:end], query) + '</strong>')
+        pos = end
+    result.append(highlight(text[pos:], query))
+    return ''.join(result)
+
+
 def render_verified_block(value, spread, segment_id, query):
     """Style verified paragraphs, notes, verse and tables without changing text.
 
@@ -120,7 +164,7 @@ def render_verified_block(value, spread, segment_id, query):
                 target = 'footnote-' + str(spread) + '-' + targets[number] + '-' + number
                 result.append('<a class="verified-note-ref" href="#' + target + '">' + highlight(piece, query) + '</a>')
             else:
-                result.append(highlight(piece, query))
+                result.append(highlight_scan_fold(piece, segment_id, query) if spread == 18 else highlight(piece, query))
         return ''.join(result)
 
     output = []

@@ -740,6 +740,8 @@ def _reader_page(number, query=''):
         controls.append(f'<form method="post" action="/scan-action/{number}"><input type="hidden" name="action" value="{action}"><button class="button" type="submit">{text}</button><span class="small"> {status}</span></form>')
     issue_control = ''.join(controls)
     page_notice = table_one_audit_html() if number == 147 else ''
+    if number == 18:
+        page_notice += '<p class="notice" style="padding:0 20px">Жирным отмечены слова, которые пересекает искажённая полоса скана на странице 20, для сравнения. Выделение не означает, что каждое слово было изменено или прочитано неуверенно.</p>'
     page_notice += ('<p class="scan-fallback">В таблице VIII за 1782–1783 в оригинале напечатано 49, хотя сумма чисел строки — 59. Оставлено значение из книги.</p>' if number == 152 else '')
     text_status = ('ENGLISH · сверено' if number in VERIFIED_SPREADS else ('ENGLISH · пометка OCR снята' if number in dismissed_issues()['ocr'] else 'ENGLISH · ☑ OCR'))
     text_note = ('Базовый текст разворота вычитан по скану; отдельные ошибки всё ещё возможны. Ваши сохранённые правки имеют приоритет.' if number in VERIFIED_SPREADS else ('Пометка OCR снята вами; базовый текст получен автоматическим распознаванием.' if number in dismissed_issues()['ocr'] else 'Текст получен автоматическим распознаванием и не вычитан полностью: возможны слитные слова, ошибки и неточности в сносках.'))

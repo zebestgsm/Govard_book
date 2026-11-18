@@ -258,6 +258,23 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertEqual(rendered.count('PROPOSED IMPROVEMENTS'), 2)
         self.assertIn('href="#footnote-18-s3-1"', rendered)
 
+    def test_spread_18_fold_words_are_highlighted_without_changing_text(self):
+        from html.parser import HTMLParser
+        class Text(HTMLParser):
+            def __init__(self): super().__init__(); self.parts = []
+            def handle_data(self, text): self.parts.append(text)
+        _, segments = reader.segment_state(18)
+        for key in ('s0', 's1', 's2', 's3'):
+            html = inline_editor.render_verified_block(segments[key], 18, key, '')
+            self.assertIn('class="scan-fold-word"', html)
+            parser = Text(); parser.feed(html)
+            self.assertEqual(''.join(parser.parts), segments[key])
+        html = inline_editor.render_verified_block(segments['s0'], 18, 's0', 'lamented')
+        self.assertIn('<strong class="scan-fold-word"><mark>lamented</mark></strong>', html)
+        edited = segments['s0'].replace('being cherished,', 'being treasured,')
+        self.assertNotIn('<strong class="scan-fold-word">treasured</strong>', inline_editor.render_verified_block(edited, 18, 's0', ''))
+        self.assertIn('Жирным отмечены слова', self.request('/spread/18')[1])
+
     def test_scan_zoom_controls_and_detail_image(self):
         page = self.request('/spread/107')[1]
         for marker in ('scan-zoom-toolbar', 'scan-zoom-in', 'scan-zoom-out', 'scan-zoom-reset', 'data-detail-src', 'detail=1', 'scan-fullscreen', 'scan-fullscreen-close', 'scan-fullscreen-view', 'aria-modal="true"'):
