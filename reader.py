@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Local, server-rendered reader for the OCR book. Run: python3 reader.py."""
 from html import escape
+from hashlib import sha256
 from contextvars import ContextVar
 from email.parser import BytesParser
 from email.policy import default as email_policy
@@ -244,6 +245,7 @@ STYLE = '''
 .footnote-ref{color:var(--green);text-decoration:none}.footnote-ref::after{content:"1";font:600 .7em Arial,sans-serif;vertical-align:super;margin-left:1px}.book-footnote{display:block;border-top:1px solid #d8d4c8;margin-top:1.2em;padding-top:.8em;font:14px/1.55 Georgia,serif;white-space:pre-line;scroll-margin-top:20px}
 /* In-place editing keeps the book and its scan visible side by side. */
 .edit-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.edit-status{font:12px/1.5 Arial,sans-serif;color:#52664f;margin:10px 15px;padding:10px 12px;background:#eff5ea;border-radius:5px}.is-editing [data-edit-id]{outline:1px dashed #a1b49b;outline-offset:3px;cursor:text;white-space:pre-wrap}.is-editing [data-edit-id]:empty{display:block;min-height:1.4em}.is-editing [data-edit-id]:empty:before{content:"Пустой фрагмент — нажмите, чтобы добавить текст";color:#999;font:12px Arial,sans-serif}.is-editing [data-edit-id]:focus{outline:2px solid #52664f;background:#f5faef;border-radius:2px}.button[hidden],.edit-status[hidden]{display:none}.button:disabled{opacity:.5;cursor:not-allowed}.history-item{margin-bottom:14px}.history-values{display:grid;grid-template-columns:1fr 1fr;gap:12px}.history-text{font:15px/1.6 Georgia,serif;white-space:pre-wrap;overflow-wrap:anywhere;background:#f6f5ef;padding:12px;border-radius:5px}.history-text strong{display:block;font:600 10px Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#777;margin-bottom:8px}@media(max-width:700px){.history-values{grid-template-columns:1fr}}
+.history-review{border-top:1px solid var(--line);margin-top:15px;padding-top:8px}.history-review form{display:flex;flex-wrap:wrap;gap:8px}.history-review .button[disabled]{opacity:.6;cursor:default}
 /* Second-pass OCR review */
 .review-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.9fr);gap:15px;align-items:start}.review-list{min-width:0}.review-card{padding:18px 20px;margin-bottom:10px;background:var(--paper);border:1px solid var(--line);border-radius:8px}.review-top{display:flex;align-items:center;justify-content:space-between;gap:12px;font:11px Arial,sans-serif;color:var(--muted)}.review-comparison{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}.review-word{background:#f5f4ee;padding:11px;overflow-wrap:anywhere;font:16px/1.45 Georgia,serif}.review-word small{display:block;font:10px Arial,sans-serif;text-transform:uppercase;color:var(--muted);margin-bottom:7px}.review-context{font:14px/1.6 Georgia,serif;color:#62635a}.review-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.review-actions form{margin:0}.review-scan{position:sticky;top:8px}.review-summary{display:flex;gap:15px;flex-wrap:wrap;font:12px Arial,sans-serif;color:var(--muted);margin:14px 0}.review-state{font:12px Arial,sans-serif;color:var(--green)}.ocr-flags{padding-left:20px}.ocr-flags li{font:12px/1.5 Arial,sans-serif;margin:0 0 14px}.ocr-flags p{font:14px/1.5 Georgia,serif;margin:5px 0;color:#555}.editor-card summary{cursor:pointer;font-size:13px;color:var(--green)}@media(max-width:1050px){.review-layout{grid-template-columns:1fr}.review-scan{position:static;order:-1}}@media(max-width:600px){.review-comparison{grid-template-columns:1fr}}
 /* Accessible, explicit word-replacement editor. */
@@ -582,6 +584,10 @@ def segment_state(number, edits=None, query='', rules=None):
         _current_corrections.reset(token)
     return inline_editor.render_segments(base, spread.get('segments', {}), query, number)
 
+def history_review_token(entry):
+    return sha256(json.dumps(entry, sort_keys=True, ensure_ascii=False).encode('utf-8')).hexdigest()
+
+
 def history_page(number, message=''):
     with _CORRECTIONS_LOCK:
         saved = inline_editor.load_edits()
@@ -597,10 +603,17 @@ def history_page(number, message=''):
         else:
             action = '<span class="small">Для этого фрагмента есть более новые изменения.</span>'
         kind = {'restore': 'Восстановление', 'scan-verified': 'Сверено со сканом'}.get(entry.get('kind'), 'Изменение')
-        blocks.append(f'<section class="editor-card history-item"><div class="heading-row"><div><span class="eyebrow">{kind}</span><p>{escape(entry["time"])} · {escape(seg)}</p></div>{action}</div><div class="history-values"><div class="history-text"><strong>Было</strong>{escape(before)}</div><div class="history-text"><strong>Стало</strong>{escape(after)}</div></div></section>')
+        decision = entry.get('review_decision', 'pending')
+        labels = {'pending': 'Ожидает вашего решения', 'accepted': 'Вы приняли', 'rejected': 'Вы отклонили'}
+        decision_label = labels.get(decision, 'Неизвестная отметка')
+        token = history_review_token(entry)
+        choices = [('accepted', 'Принять'), ('rejected', 'Отклонить'), ('pending', 'Вернуть на рассмотрение')]
+        buttons = ''.join(f'<button type="submit" class="button" name="decision" value="{value}"' + (' disabled aria-pressed="true"' if decision == value else '') + f'>{label}</button>' for value, label in choices)
+        review = f'<div class="history-review"><p class="small" role="status">Решение: <strong>{decision_label}</strong></p><form method="post" action="/history-review/{number}"><input type="hidden" name="index" value="{i}"><input type="hidden" name="review_token" value="{token}">{buttons}</form></div>'
+        blocks.append(f'<section class="editor-card history-item" id="history-{i}"><div class="heading-row"><div><span class="eyebrow">{kind}</span><p>{escape(entry["time"])} · {escape(seg)}</p></div>{action}</div><div class="history-values"><div class="history-text"><strong>Было</strong>{escape(before)}</div><div class="history-text"><strong>Стало</strong>{escape(after)}</div></div>{review}</section>')
     items = ''.join(blocks) or '<div class="empty">Пока нет изменений, сделанных прямо в тексте.</div>'
     notice = '<p class="editor-message">' + escape(message) + '</p>' if message else ''
-    content = f'<div class="editor"><div class="heading-row"><div><span class="eyebrow">История правок</span><h2>Разворот {number:03}</h2><p>Здесь сохранены предыдущие и новые варианты каждого изменённого фрагмента. Время указано в UTC.</p></div><a class="button" href="/spread/{number}">← К чтению</a></div>{notice}{items}<p class="notice">Ранние замены слов хранятся отдельно. <a href="/edit/{number}"><u>Посмотреть прежние замены</u></a>.</p></div>'
+    content = f'<div class="editor"><div class="heading-row"><div><span class="eyebrow">История правок</span><h2>Разворот {number:03}</h2><p>Здесь сохранены предыдущие и новые варианты каждого изменённого фрагмента. Время указано в UTC. Решение показывает ваше отношение к правке и не меняет текст; для отмены используйте отдельную кнопку восстановления.</p></div><a class="button" href="/spread/{number}">← К чтению</a></div>{notice}{items}<p class="notice">Ранние замены слов хранятся отдельно. <a href="/edit/{number}"><u>Посмотреть прежние замены</u></a>.</p></div>'
     return shell(content, number)
 
 
@@ -1044,6 +1057,38 @@ class Handler(SimpleHTTPRequestHandler):
         except (ValueError, UnicodeDecodeError, OSError, KeyError):
             self.send_error(500, 'Unable to save review')
 
+    def handle_history_review(self, number):
+        if not 1 <= number <= len(PAGES):
+            return self.send_error(404)
+        try:
+            length = int(self.headers.get('Content-Length', '0'))
+            if self.headers.get_content_type() != 'application/x-www-form-urlencoded' or not 0 < length <= 4096:
+                return self.send_error(400)
+            params = parse_qs(self.rfile.read(length).decode('utf-8'), max_num_fields=4)
+            index = params.get('index', [''])[0]
+            decision = params.get('decision', [''])[0]
+            expected = params.get('review_token', [''])[0]
+            if not index.isdigit() or decision not in ('accepted', 'rejected', 'pending'):
+                return self.send_error(400)
+            with _CORRECTIONS_LOCK:
+                data = inline_editor.load_edits()
+                entries = data['spreads'].get(str(number), {}).get('history', [])
+                if int(index) >= len(entries):
+                    return self.send_error(404)
+                entry = entries[int(index)]
+                if expected != history_review_token(entry):
+                    return self._html_response(history_page(number, 'Решение уже изменилось в другой вкладке. Обновите страницу и повторите.' ).encode('utf-8'), 409)
+                previous = entry.get('review_decision', 'pending')
+                if decision != previous:
+                    entry['review_decision'] = decision
+                    entry.setdefault('review_history', []).append({'before': previous, 'after': decision, 'time': inline_editor.stamp()})
+                    inline_editor.save_edits(data)
+            self.send_response(303)
+            self.send_header('Location', f'/history/{number}#history-{index}')
+            self.end_headers()
+        except (ValueError, UnicodeError, OSError, KeyError):
+            self.send_error(500, 'Не удалось сохранить решение')
+
     def handle_inline_post(self, match, restore):
         number = int(match.group(1))
         if not 1 <= number <= len(PAGES):
@@ -1277,6 +1322,9 @@ class Handler(SimpleHTTPRequestHandler):
             return self.handle_scan_upload(int(upload.group(1)))
         if action:
             return self.handle_scan_action(int(action.group(1)))
+        history_review = re.fullmatch(r'/history-review/(\d+)', path)
+        if history_review:
+            return self.handle_history_review(int(history_review.group(1)))
         review = re.fullmatch(r'/review/(\d+)', path)
         if review:
             return self.handle_review_post(int(review.group(1)))

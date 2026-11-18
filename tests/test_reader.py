@@ -156,6 +156,30 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertIn('id="footnote-2-s6-1"', page)
         self.assertIn('might have thought his work well done', page)
 
+    def test_history_review_decisions_persist_without_changing_text(self):
+        original = reader.segment_state(1)[1]['s2']
+        revised = original + ' corrected'
+        self.assertEqual(self.save(1, [{'id': 's2', 'old': original, 'new': revised}])[0], 200)
+        entry = inline_editor.load_edits()['spreads']['1']['history'][0]
+        first_token = reader.history_review_token(entry)
+        page = self.request('/history/1')[1]
+        self.assertIn('Ожидает вашего решения', page)
+        self.assertIn('name="review_token"', page)
+        def decide(token, decision):
+            return self.form('/history-review/1', {'index': '0', 'review_token': token, 'decision': decision})
+        self.assertEqual(decide(first_token, 'accepted')[0], 200)
+        self.assertEqual(reader.segment_state(1)[1]['s2'], revised)
+        self.assertIn('Вы приняли', self.request('/history/1')[1])
+        self.assertEqual(decide(first_token, 'rejected')[0], 409)
+        for decision in ('rejected', 'pending'):
+            entry = inline_editor.load_edits()['spreads']['1']['history'][0]
+            self.assertEqual(decide(reader.history_review_token(entry), decision)[0], 200)
+        entry = inline_editor.load_edits()['spreads']['1']['history'][0]
+        self.assertEqual([e['after'] for e in entry['review_history']], ['accepted', 'rejected', 'pending'])
+        self.assertEqual(reader.segment_state(1)[1]['s2'], revised)
+        self.assertEqual(self.form('/restore/1', {'index': '0'})[0], 200)
+        self.assertEqual(reader.segment_state(1)[1]['s2'], original)
+
     def test_scan_zoom_controls_and_detail_image(self):
         page = self.request('/spread/107')[1]
         for marker in ('scan-zoom-toolbar', 'scan-zoom-in', 'scan-zoom-out', 'scan-zoom-reset', 'data-detail-src', 'detail=1', 'scan-fullscreen', 'scan-fullscreen-close', 'scan-fullscreen-view', 'aria-modal="true"'):
