@@ -24,9 +24,9 @@
     },
     "2": {
       "segments": {
-        "s6": "His industry，indeed,was untiring.Another, and a con- scientious man,mighthave thoughthisworkwell done when\n1 The continued practice of placing herbs before the judge at the Old Bailey is a reminder of the former prevalence of gaol fever at Newgate.",
+        "s6": "His industry, indeed, was untiring. Another, and a conscientious man, might have thought his work well done when\n\n¹ The continued practice of placing herbs before the judge at the Old Bailey is a reminder of the former prevalence of gaol fever at Newgate.",
         "s9": "Not so Howard. Before writing his book he visited every English prison two or three times, then toured Europe twice “conjecturing that something useful to my purpose might be collected abroad.” And this is the manner in which he prepared his work for the Press: “so indefatigable was he in his attention to the business that during a very severe winter he was always called up by two in the morning, though he did not retire to rest until ten, and sometimes half after ten, at night. His reason for his early rising was that he found the morning the stillest part of the day, and that in which he was least disturbed in his work of revising the sheets as they came from the Press.”",
-        "s3": "Courage,for instance,had little scope in a country village even in the eighteenth century，but only the most fearless would enter even a single dungeon in those days,knowing that the gaol-fever was notonly widelyprevalent,butalso acutelyinfectious andveryoftenfatal."
+        "s3": "Courage, for instance, had little scope in a country village even in the eighteenth century, but only the most fearless would enter even a single dungeon in those days, knowing that the gaol-fever¹ was not only widely prevalent, but also acutely infectious and very often fatal."
       },
       "history": [
         {
@@ -56,12 +56,26 @@
           "after": "His industry，indeed,was untiring.Another, and a con- scientious man,mighthave thoughthisworkwell done when\n1 The continued practice of placing herbs before the judge at the Old Bailey is a reminder of the former prevalence of gaol fever at Newgate.",
           "time": "2026-10-31T06:56:27+00:00",
           "kind": "scan-verified"
+        },
+        {
+          "id": "s3",
+          "before": "Courage,for instance,had little scope in a country village even in the eighteenth century，but only the most fearless would enter even a single dungeon in those days,knowing that the gaol-fever was notonly widelyprevalent,butalso acutelyinfectious andveryoftenfatal.",
+          "after": "Courage, for instance, had little scope in a country village even in the eighteenth century, but only the most fearless would enter even a single dungeon in those days, knowing that the gaol-fever¹ was not only widely prevalent, but also acutely infectious and very often fatal.",
+          "time": "2026-11-18T06:57:34+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s6",
+          "before": "His industry，indeed,was untiring.Another, and a con- scientious man,mighthave thoughthisworkwell done when\n1 The continued practice of placing herbs before the judge at the Old Bailey is a reminder of the former prevalence of gaol fever at Newgate.",
+          "after": "His industry, indeed, was untiring. Another, and a conscientious man, might have thought his work well done when\n\n¹ The continued practice of placing herbs before the judge at the Old Bailey is a reminder of the former prevalence of gaol fever at Newgate.",
+          "time": "2026-11-18T06:57:34+00:00",
+          "kind": "edit"
         }
       ]
     },
     "3": {
       "segments": {
-        "s11": "Minorpoetsforsook theirbirthday odes andwroteverses on “The Triumph of Benevolence.”And here and there a soul wasstirred,aspiritkindled,so thatagenerationlaterHoward's biographer,in dedicating his book to Wilberforce,could say thatitwasinHoward'sfootstepsthatWilberforcehad trodden, by Howard's motives that he was actuated,while in 178o, whenHowardyetlived,Burke spoke thesewordsofhim:"
+        "s11": "Minor poets forsook their birthday odes and wrote verses on “The Triumph of Benevolence.” And here and there a soul was stirred, a spirit kindled, so that a generation later Howard's biographer, in dedicating his book to Wilberforce, could say that it was in Howard's footsteps that Wilberforce had trodden, by Howard's motives that he was actuated, while in 1780, when Howard yet lived, Burke spoke these words of him:"
       },
       "history": [
         {
@@ -70,6 +84,13 @@
           "after": "Minorpoetsforsook theirbirthday odes andwroteverses on “The Triumph of Benevolence.”And here and there a soul wasstirred,aspiritkindled,so thatagenerationlaterHoward's biographer,in dedicating his book to Wilberforce,could say thatitwasinHoward'sfootstepsthatWilberforcehad trodden, by Howard's motives that he was actuated,while in 178o, whenHowardyetlived,Burke spoke thesewordsofhim:",
           "time": "2026-10-31T06:55:44+00:00",
           "kind": "scan-verified"
+        },
+        {
+          "id": "s11",
+          "before": "Minorpoetsforsook theirbirthday odes andwroteverses on “The Triumph of Benevolence.”And here and there a soul wasstirred,aspiritkindled,so thatagenerationlaterHoward's biographer,in dedicating his book to Wilberforce,could say thatitwasinHoward'sfootstepsthatWilberforcehad trodden, by Howard's motives that he was actuated,while in 178o, whenHowardyetlived,Burke spoke thesewordsofhim:",
+          "after": "Minor poets forsook their birthday odes and wrote verses on “The Triumph of Benevolence.” And here and there a soul was stirred, a spirit kindled, so that a generation later Howard's biographer, in dedicating his book to Wilberforce, could say that it was in Howard's footsteps that Wilberforce had trodden, by Howard's motives that he was actuated, while in 1780, when Howard yet lived, Burke spoke these words of him:",
+          "time": "2026-11-18T06:57:34+00:00",
+          "kind": "edit"
         }
       ]
     },
