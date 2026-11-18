@@ -236,7 +236,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "EDITOR'S INTRODUCTION",
           "s1": "In 1785, feeling that all had been done for the moment that lay in his power in the matter of the prisons, he sought a new channel into which his power for well-doing might be turned, and found it in an investigation of the source and best methods of treating the plague, whose frightful effects could be seen in every port in Europe. These investigations, together with the result of a further tour of the prisons, he embodied in a volume published in 1789 called An Account of the Principal Lazarettos in Europe. He then set off once more, this time on the journey that ended in his death. On his tomb at Cherson, fifteen hundred miles from his home in Bedfordshire, are these words:",
@@ -266,6 +266,10 @@
           {
             "action": "finish",
             "time": "2026-11-18T07:31:10+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-18T07:53:59+00:00"
           }
         ],
         "after": {
