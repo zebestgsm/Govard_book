@@ -841,7 +841,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "INTRODUCTION",
           "s1": "amusement; and the collections are not published for general entertainment; but for the perusal of those who have it in their power to give redress to the sufferers.",
@@ -962,6 +962,10 @@
           {
             "action": "finish",
             "time": "2026-11-18T09:45:00+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-18T09:48:07+00:00"
           }
         ],
         "after": {
