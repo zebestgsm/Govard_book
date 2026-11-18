@@ -950,7 +950,7 @@
       "segments": {},
       "history": [],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "VIEW OF DISTRESS IN PRISONS",
           "s1": "than the keeper or his servants think fit to bring them: in one place they were limited to three pints a day each: a scanty provision for drink and cleanliness!",
@@ -977,6 +977,10 @@
           {
             "action": "finish",
             "time": "2026-11-18T08:01:14+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-18T08:08:35+00:00"
           }
         ],
         "after": {
