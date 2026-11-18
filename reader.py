@@ -19,6 +19,9 @@ import omission_detection
 import reference_sources
 import translation
 import restored_tables_145
+import sync_reader
+
+SYNC = None
 
 try:
     import pymupdf
@@ -532,8 +535,10 @@ def render_pages(number, body, query):
 def shell(content, number=1, query='', active='reader'):
     options = ''.join(f'<option value="{i}"' + (' selected' if i == number else '') + f'>Разворот {i:03}' + (' — ' + escape(scan_dropdown_label(i)) if scan_dropdown_label(i) else '') + '</option>' for i in range(1, len(PAGES) + 1))
     return f'''<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The State of the Prisons — электронная книга</title><style>{STYLE}</style></head><body id="top">
-<header class="header"><a href="/" class="logo"><i>✳</i> Howard Archive</a><span class="header-note">ЦИФРОВАЯ КОЛЛЕКЦИЯ &nbsp; / &nbsp; JOHN HOWARD</span></header>
-<div class="layout"><aside class="sidebar"><span class="eyebrow">Электронная книга</span><h1>The State of<br>the Prisons</h1><div class="author">John Howard</div><hr class="divider"><div class="sidebar-links"><a class="{'current' if active == 'reader' else ''}" href="/spread/{number}">◧ &nbsp; Читать книгу</a><a class="{'current' if active == 'search' else ''}" href="/search">⌕ &nbsp; Поиск по книге</a><a class="{'current' if active == 'quality' else ''}" href="/quality">⚠ &nbsp; Проверка сканов</a></div><hr class="divider"><form action="/search" method="get"><label class="label" for="query">Поиск по тексту</label><input class="input" id="query" name="q" type="search" placeholder="Слово в книге или переводе…" value="{escape(query, quote=True)}" maxlength="200"><button class="button primary" type="submit">Найти</button></form><hr class="divider"><form action="/go" method="get"><label class="label" for="spread">Перейти к развороту</label><select id="spread" name="spread">{options}</select><button class="button" type="submit">Открыть</button></form><p class="small">Каждый разворот соответствует одному исходному PDF-файлу.</p></aside><main class="content">{content}</main></div></body></html>'''
+<header class="header"><a href="/" class="logo"><i>✳</i> Howard Archive</a><span class="header-note">ЦИФРОВАЯ КОЛЛЕКЦИЯ &nbsp; / &nbsp; JOHN HOWARD</span><span id="sync-status" role="status" style="font:12px Arial,sans-serif;margin-left:auto">GitHub: проверка сохранения…</span></header>
+<div class="layout"><aside class="sidebar"><span class="eyebrow">Электронная книга</span><h1>The State of<br>the Prisons</h1><div class="author">John Howard</div><hr class="divider"><div class="sidebar-links"><a class="{'current' if active == 'reader' else ''}" href="/spread/{number}">◧ &nbsp; Читать книгу</a><a class="{'current' if active == 'search' else ''}" href="/search">⌕ &nbsp; Поиск по книге</a><a class="{'current' if active == 'quality' else ''}" href="/quality">⚠ &nbsp; Проверка сканов</a></div><hr class="divider"><form action="/search" method="get"><label class="label" for="query">Поиск по тексту</label><input class="input" id="query" name="q" type="search" placeholder="Слово в книге или переводе…" value="{escape(query, quote=True)}" maxlength="200"><button class="button primary" type="submit">Найти</button></form><hr class="divider"><form action="/go" method="get"><label class="label" for="spread">Перейти к развороту</label><select id="spread" name="spread">{options}</select><button class="button" type="submit">Открыть</button></form><p class="small">Каждый разворот соответствует одному исходному PDF-файлу.</p></aside><main class="content">{content}</main></div><script>
+(function(){{const el=document.getElementById('sync-status'); async function update(){{try{{const r=await fetch('/api/sync-status',{{cache:'no-store'}});const d=await r.json();el.textContent=({{saved:'GitHub: сохранено',pending:'GitHub: ожидает сохранения',syncing:'GitHub: сохранение…',error:'GitHub: ошибка отправки, повторяем',disabled:'GitHub: автосохранение не включено'}})[d.state]||'GitHub: состояние неизвестно';el.style.color=d.state==='error'?'#a22':'';}}catch(e){{el.textContent='GitHub: нет связи с читалкой';el.style.color='#a22';}}}}update();setInterval(update,3000);}})();
+</script></body></html>'''
 
 def segment_state(number, edits=None, query='', rules=None):
     # Caller holds _CORRECTIONS_LOCK for a consistent snapshot.
@@ -1256,6 +1261,15 @@ class Handler(SimpleHTTPRequestHandler):
         self._translation_redirect(number, history=True)
 
     def do_POST(self):
+        if SYNC:
+            SYNC.changed()
+        try:
+            return self._do_post()
+        finally:
+            if SYNC:
+                SYNC.changed()
+
+    def _do_post(self):
         path = urlsplit(self.path).path
         upload = re.fullmatch(r'/scan-upload/(\d+)', path)
         action = re.fullmatch(r'/scan-action/(\d+)', path)
@@ -1371,6 +1385,16 @@ class Handler(SimpleHTTPRequestHandler):
     def _handle_get(self, head_only=False):
         parsed = urlsplit(self.path)
         path = parsed.path
+        if path == '/api/sync-status':
+            data = json.dumps({'state': SYNC.status() if SYNC else 'disabled'}).encode('utf-8')
+            self.send_response(200)
+            self.send_header('Content-Type', 'application/json')
+            self.send_header('Content-Length', str(len(data)))
+            self.send_header('Cache-Control', 'no-store')
+            self.end_headers()
+            if not head_only:
+                self.wfile.write(data)
+            return
         params = parse_qs(parsed.query)
         query = params.get('q', [''])[0].strip()[:200]
         scan_match = re.fullmatch(r'/scan/(\d+)\.jpg', path)
@@ -1453,6 +1477,8 @@ class Handler(SimpleHTTPRequestHandler):
         return self._html_response(page.encode('utf-8'), head_only=head_only)
 
 if __name__ == '__main__':
+    SYNC = sync_reader.ReaderSync(ROOT, (_CORRECTIONS_LOCK, _SCAN_LOCK))
+    SYNC.start()
     port = int(os.environ.get('PORT', '8080'))
     print(f'Book reader: http://0.0.0.0:{port}/ ({len(PAGES)} spreads)', flush=True)
     ThreadingHTTPServer(('0.0.0.0', port), Handler).serve_forever()
