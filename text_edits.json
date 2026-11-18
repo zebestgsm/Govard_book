@@ -570,7 +570,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "needs_work",
         "before": {
           "s0": "INTRODUCTION",
           "s1": "destruction of multitudes,not only of felons in their dungeons， butof debtors also.",
@@ -600,6 +600,10 @@
           {
             "action": "finish",
             "time": "2026-11-18T08:01:14+00:00"
+          },
+          {
+            "action": "needs_work",
+            "time": "2026-11-18T08:05:29+00:00"
           }
         ],
         "after": {
