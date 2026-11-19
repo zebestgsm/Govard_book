@@ -275,6 +275,14 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertNotIn('<strong class="scan-fold-word">treasured</strong>', inline_editor.render_verified_block(edited, 18, 's0', ''))
         self.assertIn('Жирным отмечены слова', self.request('/spread/18')[1])
 
+    def test_spread_20_section_heading_remains_editable_text(self):
+        _, segments = reader.segment_state(20)
+        original = segments['s5']
+        self.assertEqual(self.save(20, [{'id': 's5', 'old': original, 'new': 'REGULATIONS\n\n' + original.lstrip()}])[0], 200)
+        rendered, segments = reader.segment_state(20)
+        self.assertIn('<span class="restored-heading">REGULATIONS</span>', rendered)
+        self.assertTrue(segments['s5'].startswith('REGULATIONS\n\n'))
+
     def test_scan_zoom_controls_and_detail_image(self):
         page = self.request('/spread/107')[1]
         for marker in ('scan-zoom-toolbar', 'scan-zoom-in', 'scan-zoom-out', 'scan-zoom-reset', 'data-detail-src', 'detail=1', 'scan-fullscreen', 'scan-fullscreen-close', 'scan-fullscreen-view', 'aria-modal="true"'):
