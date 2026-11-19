@@ -1884,7 +1884,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "acquitted upon trial, terrified by his narrow escape, seeks for honest employment; he is commonly such a sickly miserable figure, that no one will set him to work. That, I believe, is the principal cause of his being rejected; for there are several sorts of labour that require but little confidence: yet the poor acquitted prisoner shall go from door to door asking for work, in vain.¹ Is it not to be lamented, that every spark of good intention, instead of being cherished, should be thus extinguished? and that the penitent should by an almost irresistible necessity be driven again, though reluctant, to the practice which soon brings him back to his former mansion; and shortens a wretched life, that might have been, that fain would have been, a useful one?",
           "s1": "In order to redress these various evils, the first thing to be taken into consideration is the prison itself. Many county gaols and other prisons are so decayed and ruinous, or, for other reasons, so totally unfit for the purpose, that new ones must be built in their stead. Others are very incommodious, but may be improved upon the ground about them, which is occupied by the keeper, or not used at all. Some need little more than a thorough repair. In order to give what little assistance I can to those who must build a new county gaol, I will take the liberty to suggest what hath occurred to me upon this head, in hopes that some more skilful hand will undertake the generous and benevolent task of carrying to perfection a scheme, of which I can only draw the outlines. But first I will say a word of the",
@@ -1902,6 +1902,10 @@
           {
             "action": "finish",
             "time": "2026-11-18T10:29:03+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-19T09:41:15+00:00"
           }
         ],
         "after": {
