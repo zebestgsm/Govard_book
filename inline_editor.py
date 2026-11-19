@@ -150,13 +150,13 @@ def render_verified_block(value, spread, segment_id, query):
         return ('<span class="book-footnote verified-footnote footnote-continuation" id="' + target + '">'
                 + highlight(value, query) + '</span>')
     targets = NOTE_TARGETS.get(spread, {}).get(segment_id, {})
-    superscripts = {'¹': '1', '²': '2', '³': '3'}
+    superscripts = {'¹': '1', '²': '2', '³': '3', '⁴': '4'}
 
     def text_html(text, skip_initial_note=False):
         prefix = ''
         if skip_initial_note and text[:1] in superscripts:
             prefix, text = text[:1], text[1:]
-        pieces = re.split(r'([¹²³])', text)
+        pieces = re.split(r'([¹²³⁴])', text)
         result = [highlight(prefix, query)] if prefix else []
         for piece in pieces:
             number = superscripts.get(piece)
@@ -172,7 +172,7 @@ def render_verified_block(value, spread, segment_id, query):
         if chunk == '\n\n' or not chunk:
             output.append(chunk)
             continue
-        note = re.match(r'^([¹²³])\s', chunk)
+        note = re.match(r'^([¹²³⁴])\s', chunk)
         if note:
             number = superscripts[note.group(1)]
             target = 'footnote-' + str(spread) + '-' + segment_id + '-' + number
