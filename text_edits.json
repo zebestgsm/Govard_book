@@ -1922,7 +1922,7 @@
       "segments": {},
       "history": [],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "PROPOSED IMPROVEMENTS",
           "s1": "The like provision for such as return to society cannot be less needful. Bishop Butler, one of the writers cited in the note, affirms that it is much more so, “since it must be acknowledged, of greater consequence in a religious, as well as civil respect, how persons live than how they die.”",
@@ -1942,6 +1942,10 @@
           {
             "action": "finish",
             "time": "2026-11-19T09:40:51+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-19T09:42:47+00:00"
           }
         ],
         "after": {
