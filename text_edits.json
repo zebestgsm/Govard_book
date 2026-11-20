@@ -16030,7 +16030,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "NORTHUMBERLAND",
           "s1": "weeks;and were very sickly.Their straw on the st almost worn to dust.Long confinement,and not ha king’s allowance of 2s.6d.a week,had urged them to an escape:after which the gaoler chained them as above is another dungeon for women felons twelve feetH and upstairs a separate room or two.",
@@ -16046,8 +16046,22 @@
           {
             "action": "start",
             "time": "2026-11-20T11:50:08+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T11:51:53+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "NORTHUMBERLAND",
+          "s1": "weeks; and were very sickly. Their straw on the stone floor almost worn to dust. Long confinement, and not having the king’s allowance of 2s. 6d. a week, had urged them to attempt an escape: after which the gaoler chained them as above. There is another dungeon for women felons twelve feet by eight; and upstairs a separate room or two.\n\nThe common-side debtors in the low gaol, whom I saw eating boiled bread and water, told me, that this was the only nourishment some had lived upon for nearly a twelvemonth. They have from a legacy one shilling and sixpence a week in winter, and one shilling a week in summer for coals. No memorandum of it in the gaol; perhaps this may in time be lost, as the gaoler said two others were, viz. one of Bishop Crewe, and another of Bishop Wood; from which, prisoners had received no benefit for some years past. But now the Bishop has humanely filed bills in chancery and recovered these legacies, by which several debtors have been discharged. Half a crown a week is paid to a woman for supplying the debtors with water, in the two rooms on the side of the gateway. The Act for preserving the health of prisoners not hung up. The clauses against spirituous liquors are hung up. Gaol delivery once a year. At several of my visits there were boys between thirteen and fifteen years of age, confined with the most profligate and abandoned.\n\nThere was a vacant piece of ground adjacent, of little use but for the gaoler’s occasional lumber. It extends to the river, and measures about twenty-two yards by sixteen. I once and again advised the enclosing this for a court: as it might be done with little expense, and it appears that formerly here was a doorway into the prison: but when I was there in January 1776, I had the mortification to hear that the surgeon, who was uncle to the gaoler, had obtained from the Bishop, in October preceding, a lease of it for twenty-one years, at the rent of one shilling per annum. He had built a little stable on it.\n\nNORTHUMBERLAND\n\nNEWCASTLE\n\nIn this Newgate, which is the gate at the upper end of the town, all the rooms except the condemned room are upstairs, and airy: I always found them remarkably clean, strewed with sand, etc. The corporation allow both debtors and felons",
+          "s2": "",
+          "s3": "",
+          "s4": "CUMBERLAND",
+          "s5": "firing and candles in plenty: and every prisoner has a chaff bed, two blankets, and a coverlet: debtors and felons are thus accommodated in few other prisons in England. They also allow brooms, mops, and all such necessaries. The sums generously allowed for those articles, amount to £40 12s. 8d. per annum. This is one of the very few gaols that have what is called in London the rules. Part of two streets near the gaol is in the prison-liberty.\n\nCOUNTY GAOL AT MORPETH\n\nThe debtors have six sizable rooms which are out of repair, and a free ward called the middle tower. Some commodious rooms lately built are occupied by the gaoler. Only one court, which is for debtors. Felons are always shut up in the tower. In the women’s room I saw (January 1776) two; who, the gaoler said, were cast for transportation; one in September 1773, the other in November 1774: but at my visit in 1779, I found they had been humanely released at the assize.\n\nOf the other two rooms, generally appropriated to men felons, one is a day-room (fourteen feet two inches by six feet nine), the other an offensive dungeon, the window only eighteen inches by nine. In the latter were three transports (1776) who, upon suspicion of intending an escape, were chained to the floor. They had not the king’s allowance of 2s. 6d. a week.\n\nGaol delivery once a year. Assize held at Newcastle, whither prisoners are conveyed; and men and women confined together seven or eight nights in a dirty damp dungeon down six steps in the old castle, which having no roof, in a wet season the water is some inches deep. The felons are chained to rings in the wall. The county for some years paid the gaoler’s fees for acquitted prisoners, if poor: and clothed such transports as were quite indigent.\n\nCUMBERLAND\n\nCOUNTY GAOL AT CARLISLE\n\nThe court spacious, eighty-five yards by thirty-six: it was common to all prisoners; but now a part is appropriated to the felons, and separated by iron palisades. In the court is a chapel, built, as appears by the date, in 1734. Five rooms for master’s-side debtors: and as many on the common-side.",
+          "s6": "",
+          "s7": ""
+        }
       }
     },
     "124": {
@@ -16160,7 +16174,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "CUMBERLAND",
           "s1": "Four of these are twenty-three feet by eighteen an They have windows now opening into the court,as w street.Where there are so many rooms,not to sep men'andwomen is certainly inexcusable.",
@@ -16183,8 +16197,29 @@
           {
             "action": "start",
             "time": "2026-11-20T11:50:08+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T11:51:53+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "CUMBERLAND",
+          "s1": "Four of these are twenty-three feet by eighteen and a half. They have windows now opening into the court, as well as the street. Where there are so many rooms, not to separate the men and women is certainly inexcusable.\n\nThe wards for felons are two rooms down a step or two; dark and dirty. One of them, the day-room, had a window to the street; through which spirituous liquors and tools for mischief might be easily conveyed: but it is now bricked up. The night-room is only eleven feet by nine: at one of my visits, men and women were lodged together in it. Two rooms over the felons’ wards, which have been used as tap-rooms, seem to be intended for the women only, but in one of these I also found three men and four women lodged together. In the court, near the pump, there is the too common nuisance of a dunghill, which seems to have been accumulating for a year or two. Transports had not the king’s allowance of 2s. 6d. a week. No infirmary: no bath. Act for preserving the health of prisoners not hung up. Prison not whitewashed for three years. Gaol delivery once a year. Few gaols have so many convenient rooms for common-side debtors. It is the more remarkable here, because there is no table signed by the magistrates to particularise the free wards. Some gaolers avail themselves of such a circumstance, and demand rent for rooms which were undoubtedly designed for common-side prisoners.\n\nThe gaol-fever, which some years ago carried off many of the prisoners, did not deter Mr. Farish from visiting the sick every day.\n\n“1788, 2 Jan., Debtors 32.¹ Felons, etc., 20. Deserters 2.”\n[From An Account of Lazarettos, p. 200.]\n\n1 “Here was a prisoner, lately the widow of an old gentleman, who left her an estate of £300 per annum and about £7000 in mortgages. She was afterwards married in Scotland to a Mr. Milbourne of this city, who soon spent £4000, but upon some disagreement she refused to give up the mortgages of the other £3000. By an attachment from the Court of Chancery, her husband sent her to the common gaol, which confinement prevented her compliance with an order for appearance at that court in fifteen days of St. Hilary’s term next ensuing. At first she was on the master’s side; but the late gaoler, after cruelly seizing her clothes, etc., for chamber-rent, turned her to the common side. Her room (nine feet and a half by eight and a half) has no fire-place. She, not having the county allowance, supports herself by spinning and knitting, and the occasional kindness of her late husband’s relations, while her present husband is living and rioting on her estate.\n\n“By a letter dated 14 October, 1788, from a respectable gentleman at Carlisle, I am informed that Mrs. Milbourne is still in the gaol, and that for above two years, Mr. Milbourne did not give her one farthing, her subsistence being wholly on occasional charities, and the small earnings",
+          "s2": "",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "LANCASHIRE",
+          "s7": "LANCASHIRE\n\nCOUNTY GAOL, LANCASTER CASTLE\n\nThe castle yard is spacious, and is supplied with water. Part of it is an enclosed bowling-green. Master’s-side debtors have many apartments. One of them which they call the oven, is said to have been used as such in the time of John of Gaunt, Duke of Lancaster: the diameter, twenty-four feet; the height, that of an ordinary room. Debtors are allowed to walk and work (spin, knit, etc.) in the crown and shire halls. The latter is used as a chapel.¹\n\nOne of the rooms for debtors (sixty feet by twenty-seven) is a free ward, and called the Quakers’ room; because, it is said, when those people were so cruelly persecuted in the last century, vast numbers of them were confined in it.\n\nPetty offenders are sometimes sent hither, because the bridewells are distant. There is a large room for them near the gate; and they are kept separate from felons.\n\nMen and women felons have their day-rooms apart, at the upper end of the court. Women sleep in their day-room: but the court being common, the men associate with them. Men have for their night-rooms two vaulted cells. One of them, the low dungeon, is ten steps underground,² twenty-one feet by nine, extremely close, dark, and unwholesome; very hot even in winter. Their other cell, the high dungeon (twenty feet two inches by eleven feet two), is close and offensive, though not underground; and has an iron-latticed door.\n\nIn one of these dungeons, there were three felons sick: the recorder, Mr. Fenton, gave immediate orders for their relief by better nourishment, etc., and they soon recovered. No infirmary: no bath. Transports had not the king’s allowance\n\nof spinning, at which employment she could not get more than fourpence, but now by practice and extremely close application (when health permits) can earn tenpence a week. In March last her husband sent her twenty shillings, and in October 1788 (twenty-seven weeks after) the same sum. The justices last quarter sessions commiserating her hardships, have allowed her the county bounty; the first shilling of which, this modest poor woman received, 11 October, 1788.”\n\n1 Over the judge’s bench in the shirehall is this text: “Let judgment run down as waters, and righteousness as a mighty stream.”\n\n2 The gaoler’s wine cellar is down twenty steps, and has evidently been used for the confinement of prisoners. The different purpose to which it is now applied is the only instance I know of the benefit of taps in gaols.",
+          "s8": "",
+          "s9": "",
+          "s10": "",
+          "s11": "",
+          "s12": "",
+          "s13": "",
+          "s14": ""
+        }
       }
     }
   }
