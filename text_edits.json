@@ -12932,7 +12932,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "needs_work",
         "before": {
           "s0": "SOUTHWARK",
           "s1": "work for the poor of this parish of St.Margaret's Wes as also the county according to law,and for such as and live idle in this cityand liberty of Westminster.Ann This prison has-for men,two day-rooms and thr two inches;the upper and lower panels of the doors latticed.For women,a day-room,and four night-roo the night-rooms have barrack beds.They are co washed every day; and are quite fresh.The prison their hands and faces every morning before they come allowance.",
@@ -12960,6 +12960,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T10:27:44+00:00"
+          },
+          {
+            "action": "needs_work",
+            "time": "2026-11-20T10:41:41+00:00"
           }
         ],
         "after": {
