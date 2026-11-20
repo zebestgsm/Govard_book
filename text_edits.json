@@ -4046,7 +4046,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "Their provisions were bought in considerable quantities.The rye for bread was on the floorin an airy room,andwas sweet trates, and good.The produce of the prisonerswork was applied to at thed the maintenance of thehouse,and the defciencywasmadeu Ilea from the spin-house tax. The expense for each prisoner was forinfo known full five stiversa day.T Their number was generally from a hundred and fty,to two hundred. These prisoners are appearin thepris removed into the new workhouse or house of correction,which andreg at my visit in June 1783, was finished. There were four hundred prisoners.",
@@ -4070,6 +4070,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T08:28:42+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T08:33:16+00:00"
           }
         ],
         "after": {
