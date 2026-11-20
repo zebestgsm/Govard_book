@@ -5416,7 +5416,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "ffty-two in 177o,none had died in1781;and of fifty admitted door at different times,by the particular order of the Empress,between subsis 1764and 178o,only twohad diedin1781.Ofsixty children Th alsoof commoners admittedin1767,and seventyin177o,only room sevenhad diedin1781.Butof sixty admittedin1764,thirteen floors had died;nconsequence,it is supposed,ofhavingbeenlodgd room ina part of the buildings which had been just erected,and room therefore wasnot sufficiently dry.",
@@ -5438,8 +5438,28 @@
           {
             "action": "start",
             "time": "2026-11-20T08:38:52+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T08:40:59+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "AN ACCOUNT OF FOREIGN PRISONS",
+          "s1": "fifty-two in 1770, none had died in 1781; and of fifty admitted at different times, by the particular order of the Empress, between 1764 and 1780, only two had died in 1781. Of sixty children also of commoners admitted in 1767, and seventy in 1770, only seven had died in 1781. But of sixty admitted in 1764, thirteen had died; in consequence, it is supposed, of having been lodged in a part of the buildings which had been just erected, and therefore was not sufficiently dry.\n\nThis account I owe to the obliging information of Dr. Guthrie, physician to a military cadet corps of nobles, established at Petersburg by the Empress, and supposed the grandest institution of the kind in the world.\n\nMoscow. The great prison at Moscow, Kaluska Ostrog, is in the suburbs. In the first room of a brick building there are four wooden cages, in which were two men chained by the neck to the wall, with irons on their legs. Near this room there were several rooms for the examination and punishment of criminals.\n\nAt the back of this building is a court sixty feet wide, with a guard-house in it and six rooms for confinement.\n\nThe main prison, on the outside is two hundred and eighty feet by two hundred and forty-four. It is enclosed with strong pieces of timber sixteen or eighteen feet high. The entrance from the court just mentioned leads into a walk (twenty-four feet wide), on one side of which there are three other courts, and four on the opposite side of different dimensions. In these courts there are a number of wooden houses consisting of one, two, or three rooms; every room having barrack-bedsteads or shelves in it, and an iron-lattice door, with another of wood. In two of the courts there are small rooms or chapels, where divine service is read. The whole number of prisoners in September 1781 was seventy-four. There is a distinct court and two rooms appropriated to women, in which were ten, but none in irons. The doors of the houses were open to allow the prisoners to walk in the courts; except the houses in the two upper courts, where, in a building occupied only by himself, I saw a Russian gentleman who was always locked up; and whose crime, I was informed, had been cruelly whipping his slaves.\n\nOne sentinel stood at each corner of this prison, one at the centre of the front, three in the middle walk, and two at the entrance. In the walk there is the well, and a shed or hut for the sale of quas,¹ apples, and bread; and on the outside of the\n\n1 Quas; this favourite liquor of the Russians, is a sort of sour small beer, in making which wild mint is used instead of hops.",
+          "s2": "",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "",
+          "s7": "",
+          "s8": "RUSSIA",
+          "s9": "door many boxes to receive the alms of passengers; the prisoners subsisting chiefly by charitable contributions.¹\n\nThe prison for debtors in this city was very dirty. In five rooms I saw above a hundred miserable wretches lying on the floors, most of them half naked. At a little distance from these rooms there were six criminals in one of the most offensive rooms I ever entered.\n\nThe military prison is situated in the middle of a plain at Butirki, about a mile from this city. It is a single room, into which were crowded one hundred and thirty prisoners, though only twenty-nine feet by twenty-six, and not nine feet high. It is constructed of wood, surrounded with wooden palisades, and furnished with two tiers of barrack-bedsteads without beds. The pale sickly countenances of the prisoners bespoke oppression and misery, and prevented the wonder I should have otherwise felt at finding so large a number as fifty-five in the ward appropriated to the sick, in the military hospital. A sentinel was planted at each corner, and two at the door. On the outside of the palisades there was a well, and two or three buildings or barracks, in one of which were confined nine officers, but they had beds.\n\nAt the back of Catherine Hospital in the invalids’ court, in a prison consisting only of one room, there were fifty-two men and seventeen women. The women were employed in weeding in the garden, and the men in emptying a moat at a palace about half a mile from the prison. They had no irons, but were distinguished by a black cross on the back of their clothes. They work from morning till night, except for two hours about noon, and are allowed three copecks’ worth of bread in a day; but salt is withheld from them by way of punishment.\n\nOne of my visits happening to be on a Sunday, I was surprised to find the prisoners all at work; some piling and planking the canal, others cutting the barberry hedges in the palace garden, and the women weeding.\n\nRIGA. “About ten miles from Riga, the slaves or condemned persons, were in a prison or ostrag . . . [consisting of] several wooden houses, surrounded with high pales. The rooms contained about twenty-four persons; each had his bedstead, and most of them a little bedding. In one of the rooms they were all foreigners (forty-two), most of them for debt, some for\n\n1 The prisoners here, who are condemned to the mines in Siberia, three days before their departure go chained through the streets, crying for charity, to support them on their long journey, their allowance being small.",
+          "s10": "",
+          "s11": "",
+          "s12": "",
+          "s13": ""
+        }
       }
     },
     "49": {
@@ -5504,7 +5524,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "so small sums as three or four roubles(eight to eleven shillings), butwith some unfavourable circumstance attending the debt, so that persons are not immediately permitted to discharge them.They are allowed from government twenty copecks （6d.）a day,eight of which are for their diet,clothes, etc., W and the other twelve for their creditors,till the whole debtis paid off.These were also in irons and work with the criminals 1781, into at the public works. \"In other rooms were three hundred and forty-five prisoners. ther In a small innerroom,Ifound two Russians,sent hither about severs four years ago:they had a guard at the door,andhad never each thep been out of theroom,and are heavily ironed both hands and feet: they are never spoken to,nor is their crime known.",
@@ -5522,8 +5542,24 @@
           {
             "action": "start",
             "time": "2026-11-20T08:38:53+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T08:40:59+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "AN ACCOUNT OF FOREIGN PRISONS",
+          "s1": "so small sums as three or four roubles (eight to eleven shillings), but with some unfavourable circumstance attending the debt, so that persons are not immediately permitted to discharge them. They are allowed from government twenty copecks (6½d.) a day, eight of which are for their diet, clothes, etc., and the other twelve for their creditors, till the whole debt is paid off. These were also in irons and work with the criminals at the public works.\n\n“In other rooms were three hundred and forty-five prisoners. In a small inner room, I found two Russians, sent hither about four years ago: they had a guard at the door, and had never been out of the room, and are heavily ironed both hands and feet: they are never spoken to, nor is their crime known. They had suffered the punishment of the knoot (which in my former publication I have described), and had a piece cut out of each nostril, and the mark on the cheeks, which is the signature of their condemnation for life. I saw several others thus marked for murder or other very capital crimes. All the prisoners were in irons, and work in summer from four to eleven, and from one to eight, unless sick, which the surgeon comes every morning to examine. There were three hundred and eleven out, the day I was there, hewing timber, driving piles, wheeling and carrying the stones for a fine mole sixty-five feet wide and half a mile long, on which they had been employed for six years: their allowance is six copecks a day, for which all their clothing and provision is found; the former bad, the latter very indifferent. As to religious instruction, once a year only they go to the chapel in the citadel; and on the other Sundays they amuse themselves, or make shoes, etc. About a fortnight before my visit, the head knoot-master was brought from St. Petersburgh, who being with the other two knoot-masters at a public-house, they happened to quarrel: he immediately struck off the head of one of them; the other seeming to resent it he dexterously decapitated him also. As no crime, not even that crying one of shedding blood, is punished in Russia with death, this man received two hundred and seventy strokes of the knoot, the executioner from Moscow being brought for that purpose; and being condemned for life, was marked as before described. Here he met several of his former acquaintance to whom he had given the knoot, and on being asked in how many strokes he could kill a man, he said, if a strong man, he could in five and twenty, but if not strong, in twenty strokes.”\n\n[From “Account of Lazarettos,” second edition, appendix]",
+          "s2": "",
+          "s3": "",
+          "s4": "POLAND",
+          "s5": "POLAND",
+          "s6": "WARSAW. In Warsaw, at the town-house, in September 1781, there were twenty-six men and eight women, crowded into three rooms on the ground-floor for confining debtors; the reason of which was, that the prison was repairing. Down several steps were eight new dungeons for criminals, four on each side a passage only six feet wide. There was no gaoler, the prison being guarded by soldiers.\n\nAt the prison near the palace, in two rooms there were seven prisoners, five of them in irons. Allowance a good grosche a day, which is a little more than three halfpence.\n\nThe entrance to another prison was through a guard-room full of soldiers. In one room (twenty feet by ten) were twenty-six miserable objects, some sick on the dirt floor. In another room, not so bad, there were four.\n\nIn the prison in the new city there were a few women confined for debt, and a man and woman for theft: their allowance one good grosche a day.\n\nA date on the front of a prison near the Vistula informed me it was rebuilt in 1769. There were eighty-one prisoners in it, whose beds were mattresses stuffed with straw. Most of them were employed in sawing wood and other occupations in the streets of the city for the inhabitants, who get their labour at one-third less than the expense of other labourers; the public being at the same time eased of part of the expense of supporting them.\n\nIn the suburbs is the zugth-hus, or spin-house, improperly so called, many of the miserable wretches seeming to have nothing to do. Some, however, were employed; and their allowance for working from six in the morning to seven at night, with two hours’ rest at noon, was two grosche (3¼d.) each per day, which went to the keeper for feeding, or rather (as appeared by their looks) for starving them. The sick were lying on floors of dirt, without medical or any other assistance. This gave me so unfavourable an opinion of the police¹ of this country, that I could feel no inclination to visit the prisons in the provinces or (according to my constant practice in other places), to revisit those in the capital.\n\n1 Police = policy, in the sense of civil administration.",
+          "s7": "",
+          "s8": "",
+          "s9": ""
+        }
       }
     }
   }
