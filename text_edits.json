@@ -11712,7 +11712,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "LONDON",
           "s1": "darkish,having only a window at each end.On floor,the hall gallery,to whichyou ascend by eight a chapel,a tap-room,a coffee-room （made out of t for debtors),aroom for the turnkey,another forthe and eighteen rooms for prisoners.Besides the coffee- tap-room,twoof those eighteen rooms,and all thec except a lock-up room to confine the disorderly,an room for the turnkey，were held by the tapster,J wright,whobought the remainder of the lease atpubl in1775: The cellarfoor is sixteen steps below theha It consists of the two rooms justnow mentioned,th kitchen,his four large beer and wine cellars,and fift for prisoners.These fifteen,and the two before- on the hall gallery,the tapster lets to prisoners for to eight shillings a week.1 On the first gallery （that next above the hall ga twenty-five rooms for prisoners.",
@@ -11736,6 +11736,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T10:03:06+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T10:35:06+00:00"
           }
         ],
         "after": {
