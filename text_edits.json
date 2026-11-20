@@ -16223,8 +16223,106 @@
       }
     },
     "125": {
-      "segments": {},
-      "history": [],
+      "segments": {
+        "s1": "of 2s. 6d. a week. When prisoners are convicted at Preston or Manchester, and from thence brought hither, the gaoler has a shilling a mile conduct-money for each.\n\nIf the large stable which is not much used, and the great room under the shirehall (in which there was only one poor lunatic; who had been there many years, and is since dead) were converted into night-rooms for felons, one small room for each; the court divided, and an infirmary were built, this would be a good gaol. From Mr. Fenton’s humanity, and the regard that is justly paid him, I cannot but hope for some of these improvements.\n\nThese remarks were made in 1776: at my visit in 1779, I had the pleasure to find six cells made in the upper stable, ten feet by six feet eight inches, each having an aperture about two feet by one and a half; and two good rooms fitted up for an infirmary in the dungeon tower. One of the six cells is appropriated to drunken and riotous debtors, over which this inscription is painted on a board, “This room is for unruly misbehaved debtors, to be confined in, until they promise to behave well.”\n\nAt my last visit there were three new cells (ten feet by six and a half), two doors in each, one of which was iron-latticed. Here was also a separate closet for women, which is generally wanted in gaols. This gaol is regularly whitewashed, and kept very clean. The Act for preserving the health of prisoners, and the clauses against spirituous liquors, hung up very conspicuously. The gaoler lives distant.\n\nThe chaplain’s salary, £50, is from the county; and from the Duchy £4.\n\nMuch good, I hope, may be expected from the exertions now making by the gentlemen of this county, for the further improvement of their prisons.\n\nCOUNTY BRIDEWELL\n\nMANCHESTER. Rebuilt as per date, in the year 1774. Separate courts and apartments for men and women. Two rooms for an infirmary (fourteen feet by eleven feet eight inches). The men have workrooms, over which are chambers. Their four night-rooms or cells in a passage forty-five feet by six, are close; eleven feet by eight; eleven steps below the court; but not",
+        "s2": "",
+        "s3": "",
+        "s4": "",
+        "s5": "",
+        "s6": "",
+        "s7": "",
+        "s9": "properly underground, being on the declivity of a hill. Women have three rooms on the ground-floor, and three chambers: here is a dungeon, down nine steps, fourteen feet by thirteen; an inconvenient bath, no water in it. The iron-grate door into each court has a lock and fastenings of a contrivance singularly curious. No allowance. Keeper’s salary was raised from £25 to £60, in lieu of fees, and is now raised to £80 in lieu of the tap.\n\nThe Act for preserving the health of prisoners, and the clauses against spirituous liquors, hung up. The keeper is a chandler, and employs some of the prisoners in spinning candlewick at three-halfpence a pound. In the front of the prison is a stone with an aperture into a box, having this inscription: “Sick, and in prison, and ye visited me not.”—Matt. xxv, 43.\n\n“By the spirited exertions of Mr. Bayley, and other magistrates, a new prison is building on a large scale, from Mr. Blackburn’s plan, in which there will be single cells, and separate apartments for faulty apprentices, etc. This prison will reflect much credit on the good sense and liberality of the hundred of Salford, in this county, which alone defrays all the costs of the building. 1787, 27 Dec., prisoners 53.”\n[From An Account of Lazarettos, p. 206.]\n\nLIVERPOOL BOROUGH GAOL\n\nSeven close dungeons in a passage eleven feet wide, ten steps underground; each six and a half feet by five feet nine inches, and six feet high. Apertures in the doors eleven inches by six. Three prisoners are commonly locked up in each of them at night. There is another dungeon, larger, but not secure. Only one day-room for criminals of both sexes. No infirmary. The keeper told me in November 1775, that after I was there last year and said his prisoners were in danger of the gaol-fever, twenty-eight of them had been ill of it at one time. What led me to think so was, the offensiveness of the dungeons, and the number of prisoners. The prison is surrounded with other buildings, and cannot be made healthy and convenient. Allowance in common on Sunday, bread 4s., beef and broth about 6s. Firing from October to May. Gaoler, Rosendale Allen, sergeant at mace, paid the widow of the late gaoler, £20 a year; and put in a deputy who paid him £65 a year.",
+        "s10": "",
+        "s11": "",
+        "s12": "",
+        "s13": ""
+      },
+      "history": [
+        {
+          "id": "s1",
+          "before": "of 2s. 6d.a week.When prisoners are convicte or Manchester,and from thence brought hither,t a shilling a mile conduct-money for each.",
+          "after": "of 2s. 6d. a week. When prisoners are convicted at Preston or Manchester, and from thence brought hither, the gaoler has a shilling a mile conduct-money for each.\n\nIf the large stable which is not much used, and the great room under the shirehall (in which there was only one poor lunatic; who had been there many years, and is since dead) were converted into night-rooms for felons, one small room for each; the court divided, and an infirmary were built, this would be a good gaol. From Mr. Fenton’s humanity, and the regard that is justly paid him, I cannot but hope for some of these improvements.\n\nThese remarks were made in 1776: at my visit in 1779, I had the pleasure to find six cells made in the upper stable, ten feet by six feet eight inches, each having an aperture about two feet by one and a half; and two good rooms fitted up for an infirmary in the dungeon tower. One of the six cells is appropriated to drunken and riotous debtors, over which this inscription is painted on a board, “This room is for unruly misbehaved debtors, to be confined in, until they promise to behave well.”\n\nAt my last visit there were three new cells (ten feet by six and a half), two doors in each, one of which was iron-latticed. Here was also a separate closet for women, which is generally wanted in gaols. This gaol is regularly whitewashed, and kept very clean. The Act for preserving the health of prisoners, and the clauses against spirituous liquors, hung up very conspicuously. The gaoler lives distant.\n\nThe chaplain’s salary, £50, is from the county; and from the Duchy £4.\n\nMuch good, I hope, may be expected from the exertions now making by the gentlemen of this county, for the further improvement of their prisons.\n\nCOUNTY BRIDEWELL\n\nMANCHESTER. Rebuilt as per date, in the year 1774. Separate courts and apartments for men and women. Two rooms for an infirmary (fourteen feet by eleven feet eight inches). The men have workrooms, over which are chambers. Their four night-rooms or cells in a passage forty-five feet by six, are close; eleven feet by eight; eleven steps below the court; but not",
+          "time": "2026-11-20T11:53:14+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s2",
+          "before": "If the large stable which is not much used,a room under the shirehall (in which there was on lunatic;who had been there many years, and is were converted into night-rooms for felons,one sn each;the court divided,and an infirmary were bui be a good gaol.From Mr.Fenton's humanity,an that is justly paid him,I cannot but hope for s improvements.",
+          "after": "",
+          "time": "2026-11-20T11:53:14+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s3",
+          "before": "These remarks were made in 1776:at myvisit in the pleasure to find six cells made in theupper sta by six feet eight inches,each having an apertun feet by one and a half;and two good rooms fitte infirmary in the dungeon tower.",
+          "after": "",
+          "time": "2026-11-20T11:53:14+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s4",
+          "before": "Oneof the sixc priated to drunken and riotous debtors,over inscription is painted on a board,“This room i misbehaved debtors, to be confined in,until t tobehave well.\"",
+          "after": "",
+          "time": "2026-11-20T11:53:14+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s5",
+          "before": "Atmy lastvisit there were three new cells(ter and a half),two doors in each,one of which was Here was also a separate closet for women,which wanted in gaols.This gaol is regularly whitewash very clean.TheActfor preserving the health of p the clauses against spirituous liquors,hung up ve ously.The gaoler lives distant.",
+          "after": "",
+          "time": "2026-11-20T11:53:14+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s6",
+          "before": "The chaplain’s salary，5o,is from the county theDuchy4.",
+          "after": "",
+          "time": "2026-11-20T11:53:14+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s7",
+          "before": "Much good,I hope,may be expected from t now making by the gentlemen of this county,for improvement of their prisons. COUNTY BRIDEWELL MANcHEsTER.Rebuilt as per date,in the year 17 courts and apartments for men and women.Tw an infirmary（fourteen feet byeleven feet eightin men have workrooms,over which are chambers. night-rooms or cells in a passage forty-five feet by s eleven feet by eight;eleven steps below the cou",
+          "after": "",
+          "time": "2026-11-20T11:53:14+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s9",
+          "before": "datPreston properlyunderground,being on the declivity of ahil.Women hegaolerhas have three rooms on the ground-floor, and three chambers: here is a dungeon,down nine steps,fourteen feet by thirteen; nd thegreat an inconvenient bath,no water in it.The iron-grate door into nly onepoor each court has a lock and fastenings ofa contrivance singularly since dead) curious.No allowance.",
+          "after": "properly underground, being on the declivity of a hill. Women have three rooms on the ground-floor, and three chambers: here is a dungeon, down nine steps, fourteen feet by thirteen; an inconvenient bath, no water in it. The iron-grate door into each court has a lock and fastenings of a contrivance singularly curious. No allowance. Keeper’s salary was raised from £25 to £60, in lieu of fees, and is now raised to £80 in lieu of the tap.\n\nThe Act for preserving the health of prisoners, and the clauses against spirituous liquors, hung up. The keeper is a chandler, and employs some of the prisoners in spinning candlewick at three-halfpence a pound. In the front of the prison is a stone with an aperture into a box, having this inscription: “Sick, and in prison, and ye visited me not.”—Matt. xxv, 43.\n\n“By the spirited exertions of Mr. Bayley, and other magistrates, a new prison is building on a large scale, from Mr. Blackburn’s plan, in which there will be single cells, and separate apartments for faulty apprentices, etc. This prison will reflect much credit on the good sense and liberality of the hundred of Salford, in this county, which alone defrays all the costs of the building. 1787, 27 Dec., prisoners 53.”\n[From An Account of Lazarettos, p. 206.]\n\nLIVERPOOL BOROUGH GAOL\n\nSeven close dungeons in a passage eleven feet wide, ten steps underground; each six and a half feet by five feet nine inches, and six feet high. Apertures in the doors eleven inches by six. Three prisoners are commonly locked up in each of them at night. There is another dungeon, larger, but not secure. Only one day-room for criminals of both sexes. No infirmary. The keeper told me in November 1775, that after I was there last year and said his prisoners were in danger of the gaol-fever, twenty-eight of them had been ill of it at one time. What led me to think so was, the offensiveness of the dungeons, and the number of prisoners. The prison is surrounded with other buildings, and cannot be made healthy and convenient. Allowance in common on Sunday, bread 4s., beef and broth about 6s. Firing from October to May. Gaoler, Rosendale Allen, sergeant at mace, paid the widow of the late gaoler, £20 a year; and put in a deputy who paid him £65 a year.",
+          "time": "2026-11-20T11:53:14+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s10",
+          "before": "Keeper's salary was raised from nallroomfor 25 to6o,in lieu of fees,and is now raised to8o in lieu of It,thiswould the tap. d theregard The Act for preserving the health of prisoners,and the clauses ome of these against spirituous liquors,hung up.The keeper is a chandler, and employs some of the prisoners in spinning candlewick at 1779,I had three-halfpence a pound.In the front of the prison is a stone able,tenfeet with an aperture into a box,having this inscription:“Sick, eabouttwo and in prison, and ye visited me not.Matt. xxv,43. edupfor an By the spirited exertions of Mr.Bayley,and other magis- ells is appro- tratesanewprisonisbuldingonalargescalefromr.lak which this burn’slan,inwhich there will be sngle cell,and sepaate sfor unruly hey promise much credit on the good sense and liberality of the hundred of Salford,in this county，which alone defrays all the costs of feetby six the building.1787,27 Dec.,prisoners 53. iron-latticed. [From An Account of Lazarettos,p.206.] is generally ed,andkept risoners,and ry conspicu- LIVERPOOL BOROUGH GAOL ;and from Seven close dungeons in a passage eleven feetwide,ten steps underground;each six and a half feet by five feet nine inches, heexertions and six feet high.Apertures in the doors eleven inches by six. the further Three prisoners are commonly locked up in each of them at night.",
+          "after": "",
+          "time": "2026-11-20T11:53:14+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s11",
+          "before": "There is another dungeon,larger,butnot secure.Only one day-room for criminals of both sexes. No infirmary.",
+          "after": "",
+          "time": "2026-11-20T11:53:14+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s12",
+          "before": "The keeper told me in November 1775,that after Iwas there lastyearandsaidhisprisonerswereindangerofthe gaol-fever, twenty-eightof them had been ill of it atone time.What led me to think so was,the offensiveness of the dungeons,and the 74.Separate number of prisoners.The prison is surrounded with other oroomsfor buildings,and cannot be made healthy and convenient.Allow- aches).The ance in common on Sunday,bread 4s.,beef and broth about 6s.",
+          "after": "",
+          "time": "2026-11-20T11:53:14+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s13",
+          "before": "Their four Firing from October toMay.Gaoler,Rosendale Allen, sergeant x,are close; atmace,paid the widow of the late gaoler,2oayear;and put rt;butnot in a deputy whopaid himf65ayear.",
+          "after": "",
+          "time": "2026-11-20T11:53:14+00:00",
+          "kind": "edit"
+        }
+      ],
       "spread_review": {
         "state": "working",
         "before": {
