@@ -8737,7 +8737,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "I26 AN ACCOUNT OF FOREIGN PRI",
           "s1": "to air and cleanliness,where prisoners have no em Humanity to them,and also to their keepers an demands this.The observation of a sensible mag Hanover, here occurs to my mind:“We have found \"that the convicts or slaves who are committed fo the morals of thosewho are condemned only foraye therefore,by a late regulation in the electorate,the kept apart.\"",
@@ -8763,6 +8763,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T09:31:57+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T09:54:26+00:00"
           }
         ],
         "after": {
