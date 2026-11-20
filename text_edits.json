@@ -6536,6 +6536,40 @@
           "s15": ""
         }
       }
+    },
+    "56": {
+      "segments": {},
+      "history": [],
+      "spread_review": {
+        "state": "working",
+        "before": {
+          "s0": "AN ACCOUNT OF FOREIGN PRISONS",
+          "s1": "have theextra allowance just mentioned,with five ounces of flour O1 for soup.",
+          "s2": "In these rooms were shoemakers atwork,as insome of the galleys,but most of the prisoners had no employment. th The galley-slaves have a hospital on the shore fronting the th bay,entirely appropriated to them and their guards.It has or four or five spacious and airy wards,cleaner than most of the other hospitals in this city.",
+          "s3": "Oneof these rooms is only for the or guard of themarine.",
+          "s4": "The patients are distinguished into three classes;very ill-sickandrecovering.Great attention is paid m to them;and they are allowed good bread in sufficient quantity. ro The great and crowded hospitals of S.Apostoli and L'Annun- ziazione, have wards appropriated to the cure of wounded th persons.3 ob MILAN.",
+          "s5": "There are two prisons called L'Argastro,and La m Casa di Correzione,which do honour to the country.Both are be for criminals,condemned either for a term of years,or for life. oU The most atrocious work in chains in the street;the others, ha onlyin thehouse. leg InL'Argastro there were three hundred and fifty-nine prisoners,healthy and strong.",
+          "s6": "A considerable number of them were atwork in public:theywater the streets and public walks fo (at the expense of the city)there being nineteen small wagons for that purpose; six men draw,and one attends behind chained.",
+          "s7": "Others repair the pavements,etc.",
+          "s8": "Butin thehouse therewere ar at work shoemakers,tailors, smiths,wheelwrights, cabinet- ar makers,turners,nailers,ropemakers,leather-dressers,painters hig 1Asnoregularplanhadbeen settled forthe employment of these slaves, ab the king lately made a present of three hundredof such of them as had wi been condemned forlife,to the Maltese. th On my telling the surgeon,that in some countries a part of each galley di W8 w8 of the atrociousness of the crime of murder.The criminals in prison 00 express,with seeming satisfaction of mind,“that though they stabbed they didnotrob. en priated to the wounded are filled with patients,that the prisons are gr crowded,and that many are continually taking refuge on the steps of th churches,and examine our accounts in Janssen's Lists and the Judges fou Returns,wemay reckon that there are more murders committed in ayear in the city of Naples or Rome,than in Great Britain and Ireland.Does ma not thisprove that the English are not naturally cruel?And mightnot an arguments be derived from hence,for the revisal andrepealofsomeofour sanguinary laws? The Marquis Beccaria justly remarks,in chap.xxvii, for others,than the continued example of a man deprived ofhis liberty.",
+          "s9": "And that“the punishment of death is pernicious to society，from the an example of barbarity it affords.\" of",
+          "s10": "ITALY",
+          "s11": "gauze, spinners, and weavers. Many,here learn trades; that there is a probability,that when their term is finished, eywill become useful membersof society;which should be grand object in all such houses.They receive for themselves e-third of what they earn,and two-thirds goto thehouse.",
+          "s12": "Their dormitory is a spacious room,with three stages in it which they lie.In the centre of the ceiling are four large ertures,and sixteen small ones.A prisoner,whose employ- entwas drawing designs and patterns,gaveme aplan of the oms and courts in this prison.",
+          "s13": "There aretwo courts,a pump,and running water for washing linen of the prisoners,which they shift once a week. servedto one of the prisoners,that theywere cleaner than ost working men:hereplied,“Or else the confinement would intolerable.\"",
+          "s14": "The daily allowance to each is thirty-five nces of good bread,and a mess of good vegetable soup.They ve two hours for dinner and repose.All had a chain to each If any escape and are retaken,the whole term is renewed, dhalf asmuch more.",
+          "s15": "In this house there is a hospital,a chapel,and an apartment the chaplain.",
+          "s16": "The Casa di Correzione isnow(1778)building,onanoble and aciousplan.The dormitory and the workrooms for themen finished and occupied.The two workrooms for thewomen large and lofty(twenty-three feet wide andtwenty-fivefeet gh);and in each there are five large windows,placed high ove the floor.At one corner of these rooms are stone basins, th water laid on to them.Inoneof themen's workrooms ere were forty looms employed weaving linen,cotton,and aper:in which also,and in twoothers opening into it,were rping and twisting-mills,and winding-wheels.Under these sacalender:and somewere employed inbeating(not carding) tton.In a detached temporary buildingI saw a prisoner ployed in weaving gauze;who（as I conjectured from the eatresort to him)was reckoned curious in this art.With assistance of some that were employed with him,he kept ur looms atwork.Other prisoners were bleaching the cloth anufactured in the house:and somewere at work asmasons dlabourers,in this great building.",
+          "s17": "Overtheworkroomsis the great hall or dormitory,theroom boys,and the infrmary.The dormitory is lightsome,airy, dclean,and appears evidently to be an improvement on that San Michele at Rome. It consists of a great room (one"
+        },
+        "cycles": [],
+        "events": [
+          {
+            "action": "start",
+            "time": "2026-11-20T09:15:02+00:00"
+          }
+        ]
+      }
     }
   }
 }
