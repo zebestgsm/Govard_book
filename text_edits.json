@@ -11226,7 +11226,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "LONDON",
           "s1": "NEWGATE¹",
@@ -11344,8 +11344,42 @@
           {
             "action": "start",
             "time": "2026-11-20T12:15:15+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T12:19:02+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "LONDON",
+          "s1": "NEWGATE¹",
+          "s2": "Gaoler. Richard Akerman.\nSalary £200.\nFees: Debtors £0 8s. 10d.\nFelons £0 18s. 10d.\nMisdemeanours or Fines £0 14s. 10d.\nTransports £0 14s. 10d.\nLicence: Beer and wine.\n\nPrisoners.\nAllowance: Debtors, Felons, a penny loaf a day (weight December 1782, 8½ oz. August 1783, 9½ oz.). Now, felons on the common side a three halfpenny loaf. (See remarks.)\nGarnish: Debtors, £0 5s. 6d.\nFelons, etc. £0 2s. 6d.\n\nNumber:\n\tDebtors\tFelons\n1775. 5 March\t33\t190\n1776. 1 March\t38\t129\n1776. 17 May\t46\t212\n1776. 26 Dec.\t33\t152\n1779. 16 Aug.\t51\t141\n1782. 18 Dec.\t3\t291\n1783. 22 Aug.\t113\t224\n\nChaplain. Rev. Mr. Villette.\nDuty: Sunday twice; every day prayers with the condemned; once a month sacrament.\nSalary: Was £35, etc., now augmented. (See remarks.)\n\nSurgeon. Mr. Olney.\nSalary: £50, now £100, for all prisoners.²",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "",
+          "s7": "",
+          "s8": "",
+          "s9": "",
+          "s10": "",
+          "s11": "",
+          "s12": "",
+          "s13": "",
+          "s14": "",
+          "s15": "",
+          "s16": "",
+          "s17": "",
+          "s18": "",
+          "s19": "",
+          "s20": "The builders of Old Newgate seem to have regarded in their plan, nothing but the single article of keeping prisoners in safe custody. The rooms and cells were so close, as to be almost the constant seats of disease, and sources of infection; to the destruction of multitudes, not only in the prison, but abroad. The city had therefore very good reason for their resolution to build a new gaol. Many inconveniences of the old gaol are avoided in this new one: but it has some manifest errors. It is now too late to point out particulars. All I will say, is, that without more than ordinary care, the prisoners in it will be in great danger of the gaol-fever.\n\n1 Finally demolished in 1903.—[Ed.]\n\n2 A statistical digest such as this appears at the head of Howard’s descriptions of all the more important gaols. All but a few have been omitted in this reprint, for obvious reasons.—[Ed.]",
+          "s21": "LONDON",
+          "s22": "The cells built in Old Newgate a few years since for condemned malefactors, are still used for the same purpose. I shall therefore give some account of them. There are upon each of the three floors five; all vaulted, near nine feet high to the crown. Those on the ground-floor measure full nine feet by near six; the five on the first story are a little larger (9½ by 6) on account of the set-off in the wall; and the five uppermost, still a little larger for the same reason. In the upper part of each cell, is a window double grated, near three feet by one and a half. The doors are four inches thick. The strong stone wall is lined all round each cell with planks, studded with broad-headed nails. In each cell is a barrack-bedstead. I was told by those who attended them, that criminals who had affected an air of boldness during their trial, and appeared quite unconcerned at the pronouncing sentence upon them, were struck with horror, and shed tears, when brought to these darksome solitary abodes.\n\nThe chapel is plain and neat. Below is the chaplain’s seat, and three or four pews for the felons; that in the centre is for the condemned. On each side is a gallery: that for the women is towards their ward: in it is a pew for the keeper, whose presence may set a good example, and be otherwise useful. The other gallery towards the debtors’ ward is for them. The stairs to each gallery are on the outside of the chapel. I attended there several times, and Mr. Villette read the prayers distinctly, and with propriety: the prisoners who were present, seemed attentive; but we were disturbed by the noise in the court. Surely they who will not go to chapel, who are by far the greater number, should be locked up in their rooms during the time of divine service, and not suffered to hinder the edification of such as are better disposed.\n\nThe chaplain (or ordinary) besides his salary, has a house in Newgate Street, clear of land-tax; Lady Barnardiston’s legacy, £6 a year; an old legacy paid by the governors of St. Bartholomew’s Hospital, £10 a year; and lately had two freedoms yearly, which commonly sold for £25 each; and the city generally presented him once in six months with another freedom. Now he has not the freedoms, but his salary is augmented to £180, and the sheriffs pay him £3 12s. He engages when chosen to hold no other living.\n\nDebtors have every Saturday from the Chamber of London eight stone of beef: fines four stone: and some years felons eight stone. Debtors have several legacies. I inquired for a list of",
+          "s23": "",
+          "s24": "",
+          "s25": "",
+          "s26": "",
+          "s27": ""
+        }
       }
     },
     "88": {
