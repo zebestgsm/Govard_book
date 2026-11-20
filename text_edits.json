@@ -10820,7 +10820,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "IRISH PRISONS AND HOSPITAL",
           "s1": "The committee of the House of Commons reported 1787,thatthisprison appears a scene of disorder,ir and intoxication.\"1 \"LIMERick. House of Industry:Very dirty；no regulations.In the kitchen were fowls,and in othe dogs;nuisances,very common in prisons and hospital country.At the end of the garden are several cel lunatics of both sexes were left to the care of one Over these cells,improperly,is the infrmary,which dirty.21 June,1787,there were thirty-nine men and women. \"CASTLEBAR.",
@@ -10840,6 +10840,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T09:55:04+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T10:31:07+00:00"
           }
         ],
         "after": {
