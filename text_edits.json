@@ -14605,7 +14605,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "OXFORD CIRCUIT",
           "s1": "BERKSHIRE",
@@ -14626,8 +14626,27 @@
           {
             "action": "start",
             "time": "2026-11-20T11:28:15+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T11:31:02+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "OXFORD CIRCUIT",
+          "s1": "BERKSHIRE",
+          "s2": "COUNTY GAOL AT READING",
+          "s3": "The following verses are written over the debtors’ grate to the street:\n\nOh ye whose hours exempt from sorrow flow,\nBehold the seat of pain and want and woe:\nThink, while your hands th’ entreated alms extend,\nThat what to us ye give, to God ye lend.\n\nI observed that the women were not only chained together by their hands, but had heavy irons also on their legs, as they were conducted to the sessions house.\n\nWhen felons come to this prison, they are washed, and clothes provided by the county are put on. The men have a Russia-drab coat and breeches, a flannel waistcoat, two check shirts, and two pairs of yarn hose: the women, a linsey woolsey gown and petticoat, a flannel petticoat, two dowlas shifts, two pairs of yarn hose. Their own clothes are ticketed and hung up till the quarter sessions or assizes; when they put them on again to appear in on trial. Afterwards the county-clothes are washed, mended, and purified in an oven, for the use of future criminals. The clothing aforesaid for twenty men and five women cost only £26 6s. 8d. A gentleman sent to this gaol for the prisoners thirty-six rugs or coverlets which are now worn out.\n\nCOUNTY BRIDEWELLS\n\nREADING. This is also the town bridewell. It was formerly a church, and is a spacious room, with four dark suffocating huts on one side for night-rooms, one for men sixteen feet by ten and a half and six and a half high; aperture in the door eight inches by five; straw worn to dust, not changed for four months: one for women fifteen feet eight inches by ten feet",
+          "s4": "",
+          "s5": "",
+          "s6": "BERKSHIRE",
+          "s7": "nine inches; aperture in the door seven inches by five; the two other rooms less. The county pays rent to the corporation. It is dirty, and out of repair. Men and women are together in the daytime. No court: no water: allowance to felons, threepence a day; and to petty offenders, two pint loaves each, every Sunday, and one every week-day. Keeper’s salary £18 from the county; £2 from the town: fees, 4s. 4d., no table; licence for beer: half the profit of the prisoners’ work: £2 a year to find them straw. Clauses against spirituous liquors hung up: and there were on a board, some orders to be observed, approved by J. P. Andrews and Ferd. Collins, justices, 28 April, 1778.\n\n1776, 1 Jan.\tprisoners 6.\t1779, 21 April,\tprisoners 7.\n1776, 1 Nov.\t„ 6.\t1782, 5 March,\t„ 13.\n\n“A new prison, containing six close (called refractory) cells, nine feet and a half by seven and a half; eight solitary cells, ten feet by seven feet nine inches, with courts about the same size; and six wards for prisoners, who are permitted to be together. The rooms are furnished with bedsteads and straw mattresses, but no coverlets. The sewers make most of the rooms and courts offensive. Here is a chapel, where the worthy chaplain officiates twice a week. Allowance, a threepenny loaf daily (weight 2 lb. 3 oz.) and meat on Sundays. No employment. Keeper’s salary £50. No fees. The names of the prisoners, and terms of confinement, are written on the doors of their cells. I observed some were for one year: a severe confinement, to be so long in solitude, unemployed, in nauseous cells, and without fire in winter.¹\n\n1788, 12 July, prisoners 17.”\n\n[From An Account of Lazarettos, pp. 169, 192.]\n\n1 “I wish all prisoners to have separate rooms; for hours of thoughtfulness and reflection are necessary. The gentlemen of this county, by their building this house of correction, and in various other instances, have shown themselves so attentive, and zealous in whatever may contribute to the real interests of their fellow-creatures, that I am glad to take this occasion of making some remarks on solitary confinement. The intention of this, I mean by day as well as by night, is either to reclaim the most atrocious and daring criminals; to punish the refractory for crimes committed in prison; or to make a strong impression, in a short time, upon thoughtless and irregular young persons, as faulty apprentices and the like. It should therefore be considered by those who are ready to commit, for a long term, petty offenders to absolute solitude, that such a state is more than human nature can bear, without the hazard of distraction or despair; that it is repugnant to the Act which orders all persons in houses of correction to work; and that for want of some employment in the day (as in several houses of correction) health is injured, and a",
+          "s8": "",
+          "s9": "",
+          "s10": "",
+          "s11": "",
+          "s12": ""
+        }
       }
     },
     "112": {
@@ -14764,7 +14783,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "ABINGDON. Two dirty day-rooms; and three offensive night-rooms: that for men eight feet square: one of the women’s, nine by eight; the other four and a half feet square: the straw, worn to dust, swarmed with vermin: no court: no water accessible to prisoners. The petty offenders were in irons: at my last visit, eight were women. Allowance, if felons, threepence a day. Keeper’s salary, £18: fees, 4s. 4d., no table. At all my visits the prisoners had no employment.\n\n1776, 2 Jan. prisoners 3\t1782, 25 Dec. prisoners 13, drs. 1\n1779, 22 Apr. „ 3\t\n\nWINDSOR CASTLE PRISON, for debtors.",
           "s1": "Ineedn that his Majesty is proprietor.The Duke of M constable:he appoints a janitor with a salary:t appoints a eputy,who for a house rent-free,and c quisites,does the duty.The prison out of repair. of three rooms on the first floor and three rooms ove At my last visit I found that the old keeper had dered in the tap-roombya soldier,who also killed an was then shot himself.This is not the first instan known ofpersons being murdered in the tap-room Such are the bad effects of selling liquors in prisons habit of idleness or inability to labour in future,is in dang acquired.The beneficial effects on the mind,of such a puni speedy，proceeding from thehorror of a vicious person left en own reflections.",
@@ -14789,8 +14808,31 @@
           {
             "action": "start",
             "time": "2026-11-20T11:28:15+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T11:31:02+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "ABINGDON. Two dirty day-rooms; and three offensive night-rooms: that for men eight feet square: one of the women’s, nine by eight; the other four and a half feet square: the straw, worn to dust, swarmed with vermin: no court: no water accessible to prisoners. The petty offenders were in irons: at my last visit, eight were women. Allowance, if felons, threepence a day. Keeper’s salary, £18: fees, 4s. 4d., no table. At all my visits the prisoners had no employment.\n\n1776, 2 Jan.\tprisoners 3.\t1782, 25 Dec.\tprisoners 13, drs. 1.\n1779, 22 Apr.\t„ 3.\t\t\n\nWINDSOR CASTLE PRISON, for debtors. I need not observe that his Majesty is proprietor. The Duke of Montague is constable: he appoints a janitor with a salary: the janitor appoints a deputy, who for a house rent-free, and certain perquisites, does the duty. The prison out of repair. It consists of three rooms on the first floor and three rooms over them.\n\nAt my last visit I found that the old keeper had been murdered in the tap-room by a soldier, who also killed another, and was then shot himself. This is not the first instance I have known of persons being murdered in the tap-room of gaols. Such are the bad effects of selling liquors in prisons.\n\nhabit of idleness or inability to labour in future, is in danger of being acquired. The beneficial effects on the mind, of such a punishment, are speedy, proceeding from the horror of a vicious person left entirely to his own reflections. This may wear off by long continuance, and a sullen insensibility may succeed.\n\n“In all manufacturing towns it would be proper to have solitary cells for the confinement of faulty apprentices and servants for a few days, where they should be constrained to work, and have no visitors unless clergymen: for a short term would probably do more to effect a reformation, than three or four months’ confinement; as it is generally found that in the first two or three days prisoners seem to have their minds most affected and penitent.\n\n“A county magistrate said: ‘We have thought it necessary to refrain from commitment in many cases where that mode of proceeding would otherwise have been salutary, from a full persuasion of the total unfitness of the places of confinement or of correction, to answer those reformatory purposes for which a well-regulated restraint is peculiarly calculated.’”",
+          "s1": "",
+          "s2": "",
+          "s3": "OXFORDSHIRE",
+          "s4": "OXFORDSHIRE\n\nCOUNTY GAOL, OXFORD CASTLE\n\nGaoler. Solomon Wisdom.\nSalary: £20.\nFees: Debtors, £0 9s. 2d.\nFelons, £0 15s. 10d.\nTransports: He made a bill of the expense.\nLicence: Beer and wine.\n\nPrisoners.\nAllowance: Debtors, none. (See remarks.)\nFelons, County, 16d. each per week in bread; City, 1s. (See remarks.)\nGarnish: Cancelled.\nNumber:\n\tDebtors\tFelons, etc.\t\tDebtors\tFelons, etc.\n1773. 26 Nov.\t14\t13\t1779. 25 Feb.\t12\t15\n1774. 4 July\t11\t17\t1779. 29 July\t13\t4\n1776. 2 Jan.\t13\t10\t1782. 28 April\t16\t10\n1776. 31 Oct.\t7\t14\t1782. 25 Dec.\t25\t31\n\nChaplain. Rev. Mr. Swinton, now Rev. Mr. Cotton.\nDuty: Sunday, Wednesday, Friday; the sacrament four times a year.\nSalary: £50, now £40.\nSurgeon. Mr. Rawlins.\nSalary: £25 for felons.\n\nFor the castle gaol the county pays £40 a year to Mr. Etty, who holds it of Christchurch College on lease. Debtors’ apartments small; and not enough of them for the general number of prisoners. No free ward: for lodging even in the tower on their own beds they must pay 1s. 6d. a week: see the table. Their court is too small. Felons’ day-room or hall for men and women down five steps, twenty-three feet by eleven, the men’s dungeon (eighteen and a half feet by sixteen and a half), down five more; only small apertures: the women’s night-room six and a half feet by four feet two inches. The court common to both, twenty-nine feet by twenty-three. The gaoler has a spacious garden.\n\nSince the north gate was taken down, this prison has been also the city gaol: for which Mr. Wisdom has £5 a year. In 1773, eleven died of the smallpox. In 1774, that distemper",
+          "s5": "",
+          "s6": "",
+          "s7": "",
+          "s8": "",
+          "s9": "",
+          "s10": "",
+          "s11": "",
+          "s12": "",
+          "s13": "",
+          "s14": "",
+          "s15": "",
+          "s16": ""
+        }
       }
     }
   }
