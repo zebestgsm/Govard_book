@@ -12752,7 +12752,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "needs_work",
         "before": {
           "s0": "WESTMINSTER",
           "s1": "more airy.No.I,2,and 4,and the room over No. lodging-room called the store-room adjoining to rooms,areof good size:and the practice of lime-whiti here since my first visits,is salutary for the prison are,besides,the black hole,the condemned hold,t and several other parts of this irregular building pass over. 15March,1776,there were one hundred and ninetee of whom forty-nine were transports.I saw man dying.The gaol was so infected by them, that the was caught there by many afterwards. 25May,prisoners thirty-seven.",
@@ -12784,6 +12784,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T10:27:44+00:00"
+          },
+          {
+            "action": "needs_work",
+            "time": "2026-11-20T10:39:36+00:00"
           }
         ],
         "after": {
