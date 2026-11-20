@@ -15944,7 +15944,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "YORKSHIRE",
           "s1": "KNARESBOROUGH PRISON,FOR TOWN DEB",
@@ -15959,8 +15959,21 @@
           {
             "action": "start",
             "time": "2026-11-20T11:50:07+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T11:51:53+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "YORKSHIRE",
+          "s1": "KNARESBOROUGH PRISON, FOR TOWN DEBTORS",
+          "s2": "Is under the hall. Of difficult access; the door about four feet from the ground. Only one room, about twelve feet square: window seventeen inches by six. Earth floor: no fire-place: very offensive; a common sewer from the town running through it uncovered. I was informed that an officer, confined here some years since, for only a few days, took in with him a dog to defend him from vermin; but the dog was soon destroyed, and the prisoner’s face much disfigured by them.\n\nAt my last visit the doorway was altered, the floor paved with flagstones and the drain covered.\n\n1776, 26 Oct., 1779, 8 May, and 1782, 20 Nov. No prisoners.\n\nROTHWELL PRISON, FOR DEBTORS\n\nIn the old prison at Rothwell, I saw both times I was there, one William Carr, a weaver: he had given a bad name to a woman who was said not to deserve a very good one: she cited him to the ecclesiastical court; and he was imprisoned 4 May, 1774. He had a wife and three children. I will transcribe a line or two of the warrant.—“For as much as the royal power ought not to be wanting to the holy church in its complaints . . . attach the said W. C. . . . until he shall have made satisfaction to the holy church as well for the contempt as for the injury by him done unto it.” He was discharged 26 July, 1776, by the Insolvent Act; a clause being then inserted for those prisoners.\n\nHALIFAX PRISON¹\n\nFor the manor of Wakefield, dated 1662, is the property of the Duke of Leeds. For master’s-side debtors, four rooms in the keeper’s public house. Through this you pass to a court about fourteen yards by seven: at the farther end of which is a sizable room on the ground-floor for common-side debtors,\n\n1 In this town, formerly the barons (as in many other places), and after them, various proprietors had power of life and death. The method of execution was decollation by an axe in an engine. The axe is preserved in the gaol to this day. Two men in 1650 were the last who suffered by it.\n\nWhen any felon was here found guilty, the bailiff immediately returned him back to prison for the space of one week or thereabouts, and on every market-day, there being three a week, the felon was set in the public stocks; and either upon his back, if the thing stolen was portable, or if",
+          "s3": "DURHAM",
+          "s4": "it is called the low gaol; over it a chamber (the low gaol chamber) where prisoners pay one shilling a week. The whole prison greatly out of repair: it rained in upon the beds: the rooms were clean. Keeper, no salary: he pays the duke £24 a year; and pays window-tax for the gaol.\n\nDURHAM\n\nCOUNTY GAOL AT DURHAM\n\nThe high gaol is the property of the Bishop. By patent from his lordship, Sir Hedworth Williamson, Bart., is perpetual sheriff. The court for master’s-side debtors is only twenty-four feet by ten: they are permitted sometimes to walk on the leads. They have beds in the upper hall and in several other rooms. Their rooms should be ceiled, that they might be lime-whited, to prevent infectious disorders, and that great nuisance of bugs, of which the debtors complain much here and at other places. Common-side debtors have no court: their free wards, the low gaol, are two damp unhealthy rooms ten feet four inches square, by the gateway: they are never suffered to go out of these, unless to chapel, which is the master’s-side debtors’ hall; and not always to that: for on a Sunday when I was there, and missed them at chapel, they told me they were not permitted to go thither. No sewers: at more than one of my visits, I learned that the dirt, ashes, etc., had lain there many months. There is a double-barrelled pump, which raises water about seventy feet.\n\nFelons have no court; but they have a day-room and two small rooms for an infirmary. The men are put at night into dungeons: one seven feet square for three prisoners: another, the great hole, sixteen and a half feet by twelve, has only a little window. In this I saw six prisoners (in 1776), most of them transports, chained to the floor. In that situation they had been many\n\nnot, then before his face the goods were so placed, that they might be noted by all passengers.\n\nIf it was a horse, an ox, or cow, etc., that was taken with the prisoner, it was thither brought along with him to the place of execution, and fastened by a cord to the pin that stayed the block, so that when the time of the execution came (which was known by the jurors holding up one of their hands) the bailiff, or his servant, whipping the beast, the pin was plucked out, and execution done. But if there was no beast in the felon’s case, then the bailiff, or his servant, cut the rope. See Halifax and its Gibbet Law.",
+          "s5": "",
+          "s6": ""
+        }
       }
     },
     "123": {
