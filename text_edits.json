@@ -11162,7 +11162,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "LONDON",
           "s1": "NEWGATE1",
@@ -11198,8 +11198,42 @@
           {
             "action": "start",
             "time": "2026-11-20T09:55:46+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T09:59:03+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "LONDON",
+          "s1": "NEWGATE¹",
+          "s2": "Gaoler. Richard Akerman.\nSalary £200.\nFees: Debtors £0 8s. 10d.\nFelons £0 18s. 10d.\nMisdemeanours or Fines £0 14s. 10d.\nTransports £0 14s. 10d.\nLicence: Beer and wine.\n\nPrisoners.\nAllowance: Debtors, Felons, a penny loaf a day (weight December 1782, 8½ oz. August 1783, 9½ oz.). Now, felons on the common side a three halfpenny loaf. (See remarks.)\nGarnish: Debtors, £0 5s. 6d.\nFelons, etc. £0 2s. 6d.\n\nNumber:\n\tDebtors\tFelons\n1775. 5 March\t33\t190\n1776. 1 March\t38\t129\n1776. 17 May\t46\t212\n1776. 26 Dec.\t33\t152\n1779. 16 Aug.\t51\t141\n1782. 18 Dec.\t3\t291\n1783. 22 Aug.\t113\t224\n\nChaplain. Rev. Mr. Villette.\nDuty: Sunday twice; every day prayers with the condemned; once a month sacrament.\nSalary: Was £35, etc., now augmented. (See remarks.)\n\nSurgeon. Mr. Olney.\nSalary: £50, now £100, for all prisoners.²",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "",
+          "s7": "",
+          "s8": "",
+          "s9": "",
+          "s10": "",
+          "s11": "",
+          "s12": "",
+          "s13": "",
+          "s14": "",
+          "s15": "",
+          "s16": "",
+          "s17": "",
+          "s18": "",
+          "s19": "",
+          "s20": "The builders of Old Newgate seem to have regarded in their plan, nothing but the single article of keeping prisoners in safe custody. The rooms and cells were so close, as to be almost the constant seats of disease, and sources of infection; to the destruction of multitudes, not only in the prison, but abroad. The city had therefore very good reason for their resolution to build a new gaol. Many inconveniences of the old gaol are avoided in this new one: but it has some manifest errors. It is now too late to point out particulars. All I will say, is, that without more than ordinary care, the prisoners in it will be in great danger of the gaol-fever.\n\n1 Finally demolished in 1903.—[Ed.]\n\n2 A statistical digest such as this appears at the head of Howard’s descriptions of all the more important gaols. All but a few have been omitted in this reprint, for obvious reasons.—[Ed.]",
+          "s21": "LONDON",
+          "s22": "The cells built in Old Newgate a few years since for condemned malefactors, are still used for the same purpose. I shall therefore give some account of them. There are upon each of the three floors five; all vaulted, near nine feet high to the crown. Those on the ground-floor measure full nine feet by near six; the five on the first story are a little larger (9½ by 6) on account of the set-off in the wall; and the five uppermost, still a little larger for the same reason. In the upper part of each cell, is a window double grated, near three feet by one and a half. The doors are four inches thick. The strong stone wall is lined all round each cell with planks, studded with broad-headed nails. In each cell is a barrack-bedstead. I was told by those who attended them, that criminals who had affected an air of boldness during their trial, and appeared quite unconcerned at the pronouncing sentence upon them, were struck with horror, and shed tears, when brought to these darksome solitary abodes.\n\nThe chapel is plain and neat. Below is the chaplain’s seat, and three or four pews for the felons; that in the centre is for the condemned. On each side is a gallery: that for the women is towards their ward: in it is a pew for the keeper, whose presence may set a good example, and be otherwise useful. The other gallery towards the debtors’ ward is for them. The stairs to each gallery are on the outside of the chapel. I attended there several times, and Mr. Villette read the prayers distinctly, and with propriety: the prisoners who were present, seemed attentive; but we were disturbed by the noise in the court. Surely they who will not go to chapel, who are by far the greater number, should be locked up in their rooms during the time of divine service, and not suffered to hinder the edification of such as are better disposed.\n\nThe chaplain (or ordinary) besides his salary, has a house in Newgate Street, clear of land-tax; Lady Barnardiston’s legacy, £6 a year; an old legacy paid by the governors of St. Bartholomew’s Hospital, £10 a year; and lately had two freedoms yearly, which commonly sold for £25 each; and the city generally presented him once in six months with another freedom. Now he has not the freedoms, but his salary is augmented to £180, and the sheriffs pay him £3 12s. He engages when chosen to hold no other living.\n\nDebtors have every Saturday from the Chamber of London eight stone of beef: fines four stone: and some years felons eight stone. Debtors have several legacies. I inquired for a list of",
+          "s23": "",
+          "s24": "",
+          "s25": "",
+          "s26": "",
+          "s27": ""
+        }
       }
     },
     "88": {
@@ -11296,7 +11330,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "LONDON",
           "s1": "them,and Mr.Akerman told me thetable in Maitlan was authentic.The amount of it is 525s.8d.aye are other donations mentioned by Maitland,am sixty-four stone of beef,and five dozen of bread.",
@@ -11318,8 +11352,28 @@
           {
             "action": "start",
             "time": "2026-11-20T09:55:46+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T09:59:03+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "LONDON",
+          "s1": "them, and Mr. Akerman told me the table in Maitland’s Survey was authentic. The amount of it is £52 5s. 8d. a year. There are other donations mentioned by Maitland, amounting to sixty-four stone of beef, and five dozen of bread.\n\nTo these he adds the donation of “Robert Dow, who left £1 6s. 8d. yearly for ever to the sexton or bellman of St. Sepulchre’s, to pronounce solemnly two exhortations to the persons condemned, the night before their execution; in these words:\n\n“You prisoners who are within\nWho for wickedness and sin,\n\nafter many mercies shown you, are now appointed to die to-morrow in the forenoon, give ear and understand that to-morrow morning the greatest bell of St. Sepulchre’s shall toll for you in form and manner of a passing bell as used to be tolled for those that are at the point of death, to the end that all godly people may pray, etc., etc.”\n\nHere I cannot forbear mentioning a practice which probably had its origin from the ancient mode of torture, though now it seems only a matter of form. When prisoners capitally convicted at the Old Bailey are brought up to receive sentence, and the judge asks, “What have you to say why judgment of death and execution should not be awarded against you,” the executioner slips a whipcord noose about their thumbs. This custom ought to be abolished.\n\nAt my visit in 1779, the gaol was clean, and free from offensive scents. On the felons’ side, there were only three sick, in one of the upper wards. An infirmary was building near the condemned cells. Of the one hundred and forty-one felons, etc., there were ninety-one convicts and fines, who had only the prison allowance of a penny loaf a day. Mr. Akerman generously contributed towards their relief. In the felons’ court, the table of fees painted on a board was hung up.\n\nThis gaol was burnt by the rioters¹ in 1780, but is rebuilt on the same plan. The men’s quadrangle is now divided into three courts. In the first court, are those who pay three shillings and sixpence a week for a bed; in the next, the poorer felons; and in the other, now the women. Under the chapel, are cells for the refractory. Two rooms, adjoining to the condemned cells, are built for an infirmary, in one of which at my last visit there were sixteen sick. Of the two hundred and\n\n1 The riots mentioned here and elsewhere were the Gordon Riots. See Barnaby Rudge.—[Ed.]",
+          "s2": "",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "",
+          "s7": "",
+          "s8": "LONDON",
+          "s9": "ninety-one prisoners in 1782, two hundred and twenty-five were men, and sixty-six women. Upwards of a hundred of them were transports, eighty-nine fines, twenty-one under sentence of death, and the remainder lay for trial. Some of the condemned had been long sick, and languishing in their cells.¹",
+          "s10": "",
+          "s11": "",
+          "s12": "TABLE OF FEES\n\nLondon sc. A TABLE of FEES to be taken by the gaoler or keeper of Newgate within the said City of London for any prisoner or prisoners committed or coming into gaol or chamber-rent there or discharge from thence in any civil action settled and established the nineteenth day of December in the third year of the reign of his Majesty King George the Second Annoque Domini 1729 pursuant to an Act of Parliament lately made intituled An Act for the Relief of Debtors with respect to the Imprisonment of their Persons.\n\n\t£\ts.\td.\nEvery prisoner on the master-side shall pay to the keeper for his entrance fee\t0\t3\t0\nEvery prisoner on the master-side shall pay for chamber-room, use of bed, bedding and sheets to the keeper there being two in a bed and no more each per week\t0\t1\t3\nEvery prisoner on the said master-side who at his own desire shall have a bed to himself, shall pay to the keeper for chamber-room, use of bed, bedding and sheets per week\t0\t2\t6\nEvery debtor shall pay to the keeper for his discharging fee\t0\t6\t10\nAnd to all the turnkeys two shillings and no more\t0\t2\t0\n\nNo other fee for the use of chamber bed bedding or sheets or upon the commitments or discharge of any prisoner on any civil action.\n\nEdwd. Becher\tRobt. Raymond\nRobt. Alsop\tR. Eyre\nJno. Barnard\tThos. Pengelly.\n\nMr. Akerman showed me another table of fees, which was given him for his direction when he commenced keeper. It is as follows:\n\nFEES to be taken by the keeper of Newgate\n\n\t£\ts.\td.\nFor every debtor’s discharge\t0\t8\t10\nFor every felon’s discharge\t0\t18\t10\nFor every misdemeanour\t0\t14\t10\n\n1 An execution day is too much, with us, a day of riot and idleness, and it is found by experience, that the minds of the populace are rather hardened by the spectacle, than affected in any salutary manner. Might not these evils be amended by having the report within a week after sentence, and the execution soon after, either in the area before Newgate, or before the sessions-house?",
+          "s13": "Since the above was written, I learn with satisfaction that the place of execution is altered according to the foregoing idea."
+        }
       }
     }
   }
