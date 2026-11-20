@@ -9448,7 +9448,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRIS",
           "s1": "itmyself;and for that purpose knocked hard at theou andimmediatelywentforwardthroughtheguardtoth bridge before the entrance of the castle.But whil contemplating this gloomy mansion,an officer came or surprised;and I was forced to retreat through'themut and thus regained that freedom,which for one lockedu those walls it is next to impossible to obtain.",
@@ -9468,8 +9468,26 @@
           {
             "action": "start",
             "time": "2026-11-20T09:38:16+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T09:40:22+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "AN ACCOUNT OF FOREIGN PRISONS",
+          "s1": "it myself; and for that purpose knocked hard at the outer gate, and immediately went forward through the guard to the drawbridge before the entrance of the castle. But while I was contemplating this gloomy mansion, an officer came out much surprised; and I was forced to retreat through the mute guard, and thus regained that freedom, which for one locked up within those walls it is next to impossible to obtain.\n\nMany of my readers, acquainted with the strict policy of France, would have supposed that the other prisons would have been as inaccessible to a visitant as the Bastille. And indeed my first application for admittance at the Grand Châtelet was unsuccessful. But fortunately remarking the tenth article¹ of the arrêt 1717, I pleaded it before the Commissaire de la Prison, to whom I was referred, and by its means gained admission as well into that prison, as those of Le Petit Châtelet and For-l’Evêque, and had an opportunity of seeing almost every individual confined in them.\n\nIn the provincial gaols I saw little worth noting, but what has been already mentioned at Paris. These also have charitable patronesses, who take care that the prisoners be not defrauded of their allowance; and procure them further relief. But these prisons do not seem to be so carefully inspected as those in the city; although the arrêts of Parliament for regulation of both are for the most part similar, and were made in the same year, 1717. They are drawn up with sound judgment, and accurate knowledge of the complex subject. I found many articles of them in the laws of other nations; but cannot say whether the French arrêts were compiled from them, or followed by them.\n\nThe 32nd article of the arrêt for the provinces requires that prisons be au raiz de chaussée, level with the ground. Yet at Chalons, and some other towns, I saw many prisoners in dungeons; larger indeed, but in other respects not much better",
+          "s2": "",
+          "s3": "",
+          "s4": "power of any, the highest, magistrate to imprison arbitrarily whomever he or his officers thought proper, (as in France it is daily practised by the crown²) there would soon be an end of all other rights and immunities.”\n\n1 The article is as follows: “Les geôliers conduiront les personnes qui viendront faire des charités dans les lieux de la prison où elles désireront les distribuer, ce qu’elles pourront faire elles-mêmes sur le préau ou dans la cour; mais les aumônes ne pourront être distribuées dans les cachots noirs que par les mains du geôlier, en présence des personnes qui les porteront.”\n\n2 “I have been assured upon good authority, that, during the mild administration of Cardinal Fleury, above 54,000 lettres de cachet were issued, upon the single ground of the famous bulle Unigenitus.”—Commentaries, Book I, chap. 1.",
+          "s5": "than those at Paris. In the four horrid ones at the Prison de St. Joseph (formerly a convent) at Lyons, June 1776, were twenty-nine criminals: the heat so excessive, that few of them had any other garment on than their shirts. Some of them were sick: none looked healthy. In the nine other rooms of that gaol there were one hundred and twenty-eight prisoners; of which number twenty-two were women.\n\nTo the Pierre-en-cize, a State prison at Lyons, you ascend by more than two hundred steps: among the few prisoners in it, I sat talking awhile with one who said he was in the fiftieth year of his confinement.\n\nDUNKIRK. In the prison at Dunkirk, the French prisoners were in two or three rooms by themselves.\n\nHere (January 1779) I found many of my countrymen prisoners of war. In five rooms there were a hundred and thirty-three—captains, mates, passengers, and common sailors all crowded together—who lay on straw, with one coverlet for every three persons. In three other rooms there were thirteen accommodated in a better manner, because most of them were ransomers, and capable of paying six sous a night for their beds.¹ The court was small, being only forty-two feet by twenty-six; nor was there sufficient plenty of water. The bread, beer, and soup were good, and the beef tolerable. In a former war, the contract here was twelve sous a man; in the last it was fifteen. Each room was supplied with two small faggots a day for firing. The sick (of whom there were only three) were taken to the military hospital. The regulations were hung up in English and French.\n\nBERGUES. In the prison at Bergues I found forty-seven English prisoners. The table of victualling was hung up here as at Dunkirk, but the provisions were not so good. There were twelve on their parole in this town, nine at Bourbourg, and two at Ardres, who told me they had procured bondsmen for their security.\n\nCALAIS. The common prison at Calais, being smaller than that at Dunkirk, was much crowded: for it contained one hundred and twenty-seven English prisoners. Seventeen sailors lay in one room² on straw, without coverlets; a few had not even\n\n1 A ransomer is a person confined as a security, till the sum is paid for which a ship has been ransomed.\n\n2 That room was nineteen feet by twelve. In another smaller room, in two tiers, were twenty-three hammocks belonging to the sailors; for sometimes their hammocks were given them. The court of this prison was only twenty-five feet by fourteen and a half.",
+          "s6": "",
+          "s7": "",
+          "s8": "",
+          "s9": "",
+          "s10": "",
+          "s11": ""
+        }
       }
     },
     "76": {
@@ -9566,7 +9584,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "I38 AN ACCOUNT OF FOREIGN PRISO",
           "s1": "straw:on my complaining of this to the commissary,h he would send to St. Omer's for coverlets.After info him further,thatI had found captains,passengers,and confined in France,but that I supposed persons of this descr in England were on their parole of honour;he repliec desired I would note it down, that “a parole could granted without security;a hundred guineas for cap seventy-five for mates,sixty for sailors,and twenty-fi boys.\"",
@@ -9585,8 +9603,25 @@
           {
             "action": "start",
             "time": "2026-11-20T09:38:16+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T09:40:22+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "AN ACCOUNT OF FOREIGN PRISONS",
+          "s1": "straw: on my complaining of this to the commissary, he said, he would send to St. Omer’s for coverlets. After informing him further, that I had found captains, passengers, and mates confined in France, but that I supposed persons of this description in England were on their parole of honour; he replied, and desired I would note it down, that “a parole could not be granted without security; a hundred guineas for captains, seventy-five for mates, sixty for sailors, and twenty-five for boys.” Passengers were on the same footing with captains. On the second day of my being there, the rules (the same as at Dunkirk) were hung up, both within and without this prison.\n\nMany of the prisoners in this and other prisons had no change of linen, and some were almost entirely destitute of clothes, being the crews of vessels shipwrecked in the great storm of 31 December, 1778.\n\nThere were twenty-six of our people in a spacious ward in the military hospital, to whom great attention was paid. Each had a bed and sheets; and their bread and meat were good. But most of them having a disorder which did not break their spirits, they would have been better pleased if their allowance had been equal to that in the prison.\n\n“TOULON. The galleys, formerly at Marseilles, are now removed to the arsenal at Toulon. Five were moored near each other, and have their names on the stern, as the Firm, the Brave, the Intrepid, etc. In them there were about sixteen hundred prisoners, who are obliged always to wear a bonnet or cap, on which is fixed a tin plate with a number. Their caps were grey, green, and red, to distinguish deserters, smugglers, and thieves; these last are always branded before they leave the prison of the place where they were condemned; some with the letter V (for voleur) others with G A L on the left shoulder.\n\n“These galleys had only one deck. Many of their windows in the roofs were open; and, being swept twice every day, they were clean, and not offensive. The slaves also were kept clean, and their clothing was neat, even in that galley which is appropriated to the aged and infirm. Some of them had been confined forty, fifty, and even sixty years. All have a coat, waistcoat, trousers, two shirts, and a pair of shoes, given them every year; and a great-coat every two years. They had good brown bread, well baked, in loaves weighing a pound and three-quarters. All had some little allowance in money, and to those who worked was granted an additional allowance of three sous every day for wine. In each galley there were two",
+          "s2": "",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "cantons (little rooms) one for wine, for those who worked for government, the other for the sale of white bread, greens, etc.\n\n“Many worked at their own trades, as shoemakers, basket-makers, etc., but none were allowed to keep shops on shore as formerly at Marseilles; nor have they the same convenience they had then for the sale of their work. Forty were at work in La Place (the square) in the city, digging and removing the soil for the foundation of a house for the intendant.¹ These were chained two and two, and when one wheeled the mould, the other carried the chain; but in digging, sawing, and other stationary employments, both worked. Many were at work in the arsenal; and employed, some in moving, hewing and sawing timber; and others in the cotton and thread manufactory. The number of those engaged in the last of these employments was about two hundred. They were lodged in an adjoining hall; and I observed, that when they left off work they were searched to prevent their secreting any of the materials. All were loaded with chains of some kind or other. Those employed in the manufactory (and some others in the arsenal) had only a ring on one leg; but this, and likewise the choice of irons, I found to be a distinction which might be purchased. The slaves who worked out of the arsenal were loaded with heavy chains; and few are able to escape: if any do escape, they are punished, when retaken, in various ways. Some by a confinement under heavier irons—some by a recommencement of the term of their confinement—some by whipping—and such as had been condemned for life, by hanging.\n\n“Protestants are not compelled to attend at mass. The last person who was confined for his religion, was released about eight years ago. There is but one slave here who now professes himself a Protestant, and his name is François Condé. He has been confined in the galleys forty-two years, for being concerned with some boys in a quarrel, with a gentleman (who lost his gold-headed cane) in a private house in Paris. The boys were apprehended, and this Condé, though only fourteen years of age, and lame of one arm, was condemned to the galleys for life. After four or five years he procured a Bible, and learned by himself to read; and becoming, through close attention to the Scriptures, convinced that his religion was anti-christian, he publicly renounced it; and declared and defended his sentiments. Ever since he has continued a steady Protestant, humble and modest, with a character irreproachable and exemplary,\n\n1 This house will spoil the beauty of the square.",
+          "s7": "",
+          "s8": "",
+          "s9": "",
+          "s10": ""
+        }
       }
     }
   }
