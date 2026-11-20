@@ -11820,7 +11820,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "LONDON",
           "s1": "Fee\t£\ts.\td.\nBesides the 1s. a piece for each of the said first three causes\t\t\t\n7th. That there is due and ought to be paid to the clerk of the papers for his certificate of the prisoner’s discharge delivered to the prisoner himself without any regard to the number of causes he stood charged with\t0\t2\t6\nAnd for his certificate to the warden of such discharge\t0\t2\t6",
@@ -11843,6 +11843,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T10:03:06+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T10:35:56+00:00"
           }
         ],
         "after": {
