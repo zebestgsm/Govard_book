@@ -403,7 +403,9 @@ def render_verified_block(value, spread, segment_id, query):
               or (spread == 125 and ((segment_id == 's1' and chunk == 'COUNTY BRIDEWELL') or (segment_id == 's9' and chunk == 'LIVERPOOL BOROUGH GAOL')))
               or (spread == 126 and segment_id == 's1' and chunk == 'LIVERPOOL BRIDEWELL')
               or (spread == 127 and segment_id == 's8' and chunk == 'CHESTER CITY BRIDEWELL')
-              or (spread == 130 and segment_id == 's1' and chunk == 'REMARKS ON CHARTER SCHOOLS (IRELAND)')):
+              or (spread == 130 and segment_id == 's1' and chunk == 'REMARKS ON CHARTER SCHOOLS (IRELAND)')
+              or (spread == 132 and ((segment_id == 's1' and chunk == 'INSTRUCTIONS TO SCHOOL-MASTERS') or (segment_id == 's5' and chunk.startswith('GENERAL RULES to be strictly observed'))))
+              or (spread == 133 and segment_id == 's1' and chunk == 'HULKS ON THE THAMES')):
             output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
         elif ((spread == 102 and segment_id == 's4' and chunk.startswith('that want of care respecting them'))
               or (spread == 110 and segment_id == 's3' and chunk.startswith('Before this rigorous law'))
@@ -418,6 +420,8 @@ def render_verified_block(value, spread, segment_id, query):
             output.append('<span class="regulation-extract">' + text_html(chunk) + '</span>')
         elif ((spread == 98 and ((segment_id == 's1' and chunk.startswith('1. The stocks')) or (segment_id == 's7' and chunk.startswith('5. Coroner'))))
               or (spread == 99 and segment_id == 's1' and (chunk.startswith('to the court or a judge') or chunk.startswith('1. No person to bring')))):
+            output.append('<span class="book-list">' + text_html(chunk) + '</span>')
+        elif ((spread == 132 and segment_id in ('s1', 's5')) or (spread == 133 and segment_id == 's1')) and chunk.startswith('“‘That '):
             output.append('<span class="book-list">' + text_html(chunk) + '</span>')
         elif spread == 91 and ((segment_id == 's4' and chunk.startswith('1, 2, 3. Warden')) or (segment_id == 's7' and chunk.startswith('10. Those who blaspheme'))):
             output.append('<span class="book-list">' + text_html(chunk) + '</span>')
