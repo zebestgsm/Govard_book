@@ -14905,7 +14905,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "2I2 OXFORDSHIRE still in the gaol:in1775,one debtor died of itinM debtors and a petty offender in June: three recove infirmary:no bath:no straw: the prisoners lie in the onmats.",
           "s1": "The men’s dungeon swarms with vermin whitewashed for many years.Of the thirty-one fel in 1782,fifteen were fines.The Act for preserving t of prisoners not hung up.In April 1782,one of the was awoman committed for contempt,with no charg The warrant runs,“As Royal Power ought not to be to the holy church in its complaints...attach. has made satisfaction to the holy church. .aswel contempt...as for the injury done unto it.”",
@@ -14923,6 +14923,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T11:36:02+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T11:40:42+00:00"
           }
         ],
         "after": {
