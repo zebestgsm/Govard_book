@@ -12108,7 +12108,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "LONDON",
           "s1": "but being paved with fat stones and the wa running,it is fresh and clean.",
@@ -12135,8 +12135,33 @@
           {
             "action": "start",
             "time": "2026-11-20T10:21:36+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T10:24:22+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "LONDON",
+          "s1": "but being paved with flat stones and the water constantly running, it is fresh and clean.\n\nThe tap-room is in the court. Adjoining is the day-room, the Bell, for men and women felons. In a small court, there are two strong rooms (planked and studded with nails) for men felons; and upstairs another night-room for men, and one for women. The women’s room was formerly occupied for a workshop by a prisoner, a cooper; and the women slept in the Bell below. No straw or bedding.\n\nOn one side of the court is a chapel; with a gallery for master’s-side debtors. The chapel, and indeed the whole of this prison, was quite out of repair: but at my last visit was thoroughly repaired and whitewashed. For this improvement the prisoners are obliged to the spirited and humane exertion of Mr. Sheriff Taylor.\n\nAt the roof of the prison, are spacious leads, on which the master’s-side debtors are sometimes allowed to walk: but then the keeper is with them: for the leads communicate with the adjoining houses, one of which affords a ready escape from so close a prison in case of fire.\n\nBesides the penny loaf a day, which is from the Chamber of London, there are some legacies to the debtors paid by the companies in this city, amounting to about £60 a year: they have also from the sheriffs thirty-two pounds of beef on Saturdays, and they had formerly from the Peacock brewhouse (Messrs. Calvert and Co.) a kind donation of two barrels of small beer a week.\n\nIn this prison eight men in 1776 had with them their wives and nineteen children. The other prisoners, I learned, had forty-four wives and one hundred and forty-four children, not in the gaol.\n\nThe Act for preserving the health of prisoners is not hung up. There is now painted on a board at the door, that no visitors are to be admitted on Sundays, from ten to twelve in the morning, nor from three to four in the afternoon.\n\nThe keeper pays to the Chamber of London £30 a year rent, which is refunded to him for his trouble on night-charges.¹ He also pays window-tax, etc.\n\n1 At this prison, as well as at New Ludgate, the Fleet, and King’s Bench, I heard of the frequent visits of Dr. William Smith in 1776; who had been desired to visit the sick in the prisons of London, Westminster, and Southwark, by the committee of the Westminster charity, in consequence of their humane resolution to appropriate to this purpose the surplus of a collection made in the hard winter of 1776. Sir Charles Whitworth,",
+          "s2": "",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "",
+          "s7": "",
+          "s8": "",
+          "s9": "",
+          "s10": "LONDON",
+          "s11": "WOOD STREET COMPTER\n\nThis prison, built, as appears by inscription on the front, in 1670, has only a small court or passage for all prisoners. Many apartments: yet but two rooms for common-side debtors: that for men, which is their day-room, night-room, and kitchen, with a copper, etc., is dark and dirty; about thirty-five feet by eighteen, and sixteen feet high; far too small for the number of prisoners, many of whom sleep in twenty-three beds which are on three stories of galleries, or broad shelves. At one of my visits there were in this room thirty-nine debtors: seven of them had their wives and children. The room swarms with bugs. The day- and night-room for women debtors is more lightsome: in it were only two prisoners. Beyond it is a room ruinous, and fit for no use.\n\nFor men felons there are two rooms; and two for women; one of these is a dark cell. Two dungeons, one down eleven steps, the other adjoining to the tap-room. No bedding or straw. Those who choose a bed pay 1s. a night; or else 10s. 6d. floorage, and 3s. 6d. a week. Near those four rooms are twenty-three more for master’s-side debtors.\n\nIn the court is the chapel; and under it the tap-room, down sixteen steps. All the rooms aforesaid are within the inner gate; between which and the outer gate (i.e. in the keeper’s house) are more rooms for master’s-side debtors. No infirmary. The Act for preserving the health of prisoners not hung up. The prison is greatly out of repair; the main wall on one side shored and propped.\n\nThe keeper pays to the Chamber of London £30 a year rent, which is repaid him for his expense on night-charges: he also pays window-tax. I learned from him, that in the beginning of the year 1773 his prisoners were sickly, and eleven died. For some time the governors of the General Dispensary showed a kind attention to these poor people; and ordered their",
+          "s12": "",
+          "s13": "",
+          "s14": "",
+          "s15": "",
+          "s16": "",
+          "s17": "the chairman, who was acquainted with the plan I had been employed on for some years, directed the doctor to apply to me for a list of the several prisons, with which I with pleasure supplied him, and at the same time informed him of my intended publication.\n\nDr. Smith’s attention seemed to be chiefly turned towards debtors, who spoke with much esteem and gratitude of him and Mr. Cosens the apothecary, who also attended; and many beneficial effects proceeded from their management. Great alterations had taken place in prisons through the attention of Parliament before the doctor’s visits; yet he discovered many abuses and frauds still practised, which he laid before the public in two pamphlets, printed for J. Bew in Paternoster Row, 1776.",
+          "s18": ""
+        }
       }
     },
     "94": {
@@ -12321,7 +12346,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "LONDON",
           "s1": "physician,Dr.Lettsom, to visit them.He was est the prisoners.",
@@ -12353,8 +12378,38 @@
           {
             "action": "start",
             "time": "2026-11-20T10:21:36+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T10:24:22+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "LONDON",
+          "s1": "physician, Dr. Lettsom, to visit them. He was esteemed by the prisoners.\n\nThe bread allowance is from the Chamber of London. Debtors (some of whom are from the Court of Conscience, and lie till their debts are paid¹) have from the sheriffs thirty-two pounds of beef on Saturday. They had formerly from the Peacock brewhouse (Messrs. Calvert and Co.) a donation of two barrels of small beer a week. There are many legacies for common-side debtors, who receive them quarterly. The annual amount is £59 2s. 11d.\n\nBRIDEWELL\n\nThis building was formerly a palace, near St. Bridget’s (St. Bride’s) well; from whence it had the name; which, after it became a prison, was applied to other prisons of the same sort.² It was given to the city by King Edward VI in 1552.",
+          "s2": "",
+          "s3": "1 As I shall frequently have occasion to mention this class of debtors, who are generally working people with large families, I think it may be proper to give some account of what are called Courts of Conscience. In 1518, the Common Council of the City of London passed an Act for the recovery of debts under forty shillings due to citizens, by a court to be called a Court of Conscience, held in Guildhall; and the debtors who refused to obey the award of that court, were to be imprisoned in one of the City Compters until they complied, although it were durante vita. In 1605 the powers of that court were established by Act of Parliament. In 1750 Alderman Dickenson brought in a Bill for extending similar powers to the whole county of Middlesex; with this difference, that all persons refusing to submit to the decision of the court were liable to be imprisoned in Newgate for three calendar months, which cancelled the debt. From these several Acts, others have been framed for various parts of the kingdom, in some of which the term of confinement has been limited to forty days. I have collected most of these, and find the expenses, fees, etc., to be very different; in some instances amounting to three or four times the original debt.\nNow there appears to be a very obvious defect in the policy respecting this matter. Why should a man for the same debt be liable in one place to imprisonment for life, in another for three months, in another only for forty days? Why should the fees, etc., be the same for discharging a debt of fifteen pence (for such I have known a man imprisoned for), and for thirty-nine shillings? It is certainly desirable that one comprehensive statute for the whole kingdom, on this head, should be framed; wherein a proportion might be established between the sums indebted, and the fees and times of imprisonment. And particular care should be taken, that debtors of this kind be not suffered to mix with criminals, who by their instructions and example frequently render them as abandoned as themselves.\nSee, further, on this subject, a report drawn up by the committee of the benevolent Society for the Discharge and Relief of Persons Confined for Small Debts.\n\n2 Johnson’s Dictionary.",
+          "s4": "",
+          "s5": "",
+          "s6": "",
+          "s7": "",
+          "s8": "LONDON",
+          "s9": "That part of Bridewell which relates to my subject has wards for men and women quite separate. The men’s ward on the ground-floor is a day-room in which they beat hemp; and, down two steps, a close night-room. At my late visits, a staircase was made to a room above, for the convenience of the prisoners. In both this and the night-room, a window has been lately stopped up. The women’s ward is a day-room on the ground-floor, in which they beat hemp; and upstairs, two night-rooms. A chamber above these is fitted up for an infirmary. The sick were formerly sent to St. Bartholomew’s Hospital. All the prisoners being kept within doors, makes it necessary to lime-white the rooms twice a year. The women’s rooms are large, and have opposite windows, for fresh air. Their ward, as well as the men’s, has water: and there is a hand ventilator on the outside, with a tube to each room of the women’s ward: yet their rooms were offensive. The ventilator would be of service if more frequently worked, when the rooms are crowded with prisoners: there can, however, never be a healthy prison, where the prisoners are not at times permitted to breathe the fresh air in a court.\n\nThe prisoners are employed by a hemp-dresser, who has the profit of their labour, an apartment in the prison, and a salary of the City of £20. I always found them at work: at my last visit they were picking oakum. The hours of work are in winter from eight to four; in summer from six to six, deducting meal-times. The steward is allowed eightpence a day for the maintenance of each prisoner; and contracts to supply them as follows—On Sunday, Monday, Tuesday and Thursday, a penny loaf, ten ounces of dressed beef without bone, broth, and three pints of ten shilling beer: on Wednesday, Friday and Saturday, a penny loaf, four ounces of cheese or some butter, a pint of milk-pottage, and three pints of beer. They are served with the day’s allowance about twelve o’clock. The allowance of bread is too small, in August 1783, eight and a half ounces; October, nine ounces. The porter or keeper is Thomas Holt. Salary, £80; no fees. To the women’s ward there is a matron, Sarah Lyon; salary, £60. She takes care of the sick, both men and women; and is allowed a shilling a day for those that are put on the sick diet. No bath.\n\nIn winter the women have some firing. All the night-rooms are supplied with rye-straw once a month. No other prison in London has any straw or bedding.\n\nIn Bridewell is a public chapel: the prisoners should attend",
+          "s10": "",
+          "s11": "",
+          "s12": "",
+          "s13": "",
+          "s14": "",
+          "s15": "",
+          "s16": "",
+          "s17": "",
+          "s18": "",
+          "s19": "",
+          "s20": "",
+          "s21": "",
+          "s22": "",
+          "s23": ""
+        }
       }
     }
   }
