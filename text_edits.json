@@ -15312,7 +15312,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "GLOUCESTERSHIRE",
           "s1": "COUNTY BRIDEWELL",
@@ -15335,8 +15335,29 @@
           {
             "action": "start",
             "time": "2026-11-20T11:40:25+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T11:44:31+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "GLOUCESTERSHIRE",
+          "s1": "COUNTY BRIDEWELL",
+          "s2": "BERKELEY. Quite out of repair. Only one room for men and women, eighteen feet four inches by fifteen feet four, and seven feet nine inches high: the window (near four feet square) not glazed; no straw: no chimney: court not secure. Nothing has been laid out on this prison these twenty years. The sensible old keeper lamented the bad effects of close confinement in idleness, upon the health of even young strong prisoners. Many such, he said, he had known quite incapable of working for some weeks after their discharge. He told me, that some years ago his prisoners used to grind malt for a penny a bushel; and the justices would not license any victualler whose malt was not ground here: but that of late years they have done no work at all. No allowance. Keeper, Francis Norman: his salary, £20; but he pays out of it £6 to the poor of the parish for ground-rent: fees, 4s. 4d., no table. He wrote me lists of his prisoners, which I here transcribe.\n\nAccount of prisoners committed to labour and correction in the bridewell at Berkeley, sent to the House of Commons.¹\n\n1771.\tNothing expended,\tnothing earned\t21\n1772.\t„\t„\t20\n1773.\t„\t„\t19\n1774.\t„\t„\t15\n1775. To Midsummer sessions.\tNothing expended,\tnothing earned\t4\n\nFRANCIS NORMAN.\n\nA further account of prisoners committed to labour and correction.\n\n\t\t\tMen\tWomen\n1778.\tNothing expended,\tnothing earned\t6\t4\n1779.\t„\t„\t7\t2\n1780.\t„\t„\t2\t1\n1781.\t„\t„\t12\t8\n1782. To Michaelmas sessions.\tNothing expended,\tnothing earned\t4\t0\n\n1774. 22 Aug.\tprisoners 3.\tTwo men, one woman.\n1775. 6 Dec.\t„ 0\t\n1779. 9 June\t„ 0\t\n1782. 25 Oct.\t„ 1\t\n\n1 Many such accounts would have been received at the House of Commons (in consequence of their order to send the account of money expended and earned), if keepers had been equally honest with F. Norman.",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "",
+          "s7": "",
+          "s8": "",
+          "s9": "",
+          "s10": "",
+          "s11": "WESTERN CIRCUIT\n\nHAMPSHIRE\n\nCOUNTY GAOL AT WINCHESTER\n\nThis gaol is kept very clean; and the alterations in it are improvements. The present dungeon, forty-eight feet by twenty-three, is down but five steps: it is lofty (twelve feet), boarded, and has three large windows. The former destructive dungeon was darker, and down eleven steps: Mr. Lipscomb informed me that more than twenty prisoners had died in it of the gaol-fever in one year; and that his predecessor died of the same distemper. There are two rooms over the dungeon, for common-side debtors; three rooms with beds for felons who pay, and two rooms for women. The felons’ day-room is commodiously enlarged. Their straw mattresses and coverlets are brought out and aired when the weather is fine. The beds are all on crib bedsteads. They had every day a clean towel hung on a roller: the prisoner who took care of it and delivered it next day was paid a penny. If a little court, which is now shut up from the gaol, and totally useless, were cleared, and opened towards the prison, it would be very conducive to health and convenience. The chapel is very low and inconvenient.\n\nSt. Cross’s Hospital bread (the dole) is about a penny loaf given to each of the prisoners six times a year; viz. on the eve of the following days, 10 August, 31 October, Christmas, Easter, 3 May, and Whitsunday.\n\nThe college allowance to felons is, once a week, an ox’s head, four sheep’s heads and henges, about seventeen pints of oatmeal, three pints of salt, twelve loaves the size of twopenny halfpenny ones, about twenty-four gallons of table beer, and generally three times a week the broken victuals.\n\nWILTSHIRE\n\nSALISBURY COUNTY GAOL\n\nJust without the prison gate was a round staple fixed in the wall: through it was put a chain, at each end of which a common-side debtor padlocked by the leg, stood offering to those who",
+          "s12": "",
+          "s13": "",
+          "s14": ""
+        }
       }
     },
     "117": {
