@@ -13048,7 +13048,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "SOUTHWARK",
           "s1": "prescribe in what manner,and for how long time,visit allowed to see or stay with the prisoners,according to stances of every case in his discretion.",
@@ -13067,8 +13067,25 @@
           {
             "action": "start",
             "time": "2026-11-20T10:33:09+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T10:37:30+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "SOUTHWARK",
+          "s1": "prescribe in what manner, and for how long time, visitors shall be allowed to see or stay with the prisoners, according to the circumstances of every case in his discretion.\n\nBy the Court.\n\nThere were, besides, in this prison, as in the Fleet, certain printed rules made by the prisoners themselves, “to be obeyed and observed by every member of this college” (as they were pleased to term it). Many of them were arbitrary and improper: but now they are abolished.\n\nMARSHALSEA PRISON¹\n\nTo this prison of the Court of the Marshalsea, and of the King’s Palace Court of Westminster, are brought debtors arrested for the lowest sums, anywhere within twelve miles of the palace, except in the City of London: and also persons committed for piracy.\n\nThe deputy marshal, under whose particular custody this prison is, has his appointment from the knight marshal of the king’s household² for the time being. The great abuses practised by this officer were reported to Parliament by the gaol committee in 1729.\n\nThis prison is held under several leases by the widow of the late deputy marshal at the yearly rent of £101. It is an old irregular building (rather several buildings) in a spacious court. There are, in the whole, near sixty rooms; and yet only six of them left for common-side debtors. Of the other rooms—five were let to a man who was not a prisoner: in one of them he kept a chandler’s shop; in two he lived with his family: the other two he let to prisoners. Four rooms, the Oaks, were for women. They were too few for the number; and the more modest women complained of the bad company, in which they were confined. There were above forty rooms for men on the master’s-side, in which were about sixty beds; yet at my first visits, many prisoners had no beds nor any place to sleep in, but the chapel, and the tap-room. The chamber-rent wants regulation; for in several rooms where four lie in two beds, and in some dark rooms where two lie in one bed, each pays 3s. 6d. a week for his lodging.\n\n1 Abolished 1849.—[Ed.]\n\n2 The prison was originally established for the trial of servants of the royal household.",
+          "s2": "",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "SOUTHWARK",
+          "s7": "The prison is greatly out of repair. No infirmary. The court is well supplied with water. In it the prisoners play at rackets, etc., and in a little back court, the Park, at skittles.\n\nThe tap was let to a prisoner in the rules of the King’s Bench Prison; this prison being just within those rules. I was credibly informed, that one Sunday in the summer 1775, about six hundred pots of beer were brought in from a public house in the neighbourhood (Ashmore’s), the prisoners not then liking the tapster’s beer.\n\nIn March 1775, when the number of prisoners was a hundred and seventy-five, there were with them in this incommodious prison wives and children forty-six.\n\nSince the Act of the nineteenth of George III, chap. lxx, there are not so many debtors in this prison as formerly; yet they are increasing, for I find here, and in other prisons, many debtors whose original debts are much under £10, but for the purpose of imprisoning such debtors, they are prosecuted either in the Court of Exchequer, or in other inferior courts, until the expenses of such prosecutions which added to the original debt amount to £10. A fresh action is then taken out in the superior courts, for the small original debt, and the accumulated costs of prosecution. Thus the salutary purposes of the said Act are defeated.\n\nMr. Henry Allnott, who was many years since a prisoner here, had, during his confinement, a large estate bequeathed to him. He learned sympathy by his sufferings; and left £100 a year for discharging poor debtors from hence, whose debts do not exceed £4. As he bound his manor of Goring in Oxfordshire for charitable uses, this is called the Oxford charity. Many are cleared by it every year.",
+          "s8": "",
+          "s9": "",
+          "s10": ""
+        }
       }
     },
     "98": {
@@ -13233,7 +13250,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "SOUTHWARK",
           "s1": "to the court ora judge,shall be paid his dama next dividend of the steward and assistants:i unjustly,he shall make satisfaction from dividend. 30.If the steward or assistants embezzle the mone may call them to account,and stop their div grate-money，etc.,for reparation of the injury 31.These orders to be read publicly every third Mon 32.Marshal, servants,and prisoners to observe thes painof the utmost punishment of law. 33.No clerk or servant of a judge to take any feeo apetition founded on these orders. R.RAYMOND, JA.REYNOLDS, The preceding rules fill one side ofa large sheet which they are printed.Another sheet has what FURTHER RuLES and ORDERS for the government,etc signed the 1oth day of May,1759 1.No person to bring any weapon. 2.Those on the master's-side who demand garnish, tocommon-sidefora time,notlonger thanam on thecommon-side are for thelike offence to not longer than a fortnight,from all profits of the baskets. 3.Doors of the great garden to be shut at dark: wards at nine. 4.The chambers at disposal of the marshal, etc. 5.Ifamaster's-side prisoner neglect foramonth topayl rent;he may be turned over to the common pays.His goods to be delivered to him,by inventory. detained for fees,and a month's chamber-rent. 6.None to sell in the prison victuals or drink withou marshal.A prisoner thus offending may be tur the common-side for a month.Marshal to tak those who sell dokeep good order,etc. 7.Confirms the I4th rule preceding,i.e.the greatroom and the tworooms for thesick. 8.Prisoners turned to common-side for offending,orno to have no profit but share of the baskets;to be nor vote for officers. 9.These rules to be fixed in the most public places,fon Signed, MANSFIELD, T.DE M.FORSTER, E.W",
@@ -13249,8 +13266,22 @@
           {
             "action": "start",
             "time": "2026-11-20T10:34:50+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T10:37:30+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "SOUTHWARK",
+          "s1": "to the court or a judge, shall be paid his damages out of the next dividend of the steward and assistants: if he complain unjustly, he shall make satisfaction from his own next dividend.\n30. If the steward or assistants embezzle the money, successors may call them to account, and stop their dividends of the grate-money, etc., for reparation of the injury.\n31. These orders to be read publicly every third Monday.\n32. Marshal, servants, and prisoners to observe these rules under pain of the utmost punishment of law.\n33. No clerk or servant of a judge to take any fee on occasion of a petition founded on these orders.\n\nR. RAYMOND,     JA. REYNOLDS,     E. PROBYN.\n\nThe preceding rules fill one side of a large sheet of paper, on which they are printed. Another sheet has what follows, viz.\n\nFURTHER RULES and ORDERS for the government, etc. Made and signed the 10th day of May, 1759\n\n1. No person to bring any weapon.\n2. Those on the master’s-side who demand garnish, to be turned to common-side for a time, not longer than a month. Those on the common-side are for the like offence to be excluded, not longer than a fortnight, from all profits except share of the baskets.\n3. Doors of the great garden to be shut at dark: doors of the wards at nine.\n4. The chambers at disposal of the marshal, etc.\n5. If a master’s-side prisoner neglect for a month to pay his chamber-rent; he may be turned over to the common-side till he pays. His goods to be delivered to him, by a witnessed inventory. If discharged by the plaintiff, he may yet be detained for fees, and a month’s chamber-rent.\n6. None to sell in the prison victuals or drink without consent of marshal. A prisoner thus offending may be turned over to the common-side for a month. Marshal to take care that those who sell do keep good order, etc.\n7. Confirms the 14th rule preceding, i.e. the great room for exercise and the two rooms for the sick.\n8. Prisoners turned to common-side for offending, or non-payment, to have no profit but share of the baskets; to bear no office; nor vote for officers.\n9. These rules to be fixed in the most public places, for inspection.\n\nSigned,\nMANSFIELD,    T. DENNISON,\nM. FORSTER,    E. WILMOT.",
+          "s2": "SOUTHWARK",
+          "s3": "A further RULE and ORDER, etc., made 19th May, 1760\n\nThose who attempt or assist an escape—who sell or promote the sale of victuals or liquors without leave of the marshal—who assault another—who blaspheme the name of God, swear or make a riot, may be sent by the marshal to any one of the following prisons in Southwark, viz., the county gaol for Surrey, the bridewell for that county, or to the Marshalsea: and there confined for the first offence not exceeding one month; for a second offence not exceeding three months. This rule to be hung up.\n\nSigned,\nMANSFIELD,    T. DENNISON,\nM. FORSTER,    E. WILMOT.\n\nThree excellent rules have been lately hung up.\n\nMonday next after three weeks from the day of the Holy Trinity in the 19th year of King George the Third.\n\nKing’s Bench Prison. Upon full and mature consideration had here in court, It is ordered by the said court, that any man may lawfully be turned out of his chamber for the following causes (that is to say) If such person lets his chamber to another, or does not reside there himself, or if such person might have taken the benefit of any insolvent Act or the Lords’ Act; or if he be charged by a friendly or collusive action where there is no real debt.\n\nBy the Court.\n\nFriday next after fifteen days from the day of the Holy Trinity in the 19th year of King George the Third.\n\nKing’s Bench Prison. It is ordered that all prisoners who have been or shall be in the custody of the marshal of the Marshalsea for the space of six months after they are supersedable although not superseded shall be forthwith discharged out of the prison of the marshal of the Marshalsea by the said marshal as to all such actions in which they have been or shall be supersedable. And that no prisoner shall be entitled to any room in the said prison by reason of seniority except from the time of his being charged in the actions in which he is not supersedable.\n\nBy the Court.\n\nWednesday next after three weeks from the day of the Holy Trinity, in the 21st year of King George the Third.\n\nKing’s Bench Prison. It is ordered by this court, that the marshal of the Marshalsea of this court shall permit no persons to enter into the prison without their being first searched, to see whether they have any spirituous liquors about them: and that he do not suffer the wives or children of any of the prisoners to lodge in the prison, under any pretence whatsoever; and that the marshal do",
+          "s4": "",
+          "s5": "",
+          "s6": "",
+          "s7": ""
+        }
       }
     }
   }
