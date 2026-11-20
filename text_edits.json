@@ -8992,7 +8992,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "I30 AN ACCOUNT OF FOREIGN PRISO",
           "s1": "The nomination of a gaoler belongs to the magistrates. he hasbeen nominated,heis proposed to the procureur-g andif,afteracarefulinquiryntohischaracter,itaa he has the reputation of a man of probity,he is fixed office,and takes an oath of fidelity.The ofice is freely him without any expense whatever; so that keepers tempted,by paying for their places,to oppress their pri toremove ali pretext for so doing,rents which they fo paid to the crown are remitted,and the leases given up.",
@@ -9012,8 +9012,26 @@
           {
             "action": "start",
             "time": "2026-11-20T09:33:00+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T09:35:48+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "AN ACCOUNT OF FOREIGN PRISONS",
+          "s1": "The nomination of a gaoler belongs to the magistrates. When he has been nominated, he is proposed to the procureur-general; and if, after a careful inquiry into his character, it appears that he has the reputation of a man of probity, he is fixed in the office, and takes an oath of fidelity. The office is freely given him without any expense whatever; so that keepers are not tempted, by paying for their places, to oppress their prisoners: to remove all pretext for so doing, rents which they formerly paid to the crown are remitted, and the leases given up.\n\nAs for debtors, their number is small. Of the two hundred and two prisoners in the Conciergerie, in 1778, but six were debtors. In the other prisons there were a few more. This perhaps is owing to the following good arrêts. Every bailiff who arrests and imprisons a debtor, must pay to the gaoler in advance, a month’s aliment or subsistence, i.e. ten livres ten sous, equal to nine shillings English (provisions are at Paris cheaper in general than at London): and if the like sum be not paid within fourteen days after the end of every month, the prisoner is set at liberty. Besides this, the debtor pays no costs of arrests, etc. The whole of them falls on the creditor: and so do all expenses occasioned by his sickness or death.\n\nAs the best regulations are liable to be abused, prisoners are not thought sufficiently provided for by enacting good laws: the execution of them is carefully attended to. The substitutes of the attorney-general (should) visit the prisons once a week, to inquire if the rules be observed; to hear complaints of prisoners; to see if the sick be properly attended; and the like. Besides this, the Parliament of Paris sends to all the prisons five times a year two or three counsellors with a substitute of the attorney-general, and two clerks. They go at Christmas, Easter, Whitsuntide, one day before 15 August, St. Simon and Jude. There is in each prison (as in other foreign gaols) a room for their reception called the council-chamber. It is occupied at other times by the head-gaoler.\n\nThe arrival of this deputation is announced by boys, who, though offenders, are allowed to do little errands in the prison: these go round the court and into every room, giving notice of it aloud. The deputies go, without the gaoler or turnkeys, into every room and dungeon, and\n\n1. They ask the prisoners one by one, if they have any complaint to make of the gaoler or his servants. But they never meddle with those who are confined by an order from the king.",
+          "s2": "",
+          "s3": "",
+          "s4": "",
+          "s5": "2. They receive the petitions of prisoners who have been detained too long without trial.\n\n3. In case of debts not exceeding two thousand livres (about ninety pounds) if the debtor can raise a third part of his debt and no more, they receive it for the creditors. How they clear him of the remaining two-thirds, I will show presently. They take notes of these matters in the prison; and give an account of all to the Parliament, at their general public meeting a day or two after.\n\nIn behalf of prisoners who have not been tried, the Parliament commonly orders the attorney-general to write in their name to the inferior judges, inquiring the causes of delay, or ordering expedition. If a prisoner be acquitted, he is discharged within twenty-four hours.\n\nThe laws of France do not in ordinary cases admit a debtor to bail without the consent of his creditor. But in the case mentioned above, the Parliament obliges creditors to accept of bail for the remainder of debts under two thousand livres. And even this bail seems a matter of mere form; for they sometimes take for bail men that are insolvent. I have heard there is no standing law for this; and that it is rather an immemorial custom: because the Parliament enacts a particular law for each case as it occurs. In France there are no insolvent acts. When prisoners have received their liberty from the king, or their creditors, they cannot be detained a moment for fees, hire of rooms, debts contracted in prison, or on any pretence whatever.\n\nThe deputies hear no complaints of the gaoler against his prisoners. When he has any to make, he applies to the chief justice, by whose order the prisoner was committed. If he was imprisoned by an order from the king, he applies to the lieutenant-general of the police; if without such an order, to the lieutenant-criminal.\n\nBesides the deputation now mentioned, the Parliament appoints to each prison one of their own body, a counsellor. They always choose a gentleman of fortune and good character: he is called Commissaire de la Prison. His business is much like that of the deputation; and his office perpetual. By frequent discourse with prisoners I learned, that these officers are very humane to the distressed. They can (as the Parliament) oblige creditors to accept one-third part of debts under two thousand livres: but they use this power with much caution.\n\nThe Conciergerie has an airy court (fifty-five yards by thirty-",
+          "s6": "",
+          "s7": "",
+          "s8": "",
+          "s9": "",
+          "s10": "",
+          "s11": ""
+        }
       }
     },
     "73": {
@@ -9126,7 +9144,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "I32 AN ACCOUNT OF FOREIGN PRISC",
           "s1": "eight)with a fine piazza.The dungeons are dark and of There is anew infirmary,with beds admitting only one in each.At my former visits here was a tap-room,whi to the honour of the police,is abolished.At several 1783theprisoners were calm and quiet.",
@@ -9147,8 +9165,27 @@
           {
             "action": "start",
             "time": "2026-11-20T09:33:00+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T09:35:48+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "AN ACCOUNT OF FOREIGN PRISONS",
+          "s1": "eight) with a fine piazza. The dungeons are dark and offensive. There is a new infirmary, with beds admitting only one patient in each. At my former visits here was a tap-room, which now, to the honour of the police, is abolished. At several visits in 1783 the prisoners were calm and quiet.\n\nAt the Grand-Châtelet, as well as the Conciergerie, the prisoners pay for their rooms according to their goodness; even those who lie on straw pay one sou a night. In this prison there are eight dungeons, which open into dark passages. In four of these dungeons (ten feet eight inches by six feet eight) I saw sixteen prisoners, two in irons, and all lying upon straw.¹\n\nL’Abbaye is a prison for the military or guards, and for such debtors as are men of rank. In the debtors’ rooms a partition of lath and plaster, detached from the brick wall, answers the end of an expedient to prevent escapes: for if the smallest perforation be made in the partition, it is immediately discovered, by the mortar falling between that and the wall into the keeper’s court, through the aperture which is left for that purpose. Here are six small dungeons, in which, as the gaoler said, there were sometimes fifty confined.\n\nThe Hôtel de la Force, a new prison for debtors (vagrants, deserters and petty offenders), has been occupied only from January 1782. It is an airy and spacious building, and has several courts and areas for the separation of men, and women, and the different kinds of prisoners. The courts are all clean and well supplied with water. The number of debtors was seventy-eight men and eleven women. Over their doors are painted the price to be paid for the beds from five to thirty sous a night. There are also rooms and beds for debtors that cannot pay: all the prisoners that are poor have one pound and a half of bread and soup every day.\n\nHere are two chapels, an airy infirmary, for each sex; and a well furnished apothecary’s shop, from which this, and the",
+          "s2": "",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "",
+          "s7": "1 The number of prisoners, 16 May, 1783, in the Grand Châtelet.\nIn rooms\t47\nOn straw\t209\nIn dungeons\t16\nIn infirmaries\t33\nTotal\t305\nI chose to visit the prisoners in the dungeons, on maigre days, because their allowance then being only bread, a little present of wine is the more acceptable.",
+          "s8": "other prisons are supplied with drugs. Here are fourteen turnkeys, twelve every day on duty in separate departments; but in case of any riot or disorder they can readily assist one another: two walk in each of the men’s courts. By the list sent into the office of the police, 17 May, 1783, the number of prisoners of all descriptions was two hundred and seventy-one, of whom many were deserters.\n\nThe arrêt of Parliament of the 19th of February, 1782, for the regulation of this prison, containing twenty-nine articles, is ordered to be read in the chapels before all the prisoners on the first Sunday of every month, and to be fixed on the doors of the chapels, and on several other conspicuous parts of the prison.¹\n\nAt the Hôtel-de-ville there are two rooms, in which were two men and a woman.\n\nThe Bicêtre is upon a small eminence about two miles from Paris. If it were only a prison, I should call it an enormous one; but this for men, like the Salpêtrière for women, is indeed a kind of general hospital. Of about four thousand men that are within its walls, not one-half are prisoners. The majority are: the poor, who wear a coarse brown uniform, and seem as miserable as the poor in some of our country workhouses; the insane; and those that have the venereal disease. Each sort is in a court and apartments totally separate from the other, and from criminals. Some are in little rooms about eight feet square, window three feet and a half by two feet, with a grate, but not many glazed: there is but one prisoner in a room. These pay two hundred livres a year for their board. The number of these rooms is two hundred and ninety-six. There are others in two large rooms called La Force, on the other side of the court (La Cour Royale) which were crowded with prisoners: in 1778, there were upwards of two hundred. Such a number confined together in idleness, must produce a great corruption of manners. Many at their unhappy end have ascribed their ruin to the flagitious examples they had here seen, and the instructions here given them.\n\nIn the middle of La Cour Royale are eight dreadful dungeons down sixteen steps: each about thirteen feet by nine: with two strong doors; three chains fastened to the wall; and a stone",
+          "s9": "",
+          "s10": "",
+          "s11": "",
+          "s12": "1 Most of the articles of this arrêt are similar to those in the excellent arrêt of 1717; but the eleventh article being new, I will copy it: “Les prisonniers ne paieront à l’avenir aucun droit d’entrée ni de sortie de la prison,” i.e. Prisoners shall pay no fee at coming in or going out of the prison."
+        }
       }
     }
   }
