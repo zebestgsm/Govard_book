@@ -13369,8 +13369,74 @@
       }
     },
     "102": {
-      "segments": {},
-      "history": [],
+      "segments": {
+        "s1": "The new gaol exceeds the old one in strength and convenience as much as in splendour. The county, to their honour, have spared no cost. The prison was finished and occupied at the time of my visit in 1779. The debtors’ rooms are seventeen feet ten inches by fifteen feet three, and nine feet ten high. At one end of their court is a workroom thirty-seven and a half feet by fourteen and a half, and twelve feet five inches high, with a fire-place and four large windows: here many were weaving garters. Over this is their free ward. At the other end of the court is their hall or kitchen, in which clauses against spirituous liquors painted on a board were hung up, and the memorial of Mrs. Herris’s legacy, and a new table of fees. The felons’ rooms (fifteen feet nine inches by fourteen and a half) are lofty, lined with stone and vaulted. Near their court are two rooms in a small area for the condemned. The women felons are separated; they have two rooms, a court and a pump. The courts are paved with flat stone. There is a chapel. Only one close room for an infirmary, which, being unfurnished, has never been used, though at my last visit several were sick on the floors. No bath. The felons’ apartments being entirely out of sight from the gaoler’s house, I beg leave to observe, that a window might be made in his kitchen, which would overlook the felons’ court. The window in the debtors’ apartment towards the street was highly improper, as an avenue for introducing at all times spirituous liquors, tools, etc., but it is now stopped up. The straw in the felons’ rooms (as also in the bridewell) is on the floors. Such cribs or cradles as are in the hospital at Plymouth would be much more conducive to health and cleanliness. The Act for preserving the health of prisoners is not hung up: and this gaol has not been whitewashed since it was first occupied; a fault too common in new gaols. The felons are too much crowded at night, when some of their rooms are empty.\n\nCOUNTY BRIDEWELL\n\nCHELMSFORD. On the ground-floor a large workroom, a kitchen, and a lodging-room for men: over them rooms of the same size for women: two rooms for the sick. Prisoners always kept within doors; and the rooms very offensive by the sewers.¹\n\n1 Those conveniences, which delicacy forbids enlarging upon, yet which are absolutely necessary to all houses, and the situation and construction of which are of the greatest importance in prisons and other crowded buildings, have always engaged my peculiar attention: I am convinced",
+        "s2": "",
+        "s4": "Neither here nor at the gaol, are there proper drains or sewers. Mr. Ford (the keeper) told me at one of my visits that many had been ill of the gaol-fever, brought from the county gaol. His salary, £30: under-keeper’s, £16: no fees. Prisoners’ allowance, threepence a day; for which they have a pound and a half of bread, and a quart of small beer; and three halfpence a day further allowance to each sick prisoner. Coals, straw, brooms, etc., £4 2s. 6d. a quarter. The employment of the prisoners is spinning wool, at a penny a skein: the county has the profit. At my last visit, there were several sick and dirty objects on the floor, with little or no covering. No bath. Garnish 2s.\n\nKENT\n\nCOUNTY GAOL AT MAIDSTONE\n\nThis gaol was erected in 1746, as appears by the date. On the first floor there are eight rooms for debtors, which open into a passage six feet two inches wide. Under these are the felons’ wards near thirteen feet square: but the air and light are obstructed (the wall being three feet thick) by double wooden bars three and a half inches broad (instead of single iron ones), at the windows both of debtors and felons. There are three courts: one for debtors; one for men felons; and one for women felons. The two last are much too small (that for men which is the largest only twenty-eight feet by twenty-seven); but may be commodiously enlarged from the ground at the back of the gaol. Divine service was performed upon the stairs, but the chapel is now made commodious by the staircase being removed. The felons’ night-rooms have double doors; if one of them was an iron-lattice door (as in the new gaol at Horsham) and was locked up in the daytime, the rooms would freshen and be better ventilated. There are two dungeons (twelve and a half feet square) down eleven steps for the condemned.\n\nFelons are allowed yearly ten cauldron of coals: they have\n\nthat want of care respecting them is a principal cause of unhealthiness in many of our gaols. The reader will please to take notice, that under the words “sewers” and “drains” everything is comprehended which I had to say on this subject in my remarks on the several prisons.",
+        "s5": "",
+        "s6": "",
+        "s7": "",
+        "s8": "",
+        "s9": ""
+      },
+      "history": [
+        {
+          "id": "s1",
+          "before": "The new gaol exceeds the old one in strength andc as much as in splendour.The county,to their ho spared no cost.The prison was finished and occup time of myvisit in 1779.The debtorsrooms are feet ten inches by fifteen feet three,and nine feet At one endof their court is a workroom thirty-seven feet by fourteen andahalf,and twelve feet five inches a fire-place and four large windows:here many wer court is their hall or kitchen,inwhich clauses against liquors painted on a board were hung up,and the of Mrs.Herris’s legacy,and a new table of fees. rooms(fifteen feet nine inches by fourteen and a half lined with stone and vaulted.Near their court are ina small area for the condemned.The women separated;they have two rooms,a court and ap courts are paved with fat stone.There is a cha one close room for an infirmary,which,being unfur never been used,though atmy last visit several we the foors.No bath. The felons’ apartments bein outof sight from thegaoler's house,I begleave to ob awindow might be made in his kitchen,which woul thefelons²court.The window in the debtors'apartme the street was highly improper,as an avenue for i atalltimespirituousliquors,toolsetcbutitsow The straw in thefelons²rooms(as alsoin the bridewel floors.Such cribs or cradles as are in the hospital at would bemuch more conducive tohealth and TheAct for preserving the health of prisoners is not and thisgaol has not been whitewashed since it was first a fault too common in new gaols.The felons are crowded atnight,when some of their rooms are em COUNTY BRIDEWELL CHELMSFORD.",
+          "after": "The new gaol exceeds the old one in strength and convenience as much as in splendour. The county, to their honour, have spared no cost. The prison was finished and occupied at the time of my visit in 1779. The debtors’ rooms are seventeen feet ten inches by fifteen feet three, and nine feet ten high. At one end of their court is a workroom thirty-seven and a half feet by fourteen and a half, and twelve feet five inches high, with a fire-place and four large windows: here many were weaving garters. Over this is their free ward. At the other end of the court is their hall or kitchen, in which clauses against spirituous liquors painted on a board were hung up, and the memorial of Mrs. Herris’s legacy, and a new table of fees. The felons’ rooms (fifteen feet nine inches by fourteen and a half) are lofty, lined with stone and vaulted. Near their court are two rooms in a small area for the condemned. The women felons are separated; they have two rooms, a court and a pump. The courts are paved with flat stone. There is a chapel. Only one close room for an infirmary, which, being unfurnished, has never been used, though at my last visit several were sick on the floors. No bath. The felons’ apartments being entirely out of sight from the gaoler’s house, I beg leave to observe, that a window might be made in his kitchen, which would overlook the felons’ court. The window in the debtors’ apartment towards the street was highly improper, as an avenue for introducing at all times spirituous liquors, tools, etc., but it is now stopped up. The straw in the felons’ rooms (as also in the bridewell) is on the floors. Such cribs or cradles as are in the hospital at Plymouth would be much more conducive to health and cleanliness. The Act for preserving the health of prisoners is not hung up: and this gaol has not been whitewashed since it was first occupied; a fault too common in new gaols. The felons are too much crowded at night, when some of their rooms are empty.\n\nCOUNTY BRIDEWELL\n\nCHELMSFORD. On the ground-floor a large workroom, a kitchen, and a lodging-room for men: over them rooms of the same size for women: two rooms for the sick. Prisoners always kept within doors; and the rooms very offensive by the sewers.¹\n\n1 Those conveniences, which delicacy forbids enlarging upon, yet which are absolutely necessary to all houses, and the situation and construction of which are of the greatest importance in prisons and other crowded buildings, have always engaged my peculiar attention: I am convinced",
+          "time": "2026-11-20T10:39:02+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s2",
+          "before": "On theground-floor a large wor kitchen,and a lodging-room for men:over them roc same size for women:two rooms for the sick.Prison kept within doors;and the rooms very offensive by th 1Those conveniences,which delicacy forbids enlarging upon of which are of the greatest importance in prisons and oth buildings,have always engaged my peculiar attention:I am",
+          "after": "",
+          "time": "2026-11-20T10:39:02+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s4",
+          "before": "onvenience Neither here nor at the gaol,are there proper drains or sewers. nour,have Mr.Ford （the keeper) told me at one of myvisits thatmany ied atthe had been ill of the gaol-fever,brought from the county gaol. seventeen His salary,3o:under-keeper's,16:no fees. Prisoners ten high. allowance,threepence a day;for which they have a pound and andahalf a half ofread,anda quart of smallbeer;and three halfpence high,with a day further allowance to each sick prisoner.Coals, straw, reweaving brooms,etc.,42s.6d.a quarter.",
+          "after": "Neither here nor at the gaol, are there proper drains or sewers. Mr. Ford (the keeper) told me at one of my visits that many had been ill of the gaol-fever, brought from the county gaol. His salary, £30: under-keeper’s, £16: no fees. Prisoners’ allowance, threepence a day; for which they have a pound and a half of bread, and a quart of small beer; and three halfpence a day further allowance to each sick prisoner. Coals, straw, brooms, etc., £4 2s. 6d. a quarter. The employment of the prisoners is spinning wool, at a penny a skein: the county has the profit. At my last visit, there were several sick and dirty objects on the floor, with little or no covering. No bath. Garnish 2s.\n\nKENT\n\nCOUNTY GAOL AT MAIDSTONE\n\nThis gaol was erected in 1746, as appears by the date. On the first floor there are eight rooms for debtors, which open into a passage six feet two inches wide. Under these are the felons’ wards near thirteen feet square: but the air and light are obstructed (the wall being three feet thick) by double wooden bars three and a half inches broad (instead of single iron ones), at the windows both of debtors and felons. There are three courts: one for debtors; one for men felons; and one for women felons. The two last are much too small (that for men which is the largest only twenty-eight feet by twenty-seven); but may be commodiously enlarged from the ground at the back of the gaol. Divine service was performed upon the stairs, but the chapel is now made commodious by the staircase being removed. The felons’ night-rooms have double doors; if one of them was an iron-lattice door (as in the new gaol at Horsham) and was locked up in the daytime, the rooms would freshen and be better ventilated. There are two dungeons (twelve and a half feet square) down eleven steps for the condemned.\n\nFelons are allowed yearly ten cauldron of coals: they have\n\nthat want of care respecting them is a principal cause of unhealthiness in many of our gaols. The reader will please to take notice, that under the words “sewers” and “drains” everything is comprehended which I had to say on this subject in my remarks on the several prisons.",
+          "time": "2026-11-20T10:39:02+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s5",
+          "before": "The employment of the endofthe prisoners is spinning wool,at a penny a skein:the county has spirituous the profit.At my last visit,there were several sick and dirty memorial objects on the floor,with little or no covering.No bath.",
+          "after": "",
+          "time": "2026-11-20T10:39:02+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s6",
+          "before": "Thefelons' Garnish 2s. arelofty, tworooms felons are imp.",
+          "after": "",
+          "time": "2026-11-20T10:39:02+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s7",
+          "before": "The pel.Only KENT ished,has ere sickon COUNTY GAOL AT MAIDSTONE gentirely serve,that This gaol was erected in 1746,as appears by the date.On doverlook the first floor there are eight rooms for debtors,which open nttowards intoa passage six feet two inches wide.Under these are the atroducing felons’wards near thirteen feet square:but the air and light toppedup. are obstructed （the wall being three feet thick)by double l)isonthe wooden bars three and a half inches broad(instead of single Plymouth iron ones),at the windows both of debtors and felons.",
+          "after": "",
+          "time": "2026-11-20T10:39:02+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s8",
+          "before": "There leanliness. are three courts:one for debtors;one for men felons;and one hungup: for women felons.The two last are much too small （that for occupied; men which is the largest only twenty-eight feet by twenty- toomuch seven);but may be commodiously enlarged from the ground pty. atthebackofthegaol.Divine service was performed upon the stairs,but the chapel is now made commodious by the staircase being removed.The felons'night-rooms have double doors;if one of them wasan iron-lattice door(asin the new gaolatHorsham)andwas locked up in the daytime,therooms kroom,a would freshen and be better ventilated.There are two dungeons msofthe (twelve and a half feet square)down eleven steps for the ers always condemned. hesewers.1 Felons are allowed yearly ten cauldron ofcoals:theyhave ,yetwhich that want of care respecting them is a principal cause of unhealthiness in onstruction many ofour gaols.",
+          "after": "",
+          "time": "2026-11-20T10:39:02+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s9",
+          "before": "Thereader will please to take notice,that under the ercrowded convinced tosay on this subject in my remarks on the several prisons.",
+          "after": "",
+          "time": "2026-11-20T10:39:02+00:00",
+          "kind": "edit"
+        }
+      ],
       "spread_review": {
         "state": "working",
         "before": {
@@ -13395,8 +13461,122 @@
       }
     },
     "103": {
-      "segments": {},
-      "history": [],
+      "segments": {
+        "s1": "barrack-beds, and hop-bagging with straw; but no coverlets. This county has for years past been so considerate as to pay the fees of poor prisoners acquitted: and to transports cast at assizes, who are entitled to the king’s allowance of 2s. 6d. a week, they continue the allowance which they had before trial. They also pay the gaoler’s fees for those convicts. The felons formerly said they wished for more bread and would, if that were increased, be content with less beer. The baker who serves the felons sells thirteen loaves to the dozen; and debtors have amongst them every thirteenth loaf, and are now allowed yearly three cauldron of coals.\n\nThere is an alarm-bell; and a sail-ventilator.\n\nThe infirmary is improperly situated. No bath. On examining two sick prisoners in 1779, I found they had no irons; and the surgeon said the gaoler was always ready to take them off when he requested it.\n\nThe clauses of the Act against spirituous liquors are hung up. Act for preserving the health of prisoners not hung up.\n\nWithout great attention to cleanliness and the separation of the sick, here will be great danger of the gaol-fever, from the offensiveness of the wards and even the court of the men felons.\n\n[COUNTY BRIDEWELL\n\nMAIDSTONE. In 1779 I saw two prisoners with the smallpox, lying on loose straw, and their only covering was common mats.\n\nROCHESTER. City bridewell. Two rooms down eight steps with barrack-bedsteads and straw. Fees, 1s. Keeper’s salary, £2, paid out of Mr. Watt’s charity.¹\n\nDEAL. Gaol. A room under the court only eight and a half feet by six and a half, with a barrack-bedstead. Keeper, town-sergeant, lives distant. I did not wonder that a felon had made his escape the night before my visit.\n\n1 This bridewell is in a house appointed for the reception of six poor travellers. The design of this charity may be seen from the following inscription placed over the door: “Richard Watts, Esq., by his will dated 22 August, 1579, founded this charity, for six poor travellers, who, not being rogues or proctors, may receive gratis, for one night, lodging, entertainment, and fourpence each.”",
+        "s2": "",
+        "s3": "",
+        "s4": "",
+        "s5": "",
+        "s7": "SUSSEX\n\nCOUNTY GAOL AT HORSHAM\n\nGaoler. Charles Cooper, now Samuel Smart.\nSalary: £120 of late; in lieu of all fees: now £100. (See remarks.)\nFees: Debtors, Felons, £1 4s. 10d.\nTransports: £2 2s. 0d. each.\nLicence: Wine.\n\nPrisoners.\nAllowance: Debtors, none.\nFelons, two pennyworth of bread a day: now a 2 lb. loaf.\nGarnish: £0 6s. 6d.\nNumber:\n\tDebtors\tFelons, etc.\t\tDebtors\tFelons, etc.\n1773. 17 Dec.\t11\t7\t1779. 9 March\t12\t6\n1774. 29 Sept.\t5\t13\t1782. 8 Nov.\t16\t7\n1776. 22 Feb.\t13\t8\t\t\t\n\nChaplain. Rev. Mr. Jameson.\nDuty: Sermon once a week; prayers every day.\nSalary: £50. (See remarks.)\n\nSurgeon. Now Mr. Dubbins.\nSalary: £5 5s. 0d. for felons.\n\nThe rooms in the old gaol were too small, except the free ward for debtors. No straw: no court; and yet ground enough for one behind the gaol. Transports convicted at quarter sessions, had as those condemned at assize, the king’s allowance of 2s. 6d. a week. Lent assize at East Grinstead; where the prisoners are confined in a garret at the “George” alehouse; formerly they were shut up in a butcher’s cellar. Summer assize, at Lewes and Horsham alternately.\n\nThe new gaol that was building in 1776, I found finished in 1779. The Duke of Richmond, in concurrence with the other gentlemen of the county, interested himself much in this affair. The situation is judiciously chosen; and the plan is such as appears to me particularly well suited for the purpose. It does credit to those who superintended the work, being every way substantial and strong. Each felon has a separate room ten feet by seven, and nine feet high to the crown of the arch. They are all arched with brick, to prevent danger and confusion in case of fire. To each room are two doors, one of them iron-latticed.",
+        "s8": "",
+        "s9": "",
+        "s10": "",
+        "s11": "",
+        "s12": "",
+        "s13": "",
+        "s14": "",
+        "s15": ""
+      },
+      "history": [
+        {
+          "id": "s1",
+          "before": "barrack-beds, and hop-bagging with straw;but no This county has for years past been so considerate the fees of poor prisoners acquitted:and to transpo assizes,who are entitled to the king's allowance of 2s. they continue the allowance which they had before tr alsopay thegaoler'sfeesfor those convicts.Thefelon said they wished for more bread and would,if tha creased,be content with less beer.The baker who felons sells thirteen loaves to the dozen;and deb amongst them every thirteenth loaf,and are now allo three cauldron of coals.",
+          "after": "barrack-beds, and hop-bagging with straw; but no coverlets. This county has for years past been so considerate as to pay the fees of poor prisoners acquitted: and to transports cast at assizes, who are entitled to the king’s allowance of 2s. 6d. a week, they continue the allowance which they had before trial. They also pay the gaoler’s fees for those convicts. The felons formerly said they wished for more bread and would, if that were increased, be content with less beer. The baker who serves the felons sells thirteen loaves to the dozen; and debtors have amongst them every thirteenth loaf, and are now allowed yearly three cauldron of coals.\n\nThere is an alarm-bell; and a sail-ventilator.\n\nThe infirmary is improperly situated. No bath. On examining two sick prisoners in 1779, I found they had no irons; and the surgeon said the gaoler was always ready to take them off when he requested it.\n\nThe clauses of the Act against spirituous liquors are hung up. Act for preserving the health of prisoners not hung up.\n\nWithout great attention to cleanliness and the separation of the sick, here will be great danger of the gaol-fever, from the offensiveness of the wards and even the court of the men felons.\n\n[COUNTY BRIDEWELL\n\nMAIDSTONE. In 1779 I saw two prisoners with the smallpox, lying on loose straw, and their only covering was common mats.\n\nROCHESTER. City bridewell. Two rooms down eight steps with barrack-bedsteads and straw. Fees, 1s. Keeper’s salary, £2, paid out of Mr. Watt’s charity.¹\n\nDEAL. Gaol. A room under the court only eight and a half feet by six and a half, with a barrack-bedstead. Keeper, town-sergeant, lives distant. I did not wonder that a felon had made his escape the night before my visit.\n\n1 This bridewell is in a house appointed for the reception of six poor travellers. The design of this charity may be seen from the following inscription placed over the door: “Richard Watts, Esq., by his will dated 22 August, 1579, founded this charity, for six poor travellers, who, not being rogues or proctors, may receive gratis, for one night, lodging, entertainment, and fourpence each.”",
+          "time": "2026-11-20T10:39:02+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s2",
+          "before": "There is an alarm-bell;and a sail-ventilator.",
+          "after": "",
+          "time": "2026-11-20T10:39:02+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s3",
+          "before": "The infirmary is improperly situated.No bath.On two sick prisoners in1779,I found they hadno iron surgeon said the gaoler was always ready to take when he requested it.",
+          "after": "",
+          "time": "2026-11-20T10:39:02+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s4",
+          "before": "The clauses of the Act against spirituous liquors ar Actfor preserving the health of prisoners not hung Without great attention to cleanliness and the sep the sick,here will be great danger of the gaol-fever offensivenessofthewardsandeventhecourtofther [COUNTY BRIDEWELL MAIDsToNE.In 1779 I saw two prisoners with pox,lying on loose straw,andtheir only coveringw mats.",
+          "after": "",
+          "time": "2026-11-20T10:39:02+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s5",
+          "before": "RocHEsTER.City bridewell.Two rooms down with barrack-bedsteads and straw.Fees,Is.Keep 2,paid out of Mr.Watt's charity.1 DEAL.Gaol.A room under the court onlyei half feet by six and a half,with a barrack-bedstead town-sergeant,lives distant.I did not wonder th hadmade his escape thenight before my visit. 1This bridewell isin a house appointed for thereception travellers.The design of this charity may be seen fromt inscription placed over the door:“Richard Watts,Esq.,by 22August,1579,founded this charity，for six poor travelle beingroguesorproctorsmayreceive gratiforonenight,l tainment,and fourpence each.\"",
+          "after": "",
+          "time": "2026-11-20T10:39:02+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s7",
+          "before": "coverlets. SUSSEX as topay rtscastat COUNTY GAOL AT HORSHAM d.aweek, ial.They Gaoler.Charles Cooper,now Samuel Smart. sformerly Salary:12o of late;in lieu of all fees:now Ioo.(See remarks.) twere in- Fees:Debtors, I4S.Iod. serves the Felons, torshave Transports: 22s.od.each. wedyearly Licence:Wine.",
+          "after": "SUSSEX\n\nCOUNTY GAOL AT HORSHAM\n\nGaoler. Charles Cooper, now Samuel Smart.\nSalary: £120 of late; in lieu of all fees: now £100. (See remarks.)\nFees: Debtors, Felons, £1 4s. 10d.\nTransports: £2 2s. 0d. each.\nLicence: Wine.\n\nPrisoners.\nAllowance: Debtors, none.\nFelons, two pennyworth of bread a day: now a 2 lb. loaf.\nGarnish: £0 6s. 6d.\nNumber:\n\tDebtors\tFelons, etc.\t\tDebtors\tFelons, etc.\n1773. 17 Dec.\t11\t7\t1779. 9 March\t12\t6\n1774. 29 Sept.\t5\t13\t1782. 8 Nov.\t16\t7\n1776. 22 Feb.\t13\t8\t\t\t\n\nChaplain. Rev. Mr. Jameson.\nDuty: Sermon once a week; prayers every day.\nSalary: £50. (See remarks.)\n\nSurgeon. Now Mr. Dubbins.\nSalary: £5 5s. 0d. for felons.\n\nThe rooms in the old gaol were too small, except the free ward for debtors. No straw: no court; and yet ground enough for one behind the gaol. Transports convicted at quarter sessions, had as those condemned at assize, the king’s allowance of 2s. 6d. a week. Lent assize at East Grinstead; where the prisoners are confined in a garret at the “George” alehouse; formerly they were shut up in a butcher’s cellar. Summer assize, at Lewes and Horsham alternately.\n\nThe new gaol that was building in 1776, I found finished in 1779. The Duke of Richmond, in concurrence with the other gentlemen of the county, interested himself much in this affair. The situation is judiciously chosen; and the plan is such as appears to me particularly well suited for the purpose. It does credit to those who superintended the work, being every way substantial and strong. Each felon has a separate room ten feet by seven, and nine feet high to the crown of the arch. They are all arched with brick, to prevent danger and confusion in case of fire. To each room are two doors, one of them iron-latticed.",
+          "time": "2026-11-20T10:39:02+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s8",
+          "before": "Prisoners.",
+          "after": "",
+          "time": "2026-11-20T10:39:02+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s9",
+          "before": "Allowance:Debtors,none. examining Felons,two pennyworth of bread a day:now a 2lb.loaf. s;and the Garnish: fo 6s.6d. themoff Number: Debtors Felons,etc.",
+          "after": "",
+          "time": "2026-11-20T10:39:02+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s10",
+          "before": "Debtors Felons,ete. II 7 1779.gMarch I2 6 1773.I7Dec. ehungup. 5 I3 1782.8Nov. 16 7 1774.29 Sept. 1776.22Feb. 13 8 p. barationof Chaplain.",
+          "after": "",
+          "time": "2026-11-20T10:39:02+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s11",
+          "before": "Rev.Mr.Jameson. fromthe Duty:Sermon once a week;prayers every day. nen felons.",
+          "after": "",
+          "time": "2026-11-20T10:39:02+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s12",
+          "before": "Salary:5o.(See remarks.) Surgeon. Now Mr.Dubbins.",
+          "after": "",
+          "time": "2026-11-20T10:39:02+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s13",
+          "before": "Salary:5 5s.od.for felons.",
+          "after": "",
+          "time": "2026-11-20T10:39:02+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s14",
+          "before": "Theroomsin the old gaol were too small,except the free ward for debtors.No straw:no court;and yet ground enough for the small- onebehind the gaol.Transports convicted at quarter sessions, scommon had as those condemned at assize, the king's allowance of 2s.6d.a week. Lent assize at East Grinstead;where the eight steps er's salary, formerly they were shut up in a butcher's cellar.Summer assize,at Lewes and Horsham alternately. ghtanda The new gaol that was building in 1776,I found finished in Keeper, 1779.The Duke of Richmond, in concurrence with the other atafelon gentlemen of the county,interested himself muchin this affair.",
+          "after": "",
+          "time": "2026-11-20T10:39:02+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s15",
+          "before": "The situation is judiciously chosen;and the plan is such as ofsixpoor he following credit to those who superintended the work,being every way iswilldated substantial and strong. Each felon has a separate room ten rs,who,not fet by seven,and nine feet high to the crown of the arch. dging,enter- They are all arched with brick, to prevent danger and con- fusion in case of fire. To each room are two doors, one of them iron-latticed.",
+          "after": "",
+          "time": "2026-11-20T10:39:02+00:00",
+          "kind": "edit"
+        }
+      ],
       "spread_review": {
         "state": "working",
         "before": {
