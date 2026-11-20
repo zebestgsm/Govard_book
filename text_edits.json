@@ -9728,8 +9728,90 @@
       }
     },
     "78": {
-      "segments": {},
-      "history": [],
+      "segments": {
+        "s0": "SECTION V",
+        "s1": "PRISONERS OF WAR IN ENGLAND, ETC.\n\nWHEN I visited my countrymen confined as prisoners of war in France, some of the commissaires and other gentlemen informed me, that they had received great complaints from the French prisoners in England. On my return in January, 1779, I waited on the commissioners of the sick and wounded seamen, and gave them an account of the English prisoners in France, and of my intention to visit the French prisoners. In order to assist me in this business, they very readily favoured me with letters to their agents at several prisons.\n\nHaving determined to take another general view of English prisons, to see what improvements had been made, in consequence of two late Acts of Parliament, and of the charges given by the judges in their circuits to the grand juries, I chose to begin my tour in those parts where most of the French prisoners were confined; and of them, therefore, I shall first give some account: in my narrative I now add my observations in 1782 on these and other prisoners of war, to whom I paid peculiar attention.\n\nWINCHESTER. There were a thousand and sixty-two French prisoners in the prison at Winchester, 2 March, 1779. The wards are lofty and spacious. The area large. The meat and beer were good: but the bread (being made with leaven and mixed with rye) was not so good as that at Bristol.¹ If two or three of the rooms had been used as workrooms, the health of the prisoners would have been promoted, and they would not have been indolently lying in their hammocks in the daytime; as I observed they were, both here and at Mill Prison.\n\nSeveral prisoners were confined in the dark hole. Forty days’ confinement on half allowance, in order to pay ten shillings to those that apprehend them after escapes, seems to be too\n\n1 I particularly observed the bread; for in France it was remarkably good and well baked. The prisoners are much happier when an attention is paid to this article.",
+        "s2": "",
+        "s3": "",
+        "s4": "",
+        "s6": "severe a punishment. On such occasions, the observation of the worthy magistrates at Bern always occurs to my mind, “that every one must be desirous of regaining liberty.”\n\nThe hospital wards were lofty, and upwards of twenty feet wide. Each patient had a cradle, bedding, and sheets; and the surgeon paid them great attention.\n\n26 February, 1782, the prison was cleaner than at my former visit, and there were many improvements in the wards and courts. The well was in order. The number of prisoners was three hundred and twenty-eight French, three hundred and forty-nine Dutch, and seven hundred and thirty Spanish, besides in the infirmary, nine French, thirty-nine Dutch, and thirty-seven Spanish. On inquiring for the attentive surgeon, I was sorry to hear, he had died of the gaol-fever, which was fatal to many in this prison.\n\nFORTON. In a prison not very convenient at Forton, near Gosport, there were a hundred and seventy-seven French prisoners, 2 March, 1779. On that day the meat was very bad, and had been killed, as the butcher’s servant said, that morning: but it was returned, and Mr. Newsham the agent, procured them good meat instead of it. Most of the six-pound loaves wanted weight. I saw the bread weighed for a hundred and forty-two prisoners, and observed a deficiency of three pounds. The straw, by long use, was turned to dust in the mattresses, and many of them here, and at other places, had been emptied to clear them of vermin. The floors of the bedrooms and hospitals could not but be dirty and offensive, the boards having been laid rough. I took notice of this kind of bad policy in all the floors of the new prison which was then building here, and almost finished.\n\nOn the prisoners complaining that the bread was too light and the meat bad, I referred them to the ninth article of the regulations, by which they are directed to apply to the agent, and (if not redressed) to the commissioners. One of them pertinently replied, “How is that possible, when every letter is examined by the agent?”¹\n\nAt my visit, 6 November, 1782, I found there was no separation of the Americans from other prisoners of war, and they had the same allowance of bread, viz., one pound and a half each.\n\n1 I could have wished, that the gentlemen concerned for the American prisoners, had extended their regards also to the French, and by their attention and visits had obliged the contractors to be more careful in discharging their duty.",
+        "s7": "",
+        "s8": "",
+        "s9": "",
+        "s10": ""
+      },
+      "history": [
+        {
+          "id": "s0",
+          "before": "SECTION 5",
+          "after": "SECTION V",
+          "time": "2026-11-20T09:42:37+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s1",
+          "before": "PRISONERS OF WAR IN ENGLAND,ETC. WHEN I visited my countrymen confined as prisoners of France,some of the commissaires and other gentlemen inf me,that they had received great complaints from theR prisoners in England.On my return in January,1779,I on the commissioners of the sick and wounded seamen,anc them an account of the English prisoners in France,and intention to visit the French prisoners.In order to assi in this business,they very readily favoured me with to their agents at several prisons.",
+          "after": "PRISONERS OF WAR IN ENGLAND, ETC.\n\nWHEN I visited my countrymen confined as prisoners of war in France, some of the commissaires and other gentlemen informed me, that they had received great complaints from the French prisoners in England. On my return in January, 1779, I waited on the commissioners of the sick and wounded seamen, and gave them an account of the English prisoners in France, and of my intention to visit the French prisoners. In order to assist me in this business, they very readily favoured me with letters to their agents at several prisons.\n\nHaving determined to take another general view of English prisons, to see what improvements had been made, in consequence of two late Acts of Parliament, and of the charges given by the judges in their circuits to the grand juries, I chose to begin my tour in those parts where most of the French prisoners were confined; and of them, therefore, I shall first give some account: in my narrative I now add my observations in 1782 on these and other prisoners of war, to whom I paid peculiar attention.\n\nWINCHESTER. There were a thousand and sixty-two French prisoners in the prison at Winchester, 2 March, 1779. The wards are lofty and spacious. The area large. The meat and beer were good: but the bread (being made with leaven and mixed with rye) was not so good as that at Bristol.¹ If two or three of the rooms had been used as workrooms, the health of the prisoners would have been promoted, and they would not have been indolently lying in their hammocks in the daytime; as I observed they were, both here and at Mill Prison.\n\nSeveral prisoners were confined in the dark hole. Forty days’ confinement on half allowance, in order to pay ten shillings to those that apprehend them after escapes, seems to be too\n\n1 I particularly observed the bread; for in France it was remarkably good and well baked. The prisoners are much happier when an attention is paid to this article.",
+          "time": "2026-11-20T09:42:37+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s2",
+          "before": "Having determined to take another general view of E prisons,to see what improvements had been made,in quence of two late Acts of Parliament,andof the charges by the judges in their circuits to the grand juries,Ich beginmy tourin those parts where most of theFrench pris were confined;and of them, therefore,I shall first give account:in my narrative I now add my observations in on these and other prisoners ofwar,to whomIpaid pe attention. WINcHEsTER.There were a thousand and sixty-twoF prisoners in the prison at Winchester,2 March, 1779. wards are lofty and spacious.",
+          "after": "",
+          "time": "2026-11-20T09:42:37+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s3",
+          "before": "The area large.The and beer were good:but the bread (being made with1 twoor threeof theroomshadbeenusedasworkrooms health of the prisoners would have been promoted,and would not have been indolently lying in their hammoc the daytime;as I observed they were,both here ar Mill Prison.",
+          "after": "",
+          "time": "2026-11-20T09:42:37+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s4",
+          "before": "Several prisoners were confined in the dark hole. days²confinementonhalf allowance,in order topay ten shi to those that apprehend them after escapes,seems tob 1Iparticularly observed the bread;for in France it was remar good andwell baked.The prisoners are much happier when an atte is paid to this article.",
+          "after": "",
+          "time": "2026-11-20T09:42:37+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s6",
+          "before": "severe a punishment.On such occasions, the observation of the worthy magistrates at Bern always occurs to my mind, that every one must be desirous of regaining liberty.",
+          "after": "severe a punishment. On such occasions, the observation of the worthy magistrates at Bern always occurs to my mind, “that every one must be desirous of regaining liberty.”\n\nThe hospital wards were lofty, and upwards of twenty feet wide. Each patient had a cradle, bedding, and sheets; and the surgeon paid them great attention.\n\n26 February, 1782, the prison was cleaner than at my former visit, and there were many improvements in the wards and courts. The well was in order. The number of prisoners was three hundred and twenty-eight French, three hundred and forty-nine Dutch, and seven hundred and thirty Spanish, besides in the infirmary, nine French, thirty-nine Dutch, and thirty-seven Spanish. On inquiring for the attentive surgeon, I was sorry to hear, he had died of the gaol-fever, which was fatal to many in this prison.\n\nFORTON. In a prison not very convenient at Forton, near Gosport, there were a hundred and seventy-seven French prisoners, 2 March, 1779. On that day the meat was very bad, and had been killed, as the butcher’s servant said, that morning: but it was returned, and Mr. Newsham the agent, procured them good meat instead of it. Most of the six-pound loaves wanted weight. I saw the bread weighed for a hundred and forty-two prisoners, and observed a deficiency of three pounds. The straw, by long use, was turned to dust in the mattresses, and many of them here, and at other places, had been emptied to clear them of vermin. The floors of the bedrooms and hospitals could not but be dirty and offensive, the boards having been laid rough. I took notice of this kind of bad policy in all the floors of the new prison which was then building here, and almost finished.\n\nOn the prisoners complaining that the bread was too light and the meat bad, I referred them to the ninth article of the regulations, by which they are directed to apply to the agent, and (if not redressed) to the commissioners. One of them pertinently replied, “How is that possible, when every letter is examined by the agent?”¹\n\nAt my visit, 6 November, 1782, I found there was no separation of the Americans from other prisoners of war, and they had the same allowance of bread, viz., one pound and a half each.\n\n1 I could have wished, that the gentlemen concerned for the American prisoners, had extended their regards also to the French, and by their attention and visits had obliged the contractors to be more careful in discharging their duty.",
+          "time": "2026-11-20T09:42:37+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s7",
+          "before": "The hospital wards were lofty,and upwards of twenty feet wide.Each patient had a cradle,bedding,and sheets;and the surgeon paid them great attention. 26February,1782,the prison was cleaner than atmy former visit,and there were many improvements in the wards and courts.The well was in order.The number of prisoners warin was three hundred and twenty-eight French,three hundred and ormed forty-nine Dutch,and seven hundred and thirty Spanish, rench besides in the infirmary，nine French, thirty-nine Dutch,and vaited thirty-seven Spanish.On inquiring for the attentive surgeon, gave Iwas sorry to hear,he had died of the gaol-fever,which was ofmy fatal tomanyin this prison. stme FoRToN.In a prison not very convenient at Forton,near etters Gosport,there were a hundred and seventy-seven French prisoners,2March,1779.",
+          "after": "",
+          "time": "2026-11-20T09:42:37+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s8",
+          "before": "On thatday the meat was very bad, nglish and had been killed,as the butcher's servant said,that morning: conse- but it was returned,and Mr.Newsham the agent,procured them given goodmeat instead of it.Most of the six-pound loaves wanted oseto weight.Isaw the bread weighed for a hundred and forty-two soners straw,by long use,was turned to dust in the mattresses,and some 1782 many of them here,and atother places,had been emptied to culiar clearthem ofvermin.",
+          "after": "",
+          "time": "2026-11-20T09:42:37+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s9",
+          "before": "The floors of the bedrooms and hospitals could not but be dirty and offensive,the boards having been rench laid rough.I took notice of this kind of bad policy in all the The floors of the new prison which was then building here,and meat almost finished. eaven On the prisoners complaining that the breadwas toolight 1If and the meat bad,Ireferred themto theninth article of the ,the regulations,by which they are directed to apply to the agent, they and （if not redressed) to the commissioners.",
+          "after": "",
+          "time": "2026-11-20T09:42:37+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s10",
+          "before": "Oneofthem ks in pertinently replied,“How is that possible,when every letter dat is examined by the agent?\"1 Atmyvisit,6November,1782,Ifound there was no separation Forty of the Americans from other prisoners of war,and they had the llings same allowance of bread,viz., one pound and a half each. etoo 1I could have wished,that the gentlemen concerned for the American kably prisoners,had extended their regards also to the French,and by their ention attention and visits had obliged the contractors tobe more carefulin",
+          "after": "",
+          "time": "2026-11-20T09:42:37+00:00",
+          "kind": "edit"
+        }
+      ],
       "spread_review": {
         "state": "working",
         "before": {
@@ -9755,8 +9837,130 @@
       }
     },
     "79": {
-      "segments": {},
-      "history": [],
+      "segments": {
+        "s0": "PRISONERS OF WAR IN ENGLAND",
+        "s1": "There were a hundred and fifty-four French, thirty-four Dutch, and a hundred and thirty-three Americans; of these, twelve French, twenty-five Dutch, and nine Americans were in the hospital. The wards were not clean.¹ No regulations hung up. I weighed several of the six-pound loaves, and they all wanted some ounces of weight.\n\nThe American prisoners then had an allowance from the States, paid by order of Dr. Franklin. I found a gentleman of Portsmouth distributing this kind allowance. From Lady Day to Michaelmas, officers received one shilling per week, and seamen sixpence: and from Michaelmas to Lady Day, officers two shillings and seamen one shilling per week. American officers were not on parole as other officers.",
+        "s2": "",
+        "s3": "Received into this prison,\n13 June, 1777\tto 6 Nov., 1782\tAmerican\t1,200\tDied 69\n30 June, 1778\t„ 6 Nov., 1782\tFrench\t11,720\t„ 166\n11 June, 1779\t„ 3 July, 1782\tSpanish\t3,028\t„ 167\n30 Dec., 1780\t„ 28 Sept., 1782\tDutch\t934\t„ 17\nTotal\t\t\t16,882\t419",
+        "s4": "PEMBROKE. On the 5th and 6th of June, 1779, I visited the prisons at Pembroke. There were fifty-six French prisoners in an old house adjoining to that in which the Americans were confined. Most of them had no shoes or stockings, and some were also without shirts. They had no victualling table, nor did they know what was their allowance. There were two or three who had their allowance in money, which should have been three shillings and sixpence a week each for their aliment, but sixpence was deducted. They lay, in general, on the boards without straw; for there were but four hammocks, in two rooms, each of which contained eighteen prisoners. Here was a courtyard, but no water or sewer.\n\nSuch observations as these have convinced me, that humanity and good policy require that inspectors of the prisoners of war should be appointed, who should be desired to report quarterly their state as to health, provisions, etc. No doubt some independent gentlemen in the neighbourhood would accept such a humane office without a salary.\n\nIn another view, also, such an appointment would be advantageous.",
+        "s5": "",
+        "s6": "",
+        "s7": "1 It might have been better, if in the rooms appropriated to the sick there had been women nurses, as in the Royal Hospitals at Haslar and Plymouth, which are neat and clean.",
+        "s9": "These prisons are usually guarded by the militia, and the sentinels have in several instances shown themselves too ready to fire on the prisoners, in which they have been countenanced by inexperienced officers. Several persons have thus been killed on the spot, though perhaps there was no serious design of an escape. The agent is too much in awe of the officers to make inquiries and representations on these occasions; whereas an independent gentleman would probably exert himself in a proper manner.\n\nAMERICAN PRISONERS\n\nPLYMOUTH. In Mill Prison near Plymouth, there were two hundred and ninety-eight American prisoners on 3 February, 1779. Their wards and court were spacious and convenient, and their bread, beer, and meat good. On 30 July, 1782, there were only seven American prisoners.\n\nFORTON. The Americans were equally well accommodated at Forton near Gosport, where I found two hundred and fifty-one prisoners, 2 March, 1779.\n\nThe table of regulations was almost the same with that for the French prisoners. The principal difference was, that in the victualling table, the bread allowance was then only one pound a day. The meagre day was Saturday; and against the weekly article of two pints of peas, was added, “or greens in lieu.” The regulation, Art. 5, is well worth copying. “As water and tubs for washing their linen and clothes, will be allowed, the prisoners are advised to keep their persons as clean as possible, it being very conducive to health.”\n\nPEMBROKE. At Pembroke, 5 June, 1779, there were confined in an old house thirty-seven American prisoners. Some of them were without shoes and stockings. There was no victualling table, or table of regulations; nor did they know what was the allowance ordered by Government. They lay on straw on the floor, and their straw had not been changed for six or seven weeks. By liberal subscriptions, ample provision had been made for the other American prisoners: I was sorry to find that these had been entirely overlooked.\n\nIn a house appropriated for a hospital, in which were some English sailors and French prisoners, I found also three American",
+        "s10": "",
+        "s11": "",
+        "s12": "",
+        "s13": "",
+        "s14": "",
+        "s15": ""
+      },
+      "history": [
+        {
+          "id": "s0",
+          "before": "PRISONERS OF WAR IN ENGLAN",
+          "after": "PRISONERS OF WAR IN ENGLAND",
+          "time": "2026-11-20T09:42:38+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s1",
+          "before": "There were a hundred and ffty-four French,thirty-four and a hundred and thirty-three Americans;of these, French,twenty-five Dutch,and nine Americans were up.Iweighed several of the six-pound loaves,and th wanted some ounces ofweight.",
+          "after": "There were a hundred and fifty-four French, thirty-four Dutch, and a hundred and thirty-three Americans; of these, twelve French, twenty-five Dutch, and nine Americans were in the hospital. The wards were not clean.¹ No regulations hung up. I weighed several of the six-pound loaves, and they all wanted some ounces of weight.\n\nThe American prisoners then had an allowance from the States, paid by order of Dr. Franklin. I found a gentleman of Portsmouth distributing this kind allowance. From Lady Day to Michaelmas, officers received one shilling per week, and seamen sixpence: and from Michaelmas to Lady Day, officers two shillings and seamen one shilling per week. American officers were not on parole as other officers.",
+          "time": "2026-11-20T09:42:38+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s2",
+          "before": "The American prisoners then had an allowance fro States,paid by order of Dr.Franklin.I found a gentler Portsmouth distributing this kind allowance.From Lad to Michaelmas,officers received one shilling per weel seamen sixpence:and from Michaelmas to Lady Day, two shillings and seamen one shilling per week.Am officers were not on parole as other officers.",
+          "after": "",
+          "time": "2026-11-20T09:42:38+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s3",
+          "before": "Received into this prison,\n\n13 June, 1777\tto 6 Nov., 1782\tAmerican\t1,200\tDied 69\n30 June, 1778\t„ 6 Nov., 1782\tFrench\t11,720\t„ 166\n11 June, 1779\t„ 3 July, 1782\tSpanish\t3,028\t„ 167\n30 Dec., 1780\t„ 28 Sept., 1782\tDutch\t934\t„ 17\nTotal\t\t\t16,882\t419\n\nPEMBROKE.",
+          "after": "Received into this prison,\n13 June, 1777\tto 6 Nov., 1782\tAmerican\t1,200\tDied 69\n30 June, 1778\t„ 6 Nov., 1782\tFrench\t11,720\t„ 166\n11 June, 1779\t„ 3 July, 1782\tSpanish\t3,028\t„ 167\n30 Dec., 1780\t„ 28 Sept., 1782\tDutch\t934\t„ 17\nTotal\t\t\t16,882\t419",
+          "time": "2026-11-20T09:42:38+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s4",
+          "before": "On the5thand6thofJune,1779,Ivisit prisons at Pembroke.There were fifty-six French pri in an old house adjoining to thatin which the American confined.Most of them had no shoes or stockings,and were also without shirts.Theyhad no victualling tabl did they know whatwas their allowance.There were three who had their allowance in money,which shoule been three shillings and sixpence a week each for their al but sixpence was deducted.",
+          "after": "PEMBROKE. On the 5th and 6th of June, 1779, I visited the prisons at Pembroke. There were fifty-six French prisoners in an old house adjoining to that in which the Americans were confined. Most of them had no shoes or stockings, and some were also without shirts. They had no victualling table, nor did they know what was their allowance. There were two or three who had their allowance in money, which should have been three shillings and sixpence a week each for their aliment, but sixpence was deducted. They lay, in general, on the boards without straw; for there were but four hammocks, in two rooms, each of which contained eighteen prisoners. Here was a courtyard, but no water or sewer.\n\nSuch observations as these have convinced me, that humanity and good policy require that inspectors of the prisoners of war should be appointed, who should be desired to report quarterly their state as to health, provisions, etc. No doubt some independent gentlemen in the neighbourhood would accept such a humane office without a salary.\n\nIn another view, also, such an appointment would be advantageous.",
+          "time": "2026-11-20T09:42:38+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s5",
+          "before": "They lay，in general, boards without straw;for there were but four hammo tworooms,each ofwhich contained eighteen prisoners. was a courtyard,butno water or sewer.",
+          "after": "",
+          "time": "2026-11-20T09:42:38+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s6",
+          "before": "Such observations as these have convinced me,that hur and good policy require that inspectors of the prisoners shouldbe appointed,who shouldbe desired to report qu their state as to health,provisions,etc. No doubt son dependent gentlemen in the neighbourhood would accep a humane ofice without a salary.",
+          "after": "",
+          "time": "2026-11-20T09:42:38+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s7",
+          "before": "In another view,also,such an appointment would be 1It might have been better,if in the rooms appropriated tot there had been women nurses,as in the Royal Hospitals at Has Plymouth,which are neat and clean.",
+          "after": "1 It might have been better, if in the rooms appropriated to the sick there had been women nurses, as in the Royal Hospitals at Haslar and Plymouth, which are neat and clean.",
+          "time": "2026-11-20T09:42:38+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s9",
+          "before": "Dutch, tageous.These prisons are usually guarded by the militia, twelve and the sentinels have in several instances shown themselves inthe too ready to fire on the prisoners,in which they have been hung countenanced by inexperienced officers.Several persons have eyall thus been killed on the spot,though perhaps there was no serious design of an escape.",
+          "after": "These prisons are usually guarded by the militia, and the sentinels have in several instances shown themselves too ready to fire on the prisoners, in which they have been countenanced by inexperienced officers. Several persons have thus been killed on the spot, though perhaps there was no serious design of an escape. The agent is too much in awe of the officers to make inquiries and representations on these occasions; whereas an independent gentleman would probably exert himself in a proper manner.\n\nAMERICAN PRISONERS\n\nPLYMOUTH. In Mill Prison near Plymouth, there were two hundred and ninety-eight American prisoners on 3 February, 1779. Their wards and court were spacious and convenient, and their bread, beer, and meat good. On 30 July, 1782, there were only seven American prisoners.\n\nFORTON. The Americans were equally well accommodated at Forton near Gosport, where I found two hundred and fifty-one prisoners, 2 March, 1779.\n\nThe table of regulations was almost the same with that for the French prisoners. The principal difference was, that in the victualling table, the bread allowance was then only one pound a day. The meagre day was Saturday; and against the weekly article of two pints of peas, was added, “or greens in lieu.” The regulation, Art. 5, is well worth copying. “As water and tubs for washing their linen and clothes, will be allowed, the prisoners are advised to keep their persons as clean as possible, it being very conducive to health.”\n\nPEMBROKE. At Pembroke, 5 June, 1779, there were confined in an old house thirty-seven American prisoners. Some of them were without shoes and stockings. There was no victualling table, or table of regulations; nor did they know what was the allowance ordered by Government. They lay on straw on the floor, and their straw had not been changed for six or seven weeks. By liberal subscriptions, ample provision had been made for the other American prisoners: I was sorry to find that these had been entirely overlooked.\n\nIn a house appropriated for a hospital, in which were some English sailors and French prisoners, I found also three American",
+          "time": "2026-11-20T09:42:38+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s10",
+          "before": "The agent is too much in awe of mthe the officers to make inquiries and representations on these manof occasions;whereas an independent gentleman would probably yDay exerthimselfin a proper manner. ,and fficers erican AMERICAN PRISONERS 69P 166 PLyMouTH.In Mill Prison near Plymouth,there were two hundred and ninety-eight American prisoners on 3February, 167 1779. Their wards and court were spacious and convenient, I7 and their bread,beer,and meat good.",
+          "after": "",
+          "time": "2026-11-20T09:42:38+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s11",
+          "before": "On30July,1782,there were only seven American prisoners. 419 FoRToN.The Americans were equally well accommodated edthe at Forton near Gosport,whereI found two hundred and fifty- soners one prisoners,2 March,1779.",
+          "after": "",
+          "time": "2026-11-20T09:42:38+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s12",
+          "before": "Swere The table of regulations was almost the same with that for some the French prisoners.The principal difference was, that in e,nor the victualling table,the bread allowance was then only one twoor poundaday.",
+          "after": "",
+          "time": "2026-11-20T09:42:38+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s13",
+          "before": "The meagre day was Saturday;and against the have iment, lieu.\"",
+          "after": "",
+          "time": "2026-11-20T09:42:38+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s14",
+          "before": "The regulation, Art. 5, is well worth copying.“As nthe water and tubs for washing their linen and clothes,will be cks.in allowed, the prisoners are advised to keep their persons as Here clean as possible,it being very conducive to health. PEMBRoKE. At Pembroke, 5 June, 1779, there were con- nanity fined in an old house thirty-seven American prisoners.Some ofwar ofthem were without shoes and stockings.",
+          "after": "",
+          "time": "2026-11-20T09:42:38+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s15",
+          "before": "There was no arterly victualling table,or table of regulations;nor did they know mein- whatwas the allowance ordered by Government.They lay on tsuch straw on the floor,and their straw had not been changed for six or seven weeks.By liberal subscriptions,ample provision advan- had been made for the other American prisoners:Iwas sorry tofind that these hadbeen entirely overlooked. he sick larand Inahouse appropriated for a hospital,inwhich were some English sailors andFrench prisoners,Ifound also three American",
+          "after": "",
+          "time": "2026-11-20T09:42:38+00:00",
+          "kind": "edit"
+        }
+      ],
       "spread_review": {
         "state": "working",
         "before": {
