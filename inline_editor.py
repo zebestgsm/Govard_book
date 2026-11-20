@@ -50,6 +50,7 @@ TABLE_META = {
     (111, 's7'): ('Reading bridewell prisoners by visit date', 'mixed'),
     (112, 's4'): ('Oxford Castle prisoners', 'mixed'),
     (116, 's2'): ('Berkeley bridewell returns and prisoners', 'mixed'),
+    (128, 's3'): ('Carnarvon prisoners by visit date', 'mixed'),
     (148, 's1'): ('Table I (continued) and Table II — Ireland, 1787–1788', 'fee'),
     (148, 's3'): ('Table III — England and Wales, 1787–1788 (part)', 'fee'),
     (149, 's1'): ('Table III — England and Wales, continued', 'fee'),
@@ -401,7 +402,8 @@ def render_verified_block(value, spread, segment_id, query):
               or (spread == 124 and segment_id == 's7' and chunk in ('LANCASHIRE', 'COUNTY GAOL, LANCASTER CASTLE'))
               or (spread == 125 and ((segment_id == 's1' and chunk == 'COUNTY BRIDEWELL') or (segment_id == 's9' and chunk == 'LIVERPOOL BOROUGH GAOL')))
               or (spread == 126 and segment_id == 's1' and chunk == 'LIVERPOOL BRIDEWELL')
-              or (spread == 127 and segment_id == 's8' and chunk == 'CHESTER CITY BRIDEWELL')):
+              or (spread == 127 and segment_id == 's8' and chunk == 'CHESTER CITY BRIDEWELL')
+              or (spread == 130 and segment_id == 's1' and chunk == 'REMARKS ON CHARTER SCHOOLS (IRELAND)')):
             output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
         elif ((spread == 102 and segment_id == 's4' and chunk.startswith('that want of care respecting them'))
               or (spread == 110 and segment_id == 's3' and chunk.startswith('Before this rigorous law'))
