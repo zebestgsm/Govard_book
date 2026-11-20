@@ -14571,7 +14571,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "needs_work",
         "before": {
           "s0": "NORFOLK CIRCUIT",
           "s1": "BEDFORDSHIRE",
@@ -14650,6 +14650,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T12:19:02+00:00"
+          },
+          {
+            "action": "needs_work",
+            "time": "2026-11-20T12:37:44+00:00"
           }
         ],
         "after": {
