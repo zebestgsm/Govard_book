@@ -12410,7 +12410,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "LONDON",
           "s1": "physician,Dr.Lettsom, to visit them.He was est the prisoners.",
@@ -12446,6 +12446,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T10:24:22+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T10:37:45+00:00"
           }
         ],
         "after": {
