@@ -128,9 +128,17 @@ SCAN_18_FOLD = {
 }
 
 
-def highlight_scan_fold(text, segment_id, query):
+# The right edge of page 187 bends into the gutter of the scan.
+SCAN_100_FOLD = {'s7': [('a hundred and seventy-five', 'hundred'),
+                        ('this incommodious prison', 'incommodious'),
+                        ('estate bequeathed to him', 'bequeathed'),
+                        ('debts do not exceed £4', 'debts'),
+                        ('in Oxfordshire for charitable', 'Oxfordshire')]}
+
+
+def highlight_scan_fold(text, segment_id, query, contexts=SCAN_18_FOLD):
     matches = []
-    for context, word in SCAN_18_FOLD.get(segment_id, ()):
+    for context, word in contexts.get(segment_id, ()):
         start = text.find(context)
         if start >= 0 and text.find(context, start + 1) < 0:
             start += context.index(word)
@@ -173,7 +181,12 @@ def render_verified_block(value, spread, segment_id, query):
                 target = 'footnote-' + str(spread) + '-' + targets[number] + '-' + number
                 result.append('<a class="verified-note-ref" href="#' + target + '">' + highlight(piece, query) + '</a>')
             else:
-                result.append(highlight_scan_fold(piece, segment_id, query) if spread == 18 else highlight(piece, query))
+                if spread == 18:
+                    result.append(highlight_scan_fold(piece, segment_id, query))
+                elif spread == 100:
+                    result.append(highlight_scan_fold(piece, segment_id, query, SCAN_100_FOLD))
+                else:
+                    result.append(highlight(piece, query))
         return ''.join(result)
 
     if spread == 75 and segment_id == 's4' and value.startswith('power of any,'):
@@ -322,8 +335,15 @@ def render_verified_block(value, spread, segment_id, query):
               or (spread == 95 and segment_id == 's3' and chunk == 'WHITECHAPEL PRISON FOR DEBTORS')
               or (spread == 95 and segment_id == 's6' and chunk == 'THE SAVOY')
               or (spread == 96 and segment_id == 's8' and chunk == 'TOTHILL-FIELDS BRIDEWELL')
-              or (spread == 97 and segment_id == 's1' and chunk == 'THE KING’S BENCH PRISON, FOR DEBTORS')):
+              or (spread == 97 and segment_id == 's1' and chunk == 'THE KING’S BENCH PRISON, FOR DEBTORS')
+              or (spread == 98 and segment_id == 's1' and chunk.startswith('RULES and ORDERS for the better Government'))
+              or (spread == 99 and segment_id == 's1' and chunk.startswith('FURTHER RULES and ORDERS'))
+              or (spread == 99 and segment_id == 's3' and chunk.startswith('A further RULE and ORDER'))
+              or (spread == 100 and segment_id == 's1' and chunk == 'MARSHALSEA PRISON¹')):
             output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
+        elif ((spread == 98 and ((segment_id == 's1' and chunk.startswith('1. The stocks')) or (segment_id == 's7' and chunk.startswith('5. Coroner'))))
+              or (spread == 99 and segment_id == 's1' and (chunk.startswith('to the court or a judge') or chunk.startswith('1. No person to bring')))):
+            output.append('<span class="book-list">' + text_html(chunk) + '</span>')
         elif spread == 91 and ((segment_id == 's4' and chunk.startswith('1, 2, 3. Warden')) or (segment_id == 's7' and chunk.startswith('10. Those who blaspheme'))):
             output.append('<span class="book-list">' + text_html(chunk) + '</span>')
         elif spread == 68 and segment_id == 's3' and chunk.startswith('Sundays, Tuesdays and Thursdays.'):

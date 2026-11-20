@@ -763,11 +763,11 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertEqual(self.form('/scan-action/14', {'action':'restore-scan-mark'})[0], 200)
         self.assertTrue(reader.scan_dropdown_label(14))
         # Automated collation does not replace manual proofreading.
-        self.assertIn('☑ OCR', reader.quality_label(98))
-        self.assertEqual(self.form('/scan-action/98', {'action':'dismiss-ocr'})[0], 200)
-        self.assertNotIn('OCR', reader.quality_label(98))
+        self.assertIn('☑ OCR', reader.quality_label(101))
+        self.assertEqual(self.form('/scan-action/101', {'action':'dismiss-ocr'})[0], 200)
+        self.assertNotIn('OCR', reader.quality_label(101))
         self.assertIn('скан повёрнут', reader.quality_label(14))
-        self.assertIn('пометка OCR снята', self.request('/spread/98')[1])
+        self.assertIn('пометка OCR снята', self.request('/spread/101')[1])
 
         pdf = reader.pymupdf.open()
         pdf.new_page(width=100, height=50)
@@ -788,8 +788,8 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertFalse(reader.replacement_path(14).exists())
         self.assertTrue(reader.scan_dropdown_label(14))
         self.assertNotIn('OCR', reader.quality_label(14))
-        self.assertEqual(self.form('/scan-action/98', {'action':'restore-ocr'})[0], 200)
-        self.assertIn('☑ OCR', reader.quality_label(98))
+        self.assertEqual(self.form('/scan-action/101', {'action':'restore-ocr'})[0], 200)
+        self.assertIn('☑ OCR', reader.quality_label(101))
 
     def test_legacy_quality_decisions_are_preserved_when_migrated(self):
         reader.QUALITY_FILE.write_text(json.dumps({'dismissed': [2, 14, 153], 'other': 'keep'}))
@@ -888,7 +888,7 @@ class ReaderHTTPTests(unittest.TestCase):
     def test_verified_spreads_and_pending_ocr_labels(self):
         for number in (5, 6, 151, 153, 161, 162, 163, 164, 165):
             self.assertNotIn('OCR', reader.quality_label(number))
-        for number in (98, 99, 106, 108):
+        for number in (101, 102, 106, 108):
             self.assertIn('☑ OCR', reader.quality_label(number))
         self.assertNotIn('☑ OCR', reader.quality_label(107))
         self.assertIn('скан повёрнут', reader.quality_label(14))
@@ -1058,6 +1058,20 @@ class SequentialProofreadTests(unittest.TestCase):
         self.patch.stop()
         self.tmp.cleanup()
 
+    def test_spreads_98_to_100_rules_and_marshalsea(self):
+        h98, s98 = reader.segment_state(98)
+        self.assertIn('25. All money brought in', s98['s7'])
+        self.assertIn('href="#footnote-98-s1-1"', h98)
+        self.assertIn('class="book-list"', h98)
+        h99, s99 = reader.segment_state(99)
+        self.assertIn('not superseded shall be forthwith discharged', s99['s3'])
+        self.assertIn('class="restored-heading"', h99)
+        h100, s100 = reader.segment_state(100)
+        self.assertIn('MARSHALSEA PRISON', s100['s1'])
+        self.assertIn('href="#footnote-100-s1-1"', h100)
+        self.assertIn('id="footnote-100-s1-2"', h100)
+        self.assertIn('class="scan-fold-word"', h100)
+
     def test_every_guarded_transcription_applies_without_changing_segment_ids(self):
         from verified_prose import VERIFIED_PROSE
         for number, replacements in VERIFIED_PROSE.items():
@@ -1174,7 +1188,7 @@ class TranslationTests(unittest.TestCase):
         self.assertIn('Русский перевод', html)
         self.assertIn('ОБЗОР БЕДСТВИЙ В ТЮРЬМАХ', html)
         self.assertLess(html.index('id="editable-book"'), html.index('id="translation"'))
-        working = reader.reader_page(98)
+        working = reader.reader_page(101)
         self.assertIn('перевод по черновому английскому тексту', working)
         self.assertIn('Русский перевод', working)
 
