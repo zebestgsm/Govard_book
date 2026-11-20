@@ -14493,7 +14493,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "DERBYSHIRE",
           "s1": "DERBYSHIRE",
@@ -14509,8 +14509,22 @@
           {
             "action": "start",
             "time": "2026-11-20T11:28:15+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T11:31:02+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "DERBYSHIRE",
+          "s1": "DERBYSHIRE",
+          "s2": "COUNTY BRIDEWELL",
+          "s3": "CHESTERFIELD. This house, given, as I was informed, to the county for a bridewell, was built in 1614. For men, a room or cellar seventeen feet square under the keeper’s house; down eight steps; but level with the ground behind it: provision generally put through a hole in the floor, six inches square. A room for women upstairs. No straw. Nothing allowed by the county for conveyance to quarter sessions. Keeper’s salary, now £30. No fees: no allowance: no employment. Clauses against spirituous liquors not hung up. A court is now made from one of the keeper’s gardens; and there is a cellar for the women, of the same dimensions as that for the men, in which I saw a sick object committed for bastardy.¹\n\nCHESTERFIELD GAOL\n\nFor the hundred of Scarsdale, is the property of the Duke of Portland; to whom, or to his steward, the gaoler pays £18 12s. 0d. a year. Only one room with a cellar under it; to which the prisoners occasionally descend through a hole in the floor. The cellar had not been cleaned for many months. The prison-door had not been opened for several weeks, when I was there first. There were four prisoners, who told me they were almost starved: one of them said, with tears in his eyes, “he had not eaten a morsel that day”; it was afternoon. Their meagre sickly countenances confirmed what they said. They had borrowed a book of Dr. Manton’s; one of them was reading it\n\n1 I am apprised, that by an Act (seventh James, c. iv) justices of the peace are empowered to commit lewd women to the house of correction, there to be confined and set to labour, for the term of one whole year; but the woman is not to be apprehended till the child be born, and she has recovered her strength. See Dalton, c. xi; Burn, p. 207.\n\nBefore this rigorous law is put in execution, however, gentlemen would do well to inquire whether overseers of the poor have not procured such warrants only to save parish expenses; and for that purpose, aggravated the crime and misrepresented the condition of the culprit. In the present instance, and in too many others which I have known, I believe this to have been the case; and that much cruelty has been exercised both on the mother and child, by a commitment of the woman to her miserable habitation, while yet in a very weak state.",
+          "s4": "",
+          "s5": "LINCOLNSHIRE",
+          "s6": "to the rest. Each of them had a wife; and they had in the whole thirteen children, cast on their respective parishes. Two had their groats from the creditors; and out of that pittance they relieved the other two. No allowance: no straw: no firing: water a halfpenny for about three gallons, put in (as other things are) at the window. Gaoler a bailiff, lives distant. I found in this prison a strong bedstead, which had been compassionately left by a poor prisoner, that it might be some relief to his unhappy successors.\n\nLINCOLNSHIRE\n\nCOUNTY BRIDEWELL\n\nGAINSBOROUGH. Two lodging-rooms,¹ and a day-room below, and two rooms upstairs: a court thirty-three feet square, in which is a new workroom: no water: no straw: no allowance: the prisoners were beating hemp at fourpence a stone. Conveyance to quarter sessions at keeper’s expense. His salary, £30. No fees. Might be improved on the keeper’s garden.\n\nSTAMFORD TOWN GAOL\n\nA TABLE of FEES for felons, etc., that lie on the common-side\n\n\t£\ts.\td.\nFor gaoler’s fees for the gaol\t0\t10\t0\nTo the smith ironing and taking off\t0\t2\t0\nLodging for each night\t0\t0\t2\nTo the person who executes sentence of pillory, burning in the hand, or whipping\t0\t1\t0\nTo the keeper of the house of correction for every person committed for the first night\t0\t0\t6\nEvery day that person continues in custody for attendance\t0\t0\t1\n\n1 I was surprised to find a lunatic of the other sex lodged in the room appropriated to the women.",
+          "s7": ""
+        }
       }
     },
     "111": {
