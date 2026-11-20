@@ -12522,8 +12522,154 @@
       }
     },
     "96": {
-      "segments": {},
-      "history": [],
+      "segments": {
+        "s1": "more airy. No. 1, 2, and 4, and the room over No. 1, and the lodging-room called the store-room adjoining to the guard-rooms, are of good size: and the practice of lime-whiting adopted here since my first visits, is salutary for the prisoners. There are, besides, the black hole, the condemned hold, the cock-pit, and several other parts of this irregular building, which I pass over.\n\n15 March, 1776, there were one hundred and nineteen prisoners; of whom forty-nine were transports. I saw many sick and dying. The gaol was so infected by them, that the distemper was caught there by many afterwards.\n\n25 May, prisoners thirty-seven. Many of them sick of the gaol-distemper, in the rooms where I saw the sick and dying in March. The whole was out of repair. Keeper, Captain Jackson. Salary £50. Allowance, fourpence a day, in provisions.\n\n1779, 13 August, prisoners 98, viz.\n64 deserters, 21 impressed men, and 13 of the guards.\n\nThe prisoners were in health; the rooms made somewhat more airy, and three rooms over the hall were fitted up for an infirmary.\n\n1782, 20 December, prisoners 92.\n\nThe prison was not dirty, nor the rooms offensive except in the infirmary. Three of the guards were in close confinement on bread and water for forty-eight hours. One was sick in the prison, and twelve in two of the close rooms of the infirmary; in the other room, one of the transports left here lay dead. Keeper, Captain Osborne.\n\n1783, 29 August, prisoners 56.\n\nFourteen were of the guards, of whom ten were in the black hole on bread and water for twenty-four or forty-eight hours. Some of the prisoners, having received his Majesty’s pardon on condition of enlisting, and afterwards deserted, had been here from seven to sixteen months. The rooms were very clean; they are lime-whited twice a year, and they are washed every day, the prisoners being turned out of them early in the morning. There had been none sick in the hospital for two months.",
+        "s2": "",
+        "s3": "",
+        "s4": "",
+        "s5": "",
+        "s6": "",
+        "s8": "TOTHILL-FIELDS BRIDEWELL\n\nKeeper. George Smith.\nSalary: £50, paying the widow of the former keeper £20.\nFees: £0 5s. 2d.\nTransports: taken by Mr. Akerman.\nLicence: Beer and Wine. Tap let. Now no licence.\n\nPrisoners.\nAllowance: A penny loaf (weight Dec. 1782, 8½ oz. Oct. 1783, 9½ oz.) and a penny a day each.\nGarnish: £0 1s. 4d.\nNumber:\n\tPrisoners\n1774. 22 April\t38\n1775. 4 March\t109\n1776. 6 March\t86\n1776. 3 May\t75\n1777. 8 Jan.\t110\n1779. 5 Aug.\t74\n1782. 18 Dec.\t72\n1783. 20 Aug.\t89\n1783. 22 Aug.\t92\n1783. 29 Oct.\t52\nImpressed men, 10\n\nChaplain. None.\nSurgeon. Mr. Glover, now Mr. Thomas Purdue.\nSalary: None. He makes a bill.\n\n“No alteration in this prison. The men associating together in one part, and the women in another; all without employment, except three or four debtors who were shoemakers. At night, some men come to a room in the women’s court, and some women go to a room on the men’s side, which is called the chapel, from the use made of it by the late worthy keeper. Several prisoners were drinking in a room used by the turnkey for his shop. Here is also a room for the deposit of bonnets and other articles of clothing, which may be a convenient security for the keeper’s fees; one woman, however, I turned out, who had remained four days after the expiration of her term, and had no share in the property contained in this room. In some county gaols the salaries to the gaolers are in lieu of all fees; whereby the hardship of forcing poor creatures to part with some of their scanty clothing, in order to purchase their discharge, is prevented. No bedding here, which is the case in all the London prisons, except that in the City called Bridewell, where they have a little loose straw, and beds for the few who can pay a high price for them.”\n\n[From An Account of Lazarettos, p. 129.]\n\nOver the gate is this inscription: “Here are several sorts of",
+        "s9": "",
+        "s10": "",
+        "s11": "",
+        "s12": "",
+        "s13": "",
+        "s14": "",
+        "s15": "",
+        "s16": "",
+        "s17": "",
+        "s18": "",
+        "s19": ""
+      },
+      "history": [
+        {
+          "id": "s1",
+          "before": "more airy.No.I,2,and 4,and the room over No. lodging-room called the store-room adjoining to rooms,areof good size:and the practice of lime-whiti here since my first visits,is salutary for the prison are,besides,the black hole,the condemned hold,t and several other parts of this irregular building pass over. 15March,1776,there were one hundred and ninetee of whom forty-nine were transports.I saw man dying.The gaol was so infected by them, that the was caught there by many afterwards. 25May,prisoners thirty-seven.",
+          "after": "more airy. No. 1, 2, and 4, and the room over No. 1, and the lodging-room called the store-room adjoining to the guard-rooms, are of good size: and the practice of lime-whiting adopted here since my first visits, is salutary for the prisoners. There are, besides, the black hole, the condemned hold, the cock-pit, and several other parts of this irregular building, which I pass over.\n\n15 March, 1776, there were one hundred and nineteen prisoners; of whom forty-nine were transports. I saw many sick and dying. The gaol was so infected by them, that the distemper was caught there by many afterwards.\n\n25 May, prisoners thirty-seven. Many of them sick of the gaol-distemper, in the rooms where I saw the sick and dying in March. The whole was out of repair. Keeper, Captain Jackson. Salary £50. Allowance, fourpence a day, in provisions.\n\n1779, 13 August, prisoners 98, viz.\n64 deserters, 21 impressed men, and 13 of the guards.\n\nThe prisoners were in health; the rooms made somewhat more airy, and three rooms over the hall were fitted up for an infirmary.\n\n1782, 20 December, prisoners 92.\n\nThe prison was not dirty, nor the rooms offensive except in the infirmary. Three of the guards were in close confinement on bread and water for forty-eight hours. One was sick in the prison, and twelve in two of the close rooms of the infirmary; in the other room, one of the transports left here lay dead. Keeper, Captain Osborne.\n\n1783, 29 August, prisoners 56.\n\nFourteen were of the guards, of whom ten were in the black hole on bread and water for twenty-four or forty-eight hours. Some of the prisoners, having received his Majesty’s pardon on condition of enlisting, and afterwards deserted, had been here from seven to sixteen months. The rooms were very clean; they are lime-whited twice a year, and they are washed every day, the prisoners being turned out of them early in the morning. There had been none sick in the hospital for two months.",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s2",
+          "before": "Many of them gaol-distemper,in the rooms where I saw the sick inMarch.The whole was out of repair.Keepe Jackson.",
+          "after": "",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s3",
+          "before": "Salary 5o.Allowance, fourpence provisions. 1779,I3 August,prisoners 98,viz. 64 deserters,21impressedmen,and13of the g The prisoners were in health;the rooms made more airy,and three rooms over the hall were ftt an infrmary. 1782,2o December, prisoners 92.",
+          "after": "",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s4",
+          "before": "The prison was not dirty,nor the rooms offensive the infirmary.",
+          "after": "",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s5",
+          "before": "Three of the guards were in close co on bread andwater for forty-eight hours.One was prison,and twelve in twoof the close rooms of the inthe other room,one of the transports left here Keeper,Captain Osborne. 1783,29 August,prisoners 56.",
+          "after": "",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s6",
+          "before": "Fourteen were of theguards,ofwhom tenwerein hole on bread and water for twenty-four or forty-eig Some of the prisoners,having received his Majesty's condition of enlisting,and afterwards deserted,had from seven to sixteen months.The rooms were v they are lime-whited twice a year,and they are was day,the prisoners being turned out of them early in the Therehadbeennonesickinthehospitalfor twomon",
+          "after": "",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s8",
+          "before": "I,and the the guard- TOTHILL-FIELDS BRIDEWELL ngadopted ers.There Keeper.",
+          "after": "TOTHILL-FIELDS BRIDEWELL\n\nKeeper. George Smith.\nSalary: £50, paying the widow of the former keeper £20.\nFees: £0 5s. 2d.\nTransports: taken by Mr. Akerman.\nLicence: Beer and Wine. Tap let. Now no licence.\n\nPrisoners.\nAllowance: A penny loaf (weight Dec. 1782, 8½ oz. Oct. 1783, 9½ oz.) and a penny a day each.\nGarnish: £0 1s. 4d.\nNumber:\n\tPrisoners\n1774. 22 April\t38\n1775. 4 March\t109\n1776. 6 March\t86\n1776. 3 May\t75\n1777. 8 Jan.\t110\n1779. 5 Aug.\t74\n1782. 18 Dec.\t72\n1783. 20 Aug.\t89\n1783. 22 Aug.\t92\n1783. 29 Oct.\t52\nImpressed men, 10\n\nChaplain. None.\nSurgeon. Mr. Glover, now Mr. Thomas Purdue.\nSalary: None. He makes a bill.\n\n“No alteration in this prison. The men associating together in one part, and the women in another; all without employment, except three or four debtors who were shoemakers. At night, some men come to a room in the women’s court, and some women go to a room on the men’s side, which is called the chapel, from the use made of it by the late worthy keeper. Several prisoners were drinking in a room used by the turnkey for his shop. Here is also a room for the deposit of bonnets and other articles of clothing, which may be a convenient security for the keeper’s fees; one woman, however, I turned out, who had remained four days after the expiration of her term, and had no share in the property contained in this room. In some county gaols the salaries to the gaolers are in lieu of all fees; whereby the hardship of forcing poor creatures to part with some of their scanty clothing, in order to purchase their discharge, is prevented. No bedding here, which is the case in all the London prisons, except that in the City called Bridewell, where they have a little loose straw, and beds for the few who can pay a high price for them.”\n\n[From An Account of Lazarettos, p. 129.]\n\nOver the gate is this inscription: “Here are several sorts of",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s9",
+          "before": "George Smith. ecock-pit, Salary:5o,paying thewidow of the formerkeeperf20. which1 Fees:fo5s.2d.",
+          "after": "",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s10",
+          "before": "Transports:takenby Mr.Akerman.",
+          "after": "",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s11",
+          "before": "Licence:Beer and Wine.Tap let.Now no licence. prisoners; Prisoners. sick and Allowance:A penny loaf (weight Dec.1782,8oz.Oct.1783 distemper 9oz.) and a penny a day each.",
+          "after": "",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s12",
+          "before": "Garnish:fo Is.4d. sickofthe and dying Number: Prisoners Prisoners r,Captain 1774.22April 38 1779.5Aug. 74 day，in 1775. 4March 109 1782.18Dec. 72 1776. 6March 86 1783.20Aug. 89 1776. 3May 75 1783.22Aug. 92 1777. 8Jan. II0 1783.29Oct. 52 lards.",
+          "after": "",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s13",
+          "before": "Impressed men,1o somewhat Chaplain.",
+          "after": "",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s14",
+          "before": "None. tedupfor Surgeon.",
+          "after": "",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s15",
+          "before": "Mr.Glover,now Mr.Thomas Purdue.",
+          "after": "",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s16",
+          "before": "Salary:None. He makes a bill. “No alteration in this prison.The men associating together exceptin in one part,and the women in another;all without employment, nfinement except threeor four debtors who were shoemakers.",
+          "after": "",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s17",
+          "before": "Atnight, sickin the some men come toaroom in the women's court,and some infrmary; women go to a room on the men’s side,which is called the lay dead. chapel,from the use made of it by the late worthy keeper.",
+          "after": "",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s18",
+          "before": "Several prisoners were drinking in a room used by the turnkey for his shop.",
+          "after": "",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s19",
+          "before": "Here is also a room for the deposit of bonnets and other articles of clothing,which may be a convenient security theblack for thekeeper's fees;one woman,however,Iturned out,who ghthours. had remained four days after the expiration of her term,and oardonon had no share in the property contained in this room.In some been here county gaols the salaries to the gaolers are in lieu of all fees; ery clean; hedevery some of their scanty clothing,in order to purchase their dis- morning. charge,is prevented. No bedding here,which is the case in ths. all theLondon prisons,except thatin the City called Bridewell, where they have a little loose straw,and beds for the fewwho can pay a highprice for them [From AnAccount ofLazarettos,p.129.] Over the gate is this inscription:“Here are several sorts of",
+          "after": "",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        }
+      ],
       "spread_review": {
         "state": "working",
         "before": {
@@ -12558,8 +12704,122 @@
       }
     },
     "97": {
-      "segments": {},
-      "history": [],
+      "segments": {
+        "s1": "work for the poor of this parish of St. Margaret’s Westminster, as also the county according to law, and for such as will beg and live idle in this city and liberty of Westminster. Anno 1655.”\n\nThis prison has—for men, two day-rooms and three night-rooms—for faulty apprentices, five rooms, ten feet by seven feet two inches; the upper and lower panels of the doors are iron-latticed. For women, a day-room, and four night-rooms. All the night-rooms have barrack beds. They are constantly washed every day; and are quite fresh. The prisoners wash their hands and faces every morning before they come for their allowance. No straw. No infirmary. A little room used as a surgery. A chapel, in which Mr. Smith reads a chapter, and part of the Common Prayer Book every morning.\n\nThe women should have another day-room: and one of the day-rooms for men should be enlarged. The courts adjacent might also be enlarged. The rooms for women, and their court, are now more airy, the garden pales being set farther off. The keeper pays window-tax, and for water. Over the gate is a paper with this inscription: “No person admitted into this prison on a Sunday after nine o’clock in the morning until five in the evening.”\n\nAt my visit in 1777, there were among the felons, two debtors from the Court of Conscience; in 1779, three; and in 1783, six. I always found this prison very clean: and the prisoners calm and placid. There is now a workshop with hemp-blocks, and a room over it. Two of the women’s night-rooms are appropriated to female convicts, who have also a separate court with water, etc. As I have seen several sick objects on the floors, the gentlemen, who are so ready to relieve the sufferings of their fellow-creatures, will forgive the intimation that an infirmary might be made over the women’s ward.\n\nTHE KING’S BENCH PRISON, FOR DEBTORS\n\nNumber:\n\tIn House\tIn Rules\n1774. 26 April\t324\t100\n1776. 28 Jan.\t364\t80\n1776. 28 May\t395 (See remarks.)\t\n1779. 11 Aug.\t511\t75\n1779. 26 Oct.\t438\t60\n1782. 2 Jan.\t450\t7\n1782. 28 Dec.\t485\t30\n1783. 23 Aug.\t532\t50\n\nThis prison was part old buildings, part new.\n\nThe old buildings were—a coffee-room just within the gate—and a street called King Street. On the right hand was the",
+        "s2": "",
+        "s3": "",
+        "s4": "",
+        "s5": "",
+        "s6": "",
+        "s8": "tap-house; and four houses for prisoners: each consisted of a ground-floor, and two floors of chambers; four rooms on each floor; near ten feet square, and seven high. On the left-hand side of the street was the chapel; and six houses for prisoners; of equal depth with the former houses: but the back-rooms had not, as the former had, communication with the fore-rooms. At the hither end of the fore-rooms, on the ground-floor, was a common kitchen, much too small. The cook, a prisoner, had the room over it. These houses also had ground-rooms, and two floors of chambers. All the rooms fronting King Street, and the whole of the houses on the other side the way, were for master’s-side debtors; who paid for each room unfurnished a shilling a week. The back part of the left-hand row was the common-side; the doors in the back-front. The first room on the ground-floor they called their court-room. The two houses at the farther end had six rooms each, for Crown debtors and fines; and were called Crown Court. The rest of this range on all the three floors was for common-side debtors. At the farther end of King Street, in a small court enclosed from the rest of the yard, was a building called the State House; consisting of ground-floors, and two floors of chambers; four sizable rooms on each floor; total twelve. A debtor who chose to be here, paid the marshal from eight to ten guineas for his whole time; besides a shilling a week, like other master’s-side debtors.\n\nAll these old buildings were out of repair.\n\nThe new buildings were—first, a house at the gate for the turnkey. The chambers were very convenient; and were let to a prisoner who paid a very high rent. But the principal new building was at the farther end of the yard. The two parts of it formed a right-angle. One part was four houses, with four ground-rooms to each; and the same number of chambers on each of the three floors above: total sixty-four. The rooms were about thirteen feet by eleven, and about eight feet high. The other part (the wing) was built as the Fleet Prison; but more airy and commodious. It had the same number of floors as the first part. On each floor was a passage seven and a half feet wide, and seventy-three and a half feet long: rooms on each side the passage, eleven on each floor, total forty-four; each room thirteen and a half feet by nine and a half, about eight feet high.\n\nThe prison is well supplied with water. Among the improvements, of a hundred and eight new rooms, and a spacious court, they should have built an infirmary. At more than one of my",
+        "s9": "",
+        "s10": "",
+        "s11": "",
+        "s12": "",
+        "s13": "",
+        "s14": "",
+        "s15": ""
+      },
+      "history": [
+        {
+          "id": "s1",
+          "before": "work for the poor of this parish of St.Margaret's Wes as also the county according to law,and for such as and live idle in this cityand liberty of Westminster.Ann This prison has-for men,two day-rooms and thr two inches;the upper and lower panels of the doors latticed.For women,a day-room,and four night-roo the night-rooms have barrack beds.They are co washed every day; and are quite fresh.The prison their hands and faces every morning before they come allowance.",
+          "after": "work for the poor of this parish of St. Margaret’s Westminster, as also the county according to law, and for such as will beg and live idle in this city and liberty of Westminster. Anno 1655.”\n\nThis prison has—for men, two day-rooms and three night-rooms—for faulty apprentices, five rooms, ten feet by seven feet two inches; the upper and lower panels of the doors are iron-latticed. For women, a day-room, and four night-rooms. All the night-rooms have barrack beds. They are constantly washed every day; and are quite fresh. The prisoners wash their hands and faces every morning before they come for their allowance. No straw. No infirmary. A little room used as a surgery. A chapel, in which Mr. Smith reads a chapter, and part of the Common Prayer Book every morning.\n\nThe women should have another day-room: and one of the day-rooms for men should be enlarged. The courts adjacent might also be enlarged. The rooms for women, and their court, are now more airy, the garden pales being set farther off. The keeper pays window-tax, and for water. Over the gate is a paper with this inscription: “No person admitted into this prison on a Sunday after nine o’clock in the morning until five in the evening.”\n\nAt my visit in 1777, there were among the felons, two debtors from the Court of Conscience; in 1779, three; and in 1783, six. I always found this prison very clean: and the prisoners calm and placid. There is now a workshop with hemp-blocks, and a room over it. Two of the women’s night-rooms are appropriated to female convicts, who have also a separate court with water, etc. As I have seen several sick objects on the floors, the gentlemen, who are so ready to relieve the sufferings of their fellow-creatures, will forgive the intimation that an infirmary might be made over the women’s ward.\n\nTHE KING’S BENCH PRISON, FOR DEBTORS\n\nNumber:\n\tIn House\tIn Rules\n1774. 26 April\t324\t100\n1776. 28 Jan.\t364\t80\n1776. 28 May\t395 (See remarks.)\t\n1779. 11 Aug.\t511\t75\n1779. 26 Oct.\t438\t60\n1782. 2 Jan.\t450\t7\n1782. 28 Dec.\t485\t30\n1783. 23 Aug.\t532\t50\n\nThis prison was part old buildings, part new.\n\nThe old buildings were—a coffee-room just within the gate—and a street called King Street. On the right hand was the",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s2",
+          "before": "No straw.",
+          "after": "",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s3",
+          "before": "No infirmary.A little room a surgery.A chapel,in which Mr. Smith reads a chap part of the Common Prayer Book every morning.",
+          "after": "",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s4",
+          "before": "The women should have another day-room:and on day-rooms for men should be enlarged.The courts might also be enlarged.The rooms for women, an court,are now more airy,the garden pales being set off.The keeper pays window-tax,and for water. gate is a paper with this inscription:“No person admit this prison on a Sunday after nine oclock in the morni fivein the evening.",
+          "after": "",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s5",
+          "before": "At myvisitin1777,there were among the felons,two from the Court of Conscience;in 1779,three;and in 1 I always found this prison very clean:and the prisone and placid.There is now a workshop with hemp-bloc a room over it.Two of the women's night-rooms are priated to female convicts,who have also a separate cou water,etc.AsI have seen several sick objects on th the gentlemen,who are so ready to relieve the suffer their fellow-creatures,will forgive the intimation infirmary might be made over the women's ward. THE KING'S BENCH PRISON,FOR DEBTOR Number: 1774.26April 324 In House InRules 1779.26Oct.438 In House 1776.28Jan.364 1OO 80 I782.2Jan.450 1776.28May y395（See remarks.）1782.28Dec.485 1779.II Aug. 511 75 1783.23Aug.532 This prison was part old buildings,part new.",
+          "after": "",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s6",
+          "before": "The old buildingswerea coffee-room just within th and a street called King Street.On therighthandy",
+          "after": "",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s8",
+          "before": "tminster, will beg tap-house; and four houses for prisoners: each consisted of a o1655. ground-foor,and two floors of chambers;four rooms on each eenight- floor;near ten feet square,and seven high.On the left-hand side of the street was the chapel;and six houses for prisoners; evenfeet are iron- ofequal depthwith the former houses:but theback-rooms had ms.All not,as the former had,communication with the fore-rooms.",
+          "after": "tap-house; and four houses for prisoners: each consisted of a ground-floor, and two floors of chambers; four rooms on each floor; near ten feet square, and seven high. On the left-hand side of the street was the chapel; and six houses for prisoners; of equal depth with the former houses: but the back-rooms had not, as the former had, communication with the fore-rooms. At the hither end of the fore-rooms, on the ground-floor, was a common kitchen, much too small. The cook, a prisoner, had the room over it. These houses also had ground-rooms, and two floors of chambers. All the rooms fronting King Street, and the whole of the houses on the other side the way, were for master’s-side debtors; who paid for each room unfurnished a shilling a week. The back part of the left-hand row was the common-side; the doors in the back-front. The first room on the ground-floor they called their court-room. The two houses at the farther end had six rooms each, for Crown debtors and fines; and were called Crown Court. The rest of this range on all the three floors was for common-side debtors. At the farther end of King Street, in a small court enclosed from the rest of the yard, was a building called the State House; consisting of ground-floors, and two floors of chambers; four sizable rooms on each floor; total twelve. A debtor who chose to be here, paid the marshal from eight to ten guineas for his whole time; besides a shilling a week, like other master’s-side debtors.\n\nAll these old buildings were out of repair.\n\nThe new buildings were—first, a house at the gate for the turnkey. The chambers were very convenient; and were let to a prisoner who paid a very high rent. But the principal new building was at the farther end of the yard. The two parts of it formed a right-angle. One part was four houses, with four ground-rooms to each; and the same number of chambers on each of the three floors above: total sixty-four. The rooms were about thirteen feet by eleven, and about eight feet high. The other part (the wing) was built as the Fleet Prison; but more airy and commodious. It had the same number of floors as the first part. On each floor was a passage seven and a half feet wide, and seventy-three and a half feet long: rooms on each side the passage, eleven on each floor, total forty-four; each room thirteen and a half feet by nine and a half, about eight feet high.\n\nThe prison is well supplied with water. Among the improvements, of a hundred and eight new rooms, and a spacious court, they should have built an infirmary. At more than one of my",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s9",
+          "before": "At the hither endof the fore-rooms,on the ground-floor,was a nstantly ers wash common kitchen,much too small.The cook,a prisoner,had fortheir the room over it.  These houses also had ground-rooms, and usedas two floors of chambers.All the rooms fronting King Street, nnd the whole of the houses on the other side the way,were ter,and for master's-side debtors;who paid for each room unfurnished eofthe a shilling a week.The back part of the left-hand row was the adjacent common-side;the doors in the back-front.The first room on adtheir theground-floor they called their court-room.",
+          "after": "",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s10",
+          "before": "The two houses farther at the farther end had six rooms each,for Crown debtors and verthe fines;and were called Crown Court. The rest of this range tedinto on all the three floors was for common-side debtors.At the nguntil farther end of King Street,in a small court enclosed from the rest of the yard,was a building called the State House;consist- debtors ing of ground-floors,and two floors of chambers;four sizable 83,six. rooms on each floor;total twelve.A debtor who chose to be erscalm here,paid the marshal from eight to ten guineas for hiswhole ks,and time;besides a shilling a week,like other master's-side debtors.",
+          "after": "",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s11",
+          "before": "All these old buildings were out of repair. appro- artwith The new buildings were-first, a house at the gate for the floors, turnkey.",
+          "after": "",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s12",
+          "before": "The chambers were very convenient;and were let ringsof to a prisoner who paid a very high rent. But the principal hatan new building was at the farther end of the yard.The two parts of it formed a right-angle.One part was four houses, with four ground-rooms to each;and the same number of chambers on each of the three floors above:total sixty-four.",
+          "after": "",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s13",
+          "before": "Theroomswere about thirteen feet by eleven,andabout eight RS feet high.The other part (the wing)was .built as the Fleet Prison;but more airy and commodious.",
+          "after": "",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s14",
+          "before": "It had the same In Rules 60 number of floors as the first part.",
+          "after": "",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s15",
+          "before": "On each floor was apassage 7 seven anda half feetwide,and seventy-three and a half feet 30 long:rooms on each side the passage, eleven on each floor, 50 total forty-four;each room thirteen anda half feet bynine and a half, about eight feet high. negate The prison iswell supplied with water.Among the improve- vasthe ments,of a hundred and eight newrooms,and a spacious court, they should have built an infirmary.At more than one of my",
+          "after": "",
+          "time": "2026-11-20T10:26:25+00:00",
+          "kind": "edit"
+        }
+      ],
       "spread_review": {
         "state": "working",
         "before": {
