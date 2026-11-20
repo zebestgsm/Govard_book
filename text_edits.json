@@ -2804,7 +2804,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "PROPOSED IMPROVEMENTS",
           "s1": "year,or two,which theymust waste in idleness,hunger,dirt, andwith companions much improved by such education. besev that prison benot secure,send them into still worse company; If Those that of abandoned felons in the county gaol.What is this but toidle devoting them to destruction? Many may date the total loss solitar of every principle of honourand virtue,from their confinement aman in these schools of wickedness. keeph Every county and town that has a bridewell should be careful For to see,frstof all,that it be suitable to the purpose.Inmany andso places the county gaolis also abridewell.But this prison ought ortwo tobequite separate from the gaol:at least not within the same have walls:nor should even the courtyard be common to both.The some building must be proportioned to the general number of delin- butat quents.",
@@ -2827,6 +2827,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T07:59:23+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T08:04:35+00:00"
           }
         ],
         "after": {
