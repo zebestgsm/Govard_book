@@ -3542,7 +3542,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "Being at Rotterdam on a Sunday,I was desirous of seeing, for the whether there was such dissipation in their prisons,as there is justbef in ours,on that day.The public service at the rasp-house whohac began at half after one o'clock.The audience consisted of as is so about thirty or forty inhabitants of the town,Mr.Schumacher ofthev the presiding regent,thehead-keeper and his family,and three catechu under-keepers, besides the prisoners.",
@@ -3567,6 +3567,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T08:06:48+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T08:26:22+00:00"
           }
         ],
         "after": {
