@@ -3318,7 +3318,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "and they will be honest.The rasping logwood,which was formerly the principal work done by the male convicts,is now fourto little: in many places performed at the mills, much cheaper: and the Dutch,finding woollen manufactures more profitable,have excelle effects lately set up several of them in those houses of correction.In some,the work of the robust prisoners does not only support ofindu them;but theyhave a little extra time to earn somewhat for howm their better living in prison,or for their benefit afterwards. thenu bridew Great care is taken to give them moral and religious instruc- tion,and reform their manners,for their own and the public InE good.The chaplain (such there is in every house of correction) in most does not only perform public worship,but privately instructs vicious the prisoners,catechises them everyweek,etc.,and I am well in ofthei formed thatmany come out sober and honest.Some have even ROT chosen to continue and work in the house after their discharge. werend Offenders are sentenced to these houses,according to their visits, theyar crimes,for seven,ten,fften,twenty,andeven toninety-nin There years: but,to prevent despair, seldom for life.As an encour- agement to sobriety and industry,those who distinguish them- persons selves by such behaviour,are discharged before the expiration theco of their term.And the prisoner who gives information of an days. intended escape is greatly favoured in this respect:his term sentenc is shortened,and sometimes he gains his liberty.A little commo before the election of new magistrates,those who arein office confine inspect these prisons;and inquire of thekeeper which prisoners, tobrea of those whohave been confined afewyears,have been diligent five sti and orderly;and of the minister,which of them have been aday; most attentive to public and private instructions.According daywit There to the accounts,they abridge the appointed time of punishment: so that fourteen years will sometimes be reduced to eight or coverle Inth ten;and twelve years to six or seven.",
@@ -3338,6 +3338,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T08:06:48+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T08:10:06+00:00"
           }
         ],
         "after": {
