@@ -9880,7 +9880,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "SECTION 5",
           "s1": "PRISONERS OF WAR IN ENGLAND,ETC. WHEN I visited my countrymen confined as prisoners of France,some of the commissaires and other gentlemen inf me,that they had received great complaints from theR prisoners in England.On my return in January,1779,I on the commissioners of the sick and wounded seamen,anc them an account of the English prisoners in France,and intention to visit the French prisoners.In order to assi in this business,they very readily favoured me with to their agents at several prisons.",
@@ -9903,6 +9903,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T09:43:41+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T10:23:19+00:00"
           }
         ],
         "after": {
