@@ -17281,7 +17281,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "REMARKS ON CHARTER SCHO",
           "s1": "taught reading,writing,and some arithmetic;butnot to maintained,or lodged in the house.This proposal was plished till the autumn of 1783.The improvemento new scholars in reading,writing,and behaviour,was and so pleasing, that,in December 1784 a proposal wa double the number,which was unanimously approved and respectable meeting of the trustees.Two masters one hundred and twenty out-scholars.The salary o master is 4o,and of the second 25,ayear.Hence t of each out-scholar is 1os.Iod.ayear to the master. expense of each boyin booksis Is.3d.andin coals 4d cap,whichcostsIs.6d.isgiven to each scholareveryyea it appears that the whole annual expense of each out-sch Consequently，more money is bestowed on one in-sch would educate eighteen out-scholars.",
@@ -17302,6 +17302,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T12:05:02+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T12:10:52+00:00"
           }
         ],
         "after": {
