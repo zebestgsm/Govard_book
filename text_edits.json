@@ -7555,7 +7555,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "I08 AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "and the hospital or poorhouse.Thewomen were all spinning or we carding in one large room.As their spinning was of various kinds,there was a room with cupboards,where each person's workwas laid up separately.The taskfor eachman orwoman olc was eight creutzers,or threepence halfpenny a day.Here is a the Roman Catholic chapel, and the priest lives in the house. ms Roman Catholic prisoners are sometimes sent hither from other T countries,for their term of confinement,asthose of a different ee persuasion are sent to Bayreuth. by HANAu.At Hanau, the galley-slaves (so-called) are distin- of guished into honnetes and deshonnetes.",
@@ -7583,6 +7583,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T09:19:51+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T09:30:59+00:00"
           }
         ],
         "after": {
