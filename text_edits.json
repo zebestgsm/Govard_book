@@ -4530,7 +4530,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "in company.Such of them as have learned to work,and appear to be reformed and industrious,are on their humble petition to be discharged.",
@@ -4550,8 +4550,26 @@
           {
             "action": "start",
             "time": "2026-11-20T08:30:35+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T08:32:19+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "AN ACCOUNT OF FOREIGN PRISONS",
+          "s1": "in company. Such of them as have learned to work, and appear to be reformed and industrious, are on their humble petition to be discharged.\n\nWhen prisoners are brought in, they must be examined and washed, and if necessary, clothed. Every Saturday afternoon they are to be dismissed from work, to clean themselves and wash their rooms, and the court: after which they are to receive clean shirts, and every four or six weeks, clean bed linen.\n\nAbsence from prayers—swearing, cursing, lying, and cheating—quarrelling, or seeing others quarrel and fight without giving notice to the steward or schoolmaster—are punished by fine, or forfeiture. All who commit any violence, or attempt an escape, together with those who abet or conceal them, are punished by a prolongation of their term of confinement, if not in some other way. Such as refuse to work, are to be punished with short allowance, or with stripes; and for a continued refusal, must be ignominiously exposed or put into the pillory. After an escape they are recommitted and punished; but for the second escape they are banished from the city and territory.\n\nI observed in the table of diet, that the poor are allowed no meat, except on the great festivals. At their meals they are allowed rye bread, and at breakfast butter with it. At dinner and supper they are allowed peeled barley, oats or buck-wheat hot, with milk (which in that city is remarkably good). The logwood-raspers and hemp-beaters are allowed a double quantity of bread and butter. The sick are allowed a better diet, consisting of white bread, beer, soup or meat, just as ordered by the physician.\n\nIn the spin-house (confinement in which is accounted infamous), the men were employed in spinning, in more lightsome rooms than those of the other house. In 1776, there were seventy-three prisoners, and in 1781, fifty-two.\n\nHere, as at some other towns, is a prison for slight offences (Roken-Kiste). The punishment to be confined for three or four days to two or three weeks, and live on bread and water only. To prevent the prisoners having anything else, what money they bring with them is taken and sealed up; but it is returned to them when discharged.",
+          "s2": "",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "DENMARK",
+          "s7": "DENMARK",
+          "s8": "At the entrance of many towns in Denmark, a whipping-post stands conspicuous; on the top of which the figure of a man is placed, with a sword by his side, and a whip in his right hand.¹ Gibbets and wheels are also placed on eminences, on which the bodies of malefactors are sometimes left after execution, to deter others from their crimes.\n\nCriminals are never put into irons before their trial, unless when they are apprehended in the act of murder, or some other very atrocious crime. After condemnation, application is made to Parliament, which either confirms, or reverses the sentence pronounced.\n\nSome criminals are punished by being whipped in the market-place, and banished. Some of the lower sort, as watchmen, coachmen, etc., are punished by being led through the city in what is called the Spanish mantle. This is a kind of heavy vest, something like a tub, with an aperture for the head, and irons to enclose the neck. I measured one at Berlin, one foot eight inches diameter at the top, two feet eleven at the bottom, and two feet eleven inches high. This mode of punishment is particularly dreaded, and is one cause that night robberies are never heard of in Copenhagen.\n\nThe place of execution is out of the city. Decollation is reckoned more honourable by the sword than by the axe. This is the common mode of execution; but of some more heinous crimes the punishment is breaking on the wheel; and in executing this on state prisoners, it has been the practice sometimes to begin with cutting off their right hands. After the sentence of a criminal is confirmed, he is allowed time to prepare for death, from eight to fourteen days, as the chaplain attending him thinks necessary. He is confined in a cell (or dungeon) at night, but is allowed to be in an upper room in the day.\n\nExecutions are rare. A great number for child-murder are condemned to work in spin-houses for life, and to be whipped annually, on the day when, and the spot where, the crime was\n\n1 Would not some public intimations of the punishment to follow crimes be useful also in England? Notwithstanding the numbers of fishermen and loose boys about Amsterdam, the Hague, and Schevelin, their public walks and beautiful plantations remain uninjured; which is owing, partly to the strictness of the police, and partly to the warnings given by placarts painted on boards, and hung up in different places, with representations of whipping, cutting off hands, etc.",
+          "s9": "",
+          "s10": "",
+          "s11": ""
+        }
       }
     },
     "43": {
@@ -4656,7 +4674,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "committed.Thismode of punishment is dreaded more than othersh death,and since it has been adopted has greatly prevented wheelbar the frequency of the crime.",
@@ -4678,8 +4696,28 @@
           {
             "action": "start",
             "time": "2026-11-20T08:30:36+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T08:32:19+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "AN ACCOUNT OF FOREIGN PRISONS",
+          "s1": "committed. This mode of punishment is dreaded more than death, and since it has been adopted has greatly prevented the frequency of the crime. The punishment for grand larceny has been, since 1771, whipping, and slavery for life.\n\nRENDSBURG. At Rendsburg in Holstein, in the guard-room at the entrance of the prison, on a slate was a list of seventy-seven slaves; sixty well, and seventeen sick. They are distinguished by a brown coat with red sleeves, and irons on one leg, with a chain fastened to their waists. They work on the fortifications; in summer from five to eleven, and from one to six. Their bread was coarse and black, and seemed by the taste, to be made of buck-wheat. Besides an allowance of bread, they have a pay of one stiver (a penny) a day. They lie on barrack-beds. Their countenances were more clear and healthy than those of the common people, postillions, etc., who have opportunities of procuring spirituous liquors.\n\nCOPENHAGEN. At Copenhagen, the state prison is in the citadel. In this prison there are five or six rooms, about fifteen feet by fourteen with one window, and a case (or bed) in each. These rooms were clean and whitewashed. I observed here one prisoner, who was guarded by an officer and soldier in the room, and another at the door, though the guard-room was below. The weather being then very warm, (thermometer 77°) he was permitted to have his window open: and this is all the fresh air allowed state prisoners, for they are never suffered to go out of their rooms. The king makes them an ample allowance for diet. At the time of divine service, their doors are opened, and they hear it by an oblique perforation into the church, through the thick wall opposite to the doors.\n\nThe stoct-hause is near the ramparts. Here criminals from the garrison, and convicts from the different classes of the people, are condemned to slavery. On one side of the court belonging to this prison, there are two rooms on the ground floor, each of which, though only ten feet high, has two tiers of barrack-beds. These rooms, being crowded, are unhealthy. Over them there are two close rooms for the sick; and also a chapel, which has no gallery, the ceiling being very low. Here I saw a hundred and forty-three slaves, who were distinguished by a brown coat with red sleeves, and breeches likewise of both colours. They never put off their clothes at night; and as they have new clothes only once in two years, and those very slight, I did not wonder to find many of them almost naked. Some had light chains on one leg, some heavier chains on both legs;",
+          "s2": "",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "",
+          "s7": "",
+          "s8": "",
+          "s9": "",
+          "s10": "",
+          "s11": "",
+          "s12": "SWEDEN",
+          "s13": "others had iron collars: one was chained by his wrists to a wheelbarrow. These, I understood, were punishments inflicted upon those of them who had attempted to escape, etc.\n\nOn the other side of the court, and down ten steps, there are seven arched dungeons about fifteen feet by seven, with one window eighteen inches by twelve, in which were eleven prisoners, who lay on barrack-beds.\n\nThe distress and despair in the pale and sickly countenances of the slaves were shocking to humanity. My first visit was on Saturday; the next day I went to the service at the chapel, where, of the few that attended, the man chained to the wheelbarrow was one. They sat together on benches, and soldiers were properly placed at different parts of the chapel, and two with bayonets fixed, stood at the door. Service being ended, the slaves first passed down. I then revisited their rooms, where most of them lay on barracks, dirty beyond description. At my third visit, I found the prison put into better order, and swept. The offensiveness of this prison always gave me a headache, such as I suffered from my first visits to the English prisons.\n\nThese slaves work on the fortifications, and their time for working in summer, is from five to eleven, and from one to six. Their allowance is seven pounds of black bread every five days, besides a pay of one stiver a day in winter, and in summer, when they work more hours, a stiver and a half. They were attended by a guard consisting of twenty soldiers. In returning from their work, I observed that some of them were chained to one another in pairs with loose chains. These, I found, were some of the worst, who had passed under the hands of an executioner and were branded; on a slate fifty-eight in this class; and eighty-five, of the first class.\n\nSWEDEN\n\nIn travelling through the country in Sweden, I observed the houses to be much cleaner than those in Denmark; and this led me to hope I should find the same difference in the prisons; especially as I was told they were visited every Saturday by an officer from the chancery. But I was disappointed, for I found them as dirty and offensive as those in Denmark. Some of the prisons at Stockholm are near the water; the city, which stands on seven islands, being well adapted for that situation. When"
+        }
       }
     }
   }
