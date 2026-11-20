@@ -17129,7 +17129,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "NORTH WALES CIRCUIT",
           "s1": "CARNARVONSHIRE",
@@ -17229,6 +17229,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T12:19:03+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T12:34:00+00:00"
           }
         ],
         "after": {
