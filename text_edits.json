@@ -15040,7 +15040,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "2I4 WORCESTERSHIRE convenient room for that purpose.",
           "s1": "The twofree night-rooms for'debtors,are at another part of theyar way to them is through the women felons’night-roon hasno window.The day-room(called the round h men and women felons is in the middleof thearea;only feetby twelve.1 Near it is a hand-ventilator（whichi order for a guinea a year)for airing the men felons which is twenty-six steps under ground,and circular, feet diameter,with barrack-bedsteads.Over it is an in the court, three feet diameter,with iron grates. T work the ventilator cheerfully about a quarter of before they go down,and as longwhen they come u freshens and cools the dungeon amazingly:we coul keep our candle burning below while it was working. is another very damp dungeon fifteen and a half fee thewindow (eighteen inches bytwelve) even ground.Straw,4ayear.",
@@ -15064,6 +15064,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T11:36:02+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T11:41:11+00:00"
           }
         ],
         "after": {
