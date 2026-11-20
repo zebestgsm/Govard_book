@@ -11974,7 +11974,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "needs_work",
         "before": {
           "s0": "LONDON",
           "s1": "yard.The crier might take of a stranger a penny f prisoner to him:and of a complainant twopence for a special committee.For blasphemy，wearing，riot, etc.,the committee to fine at discretion:for damagi finea shilling.They were to take from a new-comer, Sunday，besides the two shillings garnish to be spenti shillingandsixpencetobeappropriatedtotheuseoft Common-side prisoners tobe confined to their own and not to associate with these lawmakers,nor to us conveniences.",
@@ -12001,6 +12001,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T10:24:22+00:00"
+          },
+          {
+            "action": "needs_work",
+            "time": "2026-11-20T10:36:27+00:00"
           }
         ],
         "after": {
