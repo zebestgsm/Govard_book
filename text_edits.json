@@ -13754,6 +13754,35 @@
           "s15": ""
         }
       }
+    },
+    "104": {
+      "segments": {},
+      "history": [],
+      "spread_review": {
+        "state": "working",
+        "before": {
+          "s0": "SUSSEX",
+          "s1": "This gaol has two foors over arcades;the ascent by a stone staircase with iron rails.On each floor,bo debtors’and felonsside,there are ten rooms(five on apassage five feet wide),besides a day-room （twent twelve feet three inches)and a lodging-room for a Each floor has an iron-lattice door;and every room has for the window,a bedstead,a canvas straw bed, blankets:and the county is so considerate as to allow ofcoals to the debtors,and the same quantity to t every day during the six winter months.",
+          "s2": "Here are two spacious courts with water in each;a encloses thewhole prison.Near the gate isapoor' obtaining prisoners' groats.",
+          "s3": "The felons on their entrance are washed with war and each man is clothed in a green striped uniforn waistcoat and breeches,and has two shirts,two pairs of a pair of shoes, a hat and a woollen cap.",
+          "s4": "The county has very prudently settled thenumber of （viz.three):to each they pay half a guinea a week,a them goes twice a day to purchase provisions andl debtors;and it is properly fixed that they shall not e pint of wine,or one quart of strong beer a day each have only water for their drink.The justices hav scales and weights,which is a check on the baker loaves I saw weighed were full twopounds.",
+          "s5": "The clauses against spirituous liquors are hung up gaol is kept very clean.The Act for preserving the prisoners isnot hung up.Iwould just observe,that should have awindow in his kitchen towards the court,and in his parlour towards that of the felons. omit the old tableof fees,though this county has s example of abolishing all fees,and also the tap:in co of thisI found the gaol as quiet as a private house.",
+          "s6": "Formerly there was no chaplain,buta clergyma ayear for attending condemned criminals. COUNTY BRIDEWELL PETwoRTH. This bridewell has two rooms: one, feetby ten,the other eighteen bynine,six feet high： for the general number of prisoners.No chimney: shutters to the windows:nocourt:nowater:noem",
+          "s7": "SURREY",
+          "s8": "coeach is Allowance now,a two-pound loaf every day,to be weighed by th on the the keeper with scales and weights ordered to the house by each side the justices;andwhich should be kept for that purpose only. yfeetby Keeper's salary lately augmented from 12 to f2o. Fees, turnkey. 6s.8d.,no table.But now the keeper's salary is augmented ashutter to3o inlieu of all fees. and two abushel upon discharge,were much weakened by the close confinement, he felons, and small allowance.\"",
+          "s9": "Thomas Draper and William Godfrey were committed the ndawall 6th of January,1776;the former died the IIth,theother the box,for 26th of the same month.William Cox,committed the 13th of January, died the 23rd. None of them had the gaol-fever. mwater, I donot affirm that these menwere famished to death:it was nofcoat， extremelycoldweather.However,since that time,the allowance stockings, of breadis doubled.For this the prisoners are indebted to the kind attention of the Duke of Richmond.This prison (rented turnkeys by the county)has caused the death of many poor creatures: ndoneof but I have now the pleasure to hear that it will soon be dis- iquorsfor continued,a new one being under the consideration of the xceedone justices.",
+          "s10": "Felons esentin Several SURREY ,andthe healthof COUNTY GAOL IN SOUTHWARK thegaoler debtors' The new gaol,besides the gaoler's house,and the tap-room, Idonot hasformasters-side debtors,aparlour,and fourother sizable etanoble rooms;and for common-side debtors,three good rooms.Mr. nsequence Hall prevents their being crowded with thewives and children of the debtors. For these prisoners,there is a court;into nhad5 which felons are not admitted;excepta few,whom the gaoler has reasons for indulging with that distinction.",
+          "s11": "The ward for men felons has six rooms on three floors;in these they sleep.There is a court belonging to it.The ward forwomenfelons has two lower rooms,two above;and a court.",
+          "s12": "The felons’courts should be paved with fat stones,not only seventeen for the convenience of washing,but for safety,as pebbles are toosmall dangerous.In the men’s court there should be a pump and loglassor a convenient bath,for at several of my visits the Thames ployment. water was off."
+        },
+        "cycles": [],
+        "events": [
+          {
+            "action": "start",
+            "time": "2026-11-20T10:55:40+00:00"
+          }
+        ]
+      }
     }
   }
 }
