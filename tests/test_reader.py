@@ -709,6 +709,23 @@ class ReaderHTTPTests(unittest.TestCase):
             self.assertIn('id="footnote-94-s3-' + number + '"', h94)
         self.assertIn('eight and a half ounces', s94['s9'])
 
+    def test_spreads_95_97_prisons_and_tables(self):
+        h95, s95 = reader.segment_state(95)
+        self.assertIn('faulty apprentices and Bridewell boys', s95['s1'])
+        self.assertIn('1772\t1709\t1778\t1027', s95['s3'])
+        self.assertIn('<span class="restored-heading">WHITECHAPEL PRISON FOR DEBTORS</span>', h95)
+        self.assertIn('<span class="restored-heading">THE SAVOY</span>', h95)
+        self.assertIn('2s. 10½d.', s95['s6'])
+        h96, s96 = reader.segment_state(96)
+        self.assertIn('<span class="restored-heading">TOTHILL-FIELDS BRIDEWELL</span>', h96)
+        self.assertIn('Dec. 1782, 8½ oz. Oct. 1783, 9½ oz.', s96['s8'])
+        self.assertIn('role="table" aria-label="Tothill-fields prisoners by visit date"', h96)
+        h97, s97 = reader.segment_state(97)
+        self.assertIn('<span class="restored-heading">THE KING’S BENCH PRISON, FOR DEBTORS</span>', h97)
+        self.assertIn('1783. 23 Aug.\t532\t50', s97['s1'])
+        self.assertIn('role="table" aria-label="King’s Bench prisoners by visit date"', h97)
+        self.assertIn('a hundred and eight new rooms', s97['s8'])
+
     def test_scan_zoom_controls_and_detail_image(self):
         page = self.request('/spread/107')[1]
         for marker in ('scan-zoom-toolbar', 'scan-zoom-in', 'scan-zoom-out', 'scan-zoom-reset', 'data-detail-src', 'detail=1', 'scan-fullscreen', 'scan-fullscreen-close', 'scan-fullscreen-view', 'aria-modal="true"'):
@@ -741,11 +758,11 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertEqual(self.form('/scan-action/14', {'action':'restore-scan-mark'})[0], 200)
         self.assertTrue(reader.scan_dropdown_label(14))
         # Automated collation does not replace manual proofreading.
-        self.assertIn('☑ OCR', reader.quality_label(95))
-        self.assertEqual(self.form('/scan-action/95', {'action':'dismiss-ocr'})[0], 200)
-        self.assertNotIn('OCR', reader.quality_label(95))
+        self.assertIn('☑ OCR', reader.quality_label(98))
+        self.assertEqual(self.form('/scan-action/98', {'action':'dismiss-ocr'})[0], 200)
+        self.assertNotIn('OCR', reader.quality_label(98))
         self.assertIn('скан повёрнут', reader.quality_label(14))
-        self.assertIn('пометка OCR снята', self.request('/spread/95')[1])
+        self.assertIn('пометка OCR снята', self.request('/spread/98')[1])
 
         pdf = reader.pymupdf.open()
         pdf.new_page(width=100, height=50)
@@ -766,8 +783,8 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertFalse(reader.replacement_path(14).exists())
         self.assertTrue(reader.scan_dropdown_label(14))
         self.assertNotIn('OCR', reader.quality_label(14))
-        self.assertEqual(self.form('/scan-action/95', {'action':'restore-ocr'})[0], 200)
-        self.assertIn('☑ OCR', reader.quality_label(95))
+        self.assertEqual(self.form('/scan-action/98', {'action':'restore-ocr'})[0], 200)
+        self.assertIn('☑ OCR', reader.quality_label(98))
 
     def test_legacy_quality_decisions_are_preserved_when_migrated(self):
         reader.QUALITY_FILE.write_text(json.dumps({'dismissed': [2, 14, 153], 'other': 'keep'}))
@@ -866,7 +883,7 @@ class ReaderHTTPTests(unittest.TestCase):
     def test_verified_spreads_and_pending_ocr_labels(self):
         for number in (5, 6, 151, 153, 161, 162, 163, 164, 165):
             self.assertNotIn('OCR', reader.quality_label(number))
-        for number in (95, 96, 106, 108):
+        for number in (98, 99, 106, 108):
             self.assertIn('☑ OCR', reader.quality_label(number))
         self.assertNotIn('☑ OCR', reader.quality_label(107))
         self.assertIn('скан повёрнут', reader.quality_label(14))
@@ -1152,7 +1169,7 @@ class TranslationTests(unittest.TestCase):
         self.assertIn('Русский перевод', html)
         self.assertIn('ОБЗОР БЕДСТВИЙ В ТЮРЬМАХ', html)
         self.assertLess(html.index('id="editable-book"'), html.index('id="translation"'))
-        working = reader.reader_page(95)
+        working = reader.reader_page(98)
         self.assertIn('перевод по черновому английскому тексту', working)
         self.assertIn('Русский перевод', working)
 

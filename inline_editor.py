@@ -32,6 +32,8 @@ TABLE_META = {
     (91, 's2'): ('Fleet Prison — Clerk of the Inquiries fee', 'fee'),
     (95, 's3'): ('Bridewell commitments and prisoners found', 'mixed'),
     (95, 's6'): ('Whitechapel prison fees, 1776', 'fee'),
+    (96, 's8'): ('Tothill-fields prisoners by visit date', 'fee'),
+    (97, 's1'): ('King’s Bench prisoners by visit date', 'mixed'),
     (112, 's0'): ('Abingdon prisoners', 'mixed'),
     (112, 's12'): ('Oxford Castle prisoners', 'mixed'),
     (119, 's3'): ('Bodmin fees — debtors, first class', 'fee'),
@@ -254,7 +256,7 @@ def render_verified_block(value, spread, segment_id, query):
         elif '\t' in chunk:
             # Group only consecutive tab-separated lines. Prose introducing or
             # following a table must not become a one-cell table row.
-            has_header = not ((spread == 16 and segment_id in ('s7', 's11')) or (spread == 17 and segment_id == 's1') or (spread == 35 and segment_id == 's1') or (spread, segment_id) in ((79, 's3'), (84, 's5'), (91, 's2'), (112, 's0')))
+            has_header = not ((spread == 16 and segment_id in ('s7', 's11')) or (spread == 17 and segment_id == 's1') or (spread == 35 and segment_id == 's1') or (spread, segment_id) in ((79, 's3'), (84, 's5'), (91, 's2'), (95, 's3'), (112, 's0')))
             if (spread, segment_id) in TABLE_META:
                 label, table_kind = TABLE_META[(spread, segment_id)]
             elif spread == 16 and segment_id == 's10':
@@ -316,7 +318,11 @@ def render_verified_block(value, spread, segment_id, query):
               or (spread == 91 and segment_id == 's4' and chunk == 'HILARY 3d GEORGE II. 1729')
               or (spread == 92 and segment_id == 's7' and chunk == 'POULTRY COMPTER')
               or (spread == 93 and segment_id == 's11' and chunk == 'WOOD STREET COMPTER')
-              or (spread == 94 and segment_id == 's1' and chunk == 'BRIDEWELL')):
+              or (spread == 94 and segment_id == 's1' and chunk == 'BRIDEWELL')
+              or (spread == 95 and segment_id == 's3' and chunk == 'WHITECHAPEL PRISON FOR DEBTORS')
+              or (spread == 95 and segment_id == 's6' and chunk == 'THE SAVOY')
+              or (spread == 96 and segment_id == 's8' and chunk == 'TOTHILL-FIELDS BRIDEWELL')
+              or (spread == 97 and segment_id == 's1' and chunk == 'THE KING’S BENCH PRISON, FOR DEBTORS')):
             output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
         elif spread == 91 and ((segment_id == 's4' and chunk.startswith('1, 2, 3. Warden')) or (segment_id == 's7' and chunk.startswith('10. Those who blaspheme'))):
             output.append('<span class="book-list">' + text_html(chunk) + '</span>')
