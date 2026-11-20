@@ -15547,8 +15547,34 @@
       }
     },
     "119": {
-      "segments": {},
-      "history": [],
+      "segments": {
+        "s1": "allowance, have only one-sixth of what they earn. Clauses against spirituous liquors are hung up. The Act for preserving the health of prisoners is not hung up, but the gaol is now kept very neat and clean.",
+        "s2": "By a spirited exertion, the gentlemen of this county have erected a monument of their humanity, and attention to the health and morals of prisoners.",
+        "s10": "The stated time of labouring to be ten hours per day in summer, and eight hours in winter. The keeper to have one sixth part of the earnings, the persons labouring one sixth part for their own use, besides the full amount of their extra work, and the remaining two third parts to go to the county stock, towards the expense of their maintenance."
+      },
+      "history": [
+        {
+          "id": "s1",
+          "before": "allowance,have only one-sixth of what they earn. against spirituous liquors are hung up.The Act for p the health of prisoners is not hung up,but the gaolis very neat and clean.",
+          "after": "allowance, have only one-sixth of what they earn. Clauses against spirituous liquors are hung up. The Act for preserving the health of prisoners is not hung up, but the gaol is now kept very neat and clean.",
+          "time": "2026-11-20T11:46:42+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s2",
+          "before": "By a spirited exertion,the gentlemen of this cou erected a monument of their humanity,and attentic health and morals of prisoners.",
+          "after": "By a spirited exertion, the gentlemen of this county have erected a monument of their humanity, and attention to the health and morals of prisoners.",
+          "time": "2026-11-20T11:46:42+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s10",
+          "before": "The stated time of labouring to be ten hours per day in summer, and eight hours in winter. The keeper to have one sixth part of the earnings, the persons labouring one sixth part for their own use, besides the full amount of their extra work, and the remaining two third parts to go to the county stock, towards the expence of their maintenance.",
+          "after": "The stated time of labouring to be ten hours per day in summer, and eight hours in winter. The keeper to have one sixth part of the earnings, the persons labouring one sixth part for their own use, besides the full amount of their extra work, and the remaining two third parts to go to the county stock, towards the expense of their maintenance.",
+          "time": "2026-11-20T11:46:42+00:00",
+          "kind": "edit"
+        }
+      ],
       "spread_review": {
         "state": "working",
         "before": {
