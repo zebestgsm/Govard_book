@@ -2105,8 +2105,98 @@
       }
     },
     "22": {
-      "segments": {},
-      "history": [],
+      "segments": {
+        "s1": "the sick. If he distributes the allowance, he must do justice to the county, or city, and to his prisoners, by giving to the latter their full stated quantity.\n\nI have said before, a gaoler should not live at a distance from his prison.¹ He should not only reside on the spot, but be constantly at home. Prisoners generally take advantage of his absence. For this reason, no keeper of a prison should be a sheriff’s officer. Such are very often abroad: and some of them have acknowledged to me, that their business as officers was incompatible with their duty as gaolers.\n\nI had the pleasure to find a chaplain appointed to most of the county gaols; in consequence of the act made the thirteenth of his present Majesty. When this office is vacant, it behoves magistrates not to take the first clergyman who offers his service, without regarding his real character. They should choose one who is in principle a Christian: who will not content himself with officiating in public; but will converse with the prisoners; admonish the profligate; exhort the thoughtless; comfort the sick; and make known to the condemned, that mercy which is revealed in the gospel.\n\nIn the Life of Bernard Gilpin, p. 173, the writer, speaking of his labours, informs us, that “wherever he came, he used to visit all the jails and places of confinement; few in the kingdom having at that time any appointed minister.” And by his affectionate address “he is said to have reformed many very abandoned persons in those places.”²\n\nIn some prisons where there is a chaplain appointed, no worship is fixed for Sunday: in some where that day is fixed, the chaplain, choosing his hours, comes sometimes too soon in the morning, sometimes between morning and evening service, at the prisoners’ dinner-time. In some there is no fixed day at all; consequently (as I have too often found) the service is totally omitted. It would be proper to have sermon and prayers once, at least, on the Lord’s day:³ and prayers two fixed days",
+        "s2": "¹ The bad consequences of a contrary policy I have often seen and lamented; particularly at Dublin in the old and new gaol.\n\n² In the reign of Queen Mary, this faithful minister of the gospel was to have been a sacrifice. But in his journey from Durham to London, where he expected to suffer, his leg was broken by a fall from his horse: and by that circumstance Providence saved him from the fiery trial; for the bigoted queen died before his recovery. In the next reign he was promoted to the rich living of Houghton in Northumberland: and it was there he laboured, as is said above.\n\n³ For on Sundays I have often seen debtors and others lying on their beds in the daytime; which I am persuaded would not have been the case, if there had been divine service in the chapel.",
+        "s11": "in the week besides. And if a chapter of the New Testament were read daily by one of the prisoners to the rest, or by the gaoler, before the distribution of prison allowance, the time would not be misspent. The reader, if a prisoner, might be allowed a small weekly pension. The gaoler should not, as some do, hinder any prisoner from attending divine service. He ought to remove every hindrance. And, on Sunday especially, no visitants should be admitted during that time. Visitants who are there, should go out or attend. The chapel bell should ring ten minutes before divine service. Upon asking at more places than one, “Why there were so few prisoners at prayers?” I have been answered, “They are drinking with their friends.” I have heard some worthy clergymen lament the little success attending their labours in prisons, which they attributed to the sale of liquors, and the want of a proper separation of the sexes. The gaoler should be constant at chapel with his prisoners; and set a good example for them to follow. The chaplain who officiates in the gaol may also officiate at the bridewell, where the distance will allow; and preach once a Sunday in each prison.¹\n\nIt perhaps will be said, that I propose a great deal of duty to these gentlemen. The act just recited allows a sum not exceeding fifty pounds a year for their services. Many counties have fixed that salary; but I should hope that clergymen might be found who would act from a much nobler motive, a regard to the most important interests of their fellow-creatures.\n\nThe late act for preserving the health of prisoners requires that an experienced surgeon or apothecary be appointed to every gaol: a man of repute in his profession. His business is, in the first place, to order the immediate removal of the sick, to the infirmary; and see that they have proper bedding and attendance. Their irons should be taken off; and they should have, not only medicines, but also diet suitable to their condition. He must diligently and daily visit them himself; not leaving them to journeymen and apprentices. He should constantly inculcate the necessity of cleanliness, and fresh air; and the danger of crowding prisoners together: and he should recommend, what he cannot enforce. I need not add, that\n\n¹ In the book of Common Prayer in Ireland, there is very properly inserted, “A form of prayer for the visitation of prisoners, treated upon by the archbishops and bishops, and the rest of the clergy of Ireland, and agreed upon by her Majesty’s license in their synod, holden at Dublin, in the year 1711.”",
+        "s3": "",
+        "s4": "",
+        "s5": "",
+        "s6": "",
+        "s7": "",
+        "s8": "",
+        "s9": "",
+        "s12": ""
+      },
+      "history": [
+        {
+          "id": "s1",
+          "before": "the sick.If he distributes the allowance,he must do justice to the county，or city,and to his prisoners,by giving to the int latter theirfull stated quantity. were I have said before,a gaoler should not live at a distance gaol from his prison. He should not only reside on the spot,but wou be constantly at home.",
+          "after": "the sick. If he distributes the allowance, he must do justice to the county, or city, and to his prisoners, by giving to the latter their full stated quantity.\n\nI have said before, a gaoler should not live at a distance from his prison.¹ He should not only reside on the spot, but be constantly at home. Prisoners generally take advantage of his absence. For this reason, no keeper of a prison should be a sheriff’s officer. Such are very often abroad: and some of them have acknowledged to me, that their business as officers was incompatible with their duty as gaolers.\n\nI had the pleasure to find a chaplain appointed to most of the county gaols; in consequence of the act made the thirteenth of his present Majesty. When this office is vacant, it behoves magistrates not to take the first clergyman who offers his service, without regarding his real character. They should choose one who is in principle a Christian: who will not content himself with officiating in public; but will converse with the prisoners; admonish the profligate; exhort the thoughtless; comfort the sick; and make known to the condemned, that mercy which is revealed in the gospel.\n\nIn the Life of Bernard Gilpin, p. 173, the writer, speaking of his labours, informs us, that “wherever he came, he used to visit all the jails and places of confinement; few in the kingdom having at that time any appointed minister.” And by his affectionate address “he is said to have reformed many very abandoned persons in those places.”²\n\nIn some prisons where there is a chaplain appointed, no worship is fixed for Sunday: in some where that day is fixed, the chaplain, choosing his hours, comes sometimes too soon in the morning, sometimes between morning and evening service, at the prisoners’ dinner-time. In some there is no fixed day at all; consequently (as I have too often found) the service is totally omitted. It would be proper to have sermon and prayers once, at least, on the Lord’s day:³ and prayers two fixed days",
+          "time": "2026-11-20T07:46:52+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s2",
+          "before": "Prisoners generally take advantage allo of his absence.",
+          "after": "¹ The bad consequences of a contrary policy I have often seen and lamented; particularly at Dublin in the old and new gaol.\n\n² In the reign of Queen Mary, this faithful minister of the gospel was to have been a sacrifice. But in his journey from Durham to London, where he expected to suffer, his leg was broken by a fall from his horse: and by that circumstance Providence saved him from the fiery trial; for the bigoted queen died before his recovery. In the next reign he was promoted to the rich living of Houghton in Northumberland: and it was there he laboured, as is said above.\n\n³ For on Sundays I have often seen debtors and others lying on their beds in the daytime; which I am persuaded would not have been the case, if there had been divine service in the chapel.",
+          "time": "2026-11-20T07:46:52+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s11",
+          "before": "heweekbesides.And if a chapter of the New Testament read daily by one of the prisoners to the rest,or by the er,before the distribution of prison allowance,the time ld not be misspent.The reader,if a prisoner,might be wed a small weekly pension.The gaoler should not, as edo,hinder any prisoner from attending divine service. ought to remove every hindrance.And,on Sunday cially,no visitants should be admitted during that time. should ring ten minutes before divine service.Upon ngat more places than one,“Whythere were so few prisoners prayers?”I have been answered, “They are drinking their friends.Ihave heard some worthy clergymen ent the little success attending their labours in prisons, ch they attributed to the saleof liquors,and the wantof a per separation of the sexes.The gaoler should be constant hapel with his prisoners;and set a good example for them ollow.The chaplain who offciates in the gaol may also iate at the bridewell, where the distance will allow; and achoncea Sunday in each prison. perhaps will be said,that Iproposea great deal of duty these gentlemen.The act just recited allows a sum not eeding fifty pounds a year for their services.Many nties have fixed that salary;butI should hope that clergy- might be foundwho would act from amuch nobler ive,a regard to the most important interests of their fellow- Ltures. helate act for preserving the health of prisoners requires an experienced surgeon or apothecary be appointed to ry gaol:a man of repute in his profession.His business inthefirstplace,to order the immediate removal of the ,to the infirmary;and see that they have proper bedding attendance.",
+          "after": "in the week besides. And if a chapter of the New Testament were read daily by one of the prisoners to the rest, or by the gaoler, before the distribution of prison allowance, the time would not be misspent. The reader, if a prisoner, might be allowed a small weekly pension. The gaoler should not, as some do, hinder any prisoner from attending divine service. He ought to remove every hindrance. And, on Sunday especially, no visitants should be admitted during that time. Visitants who are there, should go out or attend. The chapel bell should ring ten minutes before divine service. Upon asking at more places than one, “Why there were so few prisoners at prayers?” I have been answered, “They are drinking with their friends.” I have heard some worthy clergymen lament the little success attending their labours in prisons, which they attributed to the sale of liquors, and the want of a proper separation of the sexes. The gaoler should be constant at chapel with his prisoners; and set a good example for them to follow. The chaplain who officiates in the gaol may also officiate at the bridewell, where the distance will allow; and preach once a Sunday in each prison.¹\n\nIt perhaps will be said, that I propose a great deal of duty to these gentlemen. The act just recited allows a sum not exceeding fifty pounds a year for their services. Many counties have fixed that salary; but I should hope that clergymen might be found who would act from a much nobler motive, a regard to the most important interests of their fellow-creatures.\n\nThe late act for preserving the health of prisoners requires that an experienced surgeon or apothecary be appointed to every gaol: a man of repute in his profession. His business is, in the first place, to order the immediate removal of the sick, to the infirmary; and see that they have proper bedding and attendance. Their irons should be taken off; and they should have, not only medicines, but also diet suitable to their condition. He must diligently and daily visit them himself; not leaving them to journeymen and apprentices. He should constantly inculcate the necessity of cleanliness, and fresh air; and the danger of crowding prisoners together: and he should recommend, what he cannot enforce. I need not add, that\n\n¹ In the book of Common Prayer in Ireland, there is very properly inserted, “A form of prayer for the visitation of prisoners, treated upon by the archbishops and bishops, and the rest of the clergy of Ireland, and agreed upon by her Majesty’s license in their synod, holden at Dublin, in the year 1711.”",
+          "time": "2026-11-20T07:46:52+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s3",
+          "before": "For this reason,no keeper of a prison should som bea sheriff's officer.",
+          "after": "",
+          "time": "2026-11-20T07:46:52+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s4",
+          "before": "Such are very often abroad:and some He of them have acknowledged tome,that their business asofficers espe was incompatible with their duty as gaolers.",
+          "after": "",
+          "time": "2026-11-20T07:46:52+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s5",
+          "before": "Visi I had the pleasure to find a chaplain appointed to most of bell the county gaols;in consequence of the actmade the thirteenth aski of his present Majesty.",
+          "after": "",
+          "time": "2026-11-20T07:46:52+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s6",
+          "before": "When this office is vacant,it behoves at magistrates not to take the first clergyman who offers his witl service,without regarding his real character.",
+          "after": "",
+          "time": "2026-11-20T07:46:52+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s7",
+          "before": "They should lam choose one who is in principle a Christian:who will not content whi himself with officiating in public;but will converse with the prop prisoners;admonish the profligate;exhort the thoughtless； atc comfort the sick;and make known to the condemned,that to mercy which is revealed in the gospel. offic In the Life of Bernard Gilpin,.73,thewriter,speakingof prea his labours,informs us,that wherever he came,he used to I visit all the jails and places of confinement;fewin thekingdom to having at that time any appointed minister.\"",
+          "after": "",
+          "time": "2026-11-20T07:46:52+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s8",
+          "before": "And by his exc affectionate address“he is said to have reformed many very cou abandoned persons in those places.2 mer In some prisons where there is a chaplain appointed,no mot worshipis fixed forSunday:in some where that day is fixed,the erea chaplain,choosing his hours,comes sometimes too soon in the T morning,sometimes between morning and evening service,at tha the prisoners'dinner-time.",
+          "after": "",
+          "time": "2026-11-20T07:46:52+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s9",
+          "before": "In some there isnofixed dayatall; eve consequently(as I have too often found) the service is totally is, omitted.It would be proper to have sermon and prayers sick once,at least,on the Lord’s day:and prayers two fixed days and sho 1The bad consequences of a contrarypolicyIhave often seen and con In the reign of QueenMary,this faithful minister of thegospelwas to not have been a sacrifice.But in his journey from Durham toLondon,where he expected to suffer,hislegwas broken bya fall from his horse:and by con that circumstance Providence saved himfrom the fiery trial;for the and bigoted queen died before his recovery.In the next reign he was pro- recc moted to the rich livingof Houghton in Northumberland:and itwas there he laboured, as is said above. 1 3ForonSundaysIhave often seen debtors and others lying on their Inse beds in the daytime;whichIam persuaded would not have been the case, by if there had been divine service in the chapel. agre int",
+          "after": "",
+          "time": "2026-11-20T07:46:52+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s12",
+          "before": "Their irons should be taken off;and they uldhave,notonly medicines,but also diet suitable to their dition.Hemust diligently and daily visit them himself; leaving them to journeymen and apprentices.He should stantly inculcate the necessity of cleanliness,andfresh air; the danger of crowding prisoners together:and he should mmend,what he cannot enforce.Ineed not add,that In the book of Common Prayer in Ireland,there is very properly rted,“A form ofprayer for the visitation of prisoners,treated upon he archbishopsand bishops,and therestof the clergy ofIreland,and ed upon by her Majesty's license in their synod,holden at Dublin， heyear17rr.\"",
+          "after": "",
+          "time": "2026-11-20T07:46:52+00:00",
+          "kind": "edit"
+        }
+      ],
       "spread_review": {
         "state": "working",
         "before": {
