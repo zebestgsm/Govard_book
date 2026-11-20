@@ -286,6 +286,8 @@ def render_verified_block(value, spread, segment_id, query):
             # Group only consecutive tab-separated lines. Prose introducing or
             # following a table must not become a one-cell table row.
             has_header = not ((spread == 16 and segment_id in ('s7', 's11')) or (spread == 17 and segment_id == 's1') or (spread == 35 and segment_id == 's1') or (spread, segment_id) in ((79, 's3'), (84, 's5'), (89, 's4'), (91, 's2'), (95, 's3'), (101, 's7'), (106, 's6'), (111, 's7'), (112, 's0')))
+            if spread == 119 and segment_id in ('s3', 's4', 's5', 's8'):
+                has_header = chunk.startswith('\t£\ts.\td.')
             if (spread, segment_id) == (116, 's2'):
                 # Only the second of the three lists has printed column headings.
                 has_header = chunk.splitlines()[0].startswith('\t')
@@ -391,7 +393,9 @@ def render_verified_block(value, spread, segment_id, query):
               or (spread == 115 and segment_id == 's3' and chunk in ('GLOUCESTERSHIRE', 'COUNTY GAOL, GLOUCESTER CASTLE'))
               or (spread == 116 and segment_id == 's11' and chunk in ('WESTERN CIRCUIT', 'HAMPSHIRE', 'COUNTY GAOL AT WINCHESTER', 'WILTSHIRE', 'SALISBURY COUNTY GAOL'))
               or (spread == 117 and ((segment_id == 's1' and chunk == 'COUNTY BRIDEWELL') or (segment_id == 's4' and chunk in ('DORSETSHIRE', 'COUNTY BRIDEWELL', 'DEVONSHIRE', 'HIGH GAOL AT EXETER'))))
-              or (spread == 118 and ((segment_id == 's1' and chunk == 'PLYMOUTH TOWN GAOL') or (segment_id == 's5' and chunk in ('CORNWALL', 'COUNTY GAOL AT LAUNCESTON FOR FELONS', 'COUNTY GAOL AT BODMIN'))))):
+              or (spread == 118 and ((segment_id == 's1' and chunk == 'PLYMOUTH TOWN GAOL') or (segment_id == 's5' and chunk in ('CORNWALL', 'COUNTY GAOL AT LAUNCESTON FOR FELONS', 'COUNTY GAOL AT BODMIN'))))
+              or (spread == 120 and ((segment_id == 's1' and chunk == 'PENZANCE') or (segment_id == 's5' and chunk in ('SOMERSETSHIRE', 'BRISTOL NEWGATE'))))
+              or (spread == 121 and ((segment_id == 's1' and chunk == 'BRIDGEWATER TOWN GAOL') or (segment_id == 's2' and chunk in ('NORTHERN CIRCUIT', 'YORKSHIRE', 'COUNTY GAOL, YORK CASTLE'))))):
             output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
         elif ((spread == 102 and segment_id == 's4' and chunk.startswith('that want of care respecting them'))
               or (spread == 110 and segment_id == 's3' and chunk.startswith('Before this rigorous law'))
