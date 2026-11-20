@@ -13638,7 +13638,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "needs_work",
         "before": {
           "s0": "KENT",
           "s1": "barrack-beds, and hop-bagging with straw;but no This county has for years past been so considerate the fees of poor prisoners acquitted:and to transpo assizes,who are entitled to the king's allowance of 2s. they continue the allowance which they had before tr alsopay thegaoler'sfeesfor those convicts.Thefelon said they wished for more bread and would,if tha creased,be content with less beer.The baker who felons sells thirteen loaves to the dozen;and deb amongst them every thirteenth loaf,and are now allo three cauldron of coals.",
@@ -13666,6 +13666,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T10:40:32+00:00"
+          },
+          {
+            "action": "needs_work",
+            "time": "2026-11-20T10:45:07+00:00"
           }
         ],
         "after": {
