@@ -2926,7 +2926,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "PROPOSED IMPROVEMENTS",
           "s1": "should be baths,and an oven,for the same purposes as in the andin gaols.In some county bridewells there are from ten to twenty courts prisoners, and in Tothill-fields and Clerkenwell many more. thisis Great care should be taken to prevent infection;to keep the attend house clean,and well aired:and invariably to adhere to strict that\" rules of sobriety and diligence,in order to correct the faults theirr of prisoners,and make them for the future useful to society. theya Gentle discipline is commonly more efficacious than severity; often which should not be exercised but on such aswill notbe amended withp bylenity.",
@@ -2949,6 +2949,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T07:59:23+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T08:05:22+00:00"
           }
         ],
         "after": {
