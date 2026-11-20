@@ -3064,7 +3064,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "PROPOSED IMPROVEMENTS",
           "s1": "correction might support the expense of the house.But how- with sa everitmay appearin speculation,npracticeitisalways found amoun otherwise.",
@@ -3089,6 +3089,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T08:02:08+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T08:06:07+00:00"
           }
         ],
         "after": {
