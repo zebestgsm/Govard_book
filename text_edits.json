@@ -16877,7 +16877,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "QUARANTINE IN VENICE",
           "s1": "“After visiting the lazarettos now described,I sailed Smyrna,and from thence to Constantinople.Here I had on intended to travel by land to Vienna.This is a journey capal of being easily performed in twenty-four days,no quaranti being now required tobe performed atSemlin,the placeont confines of the Emperor'sHungarian dominions,where former travellers used to be detained for this purpose.But on furth consideration I determined to seek an opportunity of performi quarantine myself;and with this view to submit to the inco veniences of a sea-voyage toVenice,the place where lazarett were first established. And,in order to obtain the be information by performing the strictest quarantine,I furth determined toreturn to Smyrna,and there to take my passa ina ship with a foul bill.Contrary winds and other caus made this a tedious and dangerous voyage,and it was six days from the time of leaving Smyrna before Iarrived atVenic VENIcE.Here,after our ship had been conducted by health-office for the captain;and I went with him in his bo to see the manner in which his report was made,his lette delivered,and his examination conducted.The followi morning a messenger came in a gondola to conductme tot new lazaretto. I was placed, with my baggage, in a bo fastened bya cord ten feetlong to another boat inwhich we sixrowers.",
@@ -16903,6 +16903,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T11:58:20+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T12:06:59+00:00"
           }
         ],
         "after": {
