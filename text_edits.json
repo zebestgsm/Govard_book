@@ -2959,8 +2959,98 @@
       }
     },
     "29": {
-      "segments": {},
-      "history": [],
+      "segments": {
+        "s1": "correction might support the expense of the house. But however it may appear in speculation, in practice it is always found otherwise. The difference is great between involuntary labour and that which is performed from choice. In the best regulated houses of correction in Holland, taxes are fixed for their support.¹ But though a bridewell cannot support itself, yet under proper regulation, it would contribute in some measure towards its own maintenance. An exact account should be kept of the profit of the work; and all of it applied to common benefit; not left to the disposal of keepers: for some of them, in the few bridewells where work is done, keep to themselves a sixth part, some half, and some the whole of the prisoners’ earnings; giving them only the short county allowance, and sometimes but part of that. When I said all the earnings should go to common stock, I meant it of the stated hours for working. Those who will employ themselves in extra hours, should have the profit to themselves. And it would be an encouragement to diligence in the stated hours, to give them some portion of the profit of these also; or employ them in beating hemp, and spinning, and weaving linen for their own use: for clean linen they should have every week. With regular economy, prisoners would be better nourished, and fitter for labour, than they now are; and yet the county not burthened with much, if any, additional expense. But a building fit for the intention they ought to provide.\n\nThe charge of this, as well as of a proper gaol, will, no doubt, be complained of. But if that be weighed against the benefit which will accrue to the public, it will be found but light. Besides, that ought not to be allowed as a valid objection, the occasion of which should have been removed long ago. Why have some prisons been suffered to become ruinous, so that many rooms in them are unsafe, and prisoners are crowded together in the few that remain; or, for the smallest offences are loaded with irons to prevent their escape? Why were not the walls of the courts repaired in time, that prisoners might",
+        "s2": "",
+        "s3": "",
+        "s4": "",
+        "s5": "",
+        "s6": "",
+        "s7": "¹ Mr. Thomas Firmin, a citizen of London in the last century, employed about two thousand poor, by which he lost £200 a year, though good quantities of commodities were taken off by the kindness of several persons at the price they cost him to spin and weave. In particular, the East India and Guinea Companies gave him encouragement to make their allabas cloths, and coarse canvas for pepper bags, which before they bought from foreign countries. “For seven or eight years together he lost twopence in a shilling by all the work of his poor: but he was content; for he would say, twopence given them by loss in their work, was twice so much saved to the public, in that it took them off from beggary, or theft.” Firmin’s Life, pp. 33 and 34.",
+        "s9": "with safety be allowed the proper use of them? Money, to the amount of thousands, is not withheld when shire halls and town halls are wanted. (These we see grand and elegant edifices.) Why should it be spared when the morals and lives of multitudes are at stake; and when it is impossible the design of the legislature should be answered without it? I mean, amending the manners of petty offenders; preventing the spread of diseases, and the increase of felonies. That the two latter, instead of being prevented, are promoted by the present irregularity of bridewells, is notorious.¹ Prescription founded on culpable negligence should not be admitted in bar of a demand, which every principle of equity, humanity, and utility conspires to enforce.\n\nI could wish, that no persons might suffer capitally but for murder—for setting houses on fire—for house-breaking, attended with acts of cruelty. The highwayman—the footpad—the habitual thief, and people of this clan, should end their days in a penitentiary house,² rather than on the gallows. “That many cart-loads of our fellow-creatures are once in six weeks carried to slaughter, is a dreadful consideration; and this is greatly heightened by reflecting, that, with proper care and proper regulations, much the greater part of these wretches might have been made not only happy in themselves, but very useful members of society, which they now so greatly dishonour in the sight of all Christendom.”³\n\nThe management of bridewells is now a matter of more than ordinary concern, since offenders are at present committed to them for terms so long as two or three years. Most of these persons would probably have been sentenced to transportation,⁴ when that mode of punishment was more general.\n\nI had taken some pains to make inquiries concerning the state of transports, with regard to whom many cruelties and impositions were commonly practised, and whose condition was in many respects equally contrary to humanity and good policy: I flattered myself that I had discovered means of remedying these evils in a considerable degree, and of disburthening the counties of a heavy expense with which they were charged;",
+        "s10": "¹ The benevolent Marquis Beccaria closes his thirty-first chapter with this maxim: “The punishment of a crime cannot be just (that is necessary) if the laws have not endeavoured to prevent that crime by the best means which times and circumstances would allow.”\n\n² See Note D at end of book.\n\n³ H. Fielding’s Enquiry, page ult.\n\n⁴ See Note E at end of book.",
+        "s11": "",
+        "s12": ""
+      },
+      "history": [
+        {
+          "id": "s1",
+          "before": "correction might support the expense of the house.But how- with sa everitmay appearin speculation,npracticeitisalways found amoun otherwise.",
+          "after": "correction might support the expense of the house. But however it may appear in speculation, in practice it is always found otherwise. The difference is great between involuntary labour and that which is performed from choice. In the best regulated houses of correction in Holland, taxes are fixed for their support.¹ But though a bridewell cannot support itself, yet under proper regulation, it would contribute in some measure towards its own maintenance. An exact account should be kept of the profit of the work; and all of it applied to common benefit; not left to the disposal of keepers: for some of them, in the few bridewells where work is done, keep to themselves a sixth part, some half, and some the whole of the prisoners’ earnings; giving them only the short county allowance, and sometimes but part of that. When I said all the earnings should go to common stock, I meant it of the stated hours for working. Those who will employ themselves in extra hours, should have the profit to themselves. And it would be an encouragement to diligence in the stated hours, to give them some portion of the profit of these also; or employ them in beating hemp, and spinning, and weaving linen for their own use: for clean linen they should have every week. With regular economy, prisoners would be better nourished, and fitter for labour, than they now are; and yet the county not burthened with much, if any, additional expense. But a building fit for the intention they ought to provide.\n\nThe charge of this, as well as of a proper gaol, will, no doubt, be complained of. But if that be weighed against the benefit which will accrue to the public, it will be found but light. Besides, that ought not to be allowed as a valid objection, the occasion of which should have been removed long ago. Why have some prisons been suffered to become ruinous, so that many rooms in them are unsafe, and prisoners are crowded together in the few that remain; or, for the smallest offences are loaded with irons to prevent their escape? Why were not the walls of the courts repaired in time, that prisoners might",
+          "time": "2026-11-20T08:01:18+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s2",
+          "before": "The difference is great between involuntarylabour hallsa and thatwhich is performed from choice.In thebestregulated Whys houses of correction in Holland,taxes arefixed for their support. areat But thougha bridewell cannot support itself,yetunder proper lature regulation,it would contribute in some measure towards its manne own maintenance.",
+          "after": "",
+          "time": "2026-11-20T08:01:18+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s3",
+          "before": "An exact account should be kept of the andth proft of the work;andall of it applied to common benefit;not being left to the disposal of keepers:for some of them,in the few bridew bridewells where workis done,keep to themselves a sixth part, neglig some half,and some thewhole of the prisonersearnings;giving every them only the short county allowance,and sometimes but toenf part of that.WhenI said alithe earnings shouldgo to common Icc stock,I meant it of the stated hours for working.",
+          "after": "",
+          "time": "2026-11-20T08:01:18+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s4",
+          "before": "Those who murde will employ themselves in extra hours,should have the profit with to themselves.",
+          "after": "",
+          "time": "2026-11-20T08:01:18+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s5",
+          "before": "And itwould bean encouragement to diligence habitu in the stated hours,to give them some portionof theprofit of penite these also;oremploy them inbeating hemp,and spinning,and cart-l weaving linen fortheir ownuse:forclean linen they should have tosla everyweek.With regular economy,prisoners would be better height nourished,and ftter for labour,than theynow are;andyetthe regula county not burthened with much,if any, additional expense. been But a building fit for the intention theyought toprovide. memb The chargeof thisaswell as of a proper gaol,will,nodoubt, the si be complained of.But if that beweighed against the benefit Th which will accrue to the public,it will be found but light. ordin Besides,that ought not to be allowed asavalid objection,the them occasion of which should have been removed long ago.Why perso have some prisons been suffered to become ruinous, so that when many rooms in them are unsafe,and prisoners are crowded Ih together in the few that remain;or,for the smallest offences oftra are loaded with irons to prevent their escape?",
+          "after": "",
+          "time": "2026-11-20T08:01:18+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s6",
+          "before": "Why were not tions the walls of the courts repaired in time,that prisoners might many Iflat 1Mr.Thomas Firmin,a citizen of London in the last century,employed these quantities of commodities were taken off by the kindness of several persons coun at the price they cost him to spin andweave.",
+          "after": "",
+          "time": "2026-11-20T08:01:18+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s7",
+          "before": "In particular,the East India and Guinea Companies gave him encouragement to make their 1T allabas cloths,and coarse canvas for pepper bags,which before they thism ifthe lost twopence in a shilling by all theworkof hispoor:but he was content; which for he would say，twopence given them by loss intheir work,was twice S so much saved to the public,in that it took them off from beggary，ortheft. H Firmin'sLife,PP.33 and34. S",
+          "after": "¹ Mr. Thomas Firmin, a citizen of London in the last century, employed about two thousand poor, by which he lost £200 a year, though good quantities of commodities were taken off by the kindness of several persons at the price they cost him to spin and weave. In particular, the East India and Guinea Companies gave him encouragement to make their allabas cloths, and coarse canvas for pepper bags, which before they bought from foreign countries. “For seven or eight years together he lost twopence in a shilling by all the work of his poor: but he was content; for he would say, twopence given them by loss in their work, was twice so much saved to the public, in that it took them off from beggary, or theft.” Firmin’s Life, pp. 33 and 34.",
+          "time": "2026-11-20T08:01:18+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s9",
+          "before": "afety be allowed the proper use of them?Money,to the tof thousands,is not withheld when shire halls and town rewanted.（These we see grand and elegant edifices.) hould it be spared when the morals and lives of multitudes stake;and when it is impossible the design of the legis- should be answered without it?Imean,amending the rs of petty offenders;preventing the spread of diseases, he increase of felonies.",
+          "after": "with safety be allowed the proper use of them? Money, to the amount of thousands, is not withheld when shire halls and town halls are wanted. (These we see grand and elegant edifices.) Why should it be spared when the morals and lives of multitudes are at stake; and when it is impossible the design of the legislature should be answered without it? I mean, amending the manners of petty offenders; preventing the spread of diseases, and the increase of felonies. That the two latter, instead of being prevented, are promoted by the present irregularity of bridewells, is notorious.¹ Prescription founded on culpable negligence should not be admitted in bar of a demand, which every principle of equity, humanity, and utility conspires to enforce.\n\nI could wish, that no persons might suffer capitally but for murder—for setting houses on fire—for house-breaking, attended with acts of cruelty. The highwayman—the footpad—the habitual thief, and people of this clan, should end their days in a penitentiary house,² rather than on the gallows. “That many cart-loads of our fellow-creatures are once in six weeks carried to slaughter, is a dreadful consideration; and this is greatly heightened by reflecting, that, with proper care and proper regulations, much the greater part of these wretches might have been made not only happy in themselves, but very useful members of society, which they now so greatly dishonour in the sight of all Christendom.”³\n\nThe management of bridewells is now a matter of more than ordinary concern, since offenders are at present committed to them for terms so long as two or three years. Most of these persons would probably have been sentenced to transportation,⁴ when that mode of punishment was more general.\n\nI had taken some pains to make inquiries concerning the state of transports, with regard to whom many cruelties and impositions were commonly practised, and whose condition was in many respects equally contrary to humanity and good policy: I flattered myself that I had discovered means of remedying these evils in a considerable degree, and of disburthening the counties of a heavy expense with which they were charged;",
+          "time": "2026-11-20T08:01:18+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s10",
+          "before": "That the twolatter,instead of prevented,are promoted by the present irregularity of ells,is notorious. Prescription founded on culpable ence should not be admitted in bar of a demand,which principle of equity,humanity,and utility conspires orce. uldwish,thatno persons might suffer capitally but for —forsettinghousesonfreorhouse-breaking,attended acts of cruelty.The highwayman—the footpad—the althiefandeopleofthisclan,houldendtheirdaysina ntiary house,rather than on the gallows.That many oadsofourfellow-creatures are once in six weeks carried ughter,is a dreadful consideration;and this is greatly ened by reflecting,that,with proper care and proper tions,much the greater partof these wretches might have made not only happyin themselves,but very useful ersof society,which they now so greatly dishonour in ght of all Christendom.\"s management of bridewells is now a matter of more than ary concern, since offenders are at present committed to for terms solongas twoor three years.",
+          "after": "¹ The benevolent Marquis Beccaria closes his thirty-first chapter with this maxim: “The punishment of a crime cannot be just (that is necessary) if the laws have not endeavoured to prevent that crime by the best means which times and circumstances would allow.”\n\n² See Note D at end of book.\n\n³ H. Fielding’s Enquiry, page ult.\n\n⁴ See Note E at end of book.",
+          "time": "2026-11-20T08:01:18+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s11",
+          "before": "Most of these ns would probably have been sentenced to transportation, that mode of punishment was more general. ad taken some pains to make inquiries concerning thestate nsports,with regard towhom many cruelties and imposi were commonly practised,and whose condition was in respects equally contrary to humanity and good policy: tered myself that I had discovered means of remedying evils in a considerable degree,and of disburthening the ties of a heavy expense with which they were charged; ebenevolent Marquis Beccaria closes his thirty-first chapter with axim:\"The punishment of a crime cannot be just(that is necessary) lawshavenotendeavouredtopreventthatcrimeby the best means times and circumstances would allow.\" eeNoteDatendofbook.",
+          "after": "",
+          "time": "2026-11-20T08:01:18+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s12",
+          "before": "Fielding'sEnquiry,page ult. eeNoteEatendofbook. E835",
+          "after": "",
+          "time": "2026-11-20T08:01:18+00:00",
+          "kind": "edit"
+        }
+      ],
       "spread_review": {
         "state": "working",
         "before": {
