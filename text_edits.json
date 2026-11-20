@@ -2068,7 +2068,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "PROPOSED IMPROVEMENTS",
           "s1": "who hold,or let,the tap,find their account innot only con- toraiset inspection so that most of our gaols are riotous alehouses and brothels.",
@@ -2089,6 +2089,10 @@
           {
             "action": "finish",
             "time": "2026-11-19T09:44:08+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T07:47:33+00:00"
           }
         ],
         "after": {
