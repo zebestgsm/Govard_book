@@ -309,6 +309,16 @@ class ReaderHTTPTests(unittest.TestCase):
             self.assertIn(f'href="#footnote-24-{segment}-{number}"', rendered)
             self.assertIn(f'id="footnote-24-{segment}-{number}"', rendered)
 
+    def test_spread_25_footnote_continues_on_right_page(self):
+        rendered, segments = reader.segment_state(25)
+        self.assertIn('href="#footnote-25-s4-1"', rendered)
+        self.assertIn('id="footnote-25-s4-1"', rendered)
+        self.assertIn('id="footnote-25-s9-1"', rendered)
+        self.assertIn('footnote-continuation', rendered)
+        self.assertTrue(segments['s9'].startswith('of each of the two smaller fines'))
+        self.assertIn('href="#footnote-25-s10-2"', rendered)
+        self.assertIn('id="footnote-25-s10-2"', rendered)
+
     def test_scan_zoom_controls_and_detail_image(self):
         page = self.request('/spread/107')[1]
         for marker in ('scan-zoom-toolbar', 'scan-zoom-in', 'scan-zoom-out', 'scan-zoom-reset', 'data-detail-src', 'detail=1', 'scan-fullscreen', 'scan-fullscreen-close', 'scan-fullscreen-view', 'aria-modal="true"'):
@@ -341,11 +351,11 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertEqual(self.form('/scan-action/14', {'action':'restore-scan-mark'})[0], 200)
         self.assertTrue(reader.scan_dropdown_label(14))
         # Automated collation does not replace manual proofreading.
-        self.assertIn('☑ OCR', reader.quality_label(25))
-        self.assertEqual(self.form('/scan-action/25', {'action':'dismiss-ocr'})[0], 200)
-        self.assertNotIn('OCR', reader.quality_label(25))
+        self.assertIn('☑ OCR', reader.quality_label(26))
+        self.assertEqual(self.form('/scan-action/26', {'action':'dismiss-ocr'})[0], 200)
+        self.assertNotIn('OCR', reader.quality_label(26))
         self.assertIn('скан повёрнут', reader.quality_label(14))
-        self.assertIn('пометка OCR снята', self.request('/spread/25')[1])
+        self.assertIn('пометка OCR снята', self.request('/spread/26')[1])
 
         pdf = reader.pymupdf.open()
         pdf.new_page(width=100, height=50)
@@ -366,8 +376,8 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertFalse(reader.replacement_path(14).exists())
         self.assertTrue(reader.scan_dropdown_label(14))
         self.assertNotIn('OCR', reader.quality_label(14))
-        self.assertEqual(self.form('/scan-action/25', {'action':'restore-ocr'})[0], 200)
-        self.assertIn('☑ OCR', reader.quality_label(25))
+        self.assertEqual(self.form('/scan-action/26', {'action':'restore-ocr'})[0], 200)
+        self.assertIn('☑ OCR', reader.quality_label(26))
 
     def test_legacy_quality_decisions_are_preserved_when_migrated(self):
         reader.QUALITY_FILE.write_text(json.dumps({'dismissed': [2, 14, 153], 'other': 'keep'}))
@@ -466,7 +476,7 @@ class ReaderHTTPTests(unittest.TestCase):
     def test_verified_spreads_and_pending_ocr_labels(self):
         for number in (5, 6, 151, 153, 161, 162, 163, 164, 165):
             self.assertNotIn('OCR', reader.quality_label(number))
-        for number in (25, 27, 33, 96, 106, 108):
+        for number in (26, 27, 33, 96, 106, 108):
             self.assertIn('☑ OCR', reader.quality_label(number))
         self.assertNotIn('☑ OCR', reader.quality_label(107))
         self.assertIn('скан повёрнут', reader.quality_label(14))
@@ -752,7 +762,7 @@ class TranslationTests(unittest.TestCase):
         self.assertIn('Русский перевод', html)
         self.assertIn('ОБЗОР БЕДСТВИЙ В ТЮРЬМАХ', html)
         self.assertLess(html.index('id="editable-book"'), html.index('id="translation"'))
-        working = reader.reader_page(25)
+        working = reader.reader_page(26)
         self.assertIn('перевод по черновому английскому тексту', working)
         self.assertIn('Русский перевод', working)
 
