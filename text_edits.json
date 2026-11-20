@@ -7855,7 +7855,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "II2 AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "in insulting the keeper or his wife after admonition,they paya priso fast closed up.-If they make any noise or disturbance after nine nume unde atnighttobreaktherestoftheirfellow-prisoners,theyare ordered toforfeit a schelling,and to be punished at the discretion of the unde regents:who are likewise empowered tomake such alterations as cells they think proper in the rules:and in case of sickness or old age. byt to give indulgences to theprisoners,with respect to theirdiet,times porti of rising,etc. chap InNovember1781theregulations still hung upin the chapel, infirr though the prisoners were removed to Vilvorde.",
@@ -7885,6 +7885,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T09:24:04+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T09:33:30+00:00"
           }
         ],
         "after": {
