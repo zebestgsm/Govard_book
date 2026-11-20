@@ -17427,7 +17427,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "HULKS ON THE THAMES",
           "s1": "never tella lie,use the sacred name irreverently,nor aged or deformed. audible answer, standing up,and with their faces turne him.",
@@ -17454,6 +17454,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T12:05:02+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T12:10:33+00:00"
           }
         ],
         "after": {
