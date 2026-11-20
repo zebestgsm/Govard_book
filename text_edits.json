@@ -14405,7 +14405,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "LEICESTERSHIRE",
           "s1": "One of thefelons,JamesWard,received hisa on condition of his going to sea.Mr.Francis of the assize,wrote in the letter which enclos （which was dated 25 August,1781),“The Secre fee isI 7s.od.and my feeI Is.od.which you receive on thebackof the pardon from theoffice him.\"Asno officer would take him on condit this,together with 19s.4d. the gaoler's and fees,I found thepoorwretchinMay1782,langui on his pound of bread a day. BIRMINGHAM TOWN GAOL The gaol for this large populous town is called The court is about twenty-five feet square. in front;and under it two cells down seven steps on bedsteads.On one side of the court two ni women,eight feet by five feetnine inches；and so them:on the other side is one small day-room women, and the gaoler's stable(from which the into the court): above,was a free ward for Court debtors,a sizable room,with only one windowe square. Over it is another room,or two.",
@@ -14429,6 +14429,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T11:27:07+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T11:29:34+00:00"
           }
         ],
         "after": {
