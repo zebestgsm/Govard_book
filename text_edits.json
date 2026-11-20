@@ -15620,7 +15620,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "needs_work",
         "before": {
           "s0": "CORNWALL",
           "s1": "allowance,have only one-sixth of what they earn. against spirituous liquors are hung up.The Act for p the health of prisoners is not hung up,but the gaolis very neat and clean.",
@@ -15644,6 +15644,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T11:49:11+00:00"
+          },
+          {
+            "action": "needs_work",
+            "time": "2026-11-20T11:50:06+00:00"
           }
         ],
         "after": {
