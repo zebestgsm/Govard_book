@@ -49,6 +49,7 @@ TABLE_META = {
     (110, 's6'): ('Stamford town gaol fees', 'fee'),
     (111, 's7'): ('Reading bridewell prisoners by visit date', 'mixed'),
     (112, 's4'): ('Oxford Castle prisoners', 'mixed'),
+    (116, 's2'): ('Berkeley bridewell returns and prisoners', 'mixed'),
     (148, 's1'): ('Table I (continued) and Table II — Ireland, 1787–1788', 'fee'),
     (148, 's3'): ('Table III — England and Wales, 1787–1788 (part)', 'fee'),
     (149, 's1'): ('Table III — England and Wales, continued', 'fee'),
@@ -285,6 +286,9 @@ def render_verified_block(value, spread, segment_id, query):
             # Group only consecutive tab-separated lines. Prose introducing or
             # following a table must not become a one-cell table row.
             has_header = not ((spread == 16 and segment_id in ('s7', 's11')) or (spread == 17 and segment_id == 's1') or (spread == 35 and segment_id == 's1') or (spread, segment_id) in ((79, 's3'), (84, 's5'), (89, 's4'), (91, 's2'), (95, 's3'), (101, 's7'), (106, 's6'), (111, 's7'), (112, 's0')))
+            if (spread, segment_id) == (116, 's2'):
+                # Only the second of the three lists has printed column headings.
+                has_header = chunk.splitlines()[0].startswith('\t')
             if (spread, segment_id) in TABLE_META:
                 label, table_kind = TABLE_META[(spread, segment_id)]
             elif spread == 16 and segment_id == 's10':
@@ -384,7 +388,10 @@ def render_verified_block(value, spread, segment_id, query):
               or (spread == 112 and segment_id == 's4' and chunk in ('OXFORDSHIRE', 'COUNTY GAOL, OXFORD CASTLE'))
               or (spread == 113 and segment_id == 's5' and chunk in ('“COUNTY GAOL, OXFORD CASTLE', 'WORCESTERSHIRE', 'COUNTY GAOL, WORCESTER CASTLE'))
               or (spread == 114 and segment_id == 's9' and chunk in ('STAFFORDSHIRE', 'COUNTY BRIDEWELL', 'SHROPSHIRE', 'COUNTY GAOL AT SHREWSBURY'))
-              or (spread == 115 and segment_id == 's3' and chunk in ('GLOUCESTERSHIRE', 'COUNTY GAOL, GLOUCESTER CASTLE'))):
+              or (spread == 115 and segment_id == 's3' and chunk in ('GLOUCESTERSHIRE', 'COUNTY GAOL, GLOUCESTER CASTLE'))
+              or (spread == 116 and segment_id == 's11' and chunk in ('WESTERN CIRCUIT', 'HAMPSHIRE', 'COUNTY GAOL AT WINCHESTER', 'WILTSHIRE', 'SALISBURY COUNTY GAOL'))
+              or (spread == 117 and ((segment_id == 's1' and chunk == 'COUNTY BRIDEWELL') or (segment_id == 's4' and chunk in ('DORSETSHIRE', 'COUNTY BRIDEWELL', 'DEVONSHIRE', 'HIGH GAOL AT EXETER'))))
+              or (spread == 118 and ((segment_id == 's1' and chunk == 'PLYMOUTH TOWN GAOL') or (segment_id == 's5' and chunk in ('CORNWALL', 'COUNTY GAOL AT LAUNCESTON FOR FELONS', 'COUNTY GAOL AT BODMIN'))))):
             output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
         elif ((spread == 102 and segment_id == 's4' and chunk.startswith('that want of care respecting them'))
               or (spread == 110 and segment_id == 's3' and chunk.startswith('Before this rigorous law'))
@@ -393,6 +400,8 @@ def render_verified_block(value, spread, segment_id, query):
             output.append('<span class="book-footnote verified-footnote footnote-continuation">' + text_html(chunk) + '</span>')
         elif spread == 111 and segment_id == 's3' and chunk.startswith('Oh ye whose hours'):
             output.append('<span class="book-verse">' + text_html(chunk) + '</span>')
+        elif spread == 117 and segment_id == 's4' and chunk.startswith('Sherborn, Dorset.'):
+            output.append('<span class="regulation-extract">' + text_html(chunk) + '</span>')
         elif ((spread == 98 and ((segment_id == 's1' and chunk.startswith('1. The stocks')) or (segment_id == 's7' and chunk.startswith('5. Coroner'))))
               or (spread == 99 and segment_id == 's1' and (chunk.startswith('to the court or a judge') or chunk.startswith('1. No person to bring')))):
             output.append('<span class="book-list">' + text_html(chunk) + '</span>')

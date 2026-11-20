@@ -62,7 +62,7 @@ OCR_ISSUES = {
 # Manual scan proofreading is distinct from automated whole-book collation.
 # Restored fragments/tables alone do not certify an entire spread.
 VERIFIED_SPREADS = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106,
-                    107, 108, 109, 110, 111, 112, 113, 114, 115, 151, 153, 161, 162, 163, 164, 165}
+                    107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 151, 153, 161, 162, 163, 164, 165}
 for _number in range(1, len(PAGES) + 1):
     if _number in VERIFIED_SPREADS:
         OCR_ISSUES.pop(_number, None)
@@ -381,6 +381,9 @@ STYLE = '''
 .spread-101 .mixed-table,.spread-103 .mixed-table,.spread-106 .mixed-table{font:clamp(10px,.75vw,13px)/1.4 Georgia,serif;max-width:100%;margin:.7em 0}
 .spread-106 .count-number,.spread-112 .count-number{white-space:normal}
 .spread-112 .mixed-table .restored-row[style="--numeric-cols:5"]{grid-template-columns:minmax(0,1.4fr) minmax(0,.7fr) minmax(0,.8fr) minmax(0,1.4fr) minmax(0,.7fr) minmax(0,.8fr)}
+.spread-116 .mixed-table{font:clamp(10px,.75vw,12px)/1.35 Georgia,serif}
+.spread-116 .mixed-table .restored-row[style="--numeric-cols:4"]{grid-template-columns:minmax(0,1.2fr) minmax(0,1.4fr) minmax(0,1.4fr) minmax(0,.55fr) minmax(0,.6fr)}
+.spread-116 .mixed-table .restored-row[style="--numeric-cols:3"]{grid-template-columns:minmax(0,1.2fr) minmax(0,1.4fr) minmax(0,1.4fr) minmax(0,.55fr)}
 .spread-101 .mixed-table .restored-row[style="--numeric-cols:3"]{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1.2fr) minmax(0,1fr)}
 .spread-103 .mixed-table .restored-row[style="--numeric-cols:5"]{grid-template-columns:minmax(0,1.4fr) minmax(0,.7fr) minmax(0,.8fr) minmax(0,1.4fr) minmax(0,.7fr) minmax(0,.8fr)}
 .spread-101 .mixed-table .restored-cell,.spread-103 .mixed-table .restored-cell{overflow-wrap:normal;padding:2px 1px}
@@ -629,7 +632,7 @@ def segment_state(number, edits=None, query='', rules=None):
     token = _current_corrections.set(rules)
     try:
         base = render_pages(number, PAGES[number - 1][1], '')
-        if 1 <= number <= 4 or 7 <= number <= 115 or number in (68, 79, 88, 90, 91, 95, 106, 107, 112, 119, 137, 144, 145, 146, 147, 148, 149, 150):
+        if 1 <= number <= 4 or 7 <= number <= 118 or number in (68, 79, 88, 90, 91, 95, 106, 107, 112, 119, 137, 144, 145, 146, 147, 148, 149, 150):
             base = base.replace('<article class="book-page"', '<article class="book-page verified-prose-page spread-' + str(number) + '"')
         if number in (145, 146, 147, 148, 149, 150):
             base = base.replace('<div class="book-spread">', '<div class="book-spread wide-table-spread">', 1)
