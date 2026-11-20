@@ -15036,7 +15036,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "2I4 WORCESTERSHIRE convenient room for that purpose.",
           "s1": "The twofree night-rooms for'debtors,are at another part of theyar way to them is through the women felons’night-roon hasno window.The day-room(called the round h men and women felons is in the middleof thearea;only feetby twelve.1 Near it is a hand-ventilator（whichi order for a guinea a year)for airing the men felons which is twenty-six steps under ground,and circular, feet diameter,with barrack-bedsteads.Over it is an in the court, three feet diameter,with iron grates. T work the ventilator cheerfully about a quarter of before they go down,and as longwhen they come u freshens and cools the dungeon amazingly:we coul keep our candle burning below while it was working. is another very damp dungeon fifteen and a half fee thewindow (eighteen inches bytwelve) even ground.Straw,4ayear.",
@@ -15056,8 +15056,26 @@
           {
             "action": "start",
             "time": "2026-11-20T11:33:18+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T11:36:02+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "",
+          "s1": "convenient room for that purpose. The two free wards or night-rooms for debtors, are at another part of the yard. The way to them is through the women felons’ night-room, which has no window. The day-room (called the round house) for men and women felons is in the middle of the area; only fourteen feet by twelve.¹ Near it is a hand-ventilator (which is kept in order for a guinea a year) for airing the men felons’ dungeon, which is twenty-six steps under ground, and circular, eighteen feet diameter, with barrack-bedsteads. Over it is an aperture in the court, three feet diameter, with iron grates. The felons work the ventilator cheerfully about a quarter of an hour before they go down, and as long when they come up; for it freshens and cools the dungeon amazingly: we could hardly keep our candle burning below while it was working.² There is another very damp dungeon fifteen and a half feet square, the window (eighteen inches by twelve) even with the ground. Straw, £4 a year. Excellent water at a pump in the yard. No infirmary. Mr. Hallward, the surgeon, caught the gaol-fever some years ago, and has ever since been fearful of going into the dungeon: when any felon is sick there, he orders him to be brought out. The smallpox was in this gaol; and at my last visit I found the gaol-fever prevailing, which had carried off some of the prisoners, the gaoler, and Dr. Johnstone, a physician, whose humanity had led him to attend the prison.³ Two rooms were taken from the bridewell for the sick, who lay in their clothes on straw. At my request, the irons of those who were ill were taken off.\n\n1 The magistrates may be fully convinced of the impropriety and shocking indecency of having only one day-room, if they examine the women lately sent from this gaol to the bridewell.\n\n2 The celebrated contrivance of ventilators has been so little attended to in practice, that in all the prisons in this kingdom there are but six of these machines, viz. at Maidstone and Bedford, where they are worked with sails; at London bridewell, Worcester Castle, Stafford, and Shrewsbury; and the two latter have not been used for many years past. This sufficiently shows how liable any new regulation is to fall into neglect, if not constantly the object of care and attention. With respect to ventilators, however, I am now fully confirmed in an opinion I have long entertained, that they are inadequate to the purpose of preventing, and still more of eradicating, the gaol-distemper, while the use of dungeons is continued.\n\n3 A letter from Dr. Johnstone, senior, dated 18 December, 1783, informs me of the following fact: “A prisoner some time ago dismissed from the gaol here, carried the fever to his own family in Droitwich, six miles from this place, and famous for its salt springs and works; a place where fevers have seldom been heard of but from contagion: the contagion from the above occasion has spread to the poor neighbours of the family above-mentioned, and fourteen individuals have already died of it.”",
+          "s2": "",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "",
+          "s7": "",
+          "s8": "SHROPSHIRE",
+          "s9": "The uneasy situation of the prisoners at night in the horrid dungeon, has, I doubt not, been one cause of their illness; for even in this strong and deep dungeon, prisoners (as in too many other gaols) are all night chained together, by a heavy chain through the links in their fetters and iron rings fastened to the floor.\n\nThere is now a useless tub lined with lead, called a bath. Such a bath as there is in the county infirmary, might save the lives of many prisoners.\n\nSTAFFORDSHIRE\n\nCOUNTY BRIDEWELL\n\nSTAFFORD. At the north gate. Three rooms for men and two for women. A room below (called the dungeon) with four apertures about three inches square. No employment. Prisoners always shut up, and in irons; the small court not secure.\n\nSHROPSHIRE\n\nCOUNTY GAOL AT SHREWSBURY\n\nThis prison was built, as by date in the debtors’ court, 1705. Separate courts for debtors and felons; but the latter have no water. For this reason, and because their day-room is in the debtors’ court, both debtors and felons are commonly together in that court. Commodious apartments for master’s-side debtors: and two large free wards for the common-side. For felons there are two night-dungeons down eleven steps: that for men was a few years ago made more airy by an additional window: and might be freshened by a hand-ventilator which is in the room over the chapel, but has not been used for many years. The women’s dungeon might also be freshened by the same. The day-room for felons is small, fifteen and a half feet by five and a half: a separate day-room is necessary to prevent the dreadful consequences of the men and women being together. Most of the women when moved to the bridewell are with child. The county has enclosed another court, which I thought had been designed for women, but it has not yet been used. Here are three large lamps in the court supplied at the county’s expense.",
+          "s10": "",
+          "s11": ""
+        }
       }
     },
     "115": {
@@ -15130,7 +15148,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "HEREFORDSHIRE",
           "s1": "HEREFORDSHIRE",
@@ -15150,8 +15168,26 @@
           {
             "action": "start",
             "time": "2026-11-20T11:33:18+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T11:36:02+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "HEREFORDSHIRE",
+          "s1": "HEREFORDSHIRE",
+          "s2": "COUNTY BRIDEWELL",
+          "s3": "HEREFORD. On the castle green, is quite out of repair. Indeed it is not only ruinous, but dangerous: a cross wall is parted a great way from the wall against which it abutted. In the day-room there was a large quantity of water from the roof. No fire-place: offensive sewers: no court: no water: no stated allowance: no employment. Keeper’s salary, £10. He told me that a little before I came, a prisoner died after three weeks’ confinement. Six prisoners, whom I saw there at my first visit, complained of being almost famished. They were sent hither from the assize a few days before to hard labour (as the sentence usually runs) for six months. The justices had ordered the keeper to supply each of them daily with a twopenny loaf: but he had neglected them. They broke out soon after.\n\nGLOUCESTERSHIRE\n\nCOUNTY GAOL, GLOUCESTER CASTLE\n\nThe castle is also one of the county bridewells: yet only one court for all prisoners; and one day-room (eleven feet nine inches by ten feet seven), for men and women felons. The free ward for debtors is nineteen feet by eleven, which having no window, part of the plaster wall is broken down for light and air. The night-room (the main) for men felons, though up many stone steps, is close and dark; and the floor is so ruinous, that it cannot be washed. Adjoining to the main, there are other night-rooms for fines, etc. These have also their separate day-room. The whole prison was much out of repair, and had not been whitewashed for many years. The upper rooms were the bridewell; but at my last visit they were used for an infirmary. Many prisoners died here in 1773, and I generally saw some sick in this gaol; eight died about Christmas 1778 of the smallpox; and in 1783, several died of that disorder and the gaol-fever. Only one sewer. No bath. Neither clauses against spirituous liquors, nor the Act for preserving the health of prisoners, are hung up.\n\nThere is no separation of the women, or of the bridewell",
+          "s4": "",
+          "s5": "GLOUCESTERSHIRE",
+          "s6": "prisoners. The licentious intercourse of the sexes is shocking to decency and humanity. Many children have been born in this gaol. There is a small chapel, but all the endeavours of the chaplain to promote reformation among the prisoners must necessarily be defeated, by the inattention of the magistrates, and their neglect of framing and enforcing good regulations. Perhaps this is the reason the chaplain seldom attends.\n\nOf the felons, etc., in September and December, 1776, thirteen were transports: most of them convicted at Lent assize 1775. About twenty were fines; who, not having the county allowance, nor any employment, were in September very pitiable objects indeed; half naked, and almost famished. But in December their appearance was much altered. Mr. Raikes¹ and other gentlemen took pity on them, and generously contributed toward the feeding and clothing them. Mr. Raikes continues his unremitting attention to the prisoners. Eleven of the twenty-four in 1779, sixteen in 1782, and fourteen in 1783, were fines without any employment or allowance. The gaoler has £10 a year as bridewell keeper.\n\nIn this gaol were some prisoners, who had been arrested by exchequer writs; in which an officer is commanded “to bring the body before the barons of the exchequer—at Westminster—to answer our sovereign lord the king concerning divers trespasses, contempts, and offences, etc.” The prisoners are called contempts. In different parts of the kingdom, there are many prisoners detained by such writs.\n\nAt my visit in December 1782, I found some improvements made in the castle: the floors laid with stone; boxes or bedsteads for the felons and fines; and the whole prison whitewashed. When prisons are repaired, particular care should be taken for the admission of air. The windows should not be close glazed. I observed numbers of the townsmen drinking in the tap-room here, as in too many other gaols.\n\n1 This gentleman is also the founder of a benevolent and useful institution for the children of the poor in this city. Having observed great numbers of them in this manufacturing place to spend their Sundays in an idle and dissolute manner, he established several little schools for their instruction on the evenings of that day; which, by his attention and liberal encouragement, have had a happy effect in improving the morals of the younger classes; many of whom now look up to their kind benefactor with great esteem and affection. Perhaps Mr. Raikes’s frequent visits to the castle suggested to him this plan, as the best means of preventing youth from coming there.²\n\n2 Mr. Raikes’s Sunday Schools spread, and a statue in the Charing Cross Embankment Gardens, London, commemorates him as the founder of the movement.—[Ed.]",
+          "s7": "",
+          "s8": "",
+          "s9": "",
+          "s10": "",
+          "s11": ""
+        }
       }
     }
   }
