@@ -12947,8 +12947,82 @@
       }
     },
     "100": {
-      "segments": {},
-      "history": [],
+      "segments": {
+        "s1": "prescribe in what manner, and for how long time, visitors shall be allowed to see or stay with the prisoners, according to the circumstances of every case in his discretion.\n\nBy the Court.\n\nThere were, besides, in this prison, as in the Fleet, certain printed rules made by the prisoners themselves, “to be obeyed and observed by every member of this college” (as they were pleased to term it). Many of them were arbitrary and improper: but now they are abolished.\n\nMARSHALSEA PRISON¹\n\nTo this prison of the Court of the Marshalsea, and of the King’s Palace Court of Westminster, are brought debtors arrested for the lowest sums, anywhere within twelve miles of the palace, except in the City of London: and also persons committed for piracy.\n\nThe deputy marshal, under whose particular custody this prison is, has his appointment from the knight marshal of the king’s household² for the time being. The great abuses practised by this officer were reported to Parliament by the gaol committee in 1729.\n\nThis prison is held under several leases by the widow of the late deputy marshal at the yearly rent of £101. It is an old irregular building (rather several buildings) in a spacious court. There are, in the whole, near sixty rooms; and yet only six of them left for common-side debtors. Of the other rooms—five were let to a man who was not a prisoner: in one of them he kept a chandler’s shop; in two he lived with his family: the other two he let to prisoners. Four rooms, the Oaks, were for women. They were too few for the number; and the more modest women complained of the bad company, in which they were confined. There were above forty rooms for men on the master’s-side, in which were about sixty beds; yet at my first visits, many prisoners had no beds nor any place to sleep in, but the chapel, and the tap-room. The chamber-rent wants regulation; for in several rooms where four lie in two beds, and in some dark rooms where two lie in one bed, each pays 3s. 6d. a week for his lodging.\n\n1 Abolished 1849.—[Ed.]\n\n2 The prison was originally established for the trial of servants of the royal household.",
+        "s2": "",
+        "s3": "",
+        "s4": "",
+        "s5": "",
+        "s7": "The prison is greatly out of repair. No infirmary. The court is well supplied with water. In it the prisoners play at rackets, etc., and in a little back court, the Park, at skittles.\n\nThe tap was let to a prisoner in the rules of the King’s Bench Prison; this prison being just within those rules. I was credibly informed, that one Sunday in the summer 1775, about six hundred pots of beer were brought in from a public house in the neighbourhood (Ashmore’s), the prisoners not then liking the tapster’s beer.\n\nIn March 1775, when the number of prisoners was a hundred and seventy-five, there were with them in this incommodious prison wives and children forty-six.\n\nSince the Act of the nineteenth of George III, chap. lxx, there are not so many debtors in this prison as formerly; yet they are increasing, for I find here, and in other prisons, many debtors whose original debts are much under £10, but for the purpose of imprisoning such debtors, they are prosecuted either in the Court of Exchequer, or in other inferior courts, until the expenses of such prosecutions which added to the original debt amount to £10. A fresh action is then taken out in the superior courts, for the small original debt, and the accumulated costs of prosecution. Thus the salutary purposes of the said Act are defeated.\n\nMr. Henry Allnott, who was many years since a prisoner here, had, during his confinement, a large estate bequeathed to him. He learned sympathy by his sufferings; and left £100 a year for discharging poor debtors from hence, whose debts do not exceed £4. As he bound his manor of Goring in Oxfordshire for charitable uses, this is called the Oxford charity. Many are cleared by it every year.",
+        "s8": "",
+        "s9": "",
+        "s10": ""
+      },
+      "history": [
+        {
+          "id": "s1",
+          "before": "prescribe in what manner,and for how long time,visit allowed to see or stay with the prisoners,according to stances of every case in his discretion.",
+          "after": "prescribe in what manner, and for how long time, visitors shall be allowed to see or stay with the prisoners, according to the circumstances of every case in his discretion.\n\nBy the Court.\n\nThere were, besides, in this prison, as in the Fleet, certain printed rules made by the prisoners themselves, “to be obeyed and observed by every member of this college” (as they were pleased to term it). Many of them were arbitrary and improper: but now they are abolished.\n\nMARSHALSEA PRISON¹\n\nTo this prison of the Court of the Marshalsea, and of the King’s Palace Court of Westminster, are brought debtors arrested for the lowest sums, anywhere within twelve miles of the palace, except in the City of London: and also persons committed for piracy.\n\nThe deputy marshal, under whose particular custody this prison is, has his appointment from the knight marshal of the king’s household² for the time being. The great abuses practised by this officer were reported to Parliament by the gaol committee in 1729.\n\nThis prison is held under several leases by the widow of the late deputy marshal at the yearly rent of £101. It is an old irregular building (rather several buildings) in a spacious court. There are, in the whole, near sixty rooms; and yet only six of them left for common-side debtors. Of the other rooms—five were let to a man who was not a prisoner: in one of them he kept a chandler’s shop; in two he lived with his family: the other two he let to prisoners. Four rooms, the Oaks, were for women. They were too few for the number; and the more modest women complained of the bad company, in which they were confined. There were above forty rooms for men on the master’s-side, in which were about sixty beds; yet at my first visits, many prisoners had no beds nor any place to sleep in, but the chapel, and the tap-room. The chamber-rent wants regulation; for in several rooms where four lie in two beds, and in some dark rooms where two lie in one bed, each pays 3s. 6d. a week for his lodging.\n\n1 Abolished 1849.—[Ed.]\n\n2 The prison was originally established for the trial of servants of the royal household.",
+          "time": "2026-11-20T10:33:29+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s2",
+          "before": "Byth There were,besides,in this prison,as in the Fle printed rules made by the prisoners themselves,“to and observed by every member of this college”（as pleased to term it).Many of them were arbitrary and butnow they are abolished. MARSHALSEA PRISON1 To this prison of the Court of the Marshalsea,a King'sPalace Court of Westminster,are brought debto forthe lowest sumsanywhere within twelvemilesoft except in the City of London:and also persons for piracy.",
+          "after": "",
+          "time": "2026-11-20T10:33:29+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s3",
+          "before": "The deputy marshal,under whose particular cu prison is,has his appointment from the knight mars king's household for the time being.The great ab tised by thisoficer were reported to Parliament by committeein1729.",
+          "after": "",
+          "time": "2026-11-20T10:33:29+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s4",
+          "before": "This prison is held under several leases by thewid late deputy marshal at the yearly rent of 1o1.It irregular building(rather several buildings) ina spaci There are,in thewhole,near sixty rooms;and yeto them left for common-side debtors.Of the other fivewere let toaman who was not a prisoner:in on he kept a chandler's shop;in two he lived with his fa other two helet to prisoners.Four rooms,the Oaks women.They were too few for the number;and modest women complained of the bad company,inw were confined.There were above forty roomsform master's-side,in which were about sixty beds;yet at visits,many prisoners had no beds nor any place to but the chapel,and the tap-room.",
+          "after": "",
+          "time": "2026-11-20T10:33:29+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s5",
+          "before": "The chamber-re regulation;for in several rooms where four lie int andin some darkrooms where twoliein one bed,e 3s.6d.a week for his lodging. 1Abolished1849.-[Ed.] The prisonwas originally established for the trial of serva royal household.",
+          "after": "",
+          "time": "2026-11-20T10:33:29+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s7",
+          "before": "orsshall be The prison is greatly out of repair.No infirmary.Th the circum- court iswell supplied with water.In it the prisoners pla he at rackets, etc., and in a little back court, the Park, ay ne Court. skittles. at et,certain beobeyed Prison;this prison being just within those rules.Iwas credib bly theywere informed,that one Sunday in the summer 1775,about improper: Six the neighbourhood （Ashmore's), the prisoners not then liki ing the tapster's beer.",
+          "after": "The prison is greatly out of repair. No infirmary. The court is well supplied with water. In it the prisoners play at rackets, etc., and in a little back court, the Park, at skittles.\n\nThe tap was let to a prisoner in the rules of the King’s Bench Prison; this prison being just within those rules. I was credibly informed, that one Sunday in the summer 1775, about six hundred pots of beer were brought in from a public house in the neighbourhood (Ashmore’s), the prisoners not then liking the tapster’s beer.\n\nIn March 1775, when the number of prisoners was a hundred and seventy-five, there were with them in this incommodious prison wives and children forty-six.\n\nSince the Act of the nineteenth of George III, chap. lxx, there are not so many debtors in this prison as formerly; yet they are increasing, for I find here, and in other prisons, many debtors whose original debts are much under £10, but for the purpose of imprisoning such debtors, they are prosecuted either in the Court of Exchequer, or in other inferior courts, until the expenses of such prosecutions which added to the original debt amount to £10. A fresh action is then taken out in the superior courts, for the small original debt, and the accumulated costs of prosecution. Thus the salutary purposes of the said Act are defeated.\n\nMr. Henry Allnott, who was many years since a prisoner here, had, during his confinement, a large estate bequeathed to him. He learned sympathy by his sufferings; and left £100 a year for discharging poor debtors from hence, whose debts do not exceed £4. As he bound his manor of Goring in Oxfordshire for charitable uses, this is called the Oxford charity. Many are cleared by it every year.",
+          "time": "2026-11-20T10:33:29+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s8",
+          "before": "In March 1775,when the number of prisoners wasa hund and seventy-five,there were with them in this incommodi fed prison wives and children forty-six.",
+          "after": "",
+          "time": "2026-11-20T10:33:29+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s9",
+          "before": "Ous Since the Act of the nineteenth of George III, chap. ndofthe x, rsarrested hepalace, committed stodythis halofthe debt amount tofio.A fresh action is then taken out in usesprac- superiorcourts,for the small original debt,andtheaccumula the thegaol Thus the salutary purposes of the ated costs of prosecution. &aid owofthe Actare defeated.",
+          "after": "",
+          "time": "2026-11-20T10:33:29+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s10",
+          "before": "Mr.Henry Allnott,who was many years since a priso isanold oner ouscourt. nlysixof to him.He learned sympathy byhis sufferings;and left c1oo rooms- eofthem mily:the werefor Manyareclearedbyiteveryyear. themore hichthey enonthe my first sleep in, ntwants wo beds, achpays ntsofthe 0835",
+          "after": "",
+          "time": "2026-11-20T10:33:29+00:00",
+          "kind": "edit"
+        }
+      ],
       "spread_review": {
         "state": "working",
         "before": {
