@@ -15518,7 +15518,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "DEVONSHIRE",
           "s1": "to sevenpence a dozen:the turnkey found thetwine and Two sailors fineda shilling each had1 Is.4d.each to clerk of the peace,besides the gaoler's fees.",
@@ -15539,6 +15539,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T11:44:31+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T11:48:14+00:00"
           }
         ],
         "after": {
