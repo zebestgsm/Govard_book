@@ -13270,7 +13270,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "SOUTHWARK",
           "s1": "to the court ora judge,shall be paid his dama next dividend of the steward and assistants:i unjustly,he shall make satisfaction from dividend. 30.If the steward or assistants embezzle the mone may call them to account,and stop their div grate-money，etc.,for reparation of the injury 31.These orders to be read publicly every third Mon 32.Marshal, servants,and prisoners to observe thes painof the utmost punishment of law. 33.No clerk or servant of a judge to take any feeo apetition founded on these orders. R.RAYMOND, JA.REYNOLDS, The preceding rules fill one side ofa large sheet which they are printed.Another sheet has what FURTHER RuLES and ORDERS for the government,etc signed the 1oth day of May,1759 1.No person to bring any weapon. 2.Those on the master's-side who demand garnish, tocommon-sidefora time,notlonger thanam on thecommon-side are for thelike offence to not longer than a fortnight,from all profits of the baskets. 3.Doors of the great garden to be shut at dark: wards at nine. 4.The chambers at disposal of the marshal, etc. 5.Ifamaster's-side prisoner neglect foramonth topayl rent;he may be turned over to the common pays.His goods to be delivered to him,by inventory. detained for fees,and a month's chamber-rent. 6.None to sell in the prison victuals or drink withou marshal.A prisoner thus offending may be tur the common-side for a month.Marshal to tak those who sell dokeep good order,etc. 7.Confirms the I4th rule preceding,i.e.the greatroom and the tworooms for thesick. 8.Prisoners turned to common-side for offending,orno to have no profit but share of the baskets;to be nor vote for officers. 9.These rules to be fixed in the most public places,fon Signed, MANSFIELD, T.DE M.FORSTER, E.W",
@@ -13290,6 +13290,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T10:37:30+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T10:42:45+00:00"
           }
         ],
         "after": {
