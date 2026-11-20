@@ -14187,7 +14187,7 @@
       "segments": {},
       "history": [],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "NORFOLK",
           "s1": "ELY GAOL",
@@ -14212,8 +14212,31 @@
           {
             "action": "start",
             "time": "2026-11-20T11:25:17+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T11:27:06+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "NORFOLK",
+          "s1": "ELY GAOL",
+          "s2": "This gaol, the property of the Bishop, who is lord of the franchise of the Isle of Ely, was in part rebuilt by Bishop Mawson in 1768, upon complaint of the cruel method which, for want of a safe gaol, the keeper took to secure his prisoners.¹\n\nFor master’s-side debtors three rooms upstairs: a room on the same floor for condemned felons.",
+          "s3": "Below stairs is the felons’ day-room; and their cell or night-room, eighteen and a half feet by ten, with a window about a foot square. There is a court for felons, with an offensive sewer. No water. For debtors a court with a pump; but no free ward. No infirmary.",
+          "s4": "No straw.",
+          "s5": "Clauses against spirituous liquors, and Act for preserving the health of prisoners, not hung up. Keeper, a sheriff’s officer for the isle, and for the county of Cambridge. No table of fees.",
+          "s6": "Assize in this isle, of late, twice a year, viz. Lent at Ely, summer at Wisbech.",
+          "s7": "At my last visit, the debtors and felons were together.² One of the former was confined for 3s. 5½d., the charges 8s. 3d. another, who had a wife and five children, only for costs 4s. 9d. and gaol-fees 3s. 6d.\n\nNORFOLK\n\nCOUNTY BRIDEWELL\n\nWYMONDHAM. A day-room; with three closets on one side of it, for night-rooms, about six feet by four. A prisoner complained to me of being obliged to lie in one of these closets, with two boys who had a cutaneous disorder. There is another room for women, in which, at my visit in 1779, there were four dirty and sickly objects at work with padlocks on their legs,\n\n¹ This was by chaining them down on their backs upon a floor, across which were several iron bars; with an iron collar with spikes about their necks, and a heavy iron bar over their legs. An excellent magistrate, James Collyer, Esq., presented an account of the case, accompanied with a drawing, to the king; with which his Majesty was much affected, and gave immediate orders for a proper inquiry and redress.\n\n² An unhappy debtor may be an honest man; but “Evil communications corrupt good manners.”",
+          "s8": "SUFFOLK",
+          "s9": "though they are never out in the court except on Sundays.",
+          "s10": "The very small quantity of straw on the floor was worn almost to dust. There is a dungeon down eight steps with the stocks in it. It is fifteen and a half feet by eight, and six feet high; now arched with brick; a dirt floor; has two apertures at the top, of a foot diameter. The justices seem to have overlooked a clause in a late Act of Parliament (fourteenth George III, chap. xliii) “to prevent the prisoners from being kept underground, whenever they can do it conveniently,” as there is abundant room on the premises.",
+          "s11": "Neither the rooms nor the spacious court secure.",
+          "s12": "Prisoners in this bridewell are not only confined within doors, but generally in irons.",
+          "s13": "",
+          "s14": "SUFFOLK\n\nCOUNTY GAOL AT IPSWICH",
+          "s15": "This is also the town gaol: yet only one courtyard. For debtors, a kitchen, or day-room; and several chambers: one of these is lately made a free ward. For felons a day-room: and for the men a strong night-room; with beds well contrived for cleanliness and health. Each prisoner has a crib-bedstead, ten or twelve inches high; the head raised a few inches; strong feet, low sides. These are easily moved when the ward is to be washed. The county allows to each crib a straw bed, and a blanket. The women have no separate day-room: and their ward, or night-room, has no fire-place. One of the two drinking-rooms is called the garnish room. Two rooms for the sick; not distinct enough from the rest. No bath. Debtors weave in hand-frames, like those at Lincoln, good garters, etc., and make purses, nets and laces which they sell at the front grate. I found this close prison clean, though full of prisoners.",
+          "s16": "The water from the pump is conveyed through the sewers, which prevents the courtyard, which is small, from being offensive.\n\nIn the centre of the ceiling of a neat chapel lately built, is an aperture covered by a small turret, which keeps the room airy and pleasant. (All prison chapels should be thus supplied with fresh air.) Mr. Brome, the chaplain, does not content himself merely with the regular and punctual performance of his stated duty; he is a friend to the prisoners on all occasions."
+        }
       }
     },
     "108": {
