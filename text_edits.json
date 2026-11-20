@@ -3762,7 +3762,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "them to the regents when required.Also he must keep an witha exact register of the clothes,and all other things which belong Sunday tothose confined.",
@@ -3784,6 +3784,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T08:10:56+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T08:28:29+00:00"
           }
         ],
         "after": {
