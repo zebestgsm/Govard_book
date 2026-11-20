@@ -3652,7 +3652,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "todeposit with thekeeper(who sells liquors):he is allowed to call for a bottle of it a day,paying the keeper two stivers a sanguinary bottle.The city allows each debtor one quart of beer daily， with aleni and turf for firing.",
@@ -3673,6 +3673,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T08:10:56+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T08:27:14+00:00"
           }
         ],
         "after": {
