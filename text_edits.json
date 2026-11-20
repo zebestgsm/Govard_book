@@ -11652,7 +11652,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "LONDON",
           "s1": "darkish,having only a window at each end.On floor,the hall gallery,to whichyou ascend by eight a chapel,a tap-room,a coffee-room （made out of t for debtors),aroom for the turnkey,another forthe and eighteen rooms for prisoners.Besides the coffee- tap-room,twoof those eighteen rooms,and all thec except a lock-up room to confine the disorderly,an room for the turnkey，were held by the tapster,J wright,whobought the remainder of the lease atpubl in1775: The cellarfoor is sixteen steps below theha It consists of the two rooms justnow mentioned,th kitchen,his four large beer and wine cellars,and fift for prisoners.These fifteen,and the two before- on the hall gallery,the tapster lets to prisoners for to eight shillings a week.1 On the first gallery （that next above the hall ga twenty-five rooms for prisoners.",
@@ -11672,8 +11672,26 @@
           {
             "action": "start",
             "time": "2026-11-20T10:00:20+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T10:03:06+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "LONDON",
+          "s1": "darkish, having only a window at each end. On the first floor, the hall gallery, to which you ascend by eight steps, are a chapel, a tap-room, a coffee-room (made out of two rooms for debtors), a room for the turnkey, another for the watchman, and eighteen rooms for prisoners. Besides the coffee-room and tap-room, two of those eighteen rooms, and all the cellar-floor, except a lock-up room to confine the disorderly, and another room for the turnkey, were held by the tapster, John Cartwright, who bought the remainder of the lease at public auction in 1775. The cellar floor is sixteen steps below the hall gallery. It consists of the two rooms just now mentioned, the tapster’s kitchen, his four large beer and wine cellars, and fifteen rooms for prisoners. These fifteen, and the two before-mentioned on the hall gallery, the tapster lets to prisoners for from four to eight shillings a week.¹\n\nOn the first gallery (that next above the hall gallery) are twenty-five rooms for prisoners. On the second gallery twenty-seven: one of them, fronting the staircase, is their committee-room. A room at one end is an infirmary. At the other end, in a large room over the chapel, is a dirty billiard-table; kept by the prisoner who sleeps in that room. On the highest story are twenty-seven rooms. Some of these upper rooms, viz. those in the wings, are larger than the rest; being over the chapel, the tap-room, etc. All the rooms I have mentioned are for master’s-side debtors. The weekly rent of those not held by the tapster is 1s. 3d. unfurnished. They fall to the prisoners in succession, thus: when a room becomes vacant, the first prisoner upon the list of such as have paid their entrance-fees, takes possession of it. When the prison was built, the warden gave each prisoner his choice of a room according to his seniority as prisoner. If all the rooms be occupied, a new-comer must hire of some tenant a part of his room; or shift as he can. Prisoners are excluded from all right of succession to the rooms held by the tapster, and let at the high rents aforesaid. The apartments for common-side debtors are only part of the right wing of the prison. Besides the cellar (which was intended for their kitchen, but is occupied with lumber, and shut up) there are four floors. On each floor is a room about twenty-four or twenty-five feet square, with a fire-place; and on the sides, seven closets or cabins to sleep in. Such of these prisoners as swear in court or before a commissioner that they are not\n\n1 An imposition of the same kind is noted in the report of the gaol committee, 20 March, 1728, p. 8.",
+          "s2": "",
+          "s3": "",
+          "s4": "",
+          "s5": "LONDON",
+          "s6": "worth five pounds, and cannot subsist without charity, have the donations which are sent to the prison, the begging-box, and the grate. Of them there were at one of my visits sixteen, at some other times not so many.\n\nI have in the Report of the Committee of the House of Commons 1728, a table of some charities: but no such table was hung up in the prison.\n\nThere is plenty of water from the river and pumps; and a spacious court behind the prison.\n\nI mentioned the billiard-table. They also play in the courtyard at skittles, mississippi, fives, tennis, etc. And not only the prisoners: I saw among them several butchers and others from the market; who are admitted here as at another public house. The same may be seen in many other prisons where the gaoler keeps or lets the tap. Besides the inconvenience of this to prisoners, the frequenting a prison lessens the dread of being confined in one. On Monday night there was a wine-club: on Thursday night a beer-club: each lasting usually till one or two in the morning. I need not say how much riot these occasion; and how the sober prisoners, and those that are sick, are annoyed by them.\n\nSeeing the prison crowded with women and children, I procured an accurate list of them; and found that on (or about) 6 April, 1776, when there were on the master’s-side 213 prisoners, on the common-side 30, total 243; their wives (including women of an appellation not so honourable) and children were 475.\n\nI was surprised to see in this prison, a table of fees containing only those of the clerks of the papers and inquiries; and that the date of it was 1727, i.e. before the committee of the House of Commons made their inquiry. I did not doubt but another table was settled after that inquiry; and that it contained the warden’s fees also. But upon asking the clerk of the papers for a later table, I was referred to that which hung up. It is as follows.",
+          "s7": "",
+          "s8": "",
+          "s9": "",
+          "s10": "A TABLE of FEES to be taken by the Clerk of the Papers and by the Clerk of the Inquiries of the Fleet Prison pursuant to the Resolution of the Honourable XX of the Court of Common Pleas in the Easter and Trinity Terms 13th GEORGE I. 1727.\n\nRESOLUTION\n\n\t£\ts.\td.\n6th. That there is due and ought to be paid to the clerk of the papers for every discharge of every action\t0\t2\t6\nAnd for the copy of every cause not exceeding three\t0\t1\t0\nAnd for each and every cause exceeding three causes\t0\t0\t4",
+          "s11": ""
+        }
       }
     },
     "91": {
@@ -11738,7 +11756,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "LONDON",
           "s1": "Fee\t£\ts.\td.\nBesides the 1s. a piece for each of the said first three causes\t\t\t\n7th. That there is due and ought to be paid to the clerk of the papers for his certificate of the prisoner’s discharge delivered to the prisoner himself without any regard to the number of causes he stood charged with\t0\t2\t6\nAnd for his certificate to the warden of such discharge\t0\t2\t6",
@@ -11757,8 +11775,25 @@
           {
             "action": "start",
             "time": "2026-11-20T10:00:20+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T10:03:06+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "LONDON",
+          "s1": "\t£\ts.\td.\nBesides the 1s. a piece for each of the said first three causes\t\t\t\n7th. That there is due and ought to be paid to the clerk of the papers for his certificate of the prisoner’s discharge delivered to the prisoner himself without any regard to the number of causes he stood charged with\t0\t2\t6\nAnd for his certificate to the warden of such discharge\t0\t2\t6",
+          "s2": "8th. That there is due and ought to be paid to the clerk of the inquiries on the discharge of a prisoner by the creditor and not by supersedeas\t0\t2\t6",
+          "s3": "14th. That there is a fee of 5s. 4d. due to the clerk of the papers for the allowance of every writ of habeas corpus and 4s. for the return of the first cause and 2s. for every other cause and no more.",
+          "s4": "There is in the prison a table of rules or orders. They were made at very distant times, from the reign of Queen Elizabeth, to the date they bear; and some of them partly coincide with others: those which do so I have put together to avoid repetition, and have presumed to abridge the whole.\n\nHILARY 3d GEORGE II. 1729\n\n1, 2, 3. Warden or deputy to appoint turnkeys etc. with arms: to stop persons bringing arms, and watch if an escape be in agitation.\n4. Warden to distribute charity-money. He, or his agent, to keep one key of the box; and the prisoners another.\n5, 6, 12. If a master-side debtor shall neglect for three months to pay his chamber-rent; the warden may, not lock him up, but, remove him to the common-side; delivering to him his goods by a witnessed inventory. After discharge, if legal dues be still unpaid, he may be detained in the common-ward: the door of which is never to be shut but at night (summer at ten, winter at nine): and then a watchman must attend to open it for those who must go to the yard, etc.\n7. Such as attempt to escape, or greatly misbehave, may be shut up in a close room or dungeon.\nN.B. It was reported to the four judges whose names are here subscribed, and who made inquiry concerning it, to be “boarded wholesome and dry.”\n8, 18. Warden to repair the whole house, chapel, drains, etc., and keep all clean. To take care that divine service be duly performed, and the sacraments administered. Prisoners to attend.\n9. Against clandestine Fleet-marriages.",
+          "s5": "",
+          "s6": "LONDON",
+          "s7": "10. Those who blaspheme, curse, swear, or are disorderly, to be set in the stocks.\n11, 13. Warden or deputy to dispose of the chambers, and tap: and see that good order be observed in the public rooms, etc.\n14. Warden to take effectual care that no prisoner be carried to a spunging-house; and that no garnish be demanded from a new-comer.\n15. Warden to cause a table of gifts and bequests, written in a fair and legible hand, to be hung up in the hall. And to see that no prisoner be defrauded of his share. None of the servants to partake or distribute.\n16. Every prisoner not worth five pounds, etc. (As before in remarks.)\n17. Two rooms to be an infirmary for common-side debtors. No prisoner obliged to sleep with one that is diseased.\n19. Coroner’s inquest upon the dead: and corpse to be delivered to the friends, free of cost.\n20. Warden not to remove a prisoner to the King’s Bench by habeas corpus.\n21, 22, 23, 24, 25, 26. Warden to keep books, and register commitments, courts from whence, declarations, discharges, writs of habeas corpus. Tipstaff and judge’s clerk to keep each a separate book of prisoners delivered up at a judge’s chamber.\n27. All those books, except the tipstaff’s, to be kept in the public office of the clerk of the papers; accessible to all persons for copying, etc.\n28. No clerk, officer, or servant of any judge to take a fee on occasion of a petition or complaint, founded upon the foregoing orders, or any misgovernment.\n29. That the warden and his officers do treat the several prisoners in his custody with all tenderness and humanity: and that such prisoners do behave themselves toward the warden with that submission and regard which the law requires.\n\nR. EYRE    ALEX. DENTON\nROBT. PRICE    J. FORTESCUE A.\n\nThere was, moreover, a little code of laws, eighteen in number, enacted by the master’s-side debtors, and printed by D. Jones 1774. It established a president, a secretary, and a committee, which was to be chosen every month, and to consist of three members from each gallery. These were to meet in the committee-room every Thursday: and at other times when summoned by the crier, at command of the president, or of a majority of their own number. They were to raise contributions by assessment: to hear complaints: determine disputes: levy fines; and seize goods for payment. Their sense to be deemed the sense of the whole house. The president or secretary to hold the cash; the committee to dispose of it. Their scavenger to wash the galleries once a week; to water and sweep them every morning before eight; to sweep the yard twice every week; and to light the lamps all over the house. No person to throw out water, etc., anywhere but at the sinks in the",
+          "s8": "",
+          "s9": "",
+          "s10": ""
+        }
       }
     }
   }
