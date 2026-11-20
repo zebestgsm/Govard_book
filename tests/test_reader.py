@@ -289,6 +289,18 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertIn('id="footnote-21-s8-4"', html)
         self.assertEqual(inline_editor.render_verified_block('ordinary ⁴ text', 22, 's8', ''), '<span class="verified-paragraph">ordinary ⁴ text</span>')
 
+    def test_spreads_22_23_restored_and_notes_linked(self):
+        for number, refs in ((22, (('s1', 's2', '1'), ('s1', 's2', '2'), ('s1', 's2', '3'), ('s11', 's11', '1'))),
+                             (23, (('s1', 's1', '1'), ('s10', 's10', '1'), ('s10', 's10', '2'), ('s10', 's10', '3')))):
+            rendered, segments = reader.segment_state(number)
+            for source, target, note in refs:
+                self.assertIn(f'href="#footnote-{number}-{target}-{note}"', rendered)
+                self.assertIn(f'id="footnote-{number}-{target}-{note}"', rendered)
+            self.assertTrue(segments['s1'].startswith('the sick.' if number == 22 else 'according to the act,'))
+            self.assertNotIn('☑ OCR', reader.quality_label(number))
+        self.assertIn('Visitants who are there', reader.segment_state(22)[1]['s11'])
+        self.assertIn('taken care of by the same gentlemen', reader.segment_state(23)[1]['s1'])
+
     def test_scan_zoom_controls_and_detail_image(self):
         page = self.request('/spread/107')[1]
         for marker in ('scan-zoom-toolbar', 'scan-zoom-in', 'scan-zoom-out', 'scan-zoom-reset', 'data-detail-src', 'detail=1', 'scan-fullscreen', 'scan-fullscreen-close', 'scan-fullscreen-view', 'aria-modal="true"'):
@@ -321,11 +333,11 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertEqual(self.form('/scan-action/14', {'action':'restore-scan-mark'})[0], 200)
         self.assertTrue(reader.scan_dropdown_label(14))
         # Automated collation does not replace manual proofreading.
-        self.assertIn('☑ OCR', reader.quality_label(22))
-        self.assertEqual(self.form('/scan-action/22', {'action':'dismiss-ocr'})[0], 200)
-        self.assertNotIn('OCR', reader.quality_label(22))
+        self.assertIn('☑ OCR', reader.quality_label(24))
+        self.assertEqual(self.form('/scan-action/24', {'action':'dismiss-ocr'})[0], 200)
+        self.assertNotIn('OCR', reader.quality_label(24))
         self.assertIn('скан повёрнут', reader.quality_label(14))
-        self.assertIn('пометка OCR снята', self.request('/spread/22')[1])
+        self.assertIn('пометка OCR снята', self.request('/spread/24')[1])
 
         pdf = reader.pymupdf.open()
         pdf.new_page(width=100, height=50)
@@ -346,8 +358,8 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertFalse(reader.replacement_path(14).exists())
         self.assertTrue(reader.scan_dropdown_label(14))
         self.assertNotIn('OCR', reader.quality_label(14))
-        self.assertEqual(self.form('/scan-action/22', {'action':'restore-ocr'})[0], 200)
-        self.assertIn('☑ OCR', reader.quality_label(22))
+        self.assertEqual(self.form('/scan-action/24', {'action':'restore-ocr'})[0], 200)
+        self.assertIn('☑ OCR', reader.quality_label(24))
 
     def test_legacy_quality_decisions_are_preserved_when_migrated(self):
         reader.QUALITY_FILE.write_text(json.dumps({'dismissed': [2, 14, 153], 'other': 'keep'}))
@@ -446,7 +458,7 @@ class ReaderHTTPTests(unittest.TestCase):
     def test_verified_spreads_and_pending_ocr_labels(self):
         for number in (5, 6, 151, 153, 161, 162, 163, 164, 165):
             self.assertNotIn('OCR', reader.quality_label(number))
-        for number in (22, 27, 33, 96, 106, 108):
+        for number in (24, 27, 33, 96, 106, 108):
             self.assertIn('☑ OCR', reader.quality_label(number))
         self.assertNotIn('☑ OCR', reader.quality_label(107))
         self.assertIn('скан повёрнут', reader.quality_label(14))
@@ -732,7 +744,7 @@ class TranslationTests(unittest.TestCase):
         self.assertIn('Русский перевод', html)
         self.assertIn('ОБЗОР БЕДСТВИЙ В ТЮРЬМАХ', html)
         self.assertLess(html.index('id="editable-book"'), html.index('id="translation"'))
-        working = reader.reader_page(22)
+        working = reader.reader_page(24)
         self.assertIn('перевод по черновому английскому тексту', working)
         self.assertIn('Русский перевод', working)
 
