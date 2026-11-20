@@ -3910,7 +3910,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "Thenth and inspect the work,the diet,and the lodging of theprisoners； dishwh and to chastise the disobedient. onawa The workroom was a large room upstairs,separated bya This wooden balustrade from the passage(six feetwide)into which whosel ofwha trades into two,for distinguishing thosewho had suffered some Atm public or corporal punishment,from others who hadnotbeen intothe whipped,and exposed ona scaffold.The mother was seated Here ata desk（where she had a full viewof her family at work) workho with aBible before her.As I stayed longer than a common house, visitant,one of the prisoners went up to the mistress with the house timid modesty of a suppliant,and asked leave to offer me the bonds, plate.The leave was granted.The mistress kept what was andfon mentv tea or coffee,for all topartake.",
@@ -3936,6 +3936,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T08:10:56+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T08:31:19+00:00"
           }
         ],
         "after": {
