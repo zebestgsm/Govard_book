@@ -7137,7 +7137,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "uncommon strength of it,the gaoler told me a prisoner had lately made his escape from it.I could not devise whatmethod he tookbuearditwasthis.Hhadaoonfor oup,whih he sharpened to cut out a piece from the timber of his room: then by practice he acquired the knack of striking his door, just when the great clock struck,which drowned the noise: and in ffteen days he forced all the bolts,etc.But attempting to let himself down from thevast height by a rope which he found,the rope failed him;and by falling he broke so many of his bones,that the surgeons pronounced his recovery impossible.",
@@ -7158,8 +7158,27 @@
           {
             "action": "start",
             "time": "2026-11-20T09:18:04+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T09:19:51+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "AN ACCOUNT OF FOREIGN PRISONS",
+          "s1": "uncommon strength of it, the gaoler told me a prisoner had lately made his escape from it. I could not devise what method he took, but heard it was this. He had a spoon for soup, which he sharpened to cut out a piece from the timber of his room: then by practice he acquired the knack of striking his door, just when the great clock struck, which drowned the noise: and in fifteen days he forced all the bolts, etc. But attempting to let himself down from the vast height by a rope which he found, the rope failed him; and by falling he broke so many of his bones, that the surgeons pronounced his recovery impossible. But his bones were set; and with proper care he did recover, and was pardoned.\n\nZURICH. At Zurich there is a prison for capital crimes (situated in the middle of the river);¹ and a house of correction, formerly a convent. In the latter, which is convenient and spacious, there were about sixty prisoners. Nineteen of the men worked abroad for the citizens, who paid them for their work, but not so much as to other labourers. The rest were spinning within doors, or working at some trade. I observed one ingenious woman colouring botanical prints. They have a chapel, in which they attend divine worship, and are catechised every Friday. Once a day, such of them as do not work abroad, by the advice of one of the physicians in this city, walk under arcades in a large square court, during which time their rooms are thoroughly aired, the doors and windows being thrown open. They have good bedding;² and they are well supplied with wheaten bread and soup every day, but no meat.\n\nThe prisoners, on entrance, have the house clothes; and their own are hung up, with their names, and the time of their commitment, noted upon them. On inquiring of one of the magistrates, if they banished any of their criminals, he seemed surprised at the question, and asked, if I did not see in the mountains many manufactories?\n\nFrom further consideration of the excellent manner in which houses of correction are conducted in this country, as well as at Bremen, Hamburg, Holland, etc., by regents or inspectors, whose motive for attending to their duty cannot\n\n1 Here was only one prisoner. The first room was for examination; in it were five different weights for torture, and if we may depend on tradition, the heaviest, which is one hundred and twenty pounds, was used in torturing a burgomaster of this city.\n\n2 A salutary custom of bringing out the beds in fine weather, I see practised in some of the best houses in this country; which is not properly attended to in England.",
+          "s2": "",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "",
+          "s7": "",
+          "s8": "GERMANY",
+          "s9": "be large salaries;¹ I am still more confirmed in the opinion I before advanced that no mercenary views should be held forth to the persons to whom such an important trust is committed. Nor can I doubt, that in our own country, as well as abroad, men might readily be found, who merely from a sense of duty, and love to humanity and their country, would faithfully and diligently execute such an office, with no other reward than the approbation of their fellow-citizens, and of their own consciences. In fact, we find, that there is no want of respectable persons among us, to undertake the government of hospitals and houses of industry upon these principles.\n\nGERMANY\n\nFrom Switzerland I returned to Germany in 1778, in order to visit some prisons which I had not seen in my former journeys, particularly those in the free or imperial cities.\n\nAUGSBURG. At Augsburg, the prison is on the side of a hill, at the back of the town house. It consists of many cachots or small rooms, on three different floors. There is one for examination, and two for the engines of torture. There are also two dark dungeons for such as have been convicted of witchcraft: but they are in a very ruinous condition, and seem to have been a long time without inhabitants. The condemned are brought three days before their execution into two light rooms, which open into a Roman Catholic chapel: where, however, if a prisoner be a Protestant, a Lutheran minister is permitted to attend him.\n\nMUNICH. At Munich or München, there are two prisons for criminals. One, in the town house, had in it six men and two women prisoners. In a dark damp dungeon down seventeen steps, were the instruments of torture.\n\nThe other, La Prison de la Cour, consisted of about fifteen cells, twelve feet by seven, and a black torture-room. In this room there is a table covered with black cloth and fringe. Six\n\n1 “The salaries of the several magistrates are so inconsiderable, as not to offer any temptation on the side of pecuniary emolument: a sense of honour, a spirit of ambition, the desire of serving their country, together with that personal credit which is derived from exercising any office in the administration, are the principal motives which actuate the candidates to solicit a share in the magistracy.”—Mr. Coxe’s Sketches of Switzerland, p. 463.",
+          "s10": "",
+          "s11": "",
+          "s12": ""
+        }
       }
     },
     "60": {
