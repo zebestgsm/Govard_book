@@ -10050,7 +10050,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "PRISONERS OF WAR IN ENGLAN",
           "s1": "There were a hundred and ffty-four French,thirty-four and a hundred and thirty-three Americans;of these, French,twenty-five Dutch,and nine Americans were up.Iweighed several of the six-pound loaves,and th wanted some ounces ofweight.",
@@ -10078,6 +10078,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T09:43:41+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T10:25:21+00:00"
           }
         ],
         "after": {
