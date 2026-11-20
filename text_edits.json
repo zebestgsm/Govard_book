@@ -16709,7 +16709,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "needs_work",
         "before": {
           "s0": "NORTHWALESCIRCUI",
           "s1": "CARNARVONSHIRE",
@@ -16743,6 +16743,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T11:58:19+00:00"
+          },
+          {
+            "action": "needs_work",
+            "time": "2026-11-20T12:04:03+00:00"
           }
         ],
         "after": {
