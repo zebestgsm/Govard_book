@@ -3398,7 +3398,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "（about seventeen feet long,eleven feet broad,and ten high), manner rooms were very offensive,the persons confined in them being inserted two of the men are removed every ten or fourteen days,to Regul Sunday different companies. There were among them some Jews, orkitcher whose dinner was not pork as was that of the other prisoners, rye bread butmutton,which the societyof Jews in the city sent them with grout,as a slice ofwhite bread,by permission of one of the five regents rye bread Sunday or inspectors.1 flour,wit For the refractory there are dark rooms,but not dungeons: Eachboy asabove, in one of these,on shutting the door onmyself,I foundno Monda dampness. butter.",
@@ -3414,8 +3414,22 @@
           {
             "action": "start",
             "time": "2026-11-20T08:03:56+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T08:06:48+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "AN ACCOUNT OF FOREIGN PRISONS",
+          "s1": "(about seventeen feet long, eleven feet broad, and ten high), each of which contained only four or five prisoners. These rooms were very offensive, the persons confined in them being taken out only once in the week. For preventing combinations, two of the men are removed every ten or fourteen days, to different companies. There were among them some Jews, whose dinner was not pork as was that of the other prisoners, but mutton, which the society of Jews in the city sent them with a slice of white bread, by permission of one of the five regents or inspectors.¹\n\nFor the refractory there are dark rooms, but not dungeons: in one of these, on shutting the door on myself, I found no dampness. My conductor observed, that the floor was raised to preserve it dry. Here they are allowed no bedding, and are kept to bread and water, which is given them at an aperture in the door. Their confinement is for six, eight, ten, or fourteen days.\n\nAt the whipping-post (which is in the middle of the court, in full view of the male criminals) some of our dexterous countrymen in 1781, were disciplined, for melting their pewter spoons and forming them into keys. The pewter was hardened with a mixture procured from an apothecary, under the pretence of its being a remedy for the toothache. But the scheme was defeated by an English Jew, who for this service obtained his liberty, though he had been committed for thirty years.\n\nThe regents have a room in which they assemble once a fortnight. Their ladies assemble in another room to give directions concerning the work, linen, provisions, etc. They also attend by rotation at dinner, and other times; and their accounts are carried to the regents.²\n\nThe keeper has a salary from the city, of four hundred florins or guilders per annum,³ and also a house, victuals and drink, firing and candle, and one-seventh part of the produce of all the labour of the prisoners; so that it is his interest to see that the work be well performed: yet as the quantum is fixed by the regents, it is not in his power to be a cruel taskmaster. The",
+          "s2": "",
+          "s3": "",
+          "s4": "¹ As I was there at one o’clock, the time of the distribution, I observed that the bread was all cut in slices: this prevents those contests or frauds which sometimes happen where prisoners mess together, and the bread is given out in one loaf; as I saw on board the hulks in the Thames, where one loaf was given to six persons.\n\n² A principal reason of the cleanliness and order in workhouses in Holland, is the attention and humanity of the governesses: for each house has four who take the charge of inspection, and have their names painted in their room.\n\n³ About £36.",
+          "s5": "",
+          "s6": "HOLLAND",
+          "s7": "manner of dieting the prisoners seemed to me worthy of being inserted at length.¹\n\n¹ Regulation for the daily diet, at the rasp-house at Rotterdam.\nSunday dinner. Each man has a mess of boiled grout, with butter or kitchen-stuff; a piece of cheese or butter, with a quarter of a pound of rye bread. Each boy, woman, or such as only work half-task, a mess of grout, as above; a piece of cheese or butter, with one-sixth of a pound of rye bread.\nSunday supper. Each man a bowl of new milk boiled with barley or flour, with a piece of cheese, and one-fourth of a pound of rye bread. Each boy, woman, or such as only do half-task, the bowl of sweet milk as above, but no bread or cheese.\nMonday breakfast. Each man half a pound of rye bread with cheese or butter. Each boy, woman, or half-tasked, one-fourth of a pound of rye bread with butter or cheese.\nN.B. Breakfast through the week, is the same as above.\nMonday dinner. Each man half a pound of meat, or one-sixth of a pound of pork without bone; half a pound of rye bread, with a bowl of boiled carrots, cabbage or greens. Each boy, woman, or half-tasked, one-third of a pound of meat, or one-eighth of a pound of pork without bone, three-eighths of a pound of rye bread, with a bowl of boiled carrots, cabbage or greens.\nTuesday dinner. For all, boiled grey peas, with one-fourth of a pound of rye bread; the men have, besides, each a piece of cheese.\nWednesday dinner. Each man a bowl of peas porridge, with three-eighths of a pound of rye bread and a piece of cheese. Each boy, woman, or half-tasked, a bowl of peas porridge, one-fourth of a pound of rye bread with a piece of cheese.\nThursday dinner. Each man, one-third of a pound of meat, or one-eighth of a pound of pork without bone; two slices of rye bread, weighing together half a pound, with a bowl of barley broth. Boys, or men who only do half-task, one-fourth of a pound of meat, or one-twelfth of a pound of pork without bone; two slices of rye bread, weighing together three-eighths of a pound, with each a bowl of barley broth. The women, no meat or pork; each a bowl of barley broth, with three-eighths of a pound of rye bread with butter or cheese.\nFriday dinner. Each man a bowl of kidney-bean porridge; three-eighths of a pound of rye bread with cheese. Each boy, woman, or half-tasked, the mess of kidney-bean porridge; one-fourth of a pound of rye bread with cheese.\nSaturday dinner. Each man a bowl of boiled peas, with butter and vinegar sauce; boys, women, and half-tasked, have the same allowance and all have the same allowance of rye bread and cheese as on the Fridays.\nThe constant supper, on week-days, for all, is buttermilk boiled with barley or grout till thick enough to be eaten without bread; to this, each man has one-fourth of a pound of rye bread with cheese; the boys, women, and half-tasked, have only a mess of the buttermilk, but no bread or cheese.\n\tCANS\nEach man has, during the three summer months, daily, of beer,\t2½\nAnd during the three winter months\t1½\nAnd during the remaining six months\t2\nBoys, women, and half-tasked, for the three summer months, each, daily\t1½\nAnd for the remaining nine months\t1\nIn the foregoing regulation for diet, no alteration is to be made, unless when fish shall be extraordinarily cheap and plentiful, all the prisoners may be indulged with one meal, provided with the consent of a majority of the regents."
+        }
       }
     },
     "34": {
@@ -3512,7 +3526,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "Being at Rotterdam on a Sunday,I was desirous of seeing, for the whether there was such dissipation in their prisons,as there is justbef in ours,on that day.The public service at the rasp-house whohac began at half after one o'clock.The audience consisted of as is so about thirty or forty inhabitants of the town,Mr.Schumacher ofthev the presiding regent,thehead-keeper and his family,and three catechu under-keepers, besides the prisoners.",
@@ -3533,8 +3547,27 @@
           {
             "action": "start",
             "time": "2026-11-20T08:03:56+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T08:06:48+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "AN ACCOUNT OF FOREIGN PRISONS",
+          "s1": "Being at Rotterdam on a Sunday, I was desirous of seeing, whether there was such dissipation in their prisons, as there is in ours, on that day. The public service at the rasp-house began at half after one o’clock. The audience consisted of about thirty or forty inhabitants of the town, Mr. Schumacher the presiding regent, the head-keeper and his family, and three under-keepers, besides the prisoners. The number of women prisoners was about forty, who were separated from the rest of the congregation by a wooden palisade, and seated on benches raised one above another. They were all clean and neat; had nothing distinguishing in their dress, but were without hats. While they stood up during prayer, they held up their aprons to cover their faces. The men were neat, dressed in brown coats, had been shaved, had clean shirts (which were most of them checked), clean stockings, and wore handkerchiefs about their necks. They also were seated on raised benches, in a room out of the chapel, and separated from it by an iron grate from the top of the room to the bottom, so wide that all the audience, except the female prisoners, had them full in view. The keeper’s seat adjoins to this grate, and two of his servants, who are turnkeys, sat observing their behaviour.\n\nThe chaplain, after a short prayer, preached extempore; then, the men convicts joined in singing, most of them having books. When the chaplain had prayed again, he catechised for about three-quarters of an hour. It being the women’s turn that Sunday, six of them stood up, one after another, and made the responses, which the chaplain explained to them. After this he prayed, and the service concluded by singing the fifty-first Psalm. The decent behaviour and attention of the audience, evidently proved that the service, though of two hours and a half, was not tedious or disagreeable.\n\nDuring the time of catechising, the head-keeper and one of his servants went out, to inspect the empty wards, and to search whether any tools or instruments were concealed. The keeper returned to his seat in an hour. At the end of the service, the women passed by the regent’s seat;¹ and when they were gone, he went into the court to see the men go to their several wards, four or five together, that number only being let out at a time.² After they were all locked up, he went to each window, and conversed with them. Many of them returned their thanks\n\n¹ The seat is large enough for all the five regents or inspectors: but only one is obliged to attend, and this they do by rotation.\n\n² They were not chained, for no irons are here used.",
+          "s2": "",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "",
+          "s7": "",
+          "s8": "",
+          "s9": "",
+          "s10": "HOLLAND",
+          "s11": "for the abridgment of their term of confinement, as this was just before the time for electing new magistrates. One or two who had been at sea, entreated to go in any capacity to India, as is sometimes permitted. He afterwards went to the lattice of the women’s ward, and conversed with them; and gave the catechumens some token of his approbation.\n\nI cannot forbear closing this account, without mentioning the ardent wishes it inspired in me, that our prisons also, instead of echoing with profaneness and blasphemy, might hereafter resound with the offices of religious worship; and prove, like these, the happy means of awakening many to a sense of their duty to God and man.¹\n\nIn 1781 I visited the few English prisoners of war in Holland, who were confined in the Admiralty at Rotterdam. A room was assigned for the officers, in which there were only two. In another room (twenty-one feet by eighteen and fifteen feet high) there were eleven sailors, who appeared healthy and well. Several had died a little time before, which, I apprehend, was in part owing to their being confined in a small room called the hospital, which was dirty, without a chimney, and its sides were wood. Their allowance was eight stivers a day, a bed and coverlet, and on most days they walked some hours in the court.\n\nMIDDLEBURG. The rooms in the prison at Middleburg are spacious, lofty and clean. The three dungeons are used to force a confession; as there is no direct torture,² and the criminal is not executed till the crime is confessed. The allowance to a criminal is eight stivers a day.\n\nIn the house of correction the prisoners were employed in weaving cloth or sacking for the East India Company. This is more profitable than their late employment on coarse carpeting. None were in irons. No more than four persons were in any of the men’s rooms; in some there were but two. Each criminal pays three guilders at his entrance, and the same at his discharge.\n\nAMSTERDAM. At Amsterdam the prison is in the Stadt-house. Debtors and felons quite separate. No court. Visitants may converse with debtors at the lattices of their rooms, from nine to twelve in the forenoon. The debtor may buy an anchor of wine\n\n¹ On conversing with a sensible magistrate, his words were “I have known persons who have come out of our houses of correction thoroughly reformed, and have thanked God for their confinement.”\n\n² Torture was in common use throughout Europe at this time, but Beccaria’s Crimes and Punishments has dealt it its death blow.—[ED.]",
+          "s12": ""
+        }
       }
     }
   }
