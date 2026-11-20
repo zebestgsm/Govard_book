@@ -22,6 +22,8 @@ TABLE_META = {
     (81, 's8'): ('Prisoners in Scotland, September 1782', 'fee'),
     (84, 's5'): ('Dublin prisoners by visit date', 'mixed'),
     (87, 's2'): ('Newgate prisoners by visit date', 'fee'),
+    (89, 's1'): ('Newgate fees continued', 'fee'),
+    (89, 's7'): ('Fleet prisoners by visit date', 'fee'),
     (88, 's12'): ('Newgate fees, 1729 and keeper’s table', 'fee'),
     (90, 's10'): ('Fleet Prison — Clerk of the Papers fees, 1727', 'fee'),
     (91, 's1'): ('Fleet Prison — Clerk of the Papers fees, continued', 'fee'),
@@ -250,7 +252,7 @@ def render_verified_block(value, spread, segment_id, query):
         elif '\t' in chunk:
             # Group only consecutive tab-separated lines. Prose introducing or
             # following a table must not become a one-cell table row.
-            has_header = not ((spread == 16 and segment_id in ('s7', 's11')) or (spread == 17 and segment_id == 's1') or (spread == 35 and segment_id == 's1') or (spread, segment_id) in ((79, 's3'), (84, 's5'), (112, 's0')))
+            has_header = not ((spread == 16 and segment_id in ('s7', 's11')) or (spread == 17 and segment_id == 's1') or (spread == 35 and segment_id == 's1') or (spread, segment_id) in ((79, 's3'), (84, 's5'), (91, 's2'), (112, 's0')))
             if (spread, segment_id) in TABLE_META:
                 label, table_kind = TABLE_META[(spread, segment_id)]
             elif spread == 16 and segment_id == 's10':
@@ -284,7 +286,7 @@ def render_verified_block(value, spread, segment_id, query):
                     role = 'columnheader' if index == 0 and has_header else 'cell'
                     rows.append('<span class="restored-row" role="row" style="--numeric-cols:' + str(len(cells)-1) + '">')
                     for cell_index, cell in enumerate(cells):
-                        rows.append('<span class="restored-cell" role="' + role + '">' + highlight(('\t' if cell_index else '') + cell, query) + '</span>')
+                        rows.append('<span class="restored-cell" role="' + role + '">' + text_html(('\t' if cell_index else '') + cell) + '</span>')
                     rows.append('</span>' + ending)
                 table_class = {'fee': 'fee-table', 'mixed': 'mixed-table', 'statistical': 'statistical-table', 'diet': 'diet-table'}.get(table_kind, 'fee-table')
                 output.append('<span class="restored-table ' + table_class + '" role="table" aria-label="' + label + '">' + ''.join(rows) + '</span>')
@@ -307,8 +309,12 @@ def render_verified_block(value, spread, segment_id, query):
               or (spread == 82 and segment_id == 's1' and chunk == 'IRELAND²')
               or (spread == 85 and segment_id == 's5' and chunk in ('SECTION VII', 'A PARTICULAR ACCOUNT OF ENGLISH PRISONS'))
               or (spread == 86 and segment_id == 's10' and chunk == 'THE TOWER')
-              or (spread == 87 and segment_id == 's1' and chunk == 'NEWGATE¹')):
+              or (spread == 87 and segment_id == 's1' and chunk == 'NEWGATE¹')
+              or (spread == 89 and segment_id == 's7' and chunk in ('HIS MAJESTY’S PRISON', 'THE FLEET,¹ FOR DEBTORS'))
+              or (spread == 91 and segment_id == 's4' and chunk == 'HILARY 3d GEORGE II. 1729')):
             output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
+        elif spread == 91 and ((segment_id == 's4' and chunk.startswith('1, 2, 3. Warden')) or (segment_id == 's7' and chunk.startswith('10. Those who blaspheme'))):
+            output.append('<span class="book-list">' + text_html(chunk) + '</span>')
         elif spread == 68 and segment_id == 's3' and chunk.startswith('Sundays, Tuesdays and Thursdays.'):
             output.append('<span class="book-footnote verified-footnote diet-note">' + text_html(chunk) + '</span>')
         elif ((spread == 62 and segment_id == 's5' and chunk.startswith('The prisoners must be submissive')) or (spread == 63 and segment_id == 's1' and chunk.startswith('in insulting the keeper'))):
