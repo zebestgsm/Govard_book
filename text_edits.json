@@ -4806,7 +4806,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "Iattended atthe trials in the court of justice in July,thewant of fresh air,in consequence of the windows being shut,affected me somuch as tomake me ill a considerable time afterwards. ther nail STOCKHOLM.",
@@ -4825,8 +4825,25 @@
           {
             "action": "start",
             "time": "2026-11-20T08:33:54+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T08:35:26+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "AN ACCOUNT OF FOREIGN PRISONS",
+          "s1": "I attended at the trials in the court of justice in July, the want of fresh air, in consequence of the windows being shut, affected me so much as to make me ill a considerable time afterwards.\n\nSTOCKHOLM. There are three prisons at Stockholm; one in the northern suburbs, one in the southern, and the other in the city itself. Criminals while confined in these prisons, are not in irons. If the offence be capital, they are after condemnation sent to the great prison (called Smed-garden); from whence they may appeal to Parliament, which must confirm the sentence before it can be executed.\n\nThe general mode of execution is by the axe. Women are beheaded on a scaffold, which is afterwards set on fire at the four corners, and consumed with the body. The present king has humanely abolished all torture, and ordered a dark cellar applied to this purpose in the great prison, to be bricked up.¹\n\nI was present four or five hours in one of the courts of justice, when many civil and criminal causes were tried. The burgomaster (with his gold chain) was seated at one end of a table, and on each side four or five other magistrates. The manner of swearing a witness was by requiring him to put two fingers on a Bible, and to pronounce the words of the oath deliberately after the burgomaster. In some causes only one witness was sworn; in others, several; and while one was under examination, the rest were not allowed to be present, except in trials for petty offences, when no oath was administered. In civil causes, both plaintiffs and defendants presented memorials, and some were allowed counsel. In a prosecution of a man for beating his wife, I observed that one of the senior magistrates pleaded the wife’s cause, and then withdrew with the parties concerned in the prosecution. The judge, having consulted a book of laws, called them in again; and after hearing the law read and the sentence pronounced, they bowed and departed at different doors. I observed in petty disputes, a reconciliation so hearty sometimes taking place, that the contending parties shook hands, and went off together shedding tears of joy. In the prison called Norr Kiämnärs Ratt for the northern suburbs (which are four times as large as the city itself) there are two justice-rooms and six other rooms. It had in it only three prisoners. The allowance, six stivers (2d.) per day.\n\nIn the prison for the southern district Soder Kiämnärs Ratt,\n\n1 The gaoler told me, that agreeably to the king’s order, the doorway had been bricked up. On my insisting to see the wall that I might be assured of the fact, I found the cellar still open.",
+          "s2": "",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "SWEDEN",
+          "s7": "there were also six rooms; four of which, having their windows nailed up, were very dark, dirty and offensive. Here were five prisoners almost stifled, in consequence of receiving no air except through a small aperture in the door of each room. The other two rooms were light and airy, and are sometimes used as an infirmary. The gaoler here, as in the other prisons, sells liquors. His room, like those I have too often seen in my own country, was full of idle people who were drinking.\n\nIn the prison for the city, called Stads Kiämnärs Ratt, the rooms were very dirty, and the windows of all, except one, were shut. The countenances of the prisoners bespoke neglect and oppression. Here were two rooms appropriated to criminals condemned for a certain term, to bread and water. In one of these rooms there were two persons, who seemed almost starved, being allowed only six stivers’ worth of bread (2d.) per day, and that sold them by an unfeeling gaoler.¹ Here is no chapel; nor are the prisoners ever allowed to leave their noxious cells. I observed coffins are kept ready for the dead.\n\nThe Smed-garden (to which criminals are sent after condemnation) is a brick building in an airy situation. It has a court enclosed with high planks, or palisades. In one of the rooms on one side of this court, I saw two barrack-beds and three men, one of them loaded with irons. Their allowance is six stivers per day, with which they may purchase what they please. Two stivers’ worth of bread weighed exactly twelve ounces.\n\nOn the other side of the court is the chapel, and the apartments of the women, where I saw five prisoners at needlework, but none in irons; and, I was informed, the women are never put into irons. There is a bed in the chapel; where the convict rests till his execution, which is sometimes three weeks: two days before this, his irons are taken off.\n\nThe men are allowed to walk in the court from eight to nine, and from four to five: the women are allowed the same privilege, but at different times.\n\nThe prison for debtors is in the city, and consists of two rooms on the first floor and two over them. Here were sixteen men, and one woman. The rooms being all open, they associate\n\n1 Seeing these miserable objects thankful for a small donation of bread, I said to the gaoler, “A sentence for twenty-eight days must be very severe.” He replied, “It is good for their health.” I can make a good conjecture of the state of a prison, from the countenances of the prisoners: complacency and submission appear under kind treatment, even though the apartments be bad, and the allowance scanty.",
+          "s8": "",
+          "s9": "",
+          "s10": ""
+        }
       }
     },
     "45": {
