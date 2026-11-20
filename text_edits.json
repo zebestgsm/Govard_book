@@ -15312,7 +15312,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "needs_work",
         "before": {
           "s0": "GLOUCESTERSHIRE",
           "s1": "COUNTY BRIDEWELL",
@@ -15339,6 +15339,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T11:44:31+00:00"
+          },
+          {
+            "action": "needs_work",
+            "time": "2026-11-20T11:47:23+00:00"
           }
         ],
         "after": {
