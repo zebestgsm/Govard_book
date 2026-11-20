@@ -2460,7 +2460,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "PROPOSED IMPROVEMENTS",
           "s1": "shouldbe supplied by the county or town:otherwise gaols will never be kept clean and wholesome.1 prayers.",
@@ -2480,6 +2480,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T07:54:32+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T07:58:10+00:00"
           }
         ],
         "after": {
