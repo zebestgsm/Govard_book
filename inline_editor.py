@@ -395,12 +395,17 @@ def render_verified_block(value, spread, segment_id, query):
               or (spread == 117 and ((segment_id == 's1' and chunk == 'COUNTY BRIDEWELL') or (segment_id == 's4' and chunk in ('DORSETSHIRE', 'COUNTY BRIDEWELL', 'DEVONSHIRE', 'HIGH GAOL AT EXETER'))))
               or (spread == 118 and ((segment_id == 's1' and chunk == 'PLYMOUTH TOWN GAOL') or (segment_id == 's5' and chunk in ('CORNWALL', 'COUNTY GAOL AT LAUNCESTON FOR FELONS', 'COUNTY GAOL AT BODMIN'))))
               or (spread == 120 and ((segment_id == 's1' and chunk == 'PENZANCE') or (segment_id == 's5' and chunk in ('SOMERSETSHIRE', 'BRISTOL NEWGATE'))))
-              or (spread == 121 and ((segment_id == 's1' and chunk == 'BRIDGEWATER TOWN GAOL') or (segment_id == 's2' and chunk in ('NORTHERN CIRCUIT', 'YORKSHIRE', 'COUNTY GAOL, YORK CASTLE'))))):
+              or (spread == 121 and ((segment_id == 's1' and chunk == 'BRIDGEWATER TOWN GAOL') or (segment_id == 's2' and chunk in ('NORTHERN CIRCUIT', 'YORKSHIRE', 'COUNTY GAOL, YORK CASTLE'))))
+              or (spread == 122 and ((segment_id == 's1' and chunk == 'KNARESBOROUGH PRISON, FOR TOWN DEBTORS') or (segment_id == 's2' and chunk in ('ROTHWELL PRISON, FOR DEBTORS', 'HALIFAX PRISON¹')) or (segment_id == 's4' and chunk in ('DURHAM', 'COUNTY GAOL AT DURHAM'))))
+              or (spread == 123 and ((segment_id == 's1' and chunk in ('NORTHUMBERLAND', 'NEWCASTLE')) or (segment_id == 's5' and chunk in ('COUNTY GAOL AT MORPETH', 'CUMBERLAND', 'COUNTY GAOL AT CARLISLE'))))
+              or (spread == 124 and segment_id == 's7' and chunk in ('LANCASHIRE', 'COUNTY GAOL, LANCASTER CASTLE'))):
             output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
         elif ((spread == 102 and segment_id == 's4' and chunk.startswith('that want of care respecting them'))
               or (spread == 110 and segment_id == 's3' and chunk.startswith('Before this rigorous law'))
               or (spread == 112 and segment_id == 's0' and chunk.startswith(('habit of idleness', '“In all manufacturing towns', '“A county magistrate said')))
-              or (spread == 113 and segment_id == 's5' and chunk.startswith('skeleton with light chains'))):
+              or (spread == 113 and segment_id == 's5' and chunk.startswith('skeleton with light chains'))
+              or (spread == 122 and ((segment_id == 's2' and chunk.startswith('When any felon was here')) or (segment_id == 's4' and chunk.startswith(('not, then before his face', 'If it was a horse')))))
+              or (spread == 124 and ((segment_id == 's1' and chunk.startswith('“By a letter dated 14 October')) or (segment_id == 's7' and chunk.startswith('of spinning, at which employment'))))):
             output.append('<span class="book-footnote verified-footnote footnote-continuation">' + text_html(chunk) + '</span>')
         elif spread == 111 and segment_id == 's3' and chunk.startswith('Oh ye whose hours'):
             output.append('<span class="book-verse">' + text_html(chunk) + '</span>')
