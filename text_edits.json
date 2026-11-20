@@ -15468,40 +15468,8 @@
         }
       ],
       "spread_review": {
-        "state": "needs_work",
+        "state": "working",
         "before": {
-          "s0": "GLOUCESTERSHIRE",
-          "s1": "COUNTY BRIDEWELL",
-          "s2": "BERKELEY.",
-          "s3": "Quite out of repair.Only oneroomf andwomen,eighteen feetfour inches by ffteen feetfo seven feet nine inches high:the window(near four feet not glazed;no straw:no chimney:court not secure. hasbeen laid out on this prison these twenty years sensibleoldkeeperlamentedthebadeffectsofcloseconfi in idleness,upon the health of even young strong pr Many such,he said,he had known quite incapable of for some weeks after their discharge.",
-          "s4": "He told me,tha years ago his prisoners used to grindmalt for a pennya and the justices would not license any victualler who was notground here:but that of lateyears they have work at all.No allowance.Keeper, Francis Norm salary,2o;buthe pays out of it6to the poor of the for ground-rent: fees,4s.4d.,no table.He wrote me his prisoners,which I here transcribe.",
-          "s5": "Account of prisoners committed tolabour and CO in the bridewell at Berkeley,sent to theHouse of Comm 1771.Nothing expended,nothing earned 1772. 3 1773. ” ” 1774.",
-          "s6": "To Midsummer 1775. sessions.",
-          "s7": "Nothing expende nothing earned FRANCIS NOR Afurther account of prisoners committed to labc correction.",
-          "s8": "Me 1778. Nothing expended,nothing earned 1779. 1780. ” 1781. 1782.To Michaelmas sessions.",
-          "s9": "Nothing expended, nothing earned 1774.22 Aug. prisoners 3.",
-          "s10": "Twomen,onewoman 1775.6Dec. 1779.9June \"” 1782.25Oct. I 1Many such accounts would have been received at the Commons（in consequence of their order to send the account",
-          "s11": "ormen WESTERN CIRCUIT ur,and square) Nothing HAMPSHIRE s.The nement COUNTY GAOL AT WINCHESTER isoners.",
-          "s12": "This gaol is kept very clean; and the alterations in it are vorking improvements.The present dungeon,forty-eight feet by tsome twenty-three,is down but five steps:it is lofty （twelve feet), bushel; boarded,and has three large windows.The former destructive se malt dungeon was darker,and down eleven steps:Mr.Lipscomb loneno informed me that more than twenty prisoners had diedin it of an:his the gaol-fever in one year;and that his predecessor died of the parish same distemper.There are two rooms over the dungeon,for lists of common-side debtors; three rooms with beds for felons who pay,and two rooms for women.The felons’ day-room is rrection commodiously enlarged.Their straw mattresses and coverlets lons.1 are brought out and aired when the weather is fine.The beds .21 20 hung on a roller:the prisoner who took care of it and delivered 19 it next day was paid a penny.If a little court,which is now shut up from the gaol,and totally useless,were cleared,and 15 openedtowardstheprison,it would be very conducive to health and convenience.The chapel is very low and inconvenient.",
-          "s13": "St. Cross's Hospital bread （the dole) is about a penny loaf MAN. given to each of the prisoners six times a year;viz.on the eve urand of the following days,oAugust,October,Christmas,Easter, nWormen 3May,and Whitsunday.",
-          "s14": "The college allowance to felons is,once aweek,anox'shead, 4 2 four sheep'sheadsand henges,about seventeen pints of oatmeal, I three pintsof salt,twelve loaves the size of twopenny halfpenny 8 ones,about twenty-four gallons of table beer,and generally three times a week the broken victuals. 1. WILTSHIRE SALISBURY COUNTY GAOL Just without the prison gate was around staple fixed in the Houseof fmoney wall:through it was putachain,at eachend of whicha common- Norman. side debtor padlocked by theleg,stood offering to those who Q835 219"
-        },
-        "cycles": [],
-        "events": [
-          {
-            "action": "start",
-            "time": "2026-11-20T11:40:25+00:00"
-          },
-          {
-            "action": "finish",
-            "time": "2026-11-20T11:44:31+00:00"
-          },
-          {
-            "action": "needs_work",
-            "time": "2026-11-20T11:47:23+00:00"
-          }
-        ],
-        "after": {
           "s0": "GLOUCESTERSHIRE",
           "s1": "COUNTY BRIDEWELL",
           "s2": "BERKELEY. Quite out of repair. Only one room for men and women, eighteen feet four inches by fifteen feet four, and seven feet nine inches high: the window (near four feet square) not glazed; no straw: no chimney: court not secure. Nothing has been laid out on this prison these twenty years. The sensible old keeper lamented the bad effects of close confinement in idleness, upon the health of even young strong prisoners. Many such, he said, he had known quite incapable of working for some weeks after their discharge. He told me, that some years ago his prisoners used to grind malt for a penny a bushel; and the justices would not license any victualler whose malt was not ground here: but that of late years they have done no work at all. No allowance. Keeper, Francis Norman: his salary, £20; but he pays out of it £6 to the poor of the parish for ground-rent: fees, 4s. 4d., no table. He wrote me lists of his prisoners, which I here transcribe.\n\nAccount of prisoners committed to labour and correction in the bridewell at Berkeley, sent to the House of Commons.¹\n\n1771.\tNothing expended,\tnothing earned\t21\n1772.\t„\t„\t20\n1773.\t„\t„\t19\n1774.\t„\t„\t15\n1775. To Midsummer sessions.\tNothing expended,\tnothing earned\t4\n\nFRANCIS NORMAN.\n\nA further account of prisoners committed to labour and correction.\n\n\t\t\tMen\tWomen\n1778.\tNothing expended,\tnothing earned\t6\t4\n1779.\t„\t„\t7\t2\n1780.\t„\t„\t2\t1\n1781.\t„\t„\t12\t8\n1782. To Michaelmas sessions.\tNothing expended,\tnothing earned\t4\t0\n\n1774. 22 Aug.\tprisoners 3.\tTwo men, one woman.\n1775. 6 Dec.\t„ 0\t\n1779. 9 June\t„ 0\t\n1782. 25 Oct.\t„ 1\t\n\n1 Many such accounts would have been received at the House of Commons (in consequence of their order to send the account of money expended and earned), if keepers had been equally honest with F. Norman.",
@@ -15517,7 +15485,66 @@
           "s12": "",
           "s13": "",
           "s14": ""
-        }
+        },
+        "cycles": [
+          {
+            "state": "needs_work",
+            "before": {
+              "s0": "GLOUCESTERSHIRE",
+              "s1": "COUNTY BRIDEWELL",
+              "s2": "BERKELEY.",
+              "s3": "Quite out of repair.Only oneroomf andwomen,eighteen feetfour inches by ffteen feetfo seven feet nine inches high:the window(near four feet not glazed;no straw:no chimney:court not secure. hasbeen laid out on this prison these twenty years sensibleoldkeeperlamentedthebadeffectsofcloseconfi in idleness,upon the health of even young strong pr Many such,he said,he had known quite incapable of for some weeks after their discharge.",
+              "s4": "He told me,tha years ago his prisoners used to grindmalt for a pennya and the justices would not license any victualler who was notground here:but that of lateyears they have work at all.No allowance.Keeper, Francis Norm salary,2o;buthe pays out of it6to the poor of the for ground-rent: fees,4s.4d.,no table.He wrote me his prisoners,which I here transcribe.",
+              "s5": "Account of prisoners committed tolabour and CO in the bridewell at Berkeley,sent to theHouse of Comm 1771.Nothing expended,nothing earned 1772. 3 1773. ” ” 1774.",
+              "s6": "To Midsummer 1775. sessions.",
+              "s7": "Nothing expende nothing earned FRANCIS NOR Afurther account of prisoners committed to labc correction.",
+              "s8": "Me 1778. Nothing expended,nothing earned 1779. 1780. ” 1781. 1782.To Michaelmas sessions.",
+              "s9": "Nothing expended, nothing earned 1774.22 Aug. prisoners 3.",
+              "s10": "Twomen,onewoman 1775.6Dec. 1779.9June \"” 1782.25Oct. I 1Many such accounts would have been received at the Commons（in consequence of their order to send the account",
+              "s11": "ormen WESTERN CIRCUIT ur,and square) Nothing HAMPSHIRE s.The nement COUNTY GAOL AT WINCHESTER isoners.",
+              "s12": "This gaol is kept very clean; and the alterations in it are vorking improvements.The present dungeon,forty-eight feet by tsome twenty-three,is down but five steps:it is lofty （twelve feet), bushel; boarded,and has three large windows.The former destructive se malt dungeon was darker,and down eleven steps:Mr.Lipscomb loneno informed me that more than twenty prisoners had diedin it of an:his the gaol-fever in one year;and that his predecessor died of the parish same distemper.There are two rooms over the dungeon,for lists of common-side debtors; three rooms with beds for felons who pay,and two rooms for women.The felons’ day-room is rrection commodiously enlarged.Their straw mattresses and coverlets lons.1 are brought out and aired when the weather is fine.The beds .21 20 hung on a roller:the prisoner who took care of it and delivered 19 it next day was paid a penny.If a little court,which is now shut up from the gaol,and totally useless,were cleared,and 15 openedtowardstheprison,it would be very conducive to health and convenience.The chapel is very low and inconvenient.",
+              "s13": "St. Cross's Hospital bread （the dole) is about a penny loaf MAN. given to each of the prisoners six times a year;viz.on the eve urand of the following days,oAugust,October,Christmas,Easter, nWormen 3May,and Whitsunday.",
+              "s14": "The college allowance to felons is,once aweek,anox'shead, 4 2 four sheep'sheadsand henges,about seventeen pints of oatmeal, I three pintsof salt,twelve loaves the size of twopenny halfpenny 8 ones,about twenty-four gallons of table beer,and generally three times a week the broken victuals. 1. WILTSHIRE SALISBURY COUNTY GAOL Just without the prison gate was around staple fixed in the Houseof fmoney wall:through it was putachain,at eachend of whicha common- Norman. side debtor padlocked by theleg,stood offering to those who Q835 219"
+            },
+            "events": [
+              {
+                "action": "start",
+                "time": "2026-11-20T11:40:25+00:00"
+              },
+              {
+                "action": "finish",
+                "time": "2026-11-20T11:44:31+00:00"
+              },
+              {
+                "action": "needs_work",
+                "time": "2026-11-20T11:47:23+00:00"
+              }
+            ],
+            "after": {
+              "s0": "GLOUCESTERSHIRE",
+              "s1": "COUNTY BRIDEWELL",
+              "s2": "BERKELEY. Quite out of repair. Only one room for men and women, eighteen feet four inches by fifteen feet four, and seven feet nine inches high: the window (near four feet square) not glazed; no straw: no chimney: court not secure. Nothing has been laid out on this prison these twenty years. The sensible old keeper lamented the bad effects of close confinement in idleness, upon the health of even young strong prisoners. Many such, he said, he had known quite incapable of working for some weeks after their discharge. He told me, that some years ago his prisoners used to grind malt for a penny a bushel; and the justices would not license any victualler whose malt was not ground here: but that of late years they have done no work at all. No allowance. Keeper, Francis Norman: his salary, £20; but he pays out of it £6 to the poor of the parish for ground-rent: fees, 4s. 4d., no table. He wrote me lists of his prisoners, which I here transcribe.\n\nAccount of prisoners committed to labour and correction in the bridewell at Berkeley, sent to the House of Commons.¹\n\n1771.\tNothing expended,\tnothing earned\t21\n1772.\t„\t„\t20\n1773.\t„\t„\t19\n1774.\t„\t„\t15\n1775. To Midsummer sessions.\tNothing expended,\tnothing earned\t4\n\nFRANCIS NORMAN.\n\nA further account of prisoners committed to labour and correction.\n\n\t\t\tMen\tWomen\n1778.\tNothing expended,\tnothing earned\t6\t4\n1779.\t„\t„\t7\t2\n1780.\t„\t„\t2\t1\n1781.\t„\t„\t12\t8\n1782. To Michaelmas sessions.\tNothing expended,\tnothing earned\t4\t0\n\n1774. 22 Aug.\tprisoners 3.\tTwo men, one woman.\n1775. 6 Dec.\t„ 0\t\n1779. 9 June\t„ 0\t\n1782. 25 Oct.\t„ 1\t\n\n1 Many such accounts would have been received at the House of Commons (in consequence of their order to send the account of money expended and earned), if keepers had been equally honest with F. Norman.",
+              "s3": "",
+              "s4": "",
+              "s5": "",
+              "s6": "",
+              "s7": "",
+              "s8": "",
+              "s9": "",
+              "s10": "",
+              "s11": "WESTERN CIRCUIT\n\nHAMPSHIRE\n\nCOUNTY GAOL AT WINCHESTER\n\nThis gaol is kept very clean; and the alterations in it are improvements. The present dungeon, forty-eight feet by twenty-three, is down but five steps: it is lofty (twelve feet), boarded, and has three large windows. The former destructive dungeon was darker, and down eleven steps: Mr. Lipscomb informed me that more than twenty prisoners had died in it of the gaol-fever in one year; and that his predecessor died of the same distemper. There are two rooms over the dungeon, for common-side debtors; three rooms with beds for felons who pay, and two rooms for women. The felons’ day-room is commodiously enlarged. Their straw mattresses and coverlets are brought out and aired when the weather is fine. The beds are all on crib bedsteads. They had every day a clean towel hung on a roller: the prisoner who took care of it and delivered it next day was paid a penny. If a little court, which is now shut up from the gaol, and totally useless, were cleared, and opened towards the prison, it would be very conducive to health and convenience. The chapel is very low and inconvenient.\n\nSt. Cross’s Hospital bread (the dole) is about a penny loaf given to each of the prisoners six times a year; viz. on the eve of the following days, 10 August, 31 October, Christmas, Easter, 3 May, and Whitsunday.\n\nThe college allowance to felons is, once a week, an ox’s head, four sheep’s heads and henges, about seventeen pints of oatmeal, three pints of salt, twelve loaves the size of twopenny halfpenny ones, about twenty-four gallons of table beer, and generally three times a week the broken victuals.\n\nWILTSHIRE\n\nSALISBURY COUNTY GAOL\n\nJust without the prison gate was a round staple fixed in the wall: through it was put a chain, at each end of which a common-side debtor padlocked by the leg, stood offering to those who",
+              "s12": "",
+              "s13": "",
+              "s14": ""
+            }
+          }
+        ],
+        "events": [
+          {
+            "action": "start",
+            "time": "2026-11-20T12:16:22+00:00"
+          }
+        ]
       }
     },
     "117": {
@@ -15776,37 +15803,8 @@
         }
       ],
       "spread_review": {
-        "state": "needs_work",
+        "state": "working",
         "before": {
-          "s0": "CORNWALL",
-          "s1": "allowance,have only one-sixth of what they earn. against spirituous liquors are hung up.The Act for p the health of prisoners is not hung up,but the gaolis very neat and clean.",
-          "s2": "By a spirited exertion,the gentlemen of this cou erected a monument of their humanity,and attentic health and morals of prisoners.",
-          "s3": "Here were committed from 13 January, 1780, to 27 July, 1782, Debtors 75, Felons, etc., 92, Petty offenders 94.\n\nThe following table of fees and regulations were printed and hung up, though not signed.\n\nA TABLE of FEES AND RATES, proposed to be taken by the Head Gaoler and Turnkeys, at Bodmin\n\nFrom Debtors, First Class\n\nFee\t£\ts.\td.\nEvery debtor voluntarily going into the master’s ward, to pay the keeper at entrance\t0\t3\t4\nTo the turnkeys\t0\t1\t6\nTo keeper at discharge\t0\t6\t8\nTo the turnkeys\t0\t2\t6\nEvery debtor lodging in the master’s house, a bed to himself, per week\t0\t2\t6\nTwo such debtors in a bed each\t0\t1\t3\nEvery debtor in master’s house, bringing his own bed for lodging-room\t0\t1\t3",
-          "s4": "Second Class\n\nFee\t£\ts.\td.\nEvery debtor lodged over the arcades, to the keeper at entrance\t0\t2\t6\nTo turnkeys\t0\t1\t0\nTo keeper at discharge\t0\t5\t0\nTo turnkeys\t0\t2\t0\nEvery such debtor over the arcades lodged in the keeper’s bed and room to himself, per week\t0\t1\t6\nTwo such debtors in a bed, each per week\t0\t0\t9\nCommon debtors having only straw, mattress, or their own bed, to keeper at discharge\t0\t6\t0\nTo turnkeys\t0\t2\t0",
-          "s5": "Debtors in General\n\nFee\t£\ts.\td.\nFor signing every certificate to obtain a supersedeas, or a rule, or order of court\t0\t1\t6\nFor copy of sheriff’s warrant, if demanded\t0\t1\t0\nFor registering any declaration against prisoner\t0\t1\t0\nFor discharge of every debtor on composition, or by any act of insolvency, or for want of prosecution, (of which 2s. 5d. is to be the turnkey’s fee)\t0\t17\t5",
-          "s6": "",
-          "s7": "CORNWALL",
-          "s8": "From Felons\n\nFee\t£\ts.\td.\nFor every felon acquitted and discharged\t0\t13\t4\nFor every person bailed out, or discharged, for which the fee is not paid by the county\t0\t13\t4\nFor every convict discharged\t0\t13\t4\n\nFrom Persons Committed to Bridewell\n\nFor every person discharged from bridewell\t0\t13\t4",
-          "s9": "ARTICLES, REGULATIONS, and ALLOWANCES, established for the Gaol, Bridewell, and Sheriff’s Ward, at Bodmin\n\nI. No garnish or other exactions at entrance permitted to be taken.\nII. No abuse, ill-treatment, or affray, to be suffered between the prisoners; if such do happen, the actors and abettors to be punished at the discretion of the head gaoler, by closer confinement, harder labour, or reduced allowance.\nIII. All sorts of games for money or liquors, are strictly prohibited, and must be prevented, and innocent exercises and such as are conducive to health only to be allowed.\nIV. Irons to be provided at the county expense, and kept ready, but not used, except they are absolutely necessary for punishment or security.\nV. Master or principal debtors of property, are to be lodged at their own request and choice, in the keeper’s house, paying the established rates and no more, for rooms, beds, and diet.—Ordinary debtors are to be lodged over the arcades in beds of the keepers, or their own, according to their choice or ability of paying the established rates.\nVI. Every man felon, and bridewell criminal, shall be allowed every day one pound and three ounces of good wholesome bread, and every woman felon, and bridewell criminal, one pound of the same sort of bread, unless such allowances shall be reduced by order of the head gaoler for ill-behaviour.\nVII. All felons who receive a daily allowance, should be kept to some work. All persons committed to hard labour shall be strictly kept thereto; and all other criminals in bridewell should have some employment.",
-          "s10": "The stated time of labouring to be ten hours per day in summer, and eight hours in winter. The keeper to have one sixth part of the earnings, the persons labouring one sixth part for their own use, besides the full amount of their extra work, and the remaining two third parts to go to the county stock, towards the expence of their maintenance.",
-          "s11": "VIII. The head gaoler to ring his bell at the hour of locking-up, which is to be at six o’clock in the evening, from the first day of October to the thirty-first of March, and at eight o’clock during the rest of the year. To ring also at opening the cells, which is to be at sun rising in the morning, from the first of November to the thirty-first of March, and at six o’clock the rest of the year. No"
-        },
-        "cycles": [],
-        "events": [
-          {
-            "action": "start",
-            "time": "2026-11-20T11:45:50+00:00"
-          },
-          {
-            "action": "finish",
-            "time": "2026-11-20T11:49:11+00:00"
-          },
-          {
-            "action": "needs_work",
-            "time": "2026-11-20T11:50:06+00:00"
-          }
-        ],
-        "after": {
           "s0": "CORNWALL",
           "s1": "allowance, have only one-sixth of what they earn. Clauses against spirituous liquors are hung up. The Act for preserving the health of prisoners is not hung up, but the gaol is now kept very neat and clean.",
           "s2": "By a spirited exertion, the gentlemen of this county have erected a monument of their humanity, and attention to the health and morals of prisoners.",
@@ -15819,7 +15817,60 @@
           "s9": "ARTICLES, REGULATIONS, and ALLOWANCES, established for the Gaol, Bridewell, and Sheriff’s Ward, at Bodmin\n\nI. No garnish or other exactions at entrance permitted to be taken.\nII. No abuse, ill-treatment, or affray, to be suffered between the prisoners; if such do happen, the actors and abettors to be punished at the discretion of the head gaoler, by closer confinement, harder labour, or reduced allowance.\nIII. All sorts of games for money or liquors, are strictly prohibited, and must be prevented, and innocent exercises and such as are conducive to health only to be allowed.\nIV. Irons to be provided at the county expense, and kept ready, but not used, except they are absolutely necessary for punishment or security.\nV. Master or principal debtors of property, are to be lodged at their own request and choice, in the keeper’s house, paying the established rates and no more, for rooms, beds, and diet.—Ordinary debtors are to be lodged over the arcades in beds of the keepers, or their own, according to their choice or ability of paying the established rates.\nVI. Every man felon, and bridewell criminal, shall be allowed every day one pound and three ounces of good wholesome bread, and every woman felon, and bridewell criminal, one pound of the same sort of bread, unless such allowances shall be reduced by order of the head gaoler for ill-behaviour.\nVII. All felons who receive a daily allowance, should be kept to some work. All persons committed to hard labour shall be strictly kept thereto; and all other criminals in bridewell should have some employment.",
           "s10": "The stated time of labouring to be ten hours per day in summer, and eight hours in winter. The keeper to have one sixth part of the earnings, the persons labouring one sixth part for their own use, besides the full amount of their extra work, and the remaining two third parts to go to the county stock, towards the expense of their maintenance.",
           "s11": "VIII. The head gaoler to ring his bell at the hour of locking-up, which is to be at six o’clock in the evening, from the first day of October to the thirty-first of March, and at eight o’clock during the rest of the year. To ring also at opening the cells, which is to be at sun rising in the morning, from the first of November to the thirty-first of March, and at six o’clock the rest of the year. No"
-        }
+        },
+        "cycles": [
+          {
+            "state": "needs_work",
+            "before": {
+              "s0": "CORNWALL",
+              "s1": "allowance,have only one-sixth of what they earn. against spirituous liquors are hung up.The Act for p the health of prisoners is not hung up,but the gaolis very neat and clean.",
+              "s2": "By a spirited exertion,the gentlemen of this cou erected a monument of their humanity,and attentic health and morals of prisoners.",
+              "s3": "Here were committed from 13 January, 1780, to 27 July, 1782, Debtors 75, Felons, etc., 92, Petty offenders 94.\n\nThe following table of fees and regulations were printed and hung up, though not signed.\n\nA TABLE of FEES AND RATES, proposed to be taken by the Head Gaoler and Turnkeys, at Bodmin\n\nFrom Debtors, First Class\n\nFee\t£\ts.\td.\nEvery debtor voluntarily going into the master’s ward, to pay the keeper at entrance\t0\t3\t4\nTo the turnkeys\t0\t1\t6\nTo keeper at discharge\t0\t6\t8\nTo the turnkeys\t0\t2\t6\nEvery debtor lodging in the master’s house, a bed to himself, per week\t0\t2\t6\nTwo such debtors in a bed each\t0\t1\t3\nEvery debtor in master’s house, bringing his own bed for lodging-room\t0\t1\t3",
+              "s4": "Second Class\n\nFee\t£\ts.\td.\nEvery debtor lodged over the arcades, to the keeper at entrance\t0\t2\t6\nTo turnkeys\t0\t1\t0\nTo keeper at discharge\t0\t5\t0\nTo turnkeys\t0\t2\t0\nEvery such debtor over the arcades lodged in the keeper’s bed and room to himself, per week\t0\t1\t6\nTwo such debtors in a bed, each per week\t0\t0\t9\nCommon debtors having only straw, mattress, or their own bed, to keeper at discharge\t0\t6\t0\nTo turnkeys\t0\t2\t0",
+              "s5": "Debtors in General\n\nFee\t£\ts.\td.\nFor signing every certificate to obtain a supersedeas, or a rule, or order of court\t0\t1\t6\nFor copy of sheriff’s warrant, if demanded\t0\t1\t0\nFor registering any declaration against prisoner\t0\t1\t0\nFor discharge of every debtor on composition, or by any act of insolvency, or for want of prosecution, (of which 2s. 5d. is to be the turnkey’s fee)\t0\t17\t5",
+              "s6": "",
+              "s7": "CORNWALL",
+              "s8": "From Felons\n\nFee\t£\ts.\td.\nFor every felon acquitted and discharged\t0\t13\t4\nFor every person bailed out, or discharged, for which the fee is not paid by the county\t0\t13\t4\nFor every convict discharged\t0\t13\t4\n\nFrom Persons Committed to Bridewell\n\nFor every person discharged from bridewell\t0\t13\t4",
+              "s9": "ARTICLES, REGULATIONS, and ALLOWANCES, established for the Gaol, Bridewell, and Sheriff’s Ward, at Bodmin\n\nI. No garnish or other exactions at entrance permitted to be taken.\nII. No abuse, ill-treatment, or affray, to be suffered between the prisoners; if such do happen, the actors and abettors to be punished at the discretion of the head gaoler, by closer confinement, harder labour, or reduced allowance.\nIII. All sorts of games for money or liquors, are strictly prohibited, and must be prevented, and innocent exercises and such as are conducive to health only to be allowed.\nIV. Irons to be provided at the county expense, and kept ready, but not used, except they are absolutely necessary for punishment or security.\nV. Master or principal debtors of property, are to be lodged at their own request and choice, in the keeper’s house, paying the established rates and no more, for rooms, beds, and diet.—Ordinary debtors are to be lodged over the arcades in beds of the keepers, or their own, according to their choice or ability of paying the established rates.\nVI. Every man felon, and bridewell criminal, shall be allowed every day one pound and three ounces of good wholesome bread, and every woman felon, and bridewell criminal, one pound of the same sort of bread, unless such allowances shall be reduced by order of the head gaoler for ill-behaviour.\nVII. All felons who receive a daily allowance, should be kept to some work. All persons committed to hard labour shall be strictly kept thereto; and all other criminals in bridewell should have some employment.",
+              "s10": "The stated time of labouring to be ten hours per day in summer, and eight hours in winter. The keeper to have one sixth part of the earnings, the persons labouring one sixth part for their own use, besides the full amount of their extra work, and the remaining two third parts to go to the county stock, towards the expence of their maintenance.",
+              "s11": "VIII. The head gaoler to ring his bell at the hour of locking-up, which is to be at six o’clock in the evening, from the first day of October to the thirty-first of March, and at eight o’clock during the rest of the year. To ring also at opening the cells, which is to be at sun rising in the morning, from the first of November to the thirty-first of March, and at six o’clock the rest of the year. No"
+            },
+            "events": [
+              {
+                "action": "start",
+                "time": "2026-11-20T11:45:50+00:00"
+              },
+              {
+                "action": "finish",
+                "time": "2026-11-20T11:49:11+00:00"
+              },
+              {
+                "action": "needs_work",
+                "time": "2026-11-20T11:50:06+00:00"
+              }
+            ],
+            "after": {
+              "s0": "CORNWALL",
+              "s1": "allowance, have only one-sixth of what they earn. Clauses against spirituous liquors are hung up. The Act for preserving the health of prisoners is not hung up, but the gaol is now kept very neat and clean.",
+              "s2": "By a spirited exertion, the gentlemen of this county have erected a monument of their humanity, and attention to the health and morals of prisoners.",
+              "s3": "Here were committed from 13 January, 1780, to 27 July, 1782, Debtors 75, Felons, etc., 92, Petty offenders 94.\n\nThe following table of fees and regulations were printed and hung up, though not signed.\n\nA TABLE of FEES AND RATES, proposed to be taken by the Head Gaoler and Turnkeys, at Bodmin\n\nFrom Debtors, First Class\n\n\t£\ts.\td.\nEvery debtor voluntarily going into the master’s ward, to pay the keeper at entrance\t0\t3\t4\nTo the turnkeys\t0\t1\t6\nTo keeper at discharge\t0\t6\t8\nTo the turnkeys\t0\t2\t6\nEvery debtor lodging in the master’s house, a bed to himself, per week\t0\t2\t6\nTwo such debtors in a bed each\t0\t1\t3\nEvery debtor in master’s house, bringing his own bed for lodging-room\t0\t1\t3",
+              "s4": "Second Class\n\n\nEvery debtor lodged over the arcades, to the keeper at entrance\t0\t2\t6\nTo turnkeys\t0\t1\t0\nTo keeper at discharge\t0\t5\t0\nTo turnkeys\t0\t2\t0\nEvery such debtor over the arcades lodged in the keeper’s bed and room to himself, per week\t0\t1\t6\nTwo such debtors in a bed, each per week\t0\t0\t9\nCommon debtors having only straw, mattress, or their own bed, to keeper at discharge\t0\t6\t0\nTo turnkeys\t0\t2\t0",
+              "s5": "Debtors in General\n\n\nFor signing every certificate to obtain a supersedeas, or a rule, or order of court\t0\t1\t6\nFor copy of sheriff’s warrant, if demanded\t0\t1\t0\nFor registering any declaration against prisoner\t0\t1\t0\nFor discharge of every debtor on composition, or by any act of insolvency, or for want of prosecution, (of which 2s. 5d. is to be the turnkey’s fee)\t0\t17\t5",
+              "s6": "",
+              "s7": "CORNWALL",
+              "s8": "From Felons\n\n\t£\ts.\td.\nFor every felon acquitted and discharged\t0\t13\t4\nFor every person bailed out, or discharged, for which the fee is not paid by the county\t0\t13\t4\nFor every convict discharged\t0\t13\t4\n\nFrom Persons Committed to Bridewell\n\nFor every person discharged from bridewell\t0\t13\t4",
+              "s9": "ARTICLES, REGULATIONS, and ALLOWANCES, established for the Gaol, Bridewell, and Sheriff’s Ward, at Bodmin\n\nI. No garnish or other exactions at entrance permitted to be taken.\nII. No abuse, ill-treatment, or affray, to be suffered between the prisoners; if such do happen, the actors and abettors to be punished at the discretion of the head gaoler, by closer confinement, harder labour, or reduced allowance.\nIII. All sorts of games for money or liquors, are strictly prohibited, and must be prevented, and innocent exercises and such as are conducive to health only to be allowed.\nIV. Irons to be provided at the county expense, and kept ready, but not used, except they are absolutely necessary for punishment or security.\nV. Master or principal debtors of property, are to be lodged at their own request and choice, in the keeper’s house, paying the established rates and no more, for rooms, beds, and diet.—Ordinary debtors are to be lodged over the arcades in beds of the keepers, or their own, according to their choice or ability of paying the established rates.\nVI. Every man felon, and bridewell criminal, shall be allowed every day one pound and three ounces of good wholesome bread, and every woman felon, and bridewell criminal, one pound of the same sort of bread, unless such allowances shall be reduced by order of the head gaoler for ill-behaviour.\nVII. All felons who receive a daily allowance, should be kept to some work. All persons committed to hard labour shall be strictly kept thereto; and all other criminals in bridewell should have some employment.",
+              "s10": "The stated time of labouring to be ten hours per day in summer, and eight hours in winter. The keeper to have one sixth part of the earnings, the persons labouring one sixth part for their own use, besides the full amount of their extra work, and the remaining two third parts to go to the county stock, towards the expense of their maintenance.",
+              "s11": "VIII. The head gaoler to ring his bell at the hour of locking-up, which is to be at six o’clock in the evening, from the first day of October to the thirty-first of March, and at eight o’clock during the rest of the year. To ring also at opening the cells, which is to be at sun rising in the morning, from the first of November to the thirty-first of March, and at six o’clock the rest of the year. No"
+            }
+          }
+        ],
+        "events": [
+          {
+            "action": "start",
+            "time": "2026-11-20T12:16:22+00:00"
+          }
+        ]
       }
     },
     "120": {
