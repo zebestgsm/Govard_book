@@ -13064,7 +13064,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "SOUTHWARK",
           "s1": "prescribe in what manner,and for how long time,visit allowed to see or stay with the prisoners,according to stances of every case in his discretion.",
@@ -13087,6 +13087,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T10:37:30+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T10:43:39+00:00"
           }
         ],
         "after": {
