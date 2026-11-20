@@ -15545,6 +15545,34 @@
           "s8": ""
         }
       }
+    },
+    "119": {
+      "segments": {},
+      "history": [],
+      "spread_review": {
+        "state": "working",
+        "before": {
+          "s0": "CORNWALL",
+          "s1": "allowance,have only one-sixth of what they earn. against spirituous liquors are hung up.The Act for p the health of prisoners is not hung up,but the gaolis very neat and clean.",
+          "s2": "By a spirited exertion,the gentlemen of this cou erected a monument of their humanity,and attentic health and morals of prisoners.",
+          "s3": "Here were committed from 13 January, 1780, to 27 July, 1782, Debtors 75, Felons, etc., 92, Petty offenders 94.\n\nThe following table of fees and regulations were printed and hung up, though not signed.\n\nA TABLE of FEES AND RATES, proposed to be taken by the Head Gaoler and Turnkeys, at Bodmin\n\nFrom Debtors, First Class\n\nFee\t£\ts.\td.\nEvery debtor voluntarily going into the master’s ward, to pay the keeper at entrance\t0\t3\t4\nTo the turnkeys\t0\t1\t6\nTo keeper at discharge\t0\t6\t8\nTo the turnkeys\t0\t2\t6\nEvery debtor lodging in the master’s house, a bed to himself, per week\t0\t2\t6\nTwo such debtors in a bed each\t0\t1\t3\nEvery debtor in master’s house, bringing his own bed for lodging-room\t0\t1\t3",
+          "s4": "Second Class\n\nFee\t£\ts.\td.\nEvery debtor lodged over the arcades, to the keeper at entrance\t0\t2\t6\nTo turnkeys\t0\t1\t0\nTo keeper at discharge\t0\t5\t0\nTo turnkeys\t0\t2\t0\nEvery such debtor over the arcades lodged in the keeper’s bed and room to himself, per week\t0\t1\t6\nTwo such debtors in a bed, each per week\t0\t0\t9\nCommon debtors having only straw, mattress, or their own bed, to keeper at discharge\t0\t6\t0\nTo turnkeys\t0\t2\t0",
+          "s5": "Debtors in General\n\nFee\t£\ts.\td.\nFor signing every certificate to obtain a supersedeas, or a rule, or order of court\t0\t1\t6\nFor copy of sheriff’s warrant, if demanded\t0\t1\t0\nFor registering any declaration against prisoner\t0\t1\t0\nFor discharge of every debtor on composition, or by any act of insolvency, or for want of prosecution, (of which 2s. 5d. is to be the turnkey’s fee)\t0\t17\t5",
+          "s6": "",
+          "s7": "CORNWALL",
+          "s8": "From Felons\n\nFee\t£\ts.\td.\nFor every felon acquitted and discharged\t0\t13\t4\nFor every person bailed out, or discharged, for which the fee is not paid by the county\t0\t13\t4\nFor every convict discharged\t0\t13\t4\n\nFrom Persons Committed to Bridewell\n\nFor every person discharged from bridewell\t0\t13\t4",
+          "s9": "ARTICLES, REGULATIONS, and ALLOWANCES, established for the Gaol, Bridewell, and Sheriff’s Ward, at Bodmin\n\nI. No garnish or other exactions at entrance permitted to be taken.\nII. No abuse, ill-treatment, or affray, to be suffered between the prisoners; if such do happen, the actors and abettors to be punished at the discretion of the head gaoler, by closer confinement, harder labour, or reduced allowance.\nIII. All sorts of games for money or liquors, are strictly prohibited, and must be prevented, and innocent exercises and such as are conducive to health only to be allowed.\nIV. Irons to be provided at the county expense, and kept ready, but not used, except they are absolutely necessary for punishment or security.\nV. Master or principal debtors of property, are to be lodged at their own request and choice, in the keeper’s house, paying the established rates and no more, for rooms, beds, and diet.—Ordinary debtors are to be lodged over the arcades in beds of the keepers, or their own, according to their choice or ability of paying the established rates.\nVI. Every man felon, and bridewell criminal, shall be allowed every day one pound and three ounces of good wholesome bread, and every woman felon, and bridewell criminal, one pound of the same sort of bread, unless such allowances shall be reduced by order of the head gaoler for ill-behaviour.\nVII. All felons who receive a daily allowance, should be kept to some work. All persons committed to hard labour shall be strictly kept thereto; and all other criminals in bridewell should have some employment.",
+          "s10": "The stated time of labouring to be ten hours per day in summer, and eight hours in winter. The keeper to have one sixth part of the earnings, the persons labouring one sixth part for their own use, besides the full amount of their extra work, and the remaining two third parts to go to the county stock, towards the expence of their maintenance.",
+          "s11": "VIII. The head gaoler to ring his bell at the hour of locking-up, which is to be at six o’clock in the evening, from the first day of October to the thirty-first of March, and at eight o’clock during the rest of the year. To ring also at opening the cells, which is to be at sun rising in the morning, from the first of November to the thirty-first of March, and at six o’clock the rest of the year. No"
+        },
+        "cycles": [],
+        "events": [
+          {
+            "action": "start",
+            "time": "2026-11-20T11:45:50+00:00"
+          }
+        ]
+      }
     }
   }
 }
