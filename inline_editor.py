@@ -20,6 +20,7 @@ TABLE_META = {
     (68, 's3'): ('Diet table for San Fernando', 'diet'),
     (79, 's3'): ('Prisoners of war received at Forton, 1777–1782', 'mixed'),
     (81, 's8'): ('Prisoners in Scotland, September 1782', 'fee'),
+    (84, 's5'): ('Dublin prisoners by visit date', 'mixed'),
     (88, 's12'): ('Newgate fees, 1729 and keeper’s table', 'fee'),
     (90, 's10'): ('Fleet Prison — Clerk of the Papers fees, 1727', 'fee'),
     (91, 's1'): ('Fleet Prison — Clerk of the Papers fees, continued', 'fee'),
@@ -248,7 +249,7 @@ def render_verified_block(value, spread, segment_id, query):
         elif '\t' in chunk:
             # Group only consecutive tab-separated lines. Prose introducing or
             # following a table must not become a one-cell table row.
-            has_header = not ((spread == 16 and segment_id in ('s7', 's11')) or (spread == 17 and segment_id == 's1') or (spread == 35 and segment_id == 's1') or (spread, segment_id) in ((79, 's3'), (112, 's0')))
+            has_header = not ((spread == 16 and segment_id in ('s7', 's11')) or (spread == 17 and segment_id == 's1') or (spread == 35 and segment_id == 's1') or (spread, segment_id) in ((79, 's3'), (84, 's5'), (112, 's0')))
             if (spread, segment_id) in TABLE_META:
                 label, table_kind = TABLE_META[(spread, segment_id)]
             elif spread == 16 and segment_id == 's10':
@@ -302,7 +303,8 @@ def render_verified_block(value, spread, segment_id, query):
               or (spread == 78 and segment_id == 's1' and chunk == 'PRISONERS OF WAR IN ENGLAND, ETC.')
               or (spread == 79 and segment_id == 's9' and chunk == 'AMERICAN PRISONERS')
               or (spread == 80 and segment_id == 's2' and chunk in ('SECTION VI', 'SCOTCH AND IRISH PRISONS'))
-              or (spread == 82 and segment_id == 's1' and chunk == 'IRELAND²')):
+              or (spread == 82 and segment_id == 's1' and chunk == 'IRELAND²')
+              or (spread == 85 and segment_id == 's5' and chunk in ('SECTION VII', 'A PARTICULAR ACCOUNT OF ENGLISH PRISONS'))):
             output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
         elif spread == 68 and segment_id == 's3' and chunk.startswith('Sundays, Tuesdays and Thursdays.'):
             output.append('<span class="book-footnote verified-footnote diet-note">' + text_html(chunk) + '</span>')
