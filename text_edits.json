@@ -5423,7 +5423,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "increased to two hundred and eighty,by a fund provided by inwi the munificence of General De Betskoi,the enlightened and liberal head and director-general of this,and all the other prepa Itma institutionsofthesamekindestablishedbyherImperialMajesty.",
@@ -5446,6 +5446,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T08:40:59+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T09:09:34+00:00"
           }
         ],
         "after": {
