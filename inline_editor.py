@@ -46,6 +46,9 @@ TABLE_META = {
     (137, 's3'): ('Contractors’ receipts for passage to Maryland', 'mixed'),
     (144, 's3'): ('Prison diet schedule', 'diet'),
     (106, 's6'): ('Cambridge bridewell prisoners', 'mixed'),
+    (110, 's6'): ('Stamford town gaol fees', 'fee'),
+    (111, 's7'): ('Reading bridewell prisoners by visit date', 'mixed'),
+    (112, 's4'): ('Oxford Castle prisoners', 'mixed'),
     (148, 's1'): ('Table I (continued) and Table II — Ireland, 1787–1788', 'fee'),
     (148, 's3'): ('Table III — England and Wales, 1787–1788 (part)', 'fee'),
     (149, 's1'): ('Table III — England and Wales, continued', 'fee'),
@@ -281,7 +284,7 @@ def render_verified_block(value, spread, segment_id, query):
         elif '\t' in chunk:
             # Group only consecutive tab-separated lines. Prose introducing or
             # following a table must not become a one-cell table row.
-            has_header = not ((spread == 16 and segment_id in ('s7', 's11')) or (spread == 17 and segment_id == 's1') or (spread == 35 and segment_id == 's1') or (spread, segment_id) in ((79, 's3'), (84, 's5'), (89, 's4'), (91, 's2'), (95, 's3'), (101, 's7'), (106, 's6'), (112, 's0')))
+            has_header = not ((spread == 16 and segment_id in ('s7', 's11')) or (spread == 17 and segment_id == 's1') or (spread == 35 and segment_id == 's1') or (spread, segment_id) in ((79, 's3'), (84, 's5'), (89, 's4'), (91, 's2'), (95, 's3'), (101, 's7'), (106, 's6'), (111, 's7'), (112, 's0')))
             if (spread, segment_id) in TABLE_META:
                 label, table_kind = TABLE_META[(spread, segment_id)]
             elif spread == 16 and segment_id == 's10':
@@ -323,8 +326,8 @@ def render_verified_block(value, spread, segment_id, query):
                         # On these dated lists the printed repetition mark and
                         # the count occupy separate positions within the cell.
                         is_count = (((spread, segment_id) in ((84, 's5'), (89, 's4')) and cell_index > 0)
-                                    or ((spread, segment_id) in ((95, 's3'), (101, 's7'), (106, 's6')) and cell_index in (1, 3)))
-                        match = re.match(r'^(.*?)(\s+)(\d+(?:\.|, viz\.| and one lunatic)?)(\s*)$', cell_text) if is_count else None
+                                    or ((spread, segment_id) in ((95, 's3'), (101, 's7'), (106, 's6'), (111, 's7'), (112, 's0')) and cell_index in (1, 3)))
+                        match = re.match(r'^(.*?)(\s+)(\d+(?:\.|, viz\.| and one lunatic|, drs\. \d+\.)?)(\s*)$', cell_text) if is_count else None
                         if match:
                             content = ('<span class="count-label">' + text_html(match.group(1) + match.group(2))
                                        + '</span><span class="count-number">' + text_html(match.group(3) + match.group(4)) + '</span>')
@@ -375,10 +378,17 @@ def render_verified_block(value, spread, segment_id, query):
               or (spread == 105 and segment_id == 's8' and chunk == 'COUNTY BRIDEWELLS')
               or (spread == 106 and ((segment_id == 's3' and chunk in ('HUNTINGDONSHIRE', 'COUNTY GAOL AT HUNTINGDON')) or (segment_id == 's6' and chunk in ('CAMBRIDGESHIRE', 'CAMBRIDGE'))))
               or (spread == 108 and segment_id == 's3' and chunk in ('MIDLAND CIRCUIT', 'WARWICKSHIRE', 'COUNTY GAOL AT WARWICK', 'COVENTRY CITY AND COUNTY GAOL'))
-              or (spread == 109 and segment_id == 's1' and chunk in ('BIRMINGHAM TOWN GAOL', 'LEICESTERSHIRE', 'COUNTY GAOL AT LEICESTER'))):
+              or (spread == 109 and segment_id == 's1' and chunk in ('BIRMINGHAM TOWN GAOL', 'LEICESTERSHIRE', 'COUNTY GAOL AT LEICESTER'))
+              or (spread == 110 and ((segment_id == 's3' and chunk == 'CHESTERFIELD GAOL') or (segment_id == 's6' and chunk in ('LINCOLNSHIRE', 'COUNTY BRIDEWELL', 'STAMFORD TOWN GAOL'))))
+              or (spread == 111 and segment_id == 's3' and chunk == 'COUNTY BRIDEWELLS')
+              or (spread == 112 and segment_id == 's4' and chunk in ('OXFORDSHIRE', 'COUNTY GAOL, OXFORD CASTLE'))):
             output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
-        elif spread == 102 and segment_id == 's4' and chunk.startswith('that want of care respecting them'):
+        elif ((spread == 102 and segment_id == 's4' and chunk.startswith('that want of care respecting them'))
+              or (spread == 110 and segment_id == 's3' and chunk.startswith('Before this rigorous law'))
+              or (spread == 112 and segment_id == 's0' and chunk.startswith(('habit of idleness', '“In all manufacturing towns', '“A county magistrate said')))):
             output.append('<span class="book-footnote verified-footnote footnote-continuation">' + text_html(chunk) + '</span>')
+        elif spread == 111 and segment_id == 's3' and chunk.startswith('Oh ye whose hours'):
+            output.append('<span class="book-verse">' + text_html(chunk) + '</span>')
         elif ((spread == 98 and ((segment_id == 's1' and chunk.startswith('1. The stocks')) or (segment_id == 's7' and chunk.startswith('5. Coroner'))))
               or (spread == 99 and segment_id == 's1' and (chunk.startswith('to the court or a judge') or chunk.startswith('1. No person to bring')))):
             output.append('<span class="book-list">' + text_html(chunk) + '</span>')
