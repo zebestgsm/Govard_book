@@ -4546,7 +4546,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "needs_work",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "in company.Such of them as have learned to work,and appear to be reformed and industrious,are on their humble petition to be discharged.",
@@ -4570,6 +4570,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T08:32:19+00:00"
+          },
+          {
+            "action": "needs_work",
+            "time": "2026-11-20T08:40:34+00:00"
           }
         ],
         "after": {
