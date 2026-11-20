@@ -4426,7 +4426,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "was the first who suffered by it:the last was a woman,a few turnkey. years ago. seethat The Werk-und Tucht-haus is a workhouse situated near the religious Alster,and designed for the reception of the poor-beggars- goodord and petty offenders.Confinement init is not reckoned infamous. mustno The rooms are fifteen feet wide,and have opposite windows. of theo The inhabitants were knitting and spinning;weaving stockings, offences linen,hair, and wooland rasping logwood and hartshorn Thes （the task of logwood to a strong man is forty-five pounds per encoura day).",
@@ -4448,6 +4448,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T08:32:19+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T08:37:00+00:00"
           }
         ],
         "after": {
