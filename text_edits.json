@@ -15414,7 +15414,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "WILTSHIRE",
           "s1": "pass by,etslaces,purses,etc.,made n the prin. whom I saw there lastwere Crown debtors not clear Insolvent Act.Now,this is not permitted.",
@@ -15430,8 +15430,22 @@
           {
             "action": "start",
             "time": "2026-11-20T11:40:25+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T11:44:31+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "WILTSHIRE",
+          "s1": "pass by, nets, laces, purses, etc., made in the prison. The two whom I saw there last were Crown debtors not cleared by the Insolvent Act. Now, this is not permitted.\n\nAt Christmas, felons chained together are permitted to go about; one of them carrying a sack or basket for food; another, a box for money.\n\nCOUNTY BRIDEWELL\n\nMARLBOROUGH. A common workroom thirteen and a half feet by twelve and a half: a lodging-room for women twenty-three feet two inches by nine feet eight: another for men; this is thirteen and a half feet by ten; window nineteen inches by fifteen, not to the open air, but to the workroom, which has but one window. All these rooms are on the ground-floor; and by a sewer within doors, they are made very offensive, especially the men’s night-room; in which, when I was there first, I saw one dying on the floor of the gaol-fever. The keeper told me that just before, one had died there, and another soon after his discharge. Upstairs are three rooms for those who pay 2s. 6d. a week. No court: no water accessible to prisoners: no straw. Allowance to petty offenders, none; felons, three halfpennyworth of bread a day and a pint of small beer. Keeper’s salary lately raised from £20 to £50, to supply the prisoners with bread. The county pays the fees, 7s. 8d. at the discharge of every prisoner. (The fees were formerly, as in a table dated 1671, felons, £1 6s. 4d.; petty offenders, 14s. 4d., etc.). Licence for beer. A surgeon; his salary £10 10s. 0d. At my visits in 1775 and 1776, some prisoners were at work; but none in 1779. One of them said, with evident concern, “he had been there thirty weeks and had not earned one halfpenny.” In 1782, no employment. On asking the prisoners, if they desired to work; they readily answered in the affirmative. Two said, their wives had brought them wool, but the keeper would not permit them to spin it. I heard the justices had viewed the outside of this prison.",
+          "s2": "",
+          "s3": "DORSETSHIRE",
+          "s4": "DORSETSHIRE\n\nCOUNTY BRIDEWELL\n\nSHERBORNE. The justices have very judiciously provided for the relief of prisoners going to different quarter sessions. Their order, dated 12 April, 1774, is as follows:\n\nSherborn, Dorset. The great inhumanity that frequently happens unto the several prisoners—conveyed to the different quarter sessions to be tried, by the walking loaded with heavy irons, being taken into consideration—it is the resolution and order of this court that for the future the gaol-keeper and bridewell-keeper shall provide for one prisoner only a horse, for two or more a convenient cart or carriage for the conveying them: and to be allowed the sum of threepence per mile for one person; for two or more the sum of sixpence a mile, etc.\n\nDEVONSHIRE\n\nHIGH GAOL AT EXETER\n\nThis gaol is the property of John Denny Rolle, Esq., whose family had a grant of it from the Duchy of Cornwall: the late gaoler paid him rent £22 per annum. The house and court are too small: there is only one day-room for men and women felons; this is used as the chapel. Over it is the women’s lodging-room. There are three rooms for fines, etc., one below and two above; that below is sometimes used for the condemned. There are three night-dungeons (about twenty feet by twelve) down three steps; the small window of one of them is under a staircase. These dungeons are the more unhealthy as at one part they are seven or eight feet underground. Mr. Rule, the late surgeon, told me that he was by contract excused from attending in the dungeons any prisoners that should have the gaol-fever. There are now two rooms for an infirmary, but the stairs that lead up to the men’s rooms are intolerably bad: no bath. The court is paved with pebbles (flagstones would be much better). In it is an offensive sewer. At the top of the gaoler’s house is an alarm bell. The prisoners formerly made cabbage-nets for twopence a dozen; and purses of different sorts from fourpence",
+          "s5": "",
+          "s6": "",
+          "s7": ""
+        }
       }
     },
     "118": {
@@ -15496,7 +15510,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "DEVONSHIRE",
           "s1": "to sevenpence a dozen:the turnkey found thetwine and Two sailors fineda shilling each had1 Is.4d.each to clerk of the peace,besides the gaoler's fees.",
@@ -15513,8 +15527,23 @@
           {
             "action": "start",
             "time": "2026-11-20T11:40:26+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T11:44:31+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "DEVONSHIRE",
+          "s1": "to sevenpence a dozen: the turnkey found the twine and thread.¹ Two sailors fined a shilling each had £1 1s. 4d. each to pay the clerk of the peace, besides the gaoler’s fees.\n\nAn elegant shirehall is now finished: may it not be hoped that the gentlemen will turn their thoughts to this crowded, offensive, and destructive gaol, especially the proprietor, who (in 1782) liberally subscribed £1000 to encourage seamen to enter into his Majesty’s fleet; and who possesses an estate to uphold this prison?\n\nPLYMOUTH TOWN GAOL\n\nThree rooms for felons, etc., and two rooms over them for debtors. One of the former, the clink, fifteen feet by eight feet three inches, and about five and a half feet high, with a wicket in the door seven inches by five to admit light and air. To this, as I was informed, three men who were confined nearly two months under sentence of transportation, came by turns for breath. The door had not been opened for five weeks when I with difficulty entered to see a pale inhabitant. He had been there ten weeks under sentence of transportation, and said he had much rather have been hanged than confined in that noisome cell. In another room (thirteen feet by five and a half and six feet nine inches high, the window only eighteen inches by fourteen, and the wall two feet eight inches thick), at my last visit there were two prisoners; one of whom assured me he had been there upwards of seven weeks, and sometimes, with four or five other prisoners, where they were almost suffocated. The other room is for women (seventeen feet by ten). The whole is dirty, and has not been whitewashed for many years. No court: no water. The gaolers live distant; they are the three sergeants at mace. Fees, 15s. 4d., no table. Allowance to debtors, none but on application: felons, twopennyworth of bread a day. No straw.\n\n1 This art is very soon learnt, and when the prisoners were thus employed, I found them cheerful and healthy; they said they earned from three-halfpence to twopence a day each, with which they got a little milk or beer to their bread; and the old keeper said “it kept them out of mischief.”",
+          "s2": "",
+          "s3": "",
+          "s4": "CORNWALL",
+          "s5": "CORNWALL\n\nCOUNTY GAOL AT LAUNCESTON FOR FELONS\n\nThis gaol, though built in the large green belonging to the old ruinous castle, is very small; house and court measuring only fifty-two feet by forty-four; and the house not covering half that ground. The prison is a room or passage twenty-three and a half feet by seven and a half, with only one window two feet by one and a half: and three dungeons or cages on the side opposite the window: these are about six and a half feet deep; one nine feet long; one about eight; one not five: this last for women. They were all very offensive. No chimney: no water: no sewers: damp earth floors: no infirmary. The court not secure; and prisoners seldom permitted to go out to it. Indeed the whole prison is out of repair, and yet the gaoler lives distant. I once found the prisoners chained two or three together. Their provision was put down to them through a hole (nine inches by eight) in the floor of the room above (used as a chapel); and those who served them there, often caught the fatal fever. At my first visit I found the keeper, his assistant, and all the prisoners but one (an old soldier) sick of it: and heard that a few years before, many prisoners had died of it; and the keeper and his wife in one night.\n\nCOUNTY GAOL AT BODMIN\n\nThis new gaol is built on a fine eminence, at a little distance from the town, where there is a constant current of water. Here is a good house for the gaoler, in which there are apartments for master’s-side debtors, and a chapel. There are separate rooms and courts for each sex of debtors, of felons, and of petty offenders or bridewell prisoners; and each prisoner has a separate lodging-room (about eight feet two inches by five feet eight, and seven and a half feet high), which is furnished with a bedstead, straw-bed, two blankets and a coverlet. There are two rooms for an infirmary, and under them three condemned cells. In two of the courts are baths. In the centre of the gaoler’s house there is a turret with an alarm-bell and clock. The men who are confined for petty offences, are employed in sawing and polishing stone, and, as they have the county",
+          "s6": "",
+          "s7": "",
+          "s8": ""
+        }
       }
     }
   }
