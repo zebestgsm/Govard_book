@@ -12123,7 +12123,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "LONDON",
           "s1": "yard. The crier might take of a stranger a penny for calling a prisoner to him; and of a complainant two pence for summoning a special committee. For blasphemy, swearing, riot, drunkenness, etc., the committee to fine at discretion: for damaging a lamp, fine a shilling. They were to take from a new-comer, on the first Sunday, besides the two shillings garnish to be spent in wine, one shilling and sixpence to be appropriated to the use of the house.\n\nCommon-side prisoners to be confined to their own apartments, and not to associate with these lawmakers, nor to use the same conveniences.\n\nThe above was the account of the Fleet before it was burnt by the rioters in 1780. It is rebuilt on the same plan. The floors of the cellar, the hall, and the first story are now stone, and arched with brick. The tapster still has all the cellar-floor. He and several of the prisoners keep dogs, which nuisance should never be permitted in prisons. The billiard and mississippi tables are put down, and the little code of laws abolished. In 1783, from 7 July to 25 Aug., not one prisoner was brought in. Robert Baffan, a crown prisoner, was committed 29 Nov., 1776, and after the fire surrendered himself under the proclamation 17 Nov., 1781, and was here at my last visit. Clauses against spirituous liquors are hung up. Now also is hung up the following table of fees.",
@@ -12202,8 +12202,29 @@
           {
             "action": "start",
             "time": "2026-11-20T12:16:21+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T12:19:02+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "LONDON",
+          "s1": "yard. The crier might take of a stranger a penny for calling a prisoner to him; and of a complainant two pence for summoning a special committee. For blasphemy, swearing, riot, drunkenness, etc., the committee to fine at discretion: for damaging a lamp, fine a shilling. They were to take from a new-comer, on the first Sunday, besides the two shillings garnish to be spent in wine, one shilling and sixpence to be appropriated to the use of the house.\n\nCommon-side prisoners to be confined to their own apartments, and not to associate with these lawmakers, nor to use the same conveniences.\n\nThe above was the account of the Fleet before it was burnt by the rioters in 1780. It is rebuilt on the same plan. The floors of the cellar, the hall, and the first story are now stone, and arched with brick. The tapster still has all the cellar-floor. He and several of the prisoners keep dogs, which nuisance should never be permitted in prisons. The billiard and mississippi tables are put down, and the little code of laws abolished. In 1783, from 7 July to 25 Aug., not one prisoner was brought in. Robert Baffan, a crown prisoner, was committed 29 Nov., 1776, and after the fire surrendered himself under the proclamation 17 Nov., 1781, and was here at my last visit. Clauses against spirituous liquors are hung up. Now also is hung up the following table of fees.",
+          "s2": "",
+          "s3": "A TABLE of FEES to be taken by the Warden of the Prison of the Fleet, for any prisoner or prisoners commitment, or coming into gaol or chamber rent there, or discharge from thence, in any civil action. Settled and established the nineteenth day of January, in the third year of the reign of his Majesty King George the Second, A.D. 1729, pursuant to an Act of Parliament lately made, intitled, An Act for the Relief of Debtors, in respect to the Imprisonment of their Persons.\n\n\t£\ts.\td.\nEvery prisoner charged with one or more actions (who at his own desire shall go on the master’s-side) to pay to the warden for a commitment fee\t1\t6\t8\nEvery prisoner charged with one or more actions (who shall go on the common-side) not being intitled to partake of the poor’s box, to pay\t0\t13\t4\nEvery prisoner intitled to partake of the poor’s box, nothing\t\t\t\nEvery prisoner to pay for his discharge\t0\t7\t4\nEvery such prisoner on the master’s-side, who at his own desire shall have a bed to himself, to pay for chamber room, use of bed, bedding and sheets, to the warden per week\t0\t2\t6\nIf two in a bed, and no more, for chamber room, use of bed, bedding and sheets, each to pay to the warden per week\t0\t1\t3",
+          "s4": "",
+          "s5": "",
+          "s6": "LONDON",
+          "s7": "\t£\ts.\td.\nIf the prisoner finds his own bed, bedding and sheets which the warden is in no sort to hinder him of, then he shall pay for chamber room to the warden per week\t0\t1\t3\nIf there be two prisoners in one bed, finding their own bed, bedding and sheets, then each of them to pay to the warden per week\t0\t0\t7½\nEvery prisoner not being intitled to partake of the poor’s box, to pay to the porter and gaoler, now called turnkeys, on his commitment\t0\t2\t0\nEvery prisoner on a commitment upon a surrender at a judge’s chamber, to pay to the tipstaff\t0\t6\t8\nEvery prisoner on a commitment upon a habeas corpus at a judge’s chambers, to pay to the tipstaff\t0\t4\t2\nEvery prisoner on a commitment in court, to pay to the tipstaff\t0\t7\t6\n\nNo other fees for any prisoner for the use of chamber, bed, bedding or sheets, or upon commitment or discharge of any prisoner in any civil action, nor any commitment fee to be taken of any prisoner intitled to partake of the poor’s box, nor any chamber rent to be taken of any prisoner on the common side.\n\nEd. Bellamy.    R. RAYMOND.\nJohn Thompson.    R. EYRE.\nRob. Alsop.    THO. PENGELLY.\nJohn Barnard.\n\nPOULTRY COMPTER\n\nFor master’s-side debtors there are about fifteen rooms between the inner and outer gates. For common-side debtors, six wards within the inner gate, two of them on the ground-floor, viz. the King’s Ward, in which (1776) were twenty-four debtors; and the Prince’s Ward, nine debtors. Above those wards are the Middle Ward, in it were twenty debtors; and the Women’s Ward, two debtors. Above them are the Upper Ward, eleven debtors; and the Jews’ Ward, four Jew debtors.¹ Near the middle ward, on the same floor, is a close darkish room for the sick. In each ward, a fire-place. In one of the rooms on the second floor (called the pump-room), the debtors have the convenience of water. The rooms are out of repair: but the debtors keep their floors very clean. The court is small,\n\n1 It were to be wished that in other prisons also, those people had the generous and just indulgence of being kept separate.",
+          "s8": "",
+          "s9": "",
+          "s10": "",
+          "s11": "",
+          "s12": "",
+          "s13": "",
+          "s14": ""
+        }
       }
     },
     "93": {
@@ -12932,7 +12953,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "WESTMINSTER",
           "s1": "more airy. No. 1, 2, and 4, and the room over No. 1, and the lodging-room called the store-room adjoining to the guard-rooms, are of good size: and the practice of lime-whiting adopted here since my first visits, is salutary for the prisoners. There are, besides, the black hole, the condemned hold, the cock-pit, and several other parts of this irregular building, which I pass over.\n\n15 March, 1776, there were one hundred and nineteen prisoners; of whom forty-nine were transports. I saw many sick and dying. The gaol was so infected by them, that the distemper was caught there by many afterwards.\n\n25 May, prisoners thirty-seven. Many of them sick of the gaol-distemper, in the rooms where I saw the sick and dying in March. The whole was out of repair. Keeper, Captain Jackson. Salary £50. Allowance, fourpence a day, in provisions.\n\n1779, 13 August, prisoners 98, viz.\n64 deserters, 21 impressed men, and 13 of the guards.\n\nThe prisoners were in health; the rooms made somewhat more airy, and three rooms over the hall were fitted up for an infirmary.\n\n1782, 20 December, prisoners 92.\n\nThe prison was not dirty, nor the rooms offensive except in the infirmary. Three of the guards were in close confinement on bread and water for forty-eight hours. One was sick in the prison, and twelve in two of the close rooms of the infirmary; in the other room, one of the transports left here lay dead. Keeper, Captain Osborne.\n\n1783, 29 August, prisoners 56.\n\nFourteen were of the guards, of whom ten were in the black hole on bread and water for twenty-four or forty-eight hours. Some of the prisoners, having received his Majesty’s pardon on condition of enlisting, and afterwards deserted, had been here from seven to sixteen months. The rooms were very clean; they are lime-whited twice a year, and they are washed every day, the prisoners being turned out of them early in the morning. There had been none sick in the hospital for two months.",
@@ -13022,8 +13043,34 @@
           {
             "action": "start",
             "time": "2026-11-20T12:15:16+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T12:19:02+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "WESTMINSTER",
+          "s1": "more airy. No. 1, 2, and 4, and the room over No. 1, and the lodging-room called the store-room adjoining to the guard-rooms, are of good size: and the practice of lime-whiting adopted here since my first visits, is salutary for the prisoners. There are, besides, the black hole, the condemned hold, the cock-pit, and several other parts of this irregular building, which I pass over.\n\n15 March, 1776, there were one hundred and nineteen prisoners; of whom forty-nine were transports. I saw many sick and dying. The gaol was so infected by them, that the distemper was caught there by many afterwards.\n\n25 May, prisoners thirty-seven. Many of them sick of the gaol-distemper, in the rooms where I saw the sick and dying in March. The whole was out of repair. Keeper, Captain Jackson. Salary £50. Allowance, fourpence a day, in provisions.\n\n1779, 13 August, prisoners 98, viz.\n64 deserters, 21 impressed men, and 13 of the guards.\n\nThe prisoners were in health; the rooms made somewhat more airy, and three rooms over the hall were fitted up for an infirmary.\n\n1782, 20 December, prisoners 92.\n\nThe prison was not dirty, nor the rooms offensive except in the infirmary. Three of the guards were in close confinement on bread and water for forty-eight hours. One was sick in the prison, and twelve in two of the close rooms of the infirmary; in the other room, one of the transports left here lay dead. Keeper, Captain Osborne.\n\n1783, 29 August, prisoners 56.\n\nFourteen were of the guards, of whom ten were in the black hole on bread and water for twenty-four or forty-eight hours. Some of the prisoners, having received his Majesty’s pardon on condition of enlisting, and afterwards deserted, had been here from seven to sixteen months. The rooms were very clean; they are lime-whited twice a year, and they are washed every day, the prisoners being turned out of them early in the morning. There had been none sick in the hospital for two months.",
+          "s2": "",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "",
+          "s7": "WESTMINSTER",
+          "s8": "TOTHILL-FIELDS BRIDEWELL\n\nKeeper. George Smith.\nSalary: £50, paying the widow of the former keeper £20.\nFees: £0 5s. 2d.\nTransports: taken by Mr. Akerman.\nLicence: Beer and Wine. Tap let. Now no licence.\n\nPrisoners.\nAllowance: A penny loaf (weight Dec. 1782, 8½ oz. Oct. 1783, 9½ oz.) and a penny a day each.\nGarnish: £0 1s. 4d.\nNumber:\n\tPrisoners\n1774. 22 April\t38\n1775. 4 March\t109\n1776. 6 March\t86\n1776. 3 May\t75\n1777. 8 Jan.\t110\n1779. 5 Aug.\t74\n1782. 18 Dec.\t72\n1783. 20 Aug.\t89\n1783. 22 Aug.\t92\n1783. 29 Oct.\t52\nImpressed men, 10\n\nChaplain. None.\nSurgeon. Mr. Glover, now Mr. Thomas Purdue.\nSalary: None. He makes a bill.\n\n“No alteration in this prison. The men associating together in one part, and the women in another; all without employment, except three or four debtors who were shoemakers. At night, some men come to a room in the women’s court, and some women go to a room on the men’s side, which is called the chapel, from the use made of it by the late worthy keeper. Several prisoners were drinking in a room used by the turnkey for his shop. Here is also a room for the deposit of bonnets and other articles of clothing, which may be a convenient security for the keeper’s fees; one woman, however, I turned out, who had remained four days after the expiration of her term, and had no share in the property contained in this room. In some county gaols the salaries to the gaolers are in lieu of all fees; whereby the hardship of forcing poor creatures to part with some of their scanty clothing, in order to purchase their discharge, is prevented. No bedding here, which is the case in all the London prisons, except that in the City called Bridewell, where they have a little loose straw, and beds for the few who can pay a high price for them.”\n\n[From An Account of Lazarettos, p. 129.]\n\nOver the gate is this inscription: “Here are several sorts of",
+          "s9": "",
+          "s10": "",
+          "s11": "",
+          "s12": "",
+          "s13": "",
+          "s14": "",
+          "s15": "",
+          "s16": "",
+          "s17": "",
+          "s18": "",
+          "s19": ""
+        }
       }
     },
     "97": {
@@ -13850,7 +13897,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "KENT",
           "s1": "barrack-beds, and hop-bagging with straw; but no coverlets. This county has for years past been so considerate as to pay the fees of poor prisoners acquitted: and to transports cast at assizes, who are entitled to the king’s allowance of 2s. 6d. a week, they continue the allowance which they had before trial. They also pay the gaoler’s fees for those convicts. The felons formerly said they wished for more bread and would, if that were increased, be content with less beer. The baker who serves the felons sells thirteen loaves to the dozen; and debtors have amongst them every thirteenth loaf, and are now allowed yearly three cauldron of coals.\n\nThere is an alarm-bell; and a sail-ventilator.\n\nThe infirmary is improperly situated. No bath. On examining two sick prisoners in 1779, I found they had no irons; and the surgeon said the gaoler was always ready to take them off when he requested it.\n\nThe clauses of the Act against spirituous liquors are hung up. Act for preserving the health of prisoners not hung up.\n\nWithout great attention to cleanliness and the separation of the sick, here will be great danger of the gaol-fever, from the offensiveness of the wards and even the court of the men felons.\n\n[COUNTY BRIDEWELL\n\nMAIDSTONE. In 1779 I saw two prisoners with the smallpox, lying on loose straw, and their only covering was common mats.\n\nROCHESTER. City bridewell. Two rooms down eight steps with barrack-bedsteads and straw. Fees, 1s. Keeper’s salary, £2, paid out of Mr. Watt’s charity.¹\n\nDEAL. Gaol. A room under the court only eight and a half feet by six and a half, with a barrack-bedstead. Keeper, town-sergeant, lives distant. I did not wonder that a felon had made his escape the night before my visit.\n\n1 This bridewell is in a house appointed for the reception of six poor travellers. The design of this charity may be seen from the following inscription placed over the door: “Richard Watts, Esq., by his will dated 22 August, 1579, founded this charity, for six poor travellers, who, not being rogues or proctors, may receive gratis, for one night, lodging, entertainment, and fourpence each.”",
@@ -13928,8 +13975,30 @@
           {
             "action": "start",
             "time": "2026-11-20T12:15:16+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T12:19:02+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "KENT",
+          "s1": "barrack-beds, and hop-bagging with straw; but no coverlets. This county has for years past been so considerate as to pay the fees of poor prisoners acquitted: and to transports cast at assizes, who are entitled to the king’s allowance of 2s. 6d. a week, they continue the allowance which they had before trial. They also pay the gaoler’s fees for those convicts. The felons formerly said they wished for more bread and would, if that were increased, be content with less beer. The baker who serves the felons sells thirteen loaves to the dozen; and debtors have amongst them every thirteenth loaf, and are now allowed yearly three cauldron of coals.\n\nThere is an alarm-bell; and a sail-ventilator.\n\nThe infirmary is improperly situated. No bath. On examining two sick prisoners in 1779, I found they had no irons; and the surgeon said the gaoler was always ready to take them off when he requested it.\n\nThe clauses of the Act against spirituous liquors are hung up. Act for preserving the health of prisoners not hung up.\n\nWithout great attention to cleanliness and the separation of the sick, here will be great danger of the gaol-fever, from the offensiveness of the wards and even the court of the men felons.\n\n[COUNTY BRIDEWELL\n\nMAIDSTONE. In 1779 I saw two prisoners with the smallpox, lying on loose straw, and their only covering was common mats.\n\nROCHESTER. City bridewell. Two rooms down eight steps with barrack-bedsteads and straw. Fees, 1s. Keeper’s salary, £2, paid out of Mr. Watt’s charity.¹\n\nDEAL. Gaol. A room under the court only eight and a half feet by six and a half, with a barrack-bedstead. Keeper, town-sergeant, lives distant. I did not wonder that a felon had made his escape the night before my visit.\n\n1 This bridewell is in a house appointed for the reception of six poor travellers. The design of this charity may be seen from the following inscription placed over the door: “Richard Watts, Esq., by his will dated 22 August, 1579, founded this charity, for six poor travellers, who, not being rogues or proctors, may receive gratis, for one night, lodging, entertainment, and fourpence each.”",
+          "s2": "",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "SUSSEX",
+          "s7": "SUSSEX\n\nCOUNTY GAOL AT HORSHAM\n\nGaoler. Charles Cooper, now Samuel Smart.\nSalary: £120 of late; in lieu of all fees: now £100. (See remarks.)\nFees: Debtors, Felons, £1 4s. 10d.\nTransports: £2 2s. 0d. each.\nLicence: Wine.\n\nPrisoners.\nAllowance: Debtors, none.\nFelons, two pennyworth of bread a day: now a 2 lb. loaf.\nGarnish: £0 6s. 6d.\nNumber:\n\tDebtors\tFelons, etc.\t\tDebtors\tFelons, etc.\n1773. 17 Dec.\t11\t7\t1779. 9 March\t12\t6\n1774. 29 Sept.\t5\t13\t1782. 8 Nov.\t16\t7\n1776. 22 Feb.\t13\t8\t\t\t\n\nChaplain. Rev. Mr. Jameson.\nDuty: Sermon once a week; prayers every day.\nSalary: £50. (See remarks.)\n\nSurgeon. Now Mr. Dubbins.\nSalary: £5 5s. 0d. for felons.\n\nThe rooms in the old gaol were too small, except the free ward for debtors. No straw: no court; and yet ground enough for one behind the gaol. Transports convicted at quarter sessions, had as those condemned at assize, the king’s allowance of 2s. 6d. a week. Lent assize at East Grinstead; where the prisoners are confined in a garret at the “George” alehouse; formerly they were shut up in a butcher’s cellar. Summer assize, at Lewes and Horsham alternately.\n\nThe new gaol that was building in 1776, I found finished in 1779. The Duke of Richmond, in concurrence with the other gentlemen of the county, interested himself much in this affair. The situation is judiciously chosen; and the plan is such as appears to me particularly well suited for the purpose. It does credit to those who superintended the work, being every way substantial and strong. Each felon has a separate room ten feet by seven, and nine feet high to the crown of the arch. They are all arched with brick, to prevent danger and confusion in case of fire. To each room are two doors, one of them iron-latticed.",
+          "s8": "",
+          "s9": "",
+          "s10": "",
+          "s11": "",
+          "s12": "",
+          "s13": "",
+          "s14": "",
+          "s15": ""
+        }
       }
     },
     "104": {
@@ -14312,7 +14381,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "NORFOLK CIRCUIT",
           "s1": "BEDFORDSHIRE",
@@ -14387,8 +14456,29 @@
           {
             "action": "start",
             "time": "2026-11-20T12:18:17+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T12:19:02+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "NORFOLK CIRCUIT",
+          "s1": "BEDFORDSHIRE",
+          "s2": "COUNTY GAOL AT BEDFORD",
+          "s3": "In this prison there is on the first-floor, a day-room for debtors, which is used as a chapel, and four lodging-rooms: for felons, on the ground-floor, two day-rooms, one for men, and the other for women, without fire-places, and two cells for the condemned. The rooms are eight and a half feet high: two dungeons, down eleven steps, one of them dark; the window of the other eighteen inches by twelve. Five pounds a year is allowed to the gaoler for straw, which is not on the floors, but on frames or bedsteads. The justices in winter, upon application, grant coals both to debtors and felons. The court is common to both. No apartment for the gaoler.\n\nClauses of the Act against spirituous liquors are not hung up. I was, when sheriff, culpably ignorant of that Act. No infirmary nor bath. About twenty years ago the gaol-fever was in this prison: some died there, and many in the town; among whom was Mr. Daniel the surgeon, who attended the prisoners. His successor, Mr. Gadsby, judiciously changed the medicines from sudorifics (generally used before) to bark and cordials: and a sail-ventilator being soon after put up, the gaol has been free from the fever almost ever since.\n\nThis prison is kept very clean; but the Act for preserving the health of prisoners is not hung up.\n\nHUNTINGDONSHIRE\n\nCOUNTY GAOL AT HUNTINGDON\n\nThis gaol is also the county bridewell and town gaol. For debtors, a day-room or kitchen; and over it a large lodging-room. Near it is a day-room for felons: and down nine steps a dungeon for men-felons; in which is a small condemned room. In another",
+          "s4": "",
+          "s5": "CAMBRIDGESHIRE",
+          "s6": "place, down seven steps, is a dungeon for women-felons: the floor of it level with the court; in which is the bridewell. This has two rooms below for men; and two above for women. No chimneys. The prison and court are too small: but I always found the whole remarkably clean, except at my visit in 1779.\n\nCAMBRIDGESHIRE\n\nCAMBRIDGE\n\nTown Bridewell. On the ground-floor, one room for men, twenty-one feet by six; and two lodging-rooms for women, nine feet by five. In these are lately put bedsteads for straw or coverlets. There is a dungeon or dark room for the refractory. Above is a workroom nineteen feet square, for women. In the spring 1779, seventeen women were confined in the daytime, and some of them at night, in this room, which has no fire-place or sewer. This made it extremely offensive, and occasioned a fever or sickness among them, which alarmed the Vice-Chancellor who ordered all of them to be discharged. Two or three died within a few days. There are now added two rooms, in one of which are five cages about seven feet square. There is a small court; no water.\n\nThe Vice-Chancellor’s prisoners have fourpence on Sunday, to prevent the necessity of their working on that day as formerly. Those of them that are ill, have threepence a day. No allowance of bread for town prisoners. Keeper’s salary, £30: no fees. Straw, £1 1s. 0d. a year.\n\nThe bridewell stands in the backyard of the keeper’s house; which was bought and endowed for the encouragement of wool-combers and spinners of this town. The basis of the institution was a legacy of the famous carrier Thomas Hobson, who died 1630. To answer the intention, the keeper appointed is a wool comber. He employs not only several hands upon the foundation of the charity, but many others; among them his prisoners. His salary is paid out of the charity.\n\n1774. 13 Dec.\tprisoners 3\t1779. 23 Sept.\tprisoners 6 and one lunatic\n1776. 28 Sept.\t„ 7\t1782. 7 Feb.\t„ 3",
+          "s7": "",
+          "s8": "",
+          "s9": "",
+          "s10": "",
+          "s11": "",
+          "s12": "",
+          "s13": "",
+          "s14": ""
+        }
       }
     },
     "107": {
@@ -14991,7 +15081,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "ABINGDON. Two dirty day-rooms; and three offensive night-rooms: that for men eight feet square: one of the women’s, nine by eight; the other four and a half feet square: the straw, worn to dust, swarmed with vermin: no court: no water accessible to prisoners. The petty offenders were in irons: at my last visit, eight were women. Allowance, if felons, threepence a day. Keeper’s salary, £18: fees, 4s. 4d., no table. At all my visits the prisoners had no employment.\n\n1776, 2 Jan.\tprisoners 3.\t1782, 25 Dec.\tprisoners 13, drs. 1.\n1779, 22 Apr.\t„ 3.\t\t\n\nWINDSOR CASTLE PRISON, for debtors. I need not observe that his Majesty is proprietor. The Duke of Montague is constable: he appoints a janitor with a salary: the janitor appoints a deputy, who for a house rent-free, and certain perquisites, does the duty. The prison out of repair. It consists of three rooms on the first floor and three rooms over them.\n\nAt my last visit I found that the old keeper had been murdered in the tap-room by a soldier, who also killed another, and was then shot himself. This is not the first instance I have known of persons being murdered in the tap-room of gaols. Such are the bad effects of selling liquors in prisons.\n\nhabit of idleness or inability to labour in future, is in danger of being acquired. The beneficial effects on the mind, of such a punishment, are speedy, proceeding from the horror of a vicious person left entirely to his own reflections. This may wear off by long continuance, and a sullen insensibility may succeed.\n\n“In all manufacturing towns it would be proper to have solitary cells for the confinement of faulty apprentices and servants for a few days, where they should be constrained to work, and have no visitors unless clergymen: for a short term would probably do more to effect a reformation, than three or four months’ confinement; as it is generally found that in the first two or three days prisoners seem to have their minds most affected and penitent.\n\n“A county magistrate said: ‘We have thought it necessary to refrain from commitment in many cases where that mode of proceeding would otherwise have been salutary, from a full persuasion of the total unfitness of the places of confinement or of correction, to answer those reformatory purposes for which a well-regulated restraint is peculiarly calculated.’”",
           "s1": "",
@@ -15072,8 +15162,31 @@
           {
             "action": "start",
             "time": "2026-11-20T12:15:16+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T12:19:03+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "ABINGDON. Two dirty day-rooms; and three offensive night-rooms: that for men eight feet square: one of the women’s, nine by eight; the other four and a half feet square: the straw, worn to dust, swarmed with vermin: no court: no water accessible to prisoners. The petty offenders were in irons: at my last visit, eight were women. Allowance, if felons, threepence a day. Keeper’s salary, £18: fees, 4s. 4d., no table. At all my visits the prisoners had no employment.\n\n1776, 2 Jan.\tprisoners 3.\t1782, 25 Dec.\tprisoners 13, drs. 1.\n1779, 22 Apr.\t„ 3.\t\t\n\nWINDSOR CASTLE PRISON, for debtors. I need not observe that his Majesty is proprietor. The Duke of Montague is constable: he appoints a janitor with a salary: the janitor appoints a deputy, who for a house rent-free, and certain perquisites, does the duty. The prison out of repair. It consists of three rooms on the first floor and three rooms over them.\n\nAt my last visit I found that the old keeper had been murdered in the tap-room by a soldier, who also killed another, and was then shot himself. This is not the first instance I have known of persons being murdered in the tap-room of gaols. Such are the bad effects of selling liquors in prisons.\n\nhabit of idleness or inability to labour in future, is in danger of being acquired. The beneficial effects on the mind, of such a punishment, are speedy, proceeding from the horror of a vicious person left entirely to his own reflections. This may wear off by long continuance, and a sullen insensibility may succeed.\n\n“In all manufacturing towns it would be proper to have solitary cells for the confinement of faulty apprentices and servants for a few days, where they should be constrained to work, and have no visitors unless clergymen: for a short term would probably do more to effect a reformation, than three or four months’ confinement; as it is generally found that in the first two or three days prisoners seem to have their minds most affected and penitent.\n\n“A county magistrate said: ‘We have thought it necessary to refrain from commitment in many cases where that mode of proceeding would otherwise have been salutary, from a full persuasion of the total unfitness of the places of confinement or of correction, to answer those reformatory purposes for which a well-regulated restraint is peculiarly calculated.’”",
+          "s1": "",
+          "s2": "",
+          "s3": "OXFORDSHIRE",
+          "s4": "OXFORDSHIRE\n\nCOUNTY GAOL, OXFORD CASTLE\n\nGaoler. Solomon Wisdom.\nSalary: £20.\nFees: Debtors, £0 9s. 2d.\nFelons, £0 15s. 10d.\nTransports: He made a bill of the expense.\nLicence: Beer and wine.\n\nPrisoners.\nAllowance: Debtors, none. (See remarks.)\nFelons, County, 16d. each per week in bread; City, 1s. (See remarks.)\nGarnish: Cancelled.\nNumber:\n\tDebtors\tFelons, etc.\t\tDebtors\tFelons, etc.\n1773. 26 Nov.\t14\t13\t1779. 25 Feb.\t12\t15\n1774. 4 July\t11\t17\t1779. 29 July\t13\t4\n1776. 2 Jan.\t13\t10\t1782. 28 April\t16\t10\n1776. 31 Oct.\t7\t14\t1782. 25 Dec.\t25\t31\n\nChaplain. Rev. Mr. Swinton, now Rev. Mr. Cotton.\nDuty: Sunday, Wednesday, Friday; the sacrament four times a year.\nSalary: £50, now £40.\nSurgeon. Mr. Rawlins.\nSalary: £25 for felons.\n\nFor the castle gaol the county pays £40 a year to Mr. Etty, who holds it of Christchurch College on lease. Debtors’ apartments small; and not enough of them for the general number of prisoners. No free ward: for lodging even in the tower on their own beds they must pay 1s. 6d. a week: see the table. Their court is too small. Felons’ day-room or hall for men and women down five steps, twenty-three feet by eleven, the men’s dungeon (eighteen and a half feet by sixteen and a half), down five more; only small apertures: the women’s night-room six and a half feet by four feet two inches. The court common to both, twenty-nine feet by twenty-three. The gaoler has a spacious garden.\n\nSince the north gate was taken down, this prison has been also the city gaol: for which Mr. Wisdom has £5 a year. In 1773, eleven died of the smallpox. In 1774, that distemper",
+          "s5": "",
+          "s6": "",
+          "s7": "",
+          "s8": "",
+          "s9": "",
+          "s10": "",
+          "s11": "",
+          "s12": "",
+          "s13": "",
+          "s14": "",
+          "s15": "",
+          "s16": ""
+        }
       }
     },
     "113": {
@@ -15529,7 +15642,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "GLOUCESTERSHIRE",
           "s1": "COUNTY BRIDEWELL",
@@ -15604,8 +15717,29 @@
           {
             "action": "start",
             "time": "2026-11-20T12:16:22+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T12:19:03+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "GLOUCESTERSHIRE",
+          "s1": "COUNTY BRIDEWELL",
+          "s2": "BERKELEY. Quite out of repair. Only one room for men and women, eighteen feet four inches by fifteen feet four, and seven feet nine inches high: the window (near four feet square) not glazed; no straw: no chimney: court not secure. Nothing has been laid out on this prison these twenty years. The sensible old keeper lamented the bad effects of close confinement in idleness, upon the health of even young strong prisoners. Many such, he said, he had known quite incapable of working for some weeks after their discharge. He told me, that some years ago his prisoners used to grind malt for a penny a bushel; and the justices would not license any victualler whose malt was not ground here: but that of late years they have done no work at all. No allowance. Keeper, Francis Norman: his salary, £20; but he pays out of it £6 to the poor of the parish for ground-rent: fees, 4s. 4d., no table. He wrote me lists of his prisoners, which I here transcribe.\n\nAccount of prisoners committed to labour and correction in the bridewell at Berkeley, sent to the House of Commons.¹\n\n1771.\tNothing expended,\tnothing earned\t21\n1772.\t„\t„\t20\n1773.\t„\t„\t19\n1774.\t„\t„\t15\n1775. To Midsummer sessions.\tNothing expended,\tnothing earned\t4\n\nFRANCIS NORMAN.\n\nA further account of prisoners committed to labour and correction.\n\n\t\t\tMen\tWomen\n1778.\tNothing expended,\tnothing earned\t6\t4\n1779.\t„\t„\t7\t2\n1780.\t„\t„\t2\t1\n1781.\t„\t„\t12\t8\n1782. To Michaelmas sessions.\tNothing expended,\tnothing earned\t4\t0\n\n1774. 22 Aug.\tprisoners 3.\tTwo men, one woman.\n1775. 6 Dec.\t„ 0\t\n1779. 9 June\t„ 0\t\n1782. 25 Oct.\t„ 1\t\n\n1 Many such accounts would have been received at the House of Commons (in consequence of their order to send the account of money expended and earned), if keepers had been equally honest with F. Norman.",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "",
+          "s7": "",
+          "s8": "",
+          "s9": "",
+          "s10": "",
+          "s11": "WESTERN CIRCUIT\n\nHAMPSHIRE\n\nCOUNTY GAOL AT WINCHESTER\n\nThis gaol is kept very clean; and the alterations in it are improvements. The present dungeon, forty-eight feet by twenty-three, is down but five steps: it is lofty (twelve feet), boarded, and has three large windows. The former destructive dungeon was darker, and down eleven steps: Mr. Lipscomb informed me that more than twenty prisoners had died in it of the gaol-fever in one year; and that his predecessor died of the same distemper. There are two rooms over the dungeon, for common-side debtors; three rooms with beds for felons who pay, and two rooms for women. The felons’ day-room is commodiously enlarged. Their straw mattresses and coverlets are brought out and aired when the weather is fine. The beds are all on crib bedsteads. They had every day a clean towel hung on a roller: the prisoner who took care of it and delivered it next day was paid a penny. If a little court, which is now shut up from the gaol, and totally useless, were cleared, and opened towards the prison, it would be very conducive to health and convenience. The chapel is very low and inconvenient.\n\nSt. Cross’s Hospital bread (the dole) is about a penny loaf given to each of the prisoners six times a year; viz. on the eve of the following days, 10 August, 31 October, Christmas, Easter, 3 May, and Whitsunday.\n\nThe college allowance to felons is, once a week, an ox’s head, four sheep’s heads and henges, about seventeen pints of oatmeal, three pints of salt, twelve loaves the size of twopenny halfpenny ones, about twenty-four gallons of table beer, and generally three times a week the broken victuals.\n\nWILTSHIRE\n\nSALISBURY COUNTY GAOL\n\nJust without the prison gate was a round staple fixed in the wall: through it was put a chain, at each end of which a common-side debtor padlocked by the leg, stood offering to those who",
+          "s12": "",
+          "s13": "",
+          "s14": ""
+        }
       }
     },
     "117": {
@@ -15864,7 +15998,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "CORNWALL",
           "s1": "allowance, have only one-sixth of what they earn. Clauses against spirituous liquors are hung up. The Act for preserving the health of prisoners is not hung up, but the gaol is now kept very neat and clean.",
@@ -15930,8 +16064,26 @@
           {
             "action": "start",
             "time": "2026-11-20T12:16:22+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T12:19:03+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "CORNWALL",
+          "s1": "allowance, have only one-sixth of what they earn. Clauses against spirituous liquors are hung up. The Act for preserving the health of prisoners is not hung up, but the gaol is now kept very neat and clean.",
+          "s2": "By a spirited exertion, the gentlemen of this county have erected a monument of their humanity, and attention to the health and morals of prisoners.",
+          "s3": "Here were committed from 13 January, 1780, to 27 July, 1782, Debtors 75, Felons, etc., 92, Petty offenders 94.\n\nThe following table of fees and regulations were printed and hung up, though not signed.\n\nA TABLE of FEES AND RATES, proposed to be taken by the Head Gaoler and Turnkeys, at Bodmin\n\nFrom Debtors, First Class\n\n\t£\ts.\td.\nEvery debtor voluntarily going into the master’s ward, to pay the keeper at entrance\t0\t3\t4\nTo the turnkeys\t0\t1\t6\nTo keeper at discharge\t0\t6\t8\nTo the turnkeys\t0\t2\t6\nEvery debtor lodging in the master’s house, a bed to himself, per week\t0\t2\t6\nTwo such debtors in a bed each\t0\t1\t3\nEvery debtor in master’s house, bringing his own bed for lodging-room\t0\t1\t3",
+          "s4": "Second Class\n\n\nEvery debtor lodged over the arcades, to the keeper at entrance\t0\t2\t6\nTo turnkeys\t0\t1\t0\nTo keeper at discharge\t0\t5\t0\nTo turnkeys\t0\t2\t0\nEvery such debtor over the arcades lodged in the keeper’s bed and room to himself, per week\t0\t1\t6\nTwo such debtors in a bed, each per week\t0\t0\t9\nCommon debtors having only straw, mattress, or their own bed, to keeper at discharge\t0\t6\t0\nTo turnkeys\t0\t2\t0",
+          "s5": "Debtors in General\n\n\nFor signing every certificate to obtain a supersedeas, or a rule, or order of court\t0\t1\t6\nFor copy of sheriff’s warrant, if demanded\t0\t1\t0\nFor registering any declaration against prisoner\t0\t1\t0\nFor discharge of every debtor on composition, or by any act of insolvency, or for want of prosecution, (of which 2s. 5d. is to be the turnkey’s fee)\t0\t17\t5",
+          "s6": "",
+          "s7": "CORNWALL",
+          "s8": "From Felons\n\n\t£\ts.\td.\nFor every felon acquitted and discharged\t0\t13\t4\nFor every person bailed out, or discharged, for which the fee is not paid by the county\t0\t13\t4\nFor every convict discharged\t0\t13\t4\n\nFrom Persons Committed to Bridewell\n\nFor every person discharged from bridewell\t0\t13\t4",
+          "s9": "ARTICLES, REGULATIONS, and ALLOWANCES, established for the Gaol, Bridewell, and Sheriff’s Ward, at Bodmin\n\nI. No garnish or other exactions at entrance permitted to be taken.\nII. No abuse, ill-treatment, or affray, to be suffered between the prisoners; if such do happen, the actors and abettors to be punished at the discretion of the head gaoler, by closer confinement, harder labour, or reduced allowance.\nIII. All sorts of games for money or liquors, are strictly prohibited, and must be prevented, and innocent exercises and such as are conducive to health only to be allowed.\nIV. Irons to be provided at the county expense, and kept ready, but not used, except they are absolutely necessary for punishment or security.\nV. Master or principal debtors of property, are to be lodged at their own request and choice, in the keeper’s house, paying the established rates and no more, for rooms, beds, and diet.—Ordinary debtors are to be lodged over the arcades in beds of the keepers, or their own, according to their choice or ability of paying the established rates.\nVI. Every man felon, and bridewell criminal, shall be allowed every day one pound and three ounces of good wholesome bread, and every woman felon, and bridewell criminal, one pound of the same sort of bread, unless such allowances shall be reduced by order of the head gaoler for ill-behaviour.\nVII. All felons who receive a daily allowance, should be kept to some work. All persons committed to hard labour shall be strictly kept thereto; and all other criminals in bridewell should have some employment.",
+          "s10": "The stated time of labouring to be ten hours per day in summer, and eight hours in winter. The keeper to have one sixth part of the earnings, the persons labouring one sixth part for their own use, besides the full amount of their extra work, and the remaining two third parts to go to the county stock, towards the expense of their maintenance.",
+          "s11": "VIII. The head gaoler to ring his bell at the hour of locking-up, which is to be at six o’clock in the evening, from the first day of October to the thirty-first of March, and at eight o’clock during the rest of the year. To ring also at opening the cells, which is to be at sun rising in the morning, from the first of November to the thirty-first of March, and at six o’clock the rest of the year. No"
+        }
       }
     },
     "120": {
@@ -16977,7 +17129,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "NORTH WALES CIRCUIT",
           "s1": "CARNARVONSHIRE",
@@ -17073,8 +17225,36 @@
           {
             "action": "start",
             "time": "2026-11-20T12:15:16+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T12:19:03+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "NORTH WALES CIRCUIT",
+          "s1": "CARNARVONSHIRE",
+          "s2": "COUNTY GAOL AT CARNARVON",
+          "s3": "Gaoler. Thomas Prichard.\nSalary: none.\nFees: Debtors, £0 3s. 6d. entrance.\n                 £0 2s. 6d. discharge.\n       Felons,   £0 13s. 4d.\nTransports: the expense.\nLicence: Beer.\n\nPrisoners.\nAllowance: Debtors, none.\n           Felons, 2s. 4d. a week each. (See remarks.)\nGarnish: a shilling.\nNumber:\n\n\tDebtors\tFelons, etc.\n1774. 27 June\t2\t1\n1779. 24 July\t5\t1\n1782. 21 June\t7\t0\n1782. 24 Sept.\t3\t0\n\nChaplain. None.\nSurgeon. None.\n\nThis gaol, which is also the bridewell, was formerly a chapel, and is in a ruinous condition. Two rooms for debtors, and two for felons: one of the latter down eleven steps, with an aperture eighteen inches by three; the other under the stairs only nine feet by seven, with no window: all of them very dirty, and never whitewashed. Joining to the gaol is a large room, formerly a house of correction, but lately used by strolling players. A court, but no sewer: no water. Neither clauses against spirituous liquors, nor the Act for preserving the health of prisoners, are hung up. Great session in Lent at Conway. The gaoler has £5 a year as keeper of bridewell. He stops from each felon’s allowance sixpence a week for (what he calls) his trouble of weekly payments. No table of fees.\n\nAmong the various improvements that are making in this town, may it not be hoped, that the county magistrates will think of a better prison.",
+          "s4": "",
+          "s5": "",
+          "s6": "",
+          "s7": "",
+          "s8": "",
+          "s9": "",
+          "s10": "",
+          "s11": "",
+          "s12": "",
+          "s13": "",
+          "s14": "",
+          "s15": "",
+          "s16": "",
+          "s17": "SOUTH WALES CIRCUIT",
+          "s18": "GLAMORGANSHIRE",
+          "s19": "SWANSEY TOWN GAOL",
+          "s20": "“The debtors’ room is very close, and has only one window, which is partly stopped by a shed built against the wall. The room for felons (called the Black Hole) has an aperture in the door, but no window: yet at the Michaelmas quarter sessions, prisoners of both sexes are here confined for some days. In 1787 there were two men and two women confined in it from Monday till Friday. Similar to this is the prison at Neath where one of the quarter sessions is held.¹\n\n“In my various journeys in England and Wales, I have seen many houses defaced on account of the odious tax on windows; and I cannot help repeating my concern for its pernicious effects. I am persuaded it has a very bad influence on the health of the lower classes of people; and this may be one reason of their not having now such healthy, ruddy complexions as they had formerly. The farmers’ servants having been crowded into unventilated rooms or holes, and our labouring poor having been habituated to close habitations, they dislike, when they come into workhouses or hospitals, the admission of fresh air.”\n[From An Account of Lazarettos, p. 215.]\n\n1 “Before I quit this subject, I would just mention, that in all my visits to the gaols and prisons, in this, and other kingdoms, I never received any insults either from keepers or prisoners; nor have I lost anything in any of them, except that in one of our prisons I once lost a large new handkerchief out of my pocket, which I did not, miss for some time, but on a subsequent visit, about ten months after, it was immediately presented to me by a prisoner; as, he said, he believed I had dropped it when I was there last.”",
+          "s21": ""
+        }
       }
     },
     "129": {
