@@ -15418,7 +15418,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "WILTSHIRE",
           "s1": "pass by,etslaces,purses,etc.,made n the prin. whom I saw there lastwere Crown debtors not clear Insolvent Act.Now,this is not permitted.",
@@ -15438,6 +15438,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T11:44:31+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T11:47:51+00:00"
           }
         ],
         "after": {
