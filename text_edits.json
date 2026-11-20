@@ -7679,7 +7679,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "IIO AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "Ifou AUSTRIAN FLANDERS more earne In the Austrian Netherlands I found the prisons in general half clean;and no sickness prevailing in any one of them:and yet what fewof the prisons have a court:inmost of them every prisoner foro is confined to his room.In some places,as at Antwerp,etc., linen the allowance to criminals is scanty;a pound and a half of bread The a day,anda pound of buttera week:but the deficiency is fully were made up by supplies from the monasteries,etc.Debtors very Th few:they are alimented by their creditors. (the ANTwERp.In the prison at Antwerp there aretwo rooms edge for citizens;and upstairs there is a cage,about six feet and a the half square, into which criminals are put before the torture. and A criminal,while he suffers the torture,isclothed inalong shirt, lay has his eyes bound,and a physician and surgeon attend him: room and when a confession is forced from him,and wine has been were given him,he is required to sign his confession;and about Th forty-eight hours afterwards he is executed. and In a small dungeon isa stone seat like some Ihave seen in had old prison towers,in which it is said that formerly prisoners ofw were suffocated by brimstone,when their families wished to regul avoid the disgrace of a public execution.No person here chap remembers an instance of this kind; but about thirty years ago Thes there was a private execution in the prison.In this prison in have 1778 there were only two prisoners.In November 1781 there werethreeprisonersfordebt;their allowance was three halfpence Th aday. and The clergy have a prison in this city which is an old tower, -Th three stories high,to which persons who come under their 1De half cognisance for adultery,ncest,etc.,are committd. meal 15 June,r783,there was not one prisoner in this city. allow In1778herewasahouse of correction.",
@@ -7701,6 +7701,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T09:24:04+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T09:31:58+00:00"
           }
         ],
         "after": {
@@ -8555,7 +8559,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "I24 AN ACCOUNT OF FOREIGN PRI",
           "s1": "the inquisition.In a large room,Isaw on the foor ar many prohibited books,some of which were English: room,I saw multitudes of crosses,beads,and smal The painted capwas also showed me,and thevestme unhappy victims.After several consultations,I was togo up the private staircase,bywhich prisoners an to the tribunal;this leads to a passage with several which I was not permitted to enter.",
@@ -8574,8 +8578,25 @@
           {
             "action": "start",
             "time": "2026-11-20T09:28:19+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T09:31:57+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "AN ACCOUNT OF FOREIGN PRISONS",
+          "s1": "the inquisition. In a large room, I saw on the floor and shelves, many prohibited books, some of which were English: in another room, I saw multitudes of crosses, beads, and small pictures. The painted cap was also showed me, and the vestments for the unhappy victims. After several consultations, I was permitted to go up the private staircase, by which prisoners are brought to the tribunal; this leads to a passage with several doors in it, which I was not permitted to enter. On one of the secretaries telling me, “None but prisoners ever enter these rooms”; I answered, “I would be confined for a month to satisfy my curiosity.” He replied, “None come out under three years, and they take the oath of secrecy.” I learned, by walking in the court, and conversing with the inquisitors, that the cells have double doors, and are separated by two walls, to prevent prisoners conversing together, and that over the space between the walls there is a sort of chimney or funnel, enclosed at the top, but having perforations on the sides, through which some air and a glimmering of light enter. These funnels, the inquisitors told me, are double barred: and one of them serves two cells. Both the inquisitors assured me that they did not put irons on any of their prisoners. The passages into which some of the cells open, have small apertures for the admission of light. In a gloomy area at the back of the prison, there was nothing but a great mastiff dog.\n\nIt is well known that from this court there is no appeal. I need not say how horrid the secrecy and severity of it appear. I could not but observe, that even the sight of it struck terror into the common people as they passed. It is styled, by a monstrous abuse of words, the Holy and Apostolic Court of Inquisition.\n\nPAMPLONA. The prison at Pamplona is an old building in the middle of the city. It has three small courts: the prisoners lie in boxes without mattresses or bedding. There were stocks, and also a dark vaulted room for the punishment of offences committed in the prison. The rooms being very dirty and offensive, I inquired whether epidemical distempers had not sometimes prevailed there, and was answered in the affirmative, and told that about eight years ago, eighteen or twenty prisoners had died in a short time. Here were sixty-one men and three women, 15 April, 1783. Allowance to each is about twopence a day.\n\nThe upper floor of this prison is used as a house of correction for women. I saw twenty-eight in four rooms, all spinning, but",
+          "s2": "",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "FRANCE",
+          "s7": "not with wheels. Each had a bed; the rooms were clean. The bread was good; allowance one pound and a half a day. The term of confinement, from four years to eight; but if any person should choose to marry one confined for small offences, the magistrates are ready to release her. One of the magistrates told me that he visited this prison every week, to hear any complaints that might be made. I inquired whether the keeper went with him? He replied that he did.\n\nThe torture is not used in this province (Navarre). A singular custom prevails here; for twice in the year (the day before Christmas, and eight days before Easter), the Viceroy goes with the magistrates to the council-chamber in the prison, and releases whom he pleases of the prisoners. The day before I got to Pamplona, he had released thirteen. A few years ago, to the surprise of the magistrates, all were released.\n\nFRENCH FLANDERS AND FRANCE\n\nThe French provinces in Flanders and the Netherlands, are chiefly governed by the same arrêt de parlement as the provinces in France.\n\nLILLE. The Tour de St. Pierre at Lille is an old building. There were in it, 24 May, 1783, three debtors, five smugglers, and four vagrants. Five were sick in a very offensive room, with only one bed. Allowance is one pound and a half of bread. The small and dark dungeons down fifteen steps, I was glad to find unoccupied.\n\nI have reason to be abundantly thankful for recovery from a fever which I caught of the sick, in this prison, at my last visit; and would make my grateful acknowledgment to that kind hand, by which I have been hitherto preserved.\n\nAt the city prison there were fourteen prisoners: their allowance consists of bread, butter, and small beer. The dungeons were empty.\n\nThe unhealthy countenances of the prisoners at the citadel show the pernicious effects of lying in caserns, or damp rooms under the fortifications. 26 May, 1783, here were three hundred and forty prisoners, most of them deserters. In the sick-rooms, which were very close and dirty, there were eighty-six; some of whom, though dying, were in irons. The scurvy has lately made great havoc here. Particular attention should be paid",
+          "s8": "",
+          "s9": "",
+          "s10": ""
+        }
       }
     },
     "70": {
@@ -8688,7 +8709,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "I26 AN ACCOUNT OF FOREIGN PRI",
           "s1": "to air and cleanliness,where prisoners have no em Humanity to them,and also to their keepers an demands this.The observation of a sensible mag Hanover, here occurs to my mind:“We have found \"that the convicts or slaves who are committed fo the morals of thosewho are condemned only foraye therefore,by a late regulation in the electorate,the kept apart.\"",
@@ -8710,8 +8731,28 @@
           {
             "action": "start",
             "time": "2026-11-20T09:28:19+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T09:31:57+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "AN ACCOUNT OF FOREIGN PRISONS",
+          "s1": "to air and cleanliness, where prisoners have no employment. Humanity to them, and also to their keepers and visitors, demands this. The observation of a sensible magistrate at Hanover, here occurs to my mind: “We have found,” says he, “that the convicts or slaves who are committed for life, ruin the morals of those who are condemned only for a year or two; therefore, by a late regulation in the electorate, they are now kept apart.” Such a regulation here would be beneficial in every view.\n\nPARIS. In or near Paris the principal prisons were the Conciergerie, Grand and Petit Châtelet, For-l’Evêque, L’Abbaye, and the Bicêtre. But at my visit in 1783 I found two of the worst of them, Petit Châtelet and For-l’Evêque, with their horrid dungeons, entirely demolished. The debtors now are sent to a new prison, the Hôtel de la Force; and criminals are sent to the Conciergerie, or the Grand Châtelet. The king’s declaration for this alteration, dated the 30th of August, 1780, contains some of the most humane and enlightened sentiments respecting the conduct of prisons. It mentions the construction of airy and spacious infirmaries for the sick; separate places of confinement, and courts, for men and women, and for prisoners of different classes; and a total abolition of underground dungeons, upon this principle, that it is unjust, that those who may possibly be innocent, should beforehand suffer a rigorous punishment.\n\nMost prisons in the city have three or four doors, from four feet to four and a half high, separated from each other by a little area or court. Within the inner door is, in some prisons, a turnstile. The number and lowness of the doors (at each of which you must stoop) and the turnstiles, effectually prevent the prisoners rushing out.\n\nIn most of the prisons there are five or six turnkeys, viz., two or three at the doors: one walking in the court, to prevent conferring and plotting (a circumstance to which French gaolers are very attentive): one at the women’s ward: and every day one of them is abroad, or otherwise at leisure. This liberty they have in rotation. They are strictly prohibited, under severe penalties, from receiving anything of the prisoners, directly or indirectly, on any pretence whatever. The gaoler is obliged to board them; and to pay each of them at least one hundred livres a year.\n\nI was surprised at seeing that none of the prisoners in the courts were in irons. No gaoler (I was informed) may put",
+          "s2": "",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "",
+          "s7": "",
+          "s8": "",
+          "s9": "FRANCE",
+          "s10": "them on a prisoner, without an express order from the judge. And yet in some of the prisons, there were more criminals than in any of our London gaols. When I was first there, the number had been recently increased by an insurrection on account of the scarcity of corn. My reader will perhaps presently see reason to conclude, that the manner in which prisons are conducted makes the confinement more tolerable, and chains less needful. Indeed it was evident, from the very appearance of the prisoners in some of the gaols, that humane attention was paid to them.\n\nMost of the courts are paved; and they are washed in summer once or twice a day. One would hardly believe how this freshens the air in the upper rooms. I felt this very sensibly once and again when I was in the chambers: and an Englishman, who had the misfortune to be a prisoner, made the same remark. I seldom or never found in any French prison that offensive smell which I had often perceived in English gaols. I sometimes thought these courts were the cleanest places in Paris. One circumstance that contributed to it, besides the number of turnkeys, was that most of them were near the river.\n\nAs prisoners are not properly separated, it is difficult to keep such as become the king’s evidence apart from the rest: the gaoler of Le Petit Châtelet was obliged to fit up a separate room for that purpose.\n\nPrisoners, especially criminals, attend mass almost every day, and the gaoler or a turnkey with them: but such of them as are Protestants are excused. No person is admitted into any prison during the time of divine service.\n\nAs condemned criminals generally throw off all reserve, and by relating their various adventures and success, prove pernicious tutors to young and less practised offenders; care is taken to prevent this mischief, by sending those who are sentenced to the galleys, to a separate prison, La Tournelle, near the Port de St. Bernard; where they are kept till the time for their being carried off. Before they are sent hither they are branded.\n\nTo prevent the frequent consequences of desperation, no one condemned to death by the inferior court is without hopes of life, till the Parliament confirms or reverses the sentence: and they never make known their decision, till the morning of the day on which a prisoner is to suffer. Then they publish a confirmation of the former sentence; and it is sold in the streets. Executions are often in the afternoon: the last that I saw was",
+          "s11": "",
+          "s12": "",
+          "s13": ""
+        }
       }
     }
   }
