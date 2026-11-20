@@ -13350,7 +13350,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "HOME CIRCUIT",
           "s1": "HERTFORDSHIRE",
@@ -13368,8 +13368,24 @@
           {
             "action": "start",
             "time": "2026-11-20T10:38:05+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T10:40:32+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "HOME CIRCUIT",
+          "s1": "HERTFORDSHIRE",
+          "s2": "COUNTY GAOL AT HERTFORD",
+          "s3": "The old gaol, built in 1702, was in the middle of the town. In front two small day-rooms, for felons, in which they were always locked up: no fire-place. Their dungeons or night-rooms, one down eighteen steps, the other nineteen. Over their day-rooms, was a large lumber-room; and joining to it a lodging-room for women felons. Backward was a small court for debtors, and women felons. On each side of it were two rooms on the ground-floor, and two chambers for debtors. No chapel. No infirmary. The Act for preserving the health of prisoners, and clauses against spirituous liquors, not hung up.\n\nIn the interval of two of my visits the gaol-fever prevailed, and carried off seven or eight prisoners, and two turnkeys.¹ The felons were on that occasion removed to the bridewell. At my second visit in 1776, four were sick.\n\nThis old gaol could not have been made healthy and convenient: but the prisoners are now in a new one situated just out of the town, with separate wards (sixteen feet eight inches by eleven feet seven inches) and courts for debtors, men felons and women felons: the whole is properly surrounded by a wall fifteen feet high: which being at a considerable distance from the building, the keeper has within it a convenient garden.\n\nThe felons looked healthy and well, which I am persuaded was owing to the gaoler’s not crowding them into a few rooms.\n\nCOUNTY BRIDEWELLS\n\nHITCHIN. In the workhouse yard, a room for men, twenty and a half feet by ten and a half; and over it two rooms for women, who go up to them by a ladder. No chimney in any\n\n1 I was well informed, that a prisoner brought out as dead, from one of the dungeons, on being washed under the pump, showed signs of life, and soon after recovered. Since this, I have known other instances of the same kind.",
+          "s4": "",
+          "s5": "",
+          "s6": "ESSEX",
+          "s7": "of the rooms: no straw: no court: no water: no allowance: no employment. Keeper’s salary, £24: no fees.\n\n1776. 14 Feb.\tprisoners 2\t1782. 9 April\tprisoners 1\n1779. 21 Oct.\t„ 0\t1782. 2 Dec.\t„ 3\n\nBERKHAMSTEAD. A ward for men, and another for women. A dungeon down nine steps, thirteen feet by nine and a half, and six feet three inches high: each floor, very damp, no window: no chimney: no bedsteads: no straw. Keeper’s salary, £20: no fees: has the profit of the prisoners’ work. They are sometimes employed in chopping rags. Allowance, a pound of bread a day.\n\n1776. 2 November\tprisoners 0\n1779. 23 April\t„ 1\n1782. 31 October\t„ 0\n\nST. ALBANS. The bridewell for the Liberty, and for the Borough, joins to the Liberty gaol. One large workroom, and two lodging-rooms; all upstairs, and airy. No court: no water: no allowance: no straw. Prisoners have their earnings. Clauses against spirituous liquors not hung up. Keeper’s salary for the Liberty, £28; for the Borough, £2: no fees. In 1779, I found a girl, who was sentenced for a year’s imprisonment, locked up all the day with two soldiers in the workroom: and at my last visit, a girl and a boy were confined together.\n\n1776. 1 March\tprisoners 2\t1779. 24 April\tprisoners 3\n1776. 2 Nov.\t„ 0\t1782. 7 May\t„ 2\n\nESSEX\n\nCOUNTY GAOL AT CHELMSFORD\n\nThe old prison was close, and frequently infected with the gaol-distemper. Inquiring in October 1775 for the head-turnkey, I was told he died of it.\n\nIn the tap-room there hung a paper on which, among other things, was written, “Prisoners to pay garnish or run the gauntlet.”\n\nIt gave me pain to be informed in 1775, that there had been no divine service for above a year past, except to condemned criminals.",
+          "s8": "",
+          "s9": ""
+        }
       }
     },
     "102": {
