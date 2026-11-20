@@ -19,6 +19,7 @@ EDITS_FILE = ROOT / 'text_edits.json'
 TABLE_META = {
     (68, 's3'): ('Diet table for San Fernando', 'diet'),
     (79, 's3'): ('Prisoners of war received at Forton, 1777–1782', 'mixed'),
+    (81, 's8'): ('Prisoners in Scotland, September 1782', 'fee'),
     (88, 's12'): ('Newgate fees, 1729 and keeper’s table', 'fee'),
     (90, 's10'): ('Fleet Prison — Clerk of the Papers fees, 1727', 'fee'),
     (91, 's1'): ('Fleet Prison — Clerk of the Papers fees, continued', 'fee'),
@@ -299,7 +300,9 @@ def render_verified_block(value, spread, segment_id, query):
             output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
         elif ((spread == 77 and segment_id == 's1' and chunk in ('MALTA', 'TURKEY'))
               or (spread == 78 and segment_id == 's1' and chunk == 'PRISONERS OF WAR IN ENGLAND, ETC.')
-              or (spread == 79 and segment_id == 's9' and chunk == 'AMERICAN PRISONERS')):
+              or (spread == 79 and segment_id == 's9' and chunk == 'AMERICAN PRISONERS')
+              or (spread == 80 and segment_id == 's2' and chunk in ('SECTION VI', 'SCOTCH AND IRISH PRISONS'))
+              or (spread == 82 and segment_id == 's1' and chunk == 'IRELAND²')):
             output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
         elif spread == 68 and segment_id == 's3' and chunk.startswith('Sundays, Tuesdays and Thursdays.'):
             output.append('<span class="book-footnote verified-footnote diet-note">' + text_html(chunk) + '</span>')
