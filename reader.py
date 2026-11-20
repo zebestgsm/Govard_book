@@ -61,7 +61,7 @@ OCR_ISSUES = {
 
 # Manual scan proofreading is distinct from automated whole-book collation.
 # Restored fragments/tables alone do not certify an entire spread.
-VERIFIED_SPREADS = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25,
+VERIFIED_SPREADS = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
                     107, 151, 153, 161, 162, 163, 164, 165}
 for _number in range(1, len(PAGES) + 1):
     if _number in VERIFIED_SPREADS:
@@ -603,7 +603,7 @@ def segment_state(number, edits=None, query='', rules=None):
     token = _current_corrections.set(rules)
     try:
         base = render_pages(number, PAGES[number - 1][1], '')
-        if 1 <= number <= 4 or 7 <= number <= 25 or number in (68, 79, 88, 90, 91, 95, 106, 107, 112, 119, 137, 144, 145, 146, 147, 148, 149, 150):
+        if 1 <= number <= 4 or 7 <= number <= 28 or number in (68, 79, 88, 90, 91, 95, 106, 107, 112, 119, 137, 144, 145, 146, 147, 148, 149, 150):
             base = base.replace('<article class="book-page"', '<article class="book-page verified-prose-page spread-' + str(number) + '"')
         if number in (145, 146, 147, 148, 149, 150):
             base = base.replace('<div class="book-spread">', '<div class="book-spread wide-table-spread">', 1)
