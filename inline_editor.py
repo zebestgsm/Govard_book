@@ -198,9 +198,14 @@ def render_verified_block(value, spread, segment_id, query):
         if chunk == '\n\n' or not chunk:
             output.append(chunk)
             continue
-        note = re.match(r'^([¹²³⁴⁵])\s', chunk)
-        if note:
-            number = superscripts[note.group(1)]
+        note = re.match(r'^([¹²³⁴⁵1-5])\s', chunk)
+        marker = note.group(1) if note else ''
+        number = superscripts.get(marker, marker)
+        # Arabic numerals are footnotes only at explicitly mapped destinations;
+        # otherwise numbered prose must remain ordinary text.
+        destinations = NOTE_TARGETS.get(spread, {}).values()
+        mapped_note = any(mapping.get(number) == segment_id for mapping in destinations)
+        if note and (marker in superscripts or mapped_note):
             target = 'footnote-' + str(spread) + '-' + segment_id + '-' + number
             output.append('<span class="book-footnote verified-footnote" id="' + target + '">' + text_html(chunk, True) + '</span>')
         elif '\t' in chunk:

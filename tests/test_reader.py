@@ -448,6 +448,36 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertIn('JUSTITIÆ ET CLEMENTIÆ', s52['s6'])
         self.assertTrue(s52['s1'].endswith('other public buildings.'))
 
+    def test_arabic_numbered_footnotes_are_styled_and_links_resolve(self):
+        from html.parser import HTMLParser
+        class Text(HTMLParser):
+            def __init__(self):
+                super().__init__()
+                self.text = ''
+            def handle_data(self, data):
+                self.text += data
+        for number, targets in {
+            42: [('s8', '1')], 44: [('s1', '1'), ('s7', '1')],
+            45: [('s11', '1'), ('s11', '2'), ('s11', '3')],
+            47: [('s8', '1')], 48: [('s1', '1'), ('s9', '1')],
+            49: [('s6', '1')], 50: [('s7', '1'), ('s7', '2'), ('s7', '3')],
+            51: [('s1', '1'), ('s11', '1'), ('s11', '2')],
+            52: [('s1', '1'), ('s6', '1'), ('s6', '2')],
+        }.items():
+            html, segments = reader.segment_state(number)
+            for segment, note in targets:
+                target = f'footnote-{number}-{segment}-{note}'
+                self.assertIn(f'href="#{target}"', html)
+                self.assertIn(f'class="book-footnote verified-footnote" id="{target}"', html)
+                block = inline_editor.render_verified_block(segments[segment], number, segment, '')
+                parser = Text()
+                parser.feed(block)
+                self.assertEqual(parser.text, segments[segment])
+        ordinary = inline_editor.render_verified_block('1 This is numbered prose.', 42, 's1', '')
+        self.assertIn('verified-paragraph', ordinary)
+        self.assertNotIn('verified-footnote', ordinary)
+        self.assertIn('font-size:.78em', reader.reader_page(42))
+
     def test_scan_zoom_controls_and_detail_image(self):
         page = self.request('/spread/107')[1]
         for marker in ('scan-zoom-toolbar', 'scan-zoom-in', 'scan-zoom-out', 'scan-zoom-reset', 'data-detail-src', 'detail=1', 'scan-fullscreen', 'scan-fullscreen-close', 'scan-fullscreen-view', 'aria-modal="true"'):
