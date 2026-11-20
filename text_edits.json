@@ -2206,7 +2206,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "PROPOSED IMPROVEMENTS",
           "s1": "the sick.If he distributes the allowance,he must do justice to the county，or city,and to his prisoners,by giving to the int latter theirfull stated quantity. were I have said before,a gaoler should not live at a distance gaol from his prison. He should not only reside on the spot,but wou be constantly at home.",
@@ -2231,6 +2231,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T07:47:44+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T07:54:58+00:00"
           }
         ],
         "after": {
