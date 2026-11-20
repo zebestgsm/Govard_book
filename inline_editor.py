@@ -193,6 +193,29 @@ def render_verified_block(value, spread, segment_id, query):
         parts.append('</span>')
         return ''.join(parts)
 
+    if spread == 73 and segment_id == 's7' and value.startswith('1 The number of prisoners,'):
+        # The original footnote contains a small, headerless table. Keep its
+        # tabs and line breaks editable while preserving its footnote styling.
+        parts = ['<span class="book-footnote verified-footnote" id="footnote-73-s7-1">']
+        in_table = False
+        for line in value.splitlines(keepends=True):
+            ending = '\n' if line.endswith('\n') else ''
+            row = line[:-1] if ending else line
+            if '\t' in row:
+                if not in_table:
+                    parts.append('<span class="restored-table fee-table" role="table" aria-label="Prisoners in the Grand Châtelet">')
+                    in_table = True
+                left, right = row.split('\t', 1)
+                parts.append('<span class="restored-row" role="row" style="--numeric-cols:1"><span class="restored-cell" role="cell">' + highlight(left, query) + '</span><span class="restored-cell" role="cell">' + highlight('\t' + right, query) + '</span></span>' + ending)
+            else:
+                if in_table:
+                    parts.append('</span>')
+                    in_table = False
+                parts.append(highlight(row + ending, query))
+        if in_table:
+            parts.append('</span>')
+        return ''.join(parts) + '</span>'
+
     output = []
     for chunk in re.split(r'(\n\n)', value):
         if chunk == '\n\n' or not chunk:
