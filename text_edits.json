@@ -14269,8 +14269,90 @@
       }
     },
     "109": {
-      "segments": {},
-      "history": [],
+      "segments": {
+        "s1": "One of the felons, James Ward, received his Majesty’s pardon, on condition of his going to sea. Mr. Francis Waters, clerk of the assize, wrote in the letter which enclosed the pardon (which was dated 25 August, 1781), “The Secretary of State’s fee is £1 7s. 0d. and my fee £1 1s. 0d. which you’ll take care to receive on the back of the pardon from the officer who receives him.” As no officer would take him on condition of paying this, together with 19s. 4d. the gaoler’s and under-sheriff’s fees, I found the poor wretch in May 1782, languishing in prison on his pound of bread a day.\n\nBIRMINGHAM TOWN GAOL\n\nThe gaol for this large populous town is called the Dungeon. The court is about twenty-five feet square. Keeper’s house in front; and under it two cells down seven steps: the straw is on bedsteads. On one side of the court two night-rooms for women, eight feet by five feet nine inches; and some rooms over them: on the other side is one small day-room for men and women, and the gaoler’s stable (from which the litter is flung into the court): above, was a free ward for Court of Conscience debtors, a sizable room, with only one window eighteen inches square. Over it is another room, or two.\n\nAt some particular times here are great numbers confined. Once in the winter 1775 there were above one hundred and fifty, who by the care of the magistrates had a supply of proper food, broth, etc.\n\nLEICESTERSHIRE\n\nCOUNTY GAOL AT LEICESTER\n\nFor master’s-side debtors nine or ten rooms. Day-room common. The free ward, the cellar, is a dungeon, twenty-nine and a half feet by nine, and six feet eight inches high, down seven steps and damp;¹ two windows; the largest about\n\n1 This seems to be the low moist dungeon that was complained of by a debtor in this gaol, in his letter, 13 November, 1690, sent to Moses Pitt, a prisoner in the Fleet; who printed it, with other letters from prisoners, in his Cry of the Oppressed, 1691. By this, and one or two more of the letters in that little tract, it appears that some inconveniences which I observed in gaols, and have set down in my remarks, are of long standing.",
+        "s2": "",
+        "s3": "",
+        "s5": "fifteen inches square. Felons’ day- and night-rooms are dungeons from five to seven steps underground. They sleep on thick mats on the floor; which, if cribs and coverlets were added, would be better than straw. The whole close and offensive. Court small, thirty-six feet by seventeen feet four inches. No chapel. Two rooms lately built for an infirmary: but the gaol is not convenient or healthy. In 1774, three debtors and a felon died of the smallpox. Of that disease I was informed few ever recover in this gaol. The castle hill is near the shirehall, and is a fine spot for air and water.\n\nClauses of the Act against the use of spirituous liquors painted on the same board as the table of fees. The Act for preserving the health of prisoners not hung up. Here, as in many other gaols, is a useless tub, instead of a bath for cleanliness and health.¹ An inscription on a board is fixed over the gate: “No money to be asked for by turnkeys or prisoners, for garnish or any other pretence whatever.”\n\nIn this county they make an annual collection by a kind of voluntary brief. The gentlemen of the grand jury recommend it to the clergy: most of whom promote the collection in their respective parishes. The thanks of the grand jury to forty-eight clergymen by name, were inserted in the Leicester Journal of 16 February, 1775; for the satisfaction of those gentlemen and other contributors. There is a table of the sum received from each parish; and a list of debtors clothed or discharged; and an account of the expenditure of the remainder in feeding and warming all the prisoners in the inclement season. The collections in 1774 amounted to £74. I found in 1776 the accounts were kept, and the application of the money chiefly directed by John Simpson, Esq., of Leicester. I wish every county would imitate this exemplary benevolence: and I wish every county that does so, a steward equally faithful and assiduous. I am sorry to find the collection fall short. It amounted in 1779, only to £12 5s. 6d.; in 1780, to £6 1s. 9d.; and in 1781, to £3 18s. 0d.\n\n1 In many prisons I have mentioned that there is no bath, though baths are ordered in all gaols in the Act for preserving the health of prisoners. I would here also remind gentlemen, that when baths are provided in compliance with the Act, if they be not made convenient, so that felons in their irons may commodiously use them; and if there is no allowance for soap and towels, these prisoners will receive little or no benefit from them, and will never bathe but when actually compelled.",
+        "s6": "",
+        "s7": "",
+        "s8": "",
+        "s9": "",
+        "s10": "",
+        "s11": ""
+      },
+      "history": [
+        {
+          "id": "s1",
+          "before": "One of thefelons,JamesWard,received hisa on condition of his going to sea.Mr.Francis of the assize,wrote in the letter which enclos （which was dated 25 August,1781),“The Secre fee isI 7s.od.and my feeI Is.od.which you receive on thebackof the pardon from theoffice him.\"Asno officer would take him on condit this,together with 19s.4d. the gaoler's and fees,I found thepoorwretchinMay1782,langui on his pound of bread a day. BIRMINGHAM TOWN GAOL The gaol for this large populous town is called The court is about twenty-five feet square. in front;and under it two cells down seven steps on bedsteads.On one side of the court two ni women,eight feet by five feetnine inches；and so them:on the other side is one small day-room women, and the gaoler's stable(from which the into the court): above,was a free ward for Court debtors,a sizable room,with only one windowe square. Over it is another room,or two.",
+          "after": "One of the felons, James Ward, received his Majesty’s pardon, on condition of his going to sea. Mr. Francis Waters, clerk of the assize, wrote in the letter which enclosed the pardon (which was dated 25 August, 1781), “The Secretary of State’s fee is £1 7s. 0d. and my fee £1 1s. 0d. which you’ll take care to receive on the back of the pardon from the officer who receives him.” As no officer would take him on condition of paying this, together with 19s. 4d. the gaoler’s and under-sheriff’s fees, I found the poor wretch in May 1782, languishing in prison on his pound of bread a day.\n\nBIRMINGHAM TOWN GAOL\n\nThe gaol for this large populous town is called the Dungeon. The court is about twenty-five feet square. Keeper’s house in front; and under it two cells down seven steps: the straw is on bedsteads. On one side of the court two night-rooms for women, eight feet by five feet nine inches; and some rooms over them: on the other side is one small day-room for men and women, and the gaoler’s stable (from which the litter is flung into the court): above, was a free ward for Court of Conscience debtors, a sizable room, with only one window eighteen inches square. Over it is another room, or two.\n\nAt some particular times here are great numbers confined. Once in the winter 1775 there were above one hundred and fifty, who by the care of the magistrates had a supply of proper food, broth, etc.\n\nLEICESTERSHIRE\n\nCOUNTY GAOL AT LEICESTER\n\nFor master’s-side debtors nine or ten rooms. Day-room common. The free ward, the cellar, is a dungeon, twenty-nine and a half feet by nine, and six feet eight inches high, down seven steps and damp;¹ two windows; the largest about\n\n1 This seems to be the low moist dungeon that was complained of by a debtor in this gaol, in his letter, 13 November, 1690, sent to Moses Pitt, a prisoner in the Fleet; who printed it, with other letters from prisoners, in his Cry of the Oppressed, 1691. By this, and one or two more of the letters in that little tract, it appears that some inconveniences which I observed in gaols, and have set down in my remarks, are of long standing.",
+          "time": "2026-11-20T11:25:54+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s2",
+          "before": "At some particular times here are great num Oncein thewinter 1775therewere above one hun who by thecare of the magistrates had a supply broth,etc. LEICESTERSHIRE COUNTY GAOL AT LEICESTER For masters-side debtors nine or ten room common.",
+          "after": "",
+          "time": "2026-11-20T11:25:54+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s3",
+          "before": "The free ward,the cellar,is a dung nine and a half feet by nine,and six feeteight downseven steps and damp;1twowindows;the 1This seems tobe the low moist dungeon that was com debtor in this gaol,in his letter,13 November,16go,sen aprisoner in the Fleet;who printed it,with other letters inhis Cry of the Oppressed，16g1.By this,and one or t letters in that little tract,it appears that some incon I observed in gaols,and have set down in my remarks,are",
+          "after": "",
+          "time": "2026-11-20T11:25:54+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s5",
+          "before": "jesty'spardon, Waters,clerk fifteen inches square. Felons’day-and night-rooms are dungeons edthepardon mats on the floor;which,if cribs and coverlets were added, taryofState's ll take care to wouldbebetter than straw.",
+          "after": "fifteen inches square. Felons’ day- and night-rooms are dungeons from five to seven steps underground. They sleep on thick mats on the floor; which, if cribs and coverlets were added, would be better than straw. The whole close and offensive. Court small, thirty-six feet by seventeen feet four inches. No chapel. Two rooms lately built for an infirmary: but the gaol is not convenient or healthy. In 1774, three debtors and a felon died of the smallpox. Of that disease I was informed few ever recover in this gaol. The castle hill is near the shirehall, and is a fine spot for air and water.\n\nClauses of the Act against the use of spirituous liquors painted on the same board as the table of fees. The Act for preserving the health of prisoners not hung up. Here, as in many other gaols, is a useless tub, instead of a bath for cleanliness and health.¹ An inscription on a board is fixed over the gate: “No money to be asked for by turnkeys or prisoners, for garnish or any other pretence whatever.”\n\nIn this county they make an annual collection by a kind of voluntary brief. The gentlemen of the grand jury recommend it to the clergy: most of whom promote the collection in their respective parishes. The thanks of the grand jury to forty-eight clergymen by name, were inserted in the Leicester Journal of 16 February, 1775; for the satisfaction of those gentlemen and other contributors. There is a table of the sum received from each parish; and a list of debtors clothed or discharged; and an account of the expenditure of the remainder in feeding and warming all the prisoners in the inclement season. The collections in 1774 amounted to £74. I found in 1776 the accounts were kept, and the application of the money chiefly directed by John Simpson, Esq., of Leicester. I wish every county would imitate this exemplary benevolence: and I wish every county that does so, a steward equally faithful and assiduous. I am sorry to find the collection fall short. It amounted in 1779, only to £12 5s. 6d.; in 1780, to £6 1s. 9d.; and in 1781, to £3 18s. 0d.\n\n1 In many prisons I have mentioned that there is no bath, though baths are ordered in all gaols in the Act for preserving the health of prisoners. I would here also remind gentlemen, that when baths are provided in compliance with the Act, if they be not made convenient, so that felons in their irons may commodiously use them; and if there is no allowance for soap and towels, these prisoners will receive little or no benefit from them, and will never bathe but when actually compelled.",
+          "time": "2026-11-20T11:25:54+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s6",
+          "before": "The whole close and offensive.",
+          "after": "",
+          "time": "2026-11-20T11:25:54+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s7",
+          "before": "Court small, thirty-six feet by seventeen feet four inches.No rwhoreceives cion of paying chapel.Tworooms lately built for an infirmary:but the gaol isnot convenient or healthy.In 1774,three debtors and a felon under-sheriff's shing in prison diedofthe smallpox.Of that disease I was informed fewever recover in this gaol.The castle hill is near the shirehall, and isafinespotfor air andwater.",
+          "after": "",
+          "time": "2026-11-20T11:25:54+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s8",
+          "before": "Clauses of theAct against the use of spirituous liquors painted on the same board as the table of fees.TheActfor preserving the health of prisoners not hung up.Here,as in many other the Dungeon. gaols,is a useless tub,instead of a bath for cleanliness and eeper'shouse health.l.An inscription on a board is fixed over the gate: :the straw is “Nomoney to be asked forby turnkeys or prisoners,for garnish ght-rooms for or any other pretence whatever.\" meroomsover In this county they make an annual collection by a kind of formen and voluntarybrief.The gentlemen of the grand jury recommend litter is fung it to theclergy:most of whom promote the collection in their of Conscience respective parishes.",
+          "after": "",
+          "time": "2026-11-20T11:25:54+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s9",
+          "before": "The thanks of the grand jury to forty- ighteen inches cight clergymen byname,were inserted in the Leicester Journal of16February75;forthe satisfactionofthosegentlmenand bers confined. other contributors.Thereis a tableof the sum received from dred and fifty, each parish;and a list of debtors clothed or discharged;and an fproperfood, nccount of the expenditure of the remainder in feeding and warming all the prisoners in the inclement season.The col- lections in 1774 amounted to74.Ifound in 1776 the accounts were kept,and the application of the money chiefly directed by John Simpson,Esq.,of Leicester.Iwish every county would imitate this exemplary benevolence:and I wish every county that does so,a steward equally faithful and assiduous.",
+          "after": "",
+          "time": "2026-11-20T11:25:54+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s10",
+          "before": "Iam sorry to find the collection fall short.It amounted in x779,only to 12 5s.6d.;in 178o,to61s.gd.;and in 1781, Day-room to318s.od. geon,twenty- inches high, Inmany prisons I have mentioned that there isno bath,though baths largest about are ordered in all gaolsin the Act for preserving the health of prisoners.",
+          "after": "",
+          "time": "2026-11-20T11:25:54+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s11",
+          "before": "Iwould here also remind gentlemen,that when baths are provided in plained of by a compliance with the Act,if they be notmade convenient, so that felons to Moses Pitt, in their ironsmay commodiously use them;andif there is no allowance from prisoners, for soap and towels,these prisoners will receive little orno benefit from wo more of the them,and will never bathe butwhen actually compelled. renienceswhich flongstanding.",
+          "after": "",
+          "time": "2026-11-20T11:25:54+00:00",
+          "kind": "edit"
+        }
+      ],
       "spread_review": {
         "state": "working",
         "before": {
