@@ -7042,6 +7042,35 @@
           "s19": ""
         }
       }
+    },
+    "59": {
+      "segments": {},
+      "history": [],
+      "spread_review": {
+        "state": "working",
+        "before": {
+          "s0": "AN ACCOUNT OF FOREIGN PRISONS",
+          "s1": "uncommon strength of it,the gaoler told me a prisoner had lately made his escape from it.I could not devise whatmethod he tookbuearditwasthis.Hhadaoonfor oup,whih he sharpened to cut out a piece from the timber of his room: then by practice he acquired the knack of striking his door, just when the great clock struck,which drowned the noise: and in ffteen days he forced all the bolts,etc.But attempting to let himself down from thevast height by a rope which he found,the rope failed him;and by falling he broke so many of his bones,that the surgeons pronounced his recovery impossible.",
+          "s2": "But his bones were set;and with proper care he did recover, and was pardoned. ZURICH.",
+          "s3": "At Zurich there isaprison for capital crimes （situated in the middle of the river);and ahouseof correction, formerly a convent.In the latter,which is convenient and spacious, there were about sixty prisoners.Nineteen of the men worked abroad for the citizens,whopaid them for their work,but not so much as to other labourers.The rest were spinning within doors,or working at some trade.Iobserved one ingenious woman colouring botanical prints.They have a chapel,inwhich they attend divine worship,and arecatechised every Friday.",
+          "s4": "Oncea day,such of them as donotwork abroad, by the advice of one of the physicians in this city,walk under arcades in a large square court,during which time theirrooms are thoroughly aired,the doors and windows being thrown open. wheaten bread and soup every day,but no meat.",
+          "s5": "The prisoners,on entrance,have the house clothes;and their own are hung up,with their names,and thetimeof their commit ment,noted upon them.",
+          "s6": "On inquiring of one of the magistrates, if they banished any of their criminals,he seemed surprised at the question,and asked,if I did not see in the mountains many manufactories?",
+          "s7": "From further consideration of the excellent manner in which houses of correction are conducted in this country，as well as at Bremen, Hamburg, Holland, etc.,by regents or in- spectors,whose motive for attending to their duty cannot 1Here was only one prisoner.The first room was for examination;in it were five different weights for torture,and if we may depend on tradition, the heaviest,which is one hundred and twenty pounds,was used in torturing a burgomaster of this city. A salutary custom of bringing out the beds in fine weather,I see practised in some of the best houses in this country;which isnotproperly attended to in England.",
+          "s8": "GERMANY",
+          "s9": "large salaries;I am still more confrmed in the opinion before advanced that no mercenary views should be held forth the persons to whom such an important trust is committed. or canI doubt,that in our own country，aswell as abroad, nenmightreadilybe found,whomerely from a sense of duty， iligently execute such anoffice,with no other reward than the pprobation of their fellow-citizens,andof their own consciences. nfact,we find,that there is no want of respectable persons mongus,to undertake the government of hospitals andhouses findustryupon these principles. GERMANY From Switzerland Ireturned to Germany in 1778,in order articularlythose inthefree or imperial cities.",
+          "s10": "AuGSBuRG.At Augsburg,the prison is on the side of a ill,at thebackof the town house.It consists of many cachots or small rooms,on three different floors.There is one for xamination,and two for the engines of torture.There are lso two dark dungeons for suchas have been convicted of witchcraft:but they are in a very ruinous condition,and seem ohavebeen a long time without inhabitants.The condemned ire brought three days before their execution into twolight rooms,which open into a Roman Catholic chapel:where, owever,if a prisoner bea Protestant,a Lutheran minister is permittedtoattendhim.",
+          "s11": "MuNicH.At Munich or Munchen,there are two prisons for riminals.One,in the town house,had in it six men and two women prisoners.In a dark damp dungeon down seventeen steps,werethe instruments of torture.",
+          "s12": "The other,La Prison de la Cour,consisted of about fifteen ells,twelve feet by seven,and a black torture-room.In this room there is a table covered with black cloth andfringe.Six 1The salaries of the several magistrates are so inconsiderable,asnot toofferany temptation on the side of pecuniary emolument:a sense of honour,aspiritofambiton,the desire of serving their country，togethr with that personal credit which is derived from exercising anyoffce in the administration,are the principal motives which actuate the candidates to solicit a share in the magistracy.Mr.Coxe'sSketches of Switzerland, .463."
+        },
+        "cycles": [],
+        "events": [
+          {
+            "action": "start",
+            "time": "2026-11-20T09:18:04+00:00"
+          }
+        ]
+      }
     }
   }
 }
