@@ -24,6 +24,8 @@ TABLE_META = {
     (87, 's2'): ('Newgate prisoners by visit date', 'fee'),
     (89, 's1'): ('Newgate fees continued', 'fee'),
     (89, 's7'): ('Fleet prisoners by visit date', 'fee'),
+    (92, 's3'): ('Fleet warden’s fees, 1729', 'fee'),
+    (92, 's7'): ('Fleet warden’s fees, continued', 'fee'),
     (88, 's12'): ('Newgate fees, 1729 and keeper’s table', 'fee'),
     (90, 's10'): ('Fleet Prison — Clerk of the Papers fees, 1727', 'fee'),
     (91, 's1'): ('Fleet Prison — Clerk of the Papers fees, continued', 'fee'),
@@ -311,7 +313,10 @@ def render_verified_block(value, spread, segment_id, query):
               or (spread == 86 and segment_id == 's10' and chunk == 'THE TOWER')
               or (spread == 87 and segment_id == 's1' and chunk == 'NEWGATE¹')
               or (spread == 89 and segment_id == 's7' and chunk in ('HIS MAJESTY’S PRISON', 'THE FLEET,¹ FOR DEBTORS'))
-              or (spread == 91 and segment_id == 's4' and chunk == 'HILARY 3d GEORGE II. 1729')):
+              or (spread == 91 and segment_id == 's4' and chunk == 'HILARY 3d GEORGE II. 1729')
+              or (spread == 92 and segment_id == 's7' and chunk == 'POULTRY COMPTER')
+              or (spread == 93 and segment_id == 's11' and chunk == 'WOOD STREET COMPTER')
+              or (spread == 94 and segment_id == 's1' and chunk == 'BRIDEWELL')):
             output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
         elif spread == 91 and ((segment_id == 's4' and chunk.startswith('1, 2, 3. Warden')) or (segment_id == 's7' and chunk.startswith('10. Those who blaspheme'))):
             output.append('<span class="book-list">' + text_html(chunk) + '</span>')
