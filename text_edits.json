@@ -10454,7 +10454,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "SCOTCH AND IRISH PRISONS",
           "s1": "improvement in science,to refinement of taste,andin without,at the same time,acquiring a refinement in of justice,and feelings of humanity.”1 IRELAND2 DuBLIN.I was happy in finding at Dublin in 17 prison almost ready forthe removal of the prisoners airy and convenient apartments,in which I hoped th intercourse of the two sexes which took place in the would be avoided.This new prison is one hundred an feet in length,and has separate courts for men an The cells on the first and second floors are about t by eight,and on the upper floor twelve by four,all ar brick,toprevent danger fromfire.Iwas sorry to find and wished they might never be used,except atnig condemned.",
@@ -10481,6 +10481,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T09:50:02+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T10:27:17+00:00"
           }
         ],
         "after": {
