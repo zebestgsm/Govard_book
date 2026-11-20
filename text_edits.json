@@ -16549,8 +16549,146 @@
       }
     },
     "128": {
-      "segments": {},
-      "history": [],
+      "segments": {
+        "s0": "NORTH WALES CIRCUIT",
+        "s3": "Gaoler. Thomas Prichard.\nSalary: none.\nFees: Debtors, £0 3s. 6d. entrance.\n                 £0 2s. 6d. discharge.\n       Felons,   £0 13s. 4d.\nTransports: the expense.\nLicence: Beer.\n\nPrisoners.\nAllowance: Debtors, none.\n           Felons, 2s. 4d. a week each. (See remarks.)\nGarnish: a shilling.\nNumber:\n\nDate\tDebtors\tFelons, etc.\n1774. 27 June\t2\t1\n1779. 24 July\t5\t1\n1782. 21 June\t7\t0\n1782. 24 Sept.\t3\t0\n\nChaplain. None.\nSurgeon. None.\n\nThis gaol, which is also the bridewell, was formerly a chapel, and is in a ruinous condition. Two rooms for debtors, and two for felons: one of the latter down eleven steps, with an aperture eighteen inches by three; the other under the stairs only nine feet by seven, with no window: all of them very dirty, and never whitewashed. Joining to the gaol is a large room, formerly a house of correction, but lately used by strolling players. A court, but no sewer: no water. Neither clauses against spirituous liquors, nor the Act for preserving the health of prisoners, are hung up. Great session in Lent at Conway. The gaoler has £5 a year as keeper of bridewell. He stops from each felon’s allowance sixpence a week for (what he calls) his trouble of weekly payments. No table of fees.\n\nAmong the various improvements that are making in this town, may it not be hoped, that the county magistrates will think of a better prison.",
+        "s4": "",
+        "s5": "",
+        "s6": "",
+        "s7": "",
+        "s8": "",
+        "s9": "",
+        "s10": "",
+        "s11": "",
+        "s12": "",
+        "s13": "",
+        "s14": "",
+        "s15": "",
+        "s16": "",
+        "s20": "“The debtors’ room is very close, and has only one window, which is partly stopped by a shed built against the wall. The room for felons (called the Black Hole) has an aperture in the door, but no window: yet at the Michaelmas quarter sessions, prisoners of both sexes are here confined for some days. In 1787 there were two men and two women confined in it from Monday till Friday. Similar to this is the prison at Neath where one of the quarter sessions is held.¹\n\n“In my various journeys in England and Wales, I have seen many houses defaced on account of the odious tax on windows; and I cannot help repeating my concern for its pernicious effects. I am persuaded it has a very bad influence on the health of the lower classes of people; and this may be one reason of their not having now such healthy, ruddy complexions as they had formerly. The farmers’ servants having been crowded into unventilated rooms or holes, and our labouring poor having been habituated to close habitations, they dislike, when they come into workhouses or hospitals, the admission of fresh air.”\n[From An Account of Lazarettos, p. 215.]\n\n1 “Before I quit this subject, I would just mention, that in all my visits to the gaols and prisons, in this, and other kingdoms, I never received any insults either from keepers or prisoners; nor have I lost anything in any of them, except that in one of our prisons I once lost a large new handkerchief out of my pocket, which I did not, miss for some time, but on a subsequent visit, about ten months after, it was immediately presented to me by a prisoner; as, he said, he believed I had dropped it when I was there last.”",
+        "s21": ""
+      },
+      "history": [
+        {
+          "id": "s0",
+          "before": "NORTHWALESCIRCUI",
+          "after": "NORTH WALES CIRCUIT",
+          "time": "2026-11-20T11:57:13+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s3",
+          "before": "Gaoler.Thomas Prichard.",
+          "after": "Gaoler. Thomas Prichard.\nSalary: none.\nFees: Debtors, £0 3s. 6d. entrance.\n                 £0 2s. 6d. discharge.\n       Felons,   £0 13s. 4d.\nTransports: the expense.\nLicence: Beer.\n\nPrisoners.\nAllowance: Debtors, none.\n           Felons, 2s. 4d. a week each. (See remarks.)\nGarnish: a shilling.\nNumber:\n\nDate\tDebtors\tFelons, etc.\n1774. 27 June\t2\t1\n1779. 24 July\t5\t1\n1782. 21 June\t7\t0\n1782. 24 Sept.\t3\t0\n\nChaplain. None.\nSurgeon. None.\n\nThis gaol, which is also the bridewell, was formerly a chapel, and is in a ruinous condition. Two rooms for debtors, and two for felons: one of the latter down eleven steps, with an aperture eighteen inches by three; the other under the stairs only nine feet by seven, with no window: all of them very dirty, and never whitewashed. Joining to the gaol is a large room, formerly a house of correction, but lately used by strolling players. A court, but no sewer: no water. Neither clauses against spirituous liquors, nor the Act for preserving the health of prisoners, are hung up. Great session in Lent at Conway. The gaoler has £5 a year as keeper of bridewell. He stops from each felon’s allowance sixpence a week for (what he calls) his trouble of weekly payments. No table of fees.\n\nAmong the various improvements that are making in this town, may it not be hoped, that the county magistrates will think of a better prison.",
+          "time": "2026-11-20T11:57:13+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s4",
+          "before": "Salary:none.",
+          "after": "",
+          "time": "2026-11-20T11:57:13+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s5",
+          "before": "Fees:Debtors,fo 3s.6d.entrance. o2s.6d.discharge.",
+          "after": "",
+          "time": "2026-11-20T11:57:13+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s6",
+          "before": "Felons, oI3s.4d.",
+          "after": "",
+          "time": "2026-11-20T11:57:13+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s7",
+          "before": "Transports:the expense.",
+          "after": "",
+          "time": "2026-11-20T11:57:13+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s8",
+          "before": "Licence:Beer.",
+          "after": "",
+          "time": "2026-11-20T11:57:13+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s9",
+          "before": "Prisoners.",
+          "after": "",
+          "time": "2026-11-20T11:57:13+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s10",
+          "before": "Allowance:Debtors, none.",
+          "after": "",
+          "time": "2026-11-20T11:57:13+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s11",
+          "before": "Felons, 2s.4d.a week each.（See rema Garnish:a shilling.",
+          "after": "",
+          "time": "2026-11-20T11:57:13+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s12",
+          "before": "Number: Debtors Felons,etc. 1774.27June 2 1782.21June Debto 1779.24July I 5 I 1782.24Sept.",
+          "after": "",
+          "time": "2026-11-20T11:57:13+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s13",
+          "before": "Chaplain.None.",
+          "after": "",
+          "time": "2026-11-20T11:57:13+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s14",
+          "before": "Surgeon. None.",
+          "after": "",
+          "time": "2026-11-20T11:57:13+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s15",
+          "before": "Thisgaol,whichis alsothe bridewellwas formerly and is in a ruinous condition.Two rooms for debtor forfelons:one of thelatter down eleven steps,with al eighteen inches by three;the other under the stairs feetby seven,with no window:all of them very never whitewashed.Joining to the gaolisa large room ahouse of correction,but lately used by strolling pl court,but no sewer:no water.Neither clauses again ous liquors,nor the Act for preserving the health of are hung up.Great session in Lent at Conway.T has5ayearas keeper of bridewell.He stops from ea allowance sixpence a week for (what he calls) his t weekly payments.No table of fees.",
+          "after": "",
+          "time": "2026-11-20T11:57:13+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s16",
+          "before": "Among the various improvements that are makin town,may it not be hoped,that the county magist think of a better prison. 242",
+          "after": "",
+          "time": "2026-11-20T11:57:13+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s20",
+          "before": "“The debtorsroom is very close, and has only one window， which is partly stopped by a shed built against the wall.The room for felons (called the Black Hole)has an aperture in the door,but no window:yet at the Michaelmas quarter sessions, prisoners of both sexes are here confined for some days.In 1787 therewere twomen and twowomen confined in it from Monday till Friday.Similar to this is the prison at Neath rks.) where one of the quarter sessions isheld.1 \"In my various journeys in England and Wales, I have seen rsFelons,etc. many houses defaced on account of the odious tax on windows; andI cannot help repeating my concern for its pernicious effects. 0 I am persuaded it has avery bad influence on thehealth of the lower classes of people;and thismay be one reason of theirnot having now such healthy,ruddy complexions as they had formerly.",
+          "after": "“The debtors’ room is very close, and has only one window, which is partly stopped by a shed built against the wall. The room for felons (called the Black Hole) has an aperture in the door, but no window: yet at the Michaelmas quarter sessions, prisoners of both sexes are here confined for some days. In 1787 there were two men and two women confined in it from Monday till Friday. Similar to this is the prison at Neath where one of the quarter sessions is held.¹\n\n“In my various journeys in England and Wales, I have seen many houses defaced on account of the odious tax on windows; and I cannot help repeating my concern for its pernicious effects. I am persuaded it has a very bad influence on the health of the lower classes of people; and this may be one reason of their not having now such healthy, ruddy complexions as they had formerly. The farmers’ servants having been crowded into unventilated rooms or holes, and our labouring poor having been habituated to close habitations, they dislike, when they come into workhouses or hospitals, the admission of fresh air.”\n[From An Account of Lazarettos, p. 215.]\n\n1 “Before I quit this subject, I would just mention, that in all my visits to the gaols and prisons, in this, and other kingdoms, I never received any insults either from keepers or prisoners; nor have I lost anything in any of them, except that in one of our prisons I once lost a large new handkerchief out of my pocket, which I did not, miss for some time, but on a subsequent visit, about ten months after, it was immediately presented to me by a prisoner; as, he said, he believed I had dropped it when I was there last.”",
+          "time": "2026-11-20T11:57:13+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s21",
+          "before": "The farmers servants having been crowded into unventilated rooms orholes,and our labouring poor having been habituated to a chapel, close habitations,they dislike,when theycome into workhouses or ,andtwo hospitals, the admission of fresh air.\" naperture [From An Account of Lazarettos,p.215.] only nine 1BeforeIquit this subject,Iwould just mention,that in all my lirty,and visits to the gaols and prisons,in this,and other kingdoms,I never received ,formerly any insults either from keepers or prisoners;nor have I lost anything in ayers.A anyof them,except thatin one of our prisons I once losta large new handkerchief out of mypocket,whichI did not,miss for some time,but stspiritu- on a subsequent visit,about ten months after,itwasimmediatelypresented prisoners, tomebya prisoner;as,he said,he believed I had dropped itwhenIwas he gaoler therelast.\" chfelon's roubleof gin this rateswill 243",
+          "after": "",
+          "time": "2026-11-20T11:57:13+00:00",
+          "kind": "edit"
+        }
+      ],
       "spread_review": {
         "state": "working",
         "before": {
