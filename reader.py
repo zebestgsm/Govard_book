@@ -282,7 +282,8 @@ STYLE = '''
  .heading-row h2{font-size:24px;margin:3px 0}
  .heading-row p{font-size:12px}
  .nav{margin-bottom:12px;padding:7px 9px}
- .reader{grid-template-columns:minmax(0,1.55fr) minmax(310px,1fr);gap:10px}
+ /* Give the scan half the available width while keeping the text alongside. */
+ .reader{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
  .book-page{padding:26px clamp(16px,1.7vw,30px) 34px}
  .scan-panel{top:8px}
  .scan-wrap{max-height:calc(100vh - 150px)}
