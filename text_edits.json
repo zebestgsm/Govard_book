@@ -5817,7 +5817,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "There GERMANY dominic BERLIN.At Berlin,in the city prison called Calands Hoff, ofaboli there are eight rooms on the ground-floor,and down ten steps prison eight dungeons: these rooms （thirteen feet by nine feet four withth inches) were numbered,and had barracks and stoves,one inorde stove for two rooms.The dungeons are for the more atrocious may su criminals,of whom I saw several in irons,whowere chained to In th staples in the wall.",
@@ -5842,6 +5842,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T08:43:40+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T09:14:16+00:00"
           }
         ],
         "after": {
