@@ -7157,7 +7157,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "uncommon strength of it,the gaoler told me a prisoner had lately made his escape from it.I could not devise whatmethod he tookbuearditwasthis.Hhadaoonfor oup,whih he sharpened to cut out a piece from the timber of his room: then by practice he acquired the knack of striking his door, just when the great clock struck,which drowned the noise: and in ffteen days he forced all the bolts,etc.But attempting to let himself down from thevast height by a rope which he found,the rope failed him;and by falling he broke so many of his bones,that the surgeons pronounced his recovery impossible.",
@@ -7182,6 +7182,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T09:19:51+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T09:29:03+00:00"
           }
         ],
         "after": {
