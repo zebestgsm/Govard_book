@@ -1974,7 +1974,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "PROPOSED IMPROVEMENTS",
           "s1": "in distinct rooms.” These words do perhaps in the strict construction imply no more than nocturnal separation. But surely it is a far greater mischief for debtors to be annoyed and corrupted by the wicked conversation of felons all day long, than to be disturbed by it in the night-time. I am not designing to infer from hence, nor yet from the character of the gentlemen who composed that Parliament, that the act should be construed according to my view of the argument; or to what I conjecture was their intention. I know it is wrong to explain laws by such a vague principle as the supposed spirit of them. But it seems to me necessary that there should be a total separation: for where there is but one court, the lower class of debtors join with the felons in their diversions of fives, etc., and often become equally profligate: as at Worcester, Gloucester, Salisbury, Aylesbury, Bedford, Ipswich, Bury, Leicester, etc. These different sorts of prisoners are indeed generally separated at night. I do not recollect more than one or two gaols where they lodge together, viz., the Borough-compter, Clerkenwell bridewell, the Devizes and St. Albans. I must now add Tothill-fields bridewell, where debtors are confined, since Westminster gatehouse is taken down. Constant separation is desirable. The gaol will by that means be kept cleaner: and if the smallpox, or the gaol-fever, should infect one ward, the other at a distance may be free from it. This would also remove the objection that is now made against permitting debtors to work: that is, the danger of their furnishing felons with tools for mischief, or escape.\n\nIn the debtors’ ward there should be a day-room or kitchen; also a large workshop for such as are willing to work. Some few gaols have the latter; and in them I have seen basket-makers, shoemakers, etc., employed in their several trades; preserving their habit of industry; contributing to the support of their families, and lightening the burthen that by their imprisonment falls on the respective parishes. Here I would observe, that wherever the windows are glazed there should be casements; for I have found the debtors’ rooms, and passages of many town and city gaols, very offensive for want of apertures.\n\nPrisoners indicted for felony should not be compelled to work. But I have heard many of them wishing they might be permitted to earn something for their more comfortable support. In some few gaols they have this privilege, as at Exeter, Norwich, Ipswich, etc.¹",
@@ -1993,6 +1993,10 @@
           {
             "action": "finish",
             "time": "2026-11-19T09:40:51+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T07:52:16+00:00"
           }
         ],
         "after": {
