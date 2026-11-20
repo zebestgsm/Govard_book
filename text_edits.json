@@ -4310,7 +4310,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "The keeper is allowed a salary,and sells no liquor. He is old and infrm,and the prison grows evidently dirtier as he grows BRU older.A guard of six soldiers and an officeris stationed here near t day and night,who are relieved every morning at eight,and do therev up. so that each soldier is on guard eight outof the twenty-four inbox hours.The various edicts for regulating this prison are put Iwas into frames,and hung in the council chamber. in chai The execrable practice of torturing prisoners is here used, forthe in a cellar where the horrid engine is kept.The time for it is, saying as in other countries,about two o'clock in the morning. the ser criminal suffered the Osnabrug torture twice about twoyears A prisone ago;the last time,at putting to him the third question(the ductor executioner having torn off thehair fromhis head,breast,etc.) rooms he confessed,and was executed.On such occasions a counsellor ofthis and secretary attend,witha doctor and surgeon,an Osnabrug HAR executioner and sometimes the gaoler. If the criminal faints, onthe strong salts are here applied to him,and not vinegar as in some ported other places. halfper The house of correction is a new building in an airy situation, aday. appropriated to vagrants,children,and petty offenders.Here onthe were ninety-four prisoners,ffty-eight of whom were children, this,v clothed in a neat uniform of blue and white linsey-woolsey Hamb made in the house.",
@@ -4334,6 +4334,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T08:28:42+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T08:35:31+00:00"
           }
         ],
         "after": {
