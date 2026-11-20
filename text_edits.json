@@ -12813,7 +12813,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "LONDON",
           "s1": "every Sunday. The men and women are separated from each other, and from the rest of the congregation.\n\nOn the walls of the hall and court-room are hung up many tables of very considerable gifts and legacies to this hospital, in common with others: sufficient, to have made this prison more commodious, by providing courts; and several workrooms, and lodging-rooms, for keeping the prisoners more separate, as now is very prudently done for the faulty apprentices and Bridewell boys, who were formerly confined in one room.\n\nThe Bridewell boys are upon a quite different foundation, and foreign to my subject.",
@@ -12876,8 +12876,25 @@
           {
             "action": "start",
             "time": "2026-11-20T12:34:16+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T12:36:13+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "LONDON",
+          "s1": "every Sunday. The men and women are separated from each other, and from the rest of the congregation.\n\nOn the walls of the hall and court-room are hung up many tables of very considerable gifts and legacies to this hospital, in common with others: sufficient, to have made this prison more commodious, by providing courts; and several workrooms, and lodging-rooms, for keeping the prisoners more separate, as now is very prudently done for the faulty apprentices and Bridewell boys, who were formerly confined in one room.\n\nThe Bridewell boys are upon a quite different foundation, and foreign to my subject.",
+          "s2": "",
+          "s3": "To this prison were committed,\n1772\t1709\t1778\t1027\n1773\t777\t1779\t681\n1774\t808\t1780\t459\n1775\t1084\t1781\t484\n1776\t983\t1782\t659\n1777\t544\t\t\n\nI found there in\n1776. 13 March\tPrisoners 20\t1782. 18 Dec.\tPrisoners 32\n1 May\t„ 7\t1783. 26 Aug.\t„ 38\n3 Dec.\t„ 24\t31 Oct.\t„ 41\n1779. 12 Aug.\t„ 13\t\t\n\nWHITECHAPEL PRISON FOR DEBTORS\n\nIn it are confined those whose debts are above £2, and under £5. The master’s-side prisoners have four sizable chambers, fronting the road; i.e. two on each story. They pay 2s. 6d. a week; and lie two in a bed; two beds in a room.\n\nThe common-side debtors are in two long rooms in the court, near the tap-room; men in one room, women in the other: the courtyard in common. They hang out a begging-box from a little closet in the front of the house; and attend it in turn. It brings them only a few pence a day; and of this pittance none partake but those who at entrance have paid the keeper 2s. 6d. and treated the prisoners with half a gallon of beer. When I was there in 1777, no more than three had purchased this privilege.\n\nThe prison is out of repair. It is the property of the lady of",
+          "s4": "",
+          "s5": "WESTMINSTER",
+          "s6": "the manor. The keeper, George Garred, is an officer: he pays rent £24; and window-tax, and all other taxes. He keeps the tap. Fees, £0 8s. 1d. No table: but in November 1776, I saw a paper hung up, on which was written as follows:\n\nA TABLE of FEES to be taken by the Keeper of this Prison\n\n\t£\ts.\td.\nFor the discharge of every person upon any civil action, process or execution\t0\t8\t1\nFor every person who chooses to lie on the master’s-side, for the first night\t0\t2\t0\nFor every person who chooses to lie on the master’s-side after the first night to pay every week\t0\t2\t6\n\nGEORGE GARRED, keeper, 10th August, 1776.\n\nAt the same time I saw another paper entitled Rules and Orders to be observed in this Prison. It was dated 6 August, 1776. The first rule is, “That every person who comes into this prison as a prisoner, shall pay for his garnish 2s. 10½d.” The clauses of the Act against spirituous liquors hung up.\n\nAt my first visit there were on the common-side two prisoners in hammocks, sick and very poor. No chaplain. A compassionate man, who was not a regular clergyman, sometimes preached to them on Sunday; and gave them some small relief. Lady Townshend sends a guinea twice a year, which her servant distributes equally among the prisoners.\n\nAs debtors here are generally very poor, I was surprised to see once ten or twelve noisy men at skittles; but the turnkey said they were only visitants. I found they were admitted here as at another public house. No prisoners were at play with them. The court-room is near this prison.\n\nTHE SAVOY\n\nThis prison for the military, has two rooms called the guard-rooms; because in them are confined offenders who are of the king’s guards. The remainder of the building over the gate is the keeper’s house. On the opposite side of the court, is a large room down five steps, the hall. On the left-hand side of the court is another hall, not so large: at each end of it is a room with barrack-bedsteads and beds; both rooms very close and unhealthy. Over them are other barrack-rooms, somewhat",
+          "s7": "",
+          "s8": "",
+          "s9": "",
+          "s10": ""
+        }
       }
     },
     "96": {
@@ -13268,7 +13285,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "SOUTHWARK",
           "s1": "work for the poor of this parish of St. Margaret’s Westminster, as also the county according to law, and for such as will beg and live idle in this city and liberty of Westminster. Anno 1655.”\n\nThis prison has—for men, two day-rooms and three night-rooms—for faulty apprentices, five rooms, ten feet by seven feet two inches; the upper and lower panels of the doors are iron-latticed. For women, a day-room, and four night-rooms. All the night-rooms have barrack beds. They are constantly washed every day; and are quite fresh. The prisoners wash their hands and faces every morning before they come for their allowance. No straw. No infirmary. A little room used as a surgery. A chapel, in which Mr. Smith reads a chapter, and part of the Common Prayer Book every morning.\n\nThe women should have another day-room: and one of the day-rooms for men should be enlarged. The courts adjacent might also be enlarged. The rooms for women, and their court, are now more airy, the garden pales being set farther off. The keeper pays window-tax, and for water. Over the gate is a paper with this inscription: “No person admitted into this prison on a Sunday after nine o’clock in the morning until five in the evening.”\n\nAt my visit in 1777, there were among the felons, two debtors from the Court of Conscience; in 1779, three; and in 1783, six. I always found this prison very clean: and the prisoners calm and placid. There is now a workshop with hemp-blocks, and a room over it. Two of the women’s night-rooms are appropriated to female convicts, who have also a separate court with water, etc. As I have seen several sick objects on the floors, the gentlemen, who are so ready to relieve the sufferings of their fellow-creatures, will forgive the intimation that an infirmary might be made over the women’s ward.\n\nTHE KING’S BENCH PRISON, FOR DEBTORS\n\nNumber:\n\tIn House\tIn Rules\n1774. 26 April\t324\t100\n1776. 28 Jan.\t364\t80\n1776. 28 May\t395 (See remarks.)\t\n1779. 11 Aug.\t511\t75\n1779. 26 Oct.\t438\t60\n1782. 2 Jan.\t450\t7\n1782. 28 Dec.\t485\t30\n1783. 23 Aug.\t532\t50\n\nThis prison was part old buildings, part new.\n\nThe old buildings were—a coffee-room just within the gate—and a street called King Street. On the right hand was the",
@@ -13346,8 +13363,30 @@
           {
             "action": "start",
             "time": "2026-11-20T12:34:17+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T12:36:13+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "SOUTHWARK",
+          "s1": "work for the poor of this parish of St. Margaret’s Westminster, as also the county according to law, and for such as will beg and live idle in this city and liberty of Westminster. Anno 1655.”\n\nThis prison has—for men, two day-rooms and three night-rooms—for faulty apprentices, five rooms, ten feet by seven feet two inches; the upper and lower panels of the doors are iron-latticed. For women, a day-room, and four night-rooms. All the night-rooms have barrack beds. They are constantly washed every day; and are quite fresh. The prisoners wash their hands and faces every morning before they come for their allowance. No straw. No infirmary. A little room used as a surgery. A chapel, in which Mr. Smith reads a chapter, and part of the Common Prayer Book every morning.\n\nThe women should have another day-room: and one of the day-rooms for men should be enlarged. The courts adjacent might also be enlarged. The rooms for women, and their court, are now more airy, the garden pales being set farther off. The keeper pays window-tax, and for water. Over the gate is a paper with this inscription: “No person admitted into this prison on a Sunday after nine o’clock in the morning until five in the evening.”\n\nAt my visit in 1777, there were among the felons, two debtors from the Court of Conscience; in 1779, three; and in 1783, six. I always found this prison very clean: and the prisoners calm and placid. There is now a workshop with hemp-blocks, and a room over it. Two of the women’s night-rooms are appropriated to female convicts, who have also a separate court with water, etc. As I have seen several sick objects on the floors, the gentlemen, who are so ready to relieve the sufferings of their fellow-creatures, will forgive the intimation that an infirmary might be made over the women’s ward.\n\nTHE KING’S BENCH PRISON, FOR DEBTORS\n\nNumber:\n\tIn House\tIn Rules\n1774. 26 April\t324\t100\n1776. 28 Jan.\t364\t80\n1776. 28 May\t395 (See remarks.)\t\n1779. 11 Aug.\t511\t75\n1779. 26 Oct.\t438\t60\n1782. 2 Jan.\t450\t7\n1782. 28 Dec.\t485\t30\n1783. 23 Aug.\t532\t50\n\nThis prison was part old buildings, part new.\n\nThe old buildings were—a coffee-room just within the gate—and a street called King Street. On the right hand was the",
+          "s2": "",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "",
+          "s7": "SOUTHWARK",
+          "s8": "tap-house; and four houses for prisoners: each consisted of a ground-floor, and two floors of chambers; four rooms on each floor; near ten feet square, and seven high. On the left-hand side of the street was the chapel; and six houses for prisoners; of equal depth with the former houses: but the back-rooms had not, as the former had, communication with the fore-rooms. At the hither end of the fore-rooms, on the ground-floor, was a common kitchen, much too small. The cook, a prisoner, had the room over it. These houses also had ground-rooms, and two floors of chambers. All the rooms fronting King Street, and the whole of the houses on the other side the way, were for master’s-side debtors; who paid for each room unfurnished a shilling a week. The back part of the left-hand row was the common-side; the doors in the back-front. The first room on the ground-floor they called their court-room. The two houses at the farther end had six rooms each, for Crown debtors and fines; and were called Crown Court. The rest of this range on all the three floors was for common-side debtors. At the farther end of King Street, in a small court enclosed from the rest of the yard, was a building called the State House; consisting of ground-floors, and two floors of chambers; four sizable rooms on each floor; total twelve. A debtor who chose to be here, paid the marshal from eight to ten guineas for his whole time; besides a shilling a week, like other master’s-side debtors.\n\nAll these old buildings were out of repair.\n\nThe new buildings were—first, a house at the gate for the turnkey. The chambers were very convenient; and were let to a prisoner who paid a very high rent. But the principal new building was at the farther end of the yard. The two parts of it formed a right-angle. One part was four houses, with four ground-rooms to each; and the same number of chambers on each of the three floors above: total sixty-four. The rooms were about thirteen feet by eleven, and about eight feet high. The other part (the wing) was built as the Fleet Prison; but more airy and commodious. It had the same number of floors as the first part. On each floor was a passage seven and a half feet wide, and seventy-three and a half feet long: rooms on each side the passage, eleven on each floor, total forty-four; each room thirteen and a half feet by nine and a half, about eight feet high.\n\nThe prison is well supplied with water. Among the improvements, of a hundred and eight new rooms, and a spacious court, they should have built an infirmary. At more than one of my",
+          "s9": "",
+          "s10": "",
+          "s11": "",
+          "s12": "",
+          "s13": "",
+          "s14": "",
+          "s15": ""
+        }
       }
     },
     "100": {
@@ -13730,7 +13769,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "HOME CIRCUIT",
           "s1": "HERTFORDSHIRE",
@@ -13790,8 +13829,24 @@
           {
             "action": "start",
             "time": "2026-11-20T12:34:17+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T12:36:13+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "HOME CIRCUIT",
+          "s1": "HERTFORDSHIRE",
+          "s2": "COUNTY GAOL AT HERTFORD",
+          "s3": "The old gaol, built in 1702, was in the middle of the town. In front two small day-rooms, for felons, in which they were always locked up: no fire-place. Their dungeons or night-rooms, one down eighteen steps, the other nineteen. Over their day-rooms, was a large lumber-room; and joining to it a lodging-room for women felons. Backward was a small court for debtors, and women felons. On each side of it were two rooms on the ground-floor, and two chambers for debtors. No chapel. No infirmary. The Act for preserving the health of prisoners, and clauses against spirituous liquors, not hung up.\n\nIn the interval of two of my visits the gaol-fever prevailed, and carried off seven or eight prisoners, and two turnkeys.¹ The felons were on that occasion removed to the bridewell. At my second visit in 1776, four were sick.\n\nThis old gaol could not have been made healthy and convenient: but the prisoners are now in a new one situated just out of the town, with separate wards (sixteen feet eight inches by eleven feet seven inches) and courts for debtors, men felons and women felons: the whole is properly surrounded by a wall fifteen feet high: which being at a considerable distance from the building, the keeper has within it a convenient garden.\n\nThe felons looked healthy and well, which I am persuaded was owing to the gaoler’s not crowding them into a few rooms.\n\nCOUNTY BRIDEWELLS\n\nHITCHIN. In the workhouse yard, a room for men, twenty and a half feet by ten and a half; and over it two rooms for women, who go up to them by a ladder. No chimney in any\n\n1 I was well informed, that a prisoner brought out as dead, from one of the dungeons, on being washed under the pump, showed signs of life, and soon after recovered. Since this, I have known other instances of the same kind.",
+          "s4": "",
+          "s5": "",
+          "s6": "ESSEX",
+          "s7": "of the rooms: no straw: no court: no water: no allowance: no employment. Keeper’s salary, £24: no fees.\n\n1776. 14 Feb.\tprisoners 2\t1782. 9 April\tprisoners 1\n1779. 21 Oct.\t„ 0\t1782. 2 Dec.\t„ 3\n\nBERKHAMSTEAD. A ward for men, and another for women. A dungeon down nine steps, thirteen feet by nine and a half, and six feet three inches high: each floor, very damp, no window: no chimney: no bedsteads: no straw. Keeper’s salary, £20: no fees: has the profit of the prisoners’ work. They are sometimes employed in chopping rags. Allowance, a pound of bread a day.\n\n1776. 2 November\tprisoners 0\n1779. 23 April\t„ 1\n1782. 31 October\t„ 0\n\nST. ALBANS. The bridewell for the Liberty, and for the Borough, joins to the Liberty gaol. One large workroom, and two lodging-rooms; all upstairs, and airy. No court: no water: no allowance: no straw. Prisoners have their earnings. Clauses against spirituous liquors not hung up. Keeper’s salary for the Liberty, £28; for the Borough, £2: no fees. In 1779, I found a girl, who was sentenced for a year’s imprisonment, locked up all the day with two soldiers in the workroom: and at my last visit, a girl and a boy were confined together.\n\n1776. 1 March\tprisoners 2\t1779. 24 April\tprisoners 3\n1776. 2 Nov.\t„ 0\t1782. 7 May\t„ 2\n\nESSEX\n\nCOUNTY GAOL AT CHELMSFORD\n\nThe old prison was close, and frequently infected with the gaol-distemper. Inquiring in October 1775 for the head-turnkey, I was told he died of it.\n\nIn the tap-room there hung a paper on which, among other things, was written, “Prisoners to pay garnish or run the gauntlet.”\n\nIt gave me pain to be informed in 1775, that there had been no divine service for above a year past, except to condemned criminals.",
+          "s8": "",
+          "s9": ""
+        }
       }
     },
     "102": {
@@ -14612,7 +14667,7 @@
       "segments": {},
       "history": [],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "NORFOLK",
           "s1": "ELY GAOL",
@@ -14693,8 +14748,31 @@
           {
             "action": "start",
             "time": "2026-11-20T12:34:17+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T12:36:13+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "NORFOLK",
+          "s1": "ELY GAOL",
+          "s2": "This gaol, the property of the Bishop, who is lord of the franchise of the Isle of Ely, was in part rebuilt by Bishop Mawson in 1768, upon complaint of the cruel method which, for want of a safe gaol, the keeper took to secure his prisoners.¹\n\nFor master’s-side debtors three rooms upstairs: a room on the same floor for condemned felons.",
+          "s3": "Below stairs is the felons’ day-room; and their cell or night-room, eighteen and a half feet by ten, with a window about a foot square. There is a court for felons, with an offensive sewer. No water. For debtors a court with a pump; but no free ward. No infirmary.",
+          "s4": "No straw.",
+          "s5": "Clauses against spirituous liquors, and Act for preserving the health of prisoners, not hung up. Keeper, a sheriff’s officer for the isle, and for the county of Cambridge. No table of fees.",
+          "s6": "Assize in this isle, of late, twice a year, viz. Lent at Ely, summer at Wisbech.",
+          "s7": "At my last visit, the debtors and felons were together.² One of the former was confined for 3s. 5½d., the charges 8s. 3d. another, who had a wife and five children, only for costs 4s. 9d. and gaol-fees 3s. 6d.\n\nNORFOLK\n\nCOUNTY BRIDEWELL\n\nWYMONDHAM. A day-room; with three closets on one side of it, for night-rooms, about six feet by four. A prisoner complained to me of being obliged to lie in one of these closets, with two boys who had a cutaneous disorder. There is another room for women, in which, at my visit in 1779, there were four dirty and sickly objects at work with padlocks on their legs,\n\n¹ This was by chaining them down on their backs upon a floor, across which were several iron bars; with an iron collar with spikes about their necks, and a heavy iron bar over their legs. An excellent magistrate, James Collyer, Esq., presented an account of the case, accompanied with a drawing, to the king; with which his Majesty was much affected, and gave immediate orders for a proper inquiry and redress.\n\n² An unhappy debtor may be an honest man; but “Evil communications corrupt good manners.”",
+          "s8": "SUFFOLK",
+          "s9": "though they are never out in the court except on Sundays.",
+          "s10": "The very small quantity of straw on the floor was worn almost to dust. There is a dungeon down eight steps with the stocks in it. It is fifteen and a half feet by eight, and six feet high; now arched with brick; a dirt floor; has two apertures at the top, of a foot diameter. The justices seem to have overlooked a clause in a late Act of Parliament (fourteenth George III, chap. xliii) “to prevent the prisoners from being kept underground, whenever they can do it conveniently,” as there is abundant room on the premises.",
+          "s11": "Neither the rooms nor the spacious court secure.",
+          "s12": "Prisoners in this bridewell are not only confined within doors, but generally in irons.",
+          "s13": "",
+          "s14": "SUFFOLK\n\nCOUNTY GAOL AT IPSWICH",
+          "s15": "This is also the town gaol: yet only one courtyard. For debtors, a kitchen, or day-room; and several chambers: one of these is lately made a free ward. For felons a day-room: and for the men a strong night-room; with beds well contrived for cleanliness and health. Each prisoner has a crib-bedstead, ten or twelve inches high; the head raised a few inches; strong feet, low sides. These are easily moved when the ward is to be washed. The county allows to each crib a straw bed, and a blanket. The women have no separate day-room: and their ward, or night-room, has no fire-place. One of the two drinking-rooms is called the garnish room. Two rooms for the sick; not distinct enough from the rest. No bath. Debtors weave in hand-frames, like those at Lincoln, good garters, etc., and make purses, nets and laces which they sell at the front grate. I found this close prison clean, though full of prisoners.",
+          "s16": "The water from the pump is conveyed through the sewers, which prevents the courtyard, which is small, from being offensive.\n\nIn the centre of the ceiling of a neat chapel lately built, is an aperture covered by a small turret, which keeps the room airy and pleasant. (All prison chapels should be thus supplied with fresh air.) Mr. Brome, the chaplain, does not content himself merely with the regular and punctual performance of his stated duty; he is a friend to the prisoners on all occasions."
+        }
       }
     },
     "108": {
