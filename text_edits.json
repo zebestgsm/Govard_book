@@ -7580,6 +7580,32 @@
           "s15": ""
         }
       }
+    },
+    "62": {
+      "segments": {},
+      "history": [],
+      "spread_review": {
+        "state": "working",
+        "before": {
+          "s0": "IIO AN ACCOUNT OF FOREIGN PRISONS",
+          "s1": "Ifou AUSTRIAN FLANDERS more earne In the Austrian Netherlands I found the prisons in general half clean;and no sickness prevailing in any one of them:and yet what fewof the prisons have a court:inmost of them every prisoner foro is confined to his room.In some places,as at Antwerp,etc., linen the allowance to criminals is scanty;a pound and a half of bread The a day,anda pound of buttera week:but the deficiency is fully were made up by supplies from the monasteries,etc.Debtors very Th few:they are alimented by their creditors. (the ANTwERp.In the prison at Antwerp there aretwo rooms edge for citizens;and upstairs there is a cage,about six feet and a the half square, into which criminals are put before the torture. and A criminal,while he suffers the torture,isclothed inalong shirt, lay has his eyes bound,and a physician and surgeon attend him: room and when a confession is forced from him,and wine has been were given him,he is required to sign his confession;and about Th forty-eight hours afterwards he is executed. and In a small dungeon isa stone seat like some Ihave seen in had old prison towers,in which it is said that formerly prisoners ofw were suffocated by brimstone,when their families wished to regul avoid the disgrace of a public execution.No person here chap remembers an instance of this kind; but about thirty years ago Thes there was a private execution in the prison.In this prison in have 1778 there were only two prisoners.In November 1781 there werethreeprisonersfordebt;their allowance was three halfpence Th aday. and The clergy have a prison in this city which is an old tower, -Th three stories high,to which persons who come under their 1De half cognisance for adultery,ncest,etc.,are committd. meal 15 June,r783,there was not one prisoner in this city. allow In1778herewasahouse of correction.",
+          "s2": "The river ran under dinn it;on one side were the keeper’s apartments;on the other,the thes warehouse and the room for the magistrates.On three sides acer and ofapaved court therewere thirteen cells forthemen,and over oblig them were the rooms for the women.",
+          "s3": "Onone sideof thecourt morr were theyoung women whowere putin by their parents or Afte relations;and on the other, the criminals.All the men were and thel employed in spinning cotton;so were some of the women,and curse the rest in making lace.A pound of cotton at a time was time delivered to each;for spinning which,thirteen souswere paid. the 1A sou is about a halfpenny.",
+          "s4": "AUSTRIAN FLANDERS",
+          "s5": "nd,by the books,that at first coming,some did not earn than seven or eight sous ina week,but soon after they dfrom twelve to fourteen.Ryebread(to thevalue of a stivereach meal) and water,was their allowance;and ever they had more than this,they were required to pay utof their earnings.They were obliged toput on clean every week,towards washing which each paid a sou. stoves were heated twicea day，and candles and lamps provided,at the expenseof the magistrates. erewere three roomsfor the ungovernable.",
+          "s6": "Oneofthem penitentiary room)hadafoormadeofpiecesofwood laid ways four inches asunder.",
+          "s7": "The prisoner was chained in niddleof thisfloor,so that hecouid move but a few steps; being allowed no shoes or stockings,whether he stoodor lown,he must have been in a very uneasy posture.This therefore was dreaded by the prisoners.",
+          "s8": "The other rooms abodesso dark and solitary,as to be almost equally dreadful. ther holy days,when they went to the chapel,in which they seats below.",
+          "s9": "The women sat in a gallery，with a lattice oodbefore them.Here,and also in theprison,a table of ations was hung up,which was read in public by the lain,the first Sunday after the entrance of every prisoner. eregulations consisted of thirty-six articles,from whichI taken the following extracts: prisoners mustbe submissive to the keeper and tohiswife; fthey think themselves injured,must complain to the regents. e times fixed for rising are,athalf after six in the morning from cember to15February，and all the restof the year at five,or afterfive;but onSundays and holy days at six.The times of sare fixed at seven,twelve,and seven.The prisoners are ersouporbroth,or a pint of tea or small beer,and at supper amequantityof tea orbeer;and on Sundays and other holy days tain quantity of boiled meat:and every week a pound of butter, fruit to the value of half a stiver.-Every day the keeper is ed toprepare two sortsof souporbroth,and at seven in the ing togive the prisoners their choice ofeither sort,ornone. service onSundays,themen are permitted to walk in the court, thewomen in the gallery half an hour,under the inspection of teeperandofficers.They forfeit half a stiver,everytime they or swear,or make a disturbance in the chapel;and also every 1A stiver is about a penny."
+        },
+        "cycles": [],
+        "events": [
+          {
+            "action": "start",
+            "time": "2026-11-20T09:22:04+00:00"
+          }
+        ]
+      }
     }
   }
 }
