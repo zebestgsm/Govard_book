@@ -3158,7 +3158,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "needs_work",
         "before": {
           "s0": "PROPOSED IMPROVEMENTS",
           "s1": "purpose regulat Since this has taken place,I suppress what I had written;2 perfect persons Ihave Thiswill show,navery alarming light,the danger there heads a years.",
@@ -3177,6 +3177,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T08:02:08+00:00"
+          },
+          {
+            "action": "needs_work",
+            "time": "2026-11-20T08:07:56+00:00"
           }
         ],
         "after": {
