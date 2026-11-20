@@ -34,6 +34,8 @@ TABLE_META = {
     (95, 's6'): ('Whitechapel prison fees, 1776', 'fee'),
     (96, 's8'): ('Tothill-fields prisoners by visit date', 'fee'),
     (97, 's1'): ('King’s Bench prisoners by visit date', 'mixed'),
+    (101, 's7'): ('Hertfordshire bridewells, prisoners by visit date', 'mixed'),
+    (103, 's7'): ('Horsham prisoners by visit date', 'mixed'),
     (112, 's0'): ('Abingdon prisoners', 'mixed'),
     (112, 's12'): ('Oxford Castle prisoners', 'mixed'),
     (119, 's3'): ('Bodmin fees — debtors, first class', 'fee'),
@@ -269,7 +271,7 @@ def render_verified_block(value, spread, segment_id, query):
         elif '\t' in chunk:
             # Group only consecutive tab-separated lines. Prose introducing or
             # following a table must not become a one-cell table row.
-            has_header = not ((spread == 16 and segment_id in ('s7', 's11')) or (spread == 17 and segment_id == 's1') or (spread == 35 and segment_id == 's1') or (spread, segment_id) in ((79, 's3'), (84, 's5'), (91, 's2'), (95, 's3'), (112, 's0')))
+            has_header = not ((spread == 16 and segment_id in ('s7', 's11')) or (spread == 17 and segment_id == 's1') or (spread == 35 and segment_id == 's1') or (spread, segment_id) in ((79, 's3'), (84, 's5'), (91, 's2'), (95, 's3'), (101, 's7'), (112, 's0')))
             if (spread, segment_id) in TABLE_META:
                 label, table_kind = TABLE_META[(spread, segment_id)]
             elif spread == 16 and segment_id == 's10':
@@ -339,8 +341,13 @@ def render_verified_block(value, spread, segment_id, query):
               or (spread == 98 and segment_id == 's1' and chunk.startswith('RULES and ORDERS for the better Government'))
               or (spread == 99 and segment_id == 's1' and chunk.startswith('FURTHER RULES and ORDERS'))
               or (spread == 99 and segment_id == 's3' and chunk.startswith('A further RULE and ORDER'))
-              or (spread == 100 and segment_id == 's1' and chunk == 'MARSHALSEA PRISON¹')):
+              or (spread == 100 and segment_id == 's1' and chunk == 'MARSHALSEA PRISON¹')
+              or (spread == 101 and ((segment_id == 's3' and chunk == 'COUNTY BRIDEWELLS') or (segment_id == 's7' and chunk in ('ESSEX', 'COUNTY GAOL AT CHELMSFORD'))))
+              or (spread == 102 and ((segment_id == 's1' and chunk == 'COUNTY BRIDEWELL') or (segment_id == 's4' and chunk in ('KENT', 'COUNTY GAOL AT MAIDSTONE'))))
+              or (spread == 103 and ((segment_id == 's1' and chunk == '[COUNTY BRIDEWELL') or (segment_id == 's7' and chunk in ('SUSSEX', 'COUNTY GAOL AT HORSHAM'))))):
             output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
+        elif spread == 102 and segment_id == 's4' and chunk.startswith('that want of care respecting them'):
+            output.append('<span class="book-footnote verified-footnote footnote-continuation">' + text_html(chunk) + '</span>')
         elif ((spread == 98 and ((segment_id == 's1' and chunk.startswith('1. The stocks')) or (segment_id == 's7' and chunk.startswith('5. Coroner'))))
               or (spread == 99 and segment_id == 's1' and (chunk.startswith('to the court or a judge') or chunk.startswith('1. No person to bring')))):
             output.append('<span class="book-list">' + text_html(chunk) + '</span>')
