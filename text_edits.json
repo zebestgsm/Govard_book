@@ -13849,7 +13849,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "SUSSEX",
           "s1": "This gaol has two foors over arcades;the ascent by a stone staircase with iron rails.On each floor,bo debtors’and felonsside,there are ten rooms(five on apassage five feet wide),besides a day-room （twent twelve feet three inches)and a lodging-room for a Each floor has an iron-lattice door;and every room has for the window,a bedstead,a canvas straw bed, blankets:and the county is so considerate as to allow ofcoals to the debtors,and the same quantity to t every day during the six winter months.",
@@ -13870,8 +13870,27 @@
           {
             "action": "start",
             "time": "2026-11-20T10:55:40+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T10:58:15+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "SUSSEX",
+          "s1": "This gaol has two floors over arcades; the ascent to each is by a stone staircase with iron rails. On each floor, both on the debtors’ and felons’ side, there are ten rooms (five on each side a passage five feet wide), besides a day-room (twenty feet by twelve feet three inches) and a lodging-room for a turnkey. Each floor has an iron-lattice door; and every room has a shutter for the window, a bedstead, a canvas straw bed, and two blankets: and the county is so considerate as to allow a bushel of coals to the debtors, and the same quantity to the felons, every day during the six winter months.\n\nHere are two spacious courts with water in each; and a wall encloses the whole prison. Near the gate is a poor’s box, for obtaining prisoners’ groats.\n\nThe felons on their entrance are washed with warm water, and each man is clothed in a green striped uniform of coat, waistcoat and breeches, and has two shirts, two pairs of stockings, a pair of shoes, a hat and a woollen cap.\n\nThe county has very prudently settled the number of turnkeys (viz. three): to each they pay half a guinea a week, and one of them goes twice a day to purchase provisions and liquors for debtors; and it is properly fixed that they shall not exceed one pint of wine, or one quart of strong beer a day each. Felons have only water for their drink. The justices have sent in scales and weights, which is a check on the baker. Several loaves I saw weighed were full two pounds.\n\nThe clauses against spirituous liquors are hung up, and the gaol is kept very clean. The Act for preserving the health of prisoners is not hung up. I would just observe, that the gaoler should have a window in his kitchen towards the debtors’ court, and in his parlour towards that of the felons. I do not omit the old table of fees, though this county has set a noble example of abolishing all fees, and also the tap: in consequence of this I found the gaol as quiet as a private house.\n\nFormerly there was no chaplain, but a clergyman had £5 a year for attending condemned criminals.\n\nCOUNTY BRIDEWELL\n\nPETWORTH. This bridewell has two rooms: one, seventeen feet by ten, the other eighteen by nine, six feet high: too small for the general number of prisoners. No chimney: no glass or shutters to the windows: no court: no water: no employment.",
+          "s2": "",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "",
+          "s7": "SURREY",
+          "s8": "Allowance now, a two-pound loaf every day, to be weighed by the keeper with scales and weights ordered to the house by the justices; and which should be kept for that purpose only. Keeper’s salary lately augmented from £12 to £20. Fees, 6s. 8d., no table. But now the keeper’s salary is augmented to £30 in lieu of all fees.\n\nThe keeper told me (in September 1774) that “all his prisoners upon discharge, were much weakened by the close confinement, and small allowance.”\n\nThomas Draper and William Godfrey were committed the 6th of January, 1776; the former died the 11th, the other the 26th of the same month. William Cox, committed the 13th of January, died the 23rd. None of them had the gaol-fever. I do not affirm that these men were famished to death: it was extremely cold weather. However, since that time, the allowance of bread is doubled. For this the prisoners are indebted to the kind attention of the Duke of Richmond. This prison (rented by the county) has caused the death of many poor creatures: but I have now the pleasure to hear that it will soon be discontinued, a new one being under the consideration of the justices.\n\nSURREY\n\nCOUNTY GAOL IN SOUTHWARK\n\nThe new gaol, besides the gaoler’s house, and the tap-room, has—for master’s-side debtors, a parlour, and four other sizable rooms; and for common-side debtors, three good rooms. Mr. Hall prevents their being crowded with the wives and children of the debtors. For these prisoners, there is a court; into which felons are not admitted; except a few, whom the gaoler has reasons for indulging with that distinction.\n\nThe ward for men felons has six rooms on three floors; in these they sleep. There is a court belonging to it. The ward for women felons has two lower rooms, two above; and a court. The felons’ courts should be paved with flat stones, not only for the convenience of washing, but for safety, as pebbles are dangerous. In the men’s court there should be a pump and a convenient bath, for at several of my visits the Thames water was off.",
+          "s9": "",
+          "s10": "",
+          "s11": "",
+          "s12": ""
+        }
       }
     },
     "105": {
