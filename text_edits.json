@@ -15156,7 +15156,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "HEREFORDSHIRE",
           "s1": "HEREFORDSHIRE",
@@ -15180,6 +15180,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T11:36:02+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T11:42:01+00:00"
           }
         ],
         "after": {
