@@ -4694,7 +4694,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "committed.Thismode of punishment is dreaded more than othersh death,and since it has been adopted has greatly prevented wheelbar the frequency of the crime.",
@@ -4720,6 +4720,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T08:32:19+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T08:41:35+00:00"
           }
         ],
         "after": {
