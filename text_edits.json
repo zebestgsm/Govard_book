@@ -9193,8 +9193,114 @@
       }
     },
     "74": {
-      "segments": {},
-      "history": [],
+      "segments": {
+        "s0": "AN ACCOUNT OF FOREIGN PRISONS",
+        "s1": "funnel at one corner of each cell, for air. From the situation of these dreary caverns, and the difficulty I found in procuring admittance, I conclude hardly any other stranger ever saw them: that is my reason, and I hope will be an apology, for mentioning the particulars.\n\nPrisoners make straw boxes, toothpicks, etc., and sell them to visitants. I viewed the men with some attention; and observed in the looks of many a settled melancholy: many others looked very sickly. This prison is not so well managed as those in the city: it is very dirty: no fire-place in any of the rooms: and in the severe cold in 1775, several hundreds perished.\n\nThe French are now sensible of the bad policy of confining persons in idleness; for of late they have here set their prisoners to work. I saw in 1783, one hundred and twenty employed in three rooms, in polishing, etc., plate glass: and the water was drawn by seventy-two prisoners, in three sets, each set working one hour at a time; and five hours in a day. They draw sixteen buckets an hour, and about two hundred and forty buckets daily, and are paid for each bucket two sous and a half. The prisoners are much healthier than they were at my former visits.\n\nThe Bastille may occur to some of my readers, as an object concerning which some information would be acceptable. I am happy to be able to give this, by means of a pamphlet published in 1774, written by a person who was long confined in this prison. It is reckoned the best account of this celebrated structure ever published; and the sale of it being prohibited in France under very severe penalties, it is become extremely scarce. I have extracted the most material circumstances of the description.\n\nThis castle is a State prison, consisting of eight very strong towers, surrounded with a fossé about one hundred and twenty feet wide, and a wall sixty feet high. The entrance is at the end of the street of St. Antoine, by a drawbridge, and great gates into the court of l’Hôtel du Gouvernement; and from thence over another drawbridge to the corps de garde, which is separated by a strong barrier constructed with beams plated with iron, from the great court. This court is about one hundred and twenty feet by eighty. In it is a fountain; and six of the towers surround it, which are united by walls of freestone ten feet thick up to the top. At the bottom of this court is a large modern corps de logis, which separates it from the court du Puits. This court is fifty feet by twenty-five. Contiguous to it, are the other two towers. On the top of the towers is a platform continued in terraces, on which the prisoners are sometimes permitted to walk, attended by a guard. On this platform are thirteen cannons mounted, which are discharged on days",
+        "s2": "",
+        "s3": "",
+        "s4": "",
+        "s5": "FRANCE",
+        "s6": "",
+        "s7": "of rejoicing. In the corps de logis is the council-chamber, and the kitchen, offices, etc., above these are rooms for prisoners of distinction, and over the council-chamber the king’s lieutenant resides. In the court du Puits is a large well for the use of the kitchen.\n\nThe dungeons of the tower de la Liberté extend under the kitchen, etc. Near that tower is a small chapel on the ground-floor. In the wall of it are five niches or closets, in which prisoners are put one by one to hear mass, where they can neither see nor be seen.\n\nThe dungeons at the bottom of the towers exhale the most offensive scents, and are the receptacles of toads, rats, and other kinds of vermin. In the corner of each is a camp-bed, made of planks laid on iron bars that are fixed to the walls, and the prisoners are allowed some straw to lay on the beds. These dens are dark, having no windows, but openings into the ditch: they have double doors, the inner ones plated with iron, with large bolts and locks.\n\nOf the five classes of chambers, the most horrid next to the dungeons are those in which are cages of iron. There are three of them. They are formed of beams with strong plates of iron, and are each eight feet by six.\n\nThe calottes, or chambers at the top of the towers, are somewhat more tolerable. They are formed of eight arcades of freestone. Here one cannot walk but in the middle of the room. There is hardly sufficient space for a bed from one arcade to another. The windows, being in walls ten feet thick, and having iron grates within and without, admit but little light. In these rooms the heat is excessive in summer, and the cold in winter. They have stoves.\n\nAlmost all the other rooms (of the towers) are octagons, about twenty feet in diameter, and from fourteen to fifteen high. They are very cold and damp. Each is furnished with a bed of green serge, etc. All the chambers are numbered. The prisoners are called by the name of their tower joined to the number of their room.\n\nA surgeon and three chaplains reside in the castle. If prisoners of note are dangerously ill, they are generally removed, that they may not die in this prison. The prisoners who die there are buried in the parish of St. Paul, under the name of domestics.\n\nA library was founded by a prisoner who was a foreigner, and died in the Bastille the beginning of the present century. Some prisoners obtain permission to have the use of it.\n\nOne of the sentinels on the inside of the castle rings a bell every hour, day and night, to give notice that they are awake: and on the rounds on the outside of the castle they ring every quarter of an hour.\n\nI have inserted so particular an account of this prison, chiefly with the design of inculcating a reverence for the principles of a free constitution like our own, which will not permit in any degree the exercise of that despotism, which has rendered the name of Bastille so formidable.¹ I was desirous of examining\n\n1 Sir William Blackstone observes, that the preservation of personal liberty is of great importance to the public: “for if once it were left in the",
+        "s8": "",
+        "s9": "",
+        "s10": "",
+        "s11": "",
+        "s12": ""
+      },
+      "history": [
+        {
+          "id": "s0",
+          "before": "I34 AN ACCOUNT OF FOREIGN PRIS",
+          "after": "AN ACCOUNT OF FOREIGN PRISONS",
+          "time": "2026-11-20T09:39:29+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s1",
+          "before": "funnel at one corner of each cell,for air.From the of these dreary caverns,and the difficulty I found in admittance,I conclude hardly any other stranger them:that is my reason,and I hope will be an ap mentioning the particulars.",
+          "after": "funnel at one corner of each cell, for air. From the situation of these dreary caverns, and the difficulty I found in procuring admittance, I conclude hardly any other stranger ever saw them: that is my reason, and I hope will be an apology, for mentioning the particulars.\n\nPrisoners make straw boxes, toothpicks, etc., and sell them to visitants. I viewed the men with some attention; and observed in the looks of many a settled melancholy: many others looked very sickly. This prison is not so well managed as those in the city: it is very dirty: no fire-place in any of the rooms: and in the severe cold in 1775, several hundreds perished.\n\nThe French are now sensible of the bad policy of confining persons in idleness; for of late they have here set their prisoners to work. I saw in 1783, one hundred and twenty employed in three rooms, in polishing, etc., plate glass: and the water was drawn by seventy-two prisoners, in three sets, each set working one hour at a time; and five hours in a day. They draw sixteen buckets an hour, and about two hundred and forty buckets daily, and are paid for each bucket two sous and a half. The prisoners are much healthier than they were at my former visits.\n\nThe Bastille may occur to some of my readers, as an object concerning which some information would be acceptable. I am happy to be able to give this, by means of a pamphlet published in 1774, written by a person who was long confined in this prison. It is reckoned the best account of this celebrated structure ever published; and the sale of it being prohibited in France under very severe penalties, it is become extremely scarce. I have extracted the most material circumstances of the description.\n\nThis castle is a State prison, consisting of eight very strong towers, surrounded with a fossé about one hundred and twenty feet wide, and a wall sixty feet high. The entrance is at the end of the street of St. Antoine, by a drawbridge, and great gates into the court of l’Hôtel du Gouvernement; and from thence over another drawbridge to the corps de garde, which is separated by a strong barrier constructed with beams plated with iron, from the great court. This court is about one hundred and twenty feet by eighty. In it is a fountain; and six of the towers surround it, which are united by walls of freestone ten feet thick up to the top. At the bottom of this court is a large modern corps de logis, which separates it from the court du Puits. This court is fifty feet by twenty-five. Contiguous to it, are the other two towers. On the top of the towers is a platform continued in terraces, on which the prisoners are sometimes permitted to walk, attended by a guard. On this platform are thirteen cannons mounted, which are discharged on days",
+          "time": "2026-11-20T09:39:29+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s2",
+          "before": "Prisoners make straw boxes,toothpicks,etc.,and to visitants.Iviewed the men with some atten observed in the looks of many a settled melancho others looked very sickly.This prison is not so well as those in the city:it is very dirty:no fire-place in rooms:and intheseverecoldin1775,several hundred TheFrench arenow sensible of thebad policy of persons in idleness;for of late they have here set thein towork.I saw in 1783,one hundred and twenty en three rooms,in polishing,etc.,plate glass:and the drawnby seventy-two prisoners,inthree setseache one hour at a time;and five hours in a day.They dr bucketsan hour,and about two hundred and fort daily,and are paid for each bucket two sous anda prisoners aremuch healthier than they were at my for The Bastille may occur to some of my readers,as concerning which some information would be acce am happy to be able to give this,by means of a pam lished in 1774,written by a person who was long this prison.It is reckoned the best account of this structure ever published;and the saleofit being pro France under very severe penalties,it is become scarce.Ihave extracted the most material circum the description.",
+          "after": "",
+          "time": "2026-11-20T09:39:29+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s3",
+          "before": "This castle isa State prison,consisting ofeight towers,surrounded with a fosseaboutone hundreda feetwide,and awall sixty feethigh.The entrance is of the street of St.Antoine,bya drawbridge,and great thecourtofl'HotelduGouvernement;andfromthenceo drawbridge to the corps de garde，whichis separated barrier constructed with beams plated with iron,fron court.This court is about one hundred and twenty feet In itis a fountain;and sixofthe towers surround it,whic by walls of freestone tenfeet thickup to thetop.",
+          "after": "",
+          "time": "2026-11-20T09:39:29+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s4",
+          "before": "At of this court is a large modern corps de logis,which separ tiguous toit,are the other two towers.On thetop of isa platform continued in terraces,on which the pr sometimes permitted to walk,attended by a guard. O form are thirteen cannons mounted,which are discharg",
+          "after": "",
+          "time": "2026-11-20T09:39:29+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s5",
+          "before": "SONS",
+          "after": "FRANCE",
+          "time": "2026-11-20T09:39:29+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s6",
+          "before": "FRANCE",
+          "after": "",
+          "time": "2026-11-20T09:39:29+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s7",
+          "before": "situation ofrejoicing.In the corps de logis is the council-chamber,and the procuring kitchen, offices,etc.,above these are rooms for prisoners of dis- tinction,and over the council-chamber theking'slieutenantresides. ever saw In the court duPuits is a largewell for the use of the kitchen. ology,for The dungeons of the tower delaLiberteextend under the kitchen, etc.Near that tower is a small chapel on the ground-floor.In sell them the wall of it are five niches or closets,in which prisoners are put tion;and The dungeons at the bottom of the towers exhale the most ly:many offensive scents,and are the receptacles of toads,rats,and other managed kinds ofvermin.In the corner ofeach is a camp-bed,made of anyofthe planks laid on ironbars that are fixed to thewalls,and the prisoners perished. are allowed some straw tolay on thebeds.These dens are dark, confining having nowindows,but openings into the ditch:they have double prisoners Of the five classes of chambers,the most horrid next to the nployedin dungeons are those in which are cages ofiron. waterwas them.",
+          "after": "of rejoicing. In the corps de logis is the council-chamber, and the kitchen, offices, etc., above these are rooms for prisoners of distinction, and over the council-chamber the king’s lieutenant resides. In the court du Puits is a large well for the use of the kitchen.\n\nThe dungeons of the tower de la Liberté extend under the kitchen, etc. Near that tower is a small chapel on the ground-floor. In the wall of it are five niches or closets, in which prisoners are put one by one to hear mass, where they can neither see nor be seen.\n\nThe dungeons at the bottom of the towers exhale the most offensive scents, and are the receptacles of toads, rats, and other kinds of vermin. In the corner of each is a camp-bed, made of planks laid on iron bars that are fixed to the walls, and the prisoners are allowed some straw to lay on the beds. These dens are dark, having no windows, but openings into the ditch: they have double doors, the inner ones plated with iron, with large bolts and locks.\n\nOf the five classes of chambers, the most horrid next to the dungeons are those in which are cages of iron. There are three of them. They are formed of beams with strong plates of iron, and are each eight feet by six.\n\nThe calottes, or chambers at the top of the towers, are somewhat more tolerable. They are formed of eight arcades of freestone. Here one cannot walk but in the middle of the room. There is hardly sufficient space for a bed from one arcade to another. The windows, being in walls ten feet thick, and having iron grates within and without, admit but little light. In these rooms the heat is excessive in summer, and the cold in winter. They have stoves.\n\nAlmost all the other rooms (of the towers) are octagons, about twenty feet in diameter, and from fourteen to fifteen high. They are very cold and damp. Each is furnished with a bed of green serge, etc. All the chambers are numbered. The prisoners are called by the name of their tower joined to the number of their room.\n\nA surgeon and three chaplains reside in the castle. If prisoners of note are dangerously ill, they are generally removed, that they may not die in this prison. The prisoners who die there are buried in the parish of St. Paul, under the name of domestics.\n\nA library was founded by a prisoner who was a foreigner, and died in the Bastille the beginning of the present century. Some prisoners obtain permission to have the use of it.\n\nOne of the sentinels on the inside of the castle rings a bell every hour, day and night, to give notice that they are awake: and on the rounds on the outside of the castle they ring every quarter of an hour.\n\nI have inserted so particular an account of this prison, chiefly with the design of inculcating a reverence for the principles of a free constitution like our own, which will not permit in any degree the exercise of that despotism, which has rendered the name of Bastille so formidable.¹ I was desirous of examining\n\n1 Sir William Blackstone observes, that the preservation of personal liberty is of great importance to the public: “for if once it were left in the",
+          "time": "2026-11-20T09:39:29+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s8",
+          "before": "They are formed of beams with strong plates of iron,and tworking are each eight feet by six.",
+          "after": "",
+          "time": "2026-11-20T09:39:29+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s9",
+          "before": "The calottes,or chambers at the top of the towers,are somewhat awsixteen more tolerable.",
+          "after": "",
+          "time": "2026-11-20T09:39:29+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s10",
+          "before": "They are formed of eight arcades of freestone. ybuckets Here one cannot walk but in the middle of the room.There is nalf.The hardly sufficient space for a bed from one arcade to another.The mervisits. windows,being in walls ten feet thick,and having iron grates an object within and without,admit but little light.In these rooms the heatis excessive in summer,and the cold in winter.They have ptable. stoves. phletpub- Almostall the other rooms (of the towers)are octagons,about onfinedin twenty feet in diameter,and from fourteen tofifteen high.They celebrated areverycold and damp.Each is furnished with a bed of green hibitedin serge,etc.All the chambers are numbered.The prisoners are calledbythenameoftheirtowerjoined to the number of theirroom. extremely A surgeon and three chaplains reside in the castle.If prisoners stancesof ofnote are dangerously ill,they are generally removed,thatthey maynot diein this prison.The prisoners who die there are buried in the parish of St.Paul,under the name of domestics. rerystrong A library was founded by a prisoner who was a foreigner,anddied ndtwenty in the Bastille the beginning of the present century.Some prisoners attheend obtain permission to have the use of it. gatesinto Oneof the sentinels on the insideof thecastle ringsa bellevery ver another hour,day and night,to give notice that they are awake:and on yastrong theroundson the outsideof the castle they ringevery quarter thegreat ofanhour. byeighty.",
+          "after": "",
+          "time": "2026-11-20T09:39:29+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s11",
+          "before": "I have inserted so particular an account of this prison,chiefy areunited thebottom with the design of inculcating a reverence for the principles of atesitfrom afree constitution likeour own,which willwill not permit in five.",
+          "after": "",
+          "time": "2026-11-20T09:39:29+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s12",
+          "before": "Con- any degree the exercise of that despotism,which has rendered thetowers the nameof Bastille so formidable.I was desirous of examining risoners are nthisplat- 1Sir William Blackstone observes, that the preservation of personal redondays liberty is of great importance to the public:“forif once it were left in the",
+          "after": "",
+          "time": "2026-11-20T09:39:29+00:00",
+          "kind": "edit"
+        }
+      ],
       "spread_review": {
         "state": "working",
         "before": {
