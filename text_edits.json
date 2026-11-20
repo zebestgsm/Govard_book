@@ -14278,40 +14278,8 @@
         }
       ],
       "spread_review": {
-        "state": "needs_work",
+        "state": "working",
         "before": {
-          "s0": "NORFOLK CIRCUIT",
-          "s1": "BEDFORDSHIRE",
-          "s2": "COUNTY GAOL AT BEDFORD",
-          "s3": "In this prison there is on the first-floor,a debtors,which is used as a chapel, and four lo for felons,on the ground-floor,two day-rooms, and theother forwomen,withoutfre-places,and the condemned.The rooms are eight and a ha two dungeons,down eleven steps,oneof themdark of the other eighteen inches by twelve.Five po is allowed to the gaoler for straw,which is not but on frames or bedsteads.The justices in application,grant coalsboth to debtors and felons is common to both.No apartment for the gaoler Clauses of theAct against spirituous liquors are Iwas,when sheriff,culpably ignorant of thatt. nor bath.About twenty years ago the gaol-fever prison: some died there,and many in the town;a was Mr.Daniel the surgeon,who attended thepri successor,Mr.Gadsby,judiciously changed them sudorifics (generally used before) to bark and cor sail-ventilator being soon after put up,the gaol h from thefever almost ever since.",
-          "s4": "This prison is kept very clean;but theAct forpr health of prisoners is not hung up. HUNTINGDONSHIRE COUNTY GAOL AT HUNTINGDON This gaol is also the county bridewell and towr debtors,aday-room orkitchen;andoverit alargel Near it isa day-room forfelons:and down nine step formen-felons;in which isa small condemned room. 198",
-          "s5": "CAMBRIDGESHIRE",
-          "s6": "place, down seven steps,is a dungeon for women-felons: the floor of it levelwith the court;in which is the bridewell.This has two rooms below for men;and two above for women.No chimneys.The prison and court are too small:but I always found the whole remarkably clean,except at my visit in 1779. CAMBRIDGESHIRE lay-roomfor dging-rooms: CAMBRIDGE one formen, two cells for Town Bridewell.On the ground-floor,one room for men, ffeethigh: twenty-one feet by six;and two lodging-rooms for women, ；thewindow nine feet by five.In these are lately put bedsteads for straw undsayear orcoverlets.",
-          "s7": "There is a dungeon or dark room for the refractory. n the floors, Above isa workroom nineteen feet square,forwomen.In the vinter,upon spring 1779,seventeen women were confined in the daytime, The court and some of them atnight,in this room,which hasno fire-place or sewer.This made it extremely offensive,and occasioned a nothungup. feveror sickness among them,which alarmed theVice-Chancellor No infirmary who ordered all of them to be discharged.Two or three died was in this within a few days.There are now added two rooms,in one of mongwhom which arefive cages about seven feet square.",
-          "s8": "There is a small soners.His court;no water. dicines from The Vice-Chancellor's prisoners have fourpence on Sunday, dials:and a toprevent the necessity of their working on thatday as formerly. as been free Those of them that are ill,have threepence a day.",
-          "s9": "No allowance ofbread for town prisoners.",
-          "s10": "Keeper's salary,3o:no fees. reservingthe Straw,I Is.od.a year.",
-          "s11": "The bridewell stands in the backyard of the keeper's house; whichwasbought and endowed for the encouragement ofwool- combers and spinners of this town.The basis of the institution was a legacy of the famous carrier Thomas Hobson,who died 1630.",
-          "s12": "Toanswer the intention,thekeeper appointed isawool comber.",
-          "s13": "He employs not only several hands upon the foundation of the charity, but many others; among them his prisoners. His salary is paid out of the charity.\n\nDate\tPrisoners\tDate\tPrisoners\n1774. 13 Dec.\t3\t1779. 23 Sept.\t6 and one lunatic\n1776. 28 Sept.\t7\t1782. 7 Feb.\t3",
-          "s14": ""
-        },
-        "cycles": [],
-        "events": [
-          {
-            "action": "start",
-            "time": "2026-11-20T10:55:41+00:00"
-          },
-          {
-            "action": "finish",
-            "time": "2026-11-20T10:58:15+00:00"
-          },
-          {
-            "action": "needs_work",
-            "time": "2026-11-20T11:27:28+00:00"
-          }
-        ],
-        "after": {
           "s0": "NORFOLK CIRCUIT",
           "s1": "BEDFORDSHIRE",
           "s2": "COUNTY GAOL AT BEDFORD",
@@ -14327,7 +14295,66 @@
           "s12": "",
           "s13": "",
           "s14": ""
-        }
+        },
+        "cycles": [
+          {
+            "state": "needs_work",
+            "before": {
+              "s0": "NORFOLK CIRCUIT",
+              "s1": "BEDFORDSHIRE",
+              "s2": "COUNTY GAOL AT BEDFORD",
+              "s3": "In this prison there is on the first-floor,a debtors,which is used as a chapel, and four lo for felons,on the ground-floor,two day-rooms, and theother forwomen,withoutfre-places,and the condemned.The rooms are eight and a ha two dungeons,down eleven steps,oneof themdark of the other eighteen inches by twelve.Five po is allowed to the gaoler for straw,which is not but on frames or bedsteads.The justices in application,grant coalsboth to debtors and felons is common to both.No apartment for the gaoler Clauses of theAct against spirituous liquors are Iwas,when sheriff,culpably ignorant of thatt. nor bath.About twenty years ago the gaol-fever prison: some died there,and many in the town;a was Mr.Daniel the surgeon,who attended thepri successor,Mr.Gadsby,judiciously changed them sudorifics (generally used before) to bark and cor sail-ventilator being soon after put up,the gaol h from thefever almost ever since.",
+              "s4": "This prison is kept very clean;but theAct forpr health of prisoners is not hung up. HUNTINGDONSHIRE COUNTY GAOL AT HUNTINGDON This gaol is also the county bridewell and towr debtors,aday-room orkitchen;andoverit alargel Near it isa day-room forfelons:and down nine step formen-felons;in which isa small condemned room. 198",
+              "s5": "CAMBRIDGESHIRE",
+              "s6": "place, down seven steps,is a dungeon for women-felons: the floor of it levelwith the court;in which is the bridewell.This has two rooms below for men;and two above for women.No chimneys.The prison and court are too small:but I always found the whole remarkably clean,except at my visit in 1779. CAMBRIDGESHIRE lay-roomfor dging-rooms: CAMBRIDGE one formen, two cells for Town Bridewell.On the ground-floor,one room for men, ffeethigh: twenty-one feet by six;and two lodging-rooms for women, ；thewindow nine feet by five.In these are lately put bedsteads for straw undsayear orcoverlets.",
+              "s7": "There is a dungeon or dark room for the refractory. n the floors, Above isa workroom nineteen feet square,forwomen.In the vinter,upon spring 1779,seventeen women were confined in the daytime, The court and some of them atnight,in this room,which hasno fire-place or sewer.This made it extremely offensive,and occasioned a nothungup. feveror sickness among them,which alarmed theVice-Chancellor No infirmary who ordered all of them to be discharged.Two or three died was in this within a few days.There are now added two rooms,in one of mongwhom which arefive cages about seven feet square.",
+              "s8": "There is a small soners.His court;no water. dicines from The Vice-Chancellor's prisoners have fourpence on Sunday, dials:and a toprevent the necessity of their working on thatday as formerly. as been free Those of them that are ill,have threepence a day.",
+              "s9": "No allowance ofbread for town prisoners.",
+              "s10": "Keeper's salary,3o:no fees. reservingthe Straw,I Is.od.a year.",
+              "s11": "The bridewell stands in the backyard of the keeper's house; whichwasbought and endowed for the encouragement ofwool- combers and spinners of this town.The basis of the institution was a legacy of the famous carrier Thomas Hobson,who died 1630.",
+              "s12": "Toanswer the intention,thekeeper appointed isawool comber.",
+              "s13": "He employs not only several hands upon the foundation of the charity, but many others; among them his prisoners. His salary is paid out of the charity.\n\nDate\tPrisoners\tDate\tPrisoners\n1774. 13 Dec.\t3\t1779. 23 Sept.\t6 and one lunatic\n1776. 28 Sept.\t7\t1782. 7 Feb.\t3",
+              "s14": ""
+            },
+            "events": [
+              {
+                "action": "start",
+                "time": "2026-11-20T10:55:41+00:00"
+              },
+              {
+                "action": "finish",
+                "time": "2026-11-20T10:58:15+00:00"
+              },
+              {
+                "action": "needs_work",
+                "time": "2026-11-20T11:27:28+00:00"
+              }
+            ],
+            "after": {
+              "s0": "NORFOLK CIRCUIT",
+              "s1": "BEDFORDSHIRE",
+              "s2": "COUNTY GAOL AT BEDFORD",
+              "s3": "In this prison there is on the first-floor, a day-room for debtors, which is used as a chapel, and four lodging-rooms: for felons, on the ground-floor, two day-rooms, one for men, and the other for women, without fire-places, and two cells for the condemned. The rooms are eight and a half feet high: two dungeons, down eleven steps, one of them dark; the window of the other eighteen inches by twelve. Five pounds a year is allowed to the gaoler for straw, which is not on the floors, but on frames or bedsteads. The justices in winter, upon application, grant coals both to debtors and felons. The court is common to both. No apartment for the gaoler.\n\nClauses of the Act against spirituous liquors are not hung up. I was, when sheriff, culpably ignorant of that Act. No infirmary nor bath. About twenty years ago the gaol-fever was in this prison: some died there, and many in the town; among whom was Mr. Daniel the surgeon, who attended the prisoners. His successor, Mr. Gadsby, judiciously changed the medicines from sudorifics (generally used before) to bark and cordials: and a sail-ventilator being soon after put up, the gaol has been free from the fever almost ever since.\n\nThis prison is kept very clean; but the Act for preserving the health of prisoners is not hung up.\n\nHUNTINGDONSHIRE\n\nCOUNTY GAOL AT HUNTINGDON\n\nThis gaol is also the county bridewell and town gaol. For debtors, a day-room or kitchen; and over it a large lodging-room. Near it is a day-room for felons: and down nine steps a dungeon for men-felons; in which is a small condemned room. In another",
+              "s4": "",
+              "s5": "CAMBRIDGESHIRE",
+              "s6": "place, down seven steps, is a dungeon for women-felons: the floor of it level with the court; in which is the bridewell. This has two rooms below for men; and two above for women. No chimneys. The prison and court are too small: but I always found the whole remarkably clean, except at my visit in 1779.\n\nCAMBRIDGESHIRE\n\nCAMBRIDGE\n\nTown Bridewell. On the ground-floor, one room for men, twenty-one feet by six; and two lodging-rooms for women, nine feet by five. In these are lately put bedsteads for straw or coverlets. There is a dungeon or dark room for the refractory. Above is a workroom nineteen feet square, for women. In the spring 1779, seventeen women were confined in the daytime, and some of them at night, in this room, which has no fire-place or sewer. This made it extremely offensive, and occasioned a fever or sickness among them, which alarmed the Vice-Chancellor who ordered all of them to be discharged. Two or three died within a few days. There are now added two rooms, in one of which are five cages about seven feet square. There is a small court; no water.\n\nThe Vice-Chancellor’s prisoners have fourpence on Sunday, to prevent the necessity of their working on that day as formerly. Those of them that are ill, have threepence a day. No allowance of bread for town prisoners. Keeper’s salary, £30: no fees. Straw, £1 1s. 0d. a year.\n\nThe bridewell stands in the backyard of the keeper’s house; which was bought and endowed for the encouragement of wool-combers and spinners of this town. The basis of the institution was a legacy of the famous carrier Thomas Hobson, who died 1630. To answer the intention, the keeper appointed is a wool comber. He employs not only several hands upon the foundation of the charity, but many others; among them his prisoners. His salary is paid out of the charity.\n\n1774. 13 Dec.\tprisoners 3\t1779. 23 Sept.\tprisoners 6 and one lunatic\n1776. 28 Sept.\t„ 7\t1782. 7 Feb.\t„ 3",
+              "s7": "",
+              "s8": "",
+              "s9": "",
+              "s10": "",
+              "s11": "",
+              "s12": "",
+              "s13": "",
+              "s14": ""
+            }
+          }
+        ],
+        "events": [
+          {
+            "action": "start",
+            "time": "2026-11-20T12:18:17+00:00"
+          }
+        ]
       }
     },
     "107": {
