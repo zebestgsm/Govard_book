@@ -297,6 +297,10 @@ def render_verified_block(value, spread, segment_id, query):
             flush_prose()
         elif (spread == 18 and segment_id == 's2' and chunk == 'SITUATION') or (spread == 20 and segment_id == 's5' and chunk == 'REGULATIONS') or (spread == 26 and segment_id == 's8' and chunk == 'BRIDEWELLS') or (spread == 38 and segment_id == 's11' and chunk == 'GERMANY') or (spread == 43 and segment_id == 's13' and chunk == 'SWEDEN') or (spread == 50 and segment_id == 's1' and chunk == 'GERMANY') or (spread == 59 and segment_id == 's9' and chunk == 'GERMANY') or (spread == 62 and segment_id == 's1' and chunk == 'AUSTRIAN FLANDERS') or (spread == 66 and segment_id == 's1' and chunk == 'PORTUGAL') or (spread == 67 and segment_id == 's1' and chunk == 'SPAIN') or (spread == 69 and segment_id == 's7' and chunk == 'FRENCH FLANDERS AND FRANCE') or (spread == 57 and ((segment_id == 's1' and chunk == 'GENEVA') or (segment_id == 's6' and chunk == 'SWITZERLAND'))) or (spread == 31 and ((segment_id == 's0' and chunk in ('SECTION IV', 'AN ACCOUNT OF FOREIGN PRISONS')) or (segment_id == 's1' and chunk == 'HOLLAND'))) or (spread == 107 and chunk in ('ELY GAOL', 'NORFOLK', 'COUNTY BRIDEWELL', 'SUFFOLK', 'COUNTY GAOL AT IPSWICH')):
             output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
+        elif ((spread == 77 and segment_id == 's1' and chunk in ('MALTA', 'TURKEY'))
+              or (spread == 78 and segment_id == 's1' and chunk == 'PRISONERS OF WAR IN ENGLAND, ETC.')
+              or (spread == 79 and segment_id == 's9' and chunk == 'AMERICAN PRISONERS')):
+            output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
         elif spread == 68 and segment_id == 's3' and chunk.startswith('Sundays, Tuesdays and Thursdays.'):
             output.append('<span class="book-footnote verified-footnote diet-note">' + text_html(chunk) + '</span>')
         elif ((spread == 62 and segment_id == 's5' and chunk.startswith('The prisoners must be submissive')) or (spread == 63 and segment_id == 's1' and chunk.startswith('in insulting the keeper'))):
