@@ -1281,6 +1281,35 @@ class SequentialProofreadTests(unittest.TestCase):
         h116, _ = reader.segment_state(116)
         self.assertIn('class="book-signature">FRANCIS NORMAN.', h116)
 
+    def test_followup_tables_and_ely_paragraphs(self):
+        from html.parser import HTMLParser
+        class Capture(HTMLParser):
+            def __init__(self):
+                super().__init__(); self.text = ''; self.rows = []; self.table = False
+            def handle_starttag(self, tag, attrs):
+                a = dict(attrs)
+                if a.get('role') == 'table': self.table = True
+                if a.get('role') == 'row': self.rows.append([])
+                if a.get('role') in ('cell', 'columnheader') and self.rows:
+                    self.rows[-1].append(a['role'])
+            def handle_data(self, value): self.text += value
+        for n, key in ((84, 's5'), (95, 's3'), (95, 's6'), (97, 's1'), (101, 's7'), (107, 's7')):
+            _, segments = reader.segment_state(n)
+            markup = inline_editor.render_verified_block(segments[key], n, key, '')
+            c = Capture(); c.feed(markup)
+            self.assertEqual(c.text, segments[key], (n, key))
+            if n in (84, 95, 101) and key != 's6':
+                self.assertTrue(c.rows)
+                self.assertTrue(all(role == 'cell' for row in c.rows for role in row), (n, key))
+        h95, _ = reader.segment_state(95)
+        self.assertIn('class="book-signature">GEORGE GARRED', h95)
+        h97, _ = reader.segment_state(97)
+        self.assertIn('role="columnheader">\tIn House', h97)
+        h107, _ = reader.segment_state(107)
+        self.assertIn('href="#footnote-107-s7-1"', h107)
+        self.assertIn('href="#footnote-107-s7-2"', h107)
+        self.assertIn('.spread-107 p[data-edit-id="s3"]::before', reader.reader_page(107))
+
     def test_every_guarded_transcription_applies_without_changing_segment_ids(self):
         from verified_prose import VERIFIED_PROSE
         for number, replacements in VERIFIED_PROSE.items():

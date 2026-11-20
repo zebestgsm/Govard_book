@@ -454,7 +454,8 @@ def render_verified_block(value, spread, segment_id, query):
             output.append('<span class="book-list">' + text_html(chunk) + '</span>')
         elif spread == 92 and segment_id == 's7' and chunk.startswith('Ed. Bellamy.'):
             output.append('<span class="book-signatures">' + text_html(chunk) + '</span>')
-        elif spread == 116 and segment_id == 's2' and chunk == 'FRANCIS NORMAN.':
+        elif ((spread == 116 and segment_id == 's2' and chunk == 'FRANCIS NORMAN.')
+              or (spread == 95 and segment_id == 's6' and chunk == 'GEORGE GARRED, keeper, 10th August, 1776.')):
             output.append('<span class="book-signature">' + text_html(chunk) + '</span>')
         elif spread == 111 and segment_id == 's3' and chunk.startswith('Oh ye whose hours'):
             output.append('<span class="book-verse">' + text_html(chunk) + '</span>')

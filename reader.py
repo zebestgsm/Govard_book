@@ -378,6 +378,21 @@ STYLE = '''
 .spread-84 [data-edit-id="s5"] .mixed-table .restored-row{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);border:0;column-gap:4px}
 .spread-84 [data-edit-id="s5"] .mixed-table .restored-row[style="--numeric-cols:2"]{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr) minmax(0,1fr)}
 .spread-84 [data-edit-id="s5"] .mixed-table .restored-cell{padding:1px 0;text-align:left;overflow-wrap:normal;word-break:normal}
+/* Preserve the two date/count pairs in the printed Bridewell returns. */
+.spread-95 [data-edit-id="s3"] .mixed-table{font:clamp(10px,.8vw,13px)/1.4 Georgia,serif;max-width:100%}
+.spread-95 [data-edit-id="s3"] .mixed-table .restored-row{grid-template-columns:minmax(0,1.25fr) minmax(0,.9fr) minmax(0,1.25fr) minmax(0,.9fr);column-gap:3px;border:0}
+.spread-95 [data-edit-id="s3"] .restored-cell{overflow-wrap:normal;word-break:normal;padding:2px 0}
+.spread-95 [data-edit-id="s3"] .restored-cell:nth-child(even):not(.count-cell){text-align:right}
+/* Give dates and headings enough room without forcing a horizontal scrollbar. */
+.spread-97 [data-edit-id="s1"] .mixed-table{font:clamp(11px,.85vw,14px)/1.4 Georgia,serif;max-width:100%}
+.spread-97 [data-edit-id="s1"] .restored-row{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr);column-gap:3px}
+.spread-97 [data-edit-id="s1"] .restored-cell{overflow-wrap:normal;word-break:normal}
+.spread-97 [data-edit-id="s1"] .restored-cell:not(:first-child){text-align:right;overflow-wrap:anywhere}
+.spread-101 .mixed-table .restored-row[style="--numeric-cols:1"]{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}
+/* OCR segmentation broke continuous paragraphs into separate editable nodes. */
+.spread-107 [data-edit-id="s2"] .verified-paragraph:last-child,.spread-107 [data-edit-id="s3"] .verified-paragraph,.spread-107 [data-edit-id="s4"] .verified-paragraph,.spread-107 [data-edit-id="s5"] .verified-paragraph,.spread-107 [data-edit-id="s9"] .verified-paragraph,.spread-107 [data-edit-id="s10"] .verified-paragraph,.spread-107 [data-edit-id="s11"] .verified-paragraph,.spread-107 [data-edit-id="s12"] .verified-paragraph{display:inline;margin:0}
+.spread-107 p[data-edit-id="s2"],.spread-107 p[data-edit-id="s3"],.spread-107 p[data-edit-id="s4"],.spread-107 p[data-edit-id="s5"],.spread-107 p[data-edit-id="s9"],.spread-107 p[data-edit-id="s10"],.spread-107 p[data-edit-id="s11"],.spread-107 p[data-edit-id="s12"]{display:inline;margin:0}
+.spread-107 p[data-edit-id="s3"]::before,.spread-107 p[data-edit-id="s4"]::before,.spread-107 p[data-edit-id="s5"]::before,.spread-107 p[data-edit-id="s10"]::before,.spread-107 p[data-edit-id="s11"]::before,.spread-107 p[data-edit-id="s12"]::before{content:" "}
 .spread-89 [data-edit-id="s4"] .mixed-table{font:clamp(12px,.9vw,14px)/1.45 Georgia,serif;margin:.6em 0 1em}
 .spread-89 [data-edit-id="s4"] .mixed-table .restored-row{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr) minmax(0,1fr);border:0;gap:4px}
 .spread-89 [data-edit-id="s4"] .mixed-table .restored-cell{padding:1px 0;overflow-wrap:normal;word-break:normal}
