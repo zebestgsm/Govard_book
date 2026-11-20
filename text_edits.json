@@ -11252,7 +11252,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "needs_work",
         "before": {
           "s0": "LONDON",
           "s1": "NEWGATE¹",
@@ -11374,6 +11374,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T12:19:02+00:00"
+          },
+          {
+            "action": "needs_work",
+            "time": "2026-11-20T12:34:59+00:00"
           }
         ],
         "after": {
