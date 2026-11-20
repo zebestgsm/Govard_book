@@ -4059,8 +4059,90 @@
       }
     },
     "39": {
-      "segments": {},
-      "history": [],
+      "segments": {
+        "s1": "and water. In some places a person goes on market-days with a basket for prisoners: and I have seen him bring them a comfortable meal of fresh vegetables. But there are separate prisons, in which confinement for a week or two on bread and water is all the punishment for some petty offences. Perhaps, when a condemned criminal is only to live a day or two, such diet may be more proper than the indulgence with which the Germans, and other foreigners treat prisoners after sentence of death, which is commonly executed within forty-eight hours. The malefactor has then his choice of food, and wine, in a commodious room, into which his friends are admitted; and a minister attends him during almost all his remaining hours.\n\nI went into Germany in June 1778, by Osnabrug and Hanover. The prison at Osnabrug I should entirely omit, did I not entertain a hope, that the account of it may possibly engage the notice of an amiable prince who is the present bishop, and so be the means of alleviating the sufferings of the miserable prisoners. The prison and the house of correction is one large building, situated in an airy part of the suburbs, near a brook. A Latin inscription over the gate implies, that it was erected “at the public expense, in 1756, for the purposes of public justice and utility, by confining and punishing the wicked.” There are seventeen chambers for criminals, which have no light but by a small aperture over each door. I was happy to find here no more than one prisoner. He had been confined three years, and had survived the cruelty of the torture.¹ In another part of the house I found many miserable and sickly objects, men, women, and children, almost all without shoes and stockings. They were spinning in different rooms, which were dirty beyond description. These rooms open into an offensive passage, which a gentleman in office in the city, to whom I was recommended, durst not enter. I inquired of the keeper concerning several particulars in the diet, etc., but the misery expressed in the countenances of the prisoners, made me totally disregard the information given me by words.\n\nBREMEN. The gaol is a tower at one of the gates. In the lower part there are four strong rooms (or cells) about thirteen feet four inches by six feet eight, and six feet high. The doors are four feet ten inches high and five inches thick, with iron plates between the boards. The windows are only small\n\n¹ The mode of torture here is more excruciating than in most other countries, and is known by the name of the Osnabrug torture. I doubt not but the humanity and good sense of his Royal Highness will abolish it when he comes of age.",
+        "s2": "",
+        "s3": "",
+        "s4": "",
+        "s5": "",
+        "s6": "",
+        "s8": "apertures (fourteen inches by nine). I found a prisoner in the same cell in which I had seen him five years before. He had made his escape, but had been retaken. There has been no execution in this city for twenty-six years.\n\nIn another prison down ten steps from the street, there are six rooms for criminals without windows. One was six feet nine inches by four feet and a half, and seven feet high: another was ten feet by five and a half, and six feet high. The allowance is six sous (3¼d.) a day, but there were no prisoners. In this dismal abode, one had lately beaten himself to death against the wall, which was stained with his blood.\n\nI sat an afternoon with Dr. Duntze of Bremen, who told me he was in London in 1753 and 54, with an inquisitive friend, a German. They went into Newgate to observe the effects of the ventilator; and were struck with an offensive smell in one of the rooms. Next day they were both indisposed. The doctor’s complaint turned out a kind of jaundice. After a few days’ confinement he visited his friend, and found him excessively low; and in a short time he died with every symptom of the gaol-fever.\n\nHANOVER. The prison at Hanover was built about thirty years ago on the banks of the river Leyna; and consists of twenty-six rooms for confinement. The lower rooms have double doors, with large apertures over them guarded by double iron bars. These openings being opposite to the windows afford the prisoners the only fresh air they are allowed. Their beds are solid stone, a little elevated above the floor, and higher at the head than the feet, with straw on them and two coverlets. In winter the rooms are warmed by stoves, but being too near the water, and lower than the street, they must be unhealthy, and this appears from the countenances of the prisoners. The upper rooms are larger apartments for debtors, etc. When I visited this prison in 1776, I found in it one debtor and seven criminals; in 1778, two debtors and three criminals; and in October 1781, there were twenty-nine prisoners, many of whom had been confined a year, and others six months, without being brought to trial. Seven or eight of them were women, some of whom had been committed with their husbands, but lodged in different rooms. The allowance to all is the same, two marien grosche (or 2½d.) per day. Seven of the lower rooms are for the more atrocious criminals. At my last visit I found seven prisoners (one in each room) secured by chains on their feet fastened to the walls, and irons on their wrists with a bar between, two feet long.",
+        "s9": "",
+        "s10": "",
+        "s11": ""
+      },
+      "history": [
+        {
+          "id": "s1",
+          "before": "and water.In some places a person goes on market-days with a basket for prisoners:and I have seen him bring them a apertur comfortable meal of fresh vegetables. samec But there are separate prisons,inwhich confinement for aweek or two onbread and made water is all the punishment for some petty offences. executi Perhaps, whena condemned criminal is only to live a day or two,such Ina diet may be more proper than the indulgence with which the six roo Germans,and other foreigners treat prisoners after sentence nine in of death,whichis commonly executed within forty-eight hours. waster The malefactor has then his choice of food,and wine,ina issix commodious room,into which his friends are admitted;and a dismal minister attends him during almost all his remaining hours. thewa I went into Germany in June 1778,by Osnabrug and Hanover.",
+          "after": "and water. In some places a person goes on market-days with a basket for prisoners: and I have seen him bring them a comfortable meal of fresh vegetables. But there are separate prisons, in which confinement for a week or two on bread and water is all the punishment for some petty offences. Perhaps, when a condemned criminal is only to live a day or two, such diet may be more proper than the indulgence with which the Germans, and other foreigners treat prisoners after sentence of death, which is commonly executed within forty-eight hours. The malefactor has then his choice of food, and wine, in a commodious room, into which his friends are admitted; and a minister attends him during almost all his remaining hours.\n\nI went into Germany in June 1778, by Osnabrug and Hanover. The prison at Osnabrug I should entirely omit, did I not entertain a hope, that the account of it may possibly engage the notice of an amiable prince who is the present bishop, and so be the means of alleviating the sufferings of the miserable prisoners. The prison and the house of correction is one large building, situated in an airy part of the suburbs, near a brook. A Latin inscription over the gate implies, that it was erected “at the public expense, in 1756, for the purposes of public justice and utility, by confining and punishing the wicked.” There are seventeen chambers for criminals, which have no light but by a small aperture over each door. I was happy to find here no more than one prisoner. He had been confined three years, and had survived the cruelty of the torture.¹ In another part of the house I found many miserable and sickly objects, men, women, and children, almost all without shoes and stockings. They were spinning in different rooms, which were dirty beyond description. These rooms open into an offensive passage, which a gentleman in office in the city, to whom I was recommended, durst not enter. I inquired of the keeper concerning several particulars in the diet, etc., but the misery expressed in the countenances of the prisoners, made me totally disregard the information given me by words.\n\nBREMEN. The gaol is a tower at one of the gates. In the lower part there are four strong rooms (or cells) about thirteen feet four inches by six feet eight, and six feet high. The doors are four feet ten inches high and five inches thick, with iron plates between the boards. The windows are only small\n\n¹ The mode of torture here is more excruciating than in most other countries, and is known by the name of the Osnabrug torture. I doubt not but the humanity and good sense of his Royal Highness will abolish it when he comes of age.",
+          "time": "2026-11-20T08:28:08+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s2",
+          "before": "Isat The prison at OsnabrugI should entirely omit,didInot enter- hewas tain a hope,that the account of it may possibly engage the Germa notice of an amiable prince who is the present bishop,and so thever be the means of alleviating the sufferings of the miserable ofthe The prison and the houseof doctor prisoners. fcorrection isone large building,situated in an airy part of the suburbs,near a fewda brook.A Latin inscription over the gate implies,that it was excessi erected “at the public expense, in 1756,for the purposes of ofthe public justice and utility,by confining and HAN punishing the wicked.\"",
+          "after": "",
+          "time": "2026-11-20T08:28:08+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s3",
+          "before": "There are seventeen chambers for criminals,which agoon have no light but bya small aperture over each door.Iwas rooms happy to find here no more than one prisoner.He had been largea confined three years,and had survived the cruelty of the torture. openin In another part of the house I found many miserable and sickly theon objects,men,women,and children,almost all without shoes alittle and stockings.",
+          "after": "",
+          "time": "2026-11-20T08:28:08+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s4",
+          "before": "They were spinning in different rooms,which feet, were dirty beyond description.",
+          "after": "",
+          "time": "2026-11-20T08:28:08+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s5",
+          "before": "These rooms open into an rooms offensive passage,which a gentleman in office in the city,to lower whom I was recommended,durstnot enter.I inquired of the from larger keeper concerning several particulars in the diet,etc.,but the inI77 misery expressed in the countenances of the prisoners,made me totally disregard the information given me bywords. twod BREMEN.",
+          "after": "",
+          "time": "2026-11-20T08:28:08+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s6",
+          "before": "The gaol is a tower at one of the gates.In the twent lower part there are four strong rooms (orcells)about thirteen ando feet four inches by six feet eight,and six feet high.The doors oreig are four feet ten inches high and five inches thick,with iron mitte plates between the boards.The windows are only small Thea The mode of torture here ismore excruciating than in most other perd countries,and is known by the name of the Osnabrug turture. crimin Idoubt each itwhen he comes of age. andi",
+          "after": "",
+          "time": "2026-11-20T08:28:08+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s8",
+          "before": "es(fourteen inches by nine).I found a prisoner in the ell in which I had seen him five years before.He had nis escape,but had been retaken.There has been no onin this cityfor twenty-sixyears. notherprison down tensteps from the street,there are msfor criminals without windows.",
+          "after": "apertures (fourteen inches by nine). I found a prisoner in the same cell in which I had seen him five years before. He had made his escape, but had been retaken. There has been no execution in this city for twenty-six years.\n\nIn another prison down ten steps from the street, there are six rooms for criminals without windows. One was six feet nine inches by four feet and a half, and seven feet high: another was ten feet by five and a half, and six feet high. The allowance is six sous (3¼d.) a day, but there were no prisoners. In this dismal abode, one had lately beaten himself to death against the wall, which was stained with his blood.\n\nI sat an afternoon with Dr. Duntze of Bremen, who told me he was in London in 1753 and 54, with an inquisitive friend, a German. They went into Newgate to observe the effects of the ventilator; and were struck with an offensive smell in one of the rooms. Next day they were both indisposed. The doctor’s complaint turned out a kind of jaundice. After a few days’ confinement he visited his friend, and found him excessively low; and in a short time he died with every symptom of the gaol-fever.\n\nHANOVER. The prison at Hanover was built about thirty years ago on the banks of the river Leyna; and consists of twenty-six rooms for confinement. The lower rooms have double doors, with large apertures over them guarded by double iron bars. These openings being opposite to the windows afford the prisoners the only fresh air they are allowed. Their beds are solid stone, a little elevated above the floor, and higher at the head than the feet, with straw on them and two coverlets. In winter the rooms are warmed by stoves, but being too near the water, and lower than the street, they must be unhealthy, and this appears from the countenances of the prisoners. The upper rooms are larger apartments for debtors, etc. When I visited this prison in 1776, I found in it one debtor and seven criminals; in 1778, two debtors and three criminals; and in October 1781, there were twenty-nine prisoners, many of whom had been confined a year, and others six months, without being brought to trial. Seven or eight of them were women, some of whom had been committed with their husbands, but lodged in different rooms. The allowance to all is the same, two marien grosche (or 2½d.) per day. Seven of the lower rooms are for the more atrocious criminals. At my last visit I found seven prisoners (one in each room) secured by chains on their feet fastened to the walls, and irons on their wrists with a bar between, two feet long.",
+          "time": "2026-11-20T08:28:08+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s9",
+          "before": "One was six feet chesbyfourfeetanda half,and seven feet high:another feet by five and ahalf,and six feet high.The allowance sous(3fd.)a day，but there were no prisoners.In this abode,one had lately beaten himself to death against ll,which was stained with his blood. an afternoon with Dr.Duntze of Bremen,who told me inLondon in1753 and54,with an inquisitive friend,a n.",
+          "after": "",
+          "time": "2026-11-20T08:28:08+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s10",
+          "before": "They went into Newgate to observe the effects of ntilator;andwere struck with an offensive smell in one rooms. Next day they were both indisposed.The scomplaint turned out akindof jaundice.After a ys’confinement he visited his friend,and found him velylow；andina short time he died with every symptom gaol-fever. oVER.The prison at Hanover wasbuilt about thirty years the banks of the river Leyna;and consists of twenty-six for confinement.The lower rooms have double doors,with pertures over them guardedby double iron bars.These gs being opposite to the windows afford the prisoners ly fresh air they are allowed.Their beds are solid stone, elevatedabovethefoor,and higher at the head than the vith straw on them and two coverlets.In winter the are warmed by stoves,butbeing too near the water,and than the street,they must be unhealthy,and this appears che countenances of the prisoners.",
+          "after": "",
+          "time": "2026-11-20T08:28:08+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s11",
+          "before": "The upper rooms are apartments for debtors,etc.When I visited this prison 6,I found in it one debtor and seven criminals;in 1778, ebtors and three criminals;and in October 1781,there were y-nine prisoners,many ofwhom had been confined a year, thers six months,without being brought to trial.Seven htof them were women,some ofwhom had been com- with their husbands,but lodged in different rooms. llowance toall is the same,two marien grosche（or 2d.) Seven of the lower rooms are for themore atrocious nals.At my last visit I found seven prisoners (one in room) secured bychains on their feet fastened to thewalls, rons on their wrists witha bar between, two feet long.",
+          "after": "",
+          "time": "2026-11-20T08:28:08+00:00",
+          "kind": "edit"
+        }
+      ],
       "spread_review": {
         "state": "working",
         "before": {
@@ -4087,8 +4169,90 @@
       }
     },
     "40": {
-      "segments": {},
-      "history": [],
+      "segments": {
+        "s1": "The keeper is allowed a salary, and sells no liquor. He is old and infirm, and the prison grows evidently dirtier as he grows older. A guard of six soldiers and an officer is stationed here day and night, who are relieved every morning at eight, and do duty alternately by taking two hours trust and four repose, so that each soldier is on guard eight out of the twenty-four hours. The various edicts for regulating this prison are put into frames, and hung in the council chamber.\n\nThe execrable practice of torturing prisoners is here used, in a cellar where the horrid engine is kept. The time for it is, as in other countries, about two o’clock in the morning. A criminal suffered the Osnabrug torture twice about two years ago; the last time, at putting to him the third question (the executioner having torn off the hair from his head, breast, etc.) he confessed, and was executed. On such occasions a counsellor and secretary attend, with a doctor and surgeon, an Osnabrug executioner and sometimes the gaoler. If the criminal faints, strong salts are here applied to him, and not vinegar as in some other places.\n\nThe house of correction is a new building in an airy situation, appropriated to vagrants, children, and petty offenders. Here were ninety-four prisoners, fifty-eight of whom were children, clothed in a neat uniform of blue and white linsey-woolsey made in the house. The girls were all spinning cotton and linen. The boys, in some rooms, were carding, and spinning wool and linen, and making list shoes and carpets. In one room there were six boys (the eldest only twelve years of age) working at so many small looms for saddle girths and clothes. In two other rooms there was a number of women employed in spinning. There are also two small rooms for harder work, such as rasping logwood and hartshorn. The coverlets of all the beds had been made in the house. Besides their own clothes, etc., the prisoners here make girths, slippers, and list carpets for sale, specimens of which I brought with me. The orders for regulating the hours of work, learning, recreation, etc., were hung up in the schoolroom. Both old and young were neat and clean; and everything in the house appeared quiet and orderly.\n\nThis institution, of only two years’ standing, does great honour to the founder and director, Mr. Burgomaster Alemann, and is the best monument that can ever be erected for him. A good choice has been made of proper persons to preside, and inspect; which is a circumstance of the greatest importance in such houses.",
+        "s2": "",
+        "s3": "",
+        "s4": "",
+        "s6": "BRUNSWICK. The workhouse, or house of correction, stands near the river that runs through the city. In October 1781, there were here about seventy prisoners, who are always locked up. On the first and second floors the men and women sleep in boxes in the passages. In the workrooms (it being Sunday) I was much surprised to find them all (except some lunatics in chains) employed in carding and spinning. This accounted for the keeper’s preventing me from seeing them at chapel, by saying no person was admitted. I was however admitted after the service, and concluded from the sand on the floor at the prisoners’ benches, that few or none had attended. My conductor insisted on carrying a pan of charcoal through the rooms; but his fumigation could not overcome the offensiveness of this dirty house.\n\nHARBURG. At Harburg there were thirteen slaves working on the fortifications, with irons on one leg, and chains supported by girdles round their waists. Their allowance is three halfpenny worth of ammunition bread, and five farthings a day. They are guarded by soldiers, who have orders to fire on them if they attempt to escape. But, notwithstanding this, when the Elbe was frozen over (1780) five escaped to Hamburg.\n\nHAMBURG. In the great and opulent city of Hamburg in 1776, I visited all the prisons with every advantage, through the kindness of my friend, Senator Voght. In the Büttuley the felons were all in irons. The common method of execution is decollation. The executioner (who is gaoler) showed me the sword kept for this purpose, telling me he had made use of it eight times. Here is no courtyard, and only one day-room on the ground floor. Above stairs, there are six or eight strong rooms about ten feet square. Allowance for each prisoner is four marks a week (a mark 1s. 3d.). Divine service is constantly performed on Sundays and Thursdays. In 1781, there were only two criminals and one debtor. I saw them at chapel, and they seemed very attentive and much affected. The prison was clean: but I perceived by the countenance of the gaoler and his unwillingness to show me again the torture-room, that he had seen my publication. For among the various engines of torture, or the question, which I have seen in France, Italy, Germany, and other places, one of the most excruciating is kept and used in a deep cellar of this prison. It ought to be buried ten thousand fathoms deeper.¹ It is said the inventor\n\n¹ See the Marquis Beccaria, chap. xvi, Of Torture.",
+        "s7": "",
+        "s8": "",
+        "s9": "",
+        "s10": "",
+        "s11": ""
+      },
+      "history": [
+        {
+          "id": "s1",
+          "before": "The keeper is allowed a salary,and sells no liquor. He is old and infrm,and the prison grows evidently dirtier as he grows BRU older.A guard of six soldiers and an officeris stationed here near t day and night,who are relieved every morning at eight,and do therev up. so that each soldier is on guard eight outof the twenty-four inbox hours.The various edicts for regulating this prison are put Iwas into frames,and hung in the council chamber. in chai The execrable practice of torturing prisoners is here used, forthe in a cellar where the horrid engine is kept.The time for it is, saying as in other countries,about two o'clock in the morning. the ser criminal suffered the Osnabrug torture twice about twoyears A prisone ago;the last time,at putting to him the third question(the ductor executioner having torn off thehair fromhis head,breast,etc.) rooms he confessed,and was executed.On such occasions a counsellor ofthis and secretary attend,witha doctor and surgeon,an Osnabrug HAR executioner and sometimes the gaoler. If the criminal faints, onthe strong salts are here applied to him,and not vinegar as in some ported other places. halfper The house of correction is a new building in an airy situation, aday. appropriated to vagrants,children,and petty offenders.Here onthe were ninety-four prisoners,ffty-eight of whom were children, this,v clothed in a neat uniform of blue and white linsey-woolsey Hamb made in the house.",
+          "after": "The keeper is allowed a salary, and sells no liquor. He is old and infirm, and the prison grows evidently dirtier as he grows older. A guard of six soldiers and an officer is stationed here day and night, who are relieved every morning at eight, and do duty alternately by taking two hours trust and four repose, so that each soldier is on guard eight out of the twenty-four hours. The various edicts for regulating this prison are put into frames, and hung in the council chamber.\n\nThe execrable practice of torturing prisoners is here used, in a cellar where the horrid engine is kept. The time for it is, as in other countries, about two o’clock in the morning. A criminal suffered the Osnabrug torture twice about two years ago; the last time, at putting to him the third question (the executioner having torn off the hair from his head, breast, etc.) he confessed, and was executed. On such occasions a counsellor and secretary attend, with a doctor and surgeon, an Osnabrug executioner and sometimes the gaoler. If the criminal faints, strong salts are here applied to him, and not vinegar as in some other places.\n\nThe house of correction is a new building in an airy situation, appropriated to vagrants, children, and petty offenders. Here were ninety-four prisoners, fifty-eight of whom were children, clothed in a neat uniform of blue and white linsey-woolsey made in the house. The girls were all spinning cotton and linen. The boys, in some rooms, were carding, and spinning wool and linen, and making list shoes and carpets. In one room there were six boys (the eldest only twelve years of age) working at so many small looms for saddle girths and clothes. In two other rooms there was a number of women employed in spinning. There are also two small rooms for harder work, such as rasping logwood and hartshorn. The coverlets of all the beds had been made in the house. Besides their own clothes, etc., the prisoners here make girths, slippers, and list carpets for sale, specimens of which I brought with me. The orders for regulating the hours of work, learning, recreation, etc., were hung up in the schoolroom. Both old and young were neat and clean; and everything in the house appeared quiet and orderly.\n\nThis institution, of only two years’ standing, does great honour to the founder and director, Mr. Burgomaster Alemann, and is the best monument that can ever be erected for him. A good choice has been made of proper persons to preside, and inspect; which is a circumstance of the greatest importance in such houses.",
+          "time": "2026-11-20T08:28:08+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s2",
+          "before": "The girls were all spinning cotton and linen. HAN The boys,in some rooms,were carding,and spinning wool Ivisit and linen,and making list shoes and carpets. In one room nesso there were six boys(the eldest only twelve years of age)working werea at so many smali looms for saddle girths and clothes.In two tion. other rooms there wasa number ofwomen employed in spinning. forthi There are also two small rooms for harder work,such asrasping Here logwood and hartshorn.",
+          "after": "",
+          "time": "2026-11-20T08:28:08+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s3",
+          "before": "The coverlets of all the bedshad foor. been made in the house.",
+          "after": "",
+          "time": "2026-11-20T08:28:08+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s4",
+          "before": "Besides their own clothes,etc.,the tenfe prisoners here make girths, slippers,and list carpets for sale, aweek specimens of which I brought with me.The orders for regu- on Su lating the hours of work,learning,recreation,etc.,were hung crimin up in the schoolroom.Both old and young were neat and seeme clean;and everything in the house appeared quiet and orderly. clean: This institution,fonlytwoyearsstanding,oesgreatonou his un to the founder and director,Mr.Burgomaster Alemann,and is had s the best monument that can ever be erected for him.A good tortur choice has been made of proper persons to preside,and inspect; Germa which is a circumstance of the greatest importance in such kepta houses. buried",
+          "after": "",
+          "time": "2026-11-20T08:28:08+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s6",
+          "before": "NswIck.The workhouse,or house of correction, stands ne river that runs through the city.In October 1781, were here about seventy prisoners,who are always locked n the first and second floors the men and women sleep esin the passages.",
+          "after": "BRUNSWICK. The workhouse, or house of correction, stands near the river that runs through the city. In October 1781, there were here about seventy prisoners, who are always locked up. On the first and second floors the men and women sleep in boxes in the passages. In the workrooms (it being Sunday) I was much surprised to find them all (except some lunatics in chains) employed in carding and spinning. This accounted for the keeper’s preventing me from seeing them at chapel, by saying no person was admitted. I was however admitted after the service, and concluded from the sand on the floor at the prisoners’ benches, that few or none had attended. My conductor insisted on carrying a pan of charcoal through the rooms; but his fumigation could not overcome the offensiveness of this dirty house.\n\nHARBURG. At Harburg there were thirteen slaves working on the fortifications, with irons on one leg, and chains supported by girdles round their waists. Their allowance is three halfpenny worth of ammunition bread, and five farthings a day. They are guarded by soldiers, who have orders to fire on them if they attempt to escape. But, notwithstanding this, when the Elbe was frozen over (1780) five escaped to Hamburg.\n\nHAMBURG. In the great and opulent city of Hamburg in 1776, I visited all the prisons with every advantage, through the kindness of my friend, Senator Voght. In the Büttuley the felons were all in irons. The common method of execution is decollation. The executioner (who is gaoler) showed me the sword kept for this purpose, telling me he had made use of it eight times. Here is no courtyard, and only one day-room on the ground floor. Above stairs, there are six or eight strong rooms about ten feet square. Allowance for each prisoner is four marks a week (a mark 1s. 3d.). Divine service is constantly performed on Sundays and Thursdays. In 1781, there were only two criminals and one debtor. I saw them at chapel, and they seemed very attentive and much affected. The prison was clean: but I perceived by the countenance of the gaoler and his unwillingness to show me again the torture-room, that he had seen my publication. For among the various engines of torture, or the question, which I have seen in France, Italy, Germany, and other places, one of the most excruciating is kept and used in a deep cellar of this prison. It ought to be buried ten thousand fathoms deeper.¹ It is said the inventor\n\n¹ See the Marquis Beccaria, chap. xvi, Of Torture.",
+          "time": "2026-11-20T08:28:08+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s7",
+          "before": "In the workrooms(it being Sunday) much surprised to find them all (except some lunatics ns) employed in carding and spinning.",
+          "after": "",
+          "time": "2026-11-20T08:28:08+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s8",
+          "before": "This accounted keeper's preventing me from seeing them at chapel,by no person was admitted.I was however admitted after vice,and concluded from the sandon the floor at the ersbenches,that few or none had attended.My con- insisted on carryinga pan of charcoal through the but his fumigation could not overcome the offensiveness dirty house. BURG.At Harburg there were thirteen slaves working fortifications,with irons on one leg,and chains sup- by girdles round their waists.Their allowance is three any worth of ammunition bread,and five farthings They are guardedby soldiers,who have orders to fire emiftheyattempttoescape.",
+          "after": "",
+          "time": "2026-11-20T08:28:08+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s9",
+          "before": "But,notwithstanding hen the Elbe was frozen over (178o)five escaped to urg. BURG.In the great and opulent cityof Hamburgin 1776, edalltheprisonswith every advantage,through thekind- my friend,Senator Voght.In the Bittuley the felons llinirons.The common method of execution is decolla- The executioner(who is gaoler)showedme thesword kept s purpose, telling me he had made use of it eight times. isno courtyard,and only one day-room on the ground Above stairs,there are six or eight strong rooms about etsquare.",
+          "after": "",
+          "time": "2026-11-20T08:28:08+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s10",
+          "before": "Allowance for each prisoner is four marks (a mark Is.3d.).Divine service is constantly performed ndays and Thursdays.In 1781,there were only two als and one debtor.I saw them at chapel,and they very attentive and much affected.The prison was but I perceived by the countenance of the gaoler and willingness to show me again the torture-room, that he eenmypublication.",
+          "after": "",
+          "time": "2026-11-20T08:28:08+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s11",
+          "before": "For among the various engines of ,or the question,which I have seen in France,Italy， ny,and other places,one of the most excruciating is nd used in a deep cellar of this prison.It ought to be ten thousand fathoms deeper.Itis said the inventor 1See the Marquis Beccaria,chap.xvi,Of Torture.",
+          "after": "",
+          "time": "2026-11-20T08:28:08+00:00",
+          "kind": "edit"
+        }
+      ],
       "spread_review": {
         "state": "working",
         "before": {
