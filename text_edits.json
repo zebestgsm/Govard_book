@@ -13366,7 +13366,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "needs_work",
         "before": {
           "s0": "HOME CIRCUIT",
           "s1": "HERTFORDSHIRE",
@@ -13388,6 +13388,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T10:40:32+00:00"
+          },
+          {
+            "action": "needs_work",
+            "time": "2026-11-20T10:44:07+00:00"
           }
         ],
         "after": {
