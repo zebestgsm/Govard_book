@@ -17021,7 +17021,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "REMARKS ON CHARTER SCHOO",
           "s1": "for forty days,and afterwards into the otherfor thesar before they were discharged. \"The Venetians were formerly one of the first con nations in Europe,and the regulations for performing qu in their lazarettos are wise and good;but now,in alm department into whichIhad opportunity to look,ther remissness and corruption in executing these regulat to render the quarantine almost useless,and little m an establishment for providing for officers andinfirmp \"MopoN.In coming from Smyrna ina Venetian shi foul bill,we first anchored at Modon in the Morea,fo Here a Turkish officer came on board,and attendedu were outof the port,to see that this alone was our ob [From An Account of Lazarettos,Pp.Io,II I knownot howto closethis account of prisons without the following observation.In all my journeys, by ni day,through all the different counties of England (for t past)I have never once been stopped,or even know in any great danger from robbers.",
@@ -17044,6 +17044,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T11:58:20+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T12:07:31+00:00"
           }
         ],
         "after": {
