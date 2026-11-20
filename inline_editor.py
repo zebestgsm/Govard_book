@@ -381,11 +381,15 @@ def render_verified_block(value, spread, segment_id, query):
               or (spread == 109 and segment_id == 's1' and chunk in ('BIRMINGHAM TOWN GAOL', 'LEICESTERSHIRE', 'COUNTY GAOL AT LEICESTER'))
               or (spread == 110 and ((segment_id == 's3' and chunk == 'CHESTERFIELD GAOL') or (segment_id == 's6' and chunk in ('LINCOLNSHIRE', 'COUNTY BRIDEWELL', 'STAMFORD TOWN GAOL'))))
               or (spread == 111 and segment_id == 's3' and chunk == 'COUNTY BRIDEWELLS')
-              or (spread == 112 and segment_id == 's4' and chunk in ('OXFORDSHIRE', 'COUNTY GAOL, OXFORD CASTLE'))):
+              or (spread == 112 and segment_id == 's4' and chunk in ('OXFORDSHIRE', 'COUNTY GAOL, OXFORD CASTLE'))
+              or (spread == 113 and segment_id == 's5' and chunk in ('“COUNTY GAOL, OXFORD CASTLE', 'WORCESTERSHIRE', 'COUNTY GAOL, WORCESTER CASTLE'))
+              or (spread == 114 and segment_id == 's9' and chunk in ('STAFFORDSHIRE', 'COUNTY BRIDEWELL', 'SHROPSHIRE', 'COUNTY GAOL AT SHREWSBURY'))
+              or (spread == 115 and segment_id == 's3' and chunk in ('GLOUCESTERSHIRE', 'COUNTY GAOL, GLOUCESTER CASTLE'))):
             output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
         elif ((spread == 102 and segment_id == 's4' and chunk.startswith('that want of care respecting them'))
               or (spread == 110 and segment_id == 's3' and chunk.startswith('Before this rigorous law'))
-              or (spread == 112 and segment_id == 's0' and chunk.startswith(('habit of idleness', '“In all manufacturing towns', '“A county magistrate said')))):
+              or (spread == 112 and segment_id == 's0' and chunk.startswith(('habit of idleness', '“In all manufacturing towns', '“A county magistrate said')))
+              or (spread == 113 and segment_id == 's5' and chunk.startswith('skeleton with light chains'))):
             output.append('<span class="book-footnote verified-footnote footnote-continuation">' + text_html(chunk) + '</span>')
         elif spread == 111 and segment_id == 's3' and chunk.startswith('Oh ye whose hours'):
             output.append('<span class="book-verse">' + text_html(chunk) + '</span>')
