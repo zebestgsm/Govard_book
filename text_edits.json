@@ -10704,47 +10704,8 @@
         }
       ],
       "spread_review": {
-        "state": "needs_work",
+        "state": "working",
         "before": {
-          "s0": "IRISH PRISONS AND HOSPITALS",
-          "s1": "IRISH PRISONS AND HOSPITALS",
-          "s2": "“DuBLIN.In 1787 and 1788,Ivisited the prisons in and all the county gaols in Ireland;and had the plea find that,in many places,gentlemen were attentive important part of the police.The grand juries have very liberal presentments,for the purpose of repairing building their gaols,and for supplying prisoners with nec in sickness and health.On seeing gentlemen so libe benevolent,I could not but reflect with great concer many of the prisons now building will be monuments unskilfulness of the architects,who are ignorant constitutes a secure and healthy prison. to the lower class of people in Ireland;and some person against them on this account,especially those who are to contribute towards their expense,and think it w were observed,and an Actpassed,absolutely prohibitin as well as all sorts of spirituous liquors, from coming prison;and excluding visitants,except a few,andt fixed times:then,there would be no danger of thes appearing too agreeable abodes;and the fear of such re wouldhave agood tendency to prevent crimes;or the re themselves might be themeans of reformation. “AtDublin Newgate, there are no proper drains,n no apartments for the gaoler.Many of the women fag-stones,with a very little straw worn to dust. men’s side,several boys,fromnine to twelve years ofa confined with the most daring offenders.",
-          "s3": "Therearen dead when I was in the infirmary,and another was kill days after.But the magistrates having determined an alteration in this prison,Idoubtnot but a proper se of prisoners,and an obligation on the keeper to resid 1Ihave good authority to assert,that in this prisona pur whisky has been drunk in a week.Garnish is not abolished;and will sell their bread at anyprice toprocure spirituous liquors.",
-          "s4": "IRISH PRISONS AND HOSPITALS",
-          "s5": "have the constant assistance of a worthy and attentive clergy- man.Atmy lastvisit,there was plenty ofwater in both the courts,and the women’s court was paved. 1787,29 May.",
-          "s6": "Debtor1.",
-          "s7": "Felons,etc. 190. 1788,2o March. 0. ” 220.",
-          "s8": "Dublin, “Bridewell:An old house.",
-          "s9": "No proper sewers;no materials sureto for work.At one of my visits,I found that a person,lately to this committed,had severalof hisidle companions letin,who were granted playing with him at tennis.1 orre- 1787,28May.",
-          "s10": "Prisoners 6. essaries raland 1788,2o March. I2. n,that “Police Prison:An old house repairing for a prison,according ofthe to the Act of twenty-sixth of George III,chap.xxiv.The fwhat night-rooms are dungeons seven steps under ground.",
-          "s11": "Though in sect.xxiv ducking-stools are mentioned,and a palaces large bath in themiddle of the yard was designed for that object purpose,yet I hope that this dangerous kind of severity,to obliged young women,will not be used. ouldbe 1787,27 June.",
-          "s12": "Petty offenders 32. ulations ngbeer, 1788,24March. I2. intoa \"Four-Court Marshalsea Prison: Thelower rooms very hoseat dirty;never whitewashed.Six or eight in a room (about se gaols fourteen feet by thirteen).Each pays a penny a night;above straints stairs fifteen pence a week;for an entire room,five shillings a straints week;except one room (thirteen feet anda half by ten anda half) the pay for which is 3s.9d.All are without furniture. baths, The rooms are crowded with wives(orreputed wives),children, layon dogs,etc.In most of the lower rooms,the debtors sell whisky; On the one is a pawnbroker's shop.",
-          "s13": "On the night preceding one of ge,were my visits, many had been gambling, drinking and fighting. nany in- onelay 1It is a great defect in the police of this country that there are no edafew properplaces for the commitment and punishment of petty offenders: for the gaols,where there is neither solitary confinement,nor employ- comake ment,andwhere frequent scenes of riot and drunkenness occur,asinmost baration counties,are very unfit places for the correction of morals.Yet here persons sentenced at the assize for a fortnight's confinement,or for a ein the trifling fine，are often detained till the next assize,through incapacity of paying the fees. cheonof Mr.Dexter,the marshal,told me,he was well assured from the best information,that when his prison was ful,a hogshead of whisky had prisoners been sold ina week,in a clandestine manner,beside what was sold from his own tap. M835"
-        },
-        "cycles": [],
-        "events": [
-          {
-            "action": "start",
-            "time": "2026-11-20T09:52:58+00:00"
-          },
-          {
-            "action": "finish",
-            "time": "2026-11-20T09:55:04+00:00"
-          },
-          {
-            "action": "needs_work",
-            "time": "2026-11-20T10:28:35+00:00"
-          },
-          {
-            "action": "needs_work",
-            "time": "2026-11-20T10:32:19+00:00"
-          },
-          {
-            "action": "needs_work",
-            "time": "2026-11-20T11:31:29+00:00"
-          }
-        ],
-        "after": {
           "s0": "IRISH PRISONS AND HOSPITALS",
           "s1": "IRISH PRISONS AND HOSPITALS",
           "s2": "“DUBLIN. In 1787 and 1788, I visited the prisons in Dublin, and all the county gaols in Ireland; and had the pleasure to find that, in many places, gentlemen were attentive to this important part of the police. The grand juries have granted very liberal presentments, for the purpose of repairing or rebuilding their gaols, and for supplying prisoners with necessaries in sickness and health. On seeing gentlemen so liberal and benevolent, I could not but reflect with great concern, that many of the prisons now building will be monuments of the unskilfulness of the architects, who are ignorant of what constitutes a secure and healthy prison.\n\n“The new gaols, having pompous fronts, appear like palaces to the lower class of people in Ireland; and some persons object against them on this account, especially those who are obliged to contribute towards their expense, and think it would be better if they were less commodious; but if strict regulations were observed, and an Act passed, absolutely prohibiting beer, as well as all sorts of spirituous liquors, from coming into a prison; and excluding visitants, except a few, and those at fixed times: then, there would be no danger of these gaols appearing too agreeable abodes; and the fear of such restraints would have a good tendency to prevent crimes; or the restraints themselves might be the means of reformation.\n\n“At Dublin Newgate, there are no proper drains, no baths, no apartments for the gaoler. Many of the women lay on flag-stones, with a very little straw worn to dust. On the men’s side, several boys, from nine to twelve years of age, were confined with the most daring offenders. There are many instances of persons dying by intoxication and fighting: one lay dead when I was in the infirmary, and another was killed a few days after.¹ But the magistrates having determined to make an alteration in this prison, I doubt not but a proper separation of prisoners, and an obligation on the keeper to reside in the\n\n1 I have good authority to assert, that in this prison a puncheon of whisky has been drunk in a week. Garnish is not abolished; and prisoners will sell their bread at any price to procure spirituous liquors.",
@@ -10759,7 +10720,72 @@
           "s11": "",
           "s12": "",
           "s13": ""
-        }
+        },
+        "cycles": [
+          {
+            "state": "needs_work",
+            "before": {
+              "s0": "IRISH PRISONS AND HOSPITALS",
+              "s1": "IRISH PRISONS AND HOSPITALS",
+              "s2": "“DuBLIN.In 1787 and 1788,Ivisited the prisons in and all the county gaols in Ireland;and had the plea find that,in many places,gentlemen were attentive important part of the police.The grand juries have very liberal presentments,for the purpose of repairing building their gaols,and for supplying prisoners with nec in sickness and health.On seeing gentlemen so libe benevolent,I could not but reflect with great concer many of the prisons now building will be monuments unskilfulness of the architects,who are ignorant constitutes a secure and healthy prison. to the lower class of people in Ireland;and some person against them on this account,especially those who are to contribute towards their expense,and think it w were observed,and an Actpassed,absolutely prohibitin as well as all sorts of spirituous liquors, from coming prison;and excluding visitants,except a few,andt fixed times:then,there would be no danger of thes appearing too agreeable abodes;and the fear of such re wouldhave agood tendency to prevent crimes;or the re themselves might be themeans of reformation. “AtDublin Newgate, there are no proper drains,n no apartments for the gaoler.Many of the women fag-stones,with a very little straw worn to dust. men’s side,several boys,fromnine to twelve years ofa confined with the most daring offenders.",
+              "s3": "Therearen dead when I was in the infirmary,and another was kill days after.But the magistrates having determined an alteration in this prison,Idoubtnot but a proper se of prisoners,and an obligation on the keeper to resid 1Ihave good authority to assert,that in this prisona pur whisky has been drunk in a week.Garnish is not abolished;and will sell their bread at anyprice toprocure spirituous liquors.",
+              "s4": "IRISH PRISONS AND HOSPITALS",
+              "s5": "have the constant assistance of a worthy and attentive clergy- man.Atmy lastvisit,there was plenty ofwater in both the courts,and the women’s court was paved. 1787,29 May.",
+              "s6": "Debtor1.",
+              "s7": "Felons,etc. 190. 1788,2o March. 0. ” 220.",
+              "s8": "Dublin, “Bridewell:An old house.",
+              "s9": "No proper sewers;no materials sureto for work.At one of my visits,I found that a person,lately to this committed,had severalof hisidle companions letin,who were granted playing with him at tennis.1 orre- 1787,28May.",
+              "s10": "Prisoners 6. essaries raland 1788,2o March. I2. n,that “Police Prison:An old house repairing for a prison,according ofthe to the Act of twenty-sixth of George III,chap.xxiv.The fwhat night-rooms are dungeons seven steps under ground.",
+              "s11": "Though in sect.xxiv ducking-stools are mentioned,and a palaces large bath in themiddle of the yard was designed for that object purpose,yet I hope that this dangerous kind of severity,to obliged young women,will not be used. ouldbe 1787,27 June.",
+              "s12": "Petty offenders 32. ulations ngbeer, 1788,24March. I2. intoa \"Four-Court Marshalsea Prison: Thelower rooms very hoseat dirty;never whitewashed.Six or eight in a room (about se gaols fourteen feet by thirteen).Each pays a penny a night;above straints stairs fifteen pence a week;for an entire room,five shillings a straints week;except one room (thirteen feet anda half by ten anda half) the pay for which is 3s.9d.All are without furniture. baths, The rooms are crowded with wives(orreputed wives),children, layon dogs,etc.In most of the lower rooms,the debtors sell whisky; On the one is a pawnbroker's shop.",
+              "s13": "On the night preceding one of ge,were my visits, many had been gambling, drinking and fighting. nany in- onelay 1It is a great defect in the police of this country that there are no edafew properplaces for the commitment and punishment of petty offenders: for the gaols,where there is neither solitary confinement,nor employ- comake ment,andwhere frequent scenes of riot and drunkenness occur,asinmost baration counties,are very unfit places for the correction of morals.Yet here persons sentenced at the assize for a fortnight's confinement,or for a ein the trifling fine，are often detained till the next assize,through incapacity of paying the fees. cheonof Mr.Dexter,the marshal,told me,he was well assured from the best information,that when his prison was ful,a hogshead of whisky had prisoners been sold ina week,in a clandestine manner,beside what was sold from his own tap. M835"
+            },
+            "events": [
+              {
+                "action": "start",
+                "time": "2026-11-20T09:52:58+00:00"
+              },
+              {
+                "action": "finish",
+                "time": "2026-11-20T09:55:04+00:00"
+              },
+              {
+                "action": "needs_work",
+                "time": "2026-11-20T10:28:35+00:00"
+              },
+              {
+                "action": "needs_work",
+                "time": "2026-11-20T10:32:19+00:00"
+              },
+              {
+                "action": "needs_work",
+                "time": "2026-11-20T11:31:29+00:00"
+              }
+            ],
+            "after": {
+              "s0": "IRISH PRISONS AND HOSPITALS",
+              "s1": "IRISH PRISONS AND HOSPITALS",
+              "s2": "“DUBLIN. In 1787 and 1788, I visited the prisons in Dublin, and all the county gaols in Ireland; and had the pleasure to find that, in many places, gentlemen were attentive to this important part of the police. The grand juries have granted very liberal presentments, for the purpose of repairing or rebuilding their gaols, and for supplying prisoners with necessaries in sickness and health. On seeing gentlemen so liberal and benevolent, I could not but reflect with great concern, that many of the prisons now building will be monuments of the unskilfulness of the architects, who are ignorant of what constitutes a secure and healthy prison.\n\n“The new gaols, having pompous fronts, appear like palaces to the lower class of people in Ireland; and some persons object against them on this account, especially those who are obliged to contribute towards their expense, and think it would be better if they were less commodious; but if strict regulations were observed, and an Act passed, absolutely prohibiting beer, as well as all sorts of spirituous liquors, from coming into a prison; and excluding visitants, except a few, and those at fixed times: then, there would be no danger of these gaols appearing too agreeable abodes; and the fear of such restraints would have a good tendency to prevent crimes; or the restraints themselves might be the means of reformation.\n\n“At Dublin Newgate, there are no proper drains, no baths, no apartments for the gaoler. Many of the women lay on flag-stones, with a very little straw worn to dust. On the men’s side, several boys, from nine to twelve years of age, were confined with the most daring offenders. There are many instances of persons dying by intoxication and fighting: one lay dead when I was in the infirmary, and another was killed a few days after.¹ But the magistrates having determined to make an alteration in this prison, I doubt not but a proper separation of prisoners, and an obligation on the keeper to reside in the\n\n1 I have good authority to assert, that in this prison a puncheon of whisky has been drunk in a week. Garnish is not abolished; and prisoners will sell their bread at any price to procure spirituous liquors.",
+              "s3": "",
+              "s4": "IRISH PRISONS AND HOSPITALS",
+              "s5": "prison, will prevent many irregularities; especially as they now have the constant assistance of a worthy and attentive clergyman. At my last visit, there was plenty of water in both the courts, and the women’s court was paved.\n\n1787, 29 May.\tDebtor 1.\tFelons, etc. 190.\n1788, 20 March.\t„ 0.\t„ 220.\n\n“Bridewell: An old house. No proper sewers; no materials for work. At one of my visits, I found that a person, lately committed, had several of his idle companions let in, who were playing with him at tennis.¹\n\n1787, 28 May.\tPrisoners 6.\n1788, 20 March.\t„ 12.\n\n“Police Prison: An old house repairing for a prison, according to the Act of twenty-sixth of George III, chap. xxiv. The night-rooms are dungeons seven steps under ground.\n\n“Though in sect. xxiv ducking-stools are mentioned, and a large bath in the middle of the yard was designed for that purpose, yet I hope that this dangerous kind of severity, to young women, will not be used.\n\n1787, 27 June.\tPetty offenders 32.\n1788, 24 March.\t„ „ 12.\n\n“Four-Court Marshalsea Prison: The lower rooms very dirty;—never whitewashed.—Six or eight in a room (about fourteen feet by thirteen). Each pays a penny a night; above stairs fifteen pence a week; for an entire room, five shillings a week; except one room (thirteen feet and a half by ten and a half) the pay for which is 3s. 9½d. All are without furniture. The rooms are crowded with wives (or reputed wives), children, dogs, etc. In most of the lower rooms, the debtors sell whisky;² one is a pawnbroker’s shop. On the night preceding one of my visits, many had been gambling, drinking and fighting.\n\n1 It is a great defect in the police of this country that there are no proper places for the commitment and punishment of petty offenders: for the gaols, where there is neither solitary confinement, nor employment, and where frequent scenes of riot and drunkenness occur, as in most counties, are very unfit places for the correction of morals. Yet here persons sentenced at the assize for a fortnight’s confinement, or for a trifling fine, are often detained till the next assize, through incapacity of paying the fees.\n\n2 Mr. Dexter, the marshal, told me, he was well assured from the best information, that when his prison was full, a hogshead of whisky had been sold in a week, in a clandestine manner, beside what was sold from his own tap.",
+              "s6": "",
+              "s7": "",
+              "s8": "",
+              "s9": "",
+              "s10": "",
+              "s11": "",
+              "s12": "",
+              "s13": ""
+            }
+          }
+        ],
+        "events": [
+          {
+            "action": "start",
+            "time": "2026-11-20T12:34:16+00:00"
+          }
+        ]
       }
     },
     "85": {
