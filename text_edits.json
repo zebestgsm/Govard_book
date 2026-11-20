@@ -7001,7 +7001,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "there were no prisoners of this sort. The principal reason of it cle the is,the greatcare thatis taken to give children,even the poorest, a moral and religious education.Another thing which con cit tributes to the same intention,is the laudable policy of speedy to justice.A criminal hasnotice of his death,not themanner of loo ho it,buta short time before he is to suffer:and he is then indulged with his choice of food,wine,etc.",
@@ -7033,6 +7033,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T09:16:52+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T09:28:12+00:00"
           }
         ],
         "after": {
