@@ -373,7 +373,9 @@ def render_verified_block(value, spread, segment_id, query):
               or (spread == 103 and ((segment_id == 's1' and chunk == '[COUNTY BRIDEWELL') or (segment_id == 's7' and chunk in ('SUSSEX', 'COUNTY GAOL AT HORSHAM'))))
               or (spread == 104 and ((segment_id == 's1' and chunk == 'COUNTY BRIDEWELL') or (segment_id == 's8' and chunk in ('SURREY', 'COUNTY GAOL IN SOUTHWARK'))))
               or (spread == 105 and segment_id == 's8' and chunk == 'COUNTY BRIDEWELLS')
-              or (spread == 106 and ((segment_id == 's3' and chunk in ('HUNTINGDONSHIRE', 'COUNTY GAOL AT HUNTINGDON')) or (segment_id == 's6' and chunk in ('CAMBRIDGESHIRE', 'CAMBRIDGE'))))):
+              or (spread == 106 and ((segment_id == 's3' and chunk in ('HUNTINGDONSHIRE', 'COUNTY GAOL AT HUNTINGDON')) or (segment_id == 's6' and chunk in ('CAMBRIDGESHIRE', 'CAMBRIDGE'))))
+              or (spread == 108 and segment_id == 's3' and chunk in ('MIDLAND CIRCUIT', 'WARWICKSHIRE', 'COUNTY GAOL AT WARWICK', 'COVENTRY CITY AND COUNTY GAOL'))
+              or (spread == 109 and segment_id == 's1' and chunk in ('BIRMINGHAM TOWN GAOL', 'LEICESTERSHIRE', 'COUNTY GAOL AT LEICESTER'))):
             output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
         elif spread == 102 and segment_id == 's4' and chunk.startswith('that want of care respecting them'):
             output.append('<span class="book-footnote verified-footnote footnote-continuation">' + text_html(chunk) + '</span>')
