@@ -14803,7 +14803,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "needs_work",
         "before": {
           "s0": "ABINGDON. Two dirty day-rooms; and three offensive night-rooms: that for men eight feet square: one of the women’s, nine by eight; the other four and a half feet square: the straw, worn to dust, swarmed with vermin: no court: no water accessible to prisoners. The petty offenders were in irons: at my last visit, eight were women. Allowance, if felons, threepence a day. Keeper’s salary, £18: fees, 4s. 4d., no table. At all my visits the prisoners had no employment.\n\n1776, 2 Jan. prisoners 3\t1782, 25 Dec. prisoners 13, drs. 1\n1779, 22 Apr. „ 3\t\n\nWINDSOR CASTLE PRISON, for debtors.",
           "s1": "Ineedn that his Majesty is proprietor.The Duke of M constable:he appoints a janitor with a salary:t appoints a eputy,who for a house rent-free,and c quisites,does the duty.The prison out of repair. of three rooms on the first floor and three rooms ove At my last visit I found that the old keeper had dered in the tap-roombya soldier,who also killed an was then shot himself.This is not the first instan known ofpersons being murdered in the tap-room Such are the bad effects of selling liquors in prisons habit of idleness or inability to labour in future,is in dang acquired.The beneficial effects on the mind,of such a puni speedy，proceeding from thehorror of a vicious person left en own reflections.",
@@ -14832,6 +14832,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T11:31:02+00:00"
+          },
+          {
+            "action": "needs_work",
+            "time": "2026-11-20T11:34:35+00:00"
           }
         ],
         "after": {
