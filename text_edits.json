@@ -15944,7 +15944,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "YORKSHIRE",
           "s1": "KNARESBOROUGH PRISON,FOR TOWN DEB",
@@ -15963,6 +15963,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T11:51:53+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T11:59:06+00:00"
           }
         ],
         "after": {
