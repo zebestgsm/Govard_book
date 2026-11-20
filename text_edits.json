@@ -12089,44 +12089,8 @@
         }
       ],
       "spread_review": {
-        "state": "needs_work",
+        "state": "working",
         "before": {
-          "s0": "LONDON",
-          "s1": "yard.The crier might take of a stranger a penny f prisoner to him:and of a complainant twopence for a special committee.For blasphemy，wearing，riot, etc.,the committee to fine at discretion:for damagi finea shilling.They were to take from a new-comer, Sunday，besides the two shillings garnish to be spenti shillingandsixpencetobeappropriatedtotheuseoft Common-side prisoners tobe confined to their own and not to associate with these lawmakers,nor to us conveniences.",
-          "s2": "The abovewas the account of the Fleet before it by the rioters in 178o.It is rebuilt on the same foors of the cellar,the hall,and the first story are and arched with brick.The tapster still has all foor.He and severalof the prisoners keep dogs,whi should never be permitted inprisons.",
-          "s3": "The billiard sippi tables are put down,and thelittle code of laws In 1783,from 7July to 25Aug.,not one prisoner w in.Robert Baffan,a crown prisoner,was committe 1776,and after the fire surrendered himself under mation 17 Nov.,1781,and was here at my last visi against spirituous liquors are hung up.Now also the following table of fees. ATABLEofFEEs tobe taken by the Warden of the P Fleet,for any prisoner or prisoners commitment,or gaolor chamber rent there,or discharge from then civil action.Settled and established the nineteer January,in the third year of the reign of his Majesty the Second,A.D.1729,pursuant to an Act of Parlia madeintitled,AnActfortheReliefofDebtorsinr Imprisonment of their Persons.",
-          "s4": "Every prisoner charged with one or more actions （wh athisown desire shall go on themaster's-side)topayt the warden for a commitment fee Every prisoner charged with one or more actions（wh shall go on the common-side)notbeingintitledt partake of thepoor'sbox,topay Every prisoner intitled to partake of the poor's box nothing.",
-          "s5": "Every prisoner to pay for his discharge Every such prisoner on the master's-side,who at his ow desire shall have a bed to himself,topayfor chambe room,useofbed,beddingandsheets,tothewardene week If two in a bed,andnomore,for chamber room,useofb beddingandsheets,eachtopaytothewardenperwee",
-          "s6": "LONDON",
-          "s7": "or callinga I7I summoning If the prisoner finds his own bed,bedding and sheets Ls.d. runkenness, which thewarden is inno sort tohinder him of,then ngalamp, he shall pay for chamber room to the warden per week on the first If there be two prisoners in one bed,finding their own bed, 3 nwine,one hehouse. bedding and sheets,then eachof them topay to the apartments, wardenperweek Every prisoner not being intitled to partake of the poor's 40 ethe same box,topayto the porter andgaoler,now called turn- keys,on his commitment was burnt Every prisoner on a commitment upon a surrender ata 0 2 0 plan.",
-          "s8": "The judge'schamber,to pay to the tipstaff 0 6 8 now stone, the cellar- ata judge's chambers,topay to the tipstaff Every prisoner ona commitment in court,topay to the 4 2 chnuisance and missis- tipstaf. 7 6 abolished.",
-          "s9": "No other fees for any prisoner for the use of chamber,bed, asbrought beddingorsheets,or upon commitment or discharge of any prisoner d29Nov., imanycivil action,nor any commitment fee to be taken of any prisoner intitled to partake of the poor's box,nor any chamber theprocla- rent to be taken ofanyprisoner on the common side.",
-          "s10": "Clauses ishung up Ed.Bellamy. R.RAYMOND.",
-          "s11": "John Thompson. R.EYRE.",
-          "s12": "Rob.Alsop. THO.PENGELLY. risonofthe John Barnard. cominginto nce,in any thdayof KingGeorge ment lately POULTRY COMPTER specttothe For master's-side debtors there are about fifteen rooms between the inner and outer gates. For common-side debtors, 0 six wards within the inner gate, two of them on the ground- 0 8 loor,viz. the King's Ward, in which(1776) were twenty-four debtors;and the Prince's Ward,nine debtors.",
-          "s13": "Above those wardsare the Middle Ward,in itwere twenty debtors;and the 013 Women’s Ward, two debtors. Above them are the Upper Ward,eleven debtors;and theJews’Ward,four Jew debtors.1 Near themiddle ward,on the samefoor,isa close darkish room 0 for the sick.",
-          "s14": "In each ward,a fire-place.In one of the rooms n on the second foor(called the pump-room),the debtors have the convenience ofwater.The rooms are out ofrepair:but 6 the debtors keep their floors very clean.The court is small, Itwere to be wished that inother prisons also,those people had the N835"
-        },
-        "cycles": [],
-        "events": [
-          {
-            "action": "start",
-            "time": "2026-11-20T10:21:36+00:00"
-          },
-          {
-            "action": "finish",
-            "time": "2026-11-20T10:24:22+00:00"
-          },
-          {
-            "action": "needs_work",
-            "time": "2026-11-20T10:36:27+00:00"
-          },
-          {
-            "action": "needs_work",
-            "time": "2026-11-20T11:32:06+00:00"
-          }
-        ],
-        "after": {
           "s0": "LONDON",
           "s1": "yard. The crier might take of a stranger a penny for calling a prisoner to him; and of a complainant two pence for summoning a special committee. For blasphemy, swearing, riot, drunkenness, etc., the committee to fine at discretion: for damaging a lamp, fine a shilling. They were to take from a new-comer, on the first Sunday, besides the two shillings garnish to be spent in wine, one shilling and sixpence to be appropriated to the use of the house.\n\nCommon-side prisoners to be confined to their own apartments, and not to associate with these lawmakers, nor to use the same conveniences.\n\nThe above was the account of the Fleet before it was burnt by the rioters in 1780. It is rebuilt on the same plan. The floors of the cellar, the hall, and the first story are now stone, and arched with brick. The tapster still has all the cellar-floor. He and several of the prisoners keep dogs, which nuisance should never be permitted in prisons. The billiard and mississippi tables are put down, and the little code of laws abolished. In 1783, from 7 July to 25 Aug., not one prisoner was brought in. Robert Baffan, a crown prisoner, was committed 29 Nov., 1776, and after the fire surrendered himself under the proclamation 17 Nov., 1781, and was here at my last visit. Clauses against spirituous liquors are hung up. Now also is hung up the following table of fees.",
           "s2": "",
@@ -12142,7 +12106,70 @@
           "s12": "",
           "s13": "",
           "s14": ""
-        }
+        },
+        "cycles": [
+          {
+            "state": "needs_work",
+            "before": {
+              "s0": "LONDON",
+              "s1": "yard.The crier might take of a stranger a penny f prisoner to him:and of a complainant twopence for a special committee.For blasphemy，wearing，riot, etc.,the committee to fine at discretion:for damagi finea shilling.They were to take from a new-comer, Sunday，besides the two shillings garnish to be spenti shillingandsixpencetobeappropriatedtotheuseoft Common-side prisoners tobe confined to their own and not to associate with these lawmakers,nor to us conveniences.",
+              "s2": "The abovewas the account of the Fleet before it by the rioters in 178o.It is rebuilt on the same foors of the cellar,the hall,and the first story are and arched with brick.The tapster still has all foor.He and severalof the prisoners keep dogs,whi should never be permitted inprisons.",
+              "s3": "The billiard sippi tables are put down,and thelittle code of laws In 1783,from 7July to 25Aug.,not one prisoner w in.Robert Baffan,a crown prisoner,was committe 1776,and after the fire surrendered himself under mation 17 Nov.,1781,and was here at my last visi against spirituous liquors are hung up.Now also the following table of fees. ATABLEofFEEs tobe taken by the Warden of the P Fleet,for any prisoner or prisoners commitment,or gaolor chamber rent there,or discharge from then civil action.Settled and established the nineteer January,in the third year of the reign of his Majesty the Second,A.D.1729,pursuant to an Act of Parlia madeintitled,AnActfortheReliefofDebtorsinr Imprisonment of their Persons.",
+              "s4": "Every prisoner charged with one or more actions （wh athisown desire shall go on themaster's-side)topayt the warden for a commitment fee Every prisoner charged with one or more actions（wh shall go on the common-side)notbeingintitledt partake of thepoor'sbox,topay Every prisoner intitled to partake of the poor's box nothing.",
+              "s5": "Every prisoner to pay for his discharge Every such prisoner on the master's-side,who at his ow desire shall have a bed to himself,topayfor chambe room,useofbed,beddingandsheets,tothewardene week If two in a bed,andnomore,for chamber room,useofb beddingandsheets,eachtopaytothewardenperwee",
+              "s6": "LONDON",
+              "s7": "or callinga I7I summoning If the prisoner finds his own bed,bedding and sheets Ls.d. runkenness, which thewarden is inno sort tohinder him of,then ngalamp, he shall pay for chamber room to the warden per week on the first If there be two prisoners in one bed,finding their own bed, 3 nwine,one hehouse. bedding and sheets,then eachof them topay to the apartments, wardenperweek Every prisoner not being intitled to partake of the poor's 40 ethe same box,topayto the porter andgaoler,now called turn- keys,on his commitment was burnt Every prisoner on a commitment upon a surrender ata 0 2 0 plan.",
+              "s8": "The judge'schamber,to pay to the tipstaff 0 6 8 now stone, the cellar- ata judge's chambers,topay to the tipstaff Every prisoner ona commitment in court,topay to the 4 2 chnuisance and missis- tipstaf. 7 6 abolished.",
+              "s9": "No other fees for any prisoner for the use of chamber,bed, asbrought beddingorsheets,or upon commitment or discharge of any prisoner d29Nov., imanycivil action,nor any commitment fee to be taken of any prisoner intitled to partake of the poor's box,nor any chamber theprocla- rent to be taken ofanyprisoner on the common side.",
+              "s10": "Clauses ishung up Ed.Bellamy. R.RAYMOND.",
+              "s11": "John Thompson. R.EYRE.",
+              "s12": "Rob.Alsop. THO.PENGELLY. risonofthe John Barnard. cominginto nce,in any thdayof KingGeorge ment lately POULTRY COMPTER specttothe For master's-side debtors there are about fifteen rooms between the inner and outer gates. For common-side debtors, 0 six wards within the inner gate, two of them on the ground- 0 8 loor,viz. the King's Ward, in which(1776) were twenty-four debtors;and the Prince's Ward,nine debtors.",
+              "s13": "Above those wardsare the Middle Ward,in itwere twenty debtors;and the 013 Women’s Ward, two debtors. Above them are the Upper Ward,eleven debtors;and theJews’Ward,four Jew debtors.1 Near themiddle ward,on the samefoor,isa close darkish room 0 for the sick.",
+              "s14": "In each ward,a fire-place.In one of the rooms n on the second foor(called the pump-room),the debtors have the convenience ofwater.The rooms are out ofrepair:but 6 the debtors keep their floors very clean.The court is small, Itwere to be wished that inother prisons also,those people had the N835"
+            },
+            "events": [
+              {
+                "action": "start",
+                "time": "2026-11-20T10:21:36+00:00"
+              },
+              {
+                "action": "finish",
+                "time": "2026-11-20T10:24:22+00:00"
+              },
+              {
+                "action": "needs_work",
+                "time": "2026-11-20T10:36:27+00:00"
+              },
+              {
+                "action": "needs_work",
+                "time": "2026-11-20T11:32:06+00:00"
+              }
+            ],
+            "after": {
+              "s0": "LONDON",
+              "s1": "yard. The crier might take of a stranger a penny for calling a prisoner to him; and of a complainant two pence for summoning a special committee. For blasphemy, swearing, riot, drunkenness, etc., the committee to fine at discretion: for damaging a lamp, fine a shilling. They were to take from a new-comer, on the first Sunday, besides the two shillings garnish to be spent in wine, one shilling and sixpence to be appropriated to the use of the house.\n\nCommon-side prisoners to be confined to their own apartments, and not to associate with these lawmakers, nor to use the same conveniences.\n\nThe above was the account of the Fleet before it was burnt by the rioters in 1780. It is rebuilt on the same plan. The floors of the cellar, the hall, and the first story are now stone, and arched with brick. The tapster still has all the cellar-floor. He and several of the prisoners keep dogs, which nuisance should never be permitted in prisons. The billiard and mississippi tables are put down, and the little code of laws abolished. In 1783, from 7 July to 25 Aug., not one prisoner was brought in. Robert Baffan, a crown prisoner, was committed 29 Nov., 1776, and after the fire surrendered himself under the proclamation 17 Nov., 1781, and was here at my last visit. Clauses against spirituous liquors are hung up. Now also is hung up the following table of fees.",
+              "s2": "",
+              "s3": "A TABLE of FEES to be taken by the Warden of the Prison of the Fleet, for any prisoner or prisoners commitment, or coming into gaol or chamber rent there, or discharge from thence, in any civil action. Settled and established the nineteenth day of January, in the third year of the reign of his Majesty King George the Second, A.D. 1729, pursuant to an Act of Parliament lately made, intitled, An Act for the Relief of Debtors, in respect to the Imprisonment of their Persons.\n\n\t£\ts.\td.\nEvery prisoner charged with one or more actions (who at his own desire shall go on the master’s-side) to pay to the warden for a commitment fee\t1\t6\t8\nEvery prisoner charged with one or more actions (who shall go on the common-side) not being intitled to partake of the poor’s box, to pay\t0\t13\t4\nEvery prisoner intitled to partake of the poor’s box, nothing\t\t\t\nEvery prisoner to pay for his discharge\t0\t7\t4\nEvery such prisoner on the master’s-side, who at his own desire shall have a bed to himself, to pay for chamber room, use of bed, bedding and sheets, to the warden per week\t0\t2\t6\nIf two in a bed, and no more, for chamber room, use of bed, bedding and sheets, each to pay to the warden per week\t0\t1\t3",
+              "s4": "",
+              "s5": "",
+              "s6": "LONDON",
+              "s7": "\t£\ts.\td.\nIf the prisoner finds his own bed, bedding and sheets which the warden is in no sort to hinder him of, then he shall pay for chamber room to the warden per week\t0\t1\t3\nIf there be two prisoners in one bed, finding their own bed, bedding and sheets, then each of them to pay to the warden per week\t0\t0\t7½\nEvery prisoner not being intitled to partake of the poor’s box, to pay to the porter and gaoler, now called turnkeys, on his commitment\t0\t2\t0\nEvery prisoner on a commitment upon a surrender at a judge’s chamber, to pay to the tipstaff\t0\t6\t8\nEvery prisoner on a commitment upon a habeas corpus at a judge’s chambers, to pay to the tipstaff\t0\t4\t2\nEvery prisoner on a commitment in court, to pay to the tipstaff\t0\t7\t6\n\nNo other fees for any prisoner for the use of chamber, bed, bedding or sheets, or upon commitment or discharge of any prisoner in any civil action, nor any commitment fee to be taken of any prisoner intitled to partake of the poor’s box, nor any chamber rent to be taken of any prisoner on the common side.\n\nEd. Bellamy.    R. RAYMOND.\nJohn Thompson.    R. EYRE.\nRob. Alsop.    THO. PENGELLY.\nJohn Barnard.\n\nPOULTRY COMPTER\n\nFor master’s-side debtors there are about fifteen rooms between the inner and outer gates. For common-side debtors, six wards within the inner gate, two of them on the ground-floor, viz. the King’s Ward, in which (1776) were twenty-four debtors; and the Prince’s Ward, nine debtors. Above those wards are the Middle Ward, in it were twenty debtors; and the Women’s Ward, two debtors. Above them are the Upper Ward, eleven debtors; and the Jews’ Ward, four Jew debtors.¹ Near the middle ward, on the same floor, is a close darkish room for the sick. In each ward, a fire-place. In one of the rooms on the second floor (called the pump-room), the debtors have the convenience of water. The rooms are out of repair: but the debtors keep their floors very clean. The court is small,\n\n1 It were to be wished that in other prisons also, those people had the generous and just indulgence of being kept separate.",
+              "s8": "",
+              "s9": "",
+              "s10": "",
+              "s11": "",
+              "s12": "",
+              "s13": "",
+              "s14": ""
+            }
+          }
+        ],
+        "events": [
+          {
+            "action": "start",
+            "time": "2026-11-20T12:16:21+00:00"
+          }
+        ]
       }
     },
     "93": {
