@@ -6795,7 +6795,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "IOO AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "hundred and twenty-four feet by thirty-one).On each side 'Their of this room or hall are three stone galleries,two feet eight poun inches wide,with iron rails.The chambers are numbered， looke amounting to one hundred and twenty:these are all similar, nrek nine feettwo inches by eightfeet two;they have one window Ifa outward,three feet bytwo;and one towards the greatroom, days Th a bed and bedding,a stool, and a vault. In the infrmary， debto and the dormitory for boys,aswell as in the great hall, there failun were stone sinks and water laidon.Near the endof theroom Besic there is an altar with a cupola over it.On one side of the altar theg is the dormitory for boys, and on the other the infirmary. bank And all together make thefigure ofa cross,which is theform of hono many hospitals inItaly and other Roman Catholic countries. but There werenear three hundred prisoners in this house;twenty quot ofwhom were chained to two benches in the dormitory，but atthe same time employed in spinning,ormaking andmending clothes.",
@@ -6812,8 +6812,23 @@
           {
             "action": "start",
             "time": "2026-11-20T09:15:02+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T09:16:52+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "IOO AN ACCOUNT OF FOREIGN PRISONS",
+          "s1": "hundred and twenty-four feet by thirty-one). On each side of this room or hall are three stone galleries, two feet eight inches wide, with iron rails. The chambers are numbered, amounting to one hundred and twenty: these are all similar, nine feet two inches by eight feet two; they have one window outward, three feet by two; and one towards the great room, two feet five inches by one foot five:¹ they are furnished with a bed and bedding, a stool, and a vault. In the infirmary, and the dormitory for boys, as well as in the great hall, there were stone sinks and water laid on. Near the end of the room there is an altar with a cupola over it. On one side of the altar is the dormitory for boys, and on the other the infirmary. And all together make the figure of a cross, which is the form of many hospitals in Italy and other Roman Catholic countries.\n\nThere were near three hundred prisoners in this house; twenty of whom were chained to two benches in the dormitory, but at the same time employed in spinning, or making and mending clothes. Adjoining to the workrooms there are two or three rooms for warehouses. All the prisoners work in irons.\n\n“GENOA HOSPITAL. The benefactors to this hospital are distinguished by the different postures and attitudes in which their statues are placed, in the wards, and on the staircase according to the different sums which they have contributed. Many are placed standing; but a hundred thousand crowns entitles to a chair. I observed a statue which had one of the feet under the chair; and was told that the reason was, that the benefactor honoured by it had contributed only ninety thousand crowns. The statues in the wards are now injurious by harbouring dust. From a regard to the health of patients, I wish to see plain white walls in hospitals, and no article of ornamental furniture introduced.” [From An Account of Lazarettos, p. 57.]\n\nBefore the cantons, I will mention, what is not indeed any part of Switzerland, the little Republic of\n\nGENEVA\n\nIn the prison, which was formerly the Bishop’s palace, at my first visit, there were only five criminals; none of them in irons.\n\n1 I make an apology for being so minute in my description of prisons in England, and may I not make the same apology for the minuteness in my accounts of foreign prisons and hospitals. I should never have given myself the trouble of taking the dimensions of rooms, were it not that I hoped to give a clearer idea of the buildings, and that perhaps some hints might be derived for the improvement of our own.",
+          "s2": "",
+          "s3": "",
+          "s4": "",
+          "s5": "SWITZERLAND",
+          "s6": "Their allowance about sixpence a day: for which they have a pound of good bread, some soup, and half a pint of wine. They looked healthy. Here, as in the Swiss cantons, men and women are kept separate. For some years past, no capital punishment. If a criminal flies from justice, they call him in form three days; and after trial, execute him in effigy.\n\nThere seldom are any debtors. A creditor must allow his debtor in prison as much as felons have from the public: upon failure, the gaoler gives notice, and then discharges the prisoner. Besides, there are sumptuary laws in this State. And though the government is in general mild, there is a severe law against bankrupts, and insolvents; which renders incapable of all honours, and deprives of freedom, not only the debtor himself, but his children after him: except such of them as pay their quota of the debts.¹\n\nSWITZERLAND\n\nIn entering Switzerland from Geneva, a traveller will be surprised to meet frequently with a gallows on the road, if he be not informed that almost every seigneurie or bailiwick has a prison, and possesses the power of trying criminals, and capitally convicting them. I visited one of these prisons. It belonged to Mr. Baron de Prangins, and consisted of four rooms at the top of his castle.² It was empty.\n\nIn those of the cantons to which I went, felons have each a room to themselves, “that they may not,” said the keepers, “tutor one another.” None were in irons: they are kept in rooms more or less strong and lightsome, according to the crimes they are charged with. But the prisons are in general very strong. The rooms are numbered, and the keys marked with the same numbers. In most of them a German stove. The common allowance, sixpence a day. In several cantons\n\n1 I hoped to have found here no torture-chambers, but I had only the pleasure to hear that none had suffered in them these twenty-five years. They are thus restrained by the thirty-second article in the Règlement de l’Illustre Médiation pour la Pacification des troubles de la République de Genève, published in 1738. “Les accusés et criminels ne pourront être appliqués à la Question ou Torture, que préalablement ils n’ayent été, par jugement définitif, condamnés à mort.”\n\n2 I observed the same thing at the castle in the Isle of Gorgona in Italy, where there are two rooms at the top of the building for prisons. This is different from the ancient cruel mode of confining prisoners in pits and dungeons of castles.",
+          "s7": "",
+          "s8": ""
+        }
       }
     },
     "58": {
@@ -6966,7 +6981,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "there were no prisoners of this sort. The principal reason of it cle the is,the greatcare thatis taken to give children,even the poorest, a moral and religious education.Another thing which con cit tributes to the same intention,is the laudable policy of speedy to justice.A criminal hasnotice of his death,not themanner of loo ho it,buta short time before he is to suffer:and he is then indulged with his choice of food,wine,etc.",
@@ -6994,8 +7009,34 @@
           {
             "action": "start",
             "time": "2026-11-20T09:15:03+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T09:16:52+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "AN ACCOUNT OF FOREIGN PRISONS",
+          "s1": "there were no prisoners of this sort. The principal reason of it is, the great care that is taken to give children, even the poorest, a moral and religious education. Another thing which contributes to the same intention, is the laudable policy of speedy justice. A criminal has notice of his death, not the manner of it, but a short time before he is to suffer: and he is then indulged with his choice of food, wine, etc. Women are not hanged, but beheaded. Every new executioner has a new sword; and in the arsenal at Bern I saw several old ones hung up in order. In the houses of correction, many of the prisoners were women; whom I saw at work.\n\nThe most numerous prisoners are the galley-slaves; improperly so-called, for there are no galleys belonging to Switzerland: though some few are sent to Marseilles.\n\nLAUSANNE. At Lausanne I visited the prison, in which there were at that time no prisoners. There were dungeons; but on entering each of them, the keeper observed, that we were not yet upon the ground, but there were cellars underneath. On conversing with Dr. Tissot, he expressed his surprise at our gaol-distemper; said, “I should not find it in Switzerland”: and added, that “he had not heard of its being anywhere but in England.” When I mentioned the late Act of Parliament for preserving the health of our prisoners, he approved of it highly, especially the clause which required whitewashing the rooms, and keeping them clean. I did not (as the doctor said) find the gaol-fever in Switzerland.\n\nBERN. I revisited all the prisons at Bern, but here also I found none confined except in the two houses of correction. One of these houses is for citizens, in which the men and women were spinning, for they never work abroad.\n\nIn the other (the Schallenhaus) there were, in 1776, one hundred and twenty-four slaves; and in 1778, one hundred and forty-one. They have not each a room to themselves; but there is some distinction of the more and less criminal, both in their rooms and work.¹ The women’s wards are totally separate from those of the men. Most of the men are employed in\n\n1 An old keeper having left the door of one of the men’s wards unlocked, twelve prisoners forced the outer door and walked off; the people who happened to see them, suffering them to pass, because they supposed they were going to work in the streets. When four or five of them some time after were retaken and carried to their old lodgings, the magistrates ordered that they should not be punished, considering that every one must be desirous of regaining liberty. As they had not been guilty of assault or violence in making their escape, the punishment fell on the keeper for his negligence.",
+          "s2": "",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "",
+          "s7": "",
+          "s8": "",
+          "s9": "SWITZERLAND",
+          "s10": "cleaning and watering the streets, and public walks; removing the rubbish of buildings; and the snow and ice in winter. The city is one of the cleanest I have seen. Four or five are chained to a small wagon, and draw; others, more at liberty, sweep, load, etc. The convicts are known by an iron collar, with a hook projecting above their heads: weight about five pounds: I saw one riveted on a criminal in about two minutes. They work in summer from seven to eleven, and from one to six; in winter from eight to eleven, and from one to four. I asked the men, “whether they would choose to work so, or be confined within doors?” “Much rather,” they said, “work thus.” The less criminal are in separate wards: these work within doors, spinning, etc., in a large room; and have not the iron collar.¹ Fifteen I was sorry to see miserable for want of employment.² The prison is not commodious, nor kept very clean. The daily allowance, two pounds of bread; and twice a day a pint and a half of soup, made of barley, beans, etc., which they fetch from the great hospital. In their leisure hours they make and mend shoes, make straw hats, etc., and deliver them as they pass on at work. They are not suffered to practise gaming of any sort. Indeed this is forbidden to all the common people; as playing for any considerable sum is to those of higher rank. The keeper and turnkey are to see that the prisoners perform their devotions every morning and evening. The chaplains pray with them and instruct them on Sunday and Thursday. Once a month other clergymen superintend the service. No visitant admitted on Sunday. Thus a principal object here is to make them better men.\n\nBASIL. At Basil, the gaol for felons is in one of the towers. No prisoners; but many rooms ready with clean straw and blankets. Each prisoner (they said) has a room to himself, in which he is constantly shut up, except when conducted to the council-chamber for examination. One of the strongest cells is in a room by the great clock, and is about six feet high: the (trap) door is in the flat roof. the prisoner goes down by a ladder, which is then taken up: his victuals are put in at a wicket on one side. When I was in the room, and took notice of the\n\n1 I saw them bring in their week’s work, and (after it was examined) receive twenty-seven pounds of flax for the following week. At that time some of the townspeople purchased the flax that had been spun, and paid for it to an inspector who lives near the prison.\n\n2 Some employment is absolutely necessary; and therefore, where the crimes are of such a nature as to allow or require indulgence, it should be given them by a shorter term of confinement, or in some other way. I have seen this false indulgence to prisoners in several places.",
+          "s11": "",
+          "s12": "",
+          "s13": "",
+          "s14": "",
+          "s15": "",
+          "s16": "",
+          "s17": "",
+          "s18": "",
+          "s19": ""
+        }
       }
     }
   }
