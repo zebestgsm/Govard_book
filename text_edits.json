@@ -17054,8 +17054,98 @@
       }
     },
     "131": {
-      "segments": {},
-      "history": [],
+      "segments": {
+        "s0": "REMARKS ON CHARTER SCHOOLS",
+        "s1": "time for the children’s work not to exceed four hours a day, and the masters and mistresses not to be charged for it. Large and neat gardens for a supply of vegetables, instruction and work for the boys. The girls to be employed in spinning and knitting; in making and mending their linen, and in assisting in all kinds of household work. Masters and mistresses to be prohibited from selling milk, butter, and cheese.\n\n“As the society’s lands are out of condition, every master’s expense in improving them with lime, marle, etc. should be fully reimbursed by the local committee, in case of his dismissal or death.\n\n“The Protestant gentlemen, within ten miles of a school, should be earnestly requested to be of the local committee, and to make frequent visits to it. The ladies within the same distance should also be desired to favour the schools with their visits; and both should make their remarks in a book kept for that purpose.\n\n“The local committee should be permitted to give stipulated premiums to the most cleanly, orderly, and diligent children, and those who make the best improvement. This to be done with a proper degree of applause, addressing them in such a manner as may tend to excite their emulation, and this before persons whom the children most respect; and the names of those children who obtained the premiums should be written in the visitors’ book, and sent to the committee of fifteen in Dublin.\n\n“The committee of fifteen should pay the greatest attention to the remarks of a respectable local committee.\n\n“Some of these remarks were made in my former publication, but being more fully convinced of their importance, they are now repeated. The alterations proposed may be thought too expensive; but I am persuaded that the penuriousness of the society in providing diet, clothing, etc., which has been long observed by those who visit the children, or see them at church, has considerably reduced the subscriptions: and these improvements would probably recover and increase them. They would at least retrieve the credit of the society, and do honour to the Protestant cause.\n\n“I cannot forbear here expressing a wish that the benefits of education were more generally extended over Ireland, than they are by these schools. If free schools were instituted in every parish for instructing in the lower parts of learning, and the principles of morality, children of each sex, and of all",
+        "s2": "",
+        "s3": "",
+        "s4": "",
+        "s5": "",
+        "s6": "persuasions; it would perhaps, more than anything, tend to soften the manners of the Irish poor, and enable their youth to resist the various temptations to vice, to which they are inevitably exposed in their crowded huts and cabins.\n\n“The lower class of people in Ireland are by no means averse to the improvement of their children. At the cabins on the roadside I saw several schools, in which, for the payment of 3s. 3d. Irish per quarter, children were instructed in reading, writing and accounts. Some of these I examined as to their proficiency, and found them much forwarder than those of the same age in the charter schools. They were clean and wholesome, and consisted of the children of both Protestant and Catholic parents. I hope I shall not be thought, as a Protestant dissenter, indifferent to the Protestant cause, when I express my wish, that these distinctions were less regarded in bestowing the advantages of education; and that the increase of Protestantism were chiefly trusted to the dissemination of knowledge and sound morals.\n\n“In Scotland, almost every village has its settled schoolmaster; the beneficial effects of which are evident: for it is principally owing to this, that the numerous emigrants from that country, dispersed over almost all Europe, appear with credit, and advance themselves in their several stations. The Sunday schools lately established by the benevolence of the public, in so many parts of England, will doubtless in some degree produce similar good effects; if the benefactors abate not of their zeal and attention. But no plan that I have seen for the extended instruction of the poor seems more judiciously calculated for the purpose, than one lately instituted by the trustees of the Bluecoat Hospital, in the city of Chester, where, to the ancient establishment of a hospital for poor children, a charity for the education of a large number of out-scholars has been annexed, and has been productive of the happiest effects. I will therefore here transcribe the following particular account of it.\n\n“‘Of late years, the whole income of this charity has been expended in the maintenance and education of thirty boys, whom we now call in-scholars. The annual expense of each in-scholar has been about £13, and the education of each boy for four years has cost £52. Such large charitable benefactions being bestowed on a few, a much larger number of boys, equally destitute, have been suffered to grow up to men unemployed and uninstructed.\n\n“‘In 1781, when the income of the hospital was augmented, it was proposed to educate sixty more boys, as out-scholars, to be",
+        "s7": "",
+        "s8": "",
+        "s9": "",
+        "s10": ""
+      },
+      "history": [
+        {
+          "id": "s0",
+          "before": "REMARKS ON CHARTER SCHOOL",
+          "after": "REMARKS ON CHARTER SCHOOLS",
+          "time": "2026-11-20T12:03:38+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s1",
+          "before": "time for the children’s work not to exceed four hours and the masters and mistresses not to be charged for it. and neat gardens for a supply of vegetables,instructi work for the boys.The girls to be employed in spinni knitting;in making and mending their linen,and in a in all kinds of household work. Masters and mistresse prohibited from selling milk,butter,and cheese. “As the society’s lands are out of condition, every expense in improving them with lime,marle,etc.sh fully reimbursed by thelocal committee,in case of his d ordeath. “The Protestant gentlemen,within ten miles of a shouldbe earnestly requested to be of the local commit tomake frequent visits to it.The ladies within th distance shouid also be desired to favour the schools wi visits;and both should make their remarks ina bookl that purpose.",
+          "after": "time for the children’s work not to exceed four hours a day, and the masters and mistresses not to be charged for it. Large and neat gardens for a supply of vegetables, instruction and work for the boys. The girls to be employed in spinning and knitting; in making and mending their linen, and in assisting in all kinds of household work. Masters and mistresses to be prohibited from selling milk, butter, and cheese.\n\n“As the society’s lands are out of condition, every master’s expense in improving them with lime, marle, etc. should be fully reimbursed by the local committee, in case of his dismissal or death.\n\n“The Protestant gentlemen, within ten miles of a school, should be earnestly requested to be of the local committee, and to make frequent visits to it. The ladies within the same distance should also be desired to favour the schools with their visits; and both should make their remarks in a book kept for that purpose.\n\n“The local committee should be permitted to give stipulated premiums to the most cleanly, orderly, and diligent children, and those who make the best improvement. This to be done with a proper degree of applause, addressing them in such a manner as may tend to excite their emulation, and this before persons whom the children most respect; and the names of those children who obtained the premiums should be written in the visitors’ book, and sent to the committee of fifteen in Dublin.\n\n“The committee of fifteen should pay the greatest attention to the remarks of a respectable local committee.\n\n“Some of these remarks were made in my former publication, but being more fully convinced of their importance, they are now repeated. The alterations proposed may be thought too expensive; but I am persuaded that the penuriousness of the society in providing diet, clothing, etc., which has been long observed by those who visit the children, or see them at church, has considerably reduced the subscriptions: and these improvements would probably recover and increase them. They would at least retrieve the credit of the society, and do honour to the Protestant cause.\n\n“I cannot forbear here expressing a wish that the benefits of education were more generally extended over Ireland, than they are by these schools. If free schools were instituted in every parish for instructing in the lower parts of learning, and the principles of morality, children of each sex, and of all",
+          "time": "2026-11-20T12:03:38+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s2",
+          "before": "The local committee should be permitted togive sti premiums to the most cleanly，orderly，and diligent c and those who make the best improvement.This to with a proper degree of applause,addressing them in manner as may tend to excite their emulation,and this persons whom the children most respect;and the na those children who obtained the premiums should be in the visitors’book,and sent to the committee of inDublin.",
+          "after": "",
+          "time": "2026-11-20T12:03:38+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s3",
+          "before": "The committee of fifteen should pay the greatest at to the remarks of a respectable local committee.",
+          "after": "",
+          "time": "2026-11-20T12:03:38+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s4",
+          "before": "Some of these remarks were made in my former publ but being more fully convinced of their importance,t now repeated.The alterations proposed may be thou expensive;but Iam persuaded that the penuriousness society in providing diet,clothing,etc.,which has be observed by those who visit the children,orseethem at has considerably reduced the subscriptions:and these in ments would probably recover and increase them. would at least retrieve the credit of the society,and do to the Protestant cause.",
+          "after": "",
+          "time": "2026-11-20T12:03:38+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s5",
+          "before": "Icannot forbear here expressing a wish that the ber education were more generally extended over Irelan they are by these schools.If free schools were instit every parish for instructing in the lower parts of learni the principles of morality,children of each sex,and",
+          "after": "",
+          "time": "2026-11-20T12:03:38+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s6",
+          "before": "S REMARKS ON CHARTER SCHOOLS 249 a day, persuasions;it would perhaps,more than anything,tend tosoften Large the manners ofthe Irish poor,and enable their youth to resist onand the various temptations to vice,to which they are inevitably ingand exposed in their crowded huts and cabins. ssisting The lower class of people in Ireland are byno means averse stobe to the improvement of their children.At the cabins on the roadside I saw several schools,in which,for the payment of naster's 3s.3d.Irish per quarter,children were instructed in reading, ouldbe writing and accounts.",
+          "after": "persuasions; it would perhaps, more than anything, tend to soften the manners of the Irish poor, and enable their youth to resist the various temptations to vice, to which they are inevitably exposed in their crowded huts and cabins.\n\n“The lower class of people in Ireland are by no means averse to the improvement of their children. At the cabins on the roadside I saw several schools, in which, for the payment of 3s. 3d. Irish per quarter, children were instructed in reading, writing and accounts. Some of these I examined as to their proficiency, and found them much forwarder than those of the same age in the charter schools. They were clean and wholesome, and consisted of the children of both Protestant and Catholic parents. I hope I shall not be thought, as a Protestant dissenter, indifferent to the Protestant cause, when I express my wish, that these distinctions were less regarded in bestowing the advantages of education; and that the increase of Protestantism were chiefly trusted to the dissemination of knowledge and sound morals.\n\n“In Scotland, almost every village has its settled schoolmaster; the beneficial effects of which are evident: for it is principally owing to this, that the numerous emigrants from that country, dispersed over almost all Europe, appear with credit, and advance themselves in their several stations. The Sunday schools lately established by the benevolence of the public, in so many parts of England, will doubtless in some degree produce similar good effects; if the benefactors abate not of their zeal and attention. But no plan that I have seen for the extended instruction of the poor seems more judiciously calculated for the purpose, than one lately instituted by the trustees of the Bluecoat Hospital, in the city of Chester, where, to the ancient establishment of a hospital for poor children, a charity for the education of a large number of out-scholars has been annexed, and has been productive of the happiest effects. I will therefore here transcribe the following particular account of it.\n\n“‘Of late years, the whole income of this charity has been expended in the maintenance and education of thirty boys, whom we now call in-scholars. The annual expense of each in-scholar has been about £13, and the education of each boy for four years has cost £52. Such large charitable benefactions being bestowed on a few, a much larger number of boys, equally destitute, have been suffered to grow up to men unemployed and uninstructed.\n\n“‘In 1781, when the income of the hospital was augmented, it was proposed to educate sixty more boys, as out-scholars, to be",
+          "time": "2026-11-20T12:03:38+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s7",
+          "before": "Some of these I examined as to their ismissal proficiency,and found them much forwarder than those of the same age in the charter schools.",
+          "after": "",
+          "time": "2026-11-20T12:03:38+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s8",
+          "before": "They were clean and school, wholesome,and consisted of the children of both Protestant ee,and and Catholic parents.I hope I shall not be thought, as a esame Protestant dissenter,indifferent to the Protestant cause,when ththeir Iexpress my wish, that these distinctions were less regarded teptfor in bestowing the advantages of education;and that the increase of Protestantism were chiefly trusted to the dissemination of pulated knowledge and sound morals. hildren, \"In Scotland, almost every village has its settled school- bedone master;the beneficial effects of which are evident:for it is sucha principally owing to this,that the numerous emigrants from before that country，dispersed over almost all Europe,appear with mesof credit,and advance themselves in their several stations.",
+          "after": "",
+          "time": "2026-11-20T12:03:38+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s9",
+          "before": "The written Sunday schools lately established by the benevolence of the ffteen public,in so many parts of England,will doubtless in some degree produce similar good effects;if the benefactors abate tention notof their zeal and attention.Butnoplan that Ihave seen for the extended instruction of the poor seems more judiciously ication, calculated for the purpose,than one lately instituted by the heyare trustees of the Bluecoat Hospital,in the city of Chester,where, ghttoo to the ancient establishment ofa hospital for poor children, ofthe a charity for the education ofa large number of out-scholars enlong has been annexed,and has been productive of the happiest church, effects.Iwill therefore here transcribe the following particular nprove- account of it.",
+          "after": "",
+          "time": "2026-11-20T12:03:38+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s10",
+          "before": "They honour pended in the maintenance and education of thirty boys,whom we now call in-scholars.The annual expense of each in-scholar has hefitsof been about13,and the education ofeach boy for four years has ,than cost f52.Such large charitable benefactions being bestowed on utedin afew,a much larger number ofboys,equally destitute,have been suffered togrowup tomen unemployed and uninstructed. ng,and In 178i,when the income of the hospital was augmented,it ofall was proposed to educate sixty more boys,as out-scholars,to be",
+          "after": "",
+          "time": "2026-11-20T12:03:38+00:00",
+          "kind": "edit"
+        }
+      ],
       "spread_review": {
         "state": "working",
         "before": {
