@@ -5681,7 +5681,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "so small sums as three or four roubles(eight to eleven shillings), butwith some unfavourable circumstance attending the debt, so that persons are not immediately permitted to discharge them.They are allowed from government twenty copecks （6d.）a day,eight of which are for their diet,clothes, etc., W and the other twelve for their creditors,till the whole debtis paid off.These were also in irons and work with the criminals 1781, into at the public works. \"In other rooms were three hundred and forty-five prisoners. ther In a small innerroom,Ifound two Russians,sent hither about severs four years ago:they had a guard at the door,andhad never each thep been out of theroom,and are heavily ironed both hands and feet: they are never spoken to,nor is their crime known.",
@@ -5703,6 +5703,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T08:40:59+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T09:11:33+00:00"
           }
         ],
         "after": {
