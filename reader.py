@@ -364,6 +364,14 @@ STYLE = '''
 /* On spread 17 the first rows are data, not column headings. */
 .spread-17 .fee-table .restored-row:first-child{font-weight:normal;border-bottom:1px solid #e7e3d9}
 @media(max-width:650px){.restored-table{font-size:10px}.restored-row{grid-template-columns:minmax(40px,2fr) repeat(var(--numeric-cols),minmax(0,1fr))}.restored-cell{padding:3px 0}.fee-table{font-size:13px}.fee-table .restored-row{grid-template-columns:minmax(0,1fr) repeat(var(--numeric-cols),minmax(0,.22fr))}.mixed-table .restored-row{grid-template-columns:minmax(0,1fr) repeat(var(--numeric-cols),minmax(0,1fr))}.diet-table .restored-row{grid-template-columns:minmax(64px,1fr) minmax(0,2.4fr)}.statistical-table .restored-row{grid-template-columns:minmax(44px,2.2fr) repeat(8,minmax(0,1fr))}}
+/* Spread 84 has three small, headerless lists, not fee tables. Dates and
+   descriptions need more space than the prisoner counts, even in the narrow
+   side-by-side reading pane. Keep ordinary word wrapping rather than breaking
+   dates and names into individual letters. */
+.spread-84 [data-edit-id="s5"] .mixed-table{font:clamp(12px, .9vw, 14px)/1.45 Georgia,serif;margin:.6em 0 1em;max-width:100%}
+.spread-84 [data-edit-id="s5"] .mixed-table .restored-row{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);border:0;column-gap:4px}
+.spread-84 [data-edit-id="s5"] .mixed-table .restored-row[style="--numeric-cols:2"]{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr) minmax(0,1fr)}
+.spread-84 [data-edit-id="s5"] .mixed-table .restored-cell{padding:1px 0;text-align:left;overflow-wrap:normal;word-break:normal}
 
 /* Translation reader: comfortable measure, real grid tables, visible history. */
 .translation-panel>.translation-text{padding:26px clamp(20px,3vw,48px);max-width:1100px;margin:0 auto}
