@@ -17159,7 +17159,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "REMARKS ON CHARTER SCHOOL",
           "s1": "time for the children’s work not to exceed four hours and the masters and mistresses not to be charged for it. and neat gardens for a supply of vegetables,instructi work for the boys.The girls to be employed in spinni knitting;in making and mending their linen,and in a in all kinds of household work. Masters and mistresse prohibited from selling milk,butter,and cheese. “As the society’s lands are out of condition, every expense in improving them with lime,marle,etc.sh fully reimbursed by thelocal committee,in case of his d ordeath. “The Protestant gentlemen,within ten miles of a shouldbe earnestly requested to be of the local commit tomake frequent visits to it.The ladies within th distance shouid also be desired to favour the schools wi visits;and both should make their remarks ina bookl that purpose.",
@@ -17182,6 +17182,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T12:05:02+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T12:08:33+00:00"
           }
         ],
         "after": {
