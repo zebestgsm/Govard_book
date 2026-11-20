@@ -13999,7 +13999,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "SURREY",
           "s1": "In the two upper rooms of the women’s ward, factors of either sex condemned to die,and somet Ihave here noted eighteen rooms:yet they are for the number of prisoners.Mr.Hall is sometim put men felons into some rooms of the women's close a prison situated in a populous neighbourho wonder frequently to find several felons sick o No bedding nor straw. The Act for preserving t prisoners and the clauses against spirituous liquors A chapel and two close rooms for the sick,lately vacant ground where formerly was the houseo after the riots in 178o,were used for a bridewell ti George's Fields was rebuilt.",
@@ -14025,6 +14025,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T10:58:15+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T11:26:34+00:00"
           }
         ],
         "after": {
