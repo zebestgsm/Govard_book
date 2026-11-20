@@ -348,6 +348,23 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertIn('href="#footnote-31-s4-1"', h31)
         self.assertTrue(s31['s3'].startswith('cleaned.'))
 
+    def test_spread_33_diet_note_and_beer_table_round_trip(self):
+        from html.parser import HTMLParser
+        class Text(HTMLParser):
+            def __init__(self): super().__init__(); self.parts = []
+            def handle_data(self, text): self.parts.append(text)
+        _, segments = reader.segment_state(33)
+        value = segments['s7']
+        html = inline_editor.render_verified_block(value, 33, 's7', '')
+        self.assertIn('href="#footnote-33-s7-1"', html)
+        self.assertIn('id="footnote-33-s7-1"', html)
+        self.assertIn('role="table" aria-label="Daily beer allowance in cans"', html)
+        self.assertIn('role="columnheader"', html)
+        self.assertIn('\t2½', value)
+        parser = Text(); parser.feed(html)
+        self.assertEqual(''.join(parser.parts), value)
+        self.assertIn('href="#footnote-34-s11-2"', reader.segment_state(34)[0])
+
     def test_scan_zoom_controls_and_detail_image(self):
         page = self.request('/spread/107')[1]
         for marker in ('scan-zoom-toolbar', 'scan-zoom-in', 'scan-zoom-out', 'scan-zoom-reset', 'data-detail-src', 'detail=1', 'scan-fullscreen', 'scan-fullscreen-close', 'scan-fullscreen-view', 'aria-modal="true"'):
@@ -380,11 +397,11 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertEqual(self.form('/scan-action/14', {'action':'restore-scan-mark'})[0], 200)
         self.assertTrue(reader.scan_dropdown_label(14))
         # Automated collation does not replace manual proofreading.
-        self.assertIn('☑ OCR', reader.quality_label(32))
-        self.assertEqual(self.form('/scan-action/32', {'action':'dismiss-ocr'})[0], 200)
-        self.assertNotIn('OCR', reader.quality_label(32))
+        self.assertIn('☑ OCR', reader.quality_label(35))
+        self.assertEqual(self.form('/scan-action/35', {'action':'dismiss-ocr'})[0], 200)
+        self.assertNotIn('OCR', reader.quality_label(35))
         self.assertIn('скан повёрнут', reader.quality_label(14))
-        self.assertIn('пометка OCR снята', self.request('/spread/32')[1])
+        self.assertIn('пометка OCR снята', self.request('/spread/35')[1])
 
         pdf = reader.pymupdf.open()
         pdf.new_page(width=100, height=50)
@@ -405,8 +422,8 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertFalse(reader.replacement_path(14).exists())
         self.assertTrue(reader.scan_dropdown_label(14))
         self.assertNotIn('OCR', reader.quality_label(14))
-        self.assertEqual(self.form('/scan-action/32', {'action':'restore-ocr'})[0], 200)
-        self.assertIn('☑ OCR', reader.quality_label(32))
+        self.assertEqual(self.form('/scan-action/35', {'action':'restore-ocr'})[0], 200)
+        self.assertIn('☑ OCR', reader.quality_label(35))
 
     def test_legacy_quality_decisions_are_preserved_when_migrated(self):
         reader.QUALITY_FILE.write_text(json.dumps({'dismissed': [2, 14, 153], 'other': 'keep'}))
@@ -505,7 +522,7 @@ class ReaderHTTPTests(unittest.TestCase):
     def test_verified_spreads_and_pending_ocr_labels(self):
         for number in (5, 6, 151, 153, 161, 162, 163, 164, 165):
             self.assertNotIn('OCR', reader.quality_label(number))
-        for number in (32, 33, 96, 106, 108):
+        for number in (35, 96, 106, 108):
             self.assertIn('☑ OCR', reader.quality_label(number))
         self.assertNotIn('☑ OCR', reader.quality_label(107))
         self.assertIn('скан повёрнут', reader.quality_label(14))
@@ -791,7 +808,7 @@ class TranslationTests(unittest.TestCase):
         self.assertIn('Русский перевод', html)
         self.assertIn('ОБЗОР БЕДСТВИЙ В ТЮРЬМАХ', html)
         self.assertLess(html.index('id="editable-book"'), html.index('id="translation"'))
-        working = reader.reader_page(32)
+        working = reader.reader_page(35)
         self.assertIn('перевод по черновому английскому тексту', working)
         self.assertIn('Русский перевод', working)
 

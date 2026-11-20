@@ -167,6 +167,32 @@ def render_verified_block(value, spread, segment_id, query):
                 result.append(highlight_scan_fold(piece, segment_id, query) if spread == 18 else highlight(piece, query))
         return ''.join(result)
 
+    if spread == 33 and segment_id == 's7' and '\n\n¹ ' in value:
+        # The printed dietary regulation is a single long footnote containing
+        # a small beer table. Preserve every text node for inline editing.
+        prose, note = value.split('\n\n', 1)
+        parts = [render_verified_block(prose, spread, segment_id, query), '\n\n',
+                 '<span class="book-footnote verified-footnote diet-regulation" id="footnote-33-s7-1">']
+        in_table = False
+        for line in note.splitlines(keepends=True):
+            ending = '\n' if line.endswith('\n') else ''
+            row = line[:-1] if ending else line
+            if '\t' in row:
+                if not in_table:
+                    parts.append('<span class="restored-table mixed-table beer-allowance" role="table" aria-label="Daily beer allowance in cans">')
+                    in_table = True
+                left, right = row.split('\t', 1)
+                role = 'columnheader' if left == '' and right == 'CANS' else 'cell'
+                parts.append('<span class="restored-row" role="row" style="--numeric-cols:1"><span class="restored-cell" role="cell">' + highlight(left, query) + '</span><span class="restored-cell" role="' + role + '">' + highlight('\t' + right, query) + '</span></span>' + ending)
+            else:
+                if in_table:
+                    parts.append('</span>'); in_table = False
+                parts.append(highlight(row + ending, query))
+        if in_table:
+            parts.append('</span>')
+        parts.append('</span>')
+        return ''.join(parts)
+
     output = []
     for chunk in re.split(r'(\n\n)', value):
         if chunk == '\n\n' or not chunk:
