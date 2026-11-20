@@ -3410,7 +3410,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "（about seventeen feet long,eleven feet broad,and ten high), manner rooms were very offensive,the persons confined in them being inserted two of the men are removed every ten or fourteen days,to Regul Sunday different companies. There were among them some Jews, orkitcher whose dinner was not pork as was that of the other prisoners, rye bread butmutton,which the societyof Jews in the city sent them with grout,as a slice ofwhite bread,by permission of one of the five regents rye bread Sunday or inspectors.1 flour,wit For the refractory there are dark rooms,but not dungeons: Eachboy asabove, in one of these,on shutting the door onmyself,I foundno Monda dampness. butter.",
@@ -3430,6 +3430,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T08:06:48+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T08:24:42+00:00"
           }
         ],
         "after": {
