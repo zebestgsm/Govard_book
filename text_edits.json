@@ -2356,7 +2356,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "PROPOSED IMPROVEMENTS",
           "s1": "according to the act,he must report to the justices at each efferves quarter-sessions,a state of the health of the prisoners under his care.1 summer washed At Newgate there are commonly about two hundred prisoners.",
@@ -2382,6 +2382,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T07:47:44+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T07:56:27+00:00"
           }
         ],
         "after": {
