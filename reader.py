@@ -365,6 +365,10 @@ STYLE = '''
 .spread-17 .fee-table .restored-row:first-child{font-weight:normal;border-bottom:1px solid #e7e3d9}
 @media(max-width:650px){.restored-table{font-size:10px}.restored-row{grid-template-columns:minmax(40px,2fr) repeat(var(--numeric-cols),minmax(0,1fr))}.restored-cell{padding:3px 0}.fee-table{font-size:13px}.fee-table .restored-row{grid-template-columns:minmax(0,1fr) repeat(var(--numeric-cols),minmax(0,.22fr))}.mixed-table .restored-row{grid-template-columns:minmax(0,1fr) repeat(var(--numeric-cols),minmax(0,1fr))}.diet-table .restored-row{grid-template-columns:minmax(64px,1fr) minmax(0,2.4fr)}.statistical-table .restored-row{grid-template-columns:minmax(44px,2.2fr) repeat(8,minmax(0,1fr))}}
 .restored-cell.count-cell{display:flex;align-items:baseline;gap:.3em;min-width:0}.count-label{min-width:0}.count-number{margin-left:auto;white-space:nowrap;text-align:right}
+/* Prison digests: retain printed lines and align labels without hard-coded spaces. */
+.prison-profile{display:block;margin:.5em 0 1em;font:clamp(13px,.95vw,16px)/1.42 Georgia,serif}.profile-row{display:grid;grid-template-columns:minmax(4.5em,6em) minmax(0,1fr);gap:0;align-items:start}.profile-fees{grid-template-columns:minmax(4.5em,6em) minmax(4em,5em) minmax(0,1fr)}.profile-label,.profile-category,.profile-value{min-width:0;white-space:normal;overflow-wrap:break-word}.profile-whole{display:block}.is-editing .prison-profile,.is-editing .profile-row,.is-editing .profile-label,.is-editing .profile-category,.is-editing .profile-value{display:inline}
+.fee-subheading{display:block;text-align:center;font-style:italic;margin:.8em 0 .3em}.book-signatures{display:block;white-space:pre-wrap;font-size:.88em;line-height:1.45}.book-signature{display:block;text-align:right;font-variant:small-caps}.is-editing .fee-subheading,.is-editing .book-signatures,.is-editing .book-signature{display:inline}
+
 .shared-brace{display:inline-flex;align-items:center;vertical-align:middle;max-width:100%;gap:.2em}.brace-labels{display:inline-flex;flex-direction:column;line-height:1.3}.brace-value{display:inline-flex;align-items:center;min-width:0}.brace-value::before{content:'}';font:2.5em/1 Georgia,serif;margin-right:.1em;color:#777}
 /* Spread 84 has three small, headerless lists, not fee tables. Dates and
    descriptions need more space than the prisoner counts, even in the narrow
@@ -389,6 +393,8 @@ STYLE = '''
 .spread-101 .mixed-table .restored-row[style="--numeric-cols:3"]{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1.2fr) minmax(0,1fr)}
 .spread-103 .mixed-table .restored-row[style="--numeric-cols:5"]{grid-template-columns:minmax(0,1.4fr) minmax(0,.7fr) minmax(0,.8fr) minmax(0,1.4fr) minmax(0,.7fr) minmax(0,.8fr)}
 .spread-101 .mixed-table .restored-cell,.spread-103 .mixed-table .restored-cell{overflow-wrap:normal;padding:2px 1px}
+/* The Cambridge entry includes “6 and one lunatic”; allow it to wrap in its column. */
+.spread-106 .count-number{white-space:normal}
 
 /* Translation reader: comfortable measure, real grid tables, visible history. */
 .translation-panel>.translation-text{padding:26px clamp(20px,3vw,48px);max-width:1100px;margin:0 auto}

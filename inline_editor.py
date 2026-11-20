@@ -206,6 +206,40 @@ def render_verified_block(value, spread, segment_id, query):
                 '<span class="shared-brace"><span>Allowance: </span><span class="brace-labels"><span>Debtors, </span><span>Felons, </span></span><span class="brace-value">a penny loaf a day</span></span>')
         return rendered
 
+    # Statistical prison profiles are printed as line-by-line entries, not
+    # prose. Keep the actual whitespace and text nodes for inline editing.
+    def prose_html(text):
+        profiles = {(87, 's2'), (96, 's8'), (103, 's7'),
+                    (112, 's4'), (128, 's3')}
+        if ((spread, segment_id) not in profiles or
+                not text.lstrip().startswith(('Gaoler.', 'Keeper.', 'Prisoners.',
+                                               'Chaplain.', 'Surgeon.'))):
+            return '<span class="verified-paragraph">' + text_html(text) + '</span>'
+        parts = ['<span class="prison-profile">']
+        for line in text.splitlines(keepends=True):
+            row = line.rstrip('\n')
+            ending = line[len(row):]
+            # Carnarvon's three fee lines have separate category and amount
+            # columns. Preserve the printed spaces as text, not as layout.
+            if spread == 128 and segment_id == 's3':
+                fee = re.match(r'^((?:Fees:[ ]*)?)([ ]*(?:Debtors,|Felons,)?[ ]*)(£.*)$', row)
+                if fee:
+                    parts.append('<span class="profile-row profile-fees"><span class="profile-label">'
+                                 + text_html(fee.group(1)) + '</span><span class="profile-category">'
+                                 + text_html(fee.group(2)) + '</span><span class="profile-value">'
+                                 + text_html(fee.group(3)) + '</span></span>' + ending)
+                    continue
+            # Shared braces are a single semantic unit; do not split them.
+            if ((spread == 87 and row.startswith('Allowance: Debtors, Felons,')) or
+                    (spread == 103 and row.startswith('Fees: Debtors, Felons,'))):
+                parts.append('<span class="profile-row profile-whole">' + text_html(row) + '</span>' + ending)
+                continue
+            match = re.match(r'^((?:Gaoler\.|Keeper\.|Prisoners\.|Chaplain\.|Surgeon\.|Salary:?|Fees:|Transports:|Licence:|Allowance:|Garnish:|Number:|Duty:)[ \t]*)(.*)$', row)
+            label, body = (match.group(1), match.group(2)) if match else ('', row)
+            parts.append('<span class="profile-row"><span class="profile-label">' + text_html(label)
+                         + '</span><span class="profile-value">' + text_html(body) + '</span></span>' + ending)
+        return ''.join(parts) + '</span>'
+
     if spread == 75 and segment_id == 's4' and value.startswith('power of any,'):
         # A note begun on the preceding spread ends here, followed by two
         # separate notes on this page. Keep each independently styled.
@@ -312,7 +346,7 @@ def render_verified_block(value, spread, segment_id, query):
             prose_lines = []
             def flush_prose():
                 if prose_lines:
-                    output.append('<span class="verified-paragraph">' + text_html(''.join(prose_lines), False) + '</span>')
+                    output.append(prose_html(''.join(prose_lines)))
                     prose_lines.clear()
             def flush_table():
                 if not table_lines:
@@ -414,6 +448,14 @@ def render_verified_block(value, spread, segment_id, query):
               or (spread == 122 and ((segment_id == 's2' and chunk.startswith('When any felon was here')) or (segment_id == 's4' and chunk.startswith(('not, then before his face', 'If it was a horse')))))
               or (spread == 124 and ((segment_id == 's1' and chunk.startswith('“By a letter dated 14 October')) or (segment_id == 's7' and chunk.startswith('of spinning, at which employment'))))):
             output.append('<span class="book-footnote verified-footnote footnote-continuation">' + text_html(chunk) + '</span>')
+        elif spread == 119 and segment_id in ('s3', 's4', 's5', 's8') and chunk in ('From Debtors, First Class', 'Second Class', 'Debtors in General', 'From Felons', 'From Persons Committed to Bridewell'):
+            output.append('<span class="fee-subheading">' + text_html(chunk) + '</span>')
+        elif spread == 119 and segment_id == 's9' and chunk.startswith('I. No garnish'):
+            output.append('<span class="book-list">' + text_html(chunk) + '</span>')
+        elif spread == 92 and segment_id == 's7' and chunk.startswith('Ed. Bellamy.'):
+            output.append('<span class="book-signatures">' + text_html(chunk) + '</span>')
+        elif spread == 116 and segment_id == 's2' and chunk == 'FRANCIS NORMAN.':
+            output.append('<span class="book-signature">' + text_html(chunk) + '</span>')
         elif spread == 111 and segment_id == 's3' and chunk.startswith('Oh ye whose hours'):
             output.append('<span class="book-verse">' + text_html(chunk) + '</span>')
         elif spread == 117 and segment_id == 's4' and chunk.startswith('Sherborn, Dorset.'):
@@ -442,7 +484,7 @@ def render_verified_block(value, spread, segment_id, query):
         elif spread == 14 and (segment_id == 's1' or chunk.startswith(('Hail Patriot Band!', 'Much still untouch’d'))):
             output.append('<span class="book-verse">' + text_html(chunk) + '</span>')
         else:
-            output.append('<span class="verified-paragraph">' + text_html(chunk) + '</span>')
+            output.append(prose_html(chunk))
     return ''.join(output)
 
 

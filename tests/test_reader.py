@@ -1251,6 +1251,36 @@ class SequentialProofreadTests(unittest.TestCase):
         self.assertIn('one hundred and seventy-six had died', s133['s6'])
         self.assertIn('class="restored-heading">HULKS ON THE THAMES', h133)
 
+    def test_prison_profiles_and_reviewed_tables_preserve_editable_text(self):
+        from html.parser import HTMLParser
+        class Text(HTMLParser):
+            def __init__(self):
+                super().__init__()
+                self.value = ''
+            def handle_data(self, data):
+                self.value += data
+        for number, key in ((87, 's2'), (96, 's8'), (103, 's7'), (112, 's4'), (128, 's3')):
+            _, segments = reader.segment_state(number)
+            html = inline_editor.render_verified_block(segments[key], number, key, '')
+            parsed = Text(); parsed.feed(html)
+            self.assertEqual(parsed.value, segments[key], (number, key))
+            self.assertIn('class="prison-profile"', html)
+            self.assertIn('class="profile-row"', html)
+        h128, _ = reader.segment_state(128)
+        self.assertIn('class="profile-label">Fees: ', h128)
+        self.assertIn('class="profile-category">Debtors, ', h128)
+        self.assertIn('class="profile-value">£0 3s. 6d. entrance.', h128)
+        self.assertEqual(3, h128.count('class="profile-row profile-fees"'))
+        h87, _ = reader.segment_state(87)
+        self.assertIn('class="shared-brace"', h87)
+        h103, _ = reader.segment_state(103)
+        self.assertIn('class="shared-brace"', h103)
+        h119, _ = reader.segment_state(119)
+        self.assertIn('class="fee-subheading">Second Class', h119)
+        self.assertIn('class="book-list">I. No garnish', h119)
+        h116, _ = reader.segment_state(116)
+        self.assertIn('class="book-signature">FRANCIS NORMAN.', h116)
+
     def test_every_guarded_transcription_applies_without_changing_segment_ids(self):
         from verified_prose import VERIFIED_PROSE
         for number, replacements in VERIFIED_PROSE.items():
