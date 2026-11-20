@@ -10952,7 +10952,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "ENGLISH PRISONS",
           "s1": "limited term tomere confinement,or（whichismucht tohard labour.Of these latter some have been pr whipped,or burnt in the hand.The petty offenders as are sent to gaols instead of bridewells,for reasons m ina former section.",
@@ -10977,6 +10977,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T09:59:03+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T10:31:45+00:00"
           }
         ],
         "after": {
