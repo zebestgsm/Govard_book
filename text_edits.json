@@ -13174,7 +13174,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "SOUTHWARK",
           "s1": "visits(which I repeated to this as well as many otherp oftener than the timeswhen Itook the numbers)so smallpox.It was so crowded the summer 1776,tha paid five shillings a week for half a bed,and many chapel.In May 1776,the number of prisoners with was 395;and by an accurate list which I procured, (including a few that were only called so)were2 725,total 1oo4:about two-thirds of these were in The above was the state of the prison in 1776 wards someof theold buildings were taken down,a andmany rooms added to the new buildings,and ar similar to that which has been already mention infirmary. This spacious prison is enclosed with a about thirty feet high,with a chevaux de frise.",
@@ -13196,6 +13196,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T10:37:30+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T10:42:14+00:00"
           }
         ],
         "after": {
