@@ -15189,6 +15189,37 @@
           "s11": ""
         }
       }
+    },
+    "116": {
+      "segments": {},
+      "history": [],
+      "spread_review": {
+        "state": "working",
+        "before": {
+          "s0": "GLOUCESTERSHIRE",
+          "s1": "COUNTY BRIDEWELL",
+          "s2": "BERKELEY.",
+          "s3": "Quite out of repair.Only oneroomf andwomen,eighteen feetfour inches by ffteen feetfo seven feet nine inches high:the window(near four feet not glazed;no straw:no chimney:court not secure. hasbeen laid out on this prison these twenty years sensibleoldkeeperlamentedthebadeffectsofcloseconfi in idleness,upon the health of even young strong pr Many such,he said,he had known quite incapable of for some weeks after their discharge.",
+          "s4": "He told me,tha years ago his prisoners used to grindmalt for a pennya and the justices would not license any victualler who was notground here:but that of lateyears they have work at all.No allowance.Keeper, Francis Norm salary,2o;buthe pays out of it6to the poor of the for ground-rent: fees,4s.4d.,no table.He wrote me his prisoners,which I here transcribe.",
+          "s5": "Account of prisoners committed tolabour and CO in the bridewell at Berkeley,sent to theHouse of Comm 1771.Nothing expended,nothing earned 1772. 3 1773. ” ” 1774.",
+          "s6": "To Midsummer 1775. sessions.",
+          "s7": "Nothing expende nothing earned FRANCIS NOR Afurther account of prisoners committed to labc correction.",
+          "s8": "Me 1778. Nothing expended,nothing earned 1779. 1780. ” 1781. 1782.To Michaelmas sessions.",
+          "s9": "Nothing expended, nothing earned 1774.22 Aug. prisoners 3.",
+          "s10": "Twomen,onewoman 1775.6Dec. 1779.9June \"” 1782.25Oct. I 1Many such accounts would have been received at the Commons（in consequence of their order to send the account",
+          "s11": "ormen WESTERN CIRCUIT ur,and square) Nothing HAMPSHIRE s.The nement COUNTY GAOL AT WINCHESTER isoners.",
+          "s12": "This gaol is kept very clean; and the alterations in it are vorking improvements.The present dungeon,forty-eight feet by tsome twenty-three,is down but five steps:it is lofty （twelve feet), bushel; boarded,and has three large windows.The former destructive se malt dungeon was darker,and down eleven steps:Mr.Lipscomb loneno informed me that more than twenty prisoners had diedin it of an:his the gaol-fever in one year;and that his predecessor died of the parish same distemper.There are two rooms over the dungeon,for lists of common-side debtors; three rooms with beds for felons who pay,and two rooms for women.The felons’ day-room is rrection commodiously enlarged.Their straw mattresses and coverlets lons.1 are brought out and aired when the weather is fine.The beds .21 20 hung on a roller:the prisoner who took care of it and delivered 19 it next day was paid a penny.If a little court,which is now shut up from the gaol,and totally useless,were cleared,and 15 openedtowardstheprison,it would be very conducive to health and convenience.The chapel is very low and inconvenient.",
+          "s13": "St. Cross's Hospital bread （the dole) is about a penny loaf MAN. given to each of the prisoners six times a year;viz.on the eve urand of the following days,oAugust,October,Christmas,Easter, nWormen 3May,and Whitsunday.",
+          "s14": "The college allowance to felons is,once aweek,anox'shead, 4 2 four sheep'sheadsand henges,about seventeen pints of oatmeal, I three pintsof salt,twelve loaves the size of twopenny halfpenny 8 ones,about twenty-four gallons of table beer,and generally three times a week the broken victuals. 1. WILTSHIRE SALISBURY COUNTY GAOL Just without the prison gate was around staple fixed in the Houseof fmoney wall:through it was putachain,at eachend of whicha common- Norman. side debtor padlocked by theleg,stood offering to those who Q835 219"
+        },
+        "cycles": [],
+        "events": [
+          {
+            "action": "start",
+            "time": "2026-11-20T11:40:25+00:00"
+          }
+        ]
+      }
     }
   }
 }
