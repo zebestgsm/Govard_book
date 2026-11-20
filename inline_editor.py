@@ -261,6 +261,8 @@ def render_verified_block(value, spread, segment_id, query):
             flush_prose()
         elif (spread == 18 and segment_id == 's2' and chunk == 'SITUATION') or (spread == 20 and segment_id == 's5' and chunk == 'REGULATIONS') or (spread == 26 and segment_id == 's8' and chunk == 'BRIDEWELLS') or (spread == 38 and segment_id == 's11' and chunk == 'GERMANY') or (spread == 43 and segment_id == 's13' and chunk == 'SWEDEN') or (spread == 50 and segment_id == 's1' and chunk == 'GERMANY') or (spread == 31 and ((segment_id == 's0' and chunk in ('SECTION IV', 'AN ACCOUNT OF FOREIGN PRISONS')) or (segment_id == 's1' and chunk == 'HOLLAND'))) or (spread == 107 and chunk in ('ELY GAOL', 'NORFOLK', 'COUNTY BRIDEWELL', 'SUFFOLK', 'COUNTY GAOL AT IPSWICH')):
             output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
+        elif spread == 54 and ((segment_id == 's1' and chunk.startswith(('CLEMENS XI PONT. MAX.\n', 'Pope Clement XI\n'))) or (segment_id == 's5' and (chunk.startswith(('PARUM EST\n', 'It is of little advantage\n')) or chunk == 'SILENTIUM.'))):
+            output.append('<span class="book-verse inscription">' + text_html(chunk) + '</span>')
         elif spread == 52 and segment_id == 's6' and (chunk.startswith('JUSTITIÆ ET CLEMENTIÆ\n') or chunk.startswith('To Justice and Clemency,\n')):
             output.append('<span class="book-verse inscription">' + text_html(chunk) + '</span>')
         elif spread == 35 and segment_id == 's7' and chunk == 'Virtutis est domare\nQuæ cuncti pavent.':

@@ -478,6 +478,23 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertNotIn('verified-footnote', ordinary)
         self.assertIn('font-size:.78em', reader.reader_page(42))
 
+    def test_spreads_53_55_inscriptions_and_footnotes(self):
+        h53, s53 = reader.segment_state(53)
+        self.assertIn('href="#footnote-53-s7-1"', h53)
+        self.assertIn('class="book-footnote verified-footnote" id="footnote-53-s7-1"', h53)
+        self.assertIn('Domine, cum veneris judicare', s53['s7'])
+        h54, s54 = reader.segment_state(54)
+        self.assertEqual(h54.count('book-verse inscription'), 5)
+        self.assertIn('INSTRUCTI REIPUBLICÆ SERVIANT.', s54['s1'])
+        h55, s55 = reader.segment_state(55)
+        for segment in ('s1', 's8'):
+            for number in ('1', '2'):
+                target = f'footnote-55-{segment}-{number}'
+                self.assertIn(f'href="#{target}"', h55)
+                self.assertIn(f'class="book-footnote verified-footnote" id="{target}"', h55)
+        self.assertIn('From the heat of the climate', s55['s8'])
+        self.assertIn('350,061', s55['s1'])
+
     def test_scan_zoom_controls_and_detail_image(self):
         page = self.request('/spread/107')[1]
         for marker in ('scan-zoom-toolbar', 'scan-zoom-in', 'scan-zoom-out', 'scan-zoom-reset', 'data-detail-src', 'detail=1', 'scan-fullscreen', 'scan-fullscreen-close', 'scan-fullscreen-view', 'aria-modal="true"'):
@@ -510,11 +527,11 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertEqual(self.form('/scan-action/14', {'action':'restore-scan-mark'})[0], 200)
         self.assertTrue(reader.scan_dropdown_label(14))
         # Automated collation does not replace manual proofreading.
-        self.assertIn('☑ OCR', reader.quality_label(53))
-        self.assertEqual(self.form('/scan-action/53', {'action':'dismiss-ocr'})[0], 200)
-        self.assertNotIn('OCR', reader.quality_label(53))
+        self.assertIn('☑ OCR', reader.quality_label(56))
+        self.assertEqual(self.form('/scan-action/56', {'action':'dismiss-ocr'})[0], 200)
+        self.assertNotIn('OCR', reader.quality_label(56))
         self.assertIn('скан повёрнут', reader.quality_label(14))
-        self.assertIn('пометка OCR снята', self.request('/spread/53')[1])
+        self.assertIn('пометка OCR снята', self.request('/spread/56')[1])
 
         pdf = reader.pymupdf.open()
         pdf.new_page(width=100, height=50)
@@ -535,8 +552,8 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertFalse(reader.replacement_path(14).exists())
         self.assertTrue(reader.scan_dropdown_label(14))
         self.assertNotIn('OCR', reader.quality_label(14))
-        self.assertEqual(self.form('/scan-action/53', {'action':'restore-ocr'})[0], 200)
-        self.assertIn('☑ OCR', reader.quality_label(53))
+        self.assertEqual(self.form('/scan-action/56', {'action':'restore-ocr'})[0], 200)
+        self.assertIn('☑ OCR', reader.quality_label(56))
 
     def test_legacy_quality_decisions_are_preserved_when_migrated(self):
         reader.QUALITY_FILE.write_text(json.dumps({'dismissed': [2, 14, 153], 'other': 'keep'}))
@@ -635,7 +652,7 @@ class ReaderHTTPTests(unittest.TestCase):
     def test_verified_spreads_and_pending_ocr_labels(self):
         for number in (5, 6, 151, 153, 161, 162, 163, 164, 165):
             self.assertNotIn('OCR', reader.quality_label(number))
-        for number in (53, 96, 106, 108):
+        for number in (56, 96, 106, 108):
             self.assertIn('☑ OCR', reader.quality_label(number))
         self.assertNotIn('☑ OCR', reader.quality_label(107))
         self.assertIn('скан повёрнут', reader.quality_label(14))
@@ -921,7 +938,7 @@ class TranslationTests(unittest.TestCase):
         self.assertIn('Русский перевод', html)
         self.assertIn('ОБЗОР БЕДСТВИЙ В ТЮРЬМАХ', html)
         self.assertLess(html.index('id="editable-book"'), html.index('id="translation"'))
-        working = reader.reader_page(53)
+        working = reader.reader_page(56)
         self.assertIn('перевод по черновому английскому тексту', working)
         self.assertIn('Русский перевод', working)
 
