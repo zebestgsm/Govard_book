@@ -9629,8 +9629,82 @@
       }
     },
     "77": {
-      "segments": {},
-      "history": [],
+      "segments": {
+        "s0": "AN ACCOUNT OF FOREIGN PRISONS",
+        "s1": "respected and esteemed by his officers and fellow-prisoners. I brought away with me some musical pipes of his turning and tuning. He was in the galley appropriated to the infirm and aged; and these, besides the usual allowance of bread, have an additional allowance from the king of nine sous (4½d.) a day.¹”\n\n[From An Account of Lazarettos, pp. 54, 55.]\n\nMALTA\n\n“The prison at Malta consists of several dirty and offensive rooms in the town-house, where in April, 1786, there were nine prisoners. One of them, a Turk, had suffered the torture; in consequence of which a mortification had taken place, and the surgeon was applying the bark internally, and externally: the second time I saw him he was worse; but I did not continue long enough in the island to know the event.\n\n“The slaves have many rooms, and each sect their chapels or mosques, and sick rooms apart. A woollen manufactory is carried on by some of them; but the majority are blacks, and unhappy objects. For the religion (the knights so called) being sworn to make perpetual war with the Turks, carry off by piracy many of the peasants, fishermen, or sailors from the Barbary coasts. How dreadful! that those who glory in bearing on their breasts the sign of the Prince of Peace, should harbour such malignant dispositions against their fellow creatures, and by their own example encourage piracy in the States of Barbary. Do not these knights by such conduct make themselves the worst enemies to the cross of Christ, under the pretence of friendship?”\n\nTURKEY\n\n“ZANTE. Here is a prison in which was confined the principal pirate concerned in seizing the ship called the Grand Duchess, bound from Leghorn to London. Three volleys of shot having been aimed at him without killing him, he was dispatched by a\n\n1 I was informed by a very respectable person at Marseilles, that the brother of an ancient lady in his family was, several years ago, apprehended by some dragoons, as he was coming from a conventicle or protestant meeting; that his son saw him taken, and immediately went to the governor and offered himself instead of his father; and that he was accepted, and sent to the galleys for life; but at the end of ten years obtained his liberty by a lady’s intercession; the father having just lived to see his son released.",
+        "s2": "",
+        "s3": "",
+        "s4": "pistol applied to his ear. His head and the heads of his two companions were fixed on poles. The two latter became mere skulls within two months, but his head and even his countenance continue (as I was assured) much the same, though three years have elapsed since his execution.\n\n“In those cities which I have seen in Turkey, the debtors have a prison separate and distinct from the felons. Without such a separation in England, a thorough reformation of the gaols can never be effected.\n\n“SMYRNA. The prison for criminals at Smyrna is situated near the sea, and consists of two rooms and a court. So speedy is the execution of justice here, that I found in this prison no more than seven prisoners at any of the three visits which I made to it in 1786. One of these prisoners having been bastinadoed so severely that he was swelled from head to foot, I advised him to bathe in the sea, and to apply to the soles of his feet plasters made of salt and vinegar. In the use of these means, with the addition of two doses of Glauber’s salts, he recovered; and I acquired a credit which made the keepers, in my subsequent visits, particularly attentive to me.¹\n\n“The prison for debtors consists of four or five rooms, and a court to walk in. In this populous city I found but fourteen prisoners at one time, and at another time, not so many. Their subsistence depends chiefly on charity, and the collections made for them in the Greek and Roman Catholic churches.”\n\n[From An Account of Lazarettos, pp. 58, 61, 62.]\n\n1 One morning I attended the Cadi and other officers of the police when they visited the shops and examined the weights used in them, and the quality of the bread sold by the bakers. All false and light weights they cut and carried away. Such of the shopkeepers as were judged to be delinquents were either sent to prison, or immediately bastinadoed; that is, laid on their backs to receive on the soles of their feet, a number of strokes, at the discretion of the Cadi. I heard of a person who had received four or five hundred of these strokes; but I can hardly suppose it possible to survive a much less number. Such hasty executions of, what is here called justice, are very improper and cruel. The terror which appeared in the countenances of all the shopkeepers at these times implied, that the innocent as well as the guilty might suffer; and, indeed, it is scarcely possible this should not sometimes happen, the Cadi, who orders and superintends these punishments, continuing in his office only a year, and being generally young and inexperienced.",
+        "s5": "",
+        "s6": "",
+        "s7": "",
+        "s8": ""
+      },
+      "history": [
+        {
+          "id": "s0",
+          "before": "I40AN ACCOUNT OF FOREIGN PRIS",
+          "after": "AN ACCOUNT OF FOREIGN PRISONS",
+          "time": "2026-11-20T09:42:37+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s1",
+          "before": "respected and esteemed by his officers and fellow- I brought away with me some musical pipes of his tu tuning.He was in the galley appropriated to the in aged;and these,besides the usual allowance of bread additional allowance from theking of nine sous(4d.) [From AnAccount of Lazarettos,PP MALTA The prison at Malta consists of several dirty and rooms in the town-house,where in April,1786,there prisoners.One of them,a Turk,had suffered the in consequence ofwhich a mortification had taken p the surgeon was applying the bark internally,and ex the second time I saw him he was worse;but I did not long enoughin the island toknow the event.",
+          "after": "respected and esteemed by his officers and fellow-prisoners. I brought away with me some musical pipes of his turning and tuning. He was in the galley appropriated to the infirm and aged; and these, besides the usual allowance of bread, have an additional allowance from the king of nine sous (4½d.) a day.¹”\n\n[From An Account of Lazarettos, pp. 54, 55.]\n\nMALTA\n\n“The prison at Malta consists of several dirty and offensive rooms in the town-house, where in April, 1786, there were nine prisoners. One of them, a Turk, had suffered the torture; in consequence of which a mortification had taken place, and the surgeon was applying the bark internally, and externally: the second time I saw him he was worse; but I did not continue long enough in the island to know the event.\n\n“The slaves have many rooms, and each sect their chapels or mosques, and sick rooms apart. A woollen manufactory is carried on by some of them; but the majority are blacks, and unhappy objects. For the religion (the knights so called) being sworn to make perpetual war with the Turks, carry off by piracy many of the peasants, fishermen, or sailors from the Barbary coasts. How dreadful! that those who glory in bearing on their breasts the sign of the Prince of Peace, should harbour such malignant dispositions against their fellow creatures, and by their own example encourage piracy in the States of Barbary. Do not these knights by such conduct make themselves the worst enemies to the cross of Christ, under the pretence of friendship?”\n\nTURKEY\n\n“ZANTE. Here is a prison in which was confined the principal pirate concerned in seizing the ship called the Grand Duchess, bound from Leghorn to London. Three volleys of shot having been aimed at him without killing him, he was dispatched by a\n\n1 I was informed by a very respectable person at Marseilles, that the brother of an ancient lady in his family was, several years ago, apprehended by some dragoons, as he was coming from a conventicle or protestant meeting; that his son saw him taken, and immediately went to the governor and offered himself instead of his father; and that he was accepted, and sent to the galleys for life; but at the end of ten years obtained his liberty by a lady’s intercession; the father having just lived to see his son released.",
+          "time": "2026-11-20T09:42:37+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s2",
+          "before": "The slaves have many rooms,and each sect thei or mosques,and sick rooms apart.A woollen manuf carried on by some ofthem;but the majority are bla unhappy objects.For the religion (the knights s being sworn to make perpetual war with the Turks, by piracy many of the peasants,fishermen,or sailors Barbary coasts.How dreadful!that those who gloryi on their breasts the signof the Prince of Peace,should such malignant dispositions against their fellow creat by their own example encourage piracy in theStates of Donot these knights by such conduct make themselves enemies to the cross of Christ,under the pretence of frien TURKEY \"ZANTE.",
+          "after": "",
+          "time": "2026-11-20T09:42:37+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s3",
+          "before": "Here isa prison inwhich was confined the pirate concerned in seizing the ship called the Grand bound from Leghorn toLondon.Three volleys of sho been aimed at him without killing him,he was dispatc 11was informed by a very respectable person atMarseilles brotherofanancientladynhisfamilywasseveralyearsago,a by some dragoons,as he was coming from a conyenticle or meeting;that his son sawhim taken,and immediately went to th and offered himself instead of hisfather;and thathewas accepted to the galleys for life;but at theendof tenyears obtained his lil lady's intercession;the father having just lived to see his son",
+          "after": "",
+          "time": "2026-11-20T09:42:37+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s4",
+          "before": "ONS TURKEY I4I orisoners, pistol applied to his ear.His head and the heads of his two ning and companions were fixed on poles.The two latter became mere firmand skulls within twomonths,but hishead and even his countenance have an aday.1\" continue(asIwas assured)much the same,though three years haveelapsed since his execution. 54，55.] “In those cities which I have seen in Turkey，the debtors have a prison separate and distinct from the felons.Without such a separation in England,a thorough reformation of the gaols can never be effected. \"SMYRNA.",
+          "after": "pistol applied to his ear. His head and the heads of his two companions were fixed on poles. The two latter became mere skulls within two months, but his head and even his countenance continue (as I was assured) much the same, though three years have elapsed since his execution.\n\n“In those cities which I have seen in Turkey, the debtors have a prison separate and distinct from the felons. Without such a separation in England, a thorough reformation of the gaols can never be effected.\n\n“SMYRNA. The prison for criminals at Smyrna is situated near the sea, and consists of two rooms and a court. So speedy is the execution of justice here, that I found in this prison no more than seven prisoners at any of the three visits which I made to it in 1786. One of these prisoners having been bastinadoed so severely that he was swelled from head to foot, I advised him to bathe in the sea, and to apply to the soles of his feet plasters made of salt and vinegar. In the use of these means, with the addition of two doses of Glauber’s salts, he recovered; and I acquired a credit which made the keepers, in my subsequent visits, particularly attentive to me.¹\n\n“The prison for debtors consists of four or five rooms, and a court to walk in. In this populous city I found but fourteen prisoners at one time, and at another time, not so many. Their subsistence depends chiefly on charity, and the collections made for them in the Greek and Roman Catholic churches.”\n\n[From An Account of Lazarettos, pp. 58, 61, 62.]\n\n1 One morning I attended the Cadi and other officers of the police when they visited the shops and examined the weights used in them, and the quality of the bread sold by the bakers. All false and light weights they cut and carried away. Such of the shopkeepers as were judged to be delinquents were either sent to prison, or immediately bastinadoed; that is, laid on their backs to receive on the soles of their feet, a number of strokes, at the discretion of the Cadi. I heard of a person who had received four or five hundred of these strokes; but I can hardly suppose it possible to survive a much less number. Such hasty executions of, what is here called justice, are very improper and cruel. The terror which appeared in the countenances of all the shopkeepers at these times implied, that the innocent as well as the guilty might suffer; and, indeed, it is scarcely possible this should not sometimes happen, the Cadi, who orders and superintends these punishments, continuing in his office only a year, and being generally young and inexperienced.",
+          "time": "2026-11-20T09:42:37+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s5",
+          "before": "The prison for criminals at Smyrna is situated offensive near thesea,and consists of two rooms anda court.So speedy verenine is the execution of justice here,that I found in this prison no torture; more than seven prisoners at any of the three visits which I lace,and made to it in1786.",
+          "after": "",
+          "time": "2026-11-20T09:42:37+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s6",
+          "before": "Oneof these prisoners having been bastina- ternally: doedsoseverelythathewasswelledfromheadtofoot,Iadvised continue him to bathe in the sea,and to apply to the soles ofhis feet plasters made of salt and vinegar.",
+          "after": "",
+          "time": "2026-11-20T09:42:37+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s7",
+          "before": "In the use of these means, chapels with the addition of two doses of Glauber's salts,he recovered; actoryis and I acquired a credit which made the keepers,in my subsequent cks,and visits,particularly attentive to me.1 called) \"The prison for debtors consists of four or five rooms,anda carryoff court to walk in.In this populous cityI found but fourteen fromthe prisoners at one tme,and at another time,not so many.Their bearing subsistence depends chiefly on charity,and the collections made harbour for them in the Greek andRoman Catholic churches. lres,and [From An Account of Lazarettos,Pp.58,61,62.] Barbary. 1OnemorningIattended the Cadi and other officers of the police when theworst they visited the shops and examined the weights used in them,and the adship?\" quality of the bread sold by the bakers.",
+          "after": "",
+          "time": "2026-11-20T09:42:37+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s8",
+          "before": "All false and light weights they cut and carried away.Such of the shopkeepers as were judged to be delinquents were either sent toprison,or immediately bastinadoed;that is,laid on their backs to receive on the soles of their feet,a number of strokes,at the discretion of the Cadi.I heard of a person who had received four or five hundred of these strokes;butIcan hardly suppose it possible to survive a much less number.Such hasty executions of, principal what is here called justice,are very improper and cruel.The terror Duchess, which appeared in the countenances of all the shopkeepers at these times thaving implied,that the innocent aswell as the guilty might suffer;and,indeed, itis scarcely possible this should not sometimes happen,the Cadi,who hedbya orders and superintends these punishments,continuing in his office only ayear, and being generally young and inexperienced. thatthe prehended protestant governor ,and sent bertybya eleased.",
+          "after": "",
+          "time": "2026-11-20T09:42:37+00:00",
+          "kind": "edit"
+        }
+      ],
       "spread_review": {
         "state": "working",
         "before": {
