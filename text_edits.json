@@ -9750,7 +9750,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "I40AN ACCOUNT OF FOREIGN PRIS",
           "s1": "respected and esteemed by his officers and fellow- I brought away with me some musical pipes of his tu tuning.He was in the galley appropriated to the in aged;and these,besides the usual allowance of bread additional allowance from theking of nine sous(4d.) [From AnAccount of Lazarettos,PP MALTA The prison at Malta consists of several dirty and rooms in the town-house,where in April,1786,there prisoners.One of them,a Turk,had suffered the in consequence ofwhich a mortification had taken p the surgeon was applying the bark internally,and ex the second time I saw him he was worse;but I did not long enoughin the island toknow the event.",
@@ -9771,6 +9771,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T09:43:41+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T10:22:22+00:00"
           }
         ],
         "after": {
