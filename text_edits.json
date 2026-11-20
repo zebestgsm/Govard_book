@@ -4178,7 +4178,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "and water.In some places a person goes on market-days with a basket for prisoners:and I have seen him bring them a apertur comfortable meal of fresh vegetables. samec But there are separate prisons,inwhich confinement for aweek or two onbread and made water is all the punishment for some petty offences. executi Perhaps, whena condemned criminal is only to live a day or two,such Ina diet may be more proper than the indulgence with which the six roo Germans,and other foreigners treat prisoners after sentence nine in of death,whichis commonly executed within forty-eight hours. waster The malefactor has then his choice of food,and wine,ina issix commodious room,into which his friends are admitted;and a dismal minister attends him during almost all his remaining hours. thewa I went into Germany in June 1778,by Osnabrug and Hanover.",
@@ -4202,6 +4202,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T08:28:42+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T08:34:45+00:00"
           }
         ],
         "after": {
