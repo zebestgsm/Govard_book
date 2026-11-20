@@ -4822,7 +4822,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "needs_work",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "Iattended atthe trials in the court of justice in July,thewant of fresh air,in consequence of the windows being shut,affected me somuch as tomake me ill a considerable time afterwards. ther nail STOCKHOLM.",
@@ -4845,6 +4845,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T08:35:26+00:00"
+          },
+          {
+            "action": "needs_work",
+            "time": "2026-11-20T08:42:45+00:00"
           }
         ],
         "after": {
