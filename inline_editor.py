@@ -21,6 +21,7 @@ TABLE_META = {
     (79, 's3'): ('Prisoners of war received at Forton, 1777–1782', 'mixed'),
     (81, 's8'): ('Prisoners in Scotland, September 1782', 'fee'),
     (84, 's5'): ('Dublin prisoners by visit date', 'mixed'),
+    (87, 's2'): ('Newgate prisoners by visit date', 'fee'),
     (88, 's12'): ('Newgate fees, 1729 and keeper’s table', 'fee'),
     (90, 's10'): ('Fleet Prison — Clerk of the Papers fees, 1727', 'fee'),
     (91, 's1'): ('Fleet Prison — Clerk of the Papers fees, continued', 'fee'),
@@ -304,7 +305,9 @@ def render_verified_block(value, spread, segment_id, query):
               or (spread == 79 and segment_id == 's9' and chunk == 'AMERICAN PRISONERS')
               or (spread == 80 and segment_id == 's2' and chunk in ('SECTION VI', 'SCOTCH AND IRISH PRISONS'))
               or (spread == 82 and segment_id == 's1' and chunk == 'IRELAND²')
-              or (spread == 85 and segment_id == 's5' and chunk in ('SECTION VII', 'A PARTICULAR ACCOUNT OF ENGLISH PRISONS'))):
+              or (spread == 85 and segment_id == 's5' and chunk in ('SECTION VII', 'A PARTICULAR ACCOUNT OF ENGLISH PRISONS'))
+              or (spread == 86 and segment_id == 's10' and chunk == 'THE TOWER')
+              or (spread == 87 and segment_id == 's1' and chunk == 'NEWGATE¹')):
             output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
         elif spread == 68 and segment_id == 's3' and chunk.startswith('Sundays, Tuesdays and Thursdays.'):
             output.append('<span class="book-footnote verified-footnote diet-note">' + text_html(chunk) + '</span>')
