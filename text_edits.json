@@ -2576,7 +2576,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "PROPOSED IMPROVEMENTS",
           "s1": "allowance to assize convicts under sentence of transportation severa is a little more, viz. two shillings and sixpence,which the andh sheriff charges to government in his bill of cravings,presented workh at the expiration of his ofice.And I believe upon the average offort price of bread，potatoes,etc.,the allowance I have mentioned The does not exceed those sums.",
@@ -2599,6 +2599,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T07:56:43+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T07:59:37+00:00"
           }
         ],
         "after": {
