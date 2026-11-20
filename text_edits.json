@@ -15728,7 +15728,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "CORNWALL",
           "s1": "person tobe suffered togo into the night cells in the unless towash or clean them;the doors andwindowst open when the prisoners are let out,except the doors a of each staircase,which are always to be shut. IX.The night cells to be cleaned by one of the prison andwashed once aweek,oroftener,if thought necessary, mops and brooms will be allowed.Nofilth of any kind in the courts,nor any sticks,stones,or other obstructio down thehouses ofoffice,under severe punishment to th and indulgence to the informer. X.The chaplain will read prayers and preach every Government fast,and thanksgiving days,in the chapel, all persons in the several wardsmust attend,(if inacond do)otherwise theywill be punished at the discretion of XI.All the felons and bridewell delinquents,whoatte service the preceding Saturday,andbehave well,shall ha the established allowance ofbread,halfa pound of me county expense,made into broth,every Sunday for dinne XII.It is requested and recommended to the justicesa sessions,the grand jury at the assizes,and every justice the commission of the peace,toinspect,as often as possibl and bridewell,and toinquire intothe treatment of the and the distribution of their respective allowances.",
@@ -15749,6 +15749,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T11:49:11+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T11:50:41+00:00"
           }
         ],
         "after": {
