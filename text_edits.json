@@ -8055,7 +8055,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "II4ANACCOUNT OF FOREIGN PRISONS",
           "s1": "1778;but my noting the dimensions of the windows, etc., so with the enraged the keeper, that he would not indulge my curiosity theirna any farther.3o May,1783,I found one debtor;and was Theya informed that there were three prisoners in the dungeons. theyha There is at Ghent a new prison building by the States of fnir wea Austrian Flanders.Itisa house of correction for those provinces present (as that at Vilvorde for Austrian Brabant) and is called La andmu Maison deForce.1 Itis situated near a canal.Theplan is an whicht octagon;only four sides finished:in one of them were,in wordg g 1775,one hundred and fifty-nine men criminals:in 1776,one andthis hundred and ninety-one. Another of the sides is for women, wasgor ofwhom there were fifty-nine.In themiddle of this court isa and we basin of water,for washing the linen of the house. havean On each of the four floors there is a corridor,or arcade,six successi feetnineincheswidequite open to the air of thecourt;which, sentinel however,is not attended with any inconvenience,even in beany winter.In the recess of every corridor,except thelowest,isa guard. range of bedrooms,six feet ten inches by five feet four,and forthe seven feet eight inches high:the doorway twofeet.These are theme uniformly furnished with abedstead(sixfeet andahalfbytwo Ont anda half),a straw bed,a mattress,a pillow,a pair of sheets, for the two blankets in winter,and one in summer.",
@@ -8086,6 +8086,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T09:24:05+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T09:38:37+00:00"
           }
         ],
         "after": {
