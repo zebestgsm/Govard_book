@@ -8880,7 +8880,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRIS",
           "s1": "by torch-light:but the criminal was almost dead byt before his execution.",
@@ -8902,6 +8902,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T09:35:48+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T09:56:17+00:00"
           }
         ],
         "after": {
