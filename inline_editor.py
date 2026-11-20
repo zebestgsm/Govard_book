@@ -167,6 +167,19 @@ def render_verified_block(value, spread, segment_id, query):
                 result.append(highlight_scan_fold(piece, segment_id, query) if spread == 18 else highlight(piece, query))
         return ''.join(result)
 
+    if spread == 75 and segment_id == 's4' and value.startswith('power of any,'):
+        # A note begun on the preceding spread ends here, followed by two
+        # separate notes on this page. Keep each independently styled.
+        chunks = value.split('\n\n')
+        output = ['<span class="book-footnote verified-footnote footnote-continuation">' + text_html(chunks[0]) + '</span>']
+        for chunk in chunks[1:]:
+            note = re.match(r'^([12])\s', chunk)
+            if note:
+                output.append('\n\n<span class="book-footnote verified-footnote" id="footnote-75-s4-' + note.group(1) + '">' + text_html(chunk, True) + '</span>')
+            else:
+                output.append('\n\n' + text_html(chunk))
+        return ''.join(output)
+
     if spread == 33 and segment_id == 's7' and '\n\n¹ ' in value:
         # The printed dietary regulation is a single long footnote containing
         # a small beer table. Preserve every text node for inline editing.
