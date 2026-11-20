@@ -23,6 +23,7 @@ TABLE_META = {
     (84, 's5'): ('Dublin prisoners by visit date', 'mixed'),
     (87, 's2'): ('Newgate prisoners by visit date', 'fee'),
     (89, 's1'): ('Newgate fees continued', 'fee'),
+    (89, 's4'): ('Newgate prisoners in 1787 and 1788', 'mixed'),
     (89, 's7'): ('Fleet prisoners by visit date', 'fee'),
     (92, 's3'): ('Fleet warden’s fees, 1729', 'fee'),
     (92, 's7'): ('Fleet warden’s fees, continued', 'fee'),
@@ -189,7 +190,16 @@ def render_verified_block(value, spread, segment_id, query):
                     result.append(highlight_scan_fold(piece, segment_id, query, SCAN_100_FOLD))
                 else:
                     result.append(highlight(piece, query))
-        return ''.join(result)
+        rendered = ''.join(result)
+        # Recreate the shared-value brace without inserting text into the
+        # editable segment or assigning the amount to only one category.
+        if spread == 103 and segment_id == 's7':
+            rendered = rendered.replace('Fees: Debtors, Felons, £1 4s. 10d.',
+                '<span class="shared-brace"><span>Fees: </span><span class="brace-labels"><span>Debtors, </span><span>Felons, </span></span><span class="brace-value">£1 4s. 10d.</span></span>')
+        elif spread == 87 and segment_id == 's2':
+            rendered = rendered.replace('Allowance: Debtors, Felons, a penny loaf a day',
+                '<span class="shared-brace"><span>Allowance: </span><span class="brace-labels"><span>Debtors, </span><span>Felons, </span></span><span class="brace-value">a penny loaf a day</span></span>')
+        return rendered
 
     if spread == 75 and segment_id == 's4' and value.startswith('power of any,'):
         # A note begun on the preceding spread ends here, followed by two
@@ -271,7 +281,7 @@ def render_verified_block(value, spread, segment_id, query):
         elif '\t' in chunk:
             # Group only consecutive tab-separated lines. Prose introducing or
             # following a table must not become a one-cell table row.
-            has_header = not ((spread == 16 and segment_id in ('s7', 's11')) or (spread == 17 and segment_id == 's1') or (spread == 35 and segment_id == 's1') or (spread, segment_id) in ((79, 's3'), (84, 's5'), (91, 's2'), (95, 's3'), (101, 's7'), (112, 's0')))
+            has_header = not ((spread == 16 and segment_id in ('s7', 's11')) or (spread == 17 and segment_id == 's1') or (spread == 35 and segment_id == 's1') or (spread, segment_id) in ((79, 's3'), (84, 's5'), (89, 's4'), (91, 's2'), (95, 's3'), (101, 's7'), (112, 's0')))
             if (spread, segment_id) in TABLE_META:
                 label, table_kind = TABLE_META[(spread, segment_id)]
             elif spread == 16 and segment_id == 's10':
@@ -298,17 +308,33 @@ def render_verified_block(value, spread, segment_id, query):
                 if not table_lines:
                     return
                 rows = []
+                # Every row must use the same grid, even when a trailing cell
+                # is absent. Empty visual cells carry no text, so editing and
+                # history keep the original tab-separated value intact.
+                column_count = max(len(line.rstrip('\n').split('\t')) for line in table_lines)
                 for index, line in enumerate(table_lines):
                     ending = '\n' if line.endswith('\n') else ''
                     row = line[:-1] if ending else line
                     cells = row.split('\t')
                     role = 'columnheader' if index == 0 and has_header else 'cell'
-                    rows.append('<span class="restored-row" role="row" style="--numeric-cols:' + str(len(cells)-1) + '">')
+                    rows.append('<span class="restored-row" role="row" style="--numeric-cols:' + str(column_count-1) + '">')
                     for cell_index, cell in enumerate(cells):
-                        rows.append('<span class="restored-cell" role="' + role + '">' + text_html(('\t' if cell_index else '') + cell) + '</span>')
+                        cell_text = ('\t' if cell_index else '') + cell
+                        # On these dated lists the printed repetition mark and
+                        # the count occupy separate positions within the cell.
+                        is_count = (((spread, segment_id) in ((84, 's5'), (89, 's4')) and cell_index > 0)
+                                    or (spread in (95, 101) and segment_id in ('s3', 's7') and cell_index in (1, 3)))
+                        match = re.match(r'^(.*?)(\s+)(\d+(?:\.|, viz\.)?)(\s*)$', cell_text) if is_count else None
+                        if match:
+                            content = ('<span class="count-label">' + text_html(match.group(1) + match.group(2))
+                                       + '</span><span class="count-number">' + text_html(match.group(3) + match.group(4)) + '</span>')
+                        else:
+                            content = text_html(cell_text)
+                        rows.append('<span class="restored-cell' + (' count-cell' if match else '') + '" role="' + role + '">' + content + '</span>')
+                    rows.extend('<span class="restored-cell empty-cell" role="cell" aria-label="Пусто"></span>' for _ in range(column_count - len(cells)))
                     rows.append('</span>' + ending)
                 table_class = {'fee': 'fee-table', 'mixed': 'mixed-table', 'statistical': 'statistical-table', 'diet': 'diet-table'}.get(table_kind, 'fee-table')
-                output.append('<span class="restored-table ' + table_class + '" role="table" aria-label="' + label + '">' + ''.join(rows) + '</span>')
+                output.append('<span class="restored-table ' + table_class + (' has-header' if has_header else '') + '" role="table" aria-label="' + label + '">' + ''.join(rows) + '</span>')
                 table_lines.clear()
             for line in chunk.splitlines(keepends=True):
                 if '\t' in line:

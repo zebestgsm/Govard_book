@@ -1072,6 +1072,34 @@ class SequentialProofreadTests(unittest.TestCase):
         self.assertIn('id="footnote-100-s1-2"', h100)
         self.assertIn('class="scan-fold-word"', h100)
 
+    def test_tables_keep_columns_and_editable_text(self):
+        from html.parser import HTMLParser
+        class Text(HTMLParser):
+            def __init__(self):
+                super().__init__()
+                self.parts = []
+            def handle_data(self, data):
+                self.parts.append(data)
+        for spread, segment, value in (
+            (84, 's5', '1787, 29 May.\tDebtor 1.\tFelons, etc. 190.\n1788, 20 March.\t„ 0.\t„ 220.'),
+            (95, 's3', '1772\t1709\t1778\t1027\n1777\t544'),
+            (89, 's4', '1787, 18 March,\tDebtors 140.\tFelons, etc. 350.\n1788, 26 Aug.,\t„ 114.\t„ 499, viz.'),
+            (101, 's7', '1776. 14 Feb.\tprisoners 2\t1782. 9 April\tprisoners 1\n1779. 21 Oct.\t„ 0\t1782. 2 Dec.\t„ 3'),
+            (103, 's7', 'Fees: Debtors, Felons, £1 4s. 10d.'),
+            (87, 's2', 'Allowance: Debtors, Felons, a penny loaf a day'),
+        ):
+            html = inline_editor.render_verified_block(value, spread, segment, '')
+            parser = Text()
+            parser.feed(html)
+            self.assertEqual(value, ''.join(parser.parts))
+            if spread in (84, 89, 101):
+                self.assertIn('class="count-number"', html)
+            if spread in (87, 103):
+                self.assertIn('class="shared-brace"', html)
+            if spread == 95:
+                self.assertEqual(2, html.count('style="--numeric-cols:3"'))
+                self.assertEqual(2, html.count('class="restored-cell empty-cell"'))
+
     def test_spreads_101_to_103_county_gaols(self):
         h101, s101 = reader.segment_state(101)
         self.assertIn('gaol-fever prevailed', s101['s3'])
