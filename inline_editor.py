@@ -206,7 +206,7 @@ def render_verified_block(value, spread, segment_id, query):
         elif '\t' in chunk:
             # Group only consecutive tab-separated lines. Prose introducing or
             # following a table must not become a one-cell table row.
-            has_header = not ((spread == 16 and segment_id in ('s7', 's11')) or (spread == 17 and segment_id == 's1') or (spread, segment_id) in ((79, 's3'), (112, 's0')))
+            has_header = not ((spread == 16 and segment_id in ('s7', 's11')) or (spread == 17 and segment_id == 's1') or (spread == 35 and segment_id == 's1') or (spread, segment_id) in ((79, 's3'), (112, 's0')))
             if (spread, segment_id) in TABLE_META:
                 label, table_kind = TABLE_META[(spread, segment_id)]
             elif spread == 16 and segment_id == 's10':
@@ -215,6 +215,8 @@ def render_verified_block(value, spread, segment_id, query):
                 label, table_kind = 'Thatched House Society, 27 March 1782', 'fee'
             elif spread == 17 and segment_id == 's1':
                 label, table_kind = 'Bristol and Dublin small-debt societies', 'fee'
+            elif spread == 35 and segment_id == 's1':
+                label, table_kind = 'Executions at Amsterdam, 1693–1766', 'fee'
             elif spread == 16 and segment_id == 's7':
                 label, table_kind = 'Fees for the copy of a calendar, 1735', 'fee'
             elif spread in (145, 146, 147):
@@ -254,6 +256,8 @@ def render_verified_block(value, spread, segment_id, query):
             flush_prose()
         elif (spread == 18 and segment_id == 's2' and chunk == 'SITUATION') or (spread == 20 and segment_id == 's5' and chunk == 'REGULATIONS') or (spread == 26 and segment_id == 's8' and chunk == 'BRIDEWELLS') or (spread == 31 and ((segment_id == 's0' and chunk in ('SECTION IV', 'AN ACCOUNT OF FOREIGN PRISONS')) or (segment_id == 's1' and chunk == 'HOLLAND'))) or (spread == 107 and chunk in ('ELY GAOL', 'NORFOLK', 'COUNTY BRIDEWELL', 'SUFFOLK', 'COUNTY GAOL AT IPSWICH')):
             output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
+        elif spread == 35 and segment_id == 's7' and chunk == 'Virtutis est domare\nQuæ cuncti pavent.':
+            output.append('<span class="book-verse">' + text_html(chunk) + '</span>')
         elif spread == 14 and (segment_id == 's1' or chunk.startswith(('Hail Patriot Band!', 'Much still untouch’d'))):
             output.append('<span class="book-verse">' + text_html(chunk) + '</span>')
         else:

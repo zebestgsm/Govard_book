@@ -61,7 +61,7 @@ OCR_ISSUES = {
 
 # Manual scan proofreading is distinct from automated whole-book collation.
 # Restored fragments/tables alone do not certify an entire spread.
-VERIFIED_SPREADS = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34,
+VERIFIED_SPREADS = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37,
                     107, 151, 153, 161, 162, 163, 164, 165}
 for _number in range(1, len(PAGES) + 1):
     if _number in VERIFIED_SPREADS:
@@ -357,6 +357,9 @@ STYLE = '''
 .spread-25 .footnote-continuation{white-space:pre-line}
 /* The printed Rotterdam dietary regulation is one note with a small table. */
 .spread-33 .diet-regulation{white-space:pre-line}.spread-33 .beer-allowance{font:inherit;white-space:normal;margin:.5em 0}.spread-33 .beer-allowance .restored-row{grid-template-columns:minmax(0,1fr) minmax(2.6em,.12fr)}.spread-33 .beer-allowance .restored-cell:last-child{text-align:right}
+/* This execution list has no printed column headings; diet notes keep line breaks. */
+.spread-35 .fee-table .restored-row:first-child{font-weight:normal;border-bottom:1px solid #e7e3d9}
+.spread-36 .verified-footnote,.spread-37 .verified-footnote{white-space:pre-line}
 /* On spread 17 the first rows are data, not column headings. */
 .spread-17 .fee-table .restored-row:first-child{font-weight:normal;border-bottom:1px solid #e7e3d9}
 @media(max-width:650px){.restored-table{font-size:10px}.restored-row{grid-template-columns:minmax(40px,2fr) repeat(var(--numeric-cols),minmax(0,1fr))}.restored-cell{padding:3px 0}.fee-table{font-size:13px}.fee-table .restored-row{grid-template-columns:minmax(0,1fr) repeat(var(--numeric-cols),minmax(0,.22fr))}.mixed-table .restored-row{grid-template-columns:minmax(0,1fr) repeat(var(--numeric-cols),minmax(0,1fr))}.diet-table .restored-row{grid-template-columns:minmax(64px,1fr) minmax(0,2.4fr)}.statistical-table .restored-row{grid-template-columns:minmax(44px,2.2fr) repeat(8,minmax(0,1fr))}}
@@ -605,7 +608,7 @@ def segment_state(number, edits=None, query='', rules=None):
     token = _current_corrections.set(rules)
     try:
         base = render_pages(number, PAGES[number - 1][1], '')
-        if 1 <= number <= 4 or 7 <= number <= 34 or number in (68, 79, 88, 90, 91, 95, 106, 107, 112, 119, 137, 144, 145, 146, 147, 148, 149, 150):
+        if 1 <= number <= 4 or 7 <= number <= 37 or number in (68, 79, 88, 90, 91, 95, 106, 107, 112, 119, 137, 144, 145, 146, 147, 148, 149, 150):
             base = base.replace('<article class="book-page"', '<article class="book-page verified-prose-page spread-' + str(number) + '"')
         if number in (145, 146, 147, 148, 149, 150):
             base = base.replace('<div class="book-spread">', '<div class="book-spread wide-table-spread">', 1)
