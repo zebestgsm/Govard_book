@@ -12506,7 +12506,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "LONDON",
           "s1": "every Sunday.The men and women are separated other,and from the rest of the congregation.",
@@ -12525,8 +12525,25 @@
           {
             "action": "start",
             "time": "2026-11-20T10:24:57+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T10:27:44+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "LONDON",
+          "s1": "every Sunday. The men and women are separated from each other, and from the rest of the congregation.\n\nOn the walls of the hall and court-room are hung up many tables of very considerable gifts and legacies to this hospital, in common with others: sufficient, to have made this prison more commodious, by providing courts; and several workrooms, and lodging-rooms, for keeping the prisoners more separate, as now is very prudently done for the faulty apprentices and Bridewell boys, who were formerly confined in one room.\n\nThe Bridewell boys are upon a quite different foundation, and foreign to my subject.",
+          "s2": "",
+          "s3": "To this prison were committed,\n1772\t1709\t1778\t1027\n1773\t777\t1779\t681\n1774\t808\t1780\t459\n1775\t1084\t1781\t484\n1776\t983\t1782\t659\n1777\t544\t\t\n\nI found there in\n1776. 13 March\tPrisoners 20\t1782. 18 Dec.\tPrisoners 32\n1 May\t„ 7\t1783. 26 Aug.\t„ 38\n3 Dec.\t„ 24\t31 Oct.\t„ 41\n1779. 12 Aug.\t„ 13\t\t\n\nWHITECHAPEL PRISON FOR DEBTORS\n\nIn it are confined those whose debts are above £2, and under £5. The master’s-side prisoners have four sizable chambers, fronting the road; i.e. two on each story. They pay 2s. 6d. a week; and lie two in a bed; two beds in a room.\n\nThe common-side debtors are in two long rooms in the court, near the tap-room; men in one room, women in the other: the courtyard in common. They hang out a begging-box from a little closet in the front of the house; and attend it in turn. It brings them only a few pence a day; and of this pittance none partake but those who at entrance have paid the keeper 2s. 6d. and treated the prisoners with half a gallon of beer. When I was there in 1777, no more than three had purchased this privilege.\n\nThe prison is out of repair. It is the property of the lady of",
+          "s4": "",
+          "s5": "WESTMINSTER",
+          "s6": "the manor. The keeper, George Garred, is an officer: he pays rent £24; and window-tax, and all other taxes. He keeps the tap. Fees, £0 8s. 1d. No table: but in November 1776, I saw a paper hung up, on which was written as follows:\n\nA TABLE of FEES to be taken by the Keeper of this Prison\n\n\t£\ts.\td.\nFor the discharge of every person upon any civil action, process or execution\t0\t8\t1\nFor every person who chooses to lie on the master’s-side, for the first night\t0\t2\t0\nFor every person who chooses to lie on the master’s-side after the first night to pay every week\t0\t2\t6\n\nGEORGE GARRED, keeper, 10th August, 1776.\n\nAt the same time I saw another paper entitled Rules and Orders to be observed in this Prison. It was dated 6 August, 1776. The first rule is, “That every person who comes into this prison as a prisoner, shall pay for his garnish 2s. 10½d.” The clauses of the Act against spirituous liquors hung up.\n\nAt my first visit there were on the common-side two prisoners in hammocks, sick and very poor. No chaplain. A compassionate man, who was not a regular clergyman, sometimes preached to them on Sunday; and gave them some small relief. Lady Townshend sends a guinea twice a year, which her servant distributes equally among the prisoners.\n\nAs debtors here are generally very poor, I was surprised to see once ten or twelve noisy men at skittles; but the turnkey said they were only visitants. I found they were admitted here as at another public house. No prisoners were at play with them. The court-room is near this prison.\n\nTHE SAVOY\n\nThis prison for the military, has two rooms called the guard-rooms; because in them are confined offenders who are of the king’s guards. The remainder of the building over the gate is the keeper’s house. On the opposite side of the court, is a large room down five steps, the hall. On the left-hand side of the court is another hall, not so large: at each end of it is a room with barrack-bedsteads and beds; both rooms very close and unhealthy. Over them are other barrack-rooms, somewhat",
+          "s7": "",
+          "s8": "",
+          "s9": "",
+          "s10": ""
+        }
       }
     },
     "96": {
