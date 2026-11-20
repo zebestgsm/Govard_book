@@ -13849,7 +13849,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "SUSSEX",
           "s1": "This gaol has two foors over arcades;the ascent by a stone staircase with iron rails.On each floor,bo debtors’and felonsside,there are ten rooms(five on apassage five feet wide),besides a day-room （twent twelve feet three inches)and a lodging-room for a Each floor has an iron-lattice door;and every room has for the window,a bedstead,a canvas straw bed, blankets:and the county is so considerate as to allow ofcoals to the debtors,and the same quantity to t every day during the six winter months.",
@@ -13874,6 +13874,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T10:58:15+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T11:25:51+00:00"
           }
         ],
         "after": {
