@@ -6227,7 +6227,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "and a tap-room,over which are the women’s apartments,five all ofwhom were in the secret chambers,and twenty more at con large.",
@@ -6251,6 +6251,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T09:11:56+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T09:17:41+00:00"
           }
         ],
         "after": {
