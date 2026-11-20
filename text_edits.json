@@ -3750,7 +3750,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "them to the regents when required.Also he must keep an witha exact register of the clothes,and all other things which belong Sunday tothose confined.",
@@ -3768,8 +3768,24 @@
           {
             "action": "start",
             "time": "2026-11-20T08:08:45+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T08:10:56+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "AN ACCOUNT OF FOREIGN PRISONS",
+          "s1": "them to the regents when required. Also he must keep an exact register of the clothes, and all other things which belong to those confined.\n\nThe regents assemble in the house at four o’clock every Wednesday afternoon, to collect and examine the transactions of the preceding week. They appoint a servant to give any necessary assistance to the father, to cut the slices of bread for the prisoners; and when the father is ill, in the evening to visit and examine the cots.\n\nIn the nine lower rooms of this house, in June 1778, were confined upwards of forty prisoners; in June 1781, fifty-five; in November, sixty-five; June 6, 1783, fifty-one. One of these was incapable of working, his limbs having been dislocated by torture. Each of these rooms, in which they work in the day and are locked up at night, contains at least four persons. The same prisoners do not continue long together, but are removed and separated once a fortnight or oftener. Few or none of them were rasping logwood, but most of them chopping it for the two mills belonging to the house: as it was found to be too laborious for most of the prisoners, to work with six or eight saws, which often weigh seventy or eighty pounds. The medical gentlemen, who daily visit the prison, informed the magistrates that it had been the cause of frequent ruptures.\n\nNo friends of the prisoners are permitted to visit them, without express orders from the regents, unless on Mondays: and then they must be searched, to prevent the introduction of spirituous liquors, or instruments for breaking out, or anything else forbidden: and they must retire before the time for shutting up. Every visitant is obliged to put two stivers into a box entrusted with the father. Refreshments may be received and given to the convicts on Tuesdays; but not on other days. Every evening, at eight o’clock, the father must see that all things are in due order. The saws, and other heavy implements for their work are taken from them in the evening, and returned in the morning. If a convict be guilty of breaking anything considerable, of burning the logwood, or of neglect or disobedience, he is punished severely by whipping, or confined to bread and water in a dungeon underground. On careful inquiry, I learned, that what has been said concerning a cellar in which such transgressors are put to pump or drown, is a fiction.\n\nPrayers are read morning and evening, and before and after meals, by one of the best-behaved convicts: and divine service,",
+          "s2": "",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "",
+          "s7": "",
+          "s8": "HOLLAND",
+          "s9": "with a sermon, is performed in the chapel by a clergyman on Sunday mornings.\n\nOnce a year, a little before the change of the regency, the high-bailiff and magistrates, with a secretary, attended by the inferior officers of justice, come to this prison, in order to contract or lengthen the terms of confinement of the convicts, according to their good or bad behaviour, as represented by the regents.\n\nThe house provides for the prisoners, diet,¹ clothes, shoes and stockings, with shirts of half-bleached Flemish linen. Here is no infirmary: their labour keeps them in health: the physician, with whom I went the round at my last visit, had only two patients, and those with very slight disorders.\n\nSome persons are confined in private rooms, to which none have access, unless in the presence of a regent. Great care is enjoined the father in conveying provisions to those prisoners. With the regent’s leave, on Sunday mornings, some chapters of the Bible are read to them.²\n\nThe spin-house was for women. This, and the workhouse, were under the direction of six regents and four governesses;\n\n¹ The diet of the convicts in the rasp-house at Amsterdam.\nSunday breakfast. Three slices of rye bread with butter, and a piece of dry bread six slices thick.\n(N.B. Three slices weigh half a pound.)\nSunday dinner or noon. Half a pound of beef or pork, with beans, salt and vinegar, and in winter full two pounds of salt meat.\nMonday breakfast. Six slices with butter, and a piece of bread of three slices thick.\nMonday dinner. Grey peas with salt and vinegar.\nTuesday breakfast. As on Monday.\nTuesday dinner. White or grey peas boiled in water with salt and sage.\nWednesday breakfast. As on Monday.\nWednesday dinner. Boiled oats or barley with sweet milk and butter upon it.\nWednesday supper. Buttermilk, with oats or barley boiled in it.\nThursday breakfast. Six slices of rye bread with butter, and a piece of bread as on Sunday morning.\nThursday dinner. Stockfish, with sweet milk and butter upon it.\nFriday. As Tuesday.\nSaturday breakfast. As Tuesday.\nSaturday dinner. As Wednesday supper.\nTheir drink is four pints of beer daily. But on holidays, viz., two days at Easter, Ascension-day, two at Whitsuntide, three at the fair time, and two at Christmas, they have for dinner, smoked or salt meat or bacon, beans or peas, carrots or cabbage, and the three fair days they have strong beer.\n\n² There are many of these rooms, or houses of confinement in Holland, called Verbetterhuizen. The regulations of some of them I collected; but as they are liable to abuse, and contrary to the general notions of public justice, I cannot but wish that they were universally suppressed."
+        }
       }
     },
     "37": {
@@ -3874,7 +3890,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "Thenth and inspect the work,the diet,and the lodging of theprisoners； dishwh and to chastise the disobedient. onawa The workroom was a large room upstairs,separated bya This wooden balustrade from the passage(six feetwide)into which whosel ofwha trades into two,for distinguishing thosewho had suffered some Atm public or corporal punishment,from others who hadnotbeen intothe whipped,and exposed ona scaffold.The mother was seated Here ata desk（where she had a full viewof her family at work) workho with aBible before her.As I stayed longer than a common house, visitant,one of the prisoners went up to the mistress with the house timid modesty of a suppliant,and asked leave to offer me the bonds, plate.The leave was granted.The mistress kept what was andfon mentv tea or coffee,for all topartake.",
@@ -3896,8 +3912,28 @@
           {
             "action": "start",
             "time": "2026-11-20T08:08:45+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T08:10:56+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "AN ACCOUNT OF FOREIGN PRISONS",
+          "s1": "who appointed two fathers and two mothers to superintend and inspect the work, the diet, and the lodging of the prisoners; and to chastise the disobedient.\n\nThe workroom was a large room upstairs, separated by a wooden balustrade from the passage (six feet wide) into which spectators were admitted. This room was divided by balustrades into two, for distinguishing those who had suffered some public or corporal punishment, from others who had not been whipped, and exposed on a scaffold. The mother was seated at a desk (where she had a full view of her family at work) with a Bible before her. As I stayed longer than a common visitant, one of the prisoners went up to the mistress with the timid modesty of a suppliant, and asked leave to offer me the plate. The leave was granted. The mistress kept what was given, till it amounted to a sum sufficient to purchase a little tea or coffee, for all to partake.\n\nThe kitchen, the dining- and lodging-rooms, were on the ground-floor. In each of the three bedrooms were ten wooden cases, with a straw mattress, two coverlets, sheets, and one large pillow, for two persons. All were clean, and showed the attention of the regents.\n\nIn this house you might see a number of criminals (in 1776 there were thirty-two; in 1778, forty-six; in June 1781, thirty-two, and in November, forty), some of whom had been the most abandoned, sitting in presence of the mother, quiet and orderly at their different sorts of work; spinning, plain work, etc. Of the latter sort much was sent in from the city. They had the same holidays as at the rasp-house. Hours of work from six to twelve, and from one to eight. I saw them go from work to dinner:¹ the keeper, or father as they called him, presided. First they sang a psalm: then they went in order down to a neat dining-room; where they seated themselves at two tables; and several dishes of boiled barley, agreeably sweetened, were set before them. The father struck with a hammer: then in profound silence all stood up; and one of them read with propriety a prayer about four or five minutes.\n\n¹ The diet of the prisoners was as follows:\nSunday. Dinner: Cut-cabbage with meat. Supper: Buttermilk.\nMonday. Dinner: White beans. Supper: Sweet milk with barley.\nTuesday. Dinner: Beans. Supper: Buttermilk.\nWednesday. Dinner: Grey peas. Supper: Buttermilk.\nThursday. Dinner: Barley. Supper: Bread and beer.\nFriday. Dinner: White beans. Supper: Buttermilk.\nSaturday. Dinner: Beans. Supper: Buttermilk.",
+          "s2": "",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "",
+          "s7": "",
+          "s8": "HOLLAND",
+          "s9": "Then they sat down cheerful; and each filled her bowl, from a large dish which contained enough for four of them. Then one brought on a waiter slices of bread and butter, and served each prisoner.\n\nThis house was supported by a small annual tax on those who sell tobacco, beer, and other liquors, and one-fourth part of what was received at public exhibitions and diversions.\n\nAt my visit in June 1783, the prisoners were all removed into the new workhouse.\n\nHere (as at some other towns in Holland) was a prison or workhouse for slighter offences. This was called the old rasp-house, and was worthy of observation, as a well regulated house of industry. Here were confined beggars and vagabonds, who for the first time were committed for six weeks, and for the second three months; but for the third their punishment was either a longer period of confinement or banishment. Drunkards also were here confined, and such as were guilty of petty larceny. In a large room at one of my visits I saw forty-six women carding, spinning, and reeling; twelve weaving coarse linen or sail-cloth; thirteen making and mending linen; one employed in keeping the room clean; and the mother holding a slate, on which were inscribed the names of the prisoners.¹ Some men and boys were in another large room, in which there were many looms. But most of the men were at work in the courts, boiling and picking oakum for calking the seams of ships. Among these men I counted forty or fifty women; and in 1781, there were twenty-five men and one hundred and twenty women all employed in the same manner;² except five or six who were mending the linen of the house.\n\nThe women’s bedroom was spacious; and I found it clean and in order, though I was there before ten o’clock in the forenoon.\n\nThis house was provided with (what seems to be much wanted in the Dutch prisons) an infirmary: but it was too small and close for the purpose.\n\nThe diet of the prisoners was the same as in the spin-house.³\n\n¹ Three fathers and three mothers were appointed to superintend this house. One father had the direction of the house-keeping, and the other two overlooked the manufactory. One mother managed the kitchen; and the office of the others was to keep the prisoners cleanly, and to take care of their bedding.\n\n² The prisoners at the new workhouse have the same employment: here is a quick sale for oakum; for the Admiralty and India Company find the old cords, and take the oakum when fit for use.\n\n³ Though in the houses of correction in Holland, the prisoners have meat only on Sundays, yet the peas, beans, barley, etc., are always made into a kind of thick soup or pottage, which is very palatable, and is served up hot at noon.",
+          "s10": "",
+          "s11": "",
+          "s12": "",
+          "s13": ""
+        }
       }
     }
   }
