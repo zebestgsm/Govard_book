@@ -4830,8 +4830,98 @@
       }
     },
     "45": {
-      "segments": {},
-      "history": [],
+      "segments": {
+        "s1": "with one another as they please. The allowance to each is six stivers a day paid by their creditors: on default of payment they are released.\n\nThis prison being in a close part of the city, is one of the most unhealthy. But, I was informed, it is to be removed to a more airy situation in the southern suburbs.\n\nThe spin- or rasp-house has an inscription over the door, Stockholms Stad Spin och Rasp hus, An. 1750. It stands on a declivity, at the extremity of the suburbs, and near a lake. The number of prisoners was a hundred and eighty; twenty or twenty-five of whom I saw in a room, sorting, carding, or spinning wool: every prisoner is obliged to spin two pounds and a half (equal to about three thousand ells) of yarn in a day: all that is done by any prisoners more than this, they are paid for, at the rate of two stivers a pound; and, as a further reward, they become entitled to an abridgment of their term of confinement, in proportion to their diligence.\n\nThe women’s apartments were clean; but the countenances of the men and boys were sickly, and their rooms dirty and offensive. The men were not separated from the boys as they should have been, nor the women from the girls.\n\nThe rooms employed as an infirmary were clean, and strewed with the young shoots of the spruce fir: it had in it five sick women, and five or six convalescents.\n\nOn inquiry, I found the scurvy was a prevailing disorder here, especially in August; which, I doubt not, is owing to close confinement, to the want of cleanliness, and to the use of salt-fish and other salt provisions. Some precautions are used against this disorder, for the prisoners at their admission are examined by the surgeons; after which they are required to bathe themselves, and to continue this as a practice twice a month.\n\nThey attend prayers in the hall of the spin-house every day; in summer, at six in the morning and seven in the evening; and in winter, at eight and four.\n\nA person in the office of an inspector has a convenient house here, with a salary of £50 per annum, which is large for this country, and four times more than the salary of the keeper. I am persuaded of the impropriety of trusting such establishments to the care of interested men. Neither the condition of the wards, nor the appearance of the prisoners, did this inspector any credit.",
+        "s2": "",
+        "s3": "",
+        "s4": "",
+        "s5": "",
+        "s6": "",
+        "s7": "",
+        "s8": "",
+        "s11": "In Russia the peasants and servants are bondmen or slaves, and their lords (or masters) may inflict on them any corporal punishment, or banish them to Siberia, on giving notice of their offence to the police. But they are not permitted to put them to death. Should they, however, die by the severity of their punishment, the penalty of the law is easily evaded. Instances notwithstanding, of great attachment of peasants to their lords, in consequence of good treatment, are not uncommon. A gentleman was shown me at Petersburg, whose peasants, hearing of his intention to sell his estate, brought him all the money they had saved, and gave it him, upon condition that he should keep his land, and still continue to be their master.\n\nDebtors in this country are often employed as slaves by government, and allowed twelve roubles¹ yearly wages, which goes towards discharging the debt.² In some cases of private debts, if any person will give sufficient security to pay twelve roubles a year as long as the slave lives, or till the debt is paid off; as also to produce the slave when he is demanded; such person may take him out of confinement: but if he fails to produce him when demanded, is liable to pay the whole debt immediately.\n\nThere are no regular gaolers appointed in Russia, but all the prisons are guarded by the military. Little or no attention is paid to the reformation of prisoners. In the instructions for a new code of laws by the present Empress,³ however, a very just and humane distinction is made between prisoners of different classes. “One ought not to confine in the same place, (1) an accused person, against whom there are only appearances, (2) a convict, (3) a criminal who is condemned to prison as a punishment. The accused person is only detained; the two others are imprisoned: but with respect to the former of them, the prison is only a part of punishment; with respect to the latter, it is the punishment itself.”\n\nThere is no capital punishment for any crime but treason:\n\n1 One hundred copecks is a rouble, and a rouble about four shillings.\n\n2 An impracticable scheme has been advanced by a late author to oblige debtors in England to work off their debts by their own labour. The Marquis Beccaria, in his former editions of his Essay on Crimes and Punishments, had proposed some such scheme; but in the third edition he acknowledged his mistake, and confessed that he had injured the rights of humanity and was ashamed that he had adopted so inconsiderate an opinion.\n\n3 Catherine the Great.—[ED.]",
+        "s12": "",
+        "s13": ""
+      },
+      "history": [
+        {
+          "id": "s1",
+          "before": "with one another as they please.The allowance to each is six stivers a daypaid by their creditors:on default ofpayment they are released.",
+          "after": "with one another as they please. The allowance to each is six stivers a day paid by their creditors: on default of payment they are released.\n\nThis prison being in a close part of the city, is one of the most unhealthy. But, I was informed, it is to be removed to a more airy situation in the southern suburbs.\n\nThe spin- or rasp-house has an inscription over the door, Stockholms Stad Spin och Rasp hus, An. 1750. It stands on a declivity, at the extremity of the suburbs, and near a lake. The number of prisoners was a hundred and eighty; twenty or twenty-five of whom I saw in a room, sorting, carding, or spinning wool: every prisoner is obliged to spin two pounds and a half (equal to about three thousand ells) of yarn in a day: all that is done by any prisoners more than this, they are paid for, at the rate of two stivers a pound; and, as a further reward, they become entitled to an abridgment of their term of confinement, in proportion to their diligence.\n\nThe women’s apartments were clean; but the countenances of the men and boys were sickly, and their rooms dirty and offensive. The men were not separated from the boys as they should have been, nor the women from the girls.\n\nThe rooms employed as an infirmary were clean, and strewed with the young shoots of the spruce fir: it had in it five sick women, and five or six convalescents.\n\nOn inquiry, I found the scurvy was a prevailing disorder here, especially in August; which, I doubt not, is owing to close confinement, to the want of cleanliness, and to the use of salt-fish and other salt provisions. Some precautions are used against this disorder, for the prisoners at their admission are examined by the surgeons; after which they are required to bathe themselves, and to continue this as a practice twice a month.\n\nThey attend prayers in the hall of the spin-house every day; in summer, at six in the morning and seven in the evening; and in winter, at eight and four.\n\nA person in the office of an inspector has a convenient house here, with a salary of £50 per annum, which is large for this country, and four times more than the salary of the keeper. I am persuaded of the impropriety of trusting such establishments to the care of interested men. Neither the condition of the wards, nor the appearance of the prisoners, did this inspector any credit.",
+          "time": "2026-11-20T08:35:00+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s2",
+          "before": "This prison being in a close part of thecity,isone of themost InR unhealthy.But,Iwas informed,it is to be removed to a more andth airy situation in the southern suburbs.",
+          "after": "",
+          "time": "2026-11-20T08:35:00+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s3",
+          "before": "The spin- or rasp-house has an inscription over the door, punish offence Stockholms Stad Spin och Rasp hus,An.1750.",
+          "after": "",
+          "time": "2026-11-20T08:35:00+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s4",
+          "before": "It stands ona todea declivity,at the extremity of the suburbs,and near a lake.",
+          "after": "",
+          "time": "2026-11-20T08:35:00+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s5",
+          "before": "The number of prisoners was a hundred and eighty;twenty punish or twenty-five of whom I saw in a room, sorting,carding,or notwit incor spinning wool:every prisoner is obliged to spin twopounds anda half (equal to about three thousand ells) of yarn in a day: gentler ofhis all thatis done by any prisoners more than this,they are paid theyh for,attherate of two stivers apound;and,as a further reward keep they become entitled to an abridgment of their termof Deb confinement,in proportion to their diligence.",
+          "after": "",
+          "time": "2026-11-20T08:35:00+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s6",
+          "before": "The women’s apartments were clean;but the countenances goverr goest ofthe men and boys were sickly,and their rooms dirty and debts, offensive.",
+          "after": "",
+          "time": "2026-11-20T08:35:00+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s7",
+          "before": "Themen were not separated from theboys as they rouble should have been,nor the women from the girls. off；a The rooms employed asan infrmarywere clean,and strewed with the young shoots of the spruce fir:it had in it five sick person produ women,and five or six convalescents. imme On inquiry，I found the scurvy was a prevailing disorder The here,especially in August；which,doubtnot,isowing to close prisor confinement,to thewant of cleanliness,and to theuse of salt- paid fish and other salt provisions.Some precautions are used anev against this disorder,for the prisoners at their admission are just examined by the surgeons;after which they are required to differ bathe themselves,and to continue this as a practice twice a (I)ar amonth.",
+          "after": "",
+          "time": "2026-11-20T08:35:00+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s8",
+          "before": "They attend prayers in the hall of the spin-house every day; (2）a in summer,at six in the morning and seven in the evening; punis other and in winter,at eight and four. the A person in the office of an inspector has a convenient house latter Th country, and four times more than the salary of the keeper. 10 I am persuaded of the impropriety of trusting such establish- 2A ments to the care of interested men.Neither the condition debto of the wards,nor the appearance of the prisoners,did this Marq ments inspector any credit. ledge andy 3C",
+          "after": "",
+          "time": "2026-11-20T08:35:00+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s11",
+          "before": "ussia the peasants and servants are bondmen or slaves, eir lords（or masters)may infict on them any corporal ment,orbanish them toSiberia,on giving notice of their to the police.Butthey are not permitted toput them th.Should they，however,dieby the severity of their ment,the penalty of the lawis easily evaded.Instances hstanding,of great attachment of peasants to their lords, asequence of good treatment,are not uncommon.A manwasshownmeatPetersburg,whose peasants,hearing intention to sell his estate,brought him all themoney ad saved,and gave it him,upon condition thathe should is land,and still continue to be their master. tors in this country are often employed as slaves by ment,and allowed twelve roubles yearly wages,which owards discharging the debt. In some cases of private if any person will give suficient security topay twelve sayear as long as the slave lives,or till the debt ispaid salso toproduce the slave when he is demanded;such may take him out of confinement:but if he fails to cehimwhen demanded,is liable to pay the whole debt diately. ere are no regular gaolers appointed in Russia,but all the as are guarded by the military.",
+          "after": "In Russia the peasants and servants are bondmen or slaves, and their lords (or masters) may inflict on them any corporal punishment, or banish them to Siberia, on giving notice of their offence to the police. But they are not permitted to put them to death. Should they, however, die by the severity of their punishment, the penalty of the law is easily evaded. Instances notwithstanding, of great attachment of peasants to their lords, in consequence of good treatment, are not uncommon. A gentleman was shown me at Petersburg, whose peasants, hearing of his intention to sell his estate, brought him all the money they had saved, and gave it him, upon condition that he should keep his land, and still continue to be their master.\n\nDebtors in this country are often employed as slaves by government, and allowed twelve roubles¹ yearly wages, which goes towards discharging the debt.² In some cases of private debts, if any person will give sufficient security to pay twelve roubles a year as long as the slave lives, or till the debt is paid off; as also to produce the slave when he is demanded; such person may take him out of confinement: but if he fails to produce him when demanded, is liable to pay the whole debt immediately.\n\nThere are no regular gaolers appointed in Russia, but all the prisons are guarded by the military. Little or no attention is paid to the reformation of prisoners. In the instructions for a new code of laws by the present Empress,³ however, a very just and humane distinction is made between prisoners of different classes. “One ought not to confine in the same place, (1) an accused person, against whom there are only appearances, (2) a convict, (3) a criminal who is condemned to prison as a punishment. The accused person is only detained; the two others are imprisoned: but with respect to the former of them, the prison is only a part of punishment; with respect to the latter, it is the punishment itself.”\n\nThere is no capital punishment for any crime but treason:\n\n1 One hundred copecks is a rouble, and a rouble about four shillings.\n\n2 An impracticable scheme has been advanced by a late author to oblige debtors in England to work off their debts by their own labour. The Marquis Beccaria, in his former editions of his Essay on Crimes and Punishments, had proposed some such scheme; but in the third edition he acknowledged his mistake, and confessed that he had injured the rights of humanity and was ashamed that he had adopted so inconsiderate an opinion.\n\n3 Catherine the Great.—[ED.]",
+          "time": "2026-11-20T08:35:00+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s12",
+          "before": "Little orno attention is to the reformation of prisoners.",
+          "after": "",
+          "time": "2026-11-20T08:35:00+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s13",
+          "before": "In the instructions for code of laws by the present|Empress,3however,a very and humane distinction is made between prisoners of entclasses. “One ought not to confine in the same place, accused person,against whom there areonly appearances, convict,(3)a criminal who is condemned to prison as a hment.The accused person is only detained;the two sareimprisoned:butwith respect to the former of them, rison isonlya part of punishment;with respect to the ,it is the punishment itself. ere is no capital punishment for any crime but treason: hehundred copecksisarouble,and a rouble about four shillings. impracticable scheme hasbeen advanced by a late author to oblige nisBeccaria,in his former editions of hisEssay onCrimes andPunish- had proposed some such scheme;but in the third editionhe acknow- his mistake,and confessed that he had injured the rights of humanity asashamed thathehad adoptedso inconsiderate an opinion. atherine theGreat.-[ED.] G835",
+          "after": "",
+          "time": "2026-11-20T08:35:00+00:00",
+          "kind": "edit"
+        }
+      ],
       "spread_review": {
         "state": "working",
         "before": {
@@ -4860,8 +4950,146 @@
       }
     },
     "46": {
-      "segments": {},
-      "history": [],
+      "segments": {
+        "s1": "but the common punishment of the knoot is often dreaded more than death, and sometimes a criminal has endeavoured to bribe the executioner to kill him. This punishment seldom causes immediate death, but death is often the consequence of it.\n\nPETERSBURG. The governor of the police at Petersburg was so kind as to fix a time for showing me all the instruments commonly used for punishment—the axe and block—the machine (now out of use) for breaking the arms and legs—the instrument for slitting or lacerating the nostrils—and that for marking criminals (which is done by punctuation, and then rubbing a black powder on the wounds)—the knoot whip—and another called the cat, which consists of a number of thongs from two to ten. The knoot whip is fixed to a wooden handle a foot long, and consists of several thongs about two feet in length twisted together, to the end of which is fastened a single tough thong of a foot and a half, tapering towards a point, and capable of being changed by the executioner, when too much softened by the blood of the criminal.\n\n10 August, 1781, I saw two criminals, a man and a woman, suffer the punishment of the knoot. They were conducted from prison by about fifteen hussars and ten soldiers. When they arrived at the place of punishment, the hussars formed themselves into a ring round the whipping-post, the drum beat a minute or two, and then some prayers were repeated, the populace taking off their hats. The woman was taken first; and after being roughly stripped to the waist, her hands and feet were bound with cords to a post made for the purpose, a man standing before the post to keep the cords tight. A servant attended the executioner, and both were stout men. The servant first marked his ground, and struck the woman five times on the back. Every stroke seemed to penetrate deep into her flesh. But his master thinking him too gentle, pushed him aside, took his place, and gave all the remaining strokes himself, which were evidently more severe. The woman received twenty-five, and the man sixty: I pressed through the hussars, and counted the number as they were chalked on a board. Both seemed but just alive, especially the man, who yet had strength enough to receive a small donation with some signs of gratitude. They were conducted back to prison in a little wagon. I saw the woman in a very weak condition some days after, but could not find the man any more.\n\nIn the fortress there are many vaulted rooms, some of which are now used for the confinement of deserters, and criminals",
+        "s2": "",
+        "s3": "",
+        "s4": "",
+        "s5": "",
+        "s6": "",
+        "s7": "",
+        "s8": "",
+        "s10": "of various sorts, who work on the fortifications. Some were glad of the privilege of being employed in the governor’s garden, for the sake of the flour which he gave them for their labour. Others, with logs to their legs, were drawing wood out of the Neva. Thirty-five were crowded into one of the rooms, which therefore was excessively hot, having only two small apertures (ten inches by nine) for the admission of air. In another part of this building, seventy-five slaves with logs fastened to both their legs, were lodged in four rooms, which were still more close and offensive. In a few rooms (used as barracks) some officers were confined. Every room was furnished with an oven or stove, and most of them with barrack-beds.\n\nIn the police prison there were in one room nine women, and in two other rooms forty-four men. In two small and low arched cellars (very hot and offensive) I saw fifteen men, most of them in irons. In a room called the infirmary, detached from the rest of the prison, there were seven persons sick. All the prisoners subsist on voluntary contributions, collected in boxes before their grates, and at church. This is all the advantage they derive from the church near the prison, for they are never permitted to enter it, or to go out of their rooms; except on particular occasions with guards of soldiers.\n\nThe prison for debtors consists of four vaulted rooms communicating with one another, and furnished with stoves and barrack-beds. The prisoners are never permitted to go out of their rooms. They subsist by alms received from passengers in little boxes placed before the windows; but government supplies them with wood for fuel. One told me, he had been confined for five years, for a debt of fifteen roubles; and another, four years for twenty-five roubles.\n\nOn a rising ground at a little distance from Petersburg, and on the south side of the river Neva, there is a stately pile of buildings, originally designed for a convent, but ever since 1764 converted by the Empress Catherine the Second, into a public establishment for educating the female nobility of Russia, and a limited number of the children of commoners. The sleeping rooms and dining-halls in these buildings are remarkably lofty and airy, having large galleries round them; and adjoining to the buildings there are spacious gardens and lawns, which extend to the banks of the river. The number of the children of nobility on this establishment is two hundred; and the number of the children of commoners, or peasants was, till 1770, limited to two hundred and forty: but since this year it has been",
+        "s11": "",
+        "s12": "",
+        "s13": "",
+        "s14": "",
+        "s15": "",
+        "s16": "",
+        "s17": "",
+        "s18": ""
+      },
+      "history": [
+        {
+          "id": "s1",
+          "before": "but the common punishment of the knoot is often dreadedmore than death,and sometimes acriminal has endeavoured to bribe of the executioner to kill him.This punishment seldom causes gl immediate death,but death is often the consequence of it. fo PETERsBuRG.The governor of the police at Petersburg was so Ot kind astofixa timefor showing me all the instruments commonly N used for punishment-the axe and block-the machine(now out th of use)for breaking the arms and legs- -the instrument for slitting (te or lacerating the nostrils-and that for marking criminals of （which is done by punctuation,and then rubbing a black th powder on the wounds)-theknoot whip-and another called cl the cat,which consists of a numberof thongs from two to ten. of The knoot whip is fixed to a wooden handle a foot long,and or consists of several thongs about two feet inlength twisted together,to the end of which is fastened a single tough thong in of a foot and a half,tapering towards a point,and capable of ar being changed by the executioner,when toomuch softened by of the blood of the criminal. fr 10 August,1781,I saw two criminals,a man and a woman, A suffer the punishment of the knoot.",
+          "after": "but the common punishment of the knoot is often dreaded more than death, and sometimes a criminal has endeavoured to bribe the executioner to kill him. This punishment seldom causes immediate death, but death is often the consequence of it.\n\nPETERSBURG. The governor of the police at Petersburg was so kind as to fix a time for showing me all the instruments commonly used for punishment—the axe and block—the machine (now out of use) for breaking the arms and legs—the instrument for slitting or lacerating the nostrils—and that for marking criminals (which is done by punctuation, and then rubbing a black powder on the wounds)—the knoot whip—and another called the cat, which consists of a number of thongs from two to ten. The knoot whip is fixed to a wooden handle a foot long, and consists of several thongs about two feet in length twisted together, to the end of which is fastened a single tough thong of a foot and a half, tapering towards a point, and capable of being changed by the executioner, when too much softened by the blood of the criminal.\n\n10 August, 1781, I saw two criminals, a man and a woman, suffer the punishment of the knoot. They were conducted from prison by about fifteen hussars and ten soldiers. When they arrived at the place of punishment, the hussars formed themselves into a ring round the whipping-post, the drum beat a minute or two, and then some prayers were repeated, the populace taking off their hats. The woman was taken first; and after being roughly stripped to the waist, her hands and feet were bound with cords to a post made for the purpose, a man standing before the post to keep the cords tight. A servant attended the executioner, and both were stout men. The servant first marked his ground, and struck the woman five times on the back. Every stroke seemed to penetrate deep into her flesh. But his master thinking him too gentle, pushed him aside, took his place, and gave all the remaining strokes himself, which were evidently more severe. The woman received twenty-five, and the man sixty: I pressed through the hussars, and counted the number as they were chalked on a board. Both seemed but just alive, especially the man, who yet had strength enough to receive a small donation with some signs of gratitude. They were conducted back to prison in a little wagon. I saw the woman in a very weak condition some days after, but could not find the man any more.\n\nIn the fortress there are many vaulted rooms, some of which are now used for the confinement of deserters, and criminals",
+          "time": "2026-11-20T08:35:00+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s2",
+          "before": "They were conducted in from prison by about fifteen hussars and ten soldiers.",
+          "after": "",
+          "time": "2026-11-20T08:35:00+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s3",
+          "before": "When ad they arrived at the place of punishment,the hussars formed th themselves into a ring round the whipping-post,the drum beat ex populace taking off their hats.",
+          "after": "",
+          "time": "2026-11-20T08:35:00+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s4",
+          "before": "Thewoman was taken first; m and after being roughly stripped to the waist,her hands and ba feetwere boundwith cords toa post made for the purpose,a th man standing before the post to keep the cords tight.A in servant attended the executioner, and both were stout men. su The servant first marked his ground,and struck thewoman five CO times on the back.",
+          "after": "",
+          "time": "2026-11-20T08:35:00+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s5",
+          "before": "Every stroke seemed to penetrate deepinto for her fesh. But his master thinking him too gentle, pushed him aside,took his place,and gave all the remaining strokes on himself, which were evidently more severe.",
+          "after": "",
+          "time": "2026-11-20T08:35:00+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s6",
+          "before": "Thewoman bu received twenty-five,and the man sixty:Ipressed through the Co hussars,and counted the number as they were chalked on a es a yethad strength enough to receive a small donation with some rO signs of gratitude.",
+          "after": "",
+          "time": "2026-11-20T08:35:00+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s7",
+          "before": "They were conducted back to prison ina an little wagon.",
+          "after": "",
+          "time": "2026-11-20T08:35:00+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s8",
+          "before": "Isaw the woman in averyweak condition some th days after,but could not find the man any more. to In the fortress there aremany vaulted rooms,some of which no are now used for the confinement of deserters,and criminals of to",
+          "after": "",
+          "time": "2026-11-20T08:35:00+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s10",
+          "before": "various sorts,who work on the fortifications. Some were adof the privilege of being employed in the governor'sgarden, thesakeofthefourwhichhegave themfor their labour. hers,with logs to their legs,were drawing wood out of the eva.",
+          "after": "of various sorts, who work on the fortifications. Some were glad of the privilege of being employed in the governor’s garden, for the sake of the flour which he gave them for their labour. Others, with logs to their legs, were drawing wood out of the Neva. Thirty-five were crowded into one of the rooms, which therefore was excessively hot, having only two small apertures (ten inches by nine) for the admission of air. In another part of this building, seventy-five slaves with logs fastened to both their legs, were lodged in four rooms, which were still more close and offensive. In a few rooms (used as barracks) some officers were confined. Every room was furnished with an oven or stove, and most of them with barrack-beds.\n\nIn the police prison there were in one room nine women, and in two other rooms forty-four men. In two small and low arched cellars (very hot and offensive) I saw fifteen men, most of them in irons. In a room called the infirmary, detached from the rest of the prison, there were seven persons sick. All the prisoners subsist on voluntary contributions, collected in boxes before their grates, and at church. This is all the advantage they derive from the church near the prison, for they are never permitted to enter it, or to go out of their rooms; except on particular occasions with guards of soldiers.\n\nThe prison for debtors consists of four vaulted rooms communicating with one another, and furnished with stoves and barrack-beds. The prisoners are never permitted to go out of their rooms. They subsist by alms received from passengers in little boxes placed before the windows; but government supplies them with wood for fuel. One told me, he had been confined for five years, for a debt of fifteen roubles; and another, four years for twenty-five roubles.\n\nOn a rising ground at a little distance from Petersburg, and on the south side of the river Neva, there is a stately pile of buildings, originally designed for a convent, but ever since 1764 converted by the Empress Catherine the Second, into a public establishment for educating the female nobility of Russia, and a limited number of the children of commoners. The sleeping rooms and dining-halls in these buildings are remarkably lofty and airy, having large galleries round them; and adjoining to the buildings there are spacious gardens and lawns, which extend to the banks of the river. The number of the children of nobility on this establishment is two hundred; and the number of the children of commoners, or peasants was, till 1770, limited to two hundred and forty: but since this year it has been",
+          "time": "2026-11-20T08:35:00+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s11",
+          "before": "Thirty-five were crowded into one of therooms,which erefore was excessively hot,having onlytwo small apertures eninchesbynine)for the admission of air.In another part this building,seventy-five slaves with logs fastened to both eir legs,were lodgedin four rooms,which were still more ose and offensive.In a few rooms（usedas barracks) some icerswere confined.Everyroom was furnished with an oven stove,and most of them with barrack-beds.",
+          "after": "",
+          "time": "2026-11-20T08:35:00+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s12",
+          "before": "In the police prison there werein one room nine women,and two other rooms forty-fourmen.In two small and low ched cellars(veryhot and offensive)Isaw fifteen men,most them in irons.",
+          "after": "",
+          "time": "2026-11-20T08:35:00+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s13",
+          "before": "In a room called the infrmary,detached om the rest of the prison,there were seven persons sick. 1the prisoners subsist on voluntary contributions,collected boxes before their grates,and at church.This is all the vantage they derive from the church near the prison,for ey are never permitted to enter it,or to go out of their rooms; cept on particular occasions with guards of soldiers.",
+          "after": "",
+          "time": "2026-11-20T08:35:00+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s14",
+          "before": "Theprison for debtors consists of four vaulted rooms com- unicating with one another,and furnished with stoves and rrack-beds.",
+          "after": "",
+          "time": "2026-11-20T08:35:00+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s15",
+          "before": "The prisoners are never permitted togo out of eirrooms.",
+          "after": "",
+          "time": "2026-11-20T08:35:00+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s16",
+          "before": "They subsist by alms received from passengers little boxes placed before the windows;but government pplies them with wood for fuel.One toldme,hehadbeen nfined for five years,fora debt of fifteen roubles;and another, uryearsfor twenty-five roubles.",
+          "after": "",
+          "time": "2026-11-20T08:35:00+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s17",
+          "before": "Ona rising groundata little distance from Petersburg,and the south side of the river Neva,there is a stately pile of ildings,originally designed for a convent,buteversince1764 nverted by the Empress Catherine the Second,into a public tablishment for educating the female nobility of Russia,and limited number of the children of commoners.The sleeping oms and dining-hallsin these buildings are remarkably lofty d airy,having large galleries round them;and adjoining to ebuildingstherearespaciousgardensandlawns,which extend the banksof the river.",
+          "after": "",
+          "time": "2026-11-20T08:35:00+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s18",
+          "before": "Thenumber of the children of bility on this establishment is twohundred;and thenumber the children of commoners,or peasants was,till77o,limited twohundred and forty:but since this year it has been",
+          "after": "",
+          "time": "2026-11-20T08:35:00+00:00",
+          "kind": "edit"
+        }
+      ],
       "spread_review": {
         "state": "working",
         "before": {
