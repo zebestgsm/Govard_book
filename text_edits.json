@@ -5569,7 +5569,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "ffty-two in 177o,none had died in1781;and of fifty admitted door at different times,by the particular order of the Empress,between subsis 1764and 178o,only twohad diedin1781.Ofsixty children Th alsoof commoners admittedin1767,and seventyin177o,only room sevenhad diedin1781.Butof sixty admittedin1764,thirteen floors had died;nconsequence,it is supposed,ofhavingbeenlodgd room ina part of the buildings which had been just erected,and room therefore wasnot sufficiently dry.",
@@ -5595,6 +5595,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T08:40:59+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T09:10:42+00:00"
           }
         ],
         "after": {
