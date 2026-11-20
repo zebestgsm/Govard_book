@@ -9488,7 +9488,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRIS",
           "s1": "itmyself;and for that purpose knocked hard at theou andimmediatelywentforwardthroughtheguardtoth bridge before the entrance of the castle.But whil contemplating this gloomy mansion,an officer came or surprised;and I was forced to retreat through'themut and thus regained that freedom,which for one lockedu those walls it is next to impossible to obtain.",
@@ -9512,6 +9512,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T09:40:22+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T09:59:07+00:00"
           }
         ],
         "after": {
