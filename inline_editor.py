@@ -398,7 +398,10 @@ def render_verified_block(value, spread, segment_id, query):
               or (spread == 121 and ((segment_id == 's1' and chunk == 'BRIDGEWATER TOWN GAOL') or (segment_id == 's2' and chunk in ('NORTHERN CIRCUIT', 'YORKSHIRE', 'COUNTY GAOL, YORK CASTLE'))))
               or (spread == 122 and ((segment_id == 's1' and chunk == 'KNARESBOROUGH PRISON, FOR TOWN DEBTORS') or (segment_id == 's2' and chunk in ('ROTHWELL PRISON, FOR DEBTORS', 'HALIFAX PRISON¹')) or (segment_id == 's4' and chunk in ('DURHAM', 'COUNTY GAOL AT DURHAM'))))
               or (spread == 123 and ((segment_id == 's1' and chunk in ('NORTHUMBERLAND', 'NEWCASTLE')) or (segment_id == 's5' and chunk in ('COUNTY GAOL AT MORPETH', 'CUMBERLAND', 'COUNTY GAOL AT CARLISLE'))))
-              or (spread == 124 and segment_id == 's7' and chunk in ('LANCASHIRE', 'COUNTY GAOL, LANCASTER CASTLE'))):
+              or (spread == 124 and segment_id == 's7' and chunk in ('LANCASHIRE', 'COUNTY GAOL, LANCASTER CASTLE'))
+              or (spread == 125 and ((segment_id == 's1' and chunk == 'COUNTY BRIDEWELL') or (segment_id == 's9' and chunk == 'LIVERPOOL BOROUGH GAOL')))
+              or (spread == 126 and segment_id == 's1' and chunk == 'LIVERPOOL BRIDEWELL')
+              or (spread == 127 and segment_id == 's8' and chunk == 'CHESTER CITY BRIDEWELL')):
             output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
         elif ((spread == 102 and segment_id == 's4' and chunk.startswith('that want of care respecting them'))
               or (spread == 110 and segment_id == 's3' and chunk.startswith('Before this rigorous law'))
