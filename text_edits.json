@@ -6097,7 +6097,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "FLoRENcE.In Florence are two prisons.In the great prison ofre Palazzo degl Otto,were only twenty prisoners.",
@@ -6120,6 +6120,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T08:43:40+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T09:16:34+00:00"
           }
         ],
         "after": {
