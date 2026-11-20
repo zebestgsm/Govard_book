@@ -16547,6 +16547,44 @@
           "s10": ""
         }
       }
+    },
+    "128": {
+      "segments": {},
+      "history": [],
+      "spread_review": {
+        "state": "working",
+        "before": {
+          "s0": "NORTHWALESCIRCUI",
+          "s1": "CARNARVONSHIRE",
+          "s2": "COUNTY GAOL AT CARNARVON",
+          "s3": "Gaoler.Thomas Prichard.",
+          "s4": "Salary:none.",
+          "s5": "Fees:Debtors,fo 3s.6d.entrance. o2s.6d.discharge.",
+          "s6": "Felons, oI3s.4d.",
+          "s7": "Transports:the expense.",
+          "s8": "Licence:Beer.",
+          "s9": "Prisoners.",
+          "s10": "Allowance:Debtors, none.",
+          "s11": "Felons, 2s.4d.a week each.（See rema Garnish:a shilling.",
+          "s12": "Number: Debtors Felons,etc. 1774.27June 2 1782.21June Debto 1779.24July I 5 I 1782.24Sept.",
+          "s13": "Chaplain.None.",
+          "s14": "Surgeon. None.",
+          "s15": "Thisgaol,whichis alsothe bridewellwas formerly and is in a ruinous condition.Two rooms for debtor forfelons:one of thelatter down eleven steps,with al eighteen inches by three;the other under the stairs feetby seven,with no window:all of them very never whitewashed.Joining to the gaolisa large room ahouse of correction,but lately used by strolling pl court,but no sewer:no water.Neither clauses again ous liquors,nor the Act for preserving the health of are hung up.Great session in Lent at Conway.T has5ayearas keeper of bridewell.He stops from ea allowance sixpence a week for (what he calls) his t weekly payments.No table of fees.",
+          "s16": "Among the various improvements that are makin town,may it not be hoped,that the county magist think of a better prison. 242",
+          "s17": "SOUTH WALES CIRCUIT",
+          "s18": "GLAMORGANSHIRE",
+          "s19": "SWANSEY TOWN GAOL",
+          "s20": "“The debtorsroom is very close, and has only one window， which is partly stopped by a shed built against the wall.The room for felons (called the Black Hole)has an aperture in the door,but no window:yet at the Michaelmas quarter sessions, prisoners of both sexes are here confined for some days.In 1787 therewere twomen and twowomen confined in it from Monday till Friday.Similar to this is the prison at Neath rks.) where one of the quarter sessions isheld.1 \"In my various journeys in England and Wales, I have seen rsFelons,etc. many houses defaced on account of the odious tax on windows; andI cannot help repeating my concern for its pernicious effects. 0 I am persuaded it has avery bad influence on thehealth of the lower classes of people;and thismay be one reason of theirnot having now such healthy,ruddy complexions as they had formerly.",
+          "s21": "The farmers servants having been crowded into unventilated rooms orholes,and our labouring poor having been habituated to a chapel, close habitations,they dislike,when theycome into workhouses or ,andtwo hospitals, the admission of fresh air.\" naperture [From An Account of Lazarettos,p.215.] only nine 1BeforeIquit this subject,Iwould just mention,that in all my lirty,and visits to the gaols and prisons,in this,and other kingdoms,I never received ,formerly any insults either from keepers or prisoners;nor have I lost anything in ayers.A anyof them,except thatin one of our prisons I once losta large new handkerchief out of mypocket,whichI did not,miss for some time,but stspiritu- on a subsequent visit,about ten months after,itwasimmediatelypresented prisoners, tomebya prisoner;as,he said,he believed I had dropped itwhenIwas he gaoler therelast.\" chfelon's roubleof gin this rateswill 243"
+        },
+        "cycles": [],
+        "events": [
+          {
+            "action": "start",
+            "time": "2026-11-20T11:56:23+00:00"
+          }
+        ]
+      }
     }
   }
 }
