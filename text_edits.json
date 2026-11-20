@@ -6503,7 +6503,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "theyare allowed one pound of beef and halfapintofwinea cor man, and twenty-five pounds ofrice to a galley. nin For their clothing,they have once in two years,a striped cor woollen capotto and waistcoat,two shirts,two pairs of canvas for breeches,and a woollen cap;and everyyear,two feet and ahalf bui ofwoollen cloth to wrap round their legs instead of stockings. COL The yearly expense of each slave for maintenance,clothing, the and chains,is computed at fifteen Roman crowns and eighty- in seven baiocs,about3I3s.gd. ent At the time ofmy being at Civita-vecchia,three of the galleys int were out on a cruise,and two only remained.Through the the whole night there was great silence （asI lay in a felucca close the tothem),though about four hundred were chained in each of wit the galleys. we The slaves here are constantly employed,andhave a portion of ofwhat they earn for themselves,beingpaid according to their one abilities and the nature of their work.For sawing in the onl arsenal, they are paid twopence a day each;for working as all masons, twopence halfpenny;for carrying stones and mortar, onlya penny.",
@@ -6531,6 +6531,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T09:11:56+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T09:23:38+00:00"
           }
         ],
         "after": {
