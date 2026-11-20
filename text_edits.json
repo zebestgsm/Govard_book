@@ -16351,8 +16351,42 @@
       }
     },
     "126": {
-      "segments": {},
-      "history": [],
+      "segments": {
+        "s1": "“No alteration in the old gaol. Allowance, to debtors, 3d. felons, 2d. and convicts, 4d. a day. Gaoler’s salary augmented to £120 in lieu of the tap. The sick are supplied with medicines from the infirmary.\n\n“The corporation have spared no expense for the new gaol which Mr. Blackburn is employed in building: there will be a proper separation of the different classes and sexes; and with a view to security, health, reformation, and convenience, I apprehend, it will be one of the first borough gaols in the kingdom.\n\n“1787. 22 Dec., Debtors 18. Felons, etc., 22.”\n[From An Account of Lazarettos, p. 206.]\n\nLIVERPOOL BRIDEWELL\n\nThis prison was built in 1776, on an eminence adjoining the workhouse near the town. The men and women have separate rooms, courts, etc. The women have six rooms below, and the same number above: the men have four rooms below, and four above. These are twelve feet by ten, and eight feet nine inches high; are furnished with bedsteads, blankets, and coverlets; but are too close, having no window, only an aperture in the door about nine inches square, and another near the ceiling. They have a workroom, twenty feet by sixteen feet nine inches. Near this room in the men’s court is a pump, to which the women are tied every week and receive discipline. In this court is also a bath, with a new and singular contrivance. At one end of it was a standard for a long pole, at the extremity of which was fastened a chair. In this all the females (not the males) at their entrance, after a few questions, were placed, with a flannel shift on, and underwent a thorough ducking, thrice repeated—a use of a bath, which I dare say the legislature never thought of, when in their late Act they ordered baths with a view to cleanliness and preserving the health of prisoners; not for the exercise of a wanton and dangerous kind of severity. But I was glad to find this use of the bath has been discontinued since my visit in 1779. The severe weekly discipline of the women in the men’s court is still continued.\n\n“No alteration. The keeper’s apartments having no view into either of the courts, may be one reason that both sexes were locked up. All the men were in heavy irons, and seven",
+        "s2": "",
+        "s4": "out of eight women were chained to the floors, and in bed at noon on Sunday, having had no fire for several days.¹ The next day, two being thus chained, at my desire, they were released and set to picking oakum.²”\n[From An Account of Lazarettos, p. 206.]\n\n1 “All the bedding was on the floors; for the bedsteads were laid in the upper rooms, because some of the prisoners had made a sort of ladder with them to get through the floor above, in order to facilitate an escape. But bedsteads and bedding are necessary for the health of prisoners; and escapes would be prevented by confinement in separate cells. In some of the cells solid stone or brick might be worked into the walls, about eighteen inches from the floor, and cased with oak planks raised at the head, on which the bedding might be laid, as I have seen in some foreign prisons.\n\n2 “In Chester City gaol, Liverpool bridewell, and other prisons, I told the keepers that steady, lenient, and persuasive methods with prisoners are the best means to prevent them from breaking out; for their minds being uneasy, and their bodies harassed, they are often driven to desperate attempts, which sometimes will be successful: and I mentioned the good effects of such measures at Oxford Castle. Some of the keepers said, ‘they now find, they can do more with their prisoners by lenient measures, than with a rough hand.’”",
+        "s5": ""
+      },
+      "history": [
+        {
+          "id": "s1",
+          "before": "\"No alteration in the old gaol.Allowance, to d felons,2d.and convicts,4d.a day.Gaoler’s salary toi2oinlieu of thetap.The sickare supplied with from the infirmary.",
+          "after": "“No alteration in the old gaol. Allowance, to debtors, 3d. felons, 2d. and convicts, 4d. a day. Gaoler’s salary augmented to £120 in lieu of the tap. The sick are supplied with medicines from the infirmary.\n\n“The corporation have spared no expense for the new gaol which Mr. Blackburn is employed in building: there will be a proper separation of the different classes and sexes; and with a view to security, health, reformation, and convenience, I apprehend, it will be one of the first borough gaols in the kingdom.\n\n“1787. 22 Dec., Debtors 18. Felons, etc., 22.”\n[From An Account of Lazarettos, p. 206.]\n\nLIVERPOOL BRIDEWELL\n\nThis prison was built in 1776, on an eminence adjoining the workhouse near the town. The men and women have separate rooms, courts, etc. The women have six rooms below, and the same number above: the men have four rooms below, and four above. These are twelve feet by ten, and eight feet nine inches high; are furnished with bedsteads, blankets, and coverlets; but are too close, having no window, only an aperture in the door about nine inches square, and another near the ceiling. They have a workroom, twenty feet by sixteen feet nine inches. Near this room in the men’s court is a pump, to which the women are tied every week and receive discipline. In this court is also a bath, with a new and singular contrivance. At one end of it was a standard for a long pole, at the extremity of which was fastened a chair. In this all the females (not the males) at their entrance, after a few questions, were placed, with a flannel shift on, and underwent a thorough ducking, thrice repeated—a use of a bath, which I dare say the legislature never thought of, when in their late Act they ordered baths with a view to cleanliness and preserving the health of prisoners; not for the exercise of a wanton and dangerous kind of severity. But I was glad to find this use of the bath has been discontinued since my visit in 1779. The severe weekly discipline of the women in the men’s court is still continued.\n\n“No alteration. The keeper’s apartments having no view into either of the courts, may be one reason that both sexes were locked up. All the men were in heavy irons, and seven",
+          "time": "2026-11-20T11:53:14+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s2",
+          "before": "The corporation have spared no expense for th which Mr.Blackburn is employed in building:there proper separation of the different classes and sexes； viewto security,health,reformation,and convenienc hend,itwillbe one of thefirst borough gaols in thek “1787.22 Dec.,Debtors 18.Felons,etc.,2 [FromAnAccountofLazarett LIVERPOOL BRIDEWELL This prison was built in 1776,on an eminence ad workhouse near the town.Themen and women hay rooms,courts,etc.The women have sixrooms belo same number above:themen have four rooms beloy above.These are twelve feet by ten,and eight feet high;are furnished with bedsteads,blankets,and but are too close,having no window, only an aper door about nine inches square,and another near Theyhave aworkroom,twenty feet by sixteen feet Near this room in the men's court is a pump,to women are tiedevery week and receive disciplin court is also a bath,with a new and singular contri one end of itwas a standard for a longpole,atth of which was fastened a chair.In this all the fema males) at their entrance,after a few questions,w with a fannel shift on,and underwent a thoroug thrice repeated-a use ofa bath,which I dare say lature never thought of,when in their late Act th bathswith a viewto cleanliness and preserving th prisoners;not for the exercise of a wanton and dang of severity.But Iwas glad to find thisuse of th been discontinued since my visit in 1779.The se discipline of the women in the men's court is still c No alteration.The keeper's apartments havin into either of the courts,may be one reason that were locked up.All the men were in heavy irons",
+          "after": "",
+          "time": "2026-11-20T11:53:14+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s4",
+          "before": "ebtors,3d. outof eight women were chained to the floors,and in bed at augmented noon on Sunday,having had no fire for several days.l The medicines next day，two being thus chained,at my desire,they were released and set to picking oakum.2” newgaol [From An Accountof Lazarettos,p.2o6.] will bea andwitha 1Allthebeddingwas on the fors;for the bedsteads were laid in the e,Iappre- upperrooms,because some of the prisoners had made a sortof ladder with themtogetthrough thefloor above,in order to facilitate anescape. ingdom. 2.” escapes would be prevented by confinement in separate cells.In some of the cells solid stone or brick might be worked into the walls,about Os,P.206.] eighteen inches from the floor,and cased with oak planks raised at the head,on which the bedding might be laid,asIhave seen in some foreign prisons.",
+          "after": "out of eight women were chained to the floors, and in bed at noon on Sunday, having had no fire for several days.¹ The next day, two being thus chained, at my desire, they were released and set to picking oakum.²”\n[From An Account of Lazarettos, p. 206.]\n\n1 “All the bedding was on the floors; for the bedsteads were laid in the upper rooms, because some of the prisoners had made a sort of ladder with them to get through the floor above, in order to facilitate an escape. But bedsteads and bedding are necessary for the health of prisoners; and escapes would be prevented by confinement in separate cells. In some of the cells solid stone or brick might be worked into the walls, about eighteen inches from the floor, and cased with oak planks raised at the head, on which the bedding might be laid, as I have seen in some foreign prisons.\n\n2 “In Chester City gaol, Liverpool bridewell, and other prisons, I told the keepers that steady, lenient, and persuasive methods with prisoners are the best means to prevent them from breaking out; for their minds being uneasy, and their bodies harassed, they are often driven to desperate attempts, which sometimes will be successful: and I mentioned the good effects of such measures at Oxford Castle. Some of the keepers said, ‘they now find, they can do more with their prisoners by lenient measures, than with a rough hand.’”",
+          "time": "2026-11-20T11:53:14+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s5",
+          "before": "InChesterCitygaolLiverpoolbridewell,and other prisons,Iold the keepers that steady，lenient,and persuasive methods with prisoners being uneasy，and theirodiesharassedtheyareoftendriventodesperate attempts,which sometimes will be successful:andImentioned the good effects of such measures at Oxford Castle.Some of the keepers said, joining the theynowfind,they candomore with theirprisonersbylenientmeasures, thanwith aroughhand.'\" vreseparate w,andthe ,andfour nine inches coverlets; ture in the the ceiling. ine inches. which the e.In this vance.At extremity les(notthe ereplaced, h ducking, the legis- eyordered ehealthof gerouskind ebathhas rereweekly ontinued. ngnoview both sexes and seven",
+          "after": "",
+          "time": "2026-11-20T11:53:14+00:00",
+          "kind": "edit"
+        }
+      ],
       "spread_review": {
         "state": "working",
         "before": {
@@ -16373,8 +16407,74 @@
       }
     },
     "127": {
-      "segments": {},
-      "history": [],
+      "segments": {
+        "s2": "COUNTY GAOL, CHESTER CASTLE",
+        "s3": "This castle is the property of the king. The first room is a hall: there are two staircases leading up from it to four rooms for master’s-side debtors. Down eighteen steps is a small court, which was common to debtors and felons. It is lately divided, but the high close pales which separate the two courts, now so very small, deprive both debtors and felons of the benefit of fresh air, and the keeper has no view of the felons’ court or day-room, in which men and women are together: the debtors, in the pope’s kitchen (improperly called their free ward, as they pay one shilling a week each); the felons, in their day-room, the king’s kitchen. Both these are six steps below the court: each of them about thirty-five feet by twenty-two. Near the former is the condemned room. Under the king’s kitchen is the king’s cellar; quite useless. Under the pope’s kitchen is a dark passage twenty-four feet by nine: the descent to it, is by twenty-one steps from the court. No window: not a breath of fresh air: only two apertures (lately made) with grates in the ceiling into the pope’s kitchen above. On one side of it are six cells (stalls) each about seven and a half feet by three, with a barrack-bedstead, and an aperture over the door about eight inches by four. In each of these are locked up at night, sometimes three or four felons. They pitch these dungeons two or three times a year: when I was in one of them, I ordered the door to be shut; and my situation brought to mind what I had heard of the Black Hole at Calcutta.\n\nThe felons’ day-room is not secure. They escaped in 1775, by breaking through the slight floor into the king’s cellar below; and through the decayed walls of that they made their way down the hill. The keeper, who is careful and humane, was not blameable.\n\nThe present constable is Mr. Ferdinando Gillio, a surgeon in London. He obliges the gaoler to pay rent £30 a year, and",
+        "s4": "",
+        "s5": "",
+        "s6": "",
+        "s8": "takes himself the salary of £18 5s. 0d., the gaoler paying the tax of £2 13s. 0d. thereon. I need hardly mention the impropriety of one receiving the salary, and another doing the duty.¹\n\nCHESTER CITY BRIDEWELL\n\nIn the keeper’s house there is a room or two for those that can pay for a bed; and there is now built a workshop and a room over it twenty-five feet by sixteen and a half. The employment is spinning. Down ten steps are two new dungeons. No water: no allowance: clauses against spirituous liquors not hung up. Keeper’s salary, £4 4s. 0d.\n\nHere were several leaden weights marked 30, 40, 60 pounds, with a ring and chains to each: these are fastened, as the magistrates order, or the keeper finds needful, to the legs of refractory prisoners, so that they cannot walk without carrying the weight. The keeper said that it was extremely difficult to make prisoners behave orderly, while they were kept together.\n\n1 I have in three of my visits seen the place of confinement for deserters in this castle, who are not under the care of the gaoler, but of the invalids of the garrison. It is a bad, unhealthy cell, often productive of the gaol-fever; a room should be appropriated to the sick, for the surgeon told me he could not attend them there. An officer at Worcester informed me, that having sent a sergeant and two men for two deserters lodged here, three of them died a few days after they came to their quarters, and he had them buried privately, without military honours, to the surprise of the soldiers, who knew not the reason.",
+        "s9": "",
+        "s10": ""
+      },
+      "history": [
+        {
+          "id": "s2",
+          "before": "COUNTY GAOL,CHESTER CASTLE",
+          "after": "COUNTY GAOL, CHESTER CASTLE",
+          "time": "2026-11-20T11:53:14+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s3",
+          "before": "This castle is the property of the king.The firs hall:there are two staircases leading up from it to for master's-side debtors.Down eighteen steps court,which was common to debtors and felons. divided,but thehigh close pales which separate the now so very small,deprive both debtors and fel benefit of fresh air,and the keeper has noview of court or day-room,in which men and women ar the debtors,in the pope'skitchen(improperly calle ward,as they payone shillinga weekeach);the fel day-room, the king's kitchen.Both these are six the court:each of them about thirty-five feetbyt Near the former is the condemned room.Under kitchen is the king's cellar; quite useless. Under kitchen is a dark passage twenty-four feet bynine: toit,is by twenty-one steps from the court.Now abreath offresh air:only two apertures(lately grates in the ceiling into the pope'skitchen above. of it are sixcells(stalls)each about seven anda half fe with abarrack-bedstead,and an aperture over the eight inches by four.Ineachofthesearelockedu sometimes three or four felons.Theypitch thes two or three times a year:when I was in one of then the door to be shut;and my situation brought tom had heard of the Black Hole at Calcutta.",
+          "after": "This castle is the property of the king. The first room is a hall: there are two staircases leading up from it to four rooms for master’s-side debtors. Down eighteen steps is a small court, which was common to debtors and felons. It is lately divided, but the high close pales which separate the two courts, now so very small, deprive both debtors and felons of the benefit of fresh air, and the keeper has no view of the felons’ court or day-room, in which men and women are together: the debtors, in the pope’s kitchen (improperly called their free ward, as they pay one shilling a week each); the felons, in their day-room, the king’s kitchen. Both these are six steps below the court: each of them about thirty-five feet by twenty-two. Near the former is the condemned room. Under the king’s kitchen is the king’s cellar; quite useless. Under the pope’s kitchen is a dark passage twenty-four feet by nine: the descent to it, is by twenty-one steps from the court. No window: not a breath of fresh air: only two apertures (lately made) with grates in the ceiling into the pope’s kitchen above. On one side of it are six cells (stalls) each about seven and a half feet by three, with a barrack-bedstead, and an aperture over the door about eight inches by four. In each of these are locked up at night, sometimes three or four felons. They pitch these dungeons two or three times a year: when I was in one of them, I ordered the door to be shut; and my situation brought to mind what I had heard of the Black Hole at Calcutta.\n\nThe felons’ day-room is not secure. They escaped in 1775, by breaking through the slight floor into the king’s cellar below; and through the decayed walls of that they made their way down the hill. The keeper, who is careful and humane, was not blameable.\n\nThe present constable is Mr. Ferdinando Gillio, a surgeon in London. He obliges the gaoler to pay rent £30 a year, and",
+          "time": "2026-11-20T11:53:14+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s4",
+          "before": "The felons’day-room is not secure.",
+          "after": "",
+          "time": "2026-11-20T11:53:14+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s5",
+          "before": "They escape by breaking through the slight floor into theking's ce and through the decayed walls of that they made down the hill.The keeper,who is careful and hu not blameable.",
+          "after": "",
+          "time": "2026-11-20T11:53:14+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s6",
+          "before": "The present constable is Mr.Ferdinando Gillio,a London.He obliges the gaoler to pay rent 30a 240",
+          "after": "",
+          "time": "2026-11-20T11:53:14+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s8",
+          "before": "takes himself the salaryof 18 5s.od.,the gaoler paying the tax of 2 13s.od.thereon.Ineed hardly mention the impropriety of one receiving the salary,and another doing the duty.1 CHESTER CITY BRIDEWELL In the keeper'shouse there is a room ortwofor those that can pay for a bed;and there isnow built aworkshop and a roomoverit twenty-five feet by sixteen and a half.The employ- mentis spinning.",
+          "after": "takes himself the salary of £18 5s. 0d., the gaoler paying the tax of £2 13s. 0d. thereon. I need hardly mention the impropriety of one receiving the salary, and another doing the duty.¹\n\nCHESTER CITY BRIDEWELL\n\nIn the keeper’s house there is a room or two for those that can pay for a bed; and there is now built a workshop and a room over it twenty-five feet by sixteen and a half. The employment is spinning. Down ten steps are two new dungeons. No water: no allowance: clauses against spirituous liquors not hung up. Keeper’s salary, £4 4s. 0d.\n\nHere were several leaden weights marked 30, 40, 60 pounds, with a ring and chains to each: these are fastened, as the magistrates order, or the keeper finds needful, to the legs of refractory prisoners, so that they cannot walk without carrying the weight. The keeper said that it was extremely difficult to make prisoners behave orderly, while they were kept together.\n\n1 I have in three of my visits seen the place of confinement for deserters in this castle, who are not under the care of the gaoler, but of the invalids of the garrison. It is a bad, unhealthy cell, often productive of the gaol-fever; a room should be appropriated to the sick, for the surgeon told me he could not attend them there. An officer at Worcester informed me, that having sent a sergeant and two men for two deserters lodged here, three of them died a few days after they came to their quarters, and he had them buried privately, without military honours, to the surprise of the soldiers, who knew not the reason.",
+          "time": "2026-11-20T11:53:14+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s9",
+          "before": "Down ten stepsare twonew dungeons.",
+          "after": "",
+          "time": "2026-11-20T11:53:14+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s10",
+          "before": "No troomisa fourrooms hung up.Keeper's salary， 4 4s.od. isasmall Here were several leaden weights marked 3o,40,6opounds, It is lately with a ring and chains to each: these are fastened,as the twocourts, magistrates order,or the keeper finds needful,to the legs of onsofthe refractory prisoners,so that they cannot walk without carrying the felons' the weight.The keeper said that it was extremely dificult etogether: tomake prisoners behave orderly,while they were kept together. dtheirfree ns,in their 1Ihavein three of my visits seen theplace of confinement for deserters stepsbelow in this castle,who are notunder the care of the gaoler,but of the invalids of the garrison.It is a bad,unhealthy cell,often productive of the gaol- wenty-two. fever;aroom should be appropriated to the sick,for the surgeon toldme theking's he could not attend them there.An offcer at Worcester informed me， the pope's that having sent a sergeant and twomen for two deserters lodged here, three of them died a few days after theycame to their quarters,and he the descent had them buried privately，without military honours,to the surprise of indow:not the soldiers,whoknew not thereason. made)with Ononeside etbythree, doorabout patnight, dungeons ,Iordered indwhatI ed in I775, ellarbelow; theirway mane,was surgeonin year,and",
+          "after": "",
+          "time": "2026-11-20T11:53:14+00:00",
+          "kind": "edit"
+        }
+      ],
       "spread_review": {
         "state": "working",
         "before": {
