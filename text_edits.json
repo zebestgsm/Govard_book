@@ -16412,7 +16412,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "LANCASHIRE",
           "s1": "\"No alteration in the old gaol.Allowance, to d felons,2d.and convicts,4d.a day.Gaoler’s salary toi2oinlieu of thetap.The sickare supplied with from the infirmary.",
@@ -16430,6 +16430,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T11:54:08+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T12:01:27+00:00"
           }
         ],
         "after": {
