@@ -10248,7 +10248,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "SCOTCH AND IRISH PRISONS",
           "s1": "to the shame and disgrace annexed to imprisonment tothe solemn manner in which oaths are administen trials and executions conducted;and partly to the sobriety ofmanners produced by the care which pare ministers take to instruct the rising generation.",
@@ -10267,8 +10267,25 @@
           {
             "action": "start",
             "time": "2026-11-20T09:48:09+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T09:50:02+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "SCOTCH AND IRISH PRISONS",
+          "s1": "to the shame and disgrace annexed to imprisonment; partly to the solemn manner in which oaths are administered, and trials and executions conducted; and partly to the general sobriety of manners produced by the care which parents and ministers take to instruct the rising generation.¹\n\nI am indebted to Andrew Crosbie, Esq., for an account, from the clerk of the justiciary, of the executions from January 1768 to May 1782, from which it will appear, that in thirteen years and a half, there have been only fifty-four executed, and twenty-two pardoned.\n\nIn Scotland, executions formerly were not delayed after conviction or sentence; such delays being often equally injurious to the criminal and to society. Here, the punishment of the offender was made to appear the immediate consequence of his crime.\n\nAll criminals are tried out of irons; and when acquitted, they are immediately discharged in open court; and no gaoler has a fee from any criminal. Women are not put in irons in Scotland.\n\nEDINBURGH. In the Tolbooth at Edinburgh, 6 July, 1779, there were thirteen debtors and nine felons; and in the Canongate Tolbooth, there were five debtors and one felon: and in the house of correction there were fifty-three women, crowded into three dirty and offensive rooms, where they work and sleep. 28 March, 1782, there were in the Tolbooth, four debtors and twenty-three criminals; in the Canongate, two debtors; and in the house of correction, thirty-seven women.\n\nI will only just mention the close confinement of poor² criminals in the Tolbooth, the horrid cage in the room known by that name, and the severity practised there of chaining the condemned to an iron bar; because I found that the late Provost, Mr. Steuart, was using his best endeavours to get a new gaol\n\n1 It is provided by statute in the sixth session of King William’s first Parliament, 1696, chap. xxvi, “That there be a school settled and established, and a schoolmaster appointed in every parish” in Scotland, and the presbytery has the superintendence of the execution of this Act, which has been carefully attended to. Many schools are also settled by donations and legacies, and by the Society for Propagating Christian Knowledge; so that no parish is without a school, and in some there are four or five. In the southern parts of Scotland, it is very rare that you meet with any person that cannot both read and write. It is scandalous for any person not to be possessed of a Bible, which is always read in the parochial schools.\n\n2 I say poor, because such as have money have too much liberty. For in the same prison, I lately saw some, who were confined for a riot, drinking whisky in the tap-room, in company with many profligate townsmen, who were readily admitted, as they promoted the sale of the gaoler’s liquors.",
+          "s2": "",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "",
+          "s7": "SCOTCH AND IRISH PRISONS",
+          "s8": "built, which should be subject to better regulations and stand in a more airy situation.\n\nThe number of prisoners, September 1782.\n\tDebtors\tCriminals\nEdinburgh Tolbooth\t13\t22\nEdinburgh Canongate\t3\t2\nDumfries\t3\t0\nPerth\t4\t3\nAberdeen\t8\t6\nInverness\t3\t5\n\nINVERNESS. The Tolbooth at Inverness has no fire-place, and is the most dirty and offensive prison that I have seen in Scotland. (The room for debtors is sixteen feet by fourteen and a half: that for felons about thirteen feet and a half square, and only six feet and a half high; the window is twenty inches by six.)\n\nIn one of the piers of the stone bridge at Inverness, there is a vaulted room intended for a prison. This room was constructed in 1684, when the bridge was built, but had not been opened for three years before my late visit. Near the wall of the bridge there is a trap-door twenty-two inches square, and a few steps down from it, an iron door (two feet three inches wide, and two feet and a half high), from which there is a descent of a few steps more to the room just mentioned, which is ten feet four inches by seven feet six, and six feet high. On the sides there are a stone seat, a small window, and two apertures to dip for water, etc.\n\nSCOTLAND. The following defects may be remarked in the prisons in Scotland.\n\nThey have no courts belonging to them;¹ generally want water and sewers; are not clean; they are not visited by the magistrates; too little attention is paid to the separation of the sexes; the keepers are allowed licences for the sale of the most pernicious liquors, the consequence of which is, that the county allowance being paid in money to the prisoners, they generally spend it in whisky instead of bread.\n\n“We do not think it possible, that a nation can attain to\n\n1 The original cause of this seems to have been the following very severe maxim in the Scotch law. “After a debtor is imprisoned, he ought not to be indulged the benefit of the air, not even under a guard; for creditors have an interest, that their debtors be kept under close confinement, that, by the squalor carceris, they may be brought to pay their debt.”—Act Sess. 14. June 1671. The Principles of the Law of Scotland, 5th edit., p. 461.",
+          "s9": "",
+          "s10": ""
+        }
       }
     },
     "82": {
@@ -10381,7 +10398,7 @@
         }
       ],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "SCOTCH AND IRISH PRISONS",
           "s1": "improvement in science,to refinement of taste,andin without,at the same time,acquiring a refinement in of justice,and feelings of humanity.”1 IRELAND2 DuBLIN.I was happy in finding at Dublin in 17 prison almost ready forthe removal of the prisoners airy and convenient apartments,in which I hoped th intercourse of the two sexes which took place in the would be avoided.This new prison is one hundred an feet in length,and has separate courts for men an The cells on the first and second floors are about t by eight,and on the upper floor twelve by four,all ar brick,toprevent danger fromfire.Iwas sorry to find and wished they might never be used,except atnig condemned.",
@@ -10404,8 +10421,29 @@
           {
             "action": "start",
             "time": "2026-11-20T09:48:09+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-20T09:50:02+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "SCOTCH AND IRISH PRISONS",
+          "s1": "improvement in science, to refinement of taste, and in manners, without, at the same time, acquiring a refinement in their ideas of justice, and feelings of humanity.”¹\n\nIRELAND²\n\nDUBLIN. I was happy in finding at Dublin in 1779, a new prison almost ready for the removal of the prisoners into more airy and convenient apartments, in which I hoped the shocking intercourse of the two sexes which took place in the old prison, would be avoided. This new prison is one hundred and seventy feet in length, and has separate courts for men and women. The cells on the first and second floors are about twelve feet by eight, and on the upper floor twelve by four, all arched with brick, to prevent danger from fire. I was sorry to find dungeons, and wished they might never be used, except at night for the condemned. It might be best to convert the chapel at the top of the house into an infirmary; for the sick rooms are too small, and likely to produce infection.\n\nIn the two courts are pumps. Great attention should be paid to air and cleanliness in the staircases, cells and vaults, and in the narrow passages, to prevent them from becoming offensive and infectious.³ I well remember the dreadful state of Dublin Newgate in the beginning of the year 1775, when I saw numbers of poor creatures ill with the gaol-fever, unattended and disregarded.\n\nThe criminals in the gaols of Ireland are very numerous. One reason of this may be, that in this country there are no houses of correction, unless cages could be called so, in which drunken or riotous persons are locked up for a night or two.⁴\n\n1 Hugo Arnot’s History of Edinburgh, p. 298.\n\n2 I have frequently referred, in the early parts of this work, to the Irish Acts of Parliament for the regulation of prisons, as containing many articles highly laudable and worthy of imitation. I am sorry, however, that it is necessary for me to say, that the policy of this country in these matters is as defective in point of execution, as it is commendable in theory.\n\n3 The passages are three feet and a half wide, and the staircases only two feet one inch.\n\n4 It may be an exception, that in a house adjoining to old Newgate called the “Black Dog,” there were several fines, etc., and that in another house (a sort of bridewell adjoining to the workhouse in Dublin) I found in 1779 eleven young creatures; some of these for small offences were confined with outrageous lunatics. The magistrates seem to have overlooked a compassionate direction in an Act of their legislature (see 3rd of Geo. III, chap. xxviii) “that persons of insane mind and outrageous behaviour” are not to go in common with the other prisoners.",
+          "s2": "",
+          "s3": "",
+          "s4": "",
+          "s5": "",
+          "s6": "",
+          "s7": "SCOTCH AND IRISH PRISONS",
+          "s8": "Another reason is, that acquitted persons are continued in confinement till they have discharged their fees to the clerk of the crown, or peace, the sheriff, gaoler and turnkey. Even boys almost naked, and under the age of twelve, are sometimes confined a year or two for these fees, though amounting to no more than about forty shillings. How surprising is it, that any kingdom can endure such injustice! It is a particular aggravation of it, that the prisoners thus confined, generally lose, at the same time, their allowance of bread. I have heard that Judge Aston (who was here Lord Chief Justice of the Common Pleas) often ordered the acquitted prisoners to be discharged. In 1779 I obtained the release of some boys from the county gaol at Kilmainham, on paying for them half fees; and of some others from Newgate, the sheriffs of Dublin consenting to relinquish their fees. But as those boys had been associated with the most profligate and abandoned felons for many months, I did not in the least wonder to find that some of them returned to their former habitation in a few days. In 1783 the deputy keeper of the new prison gave me a list of sixteen detained for their fees. At Kilmainham also I found there were fifteen acquitted prisoners confined for their fees in the dungeons. At both these prisons I restored to their families several who seemed the most proper objects of compassion. Some had children dying with the smallpox, others had hardly rags to cover them. But this distress had no more effect on the clerk of the crown, sheriffs and gaolers, than to engage them to give up half their fees.\n\nIn 1782, a Bill was brought in by Mr. Provost Hutchinson,¹ which passed into an Act for discharging all those who were then in confinement for fees only (twenty-first and twenty-second of George III, chap. xli). I have every reason to hope, from the attention and humanity of this gentleman, that during the present session, a perpetual Act for the same purpose will be passed.\n\nOn passing the old prison frequently, I could not avoid observing officers from the recruiting regiments waiting at the doors and windows, to receive either the offenders who were permitted to enlist, or any of their associates. When the excessive profligacy and daring wickedness of this set of people is considered, the most melancholy apprehensions must be\n\n1 I shall always reflect with pleasure on the unexpected honour which at this time was done me by the college, by presenting me with the degree of Doctor of Laws.",
+          "s9": "",
+          "s10": "",
+          "s11": "",
+          "s12": "",
+          "s13": "",
+          "s14": ""
+        }
       }
     }
   }
