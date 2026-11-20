@@ -4589,7 +4589,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "AN ACCOUNT OF FOREIGN PRISONS",
           "s1": "in company. Such of them as have learned to work, and appear to be reformed and industrious, are on their humble petition to be discharged.\n\nWhen prisoners are brought in, they must be examined and washed, and if necessary, clothed. Every Saturday afternoon they are to be dismissed from work, to clean themselves and wash their rooms, and the court: after which they are to receive clean shirts, and every four or six weeks, clean bed linen.\n\nAbsence from prayers—swearing, cursing, lying, and cheating—quarrelling, or seeing others quarrel and fight without giving notice to the steward or schoolmaster—are punished by fine, or forfeiture. All who commit any violence, or attempt an escape, together with those who abet or conceal them, are punished by a prolongation of their term of confinement, if not in some other way. Such as refuse to work, are to be punished with short allowance, or with stripes; and for a continued refusal, must be ignominiously exposed or put into the pillory. After an escape they are recommitted and punished; but for the second escape they are banished from the city and territory.\n\nI observed in the table of diet, that the poor are allowed no meat, except on the great festivals. At their meals they are allowed rye bread, and at breakfast butter with it. At dinner and supper they are allowed peeled barley, oats or buck-wheat hot, with milk (which in that city is remarkably good). The logwood-raspers and hemp-beaters are allowed a double quantity of bread and butter. The sick are allowed a better diet, consisting of white bread, beer, soup or meat, just as ordered by the physician.\n\nIn the spin-house (confinement in which is accounted infamous), the men were employed in spinning, in more lightsome rooms than those of the other house. In 1776, there were seventy-three prisoners, and in 1781, fifty-two.\n\nHere, as at some other towns, is a prison for slight offences (Roken-Kiste). The punishment to be confined for three or four days to two or three weeks, and live on bread and water only. To prevent the prisoners having anything else, what money they bring with them is taken and sealed up; but it is returned to them when discharged.",
@@ -4659,6 +4659,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T09:04:22+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-20T09:06:10+00:00"
           }
         ],
         "after": {
