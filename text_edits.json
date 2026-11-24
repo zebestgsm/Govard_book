@@ -18321,7 +18321,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "THE HULKS NEAR PORTSMOU",
           "s1": "Fortunee,and one hundred and four of the Ceres,we on Cumberland Fort;nineteen of them as masons, penters,and the rest as labourers.Most of thesewere theships,and carrying stones to different parts of the They dine on shore at twelveo'clock.Their bread were good,but they complained sadly of themeat， not without cause;for the beef was very lean,full of not half the allowance,viz.one pound to each man dressed. “All who are employed in the public works on s each day theywork,onepintof small beer,thekings Mostof them had a ring on one leg,and theotherrin to their waistband.1 “Both the ships were clean,particularly the Fortunee had few sickin thatpart called thehospita Ceres hadmany more sickthan the hospital partcou Several had the gaol-fever,and a few,petechi.Six that went from Bedford were dead,and twoof the very sicklyand dispirited.2Theconvictslie two bed,with one blanket;and after one is taken ill,his soon sickens.Some few have hammocks,which in are better,and Iwish they were in general use,ex hospital ships.The Ceres being an old receiving shi one cause of its being contaminated with infection； of the convicts here arefrom the country.Thereisno in general,that attention to cleanliness in the clothes persons of the prisoners in the hulks which is ne preserve their health:for though some were decent in their own clothes,others were inrags;many with All should be clothed in a sailor'suniform,of jacke etc.,andI could wish that the whole of Saturdayw priated to cleanliness,viz.bathing,washing and mer clothes,shaving, cleaning themselves and every P 1It is asserted by some persons,and Government arema it,that these convicts do more work than common day-labo from the frequent observation of them,Iam convinced the the truth;and indeed,how could itbe expected thatmen involuntarily,with scanty diet,and small encouragement, themselves with asmuch spirit as those whohave thepleasi wife and children to share in their gains?",
@@ -18339,6 +18339,10 @@
           {
             "action": "finish",
             "time": "2026-11-24T10:10:25+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-24T10:22:33+00:00"
           }
         ],
         "after": {
