@@ -1,6 +1,9 @@
 name: Compare translation models (OPUS vs NLLB vs LLM)
 
 on:
+  push:
+    branches: [arena/b1f6ea5c-govard-book]
+    paths: [.github/workflows/translate-compare.yml]
   workflow_dispatch:
     inputs:
       limit:
