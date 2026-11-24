@@ -18908,7 +18908,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "REMARKS ON PENITENTIARY",
           "s1": "\"Iwould wish that the rooms for solitary con night were not too small,and would plead for influence of light,as well as of air,in them.The Zante came up to my ideas of the construction of a house,or house of correction,more,I think,than I have yet seen. It also had that exposure to influence of the breezes,and that cheerfulness of a are so necessary to relieve the languor attending confinement. \"I conclude this subject in the words of an elega the prefatory observations on adraught ofaBill imprisonment and hard labour,etc.,that,ifa begin made,by adopting such a plan as may appear th to objections (fornone can be entirely free from th be left to time,experience,and the wisdom of sessions,to revise,improve,and mature it.Man essential amendments may,even at present,beex others who will give their immediate attention:ano ultimately depend on the active,judicious,and dis rence of magistrates and gentlemen of weight in parts of the kingdom: for it will be impossible, introduction of so great an establishment,toforesee the whole detail of rules necessary tobe observed it will be better,in every respect,to leave that proper checks and restrictions,to be hereafter settled in the several districts tobe established. [From An Account of Lazarettos,",
@@ -18926,6 +18926,10 @@
           {
             "action": "finish",
             "time": "2026-11-24T10:30:14+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-24T10:35:29+00:00"
           }
         ],
         "after": {
