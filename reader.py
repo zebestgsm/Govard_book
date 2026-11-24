@@ -73,6 +73,41 @@ SCAN_OVERRIDES = ROOT / 'scan_overrides'
 MAX_SCAN_BYTES = 20 * 1024 * 1024
 _SCAN_LOCK = RLock()
 
+TRANSLATION_STATUS_FILE = ROOT / 'translation_status.json'
+_TRANSLATION_STATUS_LOCK = RLock()
+STATUS_CHOICES = {'accepted': 'Принято', 'needs_work': 'Доработать', 'redo': 'Переделать'}
+STATUS_COLORS = {'accepted': '#d4edda', 'needs_work': '#fff3cd', 'redo': '#f8d7da'}
+
+def load_translation_status():
+    if not TRANSLATION_STATUS_FILE.exists():
+        return {}
+    try:
+        data = json.loads(TRANSLATION_STATUS_FILE.read_text(encoding='utf-8'))
+        if not isinstance(data, dict):
+            return {}
+        # фильтруем только допустимые значения
+        return {k: v for k, v in data.items() if k.isdigit() and v in STATUS_CHOICES}
+    except Exception:
+        return {}
+
+def save_translation_status(data):
+    with _TRANSLATION_STATUS_LOCK:
+        atomic_write(TRANSLATION_STATUS_FILE, (json.dumps(data, ensure_ascii=False, indent=2, sort_keys=True) + '\n').encode('utf-8'))
+
+def get_translation_status(number):
+    return load_translation_status().get(str(number), '')
+
+def set_translation_status(number, status):
+    if status not in STATUS_CHOICES and status != '':
+        raise ValueError('Неизвестный статус')
+    with _TRANSLATION_STATUS_LOCK:
+        data = load_translation_status()
+        if status:
+            data[str(number)] = status
+        else:
+            data.pop(str(number), None)
+        save_translation_status(data)
+
 @lru_cache(maxsize=1)
 def dismissed_issues():
     """Separate scan and OCR decisions; migrate old combined decisions lazily."""
@@ -977,6 +1012,17 @@ def parallel_page(number, query=''):
         prev = f'<a class="button" href="/parallel/{number-1}?q={quote(query)}">← {number-1:03}</a>' if number > 1 else '<span class="button disabled">←</span>'
         nxt = f'<a class="button" href="/parallel/{number+1}?q={quote(query)}">{number+1:03} →</a>' if number < len(PAGES) else '<span class="button disabled">→</span>'
         search_val = escape(query, quote=True)
+        # статус перевода разворота
+        cur_status = get_translation_status(number)
+        cur_label = STATUS_CHOICES.get(cur_status, 'не отмечено')
+        cur_color = STATUS_COLORS.get(cur_status, '#f0eee8')
+        cur_badge = f'<span style="background:{cur_color};padding:2px 8px;border-radius:6px;border:1px solid #c8c4b8;font-size:13px">{escape(cur_label)}</span>'
+        q_hidden = f'<input type="hidden" name="q" value="{search_val}">' if query else ''
+        clear_btn = '<button class="button" type="submit" name="status" value="">Сбросить</button>' if cur_status else ''
+        primary_accepted = ' primary' if cur_status == 'accepted' else ''
+        primary_needs = ' primary' if cur_status == 'needs_work' else ''
+        primary_redo = ' primary' if cur_status == 'redo' else ''
+        status_form = f'<form action="/translation-status/{number}" method="post" class="editor-card" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:12px 0">{q_hidden}<span class="small">Статус перевода: {cur_badge}</span><button class="button{primary_accepted}" type="submit" name="status" value="accepted">✓ Принято</button><button class="button{primary_needs}" type="submit" name="status" value="needs_work">◐ Доработать</button><button class="button{primary_redo}" type="submit" name="status" value="redo">✗ Переделать</button>{clear_btn}</form>'
         # Интерлиньяж: под каждой строкой оригинала — её перевод
         max_blocks = max(len(en_blocks), len(ru_blocks) if ru_text else 0)
         pairs = []
@@ -988,14 +1034,15 @@ def parallel_page(number, query=''):
                 ru = '<p class="empty">Перевод пока не подготовлен</p>' if i == 0 else ''
                 if i > 0:
                     ru = ''
-            # стиль: EN — обычный, RU — под ним с отступом и фоном
+            # стиль: EN — обычный, RU — под ним с отступом и фоном + статус-бейдж для каждого абзаца (показывает общий статус разворота)
             pairs.append(f'<div class="parallel-pair" style="margin:0 0 1.1em;padding:0 0 0.9em;border-bottom:1px solid #e8e6df"><div class="en-line" lang="en" style="font-size:17px;line-height:1.6">{en}</div><div class="ru-line" lang="ru" style="font-size:17px;line-height:1.6;background:#f9f8f3;border-left:3px solid #52664f;padding:6px 10px;margin-top:6px">{ru}</div></div>')
         interleaved = ''.join(pairs) if pairs else '<p class="empty">Нет текста</p>'
         content = f'''<div class="heading-row"><div><span class="eyebrow">Читалка 2.0 · Интерлиньяж</span><h2>Разворот {number:03} — построчно</h2><p>Под каждой строкой оригинала — её перевод. Поиск подсвечивает слово в обоих.</p></div><div class="top-actions"><a class="button" href="/spread/{number}">← К скану (старая)</a><a class="button" href="/parallel/{number+1}">Далее →</a></div></div>
 <nav class="nav"><div class="nav-group">{prev}{nxt}</div><span class="muted">Разворот {number:03} / {len(PAGES)}</span><a href="/spread/{number}" class="button">К привычной читалке</a></nav>
 <form action="/parallel/{number}" method="get" class="editor-card" style="display:flex;gap:8px;align-items:end;flex-wrap:wrap"><label style="flex:1">Подсветить слово в обоих текстах<input class="input" name="q" value="{search_val}" placeholder="напр. abuse или злоупотребление" maxlength="200"></label><button class="button primary" type="submit">Подсветить</button>{f'<span class="small">Найдено: EN {en_cnt} · RU {ru_cnt}</span>' if query else ''}</form>
+{status_form}
 <div class="reader" style="display:block">
-<section class="panel"><div class="panel-header"><span class="panel-title">Интерлиньяж EN → RU</span><span class="panel-subtitle">под каждой строкой оригинала — перевод · {len(en_blocks)} EN · {len(ru_blocks) if ru_text else 0} RU</span></div><div class="book-text" style="font-size:16px;padding-top:18px">{interleaved}</div></section>
+<section class="panel"><div class="panel-header"><span class="panel-title">Интерлиньяж EN → RU</span><span class="panel-subtitle">под каждой строкой оригинала — перевод · {len(en_blocks)} EN · {len(ru_blocks) if ru_text else 0} RU · {cur_badge}</span></div><div class="book-text" style="font-size:16px;padding-top:18px">{interleaved}</div></section>
 </div>
 <nav class="nav bottom-nav"><div class="nav-group">{prev}{nxt}</div><a href="#top" class="muted">↑ В начало</a></nav>
 <p class="notice">Подсказка: введите <code>abuse</code> — увидите все вхождения на этом развороте в оригинале и как переведено каждое в русском. Меняйте перевод в <a href="/spread/{number}#translation"><u>привычной читалке</u></a> — здесь он обновится сразу.</p>'''
@@ -1745,6 +1792,30 @@ class Handler(SimpleHTTPRequestHandler):
                 return self.send_error(500, 'Не удалось записать файл перевода.')
         self._translation_redirect(number, history=True)
 
+    def handle_translation_status(self, number):
+        if not 1 <= number <= len(PAGES):
+            return self.send_error(404)
+        try:
+            length = int(self.headers.get('Content-Length', '0'))
+            if self.headers.get_content_type() != 'application/x-www-form-urlencoded' or not 0 < length <= 4096:
+                return self.send_error(400)
+            params = parse_qs(self.rfile.read(length).decode('utf-8'), keep_blank_values=True, max_num_fields=5)
+            status = params.get('status', [''])[0]
+            # пустая строка — снять пометку
+            if status and status not in STATUS_CHOICES:
+                return self.send_error(400, 'Неизвестный статус')
+            set_translation_status(number, status)
+            # редирект обратно в параллельную читалку с сохранением поиска
+            q = params.get('q', [''])[0]
+            dest = f'/parallel/{number}'
+            if q:
+                dest += '?q=' + quote(q)
+            self.send_response(303)
+            self.send_header('Location', dest)
+            self.end_headers()
+        except (ValueError, UnicodeDecodeError, OSError):
+            self.send_error(400)
+
     def do_POST(self):
         if SYNC:
             SYNC.changed()
@@ -1777,6 +1848,9 @@ class Handler(SimpleHTTPRequestHandler):
         translation_restore = re.fullmatch(r'/translation-history/(\d+)', path)
         if translation_restore:
             return self.handle_translation_restore(int(translation_restore.group(1)))
+        translation_status_route = re.fullmatch(r'/translation-status/(\d+)', path)
+        if translation_status_route:
+            return self.handle_translation_status(int(translation_status_route.group(1)))
         api = re.fullmatch(r'/api/edits/(\d+)', path)
         restore = re.fullmatch(r'/restore/(\d+)', path)
         if api or restore:
