@@ -14,7 +14,7 @@ A TABLE of FEES to be taken by the Clerk of the Papers and by the Clerk of the I
 
 RESOLUTION
 
-	£	s.	d.
+£	s.	d.
 6th. That there is due and ought to be paid to the clerk of the papers for every discharge of every action	0	2	6
 And for the copy of every cause not exceeding three	0	1	0
 And for each and every cause exceeding three causes	0	0	4

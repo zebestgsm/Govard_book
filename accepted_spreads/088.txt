@@ -4,7 +4,7 @@ TABLE OF FEES
 
 London sc. A TABLE of FEES to be taken by the gaoler or keeper of Newgate within the said City of London for any prisoner or prisoners committed or coming into gaol or chamber-rent there or discharge from thence in any civil action settled and established the nineteenth day of December in the third year of the reign of his Majesty King George the Second Annoque Domini 1729 pursuant to an Act of Parliament lately made intituled An Act for the Relief of Debtors with respect to the Imprisonment of their Persons.
 
-	£	s.	d.
+£	s.	d.
 Every prisoner on the master-side shall pay to the keeper for his entrance fee	0	3	0
 Every prisoner on the master-side shall pay for chamber-room, use of bed, bedding and sheets to the keeper there being two in a bed and no more each per week	0	1	3
 Every prisoner on the said master-side who at his own desire shall have a bed to himself, shall pay to the keeper for chamber-room, use of bed, bedding and sheets per week	0	2	6
@@ -21,7 +21,7 @@ Mr. Akerman showed me another table of fees, which was given him for his directi
 
 FEES to be taken by the keeper of Newgate
 
-	£	s.	d.
+£	s.	d.
 For every debtor’s discharge	0	8	10
 For every felon’s discharge	0	18	10
 For every misdemeanour	0	14	10

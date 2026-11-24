@@ -15,7 +15,7 @@ And by the gaoler of each of the other counties	0	5	0
 
 In the spring, 1776, I summed up carefully the total number of prisoners in the sundry prisons. My list was as follows:
 
-	Debtors	Felons, etc.	Petty Offenders	Total
+Debtors	Felons, etc.	Petty Offenders	Total
 In Middlesex, i.e. London and Westminster, together with three prisons in Southwark, viz. the King’s Bench, Marshalsea, and Borough-compter	1274	228	194	1696
 In the other thirty-nine counties of England	752	617	459	1828
 In the twelve counties of Wales	67	27	—	94

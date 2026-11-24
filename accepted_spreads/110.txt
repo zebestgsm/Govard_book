@@ -20,7 +20,7 @@ STAMFORD TOWN GAOL
 
 A TABLE of FEES for felons, etc., that lie on the common-side
 
-	£	s.	d.
+£	s.	d.
 For gaoler’s fees for the gaol	0	10	0
 To the smith ironing and taking off	0	2	0
 Lodging for each night	0	0	2

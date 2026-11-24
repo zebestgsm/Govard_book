@@ -12,7 +12,7 @@ Allowance: Debtors, none.
 Garnish: a shilling.
 Number:
 
-	Debtors	Felons, etc.
+Debtors	Felons, etc.
 1774. 27 June	2	1
 1779. 24 July	5	1
 1782. 21 June	7	0
