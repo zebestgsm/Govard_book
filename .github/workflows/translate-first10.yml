@@ -1,6 +1,10 @@
 name: Translate first 10 spreads (LLM + glossary → reader)
 
 on:
+  push:
+    branches: [arena/b1f6ea5c-govard-book]
+    paths:
+      - .github/workflows/translate-first10.yml
   workflow_dispatch:
     inputs:
       limit:
