@@ -19158,7 +19158,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "CONCLUSION",
           "s1": "herein before contained shall extend or be constru to any person bringing liquors into the house of the useof theprivatefamilyof the said gaoler,orl house of correction,and delivering the same into the said gaoler;nor to any person bringing into inany gaol orhouse of correction anyliquor or gaol or house of correction,and delivering the s hands of such surgeon or apothecary or other pers by such surgeon or apothecary to receive the sam AND be it further enacted,that the several j peace,at their quarter sessions assembled,are here and required to order and direct the several articl and contained in the schedule hereunto annexed,t and supplied to any prisoner who shall be comn gaol,prison,or house of correction,for any tre trespass or misdemeanour, for the subsistence an such prisoner,during the time ofhis confinemer shall likewise order anddirect that the rooms in apart as an infirmary for the sick prisoners shall witha sufficient number of strawbeds,the straw changed once in every month at the least,and shal proper supply of sheets,rugs or other coverlets beds,andasoaproperquantityf lnen,ande tobeworn by the said prisoners,and shall also or Michaelmas to LadyDay a fire shall be kept in tl by the said prisoners as their common or day-roon always thatno contract for the supplyof anyg visions,bedding,fuel,orany other articles whats made with any person or persons keeping any ga house of correction,or any other person employe the same,nor with any person for the use of a keeper of any prison or house of correction,soth shall have any interest therein,or benefit therefro “AND beit further enacted,that the expenses execution of the orders of the said justices,made of this act,so far as the same respects countyg borne and defrayed out of the respective county far asthe same shall respect the gaols and prisons cities,towns corporate,liberties orplaces thatdon to the rates of the counties where they are respecti such expenses shall be defrayed outof the public of such cities,towns corporate,liberties or place",
@@ -19174,6 +19174,10 @@
           {
             "action": "finish",
             "time": "2026-11-24T10:33:30+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-24T10:38:38+00:00"
           }
         ],
         "after": {
