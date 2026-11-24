@@ -19674,7 +19674,7 @@
       "segments": {},
       "history": [],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "INDEX",
           "s1": "Aberdeen,149 Bacon,Lord,his account of the gaol- Abingdon,County Bridewell,210 distemper,7 Act,twenty-second andtwenty- Badajoz,120 third Charles 1I,quoted,23； Bailiffs,xtortionf thirty-second George II,referred Basil,103 to,26,34,35;forholdingsesions Bastille,124 Bastinado,141 health of prisoners,passed, I; Bath proper in gaols,22;used by should be hung up,35;for relief way of punishment,238;used of acquitted prisoners,passed,2; as a pig-sty，153 n. against frivolous and vexatious Baths shouldbe made convenient, arrests,evaded,187 oruseless,205 n.",
@@ -19687,8 +19687,17 @@
           {
             "action": "start",
             "time": "2026-11-24T12:24:19+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-24T13:16:40+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "INDEX",
+          "s1": "Aberdeen, 149\nAbingdon, County Bridewell, 210\nAct, twenty-second and twenty\nthird Charles II, quoted, 23\nthirty-second George II, referred\nto, 26, 34, 35; for holding sessions\nin Scotland, 147; for preserving\nhealth of prisoners, passed, 1;\nshould be hung up, 35; for relief\nof acquitted prisoners, passed, 2\nagainst frivolous and vexatious\narrests, evaded, 187\nActs, Irish, relative to prisons\nreferred to, 5 n., 27, 32 n., 151,\n152, 155\nAir, contaminated by gaols, 4\nfree, want of in prisons, 4\nAllnott, Mr. his legacy, 187\nAllowance of bread, not continued\nto acquitted prisoners, detained\nfor fees, 151; table of, should be\nhung up, 35; to foreign criminals\n51 n., 57 n., 59, 65, 68, 70, 71, 73\n81, 82, 83, 84, 86, 87, 88, 89, 90\n95, 96, 97, 98, 99, 101, 103, 104\n106, 107, 110, 111, 116, 117, 118\n119, 120, 121, 122, 124, 125, 128\n132, 138\nAllowance to prisoners, quantity\nproposed, 33, 39\nAmsterdam, 53\nAntwerp, 110\nApprentices, faulty, rooms for, 39\n176, 180, 237\nArrêt of French parliament for\ngovernment of prisons, 133, 136\nArsenal at Lisbon, 119\nAssassinations, frequency of, in\nItaly, 98 n.\nAssizes, judges to remain six days\nat, 147; held too seldom in some\nplaces, 14; where no prison, 193,\n196 n., 233\nAssizes of bread, 56, 65, 70, 81, 85\n88, 99, 103, 104, 120, 132, 153\nAston, judge, discharges acquitted\nprisoners without fees, 151\nAsylums, 121\nAugsburg, 105\nAustrian Netherlands, 110\nAxminster, gaol-distemper brought\nthere, 7",
+          "s2": "Bacon, Lord, his account of the gaol-\ndistemper, 7\nBadajoz, 120\nBailiffs, extortion of, 2\nBasil, 103\nBastille, 124\nBastinado, 141\nBath proper in gaols, 22; used by\nway of punishment, 238; used\nas a pig-sty, 153 n.\nBaths should be made convenient,\nor useless, 205 n.\nBathing prisoners, 74\nBayreuth, 107\nBeccaria, Marquis, quoted, 13, 14\n43 n., 98 n.\nBedfordshire, 198\nBedford County Gaol, 198\nBedding, to be frequently changed\n32; want of in prisons, 5\nBeds, bringing out into the air, a\nsalutary custom, 104 n.\nBedstead left by a prisoner, 207\nBedsteads of cast iron proposed\n39 n.\nBellem, 119\nBenedictines, their prison, 113\nBergues, 137\nBerkeley, 218\nBerkhamstead, 189\nBerkshire, 208\nBerlin, 84\nBern, 102\nBicêtre, 133\nBien-venu in prisons, what, 108\nBirmingham gaol, 204\nBlack Assize, 7\nBlackstone, Sir William, quoted\n135 n.; Act of Parliament, drawn\nby, 262\nBlinds for prison windows, 185\nBodmin County Gaol, 223\nBook kept of work done by prisoners\n115\nBounty to prisoners of war, 114\n145, 146\nBoys should be confined separate\n39 n.\nBread allowance, deficiency of, 2, 3\ncut in slices for each prisoner\n50 n.\nBremen, 62\n299"
+        }
       }
     },
     "157": {
