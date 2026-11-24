@@ -982,6 +982,22 @@ assert.equal(elements['text-size-value'].textContent,'110%');
         self.assertIn('1782–1783\t—\t—\t6\t—\t52\t1\t—\t—\t49', s152['s3'])
         self.assertIn('сумма чисел строки — 59', self.request('/spread/152')[1])
 
+    def test_index_spreads_render_printed_lines_not_joined_prose(self):
+        from verified_index import INDEX_LINES
+        for number in (156, 157, 158, 159, 160):
+            html, segments = reader.segment_state(number)
+            self.assertIn('index-column', html)
+            self.assertIn('verified-prose-page', html)
+            columns = [value for value in segments.values() if len(value) > 100]
+            expected = ['\n'.join(INDEX_LINES[number][column]) for column in sorted(INDEX_LINES[number])]
+            self.assertEqual(columns, expected, number)
+        self.assertIn('Knoot', reader.segment_state(158)[1]['s4'])
+        self.assertIn('Prisoners, acquitted, discharged in', reader.segment_state(159)[1]['s2'])
+        self.assertEqual(reader.page_labels(159), ['304', '305'])
+        self.assertEqual(reader.page_labels(160), ['306', None])
+        self.assertIn('class="book-page everyman-page"', reader.reader_page(160))
+        self.assertNotIn('class="book-page everyman-page"', reader.reader_page(159))
+
     def test_verified_spreads_and_pending_ocr_labels(self):
         for number in (5, 6, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160,
                        161, 162, 163, 164, 165):

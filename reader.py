@@ -1015,6 +1015,11 @@ def omission_candidates(number):
 
 def omissions_page(number):
     candidates = omission_candidates(number)
+    # The index pages were retyped column by column, so the old line-by-line OCR
+    # (which interleaved the columns) cannot meaningfully be compared with them.
+    index_notice = ('<p class="notice">Индекс этого разворота вычитан построчно по скану, а прежнее распознавание '
+                    'шло строками через все колонки. Сравнение с ним даёт только ложные пропуски, '
+                    'поэтому здесь оно не показывается; сверяйте со сканом справа.</p>')
     cards = []
     for candidate in candidates:
         side = 'левая половина' if candidate['side'] == 0 else 'правая половина'
@@ -1038,7 +1043,7 @@ def omissions_page(number):
     image_url = scan_url(number)
     content = f'''<div class="heading-row"><div><span class="eyebrow">Сравнение распознаваний</span><h2>Возможные пропуски</h2><p>Разворот {number:03}</p></div><a class="button" href="/spread/{number}">← К чтению</a></div>
 <p class="notice">Подсказки получены сравнением текущего текста с повторным OCR: они могут быть ошибочными, а часть пропусков не обнаружится. В таблицах, сносках и на смещённых сканах возможны ложные совпадения. Сверьте со сканом; ничего не добавляется автоматически. При необходимости исправьте текст прямо в читалке.</p>
-<div class="review-layout"><div>{''.join(cards) or '<p class="empty">По этой эвристике совпадений не найдено. Это не означает, что пропусков нет.</p>'}{reference_html}</div><section class="panel review-scan"><div class="panel-header"><span class="panel-title">Скан для сверки</span></div><a href="{image_url}" target="_blank" rel="noopener"><img class="scan-frame" src="{image_url}" alt="Скан разворота {number}"></a></section></div>'''
+<div class="review-layout"><div>{(index_notice + (''.join(cards) or '<p class="empty">По этой эвристике совпадений не найдено. Это не означает, что пропусков нет.</p>')) if number in INDEX_LINES else (''.join(cards) or '<p class="empty">По этой эвристике совпадений не найдено. Это не означает, что пропусков нет.</p>')}{reference_html}</div><section class="panel review-scan"><div class="panel-header"><span class="panel-title">Скан для сверки</span></div><a href="{image_url}" target="_blank" rel="noopener"><img class="scan-frame" src="{image_url}" alt="Скан разворота {number}"></a></section></div>'''
     return shell(content, number)
 
 
