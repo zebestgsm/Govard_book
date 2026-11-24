@@ -450,7 +450,7 @@
       "segments": {},
       "history": [],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "Editor's Note",
           "s1": "EDITOR'S NOTE",
@@ -469,6 +469,10 @@
           {
             "action": "finish",
             "time": "2026-11-18T07:55:24+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-24T22:39:36+00:00"
           }
         ],
         "after": {
