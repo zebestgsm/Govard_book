@@ -296,8 +296,8 @@
     },
     "154": {
       "segments": {
-        "s1": "In this process three main periods can be The first,from the time of Howard's appeara reformer until 1835 may be called the peric Endeavour;the second,from 1835 to 1877 tha Supervision;the third,from 1877 to the pres of National Administration.",
-        "s2": "The first period contains many famous names Eden,Romilly, Nield, Paul, Buxton,Elizab these kept burning the torch kindled byHow prisonsgenerally showed little sign of improve isolated cases where the local authorities were conscientious.Acts passed in 1779 and 1791 the establishment of a National Penitentiary applying the principles of the penitentiary to detention,were inoperative."
+        "s1": "In this process three main periods can be distinguished. The first, from the time of Howard’s appearance as prison reformer until 1835 may be called the period of Private Endeavour; the second, from 1835 to 1877 that of National Supervision; the third, from 1877 to the present day, that of National Administration.",
+        "s2": "The first period contains many famous names—Blackstone, Eden, Romilly, Nield, Paul, Buxton, Elizabeth Fry—and these kept burning the torch kindled by Howard. But the prisons generally showed little sign of improvement, save in isolated cases where the local authorities were exceptionally conscientious. Acts passed in 1779 and 1791, the first for the establishment of a National Penitentiary, the second applying the principles of the penitentiary to all places of detention, were inoperative."
       },
       "history": [
         {
@@ -315,6 +315,20 @@
           "time": "2026-10-31T08:24:55+00:00",
           "kind": "edit",
           "suggestion": "154-2"
+        },
+        {
+          "id": "s1",
+          "before": "In this process three main periods can be The first,from the time of Howard's appeara reformer until 1835 may be called the peric Endeavour;the second,from 1835 to 1877 tha Supervision;the third,from 1877 to the pres of National Administration.",
+          "after": "In this process three main periods can be distinguished. The first, from the time of Howard’s appearance as prison reformer until 1835 may be called the period of Private Endeavour; the second, from 1835 to 1877 that of National Supervision; the third, from 1877 to the present day, that of National Administration.",
+          "time": "2026-11-24T11:51:59+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s2",
+          "before": "The first period contains many famous names Eden,Romilly, Nield, Paul, Buxton,Elizab these kept burning the torch kindled byHow prisonsgenerally showed little sign of improve isolated cases where the local authorities were conscientious.Acts passed in 1779 and 1791 the establishment of a National Penitentiary applying the principles of the penitentiary to detention,were inoperative.",
+          "after": "The first period contains many famous names—Blackstone, Eden, Romilly, Nield, Paul, Buxton, Elizabeth Fry—and these kept burning the torch kindled by Howard. But the prisons generally showed little sign of improvement, save in isolated cases where the local authorities were exceptionally conscientious. Acts passed in 1779 and 1791, the first for the establishment of a National Penitentiary, the second applying the principles of the penitentiary to all places of detention, were inoperative.",
+          "time": "2026-11-24T11:51:59+00:00",
+          "kind": "edit"
         }
       ],
       "suggestions": {
