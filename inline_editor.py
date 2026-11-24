@@ -589,6 +589,9 @@ class SegmentRenderer(HTMLParser):
             elif self.spread == 165 and segment_id == 's1' and original == 'EET s(Kr1)':
                 # OCR spuriously split letters and show-through onto the blank page.
                 default = ''
+            elif self.spread == 150 and segment_id == 's1' and original == 'TABLEIV':
+                # OCR closed up the space between the word and the numeral.
+                default = 'TABLE IV'
             elif self.spread == 151 and segment_id == 's1' and original == 'TABLEV':
                 default = 'TABLE V'
             elif self.spread == 151 and segment_id == 's2' and original.startswith('Alist offees'):
@@ -642,9 +645,38 @@ class SegmentRenderer(HTMLParser):
                 # direct edits, history and existing segment IDs still work.
                 chunks = []
                 in_table = False
+                notes_open = False
+                note_prefix = 'footnote-151-s2-'
+                note_starts = {'1 The Clerks of Assize': '1', '2 “We present': '2'}
+                heading_prefix = {'TABLE V': 'TABLE V', 'TABLE VI': 'TABLE VI',
+                                  'TABLE VII': 'TABLE VII'}
                 for line in value.splitlines(keepends=True):
                     ending = '\n' if line.endswith('\n') else ''
                     row = line[:-1] if ending else line
+                    if self.spread == 151 and segment_id == 's2':
+                        started = next((number for start, number in note_starts.items()
+                                        if row.startswith(start)), None)
+                        if started:
+                            if in_table:
+                                chunks.append('</span>')
+                                in_table = False
+                            if notes_open:
+                                chunks.append('</span>')
+                            chunks.append('<span class="book-footnote verified-footnote" id="'
+                                          + note_prefix + started + '">')
+                            notes_open = True
+                            chunks.append(highlight_with_note_refs(row + ending, self.spread, segment_id, self.query))
+                            continue
+                        if notes_open:
+                            chunks.append(highlight_with_note_refs(row + ending, self.spread, segment_id, self.query))
+                            continue
+                    if row in heading_prefix:
+                        if in_table:
+                            chunks.append('</span>')
+                            in_table = False
+                        chunks.append('<span class="restored-heading">'
+                                      + highlight(row, self.query) + '</span>' + ending)
+                        continue
                     cells = row.split('\t')
                     if len(cells) > 1:
                         if not in_table:
@@ -652,7 +684,7 @@ class SegmentRenderer(HTMLParser):
                             in_table = True
                         chunks.append('<span class="restored-row" role="row" style="--numeric-cols:' + str(len(cells) - 1) + '">')
                         for index, cell in enumerate(cells):
-                            chunks.append('<span class="restored-cell" role="cell">' + highlight(('\t' if index else '') + cell, self.query) + '</span>')
+                            chunks.append('<span class="restored-cell" role="cell">' + highlight_with_note_refs(('\t' if index else '') + cell, self.spread, segment_id, self.query) + '</span>')
                         chunks.append('</span>' + ending)
                     else:
                         if in_table:
@@ -661,8 +693,10 @@ class SegmentRenderer(HTMLParser):
                         if row in ('TABLE VII', 'TABLE VII — continued', 'TABLE VIII', 'THE RESPECTIVE OFFENCES'):
                             chunks.append('<span class="restored-heading">' + highlight(row, self.query) + '</span>' + ending)
                         else:
-                            chunks.append(highlight(row + ending, self.query))
+                            chunks.append(highlight_with_note_refs(row + ending, self.spread, segment_id, self.query))
                 if in_table:
+                    chunks.append('</span>')
+                if notes_open:
                     chunks.append('</span>')
                 content = ''.join(chunks)
             if self.spread == 164 and segment_id in ('s3', 's5'):
@@ -740,6 +774,26 @@ class SegmentRenderer(HTMLParser):
     def handle_charref(self, name):
         self.handle_data('&#' + name + ';')
 
+
+def highlight_with_note_refs(text, spread, segment_id, query):
+    """Highlight text, linking superscript note numbers that have destinations.
+
+    Only the markup changes: the text content stays byte-identical so saved
+    overrides and direct editing still round-trip.
+    """
+    targets = NOTE_TARGETS.get(spread, {}).get(segment_id, {})
+    if not targets:
+        return highlight(text, query)
+    superscripts = {'¹': '1', '²': '2', '³': '3', '⁴': '4', '⁵': '5'}
+    output = []
+    for piece in re.split(r'([¹²³⁴⁵])', text):
+        number = superscripts.get(piece)
+        if number and number in targets:
+            output.append('<a class="verified-note-ref" href="#footnote-' + str(spread) + '-'
+                          + targets[number] + '-' + number + '">' + piece + '</a>')
+        else:
+            output.append(highlight(piece, query))
+    return ''.join(output)
 
 def render_segments(html, overrides=None, query='', spread=None):
     parser = SegmentRenderer(overrides, query, spread)

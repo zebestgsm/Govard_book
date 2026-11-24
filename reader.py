@@ -52,8 +52,6 @@ OCR_ISSUES = {
     148: 'Сложная таблица: повторный OCR правой страницы 68/100.',
     149: 'Сложная таблица: повторный OCR 64/100 и 62/100.',
     150: 'Сложная таблица: повторный OCR правой страницы 68/100.',
-    151: 'Таблицы V–VII восстановлены по скану; данные и примечания можно дополнительно сверить с оригиналом.',
-    152: 'Таблицы VII–VIII восстановлены по скану; в таблице VIII сумма за 1782–1783 напечатана как 49, хотя числа в строке дают 59. Сохранено значение оригинала.',
     153: 'Разворот пересечён границей OCR: исходное автоматическое распознавание перепутало две страницы. Базовый текст сверен со сканом; сохранённые правки имеют приоритет.',
     164: 'Содержание: повторный OCR правой страницы 66/100.',
     165: 'Страница смещена относительно середины скана; автоматическое разделение текста ненадёжно.',
@@ -62,7 +60,7 @@ OCR_ISSUES = {
 # Manual scan proofreading is distinct from automated whole-book collation.
 # Restored fragments/tables alone do not certify an entire spread.
 VERIFIED_SPREADS = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106,
-                    107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 151, 153, 161, 162, 163, 164, 165}
+                    107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 161, 162, 163, 164, 165}
 for _number in range(1, len(PAGES) + 1):
     if _number in VERIFIED_SPREADS:
         OCR_ISSUES.pop(_number, None)
@@ -675,7 +673,7 @@ def segment_state(number, edits=None, query='', rules=None):
             base = base.replace('<article class="book-page"', '<article class="book-page verified-prose-page spread-' + str(number) + '"')
         if number in (145, 146, 147, 148, 149, 150):
             base = base.replace('<div class="book-spread">', '<div class="book-spread wide-table-spread">', 1)
-        if number in (145, 146, 147, 148, 149):
+        if number in (145, 146, 147, 148, 149, 150):
             # Both pages now have restored, scan-checked cells, not raw OCR.
             base = base.replace('<p class="table-warning">Табличная разметка OCR утрачена; строки приведены без восстановления ячеек. Сверяйте со сканом.</p>', '')
         if number in (5, 6):
@@ -688,9 +686,9 @@ def segment_state(number, edits=None, query='', rules=None):
             base = base.replace('<article class="book-page"', '<article class="book-page s164-publisher"', 1)
             base = base.replace('<article class="book-page"', '<article class="book-page s164-contents"', 1)
             base = base.replace('</p></article></div>', '</p><div class="s164-page-number">7</div></article></div>', 1)
-        if number in (151, 152):
+        if number in (150, 151, 152):
             base = base.replace('<div class="book-spread">', '<div class="book-spread wide-table-spread">', 1)
-            base = base.replace('<article class="book-page"', '<article class="book-page table151-page"')
+            base = base.replace('<article class="book-page"', '<article class="book-page table151-page verified-prose-page spread-' + str(number) + '"')
             base = base.replace('<p class="table-warning">Табличная разметка OCR утрачена; строки приведены без восстановления ячеек. Сверяйте со сканом.</p>', '')
             base = base.replace('<pre class="ocr-table">', '<pre class="table151-text">')
         if number == 153:
@@ -830,11 +828,13 @@ def _reader_page(number, query=''):
         page_notice += '<p class="notice" style="padding:0 20px">Между разворотами 50 и 51 в предоставленных сканах отсутствуют печатные страницы 86–87. Их текст не подменялся другим изданием.</p>'
     if number == 18:
         page_notice += '<p class="notice" style="padding:0 20px">Жирным отмечены слова, которые пересекает искажённая полоса скана на странице 20, для сравнения. Выделение не означает, что каждое слово было изменено или прочитано неуверенно.</p>'
+    if number in (151, 152):
+        page_notice += '<p class="scan-fallback">Таблицы и примечания этой страницы восстановлены по скану; примечания 1 и 2 к таблице V напечатаны мелким шрифтом.</p>' if number == 151 else ''
     if number == 147:
         page_notice += '<p class="scan-fallback">На странице 281 итоги таблицы за 1782 год напечатаны как 194, 12, 90 и 125, хотя сумма приведённых выше строк — 92, 8, 27 и 21. Сохранены числа оригинала.</p>'
     if number == 146:
         page_notice += '<p class="scan-fallback">На странице 278 в итоге столбца мелких правонарушителей за 1779 год напечатано 262, хотя сумма строк равна 282. Оставлено значение из книги.</p>'
-    page_notice += ('<p class="scan-fallback">В таблице VIII за 1782–1783 в оригинале напечатано 49, хотя сумма чисел строки — 59. Оставлено значение из книги.</p>' if number == 152 else '')
+    page_notice += ('<p class="scan-fallback">В таблице VIII за 1782–1783 в оригинале напечатано 49, хотя сумма чисел строки — 59; итог столбца 467 также не сходится с ним. Оставлено значение из книги.</p>' if number == 152 else '')
     text_status = ('ENGLISH · сверено' if number in VERIFIED_SPREADS else ('ENGLISH · пометка OCR снята' if number in dismissed_issues()['ocr'] else 'ENGLISH · ☑ OCR'))
     text_note = ('Базовый текст разворота вычитан по скану; отдельные ошибки всё ещё возможны. Ваши сохранённые правки имеют приоритет.' if number in VERIFIED_SPREADS else ('Пометка OCR снята вами; базовый текст получен автоматическим распознаванием.' if number in dismissed_issues()['ocr'] else 'Текст получен автоматическим распознаванием и не вычитан полностью: возможны слитные слова, ошибки и неточности в сносках.'))
     source_label = 'Загруженный вами скан' if replacement else 'Оригинальный скан для сверки'

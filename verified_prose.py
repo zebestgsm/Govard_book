@@ -2034,3 +2034,6 @@ VERIFIED_PROSE[144]['s3'] = (VERIFIED_PROSE[144]['s3'][0], 'DINNER.\tSunday and 
 
 # Note on the 1783 London and hulks list on printed page 281.
 NOTE_TARGETS[147] = {'s3': {'1': 's3'}}
+
+# Footnote destinations on printed page 288 (Table V, Clerks of Assize fees).
+NOTE_TARGETS[151] = {'s2': {'1': 's2', '2': 's2'}}

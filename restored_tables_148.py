@@ -95,7 +95,7 @@ T149_RIGHT = _rows(H4, [
     ['Total',106,2004,275],['Great total',927,2670,538],
 ])
 
-T150_LEFT = 'TABLE IV\n\nAn account of the number of convicts ordered for transportation, from the 1st of November, 1769, to the 1st of November, 1776; extracted from the lists transmitted to the Clerk of the House of Commons, and distinguishing:\n\n(1) The number of convicts in that period, sent from the Old Bailey in London and Middlesex; the assizes in each county of England, where any are held; and the great sessions in Chester and Wales.\n(2) The like from the quarter sessions.\n(3) Totals of both.\n(4) The annual average during that period, being really only six years and an half; the practice of transportation having in great measure ceased before the 1st of May, 1776.\n\nHOME CIRCUIT\n\n' + _rows(HT, [
+T150_LEFT = 'An account of the number of convicts ordered for transportation, from the 1st of November, 1769, to the 1st of November, 1776; extracted from the lists transmitted to the Clerk of the House of Commons, and distinguishing:\n\n(1) The number of convicts in that period, sent from the Old Bailey in London and Middlesex; the assizes in each county of England, where any are held; and the great sessions in Chester and Wales.\n(2) The like from the quarter sessions.\n(3) Totals of both.\n(4) The annual average during that period, being really only six years and an half; the practice of transportation having in great measure ceased before the 1st of May, 1776.\n\nHOME CIRCUIT\n\n' + _rows(HT, [
     ['Essex',106,10,116,18],['Hertfordshire',49,5,'',''],["St. Alban's",0,18,72,12],
     ['Kent',116,45,'',''],['Dover',0,3,164,26],['Canterbury',0,6,6,1],
     ['Sussex',34,3,'',''],['Chichester',0,1,38,6],['Surrey',167,83,'',''],['Southwark',0,18,268,42],
