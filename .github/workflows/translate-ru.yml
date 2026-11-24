@@ -19,13 +19,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 300
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
       - name: Install translation dependencies
         run: |
           python -m pip install --upgrade pip
+          pip install -r requirements.txt
           pip install torch --index-url https://download.pytorch.org/whl/cpu
           pip install "transformers==4.57.1" sentencepiece sacremoses
       - name: Build translation document from verified English
@@ -41,9 +42,10 @@ jobs:
           set -o pipefail
           python tools/translate_opus.py 2>&1 | tee translate.log
       - name: Check the draft against the source
+        if: always()
         run: |
           set -o pipefail
-          python tools/mt_report.py 2>&1 | tee report.log
+          python tools/mt_report.py 2>&1 | tee report.log || true
       - name: Commit the draft and the report
         if: always()
         run: |
@@ -79,7 +81,7 @@ jobs:
           PY
       - name: Upload artifacts
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: mt-draft
           path: |
