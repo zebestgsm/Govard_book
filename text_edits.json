@@ -19353,6 +19353,46 @@
           }
         ]
       }
+    },
+    "148": {
+      "segments": {},
+      "history": [],
+      "spread_review": {
+        "state": "working",
+        "before": {
+          "s0": "TABLES",
+          "s1": "Place\tDebtors Men\tWom.\tFelons etc.\tPetty Offenders\nBrought forward\t771\t35\t79\t225\nMarshalsea\t65\t6\t0\t0\nNewgate\t101\t12\t224\t0\nNew Ludgate\t14\t1\t0\t0\nPoultry Compter\t30\t0\t19\t0\nSavoy\t0\t0\t0\t56\nTothill-Fields Bridewell\t4\t2\t0\t86\nWood-Street Compter\t34\t0\t36\t0\nIn the hulks\t0\t0\t194\t0\nTotal\t1019\t56\t552\t367\n\nTABLE II\n\nAn account of the number of prisoners in the gaols and prisons of Ireland at the times they were visited in 1787 and 1788.\n\nIn this table I have omitted mentioning those prisons in which, at the times of my visiting in those two years, there were no persons confined.\n\nN.B. Where ciphers are opposite a name, it signifies that the prison was not visited that year.\n\nPlace\t1787 Debts.\t1787 Crim.\t1788 Debts.\t1788 Crim.\nArmagh\t2\t18\t0\t0\nCarlow\t0\t0\t4\t5\nCarrickfergus\t5\t21\t0\t0\nTown\t0\t1\t0\t0\nCarrick on Shannon\t0\t0\t2\t4\nCastlebar\t0\t0\t4\t6\nCavan\t1\t36\t0\t0\nClonmell\t10\t51\t19\t62\nCork\t31\t64\t23\t73\nCity\t67\t45\t76\t49\nBridewell\t2\t7\t4\t5\nDownpatrick\t9\t26\t0\t0\nDublin Bridewell\t0\t6\t0\t12\nCity Marshalsea\t92\t0\t66\t0\nFour C. Marshalsea\t150\t0\t180\t0\nNewgate\t1\t190\t0\t220\nPolice Prison\t0\t32\t0\t12\nThos. Court & Donor\t2\t0\t0\t0\nDundalk\t5\t8\t0\t0\nEnnis\t0\t0\t6\t19\nEnniskillen\t3\t15\t0\t0\nGalway\t4\t14\t0\t0\nCity\t7\t12\t0\t0\nKilkenny\t2\t13\t0\t0\nCity\t3\t7\t0\t0\nKilmainham\t7\t27\t8\t47\nLifford\t12\t20\t0\t0\nLimerick\t6\t19\t0\t0\nCity\t12\t26\t7\t10\nLondonderry\t12\t23\t0\t0\nLongford\t8\t8\t12\t20\nLoughrea Bridewell\t0\t0\t0\t3\nMaryborough\t2\t11\t1\t7\nMonaghan\t13\t33\t0\t0\nMullingar\t2\t24\t1\t19\nNaas\t3\t19\t0\t0\nOmagh\t16\t19\t0\t0\nPhilipstown\t0\t0\t3\t3\nRoscommon\t1\t33\t3\t13\nSligo\t0\t0\t2\t19\nTralee\t0\t0\t5\t35\nTrim\t0\t0\t5\t25\nWaterford\t2\t6\t2\t4\nCity\t3\t7\t4\t7\nWexford\t0\t0\t7\t12\nWicklow\t0\t0\t1\t9\n\nI have visited all the county gaols, and almost all the other prisons; yet, as there are some few of the town prisons which I did",
+          "s2": "TABLES",
+          "s3": "not see, if we add twenty to the number of prisoners, we shall probably have nearly the average number of persons confined at one time in the prisons in Ireland, viz.: Debtors, 550; Criminals, 1004; Supposed omitted, 20; Total, 1574.\n\nN.B. Where I have visited twice, viz., in 1787 and 1788, I have taken, in this estimate, the last number.\n\nTABLE III\n\nAn account of the number of prisoners in the gaols and prisons of England and Wales at the last time they were visited in 1787 or 1788.\n\nAs some county gaols are also the county bridewells, where petty offenders are not always separated from felons, in those places I sometimes include petty offenders under the heading felons, etc.—In this table I have omitted mentioning all those prisons in which, at the times of my visiting in these two years, there were no persons confined.\n\nPlace\tDebtors\tFelons etc.\tPetty Offenders\nAppleby\t1\t6\t0\nBridewell\t0\t0\t1\nAston\t0\t0\t5\nAylesbury\t11\t24\t0\nBridewell\t0\t0\t10\nBanbury\t0\t0\t3\nBarking\t0\t0\t2\nBath\t2\t6\t0\nBatley\t22\t0\t0\nBeaumaris\t1\t4\t0\nBeccles\t0\t0\t3\nBedford\t6\t7\t0\nBridewell\t0\t0\t7\nBerwick\t3\t0\t0\nBeverley\t0\t0\t9\nTown\t0\t0\t3\nHall-garth\t1\t0\t0\nBirmingham\t0\t0\t13\nCourt Prison\t0\t0\t7\nBodmin\t18\t5\t24\nBrecon\t10\t11\t0\nBridgewater\t3\t0\t0\nBristol\t24\t43\t0\nBridewell\t0\t0\t14\nLawford's-gate\t0\t0\t5\nBury St. Edmunds\t7\t17\t0\nBridewell\t0\t0\t3\nCambridge\t7\t8\t0\nBridewell\t0\t0\t13\nTown\t2\t1\t0\nBridewell\t0\t0\t9\nCardiff\t23\t7\t0\nTotal\t141\t139\t131\nCarlisle\t32\t20\t2\nCarmarthen\t5\t7\t2\nTown\t0\t2\t2\nCarnarvon\t3\t0\t0\nChelmsford\t31\t76\t0\nBridewell\t0\t0\t30\nChester\t19\t37\t0\nCity\t8\t9\t0\nBridewell\t0\t0\t2\nChesterfield Bridewell\t0\t0\t4\nChichester\t0\t0\t2\nColchester\t0\t0\t3\nBridewell\t0\t0\t5\nCoventry\t10\t10\t0\nBridewell\t0\t0\t8\nCowbridge\t0\t0\t6\nDartford\t0\t0\t9\nDerby\t7\t11\t0\nTown\t1\t2\t0\nDevizes\t1\t0\t29\nDorchester\t23\t8\t0\nDurham\t16\t13\t0\nBridewell\t0\t0\t10\nEly\t2\t3\t0\nBridewell\t0\t0\t1\nExeter\t0\t23\t2\nSheriff's Ward\t44\t0\t0\nBridewell\t0\t0\t22\nCity\t2\t11\t0\nFlint\t4\t3\t1\nFalkingham\t0\t0\t3\nTotal\t208\t235\t143"
+        },
+        "cycles": [],
+        "events": [
+          {
+            "action": "start",
+            "time": "2026-11-24T10:39:54+00:00"
+          }
+        ]
+      }
+    },
+    "149": {
+      "segments": {},
+      "history": [],
+      "spread_review": {
+        "state": "working",
+        "before": {
+          "s0": "TABLES",
+          "s1": "Place\tDebtors\tFelons etc.\tPetty Offenders\nGloucester\t24\t57\t0\nBridewell\t0\t0\t5\nCity\t5\t6\t0\nGosport\t0\t0\t2\nGuildford\t0\t0\t8\nHalifax\t4\t0\t0\nHaverfordwest\t3\t4\t0\nHereford\t6\t25\t0\nBridewell\t0\t0\t5\nCity\t2\t0\t1\nHertford\t8\t3\t0\nBridewell\t0\t0\t3\nHorsham\t16\t15\t0\nHull\t12\t4\t0\nBridewell\t1\t0\t3\nHuntingdon\t4\t9\t0\nBridewell\t0\t0\t2\nIpswich\t15\t18\t0\nBridewell\t0\t0\t9\nIvelchester\t57\t17\t0\nKendal Bridewell\t0\t0\t6\nKingston\t4\t0\t0\nBridewell\t0\t0\t24\nLancaster\t53\t65\t0\nLaunceston\t0\t3\t0\nLeeds\t0\t0\t1\nLeicester\t15\t14\t0\nBridewell\t0\t0\t9\nTown\t1\t1\t0\nLincoln\t20\t29\t0\nCity\t0\t5\t0\nBridewell\t0\t0\t3\nLiverpool\t18\t22\t0\nBridewell\t0\t0\t15\nLondon Bridewell\t0\t0\t29\nBorough Compter\t11\t0\t0\nClerkenwell\t0\t167\t0\nBridewell\t3\t0\t234\nFleet\t212\t0\t0\nKing's Bench\t444\t0\t0\nMarshalsea\t37\t0\t0\nNewgate\t114\t499\t0\nNew Ludgate\t24\t0\t0\nPoultry Compter\t35\t19\t0\nSavoy\t0\t0\t45\nTothill-fields Bridewell\t3\t0\t135\nTower Hamlets\t0\t0\t1\nWestminster Prison\t0\t0\t94\nWood Street Compter\t44\t48\t0\nTotal\t1195\t1030\t634\nLostwithiel\t5\t0\t0\nLudlow\t6\t0\t1\nMacclesfield\t6\t0\t0\nMaidstone\t31\t80\t0\nBridewell\t0\t0\t25\nManchester\t0\t0\t53\nMarlborough\t0\t0\t5\nMiddlewich\t0\t0\t24\nMonmouth\t6\t10\t0\nTown\t0\t2\t0\nMontgomery\t9\t12\t0\nBridewell\t0\t0\t0\nMorpeth\t15\t12\t0\nBridewell\t0\t0\t2\nNantwich\t0\t0\t2\nNewcastle\t14\t10\t0\nBridewell\t0\t0\t6\nNewport, Essex\t0\t0\t13\nNorthampton\t9\t20\t0\nTown\t0\t1\t0\nNorwich\t20\t20\t0\nCity\t16\t10\t0\nBridewell\t0\t0\t12\nNottingham\t12\t19\t0\nBridewell\t0\t0\t3\nTown\t5\t0\t1\nOakham\t0\t0\t1\nOdiam\t0\t0\t2\nOundle\t0\t0\t1\nOxford\t12\t24\t0\nCity Bridewell\t0\t0\t7\nPeterborough\t0\t1\t0\nBridewell\t0\t0\t1\nPetworth\t0\t0\t5\nPlymouth\t0\t0\t3\nPortsmouth\t3\t8\t0\nPresteign\t5\t2\t0\nPreston\t1\t0\t37\nReading\t10\t18\t0\nBridewell\t0\t0\t17\nRuthin\t12\t9\t0\nBridewell\t0\t0\t2\nSt. Alban's Borough gaol\t0\t1\t0\nLiberty\t0\t6\t0\nSt. George's Fields Bridewell\t0\t0\t34\nSalisbury\t13\t17\t0\nSheffield\t16\t0\t0\nTown\t0\t0\t1\nShepton-Mallet\t0\t0\t35\nSherborn\t0\t0\t9\nTotal\t220\t282\t302",
+          "s2": "TABLES",
+          "s3": "Place\tDebtors\tFelons etc.\tPetty Offenders\nShrewsbury\t25\t29\t0\nBridewell\t0\t0\t14\nSouthampton Sheriff's Ward\t2\t0\t0\nTown\t0\t2\t0\nSouthwark\t26\t55\t0\nSouthwell\t0\t0\t11\nStafford\t31\t61\t0\nBridewell\t0\t0\t18\nTaunton\t0\t0\t14\nThirsk\t0\t0\t11\nUsk\t0\t0\t4\nWakefield\t0\t0\t54\nWarwick\t31\t60\t0\nBridewell\t0\t0\t10\nTotal\t115\t207\t136\nWinchester\t31\t30\t0\nBridewell\t0\t0\t26\nWindsor Castle\t2\t0\t0\nTown\t0\t1\t0\nWorcester\t23\t47\t0\nBridewell\t0\t0\t13\nCity\t12\t15\t0\nWymondham\t0\t0\t16\nYarmouth\t1\t9\t0\nBridewell\t0\t0\t1\nYork\t50\t51\t0\nCity\t10\t6\t0\nSt. Peter's\t3\t0\t0\nBridewell\t0\t0\t10\nTotal\t132\t159\t66\n\nFrom foregoing pp.\t141\t139\t131\t208\t235\t143\n\t1195\t1030\t634\t220\t282\t302\nGreat Total\t1451\t1376\t901\tAnd\t560\t676\t511\n\nTotal number of Debtors 2011; Felons, etc. 2052; Petty Offenders 1412. Total number of Prisoners in the hulks 1937; supposed omitted 70. Total number of prisoners 7482.\n\nThough I have visited all the county gaols in England, and almost all the other prisons, yet as there are some few of the corporation prisons which I did not see, I have added seventy more prisoners to the number; so that, probably, we have nearly the average number of persons confined at one time in all the prisons of this kingdom.\n\nI subjoin the numbers confined in the London prisons and in the hulks, at the time they were visited in 1788, which are as follows:\n\nPlace\tDebtors\tFelons etc.\tPetty Offenders\nBridewell\t0\t0\t29\nBorough Compt.\t11\t0\t0\nClerkenwell\t0\t167\t0\nBridewell\t3\t0\t234\nFleet\t212\t0\t0\nKing's Bench\t444\t0\t0\nMarshalsea\t37\t0\t0\nNewgate\t114\t499\t0\nTotal\t821\t666\t263\nNew Ludgate\t24\t0\t0\nPoultry Compt.\t35\t19\t0\nSavoy\t0\t0\t45\nTothill-fields Bridewell\t3\t0\t135\nTower Hamlets\t0\t0\t1\nWestminster Prison\t0\t0\t94\nWood Street Compter\t44\t48\t0\nIn the Hulks\t0\t1937\t0\nTotal\t106\t2004\t275\nGreat total\t927\t2670\t538"
+        },
+        "cycles": [],
+        "events": [
+          {
+            "action": "start",
+            "time": "2026-11-24T10:39:55+00:00"
+          }
+        ]
+      }
     }
   }
 }
