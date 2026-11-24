@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Local, server-rendered reader for the OCR book. Run: python3 reader.py."""
 from html import escape
+from hashlib import sha256
 from contextvars import ContextVar
 from email.parser import BytesParser
 from email.policy import default as email_policy
@@ -19,6 +20,10 @@ import omission_detection
 import reference_sources
 import translation
 import restored_tables_145
+from verified_index import INDEX_LINES
+import sync_reader
+
+SYNC = None
 
 try:
     import pymupdf
@@ -48,18 +53,15 @@ OCR_ISSUES = {
     148: 'Сложная таблица: повторный OCR правой страницы 68/100.',
     149: 'Сложная таблица: повторный OCR 64/100 и 62/100.',
     150: 'Сложная таблица: повторный OCR правой страницы 68/100.',
-    151: 'Таблицы V–VII восстановлены по скану; данные и примечания можно дополнительно сверить с оригиналом.',
-    152: 'Таблицы VII–VIII восстановлены по скану; в таблице VIII сумма за 1782–1783 напечатана как 49, хотя числа в строке дают 59. Сохранено значение оригинала.',
     153: 'Разворот пересечён границей OCR: исходное автоматическое распознавание перепутало две страницы. Базовый текст сверен со сканом; сохранённые правки имеют приоритет.',
     164: 'Содержание: повторный OCR правой страницы 66/100.',
     165: 'Страница смещена относительно середины скана; автоматическое разделение текста ненадёжно.',
 }
 
-# Every spread 1–165 has been through the full-book completeness collation
-# (independent full-spread OCR plus the three supplied editions). This removes
-# the pending-OCR mark; it is not a claim that every OCR character is perfect.
-# Physical scan-quality marks remain independent.
-VERIFIED_SPREADS = set(range(1, len(PAGES) + 1))
+# Manual scan proofreading is distinct from automated whole-book collation.
+# Restored fragments/tables alone do not certify an entire spread.
+VERIFIED_SPREADS = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106,
+                    107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165}
 for _number in range(1, len(PAGES) + 1):
     if _number in VERIFIED_SPREADS:
         OCR_ISSUES.pop(_number, None)
@@ -130,7 +132,7 @@ def scan_kind(data):
         return 'jpeg'
     raise ValueError('Поддерживаются только JPG, PNG и одностраничный PDF.')
 
-def render_replacement(data):
+def render_replacement(data, detail=False):
     kind = scan_kind(data)
     with pymupdf.open(stream=data, filetype=kind) as doc:
         if doc.needs_pass or doc.page_count != 1:
@@ -139,7 +141,7 @@ def render_replacement(data):
         width, height = page.rect.width, page.rect.height
         if not all(math.isfinite(v) and 0 < v <= 20000 for v in (width, height)) or width * height > 60_000_000:
             raise ValueError('Слишком большие размеры изображения.')
-        scale = min(1.8, math.sqrt(20_000_000 / (width * height)))
+        scale = min(3.5 if detail else 1.8, math.sqrt(20_000_000 / (width * height)))
         pix = page.get_pixmap(matrix=pymupdf.Matrix(scale, scale), alpha=False)
         return pix.tobytes('jpg', jpg_quality=85)
 
@@ -242,6 +244,8 @@ STYLE = '''
 .footnote-ref{color:var(--green);text-decoration:none}.footnote-ref::after{content:"1";font:600 .7em Arial,sans-serif;vertical-align:super;margin-left:1px}.book-footnote{display:block;border-top:1px solid #d8d4c8;margin-top:1.2em;padding-top:.8em;font:14px/1.55 Georgia,serif;white-space:pre-line;scroll-margin-top:20px}
 /* In-place editing keeps the book and its scan visible side by side. */
 .edit-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.edit-status{font:12px/1.5 Arial,sans-serif;color:#52664f;margin:10px 15px;padding:10px 12px;background:#eff5ea;border-radius:5px}.is-editing [data-edit-id]{outline:1px dashed #a1b49b;outline-offset:3px;cursor:text;white-space:pre-wrap}.is-editing [data-edit-id]:empty{display:block;min-height:1.4em}.is-editing [data-edit-id]:empty:before{content:"Пустой фрагмент — нажмите, чтобы добавить текст";color:#999;font:12px Arial,sans-serif}.is-editing [data-edit-id]:focus{outline:2px solid #52664f;background:#f5faef;border-radius:2px}.button[hidden],.edit-status[hidden]{display:none}.button:disabled{opacity:.5;cursor:not-allowed}.history-item{margin-bottom:14px}.history-values{display:grid;grid-template-columns:1fr 1fr;gap:12px}.history-text{font:15px/1.6 Georgia,serif;white-space:pre-wrap;overflow-wrap:anywhere;background:#f6f5ef;padding:12px;border-radius:5px}.history-text strong{display:block;font:600 10px Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#777;margin-bottom:8px}@media(max-width:700px){.history-values{grid-template-columns:1fr}}
+.history-review{border-top:1px solid var(--line);margin-top:15px;padding-top:8px}.history-review form{display:flex;flex-wrap:wrap;gap:8px}.history-review .button[disabled]{opacity:.6;cursor:default}
+.spread-review{background:#fffefa;border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin:0 0 16px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;font-size:13px}.spread-review form{display:flex;flex-wrap:wrap;gap:8px}.spread-review .small{flex-basis:100%;margin:0}.spread-review details{flex-basis:100%}.spread-review summary{cursor:pointer;color:var(--green)}.spread-review .button:disabled{opacity:.45;cursor:not-allowed}
 /* Second-pass OCR review */
 .review-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.9fr);gap:15px;align-items:start}.review-list{min-width:0}.review-card{padding:18px 20px;margin-bottom:10px;background:var(--paper);border:1px solid var(--line);border-radius:8px}.review-top{display:flex;align-items:center;justify-content:space-between;gap:12px;font:11px Arial,sans-serif;color:var(--muted)}.review-comparison{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}.review-word{background:#f5f4ee;padding:11px;overflow-wrap:anywhere;font:16px/1.45 Georgia,serif}.review-word small{display:block;font:10px Arial,sans-serif;text-transform:uppercase;color:var(--muted);margin-bottom:7px}.review-context{font:14px/1.6 Georgia,serif;color:#62635a}.review-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.review-actions form{margin:0}.review-scan{position:sticky;top:8px}.review-summary{display:flex;gap:15px;flex-wrap:wrap;font:12px Arial,sans-serif;color:var(--muted);margin:14px 0}.review-state{font:12px Arial,sans-serif;color:var(--green)}.ocr-flags{padding-left:20px}.ocr-flags li{font:12px/1.5 Arial,sans-serif;margin:0 0 14px}.ocr-flags p{font:14px/1.5 Georgia,serif;margin:5px 0;color:#555}.editor-card summary{cursor:pointer;font-size:13px;color:var(--green)}@media(max-width:1050px){.review-layout{grid-template-columns:1fr}.review-scan{position:static;order:-1}}@media(max-width:600px){.review-comparison{grid-template-columns:1fr}}
 /* Accessible, explicit word-replacement editor. */
@@ -253,6 +257,7 @@ STYLE = '''
 .chapter-start-page .running-head{display:block;text-align:center;border:0;margin:15px 0 26px;font:normal 20px Georgia,serif;letter-spacing:.12em}.chapter-start-page .running-page{display:none}.chapter-start-page .running-title{display:block}.chapter-start-number{text-align:center;font:14px Georgia,serif;margin-top:18px}.spread-5 [data-edit-id="s3"],.spread-5 [data-edit-id="s4"],.spread-5 [data-edit-id="s5"],.spread-5 [data-edit-id="s6"]{display:inline}.spread-5 [data-edit-id="s5"]::before{content:"";display:block;height:1em}.s162-front .running-head,.s162-title-page .running-head{display:none}.s162-front p{white-space:pre-line;text-align:center;font:15px/1.55 Georgia,serif;max-width:330px;margin:10px auto}.s162-title-page{display:flex;flex-direction:column}.s162-title-page p{display:flex;flex-direction:column;flex:1;min-height:520px;white-space:pre-line;text-align:center;font:17px/1.5 Georgia,serif;letter-spacing:.04em}.s162-top,.s162-middle,.s162-bottom{display:block}.s162-middle{margin:auto 0}.s162-bottom{margin-top:auto}
 .s164-publisher .running-head{display:none}.s164-publisher p{text-align:center;white-space:pre-line;font:italic 14px/1.4 Georgia,serif;margin:0}.s164-contents{display:flex;flex-direction:column}.s164-contents .running-head{display:block;border:0;text-align:center;font:normal 23px Georgia,serif;letter-spacing:.1em;margin:25px 0 15px}.s164-contents .running-page{display:none}.s164-contents [data-edit-id="s4"]{order:0;text-align:right;font:12px Georgia,serif;margin:0}.s164-contents [data-edit-id="s3"]{order:1;font:13px/1.35 Georgia,serif;text-align:left;margin:0}.s164-contents [data-edit-id="s5"]{order:2;font:13px/1.35 Georgia,serif;white-space:normal;margin:0}.s164-row{display:flex;gap:12px;justify-content:space-between}.s164-number{white-space:pre}.s164-subrow{padding-left:14px}.s164-page-number{order:3;text-align:center;margin-top:auto;padding-top:30px;font:14px Georgia,serif}
 .wide-table-spread{grid-template-columns:minmax(0,1fr)}.wide-table-spread .book-page:nth-child(2){border-top:1px solid #e7e3d9}.table151-page pre.table151-text{font:14px/1.55 Georgia,serif;white-space:pre-wrap;overflow-wrap:anywhere;margin:0}.restored-table{display:block;max-width:100%;font:clamp(8px,.7vw,12px)/1.35 Georgia,serif;white-space:normal}.restored-row{display:grid;grid-template-columns:minmax(55px,2.5fr) repeat(var(--numeric-cols),minmax(0,1fr));min-width:0;border-bottom:1px solid #e7e3d9;white-space:normal}.restored-cell{display:block;min-width:0;overflow-wrap:anywhere;text-align:right;padding:3px 1px}.restored-cell:first-child{text-align:left}.restored-table.mixed-table{font-size:12px;line-height:1.45}.mixed-table .restored-row{grid-template-columns:minmax(0,1fr) repeat(var(--numeric-cols),minmax(0,1fr))}.mixed-table .restored-cell{text-align:left}.restored-table.diet-table{font-size:13px;line-height:1.5}.diet-table .restored-row{grid-template-columns:minmax(80px,1fr) minmax(0,3fr)}.diet-table .restored-cell{text-align:left}.restored-table.statistical-table{font-size:11px;line-height:1.4}.statistical-table .restored-row{grid-template-columns:minmax(58px,2.4fr) repeat(8,minmax(0,1fr))}.table-wrap{overflow:visible}.book-table{table-layout:fixed;width:100%;overflow-wrap:anywhere}.book-table th:last-child,.book-table td:last-child{width:22%;white-space:normal}.reference-excerpt{margin:12px 0;padding:10px;border-left:3px solid #c7d1c1}.reference-excerpt p{white-space:pre-wrap;font:14px/1.5 Georgia,serif;overflow-wrap:anywhere}.restored-heading{display:block;text-align:center;font:normal 19px Georgia,serif;letter-spacing:.08em}
+.everyman-page{display:flex;align-items:center;justify-content:center;background:#f6f1e6}.everyman-frame{border:2px solid #3c3a34;padding:clamp(18px,2.4vw,34px);text-align:center;width:100%;max-width:420px;color:#33312c}.everyman-name{font:600 clamp(19px,1.7vw,26px)/1.25 Georgia,serif;letter-spacing:.16em;text-transform:uppercase;border-bottom:2px solid #3c3a34;padding-bottom:.25em}.everyman-library{font:normal clamp(17px,1.5vw,23px)/1.4 Georgia,serif;letter-spacing:.28em;text-transform:uppercase;margin-top:.2em}.everyman-editor{font:600 10px/1.5 Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;margin:1.5em 0}.everyman-knot{font-size:34px;color:#2f2d29;margin:.6em 0;letter-spacing:.1em}.everyman-list{font:600 11px/1.9 Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;margin:1.2em 0}.everyman-bindings{font:italic 12px/1.8 Georgia,serif;font-style:italic;margin-top:1.4em}.everyman-bindings::first-line{font-style:italic}@media(max-width:760px){.everyman-knot{font-size:26px}}.index-spread{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.single-page-spread{grid-template-columns:minmax(0,1fr)}.single-page-spread .book-page{max-width:640px;margin:0 auto}.single-page-spread .book-page.blank{display:none}.index-column{font:13px/1.45 Georgia,serif;white-space:pre-wrap;overflow-wrap:anywhere;margin:0}.is-editing .index-column{white-space:pre-wrap}
 /* Spread 153: last page of Tables followed by the opening notes page. */
 .s153-page pre.s153-text{font:16px/1.55 Georgia,serif;white-space:pre-wrap;overflow-wrap:anywhere;margin:0;text-align:justify}.s153-page .s153-source{display:block;text-align:right}.s153-page .s153-footnote{display:block;font-size:12px;line-height:1.4}.s153-notes-page .running-head{display:none}.s153-title,.s153-subtitle,.s153-reference{display:block;text-align:center;white-space:normal}.s153-title{font-size:22px;letter-spacing:.11em;padding-top:45px}.s153-subtitle{font-size:15px}.s153-reference{font-style:italic;font-size:14px}.s153-page-number{text-align:center;font:14px Georgia,serif;margin-top:16px}
 /* Faithful styling for the publisher imprint on spread 165. */
@@ -277,7 +282,8 @@ STYLE = '''
  .heading-row h2{font-size:24px;margin:3px 0}
  .heading-row p{font-size:12px}
  .nav{margin-bottom:12px;padding:7px 9px}
- .reader{grid-template-columns:minmax(0,1.55fr) minmax(310px,1fr);gap:10px}
+ /* Give the scan half the available width while keeping the text alongside. */
+ .reader{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
  .book-page{padding:26px clamp(16px,1.7vw,30px) 34px}
  .scan-panel{top:8px}
  .scan-wrap{max-height:calc(100vh - 150px)}
@@ -286,9 +292,140 @@ STYLE = '''
 }
 
 
+/* Scan zoom stays within the scan pane, leaving the editable text in place. */
+.scan-zoom-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:7px;padding:10px 16px;border-bottom:1px solid var(--line);background:#f9f8f3}
+.scan-zoom-toolbar[hidden]{display:none}.scan-zoom-toolbar .button{min-width:38px;padding:7px 10px}.scan-zoom-toolbar output{min-width:3.2em;text-align:center;font-size:12px;color:var(--muted)}
+.scan-zoom-viewport:focus-visible{outline:3px solid var(--green);outline-offset:-3px}.scan-zoom-viewport.is-zoomed{max-height:min(70vh,850px);overflow:auto;overscroll-behavior:contain}
+.scan-zoom-viewport .scan-zoom-image{max-width:none}.scan-zoom-hint{font-size:12px;color:var(--muted)}
+
+/* Scan 001: OCR split two printed paragraphs into separate editable pieces. */
+.spread-1 p[data-edit-id="s2"],.spread-1 p[data-edit-id="s3"],.spread-1 p[data-edit-id="s5"],.spread-1 p[data-edit-id="s6"]{display:inline;margin:0}
+.spread-1 p[data-edit-id="s2"] .verified-paragraph,.spread-1 p[data-edit-id="s3"] .verified-paragraph,.spread-1 p[data-edit-id="s5"] .verified-paragraph,.spread-1 p[data-edit-id="s6"] .verified-paragraph{display:inline;margin:0}
+.spread-1 p[data-edit-id="s3"]::before,.spread-1 p[data-edit-id="s6"]::before{content:" "}
+.spread-1 p[data-edit-id="s3"]::after,.spread-1 p[data-edit-id="s6"]::after{content:"";display:block;margin-bottom:1.15em}
+
+/* Restore printed paragraph flow without changing editable segment IDs. */
+.spread-2 p[data-edit-id="s3"],.spread-2 p[data-edit-id="s4"],.spread-2 p[data-edit-id="s8"],.spread-2 p[data-edit-id="s9"],
+.spread-3 p[data-edit-id="s5"],.spread-3 p[data-edit-id="s6"],.spread-3 p[data-edit-id="s10"],.spread-3 p[data-edit-id="s11"],.spread-3 p[data-edit-id="s16"],.spread-3 p[data-edit-id="s17"]{display:inline;margin:0}
+.spread-2 p[data-edit-id="s3"] .verified-paragraph,.spread-2 p[data-edit-id="s4"] .verified-paragraph,.spread-2 p[data-edit-id="s8"] .verified-paragraph,.spread-2 p[data-edit-id="s9"] .verified-paragraph,
+.spread-3 p[data-edit-id="s5"] .verified-paragraph,.spread-3 p[data-edit-id="s6"] .verified-paragraph,.spread-3 p[data-edit-id="s10"] .verified-paragraph,.spread-3 p[data-edit-id="s11"] .verified-paragraph,.spread-3 p[data-edit-id="s16"] .verified-paragraph,.spread-3 p[data-edit-id="s17"] .verified-paragraph{display:inline;margin:0}
+.spread-2 p[data-edit-id="s4"]::before,.spread-2 p[data-edit-id="s9"]::before,.spread-3 p[data-edit-id="s6"]::before,.spread-3 p[data-edit-id="s11"]::before,.spread-3 p[data-edit-id="s17"]::before{content:" "}
+.spread-2 p[data-edit-id="s4"]::after,.spread-2 p[data-edit-id="s9"]::after,.spread-3 p[data-edit-id="s6"]::after,.spread-3 p[data-edit-id="s11"]::after{content:"";display:block;margin-bottom:1.15em}
+
+/* Printed paragraphs split by OCR on the next three spreads. */
+.spread-4 p[data-edit-id="s1"],.spread-4 p[data-edit-id="s2"],.spread-4 p[data-edit-id="s3"],.spread-4 p[data-edit-id="s5"],.spread-4 p[data-edit-id="s6"],
+.spread-5 p[data-edit-id="s3"],.spread-5 p[data-edit-id="s4"],.spread-5 p[data-edit-id="s5"],.spread-5 p[data-edit-id="s6"],
+.spread-6 p[data-edit-id="s4"],.spread-6 p[data-edit-id="s5"]{display:inline;margin:0}
+.spread-4 p[data-edit-id="s1"] .verified-paragraph,.spread-4 p[data-edit-id="s2"] .verified-paragraph,.spread-4 p[data-edit-id="s3"] .verified-paragraph,.spread-4 p[data-edit-id="s5"] .verified-paragraph:last-child,.spread-4 p[data-edit-id="s6"] .verified-paragraph{display:inline;margin:0}
+.spread-4 p[data-edit-id="s2"]::before,.spread-4 p[data-edit-id="s3"]::before,.spread-4 p[data-edit-id="s6"]::before,.spread-5 p[data-edit-id="s4"]::before,.spread-5 p[data-edit-id="s6"]::before,.spread-6 p[data-edit-id="s5"]::before{content:" "}
+.spread-4 p[data-edit-id="s3"]::after,.spread-4 p[data-edit-id="s6"]::after,.spread-5 p[data-edit-id="s4"]::after{content:"";display:block;margin-bottom:1.15em}
+
+/* Rejoin OCR fragments belonging to the same printed paragraph. */
+.spread-7 p[data-edit-id="s2"],.spread-7 p[data-edit-id="s3"],.spread-7 p[data-edit-id="s9"],.spread-7 p[data-edit-id="s10"],.spread-7 p[data-edit-id="s12"],.spread-7 p[data-edit-id="s13"],.spread-7 p[data-edit-id="s14"],.spread-7 p[data-edit-id="s15"],.spread-8 p[data-edit-id="s5"],.spread-8 p[data-edit-id="s6"],.spread-8 p[data-edit-id="s7"],.spread-8 p[data-edit-id="s11"],.spread-8 p[data-edit-id="s12"],.spread-9 p[data-edit-id="s2"],.spread-9 p[data-edit-id="s3"],.spread-9 p[data-edit-id="s4"],.spread-9 p[data-edit-id="s6"],.spread-9 p[data-edit-id="s7"],.spread-9 p[data-edit-id="s11"],.spread-9 p[data-edit-id="s12"]{display:inline;margin:0}
+.spread-7 p[data-edit-id="s2"] .verified-paragraph,.spread-7 p[data-edit-id="s3"] .verified-paragraph,.spread-7 p[data-edit-id="s9"] .verified-paragraph,.spread-7 p[data-edit-id="s10"] .verified-paragraph,.spread-7 p[data-edit-id="s12"] .verified-paragraph,.spread-7 p[data-edit-id="s13"] .verified-paragraph,.spread-7 p[data-edit-id="s14"] .verified-paragraph,.spread-7 p[data-edit-id="s15"] .verified-paragraph,.spread-8 p[data-edit-id="s5"] .verified-paragraph,.spread-8 p[data-edit-id="s6"] .verified-paragraph,.spread-8 p[data-edit-id="s7"] .verified-paragraph,.spread-8 p[data-edit-id="s11"] .verified-paragraph,.spread-8 p[data-edit-id="s12"] .verified-paragraph,.spread-9 p[data-edit-id="s2"] .verified-paragraph,.spread-9 p[data-edit-id="s3"] .verified-paragraph,.spread-9 p[data-edit-id="s4"] .verified-paragraph,.spread-9 p[data-edit-id="s6"] .verified-paragraph,.spread-9 p[data-edit-id="s7"] .verified-paragraph,.spread-9 p[data-edit-id="s11"] .verified-paragraph,.spread-9 p[data-edit-id="s12"] .verified-paragraph{display:inline;margin:0}
+.spread-7 p[data-edit-id="s3"]::before,.spread-7 p[data-edit-id="s10"]::before,.spread-7 p[data-edit-id="s13"]::before,.spread-7 p[data-edit-id="s15"]::before,.spread-8 p[data-edit-id="s6"]::before,.spread-8 p[data-edit-id="s7"]::before,.spread-8 p[data-edit-id="s12"]::before,.spread-9 p[data-edit-id="s3"]::before,.spread-9 p[data-edit-id="s4"]::before,.spread-9 p[data-edit-id="s7"]::before,.spread-9 p[data-edit-id="s12"]::before{content:" "}
+.spread-7 p[data-edit-id="s3"]::after,.spread-7 p[data-edit-id="s10"]::after,.spread-7 p[data-edit-id="s13"]::after,.spread-7 p[data-edit-id="s15"]::after,.spread-8 p[data-edit-id="s7"]::after,.spread-8 p[data-edit-id="s12"]::after,.spread-9 p[data-edit-id="s4"]::after,.spread-9 p[data-edit-id="s7"]::after,.spread-9 p[data-edit-id="s12"]::after{content:"";display:block;margin-bottom:1.15em}
+
+/* On spread 7, s5 contains the end of one paragraph and the start of the next. */
+.spread-7 p[data-edit-id="s4"],.spread-7 p[data-edit-id="s5"],.spread-7 p[data-edit-id="s6"],.spread-7 p[data-edit-id="s7"],.spread-7 p[data-edit-id="s8"]{display:inline;margin:0}
+.spread-7 p[data-edit-id="s4"] .verified-paragraph,.spread-7 p[data-edit-id="s5"] .verified-paragraph,.spread-7 p[data-edit-id="s6"] .verified-paragraph,.spread-7 p[data-edit-id="s7"] .verified-paragraph,.spread-7 p[data-edit-id="s8"] .verified-paragraph{display:inline;margin:0}
+.spread-7 p[data-edit-id="s5"]::before,.spread-7 p[data-edit-id="s6"]::before,.spread-7 p[data-edit-id="s7"]::before,.spread-7 p[data-edit-id="s8"]::before{content:" "}
+.spread-7 p[data-edit-id="s5"] .verified-paragraph + .verified-paragraph::before{content:"";display:block;margin-bottom:1.15em}
+.spread-7 p[data-edit-id="s8"]::after{content:"";display:block;margin-bottom:1.15em}
+
+/* Keep scan-verified paragraphs continuous across OCR segment boundaries. */
+.spread-16 p[data-edit-id="s3"],.spread-16 p[data-edit-id="s4"],.spread-16 p[data-edit-id="s5"],.spread-16 p[data-edit-id="s6"],.spread-17 p[data-edit-id="s5"],.spread-17 p[data-edit-id="s6"]{display:inline;margin:0}
+.spread-16 p[data-edit-id="s3"] .verified-paragraph,.spread-16 p[data-edit-id="s4"] .verified-paragraph,.spread-16 p[data-edit-id="s5"] .verified-paragraph,.spread-16 p[data-edit-id="s6"] .verified-paragraph,.spread-17 p[data-edit-id="s5"] .verified-paragraph,.spread-17 p[data-edit-id="s6"] .verified-paragraph{display:inline;margin:0}
+.spread-16 p[data-edit-id="s4"]::before,.spread-16 p[data-edit-id="s5"]::before,.spread-16 p[data-edit-id="s6"]::before,.spread-17 p[data-edit-id="s6"]::before{content:" "}
+.spread-16 p[data-edit-id="s5"] .verified-paragraph + .verified-paragraph::before,.spread-17 p[data-edit-id="s6"] .verified-paragraph + .verified-paragraph::before{content:"";display:block;margin-bottom:1.15em}
+.spread-16 p[data-edit-id="s6"]::after,.spread-17 p[data-edit-id="s6"]::after{content:"";display:block;margin-bottom:1.15em}
+.spread-17 h3[data-edit-id="s3"]{margin-bottom:0}.spread-17 h3[data-edit-id="s4"]{margin-top:0}
+
+/* Scale the transcription only; the scan and editor controls remain unchanged. */
+.text-size-tools{display:flex;align-items:center;flex-wrap:wrap;gap:6px;padding:8px 20px;border-bottom:1px solid var(--line);font:12px Arial,sans-serif;color:var(--muted)}
+.text-size-tools .button{padding:5px 10px;min-width:34px}.text-size-tools output{min-width:3.5em;text-align:center}.book-text{zoom:var(--text-size-scale,1)}
+
+/* The note on page 270 continues from the preceding spread. */
+.spread-142 .previous-spread-note::before{content:"Сноска 2 · продолжение с предыдущего разворота";display:block;font:600 10px/1.4 Arial,sans-serif;color:var(--green);margin-bottom:.45em}
+.spread-141 [data-edit-id="s1"] .restored-heading{margin:2em 0 .8em}
+/* The conclusion starts on page 267, without a running head in the scan. */
+.spread-140:nth-child(2) .running-head{display:none}
+.spread-140:nth-child(2)::after{content:"267";display:block;text-align:center;font:14px Georgia,serif;margin-top:1.5em}
+.spread-138:nth-child(2) .restored-heading{font-size:15px;line-height:1.35;margin:2em 0 1em}
+.spread-140:nth-child(2) .restored-heading:first-child{margin-top:2em}
+
+/* Full-workspace scan viewer. The original image link remains usable without JS. */
+.scan-fullscreen[hidden]{display:none}.scan-fullscreen{position:fixed;inset:0;z-index:1000;background:#282a27;color:#fff;display:flex;flex-direction:column;min-width:0}
+.scan-fullscreen-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 16px;background:#f9f8f3;color:var(--ink);border-bottom:1px solid var(--line)}
+.scan-fullscreen-title{font:600 14px Arial,sans-serif;margin-right:auto}.scan-fullscreen-bar .button{min-width:38px;padding:8px 11px}.scan-fullscreen-bar output{min-width:3.2em;text-align:center;font:12px Arial,sans-serif}.scan-fullscreen-view{flex:1;min-height:0;min-width:0;overflow:auto;overscroll-behavior:contain;touch-action:pan-x pan-y;outline-offset:-3px}.scan-fullscreen-view:focus-visible{outline:3px solid #b9d3a9}
+.scan-fullscreen-stage{display:grid;place-items:center;min-width:100%;min-height:100%;width:max-content}.scan-fullscreen-image{display:block;max-width:none;height:auto;box-shadow:0 4px 24px #0008}.scan-fullscreen-help{font:12px Arial,sans-serif;color:#657061}.scan-zoom-image{cursor:zoom-in}
+@media(max-width:650px){.scan-fullscreen-bar{padding:8px;gap:5px}.scan-fullscreen-title{flex-basis:100%}.scan-fullscreen-help{display:none}}
+
 /* Sequential transcription: paragraph breaks, page-local notes and poetry. */
-.translation-panel{margin-top:18px}.translation-text{font:16px/1.65 Georgia,serif}.translation-text .verified-paragraph{display:block;margin:0 0 .85em}.translation-edit{margin-top:12px}.translation-textarea{width:100%;min-height:220px;font:14px/1.5 Georgia,serif;white-space:pre-wrap}.translation-panel .fee-table{font-size:13px}.verified-prose-page p:empty{display:none}.verified-prose-page .verified-paragraph{display:block;margin:0 0 .85em}.verified-prose-page .verified-paragraph:last-child{margin-bottom:0}.verified-prose-page .verified-footnote{font-size:.78em;line-height:1.5;margin-top:1em}.verified-note-ref{vertical-align:super;font-size:.72em;line-height:0;color:var(--green);scroll-margin-top:20px}.verified-footnote{scroll-margin-top:20px}.book-verse{display:block;white-space:pre-line;font-size:.86em;line-height:1.5;margin:1.2em auto;max-width:34em}.fee-table{font:14px/1.5 Georgia,serif;margin:.5em 0 1em}.fee-table .restored-row{grid-template-columns:minmax(0,1fr) repeat(var(--numeric-cols),minmax(0,.18fr));padding:3px 0}.fee-table .restored-cell{padding:3px 2px}.fee-table .restored-row:first-child{font-weight:700;border-bottom:1px solid #aaa797}.is-editing .verified-prose-page p:empty{display:block}.is-editing .verified-paragraph,.is-editing .book-verse{display:inline}.is-editing .verified-footnote{display:inline;border:0;margin:0;padding:0;font:inherit}.is-editing .verified-note-ref{vertical-align:baseline;font:inherit}
+.translation-panel{margin-top:18px}.translation-text{font:16px/1.65 Georgia,serif}.translation-text .verified-paragraph{display:block;margin:0 0 .85em}.translation-edit{margin-top:12px}.translation-textarea{width:100%;min-height:220px;font:14px/1.5 Georgia,serif;white-space:pre-wrap}.translation-panel .fee-table{font-size:13px}.verified-prose-page p:empty{display:none}.verified-prose-page .verified-paragraph{display:block;margin:0 0 .85em}.verified-prose-page .verified-paragraph:last-child{margin-bottom:0}.verified-prose-page .verified-footnote{font-size:.78em;line-height:1.5;margin-top:1em}.verified-note-ref{vertical-align:super;font-size:.72em;line-height:0;color:var(--green);scroll-margin-top:20px}.verified-footnote{scroll-margin-top:20px}.book-verse{display:block;white-space:pre-line;font-size:.86em;line-height:1.5;margin:1.2em auto;max-width:34em}.diet-note{border:0;padding-top:0}.regulation-extract{font-size:.88em;line-height:1.55}.book-list{display:block;white-space:pre-line;padding-left:1em;line-height:1.55}.is-editing .book-list{display:inline}.inscription{text-align:center}.fee-table{font:14px/1.5 Georgia,serif;margin:.5em 0 1em}.fee-table .restored-row{grid-template-columns:minmax(0,1fr) repeat(var(--numeric-cols),minmax(0,.18fr));padding:3px 0}.fee-table .restored-cell{padding:3px 2px}.fee-table.has-header .restored-row:first-child{font-weight:700;border-bottom:1px solid #aaa797}.is-editing .verified-prose-page p:empty{display:block}.is-editing .verified-paragraph,.is-editing .book-verse{display:inline}.is-editing .verified-footnote{display:inline;border:0;margin:0;padding:0;font:inherit;font-size:.78em}.is-editing .verified-note-ref{vertical-align:baseline;font:inherit}
+/* Segments split by OCR remain parts of the same printed paragraphs. */
+.spread-19 p[data-edit-id="s2"],.spread-19 p[data-edit-id="s3"],.spread-19 p[data-edit-id="s6"],.spread-19 p[data-edit-id="s7"]{display:inline;margin:0}
+.spread-19 p[data-edit-id="s2"] .verified-paragraph,.spread-19 p[data-edit-id="s3"] .verified-paragraph:first-child,.spread-19 p[data-edit-id="s6"] .verified-paragraph:last-child,.spread-19 p[data-edit-id="s7"] .verified-paragraph:first-child{display:inline;margin:0}
+.spread-19 p[data-edit-id="s3"]::before,.spread-19 p[data-edit-id="s7"]::before{content:" "}
+.spread-19 p[data-edit-id="s6"] .verified-paragraph:first-child{display:block;margin-bottom:1.15em}
+.spread-25 .footnote-continuation{white-space:pre-line}
+.spread-137 .previous-page-note::before{content:"Сноска 3 · продолжение с предыдущего разворота";display:block;font:600 10px/1.4 Arial,sans-serif;color:var(--green);margin-bottom:.45em}.spread-137 .long-note-part{display:block;font-size:.78em;line-height:1.5;margin:.6em 0;white-space:pre-line}
+/* The printed Rotterdam dietary regulation is one note with a small table. */
+.spread-33 .diet-regulation{white-space:pre-line}.spread-33 .beer-allowance{font:inherit;white-space:normal;margin:.5em 0}.spread-33 .beer-allowance .restored-row{grid-template-columns:minmax(0,1fr) minmax(2.6em,.12fr)}.spread-33 .beer-allowance .restored-cell:last-child{text-align:right}
+/* This execution list has no printed column headings; diet notes keep line breaks. */
+.spread-35 .fee-table .restored-row:first-child{font-weight:normal;border-bottom:1px solid #e7e3d9}
+.spread-36 .verified-footnote,.spread-37 .verified-footnote{white-space:pre-line}
+/* On spread 17 the first rows are data, not column headings. */
+.spread-17 .fee-table .restored-row:first-child{font-weight:normal;border-bottom:1px solid #e7e3d9}
 @media(max-width:650px){.restored-table{font-size:10px}.restored-row{grid-template-columns:minmax(40px,2fr) repeat(var(--numeric-cols),minmax(0,1fr))}.restored-cell{padding:3px 0}.fee-table{font-size:13px}.fee-table .restored-row{grid-template-columns:minmax(0,1fr) repeat(var(--numeric-cols),minmax(0,.22fr))}.mixed-table .restored-row{grid-template-columns:minmax(0,1fr) repeat(var(--numeric-cols),minmax(0,1fr))}.diet-table .restored-row{grid-template-columns:minmax(64px,1fr) minmax(0,2.4fr)}.statistical-table .restored-row{grid-template-columns:minmax(44px,2.2fr) repeat(8,minmax(0,1fr))}}
+.restored-cell.count-cell{display:flex;align-items:baseline;gap:.3em;min-width:0}.count-label{min-width:0}.count-number{margin-left:auto;white-space:nowrap;text-align:right}
+/* Prison digests: retain printed lines and align labels without hard-coded spaces. */
+.prison-profile{display:block;margin:.5em 0 1em;font:clamp(13px,.95vw,16px)/1.42 Georgia,serif}.profile-row{display:grid;grid-template-columns:minmax(4.5em,6em) minmax(0,1fr);gap:0;align-items:start}.profile-fees{grid-template-columns:minmax(4.5em,6em) minmax(4em,5em) minmax(0,1fr)}.profile-label,.profile-category,.profile-value{min-width:0;white-space:normal;overflow-wrap:break-word}.profile-whole{display:block}.is-editing .prison-profile,.is-editing .profile-row,.is-editing .profile-label,.is-editing .profile-category,.is-editing .profile-value{display:inline}
+.fee-subheading{display:block;text-align:center;font-style:italic;margin:.8em 0 .3em}.book-signatures{display:block;white-space:pre-wrap;font-size:.88em;line-height:1.45}.book-signature{display:block;text-align:right;font-variant:small-caps}.is-editing .fee-subheading,.is-editing .book-signatures,.is-editing .book-signature{display:inline}
+
+.shared-brace{display:inline-flex;align-items:center;vertical-align:middle;max-width:100%;gap:.2em}.brace-labels{display:inline-flex;flex-direction:column;line-height:1.3}.brace-value{display:inline-flex;align-items:center;min-width:0}.brace-value::before{content:'}';font:2.5em/1 Georgia,serif;margin-right:.1em;color:#777}
+/* Spread 84 has three small, headerless lists, not fee tables. Dates and
+   descriptions need more space than the prisoner counts, even in the narrow
+   side-by-side reading pane. Keep ordinary word wrapping rather than breaking
+   dates and names into individual letters. */
+.spread-84 [data-edit-id="s5"] .mixed-table{font:clamp(12px, .9vw, 14px)/1.45 Georgia,serif;margin:.6em 0 1em;max-width:100%}
+.spread-84 [data-edit-id="s5"] .mixed-table .restored-row{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);border:0;column-gap:4px}
+.spread-84 [data-edit-id="s5"] .mixed-table .restored-row[style="--numeric-cols:2"]{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr) minmax(0,1fr)}
+.spread-84 [data-edit-id="s5"] .mixed-table .restored-cell{padding:1px 0;text-align:left;overflow-wrap:normal;word-break:normal}
+/* Preserve the two date/count pairs in the printed Bridewell returns. */
+.spread-95 [data-edit-id="s3"] .mixed-table{font:clamp(10px,.8vw,13px)/1.4 Georgia,serif;max-width:100%}
+.spread-95 [data-edit-id="s3"] .mixed-table .restored-row{grid-template-columns:minmax(0,1.25fr) minmax(0,.9fr) minmax(0,1.25fr) minmax(0,.9fr);column-gap:3px;border:0}
+.spread-95 [data-edit-id="s3"] .restored-cell{overflow-wrap:normal;word-break:normal;padding:2px 0}
+.spread-95 [data-edit-id="s3"] .restored-cell:nth-child(even):not(.count-cell){text-align:right}
+/* Give dates and headings enough room without forcing a horizontal scrollbar. */
+.spread-97 [data-edit-id="s1"] .mixed-table{font:clamp(11px,.85vw,14px)/1.4 Georgia,serif;max-width:100%}
+.spread-97 [data-edit-id="s1"] .restored-row{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr);column-gap:3px}
+.spread-97 [data-edit-id="s1"] .restored-cell{overflow-wrap:normal;word-break:normal}
+.spread-97 [data-edit-id="s1"] .restored-cell:not(:first-child){text-align:right;overflow-wrap:anywhere}
+.spread-101 .mixed-table .restored-row[style="--numeric-cols:1"]{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}
+/* OCR segmentation broke continuous paragraphs into separate editable nodes. */
+.spread-107 [data-edit-id="s2"] .verified-paragraph:last-child,.spread-107 [data-edit-id="s3"] .verified-paragraph,.spread-107 [data-edit-id="s4"] .verified-paragraph,.spread-107 [data-edit-id="s5"] .verified-paragraph,.spread-107 [data-edit-id="s9"] .verified-paragraph,.spread-107 [data-edit-id="s10"] .verified-paragraph,.spread-107 [data-edit-id="s11"] .verified-paragraph,.spread-107 [data-edit-id="s12"] .verified-paragraph{display:inline;margin:0}
+.spread-107 p[data-edit-id="s2"],.spread-107 p[data-edit-id="s3"],.spread-107 p[data-edit-id="s4"],.spread-107 p[data-edit-id="s5"],.spread-107 p[data-edit-id="s9"],.spread-107 p[data-edit-id="s10"],.spread-107 p[data-edit-id="s11"],.spread-107 p[data-edit-id="s12"]{display:inline;margin:0}
+.spread-107 p[data-edit-id="s3"]::before,.spread-107 p[data-edit-id="s4"]::before,.spread-107 p[data-edit-id="s5"]::before,.spread-107 p[data-edit-id="s10"]::before,.spread-107 p[data-edit-id="s11"]::before,.spread-107 p[data-edit-id="s12"]::before{content:" "}
+.spread-89 [data-edit-id="s4"] .mixed-table{font:clamp(12px,.9vw,14px)/1.45 Georgia,serif;margin:.6em 0 1em}
+.spread-89 [data-edit-id="s4"] .mixed-table .restored-row{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr) minmax(0,1fr);border:0;gap:4px}
+.spread-89 [data-edit-id="s4"] .mixed-table .restored-cell{padding:1px 0;overflow-wrap:normal;word-break:normal}
+/* Compact dated counts on the Hertfordshire and Horsham pages. */
+.spread-101 .mixed-table,.spread-103 .mixed-table,.spread-106 .mixed-table{font:clamp(10px,.75vw,13px)/1.4 Georgia,serif;max-width:100%;margin:.7em 0}
+.spread-106 .count-number,.spread-112 .count-number{white-space:normal}
+.spread-112 .mixed-table .restored-row[style="--numeric-cols:5"]{grid-template-columns:minmax(0,1.4fr) minmax(0,.7fr) minmax(0,.8fr) minmax(0,1.4fr) minmax(0,.7fr) minmax(0,.8fr)}
+.spread-128 .running-head,.spread-129:first-child .running-head,.spread-127:first-child .running-head{justify-content:center;position:relative;border:0;margin-top:3em;font:normal 20px/1.4 Georgia,serif;letter-spacing:.08em}.spread-128 .running-page,.spread-129:first-child .running-page,.spread-127:first-child .running-page{position:absolute;right:0;top:-3em;font:600 10px Arial,sans-serif}
+.spread-131:nth-child(2) .running-title:empty::before,.spread-132:nth-child(2) .running-title:empty::before{content:"REMARKS ON CHARTER SCHOOLS"}
+.spread-135:nth-child(2) .running-title:empty::before{content:"THE HULKS NEAR PORTSMOUTH"}.spread-136:nth-child(2) .running-title:empty::before{content:"REMARKS ON THE GAOL-FEVER"}
+.spread-136 .mixed-table .restored-row{grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr) minmax(0,1.2fr) minmax(0,.5fr);gap:3px;border:0}.spread-136 .mixed-table .restored-cell{overflow-wrap:normal;word-break:normal;padding:2px 0}.spread-136 .mixed-table .restored-cell:last-child{text-align:right}
+.spread-116 .mixed-table{font:clamp(10px,.75vw,12px)/1.35 Georgia,serif}
+.spread-116 .mixed-table .restored-row[style="--numeric-cols:4"]{grid-template-columns:minmax(0,1.2fr) minmax(0,1.4fr) minmax(0,1.4fr) minmax(0,.55fr) minmax(0,.6fr)}
+.spread-116 .mixed-table .restored-row[style="--numeric-cols:3"]{grid-template-columns:minmax(0,1.2fr) minmax(0,1.4fr) minmax(0,1.4fr) minmax(0,.55fr)}
+.spread-101 .mixed-table .restored-row[style="--numeric-cols:3"]{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1.2fr) minmax(0,1fr)}
+.spread-103 .mixed-table .restored-row[style="--numeric-cols:5"]{grid-template-columns:minmax(0,1.4fr) minmax(0,.7fr) minmax(0,.8fr) minmax(0,1.4fr) minmax(0,.7fr) minmax(0,.8fr)}
+.spread-101 .mixed-table .restored-cell,.spread-103 .mixed-table .restored-cell{overflow-wrap:normal;padding:2px 1px}
+/* The Cambridge entry includes “6 and one lunatic”; allow it to wrap in its column. */
+.spread-106 .count-number{white-space:normal}
 
 /* Translation reader: comfortable measure, real grid tables, visible history. */
 .translation-panel>.translation-text{padding:26px clamp(20px,3vw,48px);max-width:1100px;margin:0 auto}
@@ -340,12 +477,48 @@ def page_labels(number):
     if 9 <= number <= 50:
         first = number * 2 - 16
         return [str(first), str(first + 1)]
-    if 51 <= number < 160:
+    if number == 156:
+        # Left half of the scan is blank; the index proper begins on 299.
+        return ['299']
+    if 51 <= number < 157:
         first = number * 2 - 14
+        return [str(first), str(first + 1)]
+    if number in (157, 158, 159):
+        # Landscape scans of two printed pages: 300+301 … 304+305.
+        first = 300 + (number - 157) * 2
         return [str(first), str(first + 1)]
     if number == 160:
         return ['306', None]
     return [None, None]
+
+EVERYMAN_PAGE = ('<section class="book-page everyman-page" lang="en" aria-label="Everyman’s Library">'
+                 '<div class="everyman-frame"><div class="everyman-name">EVERYMAN’S</div>'
+                 '<div class="everyman-library">LIBRARY</div>'
+                 '<div class="everyman-editor">EDITED BY ERNEST RHYS</div>'
+                 '<div class="everyman-knot" aria-hidden="true">✳</div>'
+                 '<div class="everyman-list">A CLASSIFIED LIST<br>OF THE FIRST 925 VOLUMES</div>'
+                 '<div class="everyman-bindings">In Cloth Binding<br>In Special Library Binding<br>'
+                 'Also Selected Volumes in Leather</div></div></section>')
+
+INDEX_SPREADS = {156: (2,), 157: (2, 2), 158: (2, 2), 159: (2, 2), 160: (2,)}
+
+INDEX_COLUMNS = {156: {0: (0,), 1: (1,)},
+                 157: {0: (0,), 1: (1,), 2: (2,), 3: (3,)},
+                 158: {0: (0,), 1: (1,), 2: (2,), 3: (3,)},
+                 159: {0: (0,), 1: (1,), 2: (2,), 3: (3,)},
+                 160: {0: (0,), 1: (1,)}}
+# Printed columns per page block: scan 156 is one page with two columns, the
+# landscape scans 157 and 158 hold two pages of two columns each.
+INDEX_PAGE_COLUMNS = {156: ((0, 1),), 157: ((0, 1), (2, 3)), 158: ((0, 1), (2, 3)),
+                      159: ((0, 1), (2, 3)), 160: ((0, 1),)}
+
+def index_columns_html(number, block=0, query=''):
+    """One editable block per printed column, one index entry per line."""
+    parts = []
+    for column in INDEX_PAGE_COLUMNS[number][block]:
+        lines = '\n'.join(INDEX_LINES[number][column])
+        parts.append('<pre class="index-column">' + highlighted(lines, query) + '</pre>')
+    return ''.join(parts)
 
 # The OCR retained the two scanned halves as separate blank-line blocks.
 # Some scans are misaligned, so these boundaries remain approximate.
@@ -476,6 +649,8 @@ def render_block(lines, number, position, query):
         if start != -1 and end != -1:
             before, after = text[:start].strip(), text[end:].strip()
             return prose_html(before.splitlines(), query) + render_table_2(query) + prose_html(after.splitlines(), query)
+    if number in INDEX_LINES and position < len(INDEX_PAGE_COLUMNS[number]):
+        return index_columns_html(number, position, query)
     if 145 <= number <= 153:
         return ('<p class="table-warning">Табличная разметка OCR утрачена; строки приведены без восстановления ячеек. Сверяйте со сканом.</p>'
                 '<pre class="ocr-table">' + highlighted(text, query) + '</pre>')
@@ -488,7 +663,7 @@ def render_pages(number, body, query):
     labels = page_labels(number)
     out = []
     # These scans have a blank left page and a printed page on the right.
-    if number in (1, 5, 6, 161) and len(blocks) == 1:
+    if number in (1, 5, 6, 156, 161) and len(blocks) == 1:
         # These titles are verified from the opening pages; do not invent
         # chapter titles for unnumbered publisher or end-matter pages.
         opening_titles = {1: "Editor's Introduction", 5: "Editor's Note", 6: "Introduction"}
@@ -498,6 +673,11 @@ def render_pages(number, body, query):
         else:
             out.append('<div class="book-page blank" aria-hidden="true"></div>')
     for i, block in enumerate(blocks):
+        if number == 160 and i == 1:
+            # The right half of this scan is the Everyman's Library title page;
+            # its OCR interleaved with the index, so the title is typeset instead.
+            out.append(EVERYMAN_PAGE)
+            continue
         label = labels[i] if i < len(labels) else None
         label_text = label if label else '—'
         headings, lines = extract_page_headings(block)
@@ -520,8 +700,10 @@ def render_pages(number, body, query):
 def shell(content, number=1, query='', active='reader'):
     options = ''.join(f'<option value="{i}"' + (' selected' if i == number else '') + f'>Разворот {i:03}' + (' — ' + escape(scan_dropdown_label(i)) if scan_dropdown_label(i) else '') + '</option>' for i in range(1, len(PAGES) + 1))
     return f'''<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The State of the Prisons — электронная книга</title><style>{STYLE}</style></head><body id="top">
-<header class="header"><a href="/" class="logo"><i>✳</i> Howard Archive</a><span class="header-note">ЦИФРОВАЯ КОЛЛЕКЦИЯ &nbsp; / &nbsp; JOHN HOWARD</span></header>
-<div class="layout"><aside class="sidebar"><span class="eyebrow">Электронная книга</span><h1>The State of<br>the Prisons</h1><div class="author">John Howard</div><hr class="divider"><div class="sidebar-links"><a class="{'current' if active == 'reader' else ''}" href="/spread/{number}">◧ &nbsp; Читать книгу</a><a class="{'current' if active == 'search' else ''}" href="/search">⌕ &nbsp; Поиск по книге</a><a class="{'current' if active == 'quality' else ''}" href="/quality">⚠ &nbsp; Проверка сканов</a></div><hr class="divider"><form action="/search" method="get"><label class="label" for="query">Поиск по тексту</label><input class="input" id="query" name="q" type="search" placeholder="Слово в книге или переводе…" value="{escape(query, quote=True)}" maxlength="200"><button class="button primary" type="submit">Найти</button></form><hr class="divider"><form action="/go" method="get"><label class="label" for="spread">Перейти к развороту</label><select id="spread" name="spread">{options}</select><button class="button" type="submit">Открыть</button></form><p class="small">Каждый разворот соответствует одному исходному PDF-файлу.</p></aside><main class="content">{content}</main></div></body></html>'''
+<header class="header"><a href="/" class="logo"><i>✳</i> Howard Archive</a><span class="header-note">ЦИФРОВАЯ КОЛЛЕКЦИЯ &nbsp; / &nbsp; JOHN HOWARD</span><span id="sync-status" role="status" style="font:12px Arial,sans-serif;margin-left:auto">GitHub: проверка сохранения…</span></header>
+<div class="layout"><aside class="sidebar"><span class="eyebrow">Электронная книга</span><h1>The State of<br>the Prisons</h1><div class="author">John Howard</div><hr class="divider"><div class="sidebar-links"><a class="{'current' if active == 'reader' else ''}" href="/spread/{number}">◧ &nbsp; Читать книгу</a><a class="{'current' if active == 'search' else ''}" href="/search">⌕ &nbsp; Поиск по книге</a><a class="{'current' if active == 'quality' else ''}" href="/quality">⚠ &nbsp; Проверка сканов</a><a class="{'current' if active == 'followup' else ''}" href="/followup">✎ &nbsp; Требуют доработки</a></div><hr class="divider"><form action="/search" method="get"><label class="label" for="query">Поиск по тексту</label><input class="input" id="query" name="q" type="search" placeholder="Слово в книге или переводе…" value="{escape(query, quote=True)}" maxlength="200"><button class="button primary" type="submit">Найти</button></form><hr class="divider"><form action="/go" method="get"><label class="label" for="spread">Перейти к развороту</label><select id="spread" name="spread">{options}</select><button class="button" type="submit">Открыть</button></form><p class="small">Каждый разворот соответствует одному исходному PDF-файлу.</p></aside><main class="content">{content}</main></div><script>
+(function(){{const el=document.getElementById('sync-status'); async function update(){{try{{const r=await fetch('/api/sync-status',{{cache:'no-store'}});const d=await r.json();el.textContent=({{saved:'GitHub: сохранено',pending:'GitHub: ожидает сохранения',syncing:'GitHub: сохранение…',error:'GitHub: ошибка отправки, повторяем',disabled:'GitHub: автосохранение не включено'}})[d.state]||'GitHub: состояние неизвестно';el.style.color=d.state==='error'?'#a22':'';}}catch(e){{el.textContent='GitHub: нет связи с читалкой';el.style.color='#a22';}}}}update();setInterval(update,3000);}})();
+</script></body></html>'''
 
 def segment_state(number, edits=None, query='', rules=None):
     # Caller holds _CORRECTIONS_LOCK for a consistent snapshot.
@@ -532,10 +714,22 @@ def segment_state(number, edits=None, query='', rules=None):
     token = _current_corrections.set(rules)
     try:
         base = render_pages(number, PAGES[number - 1][1], '')
-        if 1 <= number <= 4 or 10 <= number <= 20 or number in (68, 79, 88, 90, 91, 95, 106, 112, 119, 137, 144, 145, 146, 147, 148, 149, 150):
+        if 1 <= number <= 4 or 7 <= number <= 143 or number in (68, 79, 88, 90, 91, 95, 106, 107, 112, 119, 144, 145, 146, 147, 148, 149, 150):
             base = base.replace('<article class="book-page"', '<article class="book-page verified-prose-page spread-' + str(number) + '"')
+        if number in INDEX_LINES:
+            # The OCR ran the columns together; these pages were transcribed
+            # line by line from the scans (see verified_index.py).
+            base = base.replace('<article class="book-page"', '<article class="book-page verified-prose-page searchable-page spread-' + str(number) + '"')
+            base = base.replace('<div class="book-spread">', '<div class="book-spread index-spread">', 1)
+            if number == 156:
+                # The left half of this scan is blank; the index starts on 299.
+                base = base.replace('<div class="book-spread index-spread">',
+                                    '<div class="book-spread index-spread single-page-spread">', 1)
         if number in (145, 146, 147, 148, 149, 150):
             base = base.replace('<div class="book-spread">', '<div class="book-spread wide-table-spread">', 1)
+        if number in (145, 146, 147, 148, 149, 150):
+            # Both pages now have restored, scan-checked cells, not raw OCR.
+            base = base.replace('<p class="table-warning">Табличная разметка OCR утрачена; строки приведены без восстановления ячеек. Сверяйте со сканом.</p>', '')
         if number in (5, 6):
             base = base.replace('<article class="book-page"', '<article class="book-page chapter-start-page spread-' + str(number) + '"', 1)
             base = base.replace('</article></div>', '<div class="chapter-start-number">' + ('17' if number == 5 else '19') + '</div></article></div>', 1)
@@ -546,9 +740,12 @@ def segment_state(number, edits=None, query='', rules=None):
             base = base.replace('<article class="book-page"', '<article class="book-page s164-publisher"', 1)
             base = base.replace('<article class="book-page"', '<article class="book-page s164-contents"', 1)
             base = base.replace('</p></article></div>', '</p><div class="s164-page-number">7</div></article></div>', 1)
-        if number in (151, 152):
+        if number in (154, 155):
+            base = base.replace('<article class="book-page"', '<article class="book-page verified-prose-page spread-' + str(number) + '"')
+            base = base.replace('<p class="table-warning">Табличная разметка OCR утрачена; строки приведены без восстановления ячеек. Сверяйте со сканом.</p>', '')
+        if number in (150, 151, 152):
             base = base.replace('<div class="book-spread">', '<div class="book-spread wide-table-spread">', 1)
-            base = base.replace('<article class="book-page"', '<article class="book-page table151-page"')
+            base = base.replace('<article class="book-page"', '<article class="book-page table151-page verified-prose-page spread-' + str(number) + '"')
             base = base.replace('<p class="table-warning">Табличная разметка OCR утрачена; строки приведены без восстановления ячеек. Сверяйте со сканом.</p>', '')
             base = base.replace('<pre class="ocr-table">', '<pre class="table151-text">')
         if number == 153:
@@ -563,7 +760,28 @@ def segment_state(number, edits=None, query='', rules=None):
 
     finally:
         _current_corrections.reset(token)
-    return inline_editor.render_segments(base, spread.get('segments', {}), query, number)
+    rendered, segments = inline_editor.render_segments(base, spread.get('segments', {}), query, number)
+    if number in (113, 114):
+        # The left running head was merged into the OCR paragraph.
+        title = 'OXFORDSHIRE' if number == 113 else 'WORCESTERSHIRE'
+        rendered = rendered.replace('<span class="running-title"></span>', '<span class="running-title">' + inline_editor.highlight(title, query) + '</span>', 1)
+    if number == 18:
+        # The first running head is present in the scan but lost by OCR.
+        rendered = rendered.replace('<span class="running-title"></span>', '<span class="running-title">' + inline_editor.highlight('PROPOSED IMPROVEMENTS', query) + '</span>', 1)
+    if number in (72, 73, 75, 76):
+        # The right-page running head was merged into OCR prose.
+        rendered = rendered.replace('<span class="running-title"></span>', '<span class="running-title">' + inline_editor.highlight('FRANCE', query) + '</span>', 1)
+    if number == 77:
+        rendered = rendered.replace('<span class="running-title"></span>', '<span class="running-title">' + inline_editor.highlight('TURKEY', query) + '</span>', 1)
+    if number == 14:
+        # Both printed running heads were lost by OCR. Add them after segment
+        # numbering so existing edits and history retain their stable IDs.
+        rendered = rendered.replace('<span class="running-title"></span>', '<span class="running-title">' + inline_editor.highlight('BAD CUSTOMS IN PRISONS', query) + '</span>')
+    return rendered, segments
+
+def history_review_token(entry):
+    return sha256(json.dumps(entry, sort_keys=True, ensure_ascii=False).encode('utf-8')).hexdigest()
+
 
 def history_page(number, message=''):
     with _CORRECTIONS_LOCK:
@@ -580,11 +798,64 @@ def history_page(number, message=''):
         else:
             action = '<span class="small">Для этого фрагмента есть более новые изменения.</span>'
         kind = {'restore': 'Восстановление', 'scan-verified': 'Сверено со сканом'}.get(entry.get('kind'), 'Изменение')
-        blocks.append(f'<section class="editor-card history-item"><div class="heading-row"><div><span class="eyebrow">{kind}</span><p>{escape(entry["time"])} · {escape(seg)}</p></div>{action}</div><div class="history-values"><div class="history-text"><strong>Было</strong>{escape(before)}</div><div class="history-text"><strong>Стало</strong>{escape(after)}</div></div></section>')
+        decision = entry.get('review_decision', 'pending')
+        labels = {'pending': 'Ожидает вашего решения', 'accepted': 'Вы приняли', 'rejected': 'Отклонено — требуется продолжить исправление'}
+        decision_label = labels.get(decision, 'Неизвестная отметка')
+        token = history_review_token(entry)
+        choices = [('accepted', 'Принять'), ('rejected', 'Отклонить — доработать'), ('pending', 'Вернуть на рассмотрение')]
+        buttons = ''.join(f'<button type="submit" class="button" name="decision" value="{value}"' + (' disabled aria-pressed="true"' if decision == value else '') + f'>{label}</button>' for value, label in choices)
+        review = f'<div class="history-review"><p class="small" role="status">Решение: <strong>{decision_label}</strong></p><form method="post" action="/history-review/{number}"><input type="hidden" name="index" value="{i}"><input type="hidden" name="review_token" value="{token}">{buttons}</form></div>'
+        blocks.append(f'<section class="editor-card history-item" id="history-{i}"><div class="heading-row"><div><span class="eyebrow">{kind}</span><p>{escape(entry["time"])} · {escape(seg)}</p></div>{action}</div><div class="history-values"><div class="history-text"><strong>Было</strong>{escape(before)}</div><div class="history-text"><strong>Стало</strong>{escape(after)}</div></div>{review}</section>')
     items = ''.join(blocks) or '<div class="empty">Пока нет изменений, сделанных прямо в тексте.</div>'
     notice = '<p class="editor-message">' + escape(message) + '</p>' if message else ''
-    content = f'<div class="editor"><div class="heading-row"><div><span class="eyebrow">История правок</span><h2>Разворот {number:03}</h2><p>Здесь сохранены предыдущие и новые варианты каждого изменённого фрагмента. Время указано в UTC.</p></div><a class="button" href="/spread/{number}">← К чтению</a></div>{notice}{items}<p class="notice">Ранние замены слов хранятся отдельно. <a href="/edit/{number}"><u>Посмотреть прежние замены</u></a>.</p></div>'
+    content = f'<div class="editor"><div class="heading-row"><div><span class="eyebrow">История правок</span><h2>Разворот {number:03}</h2><p>Здесь сохранены предыдущие и новые варианты каждого изменённого фрагмента. Время указано в UTC. Отклонённое исправление остаётся в списке для доработки, пока вы не измените отметку. Решение не меняет текст; для отмены используйте отдельную кнопку восстановления.</p></div><a class="button" href="/spread/{number}">← К чтению</a></div>{notice}{items}<p class="notice">Ранние замены слов хранятся отдельно. <a href="/edit/{number}"><u>Посмотреть прежние замены</u></a>.</p></div>'
     return shell(content, number)
+
+
+def spread_review_panel(number):
+    with _CORRECTIONS_LOCK:
+        data = inline_editor.load_edits()
+        review = data['spreads'].get(str(number), {}).get('spread_review', {})
+    state = review.get('state', 'unreviewed')
+    labels = {'unreviewed': 'Решение ещё не поставлено', 'working': 'Сверка в работе',
+              'ready': 'Сверка завершена — ожидает вашего решения',
+              'accepted': 'Вы приняли исправления', 'needs_work': 'Требует продолжения исправлений',
+              'restored': 'Возвращён текст до последней сверки'}
+    token = history_review_token(review)
+    actions = [('accept', 'Принять', state == 'working'),
+               ('needs_work', 'Доработать', state == 'working'),
+               ('restore', 'Вернуть предыдущее', not (isinstance(review.get('before'), dict) and isinstance(review.get('after'), dict) and state in ('ready', 'accepted', 'needs_work')))]
+    buttons = ''.join(f'<button class="button" type="submit" name="action" value="{action}"' + (' disabled' if disabled else '') + (' onclick="return confirm(&quot;Вернуть текст до последней сверки?&quot;)"' if action == 'restore' else '') + f'>{label}</button>' for action, label, disabled in actions)
+    workflow_action = ('finish', 'Завершить сверку') if state == 'working' else ('start', 'Начать новую сверку')
+    return (f'<section class="spread-review" id="spread-review"><strong>Решение по развороту</strong>'
+            f'<span role="status">{escape(labels.get(state, "Неизвестный статус"))}</span>'
+            f'<form method="post" action="/spread-review/{number}"><input type="hidden" name="token" value="{token}">{buttons}</form>'
+            '<p class="small">«Доработать» добавляет разворот в список для продолжения работы. '
+            '«Вернуть предыдущее» восстанавливает текст до последней сверки, если снимок был сохранён и исправленные фрагменты с тех пор не менялись. Решения не меняют перевод или скан.</p>'
+            f'<details><summary>Управление сверкой</summary><form method="post" action="/spread-review/{number}">'
+            f'<input type="hidden" name="token" value="{token}"><button class="button" type="submit" name="action" value="{workflow_action[0]}">{workflow_action[1]}</button></form>'
+            '<p class="small">Перед работой сохраняется снимок текста; после завершения сверки появляется возможность вернуть его. Для прежних сверок снимок автоматически не создаётся.</p></details></section>')
+
+
+def followup_page():
+    with _CORRECTIONS_LOCK:
+        saved = inline_editor.load_edits()
+    items = []
+    for number in range(1, len(PAGES) + 1):
+        review = saved['spreads'].get(str(number), {}).get('spread_review', {})
+        if review.get('state') == 'needs_work':
+            items.append(f'<div class="result"><strong>Разворот {number:03} · требуется доработка</strong><p>Вы попросили продолжить сверку разворота.</p><a class="button" href="/spread/{number}#spread-review">Открыть разворот</a></div>')
+        entries = saved['spreads'].get(str(number), {}).get('history', [])
+        for index, entry in enumerate(entries):
+            if entry.get('review_decision') != 'rejected':
+                continue
+            segment = escape(str(entry.get('id', '')))
+            excerpt = escape(' '.join(entry.get('after', '').split())[:180])
+            items.append(f'<div class="result"><strong>Разворот {number:03} · {segment}</strong><p>{excerpt}</p><div class="top-actions"><a class="button" href="/history/{number}#history-{index}">К решению</a><a class="button" href="/spread/{number}">Открыть разворот</a></div></div>')
+    body = ''.join(items) or '<div class="empty">Пока нет исправлений, отмеченных для доработки.</div>'
+    content = ('<div class="results"><span class="eyebrow">Ваши решения</span><h2>Требуют доработки</h2>'
+               '<p class="notice">Здесь собраны правки, которые вы отклонили. Продолжите исправление на развороте, затем измените отметку у соответствующей записи в истории. Новая правка не снимает её автоматически.</p>' + body + '</div>')
+    return shell(content, active='followup')
 
 
 def _reader_page(number, query=''):
@@ -610,9 +881,28 @@ def _reader_page(number, query=''):
         controls.append(f'<form method="post" action="/scan-action/{number}"><input type="hidden" name="action" value="{action}"><button class="button" type="submit">{text}</button><span class="small"> {status}</span></form>')
     issue_control = ''.join(controls)
     page_notice = table_one_audit_html() if number == 147 else ''
-    page_notice += ('<p class="scan-fallback">В таблице VIII за 1782–1783 в оригинале напечатано 49, хотя сумма чисел строки — 59. Оставлено значение из книги.</p>' if number == 152 else '')
+    if number in (50, 51):
+        page_notice += '<p class="notice" style="padding:0 20px">Между разворотами 50 и 51 в предоставленных сканах отсутствуют печатные страницы 86–87. Их текст не подменялся другим изданием.</p>'
+    if number == 18:
+        page_notice += '<p class="notice" style="padding:0 20px">Жирным отмечены слова, которые пересекает искажённая полоса скана на странице 20, для сравнения. Выделение не означает, что каждое слово было изменено или прочитано неуверенно.</p>'
+    if number in (151, 152):
+        page_notice += '<p class="scan-fallback">Таблицы и примечания этой страницы восстановлены по скану; примечания 1 и 2 к таблице V напечатаны мелким шрифтом.</p>' if number == 151 else ''
+    if number in (154, 155):
+        page_notice += '<p class="scan-fallback">Редакторские примечания сверены со сканом; названия примечаний и ссылки на страницы напечатаны по центру, как в книге. На скане 154 колонки перепутаны распознаванием — текст восстановлен в печатном порядке.</p>'
+    if number in (156, 157, 158, 159, 160):
+        page_notice += ('<p class="scan-fallback">Индекс сверен со сканом построчно; столбцы восстановлены в печатном порядке. '
+                        'Дефис в конце строки оставлен как в книге: слово продолжается в следующем столбце. '
+                        'Напечатано «Knoot» и «Leeuwarcen» — в основном тексте Говард пишет «knout» и «Leeuwarden».</p>')
+    if number == 160:
+        page_notice += ('<p class="scan-fallback">Правая половина скана — титул серии Everyman’s Library '
+                        '(издательство); он набран заново, потому что распознавание перепутало его с индексом.</p>')
+    if number == 147:
+        page_notice += '<p class="scan-fallback">На странице 281 итоги таблицы за 1782 год напечатаны как 194, 12, 90 и 125, хотя сумма приведённых выше строк — 92, 8, 27 и 21. Сохранены числа оригинала.</p>'
+    if number == 146:
+        page_notice += '<p class="scan-fallback">На странице 278 в итоге столбца мелких правонарушителей за 1779 год напечатано 262, хотя сумма строк равна 282. Оставлено значение из книги.</p>'
+    page_notice += ('<p class="scan-fallback">В таблице VIII за 1782–1783 в оригинале напечатано 49, хотя сумма чисел строки — 59; итог столбца 467 также не сходится с ним. Оставлено значение из книги.</p>' if number == 152 else '')
     text_status = ('ENGLISH · сверено' if number in VERIFIED_SPREADS else ('ENGLISH · пометка OCR снята' if number in dismissed_issues()['ocr'] else 'ENGLISH · ☑ OCR'))
-    text_note = ('Полнота этого разворота сверена по скану и трём изданиям; отдельные ошибки распознавания возможны. Ваши сохранённые правки имеют приоритет.' if number in VERIFIED_SPREADS else ('Пометка OCR снята вами; базовый текст получен автоматическим распознаванием.' if number in dismissed_issues()['ocr'] else 'Текст получен автоматическим распознаванием и не вычитан полностью: возможны слитные слова, ошибки и неточности в сносках.'))
+    text_note = ('Базовый текст разворота вычитан по скану; отдельные ошибки всё ещё возможны. Ваши сохранённые правки имеют приоритет.' if number in VERIFIED_SPREADS else ('Пометка OCR снята вами; базовый текст получен автоматическим распознаванием.' if number in dismissed_issues()['ocr'] else 'Текст получен автоматическим распознаванием и не вычитан полностью: возможны слитные слова, ошибки и неточности в сносках.'))
     source_label = 'Загруженный вами скан' if replacement else 'Оригинальный скан для сверки'
     source_note = ('Показана замена. Исходный PDF и OCR не изменены; распознавание и его подсказки относятся к исходному скану.' if replacement else 'Загрузите целый разворот одним файлом; исходный PDF сохранится. OCR автоматически не пересчитывается.')
     restore_scan = f'<form method="post" action="/scan-action/{number}" onsubmit="return confirm(&quot;Вернуть исходный скан? Загруженная замена будет удалена.&quot;)"><input type="hidden" name="action" value="restore-scan"><button class="button" type="submit">Вернуть исходный скан</button></form>' if replacement else ''
@@ -621,10 +911,11 @@ def _reader_page(number, query=''):
     pilot_link = f'<a class="button" href="/review/{number}">Проверка OCR</a>' if has_review(number) else ''
     omissions_link = f'<a class="button" href="/omissions/{number}">Возможные пропуски</a>'
     translation_panel = translation.panel(number, query, english_verified=number in VERIFIED_SPREADS)
+    spread_decision = spread_review_panel(number)
     content = f'''<div class="heading-row"><div><span class="eyebrow">Режим чтения</span><h2>Книжный разворот</h2><p>Читайте разворот слева и сверяйте его со сканом справа.</p>{badge}</div><div class="top-actions edit-actions"><button type="button" id="edit-toggle" class="button primary">✎ Редактировать текст</button><button type="button" id="edit-save" class="button primary" hidden>Сохранить</button><button type="button" id="edit-cancel" class="button" hidden>Отмена</button><a class="button" href="/history/{number}">История правок</a>{pilot_link}{omissions_link}<a class="button" href="#translation">Русский перевод</a><a class="button" href="#original-scan">К скану</a><a class="button" href="{scan}" target="_blank" rel="noopener">Открыть PDF ↗</a></div></div>
 <nav class="nav" aria-label="Перелистывание"><div class="nav-group">{prev}{next_}</div><span class="muted">Разворот {number:03} / {len(PAGES)}</span></nav>
-<p id="edit-status" class="edit-status" role="status" aria-live="polite" hidden></p><noscript><p class="notice">Для редактирования прямо в тексте включите JavaScript или используйте <a href="/edit/{number}"><u>замену слов</u></a>.</p></noscript><div class="reader"><section class="panel"><div class="panel-header"><span class="panel-title">Распознанный текст</span><span class="panel-subtitle">{text_status}</span></div>{page_notice}<div class="book-text" id="editable-book" data-spread="{number}" lang="en">{paragraphs}</div></section><section class="panel scan-panel" id="original-scan"><div class="panel-header"><span class="panel-title">{source_label}</span><span class="panel-subtitle">{escape(filename) if not replacement else "замена"}</span></div><div class="scan-wrap"><a href="{image_url}" target="_blank" rel="noopener" title="Открыть изображение скана крупнее"><img class="scan-frame" src="{image_url}" alt="Скан разворота {number}. Нажмите, чтобы открыть изображение крупнее." loading="lazy"></a></div>{scan_controls}<p class="scan-fallback">Нажмите на изображение для увеличения · <a href="{scan}" target="_blank" rel="noopener"><u>Открыть оригинальный PDF ↗</u></a></p></section></div>{translation_panel}<nav class="nav bottom-nav" aria-label="Перелистывание в конце"><div class="nav-group">{prev}{next_}</div><a href="#top" class="muted">↑ В начало</a></nav><p class="notice book-note">{text_note} Скан показан рядом для сверки; на узких экранах — ниже. Номера страниц вводной части переведены из римских цифр в арабские; границы по OCR могут быть неточными.</p>'''
-    return shell(content, number, query).replace('</body>', inline_editor.SCRIPT + '</body>')
+{spread_decision}<p id="edit-status" class="edit-status" role="status" aria-live="polite" hidden></p><noscript><p class="notice">Для редактирования прямо в тексте включите JavaScript или используйте <a href="/edit/{number}"><u>замену слов</u></a>.</p></noscript><div class="reader"><section class="panel"><div class="panel-header"><span class="panel-title">Распознанный текст</span><span class="panel-subtitle">{text_status}</span></div><div class="text-size-tools" id="text-size-tools" role="group" aria-label="Размер распознанного текста" hidden><span>Размер текста</span><button class="button" type="button" id="text-size-down" aria-label="Уменьшить размер текста">А−</button><output id="text-size-value" aria-live="polite">100%</output><button class="button" type="button" id="text-size-up" aria-label="Увеличить размер текста">А+</button><button class="button" type="button" id="text-size-reset">Обычный</button></div>{page_notice}<div class="book-text" id="editable-book" data-spread="{number}" lang="en">{paragraphs}</div></section><section class="panel scan-panel" id="original-scan"><div class="panel-header"><span class="panel-title">{source_label}</span><span class="panel-subtitle">{escape(filename) if not replacement else "замена"}</span></div><div class="scan-zoom-toolbar" id="scan-zoom-toolbar" role="group" aria-label="Масштаб скана" hidden><button class="button" type="button" id="scan-zoom-out" aria-label="Уменьшить скан">−</button><output id="scan-zoom-level" aria-live="polite">100%</output><button class="button" type="button" id="scan-zoom-in" aria-label="Увеличить скан">+</button><button class="button" type="button" id="scan-zoom-reset">По ширине</button><span class="scan-zoom-hint">Прокручивайте увеличенный скан</span></div><div class="scan-wrap scan-zoom-viewport" id="scan-zoom-viewport" tabindex="0" aria-label="Скан: прокручиваемая область"><a id="scan-zoom-link" href="{image_url}&amp;detail=1" target="_blank" rel="noopener" title="Открыть скан на весь экран рабочей области"><img class="scan-frame scan-zoom-image" id="scan-zoom-image" src="{image_url}" data-detail-src="{image_url}&amp;detail=1" alt="Скан разворота {number}." loading="lazy"></a></div>{scan_controls}<p class="scan-fallback">Нажмите на скан, чтобы открыть его на всю рабочую область · <a href="{image_url}&amp;detail=1" target="_blank" rel="noopener"><u>Открыть скан отдельно ↗</u></a> · <a href="{scan}" target="_blank" rel="noopener"><u>Открыть оригинальный PDF ↗</u></a></p></section></div><section class="scan-fullscreen" id="scan-fullscreen" role="dialog" aria-modal="true" aria-labelledby="scan-fullscreen-title" hidden><div class="scan-fullscreen-bar"><span id="scan-fullscreen-title" class="scan-fullscreen-title">Скан · разворот {number:03}</span><button class="button" type="button" id="scan-fullscreen-out" aria-label="Уменьшить скан">−</button><output id="scan-fullscreen-level" aria-live="polite">100%</output><button class="button" type="button" id="scan-fullscreen-in" aria-label="Увеличить скан">+</button><button class="button" type="button" id="scan-fullscreen-fit">Вместить</button><span class="scan-fullscreen-help">Прокручивайте изображение · Esc — закрыть</span><button class="button" type="button" id="scan-fullscreen-close">Закрыть ✕</button></div><div class="scan-fullscreen-view" id="scan-fullscreen-view" tabindex="0" aria-label="Увеличенный скан, прокручиваемая область"><div class="scan-fullscreen-stage"><img id="scan-fullscreen-image" class="scan-fullscreen-image" alt="Скан разворота {number}" draggable="false"></div></div></section>{translation_panel}<nav class="nav bottom-nav" aria-label="Перелистывание в конце"><div class="nav-group">{prev}{next_}</div><a href="#top" class="muted">↑ В начало</a></nav><p class="notice book-note">{text_note} Скан показан рядом для сверки; на узких экранах — ниже. Номера страниц вводной части переведены из римских цифр в арабские; границы по OCR могут быть неточными.</p>'''
+    return shell(content, number, query).replace('</body>', inline_editor.SCRIPT + TEXT_SIZE_SCRIPT + SCAN_ZOOM_SCRIPT + '</body>')
 
 def reader_page(number, query=''):
     # Keep replacement rules and per-segment edits in one consistent snapshot.
@@ -724,6 +1015,11 @@ def omission_candidates(number):
 
 def omissions_page(number):
     candidates = omission_candidates(number)
+    # The index pages were retyped column by column, so the old line-by-line OCR
+    # (which interleaved the columns) cannot meaningfully be compared with them.
+    index_notice = ('<p class="notice">Индекс этого разворота вычитан построчно по скану, а прежнее распознавание '
+                    'шло строками через все колонки. Сравнение с ним даёт только ложные пропуски, '
+                    'поэтому здесь оно не показывается; сверяйте со сканом справа.</p>')
     cards = []
     for candidate in candidates:
         side = 'левая половина' if candidate['side'] == 0 else 'правая половина'
@@ -747,7 +1043,7 @@ def omissions_page(number):
     image_url = scan_url(number)
     content = f'''<div class="heading-row"><div><span class="eyebrow">Сравнение распознаваний</span><h2>Возможные пропуски</h2><p>Разворот {number:03}</p></div><a class="button" href="/spread/{number}">← К чтению</a></div>
 <p class="notice">Подсказки получены сравнением текущего текста с повторным OCR: они могут быть ошибочными, а часть пропусков не обнаружится. В таблицах, сносках и на смещённых сканах возможны ложные совпадения. Сверьте со сканом; ничего не добавляется автоматически. При необходимости исправьте текст прямо в читалке.</p>
-<div class="review-layout"><div>{''.join(cards) or '<p class="empty">По этой эвристике совпадений не найдено. Это не означает, что пропусков нет.</p>'}{reference_html}</div><section class="panel review-scan"><div class="panel-header"><span class="panel-title">Скан для сверки</span></div><a href="{image_url}" target="_blank" rel="noopener"><img class="scan-frame" src="{image_url}" alt="Скан разворота {number}"></a></section></div>'''
+<div class="review-layout"><div>{(index_notice + (''.join(cards) or '<p class="empty">По этой эвристике совпадений не найдено. Это не означает, что пропусков нет.</p>')) if number in INDEX_LINES else (''.join(cards) or '<p class="empty">По этой эвристике совпадений не найдено. Это не означает, что пропусков нет.</p>')}{reference_html}</div><section class="panel review-scan"><div class="panel-header"><span class="panel-title">Скан для сверки</span></div><a href="{image_url}" target="_blank" rel="noopener"><img class="scan-frame" src="{image_url}" alt="Скан разворота {number}"></a></section></div>'''
     return shell(content, number)
 
 
@@ -865,17 +1161,146 @@ def translation_error_page(number, message, status=400, draft=None):
     return shell(content, number).encode('utf-8'), status
 
 
-def scan_image(number):
+# The display preference is local to the browser, not a change to the book text.
+TEXT_SIZE_SCRIPT = r'''<script>
+(()=>{
+ const tools=document.getElementById('text-size-tools');
+ const book=document.getElementById('editable-book');
+ const down=document.getElementById('text-size-down');
+ const up=document.getElementById('text-size-up');
+ const reset=document.getElementById('text-size-reset');
+ const value=document.getElementById('text-size-value');
+ if(!tools||!book||!down||!up||!reset||!value)return;
+ const steps=[80,90,100,110,120,130,140,150,160];
+ const key='govard-reader-text-size';
+ let stored; try{stored=Number(localStorage.getItem(key));}catch(e){}
+ let index=steps.indexOf(stored); if(index<0)index=steps.indexOf(100);
+ function render(save){
+   const size=steps[index];
+   book.style.setProperty('--text-size-scale',String(size/100));
+   value.textContent=size+'%';
+   down.disabled=index===0; up.disabled=index===steps.length-1;
+   if(save)try{localStorage.setItem(key,String(size));}catch(e){}
+ }
+ down.addEventListener('click',()=>{index=Math.max(0,index-1);render(true)});
+ up.addEventListener('click',()=>{index=Math.min(steps.length-1,index+1);render(true)});
+ reset.addEventListener('click',()=>{index=steps.indexOf(100);render(true)});
+ tools.hidden=false; render(false);
+})();
+</script>'''
+
+
+# Kept separate from the editor so scan controls never interfere with edits.
+SCAN_ZOOM_SCRIPT = r'''<script>
+(()=>{
+ const toolbar=document.getElementById('scan-zoom-toolbar');
+ const view=document.getElementById('scan-zoom-viewport');
+ const link=document.getElementById('scan-zoom-link');
+ const image=document.getElementById('scan-zoom-image');
+ const out=document.getElementById('scan-zoom-level');
+ const minus=document.getElementById('scan-zoom-out');
+ const plus=document.getElementById('scan-zoom-in');
+ const reset=document.getElementById('scan-zoom-reset');
+ if(!toolbar||!view||!link||!image||!out||!minus||!plus||!reset)return;
+ const steps=[100,125,150,200,250,300,400]; let index=0, requestedDetail=false;
+ function render(next){
+  const old=steps[index]/100;
+  const x=(view.scrollLeft+view.clientWidth/2)/old;
+  const y=(view.scrollTop+view.clientHeight/2)/old;
+  index=Math.max(0,Math.min(steps.length-1,next));
+  const scale=steps[index]/100;
+  link.style.width=steps[index]+'%';
+  view.classList.toggle('is-zoomed',index>0);
+  out.textContent=steps[index]+'%';
+  minus.disabled=index===0;plus.disabled=index===steps.length-1;
+  if(index>0&&!requestedDetail){requestedDetail=true;image.src=image.dataset.detailSrc;}
+  if(index===0){view.scrollLeft=0;view.scrollTop=0;}
+  else {view.scrollLeft=x*scale-view.clientWidth/2;view.scrollTop=y*scale-view.clientHeight/2;}
+ }
+ minus.addEventListener('click',()=>render(index-1));
+ plus.addEventListener('click',()=>render(index+1));
+ reset.addEventListener('click',()=>render(0));
+ view.addEventListener('keydown',e=>{
+  if(e.key==='+'||e.key==='='){e.preventDefault();render(index+1);}
+  else if(e.key==='-'){e.preventDefault();render(index-1);}
+  else if(e.key==='0'){e.preventDefault();render(0);}
+ });
+ toolbar.hidden=false;render(0);
+
+ const fullscreen=document.getElementById('scan-fullscreen');
+ const large=document.getElementById('scan-fullscreen-image');
+ const largeView=document.getElementById('scan-fullscreen-view');
+ const largeOut=document.getElementById('scan-fullscreen-out');
+ const largeIn=document.getElementById('scan-fullscreen-in');
+ const largeFit=document.getElementById('scan-fullscreen-fit');
+ const largeLevel=document.getElementById('scan-fullscreen-level');
+ const close=document.getElementById('scan-fullscreen-close');
+ if(!fullscreen||!large||!largeView||!largeOut||!largeIn||!largeFit||!largeLevel||!close)return;
+ let fullIndex=0, previousFocus=null, previousOverflow='';
+ function fullRender(next, preserve=true){
+  const old=steps[fullIndex]/100;
+  const oldWidth=parseFloat(large.style.width)||0;
+  const x=(largeView.scrollLeft+largeView.clientWidth/2)/old;
+  const y=(largeView.scrollTop+largeView.clientHeight/2)/old;
+  fullIndex=Math.max(0,Math.min(steps.length-1,next));
+  const ratio=(large.naturalWidth&&large.naturalHeight)?large.naturalWidth/large.naturalHeight:1;
+  const width=Math.min(largeView.clientWidth,largeView.clientHeight*ratio);
+  const scale=steps[fullIndex]/100;
+  large.style.width=(width*scale)+'px';
+  largeLevel.textContent=steps[fullIndex]+'%';
+  largeOut.disabled=fullIndex===0;largeIn.disabled=fullIndex===steps.length-1;
+  if(preserve&&oldWidth&&fullIndex>0){largeView.scrollLeft=x*scale-largeView.clientWidth/2;largeView.scrollTop=y*scale-largeView.clientHeight/2;}
+  else {largeView.scrollLeft=0;largeView.scrollTop=0;}
+ }
+ function openFull(){
+  previousFocus=document.activeElement; previousOverflow=document.body.style.overflow;
+  fullscreen.hidden=false;document.body.style.overflow='hidden';
+  fullIndex=0;large.src=image.src;fullRender(0,false);
+  if(large.src!==new URL(image.dataset.detailSrc,document.baseURI).href)large.src=image.dataset.detailSrc;
+  close.focus();
+ }
+ function closeFull(){
+  fullscreen.hidden=true;document.body.style.overflow=previousOverflow;
+  if(previousFocus&&typeof previousFocus.focus==='function')previousFocus.focus();
+ }
+ link.addEventListener('click',e=>{if(e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;e.preventDefault();openFull();});
+ large.addEventListener('load',()=>{if(!fullscreen.hidden)fullRender(fullIndex,false);});
+ large.addEventListener('error',()=>{if(large.src!==image.src)large.src=image.src;});
+ largeOut.addEventListener('click',()=>fullRender(fullIndex-1));
+ largeIn.addEventListener('click',()=>fullRender(fullIndex+1));
+ largeFit.addEventListener('click',()=>fullRender(0,false));
+ close.addEventListener('click',closeFull);
+ window.addEventListener('resize',()=>{if(!fullscreen.hidden)fullRender(fullIndex,false);});
+ fullscreen.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){e.preventDefault();closeFull();}
+  else if(e.key==='+'||e.key==='='){e.preventDefault();fullRender(fullIndex+1);}
+  else if(e.key==='-'){e.preventDefault();fullRender(fullIndex-1);}
+  else if(e.key==='0'){e.preventDefault();fullRender(0,false);}
+  else if(e.key==='Tab'){
+   const targets=[largeOut,largeIn,largeFit,close,largeView].filter(el=>!el.disabled);
+   const current=targets.indexOf(document.activeElement);
+   if(e.shiftKey&&(current<=0)){e.preventDefault();targets[targets.length-1].focus();}
+   else if(!e.shiftKey&&(current===targets.length-1||current<0)){e.preventDefault();targets[0].focus();}
+  }
+ });
+})();
+</script>'''
+
+
+def scan_image(number, detail=False):
     replacement = replacement_path(number)
     with _SCAN_LOCK:
         if replacement.exists():
-            return render_replacement(replacement.read_bytes())
-    return original_scan_image(number)
+            return render_replacement(replacement.read_bytes(), detail=detail)
+    return original_scan_image(number, detail=detail)
 
 @lru_cache(maxsize=12)
-def original_scan_image(number):
+def original_scan_image(number, detail=False):
     with pymupdf.open(ROOT / PAGES[number - 1][0]) as doc:
-        matrix = pymupdf.Matrix(1.8, 1.8).prerotate(-90 if number == 14 else 0)
+        scale = 3.5 if detail else 1.8
+        width, height = doc[0].rect.width, doc[0].rect.height
+        scale = min(scale, math.sqrt(20_000_000 / (width * height)))
+        matrix = pymupdf.Matrix(scale, scale).prerotate(-90 if number == 14 else 0)
         return doc[0].get_pixmap(matrix=matrix, alpha=False).tobytes('jpg', jpg_quality=85)
 
 class Handler(SimpleHTTPRequestHandler):
@@ -926,6 +1351,99 @@ class Handler(SimpleHTTPRequestHandler):
             self.end_headers()
         except (ValueError, UnicodeDecodeError, OSError, KeyError):
             self.send_error(500, 'Unable to save review')
+
+    def handle_spread_review(self, number):
+        if not 1 <= number <= len(PAGES):
+            return self.send_error(404)
+        try:
+            length = int(self.headers.get('Content-Length', '0'))
+            if self.headers.get_content_type() != 'application/x-www-form-urlencoded' or not 0 < length <= 4096:
+                return self.send_error(400)
+            params = parse_qs(self.rfile.read(length).decode('utf-8'), max_num_fields=4)
+            action = params.get('action', [''])[0]
+            token = params.get('token', [''])[0]
+            if action not in ('start', 'finish', 'accept', 'needs_work', 'restore'):
+                return self.send_error(400)
+            with _CORRECTIONS_LOCK:
+                data = inline_editor.load_edits()
+                spread = data['spreads'].setdefault(str(number), {'segments': {}, 'history': []})
+                review = spread.get('spread_review', {})
+                if token != history_review_token(review):
+                    return self._html_response(shell('<p class="notice">Решение изменилось в другой вкладке. Обновите разворот и повторите.</p>' + f'<a class="button" href="/spread/{number}#spread-review">К развороту</a>', number).encode('utf-8'), 409)
+                state = review.get('state', 'unreviewed')
+                _, current = segment_state(number, data)
+                stamp = inline_editor.stamp()
+                if action == 'start':
+                    if state == 'working':
+                        return self.send_error(409)
+                    archive = review.get('cycles', [])
+                    previous = {k: v for k, v in review.items() if k != 'cycles'}
+                    if previous:
+                        archive = archive + [previous]
+                    review = {'state': 'working', 'before': current, 'cycles': archive,
+                              'events': [{'action': 'start', 'time': stamp}]}
+                elif action == 'finish':
+                    if state != 'working':
+                        return self.send_error(409)
+                    review['after'] = current
+                    review['state'] = 'ready'
+                    review.setdefault('events', []).append({'action': action, 'time': stamp})
+                elif action in ('accept', 'needs_work'):
+                    if state == 'working':
+                        return self.send_error(409)
+                    review['state'] = 'accepted' if action == 'accept' else 'needs_work'
+                    review.setdefault('events', []).append({'action': action, 'time': stamp})
+                else:
+                    before, after = review.get('before'), review.get('after')
+                    if state not in ('ready', 'accepted', 'needs_work') or not isinstance(before, dict) or not isinstance(after, dict) or set(before) != set(after):
+                        return self.send_error(409, 'Нет снимка предыдущего текста')
+                    changed = [key for key in before if before[key] != after[key]]
+                    if any(current.get(key) != after[key] for key in changed):
+                        return self._html_response(shell('<p class="notice">Текст после сверки уже изменился. Чтобы не потерять новые правки, автоматическое восстановление отменено; используйте историю правок.</p>' + f'<a class="button" href="/history/{number}">История правок</a>', number).encode('utf-8'), 409)
+                    for key in changed:
+                        spread['segments'][key] = before[key]
+                        spread['history'].append({'id': key, 'before': current[key], 'after': before[key], 'time': stamp, 'kind': 'restore'})
+                    review['state'] = 'restored'
+                    review.setdefault('events', []).append({'action': action, 'time': stamp})
+                spread['spread_review'] = review
+                inline_editor.save_edits(data)
+            self.send_response(303)
+            self.send_header('Location', f'/spread/{number}#spread-review')
+            self.end_headers()
+        except (ValueError, TypeError, UnicodeError, OSError, KeyError):
+            self.send_error(500, 'Не удалось сохранить решение по развороту')
+
+    def handle_history_review(self, number):
+        if not 1 <= number <= len(PAGES):
+            return self.send_error(404)
+        try:
+            length = int(self.headers.get('Content-Length', '0'))
+            if self.headers.get_content_type() != 'application/x-www-form-urlencoded' or not 0 < length <= 4096:
+                return self.send_error(400)
+            params = parse_qs(self.rfile.read(length).decode('utf-8'), max_num_fields=4)
+            index = params.get('index', [''])[0]
+            decision = params.get('decision', [''])[0]
+            expected = params.get('review_token', [''])[0]
+            if not index.isdigit() or decision not in ('accepted', 'rejected', 'pending'):
+                return self.send_error(400)
+            with _CORRECTIONS_LOCK:
+                data = inline_editor.load_edits()
+                entries = data['spreads'].get(str(number), {}).get('history', [])
+                if int(index) >= len(entries):
+                    return self.send_error(404)
+                entry = entries[int(index)]
+                if expected != history_review_token(entry):
+                    return self._html_response(history_page(number, 'Решение уже изменилось в другой вкладке. Обновите страницу и повторите.' ).encode('utf-8'), 409)
+                previous = entry.get('review_decision', 'pending')
+                if decision != previous:
+                    entry['review_decision'] = decision
+                    entry.setdefault('review_history', []).append({'before': previous, 'after': decision, 'time': inline_editor.stamp()})
+                    inline_editor.save_edits(data)
+            self.send_response(303)
+            self.send_header('Location', f'/history/{number}#history-{index}')
+            self.end_headers()
+        except (ValueError, UnicodeError, OSError, KeyError):
+            self.send_error(500, 'Не удалось сохранить решение')
 
     def handle_inline_post(self, match, restore):
         number = int(match.group(1))
@@ -1144,6 +1662,15 @@ class Handler(SimpleHTTPRequestHandler):
         self._translation_redirect(number, history=True)
 
     def do_POST(self):
+        if SYNC:
+            SYNC.changed()
+        try:
+            return self._do_post()
+        finally:
+            if SYNC:
+                SYNC.changed()
+
+    def _do_post(self):
         path = urlsplit(self.path).path
         upload = re.fullmatch(r'/scan-upload/(\d+)', path)
         action = re.fullmatch(r'/scan-action/(\d+)', path)
@@ -1151,6 +1678,12 @@ class Handler(SimpleHTTPRequestHandler):
             return self.handle_scan_upload(int(upload.group(1)))
         if action:
             return self.handle_scan_action(int(action.group(1)))
+        spread_review = re.fullmatch(r'/spread-review/(\d+)', path)
+        if spread_review:
+            return self.handle_spread_review(int(spread_review.group(1)))
+        history_review = re.fullmatch(r'/history-review/(\d+)', path)
+        if history_review:
+            return self.handle_history_review(int(history_review.group(1)))
         review = re.fullmatch(r'/review/(\d+)', path)
         if review:
             return self.handle_review_post(int(review.group(1)))
@@ -1259,6 +1792,16 @@ class Handler(SimpleHTTPRequestHandler):
     def _handle_get(self, head_only=False):
         parsed = urlsplit(self.path)
         path = parsed.path
+        if path == '/api/sync-status':
+            data = json.dumps({'state': SYNC.status() if SYNC else 'disabled'}).encode('utf-8')
+            self.send_response(200)
+            self.send_header('Content-Type', 'application/json')
+            self.send_header('Content-Length', str(len(data)))
+            self.send_header('Cache-Control', 'no-store')
+            self.end_headers()
+            if not head_only:
+                self.wfile.write(data)
+            return
         params = parse_qs(parsed.query)
         query = params.get('q', [''])[0].strip()[:200]
         scan_match = re.fullmatch(r'/scan/(\d+)\.jpg', path)
@@ -1268,7 +1811,7 @@ class Handler(SimpleHTTPRequestHandler):
                 self.send_error(404, 'Spread not found')
                 return
             try:
-                image = scan_image(number)
+                image = scan_image(number, detail=params.get('detail') == ['1'])
             except Exception:
                 self.send_error(500, 'Could not render scan')
                 return
@@ -1280,6 +1823,8 @@ class Handler(SimpleHTTPRequestHandler):
             if not head_only:
                 self.wfile.write(image)
             return
+        if path == '/followup':
+            return self._html_response(followup_page().encode('utf-8'), head_only=head_only)
         if path == '/go':
             number = params.get('spread', ['1'])[0]
             dest = '/spread/' + number if number.isdigit() and 1 <= int(number) <= len(PAGES) else '/'
@@ -1341,6 +1886,8 @@ class Handler(SimpleHTTPRequestHandler):
         return self._html_response(page.encode('utf-8'), head_only=head_only)
 
 if __name__ == '__main__':
+    SYNC = sync_reader.ReaderSync(ROOT, (_CORRECTIONS_LOCK, _SCAN_LOCK))
+    SYNC.start()
     port = int(os.environ.get('PORT', '8080'))
     print(f'Book reader: http://0.0.0.0:{port}/ ({len(PAGES)} spreads)', flush=True)
     ThreadingHTTPServer(('0.0.0.0', port), Handler).serve_forever()

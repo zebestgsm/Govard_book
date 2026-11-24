@@ -30,13 +30,17 @@ MAX_TRANSLATION_CHARS = 50000
 BASE_TRANSLATIONS = {}
 for _part in (FRONT, CORE, CORE2, TABLES, SPREADS_007_009, TABLES2):
     BASE_TRANSLATIONS.update(_part)
-MANUAL_SPREADS = set(BASE_TRANSLATIONS)
+try:
+    from ru_translations_v2 import TRANSLATIONS as V2
+except ImportError:  # the manual layer starts empty
+    V2 = {}
+MANUAL_SPREADS = set(BASE_TRANSLATIONS) | set(V2)
 try:
     from ru_translations_opus import TRANSLATIONS as OPUS
 except ImportError:  # the CI draft may not have been generated yet
     OPUS = {}
 WORKING_SPREADS = set(OPUS) - MANUAL_SPREADS
-BASE_TRANSLATIONS = {**OPUS, **BASE_TRANSLATIONS}
+BASE_TRANSLATIONS = {**OPUS, **BASE_TRANSLATIONS, **V2}
 
 
 def load_edits():
