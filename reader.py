@@ -985,9 +985,14 @@ def parallel_page(number, query=''):
                             en_blocks_raw.append((seg_id, table_html, sub))
                     else:
                         highlighted = inline_editor.highlight(sub, query) if query else escape(sub)
+                        # сохраняем одиночные переносы внутри абзаца как на скане (Rix / списки)
+                        if '\n' in sub:
+                            highlighted = highlighted.replace('\n', '<br>')
                         en_blocks_raw.append((seg_id, f'<p data-seg="{seg_id}">{highlighted}</p>', sub))
             else:
                 highlighted = inline_editor.highlight(txt, query) if query else escape(txt)
+                if '\n' in txt:
+                    highlighted = highlighted.replace('\n', '<br>')
                 en_blocks_raw.append((seg_id, f'<p data-seg="{seg_id}">{highlighted}</p>', txt))
         # Сегменты берём как сохранено в принятых правках (text_edits.json) — без хаков.
         # Для 001 правка s5+s6 уже сохранена в данных (см. accepted_english), поэтому здесь просто список.
