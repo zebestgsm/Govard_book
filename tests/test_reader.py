@@ -1134,21 +1134,24 @@ assert.equal(elements['text-size-value'].textContent,'110%');
         self.assertEqual(translation.current_text(10), 'Мой проверенный перевод')
         history = self.request('/translation-history/10')[1]
         self.assertIn('Мой проверенный перевод', history)
-        # Clearing the override restores the authored translation, not English.
-        self.assertEqual(self.form('/translation/10', {'text': '', 'expected': current})[0], 200)
-        self.assertIn('ОБЗОР БЕДСТВИЙ', translation.current_text(10))
-        self.assertNotIn('text', translation.load_edits()['spreads']['10'])
-        reset_token = translation.revision(10)
-        self.assertEqual(self.form('/translation-history/10', {'index': '1', 'expected': reset_token})[0], 200)
-        self.assertEqual(translation.current_text(10), 'Мой проверенный перевод')
-        self.assertEqual(len(translation.load_edits()['spreads']['10']['history']), 3)
+        # Clearing the override restores the v2 text, not English.
+        # Разворот 10 в новом слое отсутствует, поэтому берём разворот 2.
+        self.assertEqual(self.form('/translation/2', {'text': 'Мой перевод', 'expected': translation.revision(2)})[0], 200)
+        self.assertEqual(self.form('/translation/2', {'text': '', 'expected': translation.revision(2)})[0], 200)
+        self.assertIn('обойщика', translation.current_text(2))
+        self.assertNotIn('text', translation.load_edits()['spreads']['2'])
+        # Возврат прежнего варианта из истории — на развороте 2.
+        reset_token = translation.revision(2)
+        self.assertEqual(self.form('/translation-history/2', {'index': '1', 'expected': reset_token})[0], 200)
+        self.assertEqual(translation.current_text(2), 'Мой перевод')
+        self.assertEqual(len(translation.load_edits()['spreads']['2']['history']), 3)
         self.assertEqual(reader.segment_state(10)[1], english_before)
         self.assertEqual(self.request('/translation/0', data=b'text=x', content_type='application/x-www-form-urlencoded')[0], 404)
         self.assertEqual(self.request('/translation/10', data=b'{}', content_type='application/json')[0], 415)
 
     def test_bilingual_search_links_to_the_translation_anchor(self):
-        page = reader.search_page('подлинного целебного дара жизни')
-        self.assertIn('/spread/10?q=', page)
+        page = reader.search_page('ГУМАНИТАРНЫЙ')
+        self.assertIn('/spread/1?q=', page)
         self.assertIn('#translation', page)
         self.assertIn('Русский перевод', page)
         self.assertIn('РАЗВОРОТ 010', reader.search_page('salutiferous'))
@@ -1627,10 +1630,10 @@ class TranslationTests(unittest.TestCase):
         self.tmp.cleanup()
 
     def test_translation_panel_below_original_and_editable(self):
-        html = reader.reader_page(10)
+        html = reader.reader_page(1)
         self.assertIn('id="translation"', html)
         self.assertIn('Русский перевод', html)
-        self.assertIn('ОБЗОР БЕДСТВИЙ В ТЮРЬМАХ', html)
+        self.assertIn('ГУМАНИТАРНЫЙ', html)
         self.assertLess(html.index('id="editable-book"'), html.index('id="translation"'))
         working = reader.reader_page(2)
         self.assertIn('Русский перевод', working)
@@ -1638,15 +1641,15 @@ class TranslationTests(unittest.TestCase):
 
     def test_translation_override_and_restore(self):
         saved = translation.load_edits()
-        saved['spreads']['10'] = {'text': 'Мой перевод', 'history': []}
+        saved['spreads']['2'] = {'text': 'Мой перевод', 'history': []}
         translation.save_edits(saved)
-        text, status, user = translation.translation_state(10)
+        text, status, user = translation.translation_state(2)
         self.assertEqual(text, 'Мой перевод')
         self.assertTrue(user)
-        saved['spreads']['10']['text'] = ''
+        saved['spreads']['2']['text'] = ''
         translation.save_edits(saved)
-        text, status, user = translation.translation_state(10)
-        self.assertIn('ОБЗОР БЕДСТВИЙ', text)
+        text, status, user = translation.translation_state(2)
+        self.assertIn('обойщика', text)
         self.assertFalse(user)
 
     def test_translation_tables_have_nine_columns_and_matching_numbers(self):
@@ -1660,17 +1663,16 @@ class TranslationTests(unittest.TestCase):
                 if a.get('role')=='table': self.tables.append({'statistical':'statistical-table' in a.get('class',''),'rows':[]})
                 elif a.get('role')=='row' and self.tables: self.tables[-1]['rows'].append(0)
                 elif a.get('role') in ('cell','columnheader') and self.tables and self.tables[-1]['rows']: self.tables[-1]['rows'][-1]+=1
-        for number in (145,146,147):
+        # Старые табличные слои забракованы; структуру проверяем на таблице
+        # миль из нового слоя (разворот 2, две колонки).
+        for number in (2,):
             html=translation.render_translation(translation.BASE_TRANSLATIONS[number])
             parser=Rows(); parser.feed(html)
             self.assertTrue(parser.tables)
             for table in parser.tables:
                 widths=set(table['rows'])
                 self.assertEqual(len(widths),1,(number,table['rows']))
-                if table['statistical']:
-                    self.assertEqual(widths,{9})
-                else:
-                    self.assertIn(widths,({3},{5}))
+                self.assertIn(widths,({2},{3},{5},{9}))
                 self.assertNotIn(17,widths)
         def numeric_cells(text):
             values=[]
@@ -1688,19 +1690,18 @@ class TranslationTests(unittest.TestCase):
             self.assertEqual(numeric_cells(en),numeric_cells(ru),number)
 
     def test_translation_coverage_footnotes_and_source_status_are_explicit(self):
-        self.assertEqual(len(translation.BASE_TRANSLATIONS),165)
+        # В читалке только новый слой: старые переводы не показываются вовсе.
+        self.assertEqual(len(translation.BASE_TRANSLATIONS), len(translation.V2))
+        self.assertTrue(set(translation.BASE_TRANSLATIONS) <= set(range(1, 166)))
         panel=translation.panel(1,english_verified=False)
-        self.assertIn('всех 165',panel)
-        self.assertIn('черновому английскому тексту',panel)
-        self.assertIn('рабочий машинный перевод',panel)
-        self.assertIn('footnote-continuation',reader.reader_page(20))
-        self.assertIn('[Сноска 1, продолжение]',translation.BASE_TRANSLATIONS[20])
-        self.assertIn('тисками для больших пальцев',translation.BASE_TRANSLATIONS[16])
-        self.assertNotIn('можно приходится',translation.BASE_TRANSLATIONS[16])
-        self.assertIn('бесстыдными и развратными мерзостями',translation.BASE_TRANSLATIONS[13])
-        html=reader.reader_page(147)
-        self.assertIn('Арифметика оригинала',html)
-        self.assertIn('282',html); self.assertIn('262',html)
+        self.assertIn('из 165',panel)
+        self.assertIn('Прежний перевод из репозитория не используется',panel)
+        self.assertIn('перевод готовится',panel)
+        # Разворот 10 ещё не переведён заново: текста быть не должно.
+        self.assertEqual(translation.current_text(10), '')
+        self.assertIn('перевод готовится', reader.reader_page(10))
+        # Сноска в новом слое (разворот 2) на месте.
+        self.assertIn('тюремной горячки в Ньюгейте', translation.BASE_TRANSLATIONS[2])
 
     def test_context_notes_are_separate_from_editable_translation(self):
         panel = translation.panel(1, english_verified=True)
@@ -1719,24 +1720,22 @@ class TranslationTests(unittest.TestCase):
     def test_semantic_terminology_and_script_regressions(self):
         import re
         text = '\n'.join(translation.BASE_TRANSLATIONS.values()).lower()
-        for bad in ('фелон', 'гарнир', 'коттер', 'окружные тюрьмы', 'тюремь', 'чумаж'):
+        for bad in ('фелон', 'гарнир', 'коттер', 'окружные тюрьмы', 'тюремь', 'чумаж',
+                    'гаол', 'кран', 'бридвелл'):
             self.assertNotIn(bad, text)
         self.assertFalse(re.search(r'[\u3400-\u9fff]', text))
-        for good in ('тюрьмы графств', 'вступительный побор', 'уголовных заключённых',
-                     'ссыльных', 'кеннет рак', 'эвримен'):
+        for good in ('тюремная горячка', 'тюремщики', 'должник'):
             self.assertIn(good, text)
-        # Разворот 2 переведён заново в ru_translations_v2.py: итог миль
-        # сохраняется как в скане, с запятой разрядов.
+        # Итог миль в таблице сохраняется как в скане, с запятой разрядов.
         self.assertIn('42,033', translation.BASE_TRANSLATIONS[2])
-        self.assertIn('1909', translation.BASE_TRANSLATIONS[4])
 
-    def test_statistical_table_labels_are_translated_but_places_remain_cross_checkable(self):
-        table = translation.BASE_TRANSLATIONS[145]
-        self.assertIn('Испр. дом', table)
-        self.assertIn('Должницы, ж.', table)
-        self.assertIn('Уголовные и пр.', table)
-        self.assertIn('Abingdon', table)
-        self.assertNotIn('\nBridewell\t', table)
+    def test_table_labels_are_translated_but_numbers_stay_verbatim(self):
+        # Старые статистические таблицы (145 и далее) не используются;
+        # проверяем таблицу миль из нового слоя.
+        table = translation.BASE_TRANSLATIONS[2]
+        self.assertIn('Путешествия\tМили', table)
+        self.assertIn('Всего\t42,033', table)
+        self.assertIn('В Великобритании и Ирландии, 1773–6\t10,318', table)
 
     def test_every_spread_renders_with_translation_below_english(self):
         for number in range(1,166):
