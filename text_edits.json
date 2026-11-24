@@ -18441,7 +18441,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "REMARKS ON THE GAOL-FEVE",
           "s1": "\"The number of convicts in the hulks at the times visited in 1788: \"Woolwich 16July in the Justitia ” Censor \"” Stanislaus Plymouth 28June ” Dunkirk.",
@@ -18463,6 +18463,10 @@
           {
             "action": "finish",
             "time": "2026-11-24T10:10:25+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-24T10:24:04+00:00"
           }
         ],
         "after": {
