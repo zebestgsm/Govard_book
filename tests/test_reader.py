@@ -1,5 +1,7 @@
 """Regression tests for the reader; tests never modify the user's edits."""
 import json
+import shutil
+import subprocess
 import tempfile
 import threading
 import unittest
@@ -730,6 +732,39 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertIn('1783. 23 Aug.\t532\t50', s97['s1'])
         self.assertIn('role="table" aria-label="King’s Bench prisoners by visit date"', h97)
         self.assertIn('a hundred and eight new rooms', s97['s8'])
+
+    def test_text_size_controls_and_browser_preference(self):
+        page = self.request('/spread/107')[1]
+        for marker in ('text-size-tools', 'text-size-down', 'text-size-up', 'text-size-reset', '--text-size-scale'):
+            self.assertIn(marker, page)
+        if not shutil.which('node'):
+            self.skipTest('node is needed to exercise browser controls')
+        script = reader.TEXT_SIZE_SCRIPT.removeprefix('<script>').removesuffix('</script>')
+        harness = r'''
+const assert = require('assert');
+let stored = '130', throws = false;
+const localStorage = {getItem(){if(throws)throw Error(); return stored}, setItem(k,v){if(throws)throw Error(); stored=v}};
+let elements;
+function load(){
+ elements={};
+ for(const id of ['text-size-tools','editable-book','text-size-down','text-size-up','text-size-reset','text-size-value'])
+   elements[id]={hidden:true, disabled:false, textContent:'', style:{setProperty(k,v){this[k]=v}}, addEventListener(k,f){this[k]=f}};
+ const document={getElementById(id){return elements[id]}};
+ new Function('document','localStorage', SCRIPT)(document,localStorage);
+}
+load();
+assert.equal(elements['text-size-value'].textContent,'130%');
+elements['text-size-up'].click(); assert.equal(stored,'140');
+load(); assert.equal(elements['editable-book'].style['--text-size-scale'],'1.4');
+for(let i=0;i<20;i++) elements['text-size-up'].click();
+assert.equal(elements['text-size-value'].textContent,'160%'); assert(elements['text-size-up'].disabled);
+elements['text-size-reset'].click(); assert.equal(stored,'100');
+for(let i=0;i<20;i++) elements['text-size-down'].click();
+assert.equal(elements['text-size-value'].textContent,'80%'); assert(elements['text-size-down'].disabled);
+throws=true; load(); assert.equal(elements['text-size-value'].textContent,'100%'); elements['text-size-up'].click();
+assert.equal(elements['text-size-value'].textContent,'110%');
+'''
+        subprocess.run(['node', '-e', 'const SCRIPT=' + json.dumps(script) + ';' + harness], check=True)
 
     def test_scan_zoom_controls_and_detail_image(self):
         page = self.request('/spread/107')[1]
