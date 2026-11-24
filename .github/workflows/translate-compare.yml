@@ -17,9 +17,10 @@ on:
         default: 'true'
 
 permissions:
-  contents: read
+  contents: write
   issues: write
   models: read
+  pull-requests: write
 
 jobs:
   # 1) OPUS-MT baseline
@@ -52,32 +53,56 @@ jobs:
       - name: Report
         if: always()
         run: python tools/mt_report.py 2>&1 | tee report.log || true
-      - name: Post to issue
+      - name: Add to Job Summary
+        if: always()
+        run: |
+          echo "## OPUS Helsinki-NLP/opus-mt-en-ru" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -f report.log ]; then echo "\`\`\`" >> $GITHUB_STEP_SUMMARY; cat report.log >> $GITHUB_STEP_SUMMARY; echo "\`\`\`" >> $GITHUB_STEP_SUMMARY; fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### translate.log (tail)" >> $GITHUB_STEP_SUMMARY
+          if [ -f translate.log ]; then echo "\`\`\`" >> $GITHUB_STEP_SUMMARY; tail -n 50 translate.log >> $GITHUB_STEP_SUMMARY; echo "\`\`\`" >> $GITHUB_STEP_SUMMARY; fi
+          # also copy full report to file for artifact browser preview
+          mkdir -p /tmp/reports && cp -v report.log /tmp/reports/mt-report-opus.md 2>&1 | tee -a $GITHUB_STEP_SUMMARY || true
+      - name: Post to issue (robust)
         if: always()
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           python - <<'PY'
-          import json, os, urllib.request, pathlib
+          import json, os, urllib.request, urllib.error, pathlib
           body = '# OPUS Helsinki-NLP/opus-mt-en-ru\n\n'
           for name in ('translate.log','glossary.log','report.log'):
-              try:
-                  body += f'\n=== {name} ===\n' + open(name, encoding='utf-8', errors='replace').read()[-8000:]
+              try: body += f'\n=== {name} ===\n' + open(name, encoding='utf-8', errors='replace').read()[-8000:]
               except: body += f'\n=== {name} === не создан\n'
-          # черновик для 4 разворотов — в комментарий (до 40к)
           try:
-              import os
               p = pathlib.Path('translation_sources/ru-mt.json')
               if p.exists() and p.stat().st_size < 40000:
                   body += '\n=== черновик opus (ru-mt.json) ===\n' + p.read_text(encoding='utf-8')
           except: pass
-          req = urllib.request.Request(
-              f'https://api.github.com/repos/{os.environ["GITHUB_REPOSITORY"]}/issues/2/comments',
-              data=json.dumps({'body': body[:55000]}).encode(),
-              headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','Content-Type':'application/json'}
-          )
-          try: print(urllib.request.urlopen(req).status)
-          except Exception as e: print('comment failed', e)
+          body = body[:55000]
+          repo = os.environ["GITHUB_REPOSITORY"]
+          token = os.environ["GH_TOKEN"]
+          # Пробуем сначала PR #2, если закрыт — создаём отдельный issue для отчётов
+          for issue_num in [2, None]:
+              try:
+                  if issue_num is None:
+                      # создать новый issue для отчётов
+                      data = json.dumps({"title": "MT compare OPUS report", "body": body}).encode()
+                      req = urllib.request.Request(f'https://api.github.com/repos/{repo}/issues', data=data, headers={'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','Content-Type':'application/json'})
+                  else:
+                      data = json.dumps({"body": body}).encode()
+                      req = urllib.request.Request(f'https://api.github.com/repos/{repo}/issues/{issue_num}/comments', data=data, headers={'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','Content-Type':'application/json'})
+                  print("POST", req.full_url, urllib.request.urlopen(req).status)
+                  break
+              except urllib.error.HTTPError as e:
+                  print(f"comment to {issue_num} failed {e.code}: {e.read().decode(errors='ignore')[:500]}")
+                  if issue_num is not None: continue
+                  else: print("create issue also failed", e)
+              except Exception as e:
+                  print('comment failed', e)
+                  if issue_num is not None: continue
+                  break
           PY
       - uses: actions/upload-artifact@v5
         if: always()
@@ -86,6 +111,7 @@ jobs:
           path: |
             translation_sources/ru-mt.json
             translation_sources/ru-mt-stats.json
+            mt-report.md
             translate.log
             glossary.log
             report.log
@@ -121,13 +147,22 @@ jobs:
       - name: Report
         if: always()
         run: python tools/mt_report.py 2>&1 | tee report.log || true
-      - name: Post to issue
+      - name: Add to Job Summary
+        if: always()
+        run: |
+          echo "## NLLB facebook/nllb-200-distilled-600M" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -f report.log ]; then echo "\`\`\`" >> $GITHUB_STEP_SUMMARY; cat report.log >> $GITHUB_STEP_SUMMARY; echo "\`\`\`" >> $GITHUB_STEP_SUMMARY; fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### translate.log (tail)" >> $GITHUB_STEP_SUMMARY
+          if [ -f translate.log ]; then echo "\`\`\`" >> $GITHUB_STEP_SUMMARY; tail -n 50 translate.log >> $GITHUB_STEP_SUMMARY; echo "\`\`\`" >> $GITHUB_STEP_SUMMARY; fi
+      - name: Post to issue (robust)
         if: always()
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           python - <<'PY'
-          import json, os, urllib.request, pathlib
+          import json, os, urllib.request, urllib.error, pathlib
           body = '# NLLB facebook/nllb-200-distilled-600M\n\n'
           for name in ('translate.log','glossary.log','report.log'):
               try: body += f'\n=== {name} ===\n' + open(name, encoding='utf-8', errors='replace').read()[-8000:]
@@ -137,9 +172,26 @@ jobs:
               if p.exists() and p.stat().st_size < 40000:
                   body += '\n=== черновик nllb (ru-mt.json) ===\n' + p.read_text(encoding='utf-8')
           except: pass
-          req = urllib.request.Request(f'https://api.github.com/repos/{os.environ["GITHUB_REPOSITORY"]}/issues/2/comments', data=json.dumps({'body': body[:55000]}).encode(), headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','Content-Type':'application/json'})
-          try: print(urllib.request.urlopen(req).status)
-          except Exception as e: print('comment failed', e)
+          body = body[:55000]
+          repo = os.environ["GITHUB_REPOSITORY"]
+          token = os.environ["GH_TOKEN"]
+          for issue_num in [2, None]:
+              try:
+                  if issue_num is None:
+                      data = json.dumps({"title": "MT compare NLLB report", "body": body}).encode()
+                      req = urllib.request.Request(f'https://api.github.com/repos/{repo}/issues', data=data, headers={'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','Content-Type':'application/json'})
+                  else:
+                      data = json.dumps({"body": body}).encode()
+                      req = urllib.request.Request(f'https://api.github.com/repos/{repo}/issues/{issue_num}/comments', data=data, headers={'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','Content-Type':'application/json'})
+                  print("POST", req.full_url, urllib.request.urlopen(req).status)
+                  break
+              except urllib.error.HTTPError as e:
+                  print(f"comment to {issue_num} failed {e.code}: {e.read().decode(errors='ignore')[:500]}")
+                  if issue_num is not None: continue
+              except Exception as e:
+                  print('comment failed', e)
+                  if issue_num is not None: continue
+                  break
           PY
       - uses: actions/upload-artifact@v5
         if: always()
@@ -148,6 +200,7 @@ jobs:
           path: |
             translation_sources/ru-mt.json
             translation_sources/ru-mt-stats.json
+            mt-report.md
             translate.log
             glossary.log
             report.log
@@ -182,13 +235,23 @@ jobs:
       - name: Report
         if: always()
         run: python tools/mt_report.py 2>&1 | tee report.log || true
-      - name: Post to issue
+      - name: Add to Job Summary
+        if: always()
+        run: |
+          echo "## LLM ${{ github.event.inputs.llm_model }} via GitHub Models" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -f report.log ]; then echo "\`\`\`" >> $GITHUB_STEP_SUMMARY; cat report.log >> $GITHUB_STEP_SUMMARY; echo "\`\`\`" >> $GITHUB_STEP_SUMMARY; fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### translate.log (tail)" >> $GITHUB_STEP_SUMMARY
+          if [ -f translate.log ]; then echo "\`\`\`" >> $GITHUB_STEP_SUMMARY; tail -n 50 translate.log >> $GITHUB_STEP_SUMMARY; echo "\`\`\`" >> $GITHUB_STEP_SUMMARY; fi
+      - name: Post to issue (robust)
         if: always()
         env:
           GH_TOKEN: ${{ github.token }}
+          GH_MODEL: ${{ github.event.inputs.llm_model }}
         run: |
           python - <<'PY'
-          import json, os, urllib.request, pathlib
+          import json, os, urllib.request, urllib.error, pathlib
           body = f'# LLM {os.environ.get("GH_MODEL","")} via GitHub Models\n\n'
           for name in ('translate.log','glossary.log','report.log'):
               try: body += f'\n=== {name} ===\n' + open(name, encoding='utf-8', errors='replace').read()[-8000:]
@@ -198,9 +261,26 @@ jobs:
               if p.exists() and p.stat().st_size < 40000:
                   body += '\n=== черновик llm (ru-mt.json) ===\n' + p.read_text(encoding='utf-8')
           except: pass
-          req = urllib.request.Request(f'https://api.github.com/repos/{os.environ["GITHUB_REPOSITORY"]}/issues/2/comments', data=json.dumps({'body': body[:55000]}).encode(), headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','Content-Type':'application/json'})
-          try: print(urllib.request.urlopen(req).status)
-          except Exception as e: print('comment failed', e)
+          body = body[:55000]
+          repo = os.environ["GITHUB_REPOSITORY"]
+          token = os.environ["GH_TOKEN"]
+          for issue_num in [2, None]:
+              try:
+                  if issue_num is None:
+                      data = json.dumps({"title": f'MT compare LLM {os.environ.get("GH_MODEL","")} report', "body": body}).encode()
+                      req = urllib.request.Request(f'https://api.github.com/repos/{repo}/issues', data=data, headers={'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','Content-Type':'application/json'})
+                  else:
+                      data = json.dumps({"body": body}).encode()
+                      req = urllib.request.Request(f'https://api.github.com/repos/{repo}/issues/{issue_num}/comments', data=data, headers={'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','Content-Type':'application/json'})
+                  print("POST", req.full_url, urllib.request.urlopen(req).status)
+                  break
+              except urllib.error.HTTPError as e:
+                  print(f"comment to {issue_num} failed {e.code}: {e.read().decode(errors='ignore')[:500]}")
+                  if issue_num is not None: continue
+              except Exception as e:
+                  print('comment failed', e)
+                  if issue_num is not None: continue
+                  break
           PY
       - uses: actions/upload-artifact@v5
         if: always()
@@ -209,7 +289,53 @@ jobs:
           path: |
             translation_sources/ru-mt.json
             translation_sources/ru-mt-stats.json
+            mt-report.md
             translate.log
             glossary.log
             report.log
           retention-days: 14
+
+  # Сводка: публикует все 3 отчёта в ветку для чтения без скачки
+  publish_summary:
+    if: always()
+    needs: [opus, nllb, llm]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/download-artifact@v5
+        with:
+          path: /tmp/mt-artifacts
+      - name: Build summary markdown
+        run: |
+          mkdir -p /tmp/summary
+          cat > /tmp/summary/MT-COMPARE.md <<'MD'
+          # Сравнение MT — результаты последнего прогона
+          MD
+          echo "" >> /tmp/summary/MT-COMPARE.md
+          echo "Дата: $(date -u)" >> /tmp/summary/MT-COMPARE.md
+          echo "Ветка: ${{ github.ref_name }}" >> /tmp/summary/MT-COMPARE.md
+          echo "Лимит: ${{ github.event.inputs.limit }}" >> /tmp/summary/MT-COMPARE.md
+          echo "LLM: ${{ github.event.inputs.llm_model }}" >> /tmp/summary/MT-COMPARE.md
+          echo "" >> /tmp/summary/MT-COMPARE.md
+          for d in /tmp/mt-artifacts/mt-draft-*; do
+            echo "---" >> /tmp/summary/MT-COMPARE.md
+            echo "## $(basename $d)" >> /tmp/summary/MT-COMPARE.md
+            if [ -f "$d/report.log" ]; then cat "$d/report.log" >> /tmp/summary/MT-COMPARE.md; else echo "нет report.log" >> /tmp/summary/MT-COMPARE.md; fi
+            echo "" >> /tmp/summary/MT-COMPARE.md
+            if [ -f "$d/translate.log" ]; then echo "#### translate.log tail" >> /tmp/summary/MT-COMPARE.md; echo '```' >> /tmp/summary/MT-COMPARE.md; tail -n 30 "$d/translate.log" >> /tmp/summary/MT-COMPARE.md; echo '```' >> /tmp/summary/MT-COMPARE.md; fi
+          done
+          cat /tmp/summary/MT-COMPARE.md
+          cat /tmp/summary/MT-COMPARE.md >> $GITHUB_STEP_SUMMARY
+          mkdir -p reports
+          cp /tmp/summary/MT-COMPARE.md reports/MT-COMPARE.md
+          cp -r /tmp/mt-artifacts reports/ 2>&1 | head
+          ls -R reports | head -n 50
+      - name: Commit summary to branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add reports/MT-COMPARE.md reports/mt-draft-* 2>&1 | head
+          git diff --cached --stat
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "MT compare report: ${{ github.event.inputs.limit }} [skip ci]"
+          git push origin HEAD:${{ github.ref_name }}
