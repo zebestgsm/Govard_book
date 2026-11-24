@@ -917,6 +917,53 @@ def _reader_page(number, query=''):
 {spread_decision}<p id="edit-status" class="edit-status" role="status" aria-live="polite" hidden></p><noscript><p class="notice">Для редактирования прямо в тексте включите JavaScript или используйте <a href="/edit/{number}"><u>замену слов</u></a>.</p></noscript><div class="reader"><section class="panel"><div class="panel-header"><span class="panel-title">Распознанный текст</span><span class="panel-subtitle">{text_status}</span></div><div class="text-size-tools" id="text-size-tools" role="group" aria-label="Размер распознанного текста" hidden><span>Размер текста</span><button class="button" type="button" id="text-size-down" aria-label="Уменьшить размер текста">А−</button><output id="text-size-value" aria-live="polite">100%</output><button class="button" type="button" id="text-size-up" aria-label="Увеличить размер текста">А+</button><button class="button" type="button" id="text-size-reset">Обычный</button></div>{page_notice}<div class="book-text" id="editable-book" data-spread="{number}" lang="en">{paragraphs}</div></section><section class="panel scan-panel" id="original-scan"><div class="panel-header"><span class="panel-title">{source_label}</span><span class="panel-subtitle">{escape(filename) if not replacement else "замена"}</span></div><div class="scan-zoom-toolbar" id="scan-zoom-toolbar" role="group" aria-label="Масштаб скана" hidden><button class="button" type="button" id="scan-zoom-out" aria-label="Уменьшить скан">−</button><output id="scan-zoom-level" aria-live="polite">100%</output><button class="button" type="button" id="scan-zoom-in" aria-label="Увеличить скан">+</button><button class="button" type="button" id="scan-zoom-reset">По ширине</button><span class="scan-zoom-hint">Прокручивайте увеличенный скан</span></div><div class="scan-wrap scan-zoom-viewport" id="scan-zoom-viewport" tabindex="0" aria-label="Скан: прокручиваемая область"><a id="scan-zoom-link" href="{image_url}&amp;detail=1" target="_blank" rel="noopener" title="Открыть скан на весь экран рабочей области"><img class="scan-frame scan-zoom-image" id="scan-zoom-image" src="{image_url}" data-detail-src="{image_url}&amp;detail=1" alt="Скан разворота {number}." loading="lazy"></a></div>{scan_controls}<p class="scan-fallback">Нажмите на скан, чтобы открыть его на всю рабочую область · <a href="{image_url}&amp;detail=1" target="_blank" rel="noopener"><u>Открыть скан отдельно ↗</u></a> · <a href="{scan}" target="_blank" rel="noopener"><u>Открыть оригинальный PDF ↗</u></a></p></section></div><section class="scan-fullscreen" id="scan-fullscreen" role="dialog" aria-modal="true" aria-labelledby="scan-fullscreen-title" hidden><div class="scan-fullscreen-bar"><span id="scan-fullscreen-title" class="scan-fullscreen-title">Скан · разворот {number:03}</span><button class="button" type="button" id="scan-fullscreen-out" aria-label="Уменьшить скан">−</button><output id="scan-fullscreen-level" aria-live="polite">100%</output><button class="button" type="button" id="scan-fullscreen-in" aria-label="Увеличить скан">+</button><button class="button" type="button" id="scan-fullscreen-fit">Вместить</button><span class="scan-fullscreen-help">Прокручивайте изображение · Esc — закрыть</span><button class="button" type="button" id="scan-fullscreen-close">Закрыть ✕</button></div><div class="scan-fullscreen-view" id="scan-fullscreen-view" tabindex="0" aria-label="Увеличенный скан, прокручиваемая область"><div class="scan-fullscreen-stage"><img id="scan-fullscreen-image" class="scan-fullscreen-image" alt="Скан разворота {number}" draggable="false"></div></div></section>{translation_panel}<nav class="nav bottom-nav" aria-label="Перелистывание в конце"><div class="nav-group">{prev}{next_}</div><a href="#top" class="muted">↑ В начало</a></nav><p class="notice book-note">{text_note} Скан показан рядом для сверки; на узких экранах — ниже. Номера страниц вводной части переведены из римских цифр в арабские; границы по OCR могут быть неточными.</p>'''
     return shell(content, number, query).replace('</body>', inline_editor.SCRIPT + TEXT_SIZE_SCRIPT + SCAN_ZOOM_SCRIPT + '</body>')
 
+def parallel_page(number, query=''):
+    with _CORRECTIONS_LOCK:
+        _, segments = segment_state(number)
+        en_blocks = []
+        for seg_id in sorted(segments, key=lambda s: int(s[1:])):
+            txt = segments[seg_id]
+            if not txt or not txt.strip():
+                continue
+            if '\t' in txt:
+                highlighted = inline_editor.highlight(txt, query) if query else escape(txt)
+                en_blocks.append(f'<pre class="ocr-table" data-seg="{seg_id}">{highlighted}</pre>')
+            else:
+                highlighted = inline_editor.highlight(txt, query) if query else escape(txt)
+                en_blocks.append(f'<p data-seg="{seg_id}">{highlighted}</p>')
+        en_html = ''.join(en_blocks) or '<p class="empty">Нет английского текста</p>'
+        ru_text, _, _ = translation.translation_state(number, translation.load_edits())
+        if ru_text:
+            ru_paras = ru_text.split('\n\n')
+            ru_blocks = []
+            for para in ru_paras:
+                if not para.strip():
+                    continue
+                if '\t' in para:
+                    h = inline_editor.highlight(para, query) if query else escape(para)
+                    ru_blocks.append(f'<pre class="ocr-table">{h}</pre>')
+                else:
+                    h = inline_editor.highlight(para, query) if query else escape(para)
+                    ru_blocks.append(f'<p>{h}</p>')
+            ru_html = ''.join(ru_blocks)
+        else:
+            ru_html = '<p class="empty">Перевод пока не подготовлен — появится после прогона LLM</p>'
+        en_cnt = len(re.findall(re.escape(query), ' '.join(segments.values()), re.IGNORECASE)) if query else 0
+        ru_cnt = len(re.findall(re.escape(query), ru_text, re.IGNORECASE)) if query and ru_text else 0
+        prev = f'<a class="button" href="/parallel/{number-1}?q={quote(query)}">← {number-1:03}</a>' if number > 1 else '<span class="button disabled">←</span>'
+        nxt = f'<a class="button" href="/parallel/{number+1}?q={quote(query)}">{number+1:03} →</a>' if number < len(PAGES) else '<span class="button disabled">→</span>'
+        search_val = escape(query, quote=True)
+        content = f'''<div class="heading-row"><div><span class="eyebrow">Текст без скана</span><h2>Параллельный просмотр — разворот {number:03}</h2><p>Оригинал сверху, перевод — сразу под ним. Поиск подсвечивает слово в обоих.</p></div><div class="top-actions"><a class="button" href="/spread/{number}">← К скану</a><a class="button" href="/parallel/{number+1}">Далее →</a></div></div>
+<nav class="nav"><div class="nav-group">{prev}{nxt}</div><span class="muted">Разворот {number:03} / {len(PAGES)}</span><a href="/spread/{number}" class="button">К привычной читалке</a></nav>
+<form action="/parallel/{number}" method="get" class="editor-card" style="display:flex;gap:8px;align-items:end;flex-wrap:wrap"><label style="flex:1">Подсветить слово в обоих текстах<input class="input" name="q" value="{search_val}" placeholder="напр. abuse или злоупотребление" maxlength="200"></label><button class="button primary" type="submit">Подсветить</button>{f'<span class="small">Найдено: EN {en_cnt} · RU {ru_cnt}</span>' if query else ''}</form>
+<div class="reader" style="display:block">
+<section class="panel"><div class="panel-header"><span class="panel-title">Оригинал (EN)</span><span class="panel-subtitle">с правками segment_state, {len(segments)} фрагментов</span></div><div class="book-text" style="font-size:17px" lang="en">{en_html}</div></section>
+<section class="panel" style="margin-top:16px"><div class="panel-header"><span class="panel-title">Перевод (RU)</span><span class="panel-subtitle">{'с подсветкой' if query else 'из ru_translations_v2.py + ваши правки'}</span></div><div class="book-text" style="font-size:17px" lang="ru">{ru_html}</div></section>
+</div>
+<nav class="nav bottom-nav"><div class="nav-group">{prev}{nxt}</div><a href="#top" class="muted">↑ В начало</a></nav>
+<p class="notice">Подсказка: введите <code>abuse</code> — увидите все вхождения на этом развороте в оригинале и как переведено каждое в русском. Меняйте перевод в <a href="/spread/{number}#translation"><u>привычной читалке</u></a> — здесь он обновится сразу.</p>'''
+        return shell(content, number, query, active='reader')
+
 def reader_page(number, query=''):
     # Keep replacement rules and per-segment edits in one consistent snapshot.
     with _CORRECTIONS_LOCK:
@@ -1868,6 +1915,13 @@ class Handler(SimpleHTTPRequestHandler):
                 return
             messages = {'saved': 'Исправление сохранено.', 'deleted': 'Исправление отменено.'}
             page = edit_page(number, messages.get(params.get('status', [''])[0], ''))
+        parallel_match = re.fullmatch(r'/parallel/(\d+)', path)
+        if parallel_match:
+            number = int(parallel_match.group(1))
+            if not 1 <= number <= len(PAGES):
+                self.send_error(404, 'Spread not found')
+                return
+            return self._html_response(parallel_page(number, query).encode('utf-8'), head_only=head_only)
         elif path == '/' or re.fullmatch(r'/spread/\d+', path):
             number = 1 if path == '/' else int(path.rsplit('/', 1)[1])
             if not 1 <= number <= len(PAGES):
