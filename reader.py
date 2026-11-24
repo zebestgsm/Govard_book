@@ -996,7 +996,13 @@ def parallel_page(number, query=''):
             ru_paras = ru_text.split('\n\n')
             ru_blocks = []
             for para in ru_paras:
-                if not para.strip():
+                stripped = para.strip()
+                if not stripped:
+                    continue
+                # Фильтруем короткие заголовки в переводе (как s0/s1 в оригинале) — чтобы не сбивать интерлиньяж
+                # Пример: "Редакторское вступление" (23 символа, без точки, 2 слова) — это заголовок, не абзац
+                if len(stripped) < 80 and '\t' not in stripped and '\n' not in stripped and stripped.count('.') == 0 and stripped.count('!') == 0 and stripped.count('?') == 0 and stripped.count('…') == 0 and len(stripped.split()) <= 8:
+                    # похоже на заголовок, пропускаем
                     continue
                 if '\t' in para:
                     h = inline_editor.highlight(para, query) if query else escape(para)
@@ -1004,7 +1010,7 @@ def parallel_page(number, query=''):
                 else:
                     h = inline_editor.highlight(para, query) if query else escape(para)
                     ru_blocks.append(f'<p>{h}</p>')
-            ru_html = ''.join(ru_blocks)
+            ru_html = ''.join(ru_blocks) if ru_blocks else '<p class="empty">Перевод пока не подготовлен — абзацы не распознаны</p>'
         else:
             ru_html = '<p class="empty">Перевод пока не подготовлен — появится после прогона LLM</p>'
         en_cnt = len(re.findall(re.escape(query), ' '.join(segments.values()), re.IGNORECASE)) if query else 0
@@ -1037,6 +1043,12 @@ def parallel_page(number, query=''):
             # стиль: EN — обычный, RU — под ним с отступом и фоном + статус-бейдж для каждого абзаца (показывает общий статус разворота)
             pairs.append(f'<div class="parallel-pair" style="margin:0 0 1.1em;padding:0 0 0.9em;border-bottom:1px solid #e8e6df"><div class="en-line" lang="en" style="font-size:17px;line-height:1.6">{en}</div><div class="ru-line" lang="ru" style="font-size:17px;line-height:1.6;background:#f9f8f3;border-left:3px solid #52664f;padding:6px 10px;margin-top:6px">{ru}</div></div>')
         interleaved = ''.join(pairs) if pairs else '<p class="empty">Нет текста</p>'
+        # форма редактирования перевода прямо в параллельной читалке (чтобы не ходить в старую)
+        current_ru = ru_text or ''
+        expected = translation.revision(number, translation.load_edits())
+        safe_ru = escape(current_ru)
+        # подсказка: покажем количество абзацев и что пустая строка — разделитель
+        ru_edit_form = f'''<section class="editor-card" id="edit-parallel-translation" style="margin-top:18px"><h3>Редактировать перевод этого разворота</h3><p class="small">Правьте прямо здесь, в «Читалке 2.0». Абзацы отделяйте <b>пустой строкой</b> (двойной перенос). Сохраняется в тот же файл <code>translation_edits.json</code>, что и в старой читалке. История доступна по кнопке рядом.</p><form method="post" action="/translation/{number}"><input type="hidden" name="expected" value="{expected}"><input type="hidden" name="next" value="parallel"><input type="hidden" name="q" value="{search_val}"><label class="label" for="parallel-translation-{number}">Текст перевода</label><textarea id="parallel-translation-{number}" class="input translation-textarea" name="text" rows="12" style="min-height:220px;font:14px/1.6 Georgia,serif;white-space:pre-wrap">{safe_ru}</textarea><p class="small">Пустое поле вернёт подготовленный перевод; прежние варианты — в истории. В таблицах ячейки — через табуляцию.</p><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="button primary" type="submit">Сохранить перевод</button><a class="button" href="/translation-history/{number}">История перевода</a><a class="button" href="/spread/{number}#translation">Старая панель перевода</a></div></form></section>'''
         content = f'''<div class="heading-row"><div><span class="eyebrow">Читалка 2.0 · Интерлиньяж</span><h2>Разворот {number:03} — построчно</h2><p>Под каждой строкой оригинала — её перевод. Поиск подсвечивает слово в обоих.</p></div><div class="top-actions"><a class="button" href="/spread/{number}">← К скану (старая)</a><a class="button" href="/parallel/{number+1}">Далее →</a></div></div>
 <nav class="nav"><div class="nav-group">{prev}{nxt}</div><span class="muted">Разворот {number:03} / {len(PAGES)}</span><a href="/spread/{number}" class="button">К привычной читалке</a></nav>
 <form action="/parallel/{number}" method="get" class="editor-card" style="display:flex;gap:8px;align-items:end;flex-wrap:wrap"><label style="flex:1">Подсветить слово в обоих текстах<input class="input" name="q" value="{search_val}" placeholder="напр. abuse или злоупотребление" maxlength="200"></label><button class="button primary" type="submit">Подсветить</button>{f'<span class="small">Найдено: EN {en_cnt} · RU {ru_cnt}</span>' if query else ''}</form>
@@ -1044,8 +1056,9 @@ def parallel_page(number, query=''):
 <div class="reader" style="display:block">
 <section class="panel"><div class="panel-header"><span class="panel-title">Интерлиньяж EN → RU</span><span class="panel-subtitle">под каждой строкой оригинала — перевод · {len(en_blocks)} EN · {len(ru_blocks) if ru_text else 0} RU · {cur_badge}</span></div><div class="book-text" style="font-size:16px;padding-top:18px">{interleaved}</div></section>
 </div>
+{ru_edit_form}
 <nav class="nav bottom-nav"><div class="nav-group">{prev}{nxt}</div><a href="#top" class="muted">↑ В начало</a></nav>
-<p class="notice">Подсказка: введите <code>abuse</code> — увидите все вхождения на этом развороте в оригинале и как переведено каждое в русском. Меняйте перевод в <a href="/spread/{number}#translation"><u>привычной читалке</u></a> — здесь он обновится сразу.</p>'''
+<p class="notice">Подсказка: введите <code>abuse</code> — увидите все вхождения на этом развороте в оригинале и как переведено каждое в русском. После сохранения страница остаётся в «Читалке 2.0» с тем же поисковым запросом.</p>'''
         return shell(content, number, query, active='parallel')
 
 def reader_page(number, query=''):
@@ -1735,9 +1748,17 @@ class Handler(SimpleHTTPRequestHandler):
             return None, ('Не удалось прочитать форму.', 400)
         return params, None
 
-    def _translation_redirect(self, number, history=False):
+    def _translation_redirect(self, number, history=False, next_dest=None, q=''):
         self.send_response(303)
-        self.send_header('Location', f'/translation-history/{number}?restored=1' if history else f'/spread/{number}#translation')
+        if history:
+            loc = f'/translation-history/{number}?restored=1'
+        elif next_dest == 'parallel':
+            loc = f'/parallel/{number}'
+            if q:
+                loc += '?q=' + quote(q)
+        else:
+            loc = f'/spread/{number}#translation'
+        self.send_header('Location', loc)
         self.send_header('Content-Length', '0')
         self.end_headers()
 
@@ -1750,6 +1771,8 @@ class Handler(SimpleHTTPRequestHandler):
             return self._html_response(data, status)
         text = params.get('text', [''])[0].replace('\r\n', '\n').replace('\r', '\n').strip()
         expected = params.get('expected', [''])[0]
+        next_dest = params.get('next', [''])[0]
+        q = params.get('q', [''])[0]
         if len(text) > translation.MAX_TRANSLATION_CHARS or '\x00' in text:
             data, status = translation_error_page(number, 'Перевод пуст, содержит недопустимый символ или превышает 50 000 знаков.', 400, text)
             return self._html_response(data, status)
@@ -1766,7 +1789,7 @@ class Handler(SimpleHTTPRequestHandler):
                 except OSError:
                     page, status = translation_error_page(number, 'Не удалось записать файл перевода. Изменения не сохранены.', 500, text)
                     return self._html_response(page, status)
-        self._translation_redirect(number)
+        self._translation_redirect(number, next_dest=next_dest, q=q)
 
     def handle_translation_restore(self, number):
         if not 1 <= number <= len(PAGES):
