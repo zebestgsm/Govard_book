@@ -9,6 +9,7 @@ import re
 from verified_spreads import VERIFIED_SEGMENTS
 from spacing_repairs import SPACING_REPAIRS
 from verified_prose import VERIFIED_PROSE, NOTE_TARGETS, CONTINUED_NOTES
+from verified_index import INDEX_LINES
 from verified_tables import TABLE151_LEFT, TABLE151_RIGHT, TABLE152_LEFT, TABLE152_RIGHT
 
 ROOT = Path(__file__).resolve().parent

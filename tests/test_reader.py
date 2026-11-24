@@ -114,16 +114,16 @@ class ReaderHTTPTests(unittest.TestCase):
         # Every earlier spread is now transcribed by hand, so the automated
         # comparison no longer matches live text. Exercise the flow with a
         # suggestion built against the current segment instead.
-        number = 156
+        number = 159
         _, segments = reader.segment_state(number)
         segment_id, original = next((key, value) for key, value in segments.items()
                                     if 'the' in value and len(value) > 200)
         at = original.index('the ')
-        suggestion = {'id': '156-1', 'segment': segment_id,
+        suggestion = {'id': '159-1', 'segment': segment_id,
                       'old': original[at:at + 30], 'new': original[at:at + 30].replace('the ', 'the  ')}
         with tempfile.TemporaryDirectory() as folder:
             path = Path(folder) / 'suggestions.json'
-            path.write_text(json.dumps({'156': [suggestion]}), encoding='utf-8')
+            path.write_text(json.dumps({'159': [suggestion]}), encoding='utf-8')
             with patch.object(reader, 'OCR_REVIEW_FILE', path):
                 self.assertEqual(self.form(f'/review/{number}', {'id': suggestion['id'], 'action': 'accept'})[0], 200)
                 state = inline_editor.load_edits()['spreads'][str(number)]
@@ -856,11 +856,14 @@ assert.equal(elements['text-size-value'].textContent,'110%');
         self.assertEqual(self.form('/scan-action/14', {'action':'restore-scan-mark'})[0], 200)
         self.assertTrue(reader.scan_dropdown_label(14))
         # Automated collation does not replace manual proofreading.
+        reader.OCR_ISSUES[156] = 'проверка'
         self.assertIn('☑ OCR', reader.quality_label(156))
         self.assertEqual(self.form('/scan-action/156', {'action':'dismiss-ocr'})[0], 200)
         self.assertNotIn('OCR', reader.quality_label(156))
         self.assertIn('скан повёрнут', reader.quality_label(14))
-        self.assertIn('пометка OCR снята', self.request('/spread/156')[1])
+        # The spread is transcribed against the scan, so the status shows that
+        # instead of the dismissed-OCR note.
+        self.assertIn('сверено', self.request('/spread/156')[1])
 
         pdf = reader.pymupdf.open()
         pdf.new_page(width=100, height=50)
@@ -883,6 +886,7 @@ assert.equal(elements['text-size-value'].textContent,'110%');
         self.assertNotIn('OCR', reader.quality_label(14))
         self.assertEqual(self.form('/scan-action/156', {'action':'restore-ocr'})[0], 200)
         self.assertIn('☑ OCR', reader.quality_label(156))
+        reader.OCR_ISSUES.pop(156, None)
 
     def test_legacy_quality_decisions_are_preserved_when_migrated(self):
         reader.QUALITY_FILE.write_text(json.dumps({'dismissed': [2, 14, 153], 'other': 'keep'}))
@@ -979,9 +983,9 @@ assert.equal(elements['text-size-value'].textContent,'110%');
         self.assertIn('сумма чисел строки — 59', self.request('/spread/152')[1])
 
     def test_verified_spreads_and_pending_ocr_labels(self):
-        for number in (5, 6, 150, 151, 152, 153, 154, 155, 161, 162, 163, 164, 165):
+        for number in (5, 6, 150, 151, 152, 153, 154, 155, 156, 157, 158, 161, 162, 163, 164, 165):
             self.assertNotIn('OCR', reader.quality_label(number))
-        for number in (156, 157, 158):
+        for number in (159, 160):
             self.assertIn('☑ OCR', reader.quality_label(number))
         self.assertNotIn('☑ OCR', reader.quality_label(107))
         self.assertIn('скан повёрнут', reader.quality_label(14))
@@ -1613,7 +1617,7 @@ class TranslationTests(unittest.TestCase):
         self.assertIn('Русский перевод', html)
         self.assertIn('ОБЗОР БЕДСТВИЙ В ТЮРЬМАХ', html)
         self.assertLess(html.index('id="editable-book"'), html.index('id="translation"'))
-        working = reader.reader_page(156)
+        working = reader.reader_page(159)
         self.assertIn('перевод по черновому английскому тексту', working)
         self.assertIn('Русский перевод', working)
 

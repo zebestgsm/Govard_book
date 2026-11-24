@@ -20,6 +20,7 @@ import omission_detection
 import reference_sources
 import translation
 import restored_tables_145
+from verified_index import INDEX_LINES
 import sync_reader
 
 SYNC = None
@@ -60,7 +61,7 @@ OCR_ISSUES = {
 # Manual scan proofreading is distinct from automated whole-book collation.
 # Restored fragments/tables alone do not certify an entire spread.
 VERIFIED_SPREADS = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106,
-                    107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 161, 162, 163, 164, 165}
+                    107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 161, 162, 163, 164, 165}
 for _number in range(1, len(PAGES) + 1):
     if _number in VERIFIED_SPREADS:
         OCR_ISSUES.pop(_number, None)
@@ -256,6 +257,7 @@ STYLE = '''
 .chapter-start-page .running-head{display:block;text-align:center;border:0;margin:15px 0 26px;font:normal 20px Georgia,serif;letter-spacing:.12em}.chapter-start-page .running-page{display:none}.chapter-start-page .running-title{display:block}.chapter-start-number{text-align:center;font:14px Georgia,serif;margin-top:18px}.spread-5 [data-edit-id="s3"],.spread-5 [data-edit-id="s4"],.spread-5 [data-edit-id="s5"],.spread-5 [data-edit-id="s6"]{display:inline}.spread-5 [data-edit-id="s5"]::before{content:"";display:block;height:1em}.s162-front .running-head,.s162-title-page .running-head{display:none}.s162-front p{white-space:pre-line;text-align:center;font:15px/1.55 Georgia,serif;max-width:330px;margin:10px auto}.s162-title-page{display:flex;flex-direction:column}.s162-title-page p{display:flex;flex-direction:column;flex:1;min-height:520px;white-space:pre-line;text-align:center;font:17px/1.5 Georgia,serif;letter-spacing:.04em}.s162-top,.s162-middle,.s162-bottom{display:block}.s162-middle{margin:auto 0}.s162-bottom{margin-top:auto}
 .s164-publisher .running-head{display:none}.s164-publisher p{text-align:center;white-space:pre-line;font:italic 14px/1.4 Georgia,serif;margin:0}.s164-contents{display:flex;flex-direction:column}.s164-contents .running-head{display:block;border:0;text-align:center;font:normal 23px Georgia,serif;letter-spacing:.1em;margin:25px 0 15px}.s164-contents .running-page{display:none}.s164-contents [data-edit-id="s4"]{order:0;text-align:right;font:12px Georgia,serif;margin:0}.s164-contents [data-edit-id="s3"]{order:1;font:13px/1.35 Georgia,serif;text-align:left;margin:0}.s164-contents [data-edit-id="s5"]{order:2;font:13px/1.35 Georgia,serif;white-space:normal;margin:0}.s164-row{display:flex;gap:12px;justify-content:space-between}.s164-number{white-space:pre}.s164-subrow{padding-left:14px}.s164-page-number{order:3;text-align:center;margin-top:auto;padding-top:30px;font:14px Georgia,serif}
 .wide-table-spread{grid-template-columns:minmax(0,1fr)}.wide-table-spread .book-page:nth-child(2){border-top:1px solid #e7e3d9}.table151-page pre.table151-text{font:14px/1.55 Georgia,serif;white-space:pre-wrap;overflow-wrap:anywhere;margin:0}.restored-table{display:block;max-width:100%;font:clamp(8px,.7vw,12px)/1.35 Georgia,serif;white-space:normal}.restored-row{display:grid;grid-template-columns:minmax(55px,2.5fr) repeat(var(--numeric-cols),minmax(0,1fr));min-width:0;border-bottom:1px solid #e7e3d9;white-space:normal}.restored-cell{display:block;min-width:0;overflow-wrap:anywhere;text-align:right;padding:3px 1px}.restored-cell:first-child{text-align:left}.restored-table.mixed-table{font-size:12px;line-height:1.45}.mixed-table .restored-row{grid-template-columns:minmax(0,1fr) repeat(var(--numeric-cols),minmax(0,1fr))}.mixed-table .restored-cell{text-align:left}.restored-table.diet-table{font-size:13px;line-height:1.5}.diet-table .restored-row{grid-template-columns:minmax(80px,1fr) minmax(0,3fr)}.diet-table .restored-cell{text-align:left}.restored-table.statistical-table{font-size:11px;line-height:1.4}.statistical-table .restored-row{grid-template-columns:minmax(58px,2.4fr) repeat(8,minmax(0,1fr))}.table-wrap{overflow:visible}.book-table{table-layout:fixed;width:100%;overflow-wrap:anywhere}.book-table th:last-child,.book-table td:last-child{width:22%;white-space:normal}.reference-excerpt{margin:12px 0;padding:10px;border-left:3px solid #c7d1c1}.reference-excerpt p{white-space:pre-wrap;font:14px/1.5 Georgia,serif;overflow-wrap:anywhere}.restored-heading{display:block;text-align:center;font:normal 19px Georgia,serif;letter-spacing:.08em}
+.index-spread{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.single-page-spread{grid-template-columns:minmax(0,1fr)}.single-page-spread .book-page{max-width:640px;margin:0 auto}.single-page-spread .book-page.blank{display:none}.index-column{font:13px/1.45 Georgia,serif;white-space:pre-wrap;overflow-wrap:anywhere;margin:0}.is-editing .index-column{white-space:pre-wrap}
 /* Spread 153: last page of Tables followed by the opening notes page. */
 .s153-page pre.s153-text{font:16px/1.55 Georgia,serif;white-space:pre-wrap;overflow-wrap:anywhere;margin:0;text-align:justify}.s153-page .s153-source{display:block;text-align:right}.s153-page .s153-footnote{display:block;font-size:12px;line-height:1.4}.s153-notes-page .running-head{display:none}.s153-title,.s153-subtitle,.s153-reference{display:block;text-align:center;white-space:normal}.s153-title{font-size:22px;letter-spacing:.11em;padding-top:45px}.s153-subtitle{font-size:15px}.s153-reference{font-style:italic;font-size:14px}.s153-page-number{text-align:center;font:14px Georgia,serif;margin-top:16px}
 /* Faithful styling for the publisher imprint on spread 165. */
@@ -475,12 +477,36 @@ def page_labels(number):
     if 9 <= number <= 50:
         first = number * 2 - 16
         return [str(first), str(first + 1)]
-    if 51 <= number < 160:
+    if number == 156:
+        # Left half of the scan is blank; the index proper begins on 299.
+        return ['299']
+    if 51 <= number < 157:
         first = number * 2 - 14
+        return [str(first), str(first + 1)]
+    if number in (157, 158):
+        # Landscape scans of two printed pages: 300+301, 302+303.
+        first = 300 + (number - 157) * 2
         return [str(first), str(first + 1)]
     if number == 160:
         return ['306', None]
     return [None, None]
+
+INDEX_SPREADS = {156: (2,), 157: (2, 2), 158: (2, 2)}
+
+INDEX_COLUMNS = {156: {0: (0,), 1: (1,)},
+                 157: {0: (0,), 1: (1,), 2: (2,), 3: (3,)},
+                 158: {0: (0,), 1: (1,), 2: (2,), 3: (3,)}}
+# Printed columns per page block: scan 156 is one page with two columns, the
+# landscape scans 157 and 158 hold two pages of two columns each.
+INDEX_PAGE_COLUMNS = {156: ((0, 1),), 157: ((0, 1), (2, 3)), 158: ((0, 1), (2, 3))}
+
+def index_columns_html(number, block=0, query=''):
+    """One editable block per printed column, one index entry per line."""
+    parts = []
+    for column in INDEX_PAGE_COLUMNS[number][block]:
+        lines = '\n'.join(INDEX_LINES[number][column])
+        parts.append('<pre class="index-column">' + highlighted(lines, query) + '</pre>')
+    return ''.join(parts)
 
 # The OCR retained the two scanned halves as separate blank-line blocks.
 # Some scans are misaligned, so these boundaries remain approximate.
@@ -611,6 +637,8 @@ def render_block(lines, number, position, query):
         if start != -1 and end != -1:
             before, after = text[:start].strip(), text[end:].strip()
             return prose_html(before.splitlines(), query) + render_table_2(query) + prose_html(after.splitlines(), query)
+    if number in INDEX_LINES:
+        return index_columns_html(number, position, query)
     if 145 <= number <= 153:
         return ('<p class="table-warning">Табличная разметка OCR утрачена; строки приведены без восстановления ячеек. Сверяйте со сканом.</p>'
                 '<pre class="ocr-table">' + highlighted(text, query) + '</pre>')
@@ -623,7 +651,7 @@ def render_pages(number, body, query):
     labels = page_labels(number)
     out = []
     # These scans have a blank left page and a printed page on the right.
-    if number in (1, 5, 6, 161) and len(blocks) == 1:
+    if number in (1, 5, 6, 156, 161) and len(blocks) == 1:
         # These titles are verified from the opening pages; do not invent
         # chapter titles for unnumbered publisher or end-matter pages.
         opening_titles = {1: "Editor's Introduction", 5: "Editor's Note", 6: "Introduction"}
@@ -671,6 +699,15 @@ def segment_state(number, edits=None, query='', rules=None):
         base = render_pages(number, PAGES[number - 1][1], '')
         if 1 <= number <= 4 or 7 <= number <= 143 or number in (68, 79, 88, 90, 91, 95, 106, 107, 112, 119, 144, 145, 146, 147, 148, 149, 150):
             base = base.replace('<article class="book-page"', '<article class="book-page verified-prose-page spread-' + str(number) + '"')
+        if number in INDEX_LINES:
+            # The OCR ran the columns together; these pages were transcribed
+            # line by line from the scans (see verified_index.py).
+            base = base.replace('<article class="book-page"', '<article class="book-page verified-prose-page searchable-page spread-' + str(number) + '"')
+            base = base.replace('<div class="book-spread">', '<div class="book-spread index-spread">', 1)
+            if number == 156:
+                # The left half of this scan is blank; the index starts on 299.
+                base = base.replace('<div class="book-spread index-spread">',
+                                    '<div class="book-spread index-spread single-page-spread">', 1)
         if number in (145, 146, 147, 148, 149, 150):
             base = base.replace('<div class="book-spread">', '<div class="book-spread wide-table-spread">', 1)
         if number in (145, 146, 147, 148, 149, 150):
@@ -835,6 +872,10 @@ def _reader_page(number, query=''):
         page_notice += '<p class="scan-fallback">Таблицы и примечания этой страницы восстановлены по скану; примечания 1 и 2 к таблице V напечатаны мелким шрифтом.</p>' if number == 151 else ''
     if number in (154, 155):
         page_notice += '<p class="scan-fallback">Редакторские примечания сверены со сканом; названия примечаний и ссылки на страницы напечатаны по центру, как в книге. На скане 154 колонки перепутаны распознаванием — текст восстановлен в печатном порядке.</p>'
+    if number in (156, 157, 158):
+        page_notice += ('<p class="scan-fallback">Индекс сверен со сканом построчно; столбцы восстановлены в печатном порядке. '
+                        'Дефис в конце строки оставлен как в книге: слово продолжается в следующем столбце. '
+                        'Напечатано «Knoot» и «Leeuwarcen» — в основном тексте Говард пишет «knout» и «Leeuwarden».</p>')
     if number == 147:
         page_notice += '<p class="scan-fallback">На странице 281 итоги таблицы за 1782 год напечатаны как 194, 12, 90 и 125, хотя сумма приведённых выше строк — 92, 8, 27 и 21. Сохранены числа оригинала.</p>'
     if number == 146:
