@@ -101,6 +101,8 @@ def translation_state(number, edits=None):
     if user:
         return text, 'ваш перевод', True
     if text:
+        if number in V2:
+            return text, 'новый перевод · ждёт проверки', False
         status = 'рабочий перевод' if number in WORKING_SPREADS else 'перевод подготовлен'
         return text, status, False
     return '', 'перевод готовится', False
