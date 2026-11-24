@@ -1616,7 +1616,7 @@
       "segments": {},
       "history": [],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "VIEW OF DISTRESS IN PRISONS",
           "s1": "when that is over we grow cool and compassionate. I grant there is a material difference in the circumstances of foreign and domestic prisoners, but there is none in their nature. Debtors and felons, as well as hostile foreigners, are men, and by men they ought to be treated as men.",
@@ -1641,6 +1641,10 @@
           {
             "action": "finish",
             "time": "2026-11-18T09:52:31+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-24T22:41:55+00:00"
           }
         ],
         "after": {
