@@ -953,12 +953,25 @@ def parallel_page(number, query=''):
         prev = f'<a class="button" href="/parallel/{number-1}?q={quote(query)}">← {number-1:03}</a>' if number > 1 else '<span class="button disabled">←</span>'
         nxt = f'<a class="button" href="/parallel/{number+1}?q={quote(query)}">{number+1:03} →</a>' if number < len(PAGES) else '<span class="button disabled">→</span>'
         search_val = escape(query, quote=True)
-        content = f'''<div class="heading-row"><div><span class="eyebrow">Читалка 2.0 · Текст без скана</span><h2>Параллельный просмотр — разворот {number:03}</h2><p>Оригинал сверху, перевод — сразу под ним. Поиск подсвечивает слово в обоих. Сканы смотрите в старой читалке.</p></div><div class="top-actions"><a class="button" href="/spread/{number}">← К скану (старая)</a><a class="button" href="/parallel/{number+1}">Далее →</a></div></div>
+        # Интерлиньяж: под каждой строкой оригинала — её перевод
+        max_blocks = max(len(en_blocks), len(ru_blocks) if ru_text else 0)
+        pairs = []
+        for i in range(max_blocks):
+            en = en_blocks[i] if i < len(en_blocks) else '<p class="empty">—</p>'
+            if ru_text:
+                ru = ru_blocks[i] if i < len(ru_blocks) else '<p class="empty">— нет пары —</p>'
+            else:
+                ru = '<p class="empty">Перевод пока не подготовлен</p>' if i == 0 else ''
+                if i > 0:
+                    ru = ''
+            # стиль: EN — обычный, RU — под ним с отступом и фоном
+            pairs.append(f'<div class="parallel-pair" style="margin:0 0 1.1em;padding:0 0 0.9em;border-bottom:1px solid #e8e6df"><div class="en-line" lang="en" style="font-size:17px;line-height:1.6">{en}</div><div class="ru-line" lang="ru" style="font-size:17px;line-height:1.6;background:#f9f8f3;border-left:3px solid #52664f;padding:6px 10px;margin-top:6px">{ru}</div></div>')
+        interleaved = ''.join(pairs) if pairs else '<p class="empty">Нет текста</p>'
+        content = f'''<div class="heading-row"><div><span class="eyebrow">Читалка 2.0 · Интерлиньяж</span><h2>Разворот {number:03} — построчно</h2><p>Под каждой строкой оригинала — её перевод. Поиск подсвечивает слово в обоих.</p></div><div class="top-actions"><a class="button" href="/spread/{number}">← К скану (старая)</a><a class="button" href="/parallel/{number+1}">Далее →</a></div></div>
 <nav class="nav"><div class="nav-group">{prev}{nxt}</div><span class="muted">Разворот {number:03} / {len(PAGES)}</span><a href="/spread/{number}" class="button">К привычной читалке</a></nav>
 <form action="/parallel/{number}" method="get" class="editor-card" style="display:flex;gap:8px;align-items:end;flex-wrap:wrap"><label style="flex:1">Подсветить слово в обоих текстах<input class="input" name="q" value="{search_val}" placeholder="напр. abuse или злоупотребление" maxlength="200"></label><button class="button primary" type="submit">Подсветить</button>{f'<span class="small">Найдено: EN {en_cnt} · RU {ru_cnt}</span>' if query else ''}</form>
 <div class="reader" style="display:block">
-<section class="panel"><div class="panel-header"><span class="panel-title">Оригинал (EN)</span><span class="panel-subtitle">с правками segment_state, {len(segments)} фрагментов</span></div><div class="book-text" style="font-size:17px" lang="en">{en_html}</div></section>
-<section class="panel" style="margin-top:16px"><div class="panel-header"><span class="panel-title">Перевод (RU)</span><span class="panel-subtitle">{'с подсветкой' if query else 'из ru_translations_v2.py + ваши правки'}</span></div><div class="book-text" style="font-size:17px" lang="ru">{ru_html}</div></section>
+<section class="panel"><div class="panel-header"><span class="panel-title">Интерлиньяж EN → RU</span><span class="panel-subtitle">под каждой строкой оригинала — перевод · {len(en_blocks)} EN · {len(ru_blocks) if ru_text else 0} RU</span></div><div class="book-text" style="font-size:16px;padding-top:18px">{interleaved}</div></section>
 </div>
 <nav class="nav bottom-nav"><div class="nav-group">{prev}{nxt}</div><a href="#top" class="muted">↑ В начало</a></nav>
 <p class="notice">Подсказка: введите <code>abuse</code> — увидите все вхождения на этом развороте в оригинале и как переведено каждое в русском. Меняйте перевод в <a href="/spread/{number}#translation"><u>привычной читалке</u></a> — здесь он обновится сразу.</p>'''
