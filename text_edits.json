@@ -10772,7 +10772,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "IRISH PRISONS AND HOSPITALS",
           "s1": "IRISH PRISONS AND HOSPITALS",
@@ -10856,6 +10856,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T12:36:13+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-24T23:10:46+00:00"
           }
         ],
         "after": {
