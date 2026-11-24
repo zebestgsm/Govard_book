@@ -19104,7 +19104,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "CONCLUSION",
           "s1": "“After all, the best laws will fail in their effect, assiduous and zealous endeavours of magistrates in a strict attention to their execution.Abuses,t so studiously guarded against,will creep in;and it r utmost vigilance to detect,and resolution to ref If I have been able to point out any of these,and their causes and remedies,it has been by thatclose, attention to one object,which has in some measun the want of original abilities,and given me clearer n a more decided opinion upon these matters. \"Tomy country I commit the result of my past la is my intention again to quit it for the purpose o Russia,Turkey,and some other countries,and ext tour in the East.Iam not insensible of the dangers attend such a journey.",
@@ -19121,6 +19121,10 @@
           {
             "action": "finish",
             "time": "2026-11-24T10:33:30+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-24T10:37:08+00:00"
           }
         ],
         "after": {
