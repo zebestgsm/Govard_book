@@ -19708,7 +19708,7 @@
       "segments": {},
       "history": [],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "INDEX",
           "s1": "Breton,Abbe,founder ofa charity 208-18;Western, for supplying prisoners with ern,229-39； C linen,128 North Wales,242 Bridewell,in Dublin, 155; in 243 London,174; derivation of the Civita-vecchia,95 name,174 Clare Bridewell,202 Bridewells, observations on, 37; Clauses of act aga distress and idleness in,I;not to liquors,quoted,3 be expected to maintaint them- up,and evaded, selves,42 Cleanliness,rules for Bridgewater,228 Cleanness of French Bristol City Gaol,227 Clerks of assize, th Brome,Mr.,chaplain,commended, fees,14,15,204 201 places 15 n.;receip Bruges,118 Clerks of the peace, Brunswick,65 fees,I4 Clothes to be worr Calais,137 of prisoners,shoul Calcutta,BlackHoleat4 Calvert and Co., their donation, oven,31 Clothing for galley-sl 172,.174 Code of laws,mad Cambridgeshire,199 169;for Hambur Cambridge Town Bridewell,199 Russian,quotaton Campomanes,Count,his kind assist Collection, annual ance,123 through the count Capital punishments,too frequent, Commissaire de la P 43 Condemned criminal Carlisle County Gaol,233 buried bya soc Carnarvonshire,242 for,described,1 Carnarvon County Gaol,242 attended,54,10 Caserns,unhealthy to lodge in,125 allowance to,61, Castlebar,156 ated from others, Cavan,156 Convicts not ungove Cellawn Copenhagen,70 Cells, very close and noisome,222; Cornwall,223 separate,209,237，239n.",
@@ -19728,6 +19728,10 @@
           {
             "action": "finish",
             "time": "2026-11-24T13:16:40+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-24T13:17:03+00:00"
           }
         ],
         "after": {
@@ -19744,7 +19748,7 @@
       "segments": {},
       "history": [],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "INDEX",
           "s1": "Fenton,Mr.,recorder,his humanity, Gaol-disterper,hav 235 not known in Italy Fielding，Henry，quoted，41,43 Switzerland,1o2;S Fines,theword explained，157 Stow's account of, Firing，necessity ofin prisons,39； on,258；persons ap liberal allowance of,85,194 of,recovered by Firmin,Mr.,his employment of the cold water 22n.,18 poor,42n.",
@@ -19764,6 +19768,10 @@
           {
             "action": "finish",
             "time": "2026-11-24T13:16:40+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-24T13:17:03+00:00"
           }
         ],
         "after": {
