@@ -33,6 +33,11 @@ def numbers(text):
 
 def main():
     doc = json.loads(DOC.read_text(encoding='utf-8'))
+    if not DRAFT.exists():
+        REPORT.write_text('# Отчёт о машинном черновике\n\nЧерновик не создан: '
+                          'шаг перевода не дошёл до результата.\n', encoding='utf-8')
+        print('черновика нет:', DRAFT)
+        return
     draft = json.loads(DRAFT.read_text(encoding='utf-8'))
     glossary = json.loads(GLOSSARY.read_text(encoding='utf-8'))['terms']
     rejected = [(t['en'], v) for t in glossary for v in t.get('rejected', [])]

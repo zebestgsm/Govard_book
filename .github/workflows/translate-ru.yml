@@ -46,15 +46,21 @@ jobs:
         run: |
           set -o pipefail
           python tools/mt_report.py 2>&1 | tee report.log || true
-      - name: Commit the draft and the report
+      - name: Commit the rebuilt source document
         if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add translation_sources/work-doc.json translation_sources/ru-mt.json \
-                  translation_sources/ru-mt-stats.json mt-report.md || true
-          git commit -m "MT draft: ${{ github.event.inputs.model }} (${{ github.event.inputs.limit || 'all' }})" || true
-          git push origin HEAD:${{ github.ref_name }} || true
+          # Сам черновик и отчёт в репозиторий не кладём: они большие и нужны
+          # только для правки. Забирать их — из артефакта mt-draft ниже.
+          # Коммитим только пересобранный документ, если он изменился.
+          git add translation_sources/work-doc.json || true
+          if git diff --cached --quiet; then
+            echo "work-doc.json не изменился"
+          else
+            git commit -m "Rebuild translation source document" || true
+            git push origin HEAD:${{ github.ref_name }} || true
+          fi
       - name: Post log to the diagnostics issue
         if: always()
         env:
