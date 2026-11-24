@@ -19669,6 +19669,27 @@
           "s6": "NOTE E.—PENITENTIARY HOUSES\n(See page 260)\n\nHoward’s proposed penitentiary house, upon which he enlarges in this volume, was the ancestor of the modern model prison. Other links in its genesis were Bentham’s projected Panopticon, and Millbank Penitentiary and Pentonville Prison.\n\nHoward’s penitentiary was never built, in spite of the fact that an act was passed in 1779 authorising its construction, and a committee, of which Howard was a member, appointed to choose a site. Neither was Bentham’s Panopticon erected, although he made a contract with the Government for it in 1794. The idea persisted, however, and during the decade 1810–20 Millbank was constructed at a cost of nearly three quarters of a million pounds. Pentonville followed in 1842 and still stands. Millbank, happily, was pulled down in 1891, and the Tate Gallery now occupies its site.\n\nNOTE F.—EXECUTIONS IN ENGLAND\n(See page 289)\n\nThe following quotation from Henry Fielding’s Inquiry into the Late Increase of Robbers offers an interesting contrast:\n\nThe Day appointed by the Law for the Thief’s Shame is the Day of Glory in his own Opinion. His Procession to Tyburn and his last moments there are all triumphant; attended with the Compassion of the meek and tender-hearted, and with the Applause, Admiration, and Envy of all the bold and hardened. His Behaviour in his present Condition, not the Crimes, how atrocious soever, which brought him to it, are the Subject of Contemplation. And if he hath Sense enough to temper his Boldness with any Degree of Decency, his Death is spoke of by many with Honour, by most with Pity and by all with Approbation."
         }
       }
+    },
+    "156": {
+      "segments": {},
+      "history": [],
+      "spread_review": {
+        "state": "working",
+        "before": {
+          "s0": "INDEX",
+          "s1": "Aberdeen,149 Bacon,Lord,his account of the gaol- Abingdon,County Bridewell,210 distemper,7 Act,twenty-second andtwenty- Badajoz,120 third Charles 1I,quoted,23； Bailiffs,xtortionf thirty-second George II,referred Basil,103 to,26,34,35;forholdingsesions Bastille,124 Bastinado,141 health of prisoners,passed, I; Bath proper in gaols,22;used by should be hung up,35;for relief way of punishment,238;used of acquitted prisoners,passed,2; as a pig-sty，153 n. against frivolous and vexatious Baths shouldbe made convenient, arrests,evaded,187 oruseless,205 n.",
+          "s2": "Acts,Irish, relative to prisons, Bathing prisoners,74 referred to,5n.,27,32n.,151, Bayreuth,107 152,155 Beccaria,Marquis,quoted,13,14, Air,contaminated by gaols, 4； 43n.,98n. free,want of in prisons,4 Bedfordshire,198 Allnott,Mr.his legacy，187 Bedford County Gaol,198 Allowance of bread,not continued Bedding,to be frequently changed, to acquitted prisoners，detained 32；want of in prisons,5 for fees,151;table of,should be Beds,bringing out into the air,a hung up,35;to foreign criminals, salutary custom,1o4 n. 51n.,57.,59,65,68,0,,73, Bedstead left bya prisoner,207 81,82,83,84,86,87,88,89,90, Bedsteads of cast iron proposed, 95,96,97,98,99,101,103,104, 39n.",
+          "s3": "Bellem,119 119,120,121,122,124,125,128, Benedictines,their prison,113 132,138 Bergues,137 Allowance to prisoners, quantity Berkeley，218 proposed,33,39 Berkhamstead,189 Amsterdam,53 Berkshire,208 Antwerp,11o Berlin,84 Apprentices,faulty，rooms for,39, Bern,102 176,180,237 Bicetre,133 Arret ofFrench parliament for Bien-venu in prisons,what,108 government ofprisons,I33,136 Birmingham gaol,204 Arsenal at Lisbon,119 Black Assize,7 Assassinations, frequency of, Blackstone,Sir William,quoted, Italy,98n. 135n.;Act of Parliament,drawn Assizes,judges to remain six days by,262 at,147;held too seldom in some Blindsforprisonwindows185 places,14;where no prison,193, Bodmin County Gaol,223 196n.,233 Book kept of work done by prisoners, Assizes of bread,56,65,7o,81,85, 115 88,99,103,104,120,132,153 Bounty to prisoners of war,114, Aston,judge,dischargeacquitd 145,146 prisoners without fees,151 Boys should be confined separate, Asylums,121 Augsburg,105 Bread allowance,deciency of,2,3； 39n.",
+          "s4": "Austrian Netherlands,110 cut in slices for each prisoner, Axminster, gaol-distemper brought 50n. there,7 Bremen,62 X835 299"
+        },
+        "cycles": [],
+        "events": [
+          {
+            "action": "start",
+            "time": "2026-11-24T12:24:19+00:00"
+          }
+        ]
+      }
     }
   }
 }
