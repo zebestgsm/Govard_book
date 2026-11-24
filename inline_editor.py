@@ -51,6 +51,7 @@ TABLE_META = {
     (112, 's4'): ('Oxford Castle prisoners', 'mixed'),
     (116, 's2'): ('Berkeley bridewell returns and prisoners', 'mixed'),
     (128, 's3'): ('Carnarvon prisoners by visit date', 'mixed'),
+    (136, 's1'): ('Convicts in the hulks in 1788', 'mixed'),
     (148, 's1'): ('Table I (continued) and Table II — Ireland, 1787–1788', 'fee'),
     (148, 's3'): ('Table III — England and Wales, 1787–1788 (part)', 'fee'),
     (149, 's1'): ('Table III — England and Wales, continued', 'fee'),
@@ -320,7 +321,7 @@ def render_verified_block(value, spread, segment_id, query):
         elif '\t' in chunk:
             # Group only consecutive tab-separated lines. Prose introducing or
             # following a table must not become a one-cell table row.
-            has_header = not ((spread == 16 and segment_id in ('s7', 's11')) or (spread == 17 and segment_id == 's1') or (spread == 35 and segment_id == 's1') or (spread, segment_id) in ((79, 's3'), (84, 's5'), (89, 's4'), (91, 's2'), (95, 's3'), (101, 's7'), (106, 's6'), (111, 's7'), (112, 's0')))
+            has_header = not ((spread == 16 and segment_id in ('s7', 's11')) or (spread == 17 and segment_id == 's1') or (spread == 35 and segment_id == 's1') or (spread, segment_id) in ((79, 's3'), (84, 's5'), (89, 's4'), (91, 's2'), (95, 's3'), (101, 's7'), (106, 's6'), (111, 's7'), (112, 's0'), (136, 's1')))
             if spread == 119 and segment_id in ('s3', 's4', 's5', 's8'):
                 has_header = chunk.startswith('\t£\ts.\td.')
             if (spread, segment_id) == (116, 's2'):
@@ -439,7 +440,9 @@ def render_verified_block(value, spread, segment_id, query):
               or (spread == 127 and segment_id == 's8' and chunk == 'CHESTER CITY BRIDEWELL')
               or (spread == 130 and segment_id == 's1' and chunk == 'REMARKS ON CHARTER SCHOOLS (IRELAND)')
               or (spread == 132 and ((segment_id == 's1' and chunk == 'INSTRUCTIONS TO SCHOOL-MASTERS') or (segment_id == 's5' and chunk.startswith('GENERAL RULES to be strictly observed'))))
-              or (spread == 133 and segment_id == 's1' and chunk == 'HULKS ON THE THAMES')):
+              or (spread == 133 and segment_id == 's1' and chunk == 'HULKS ON THE THAMES')
+              or (spread == 134 and ((segment_id == 's1' and chunk == 'THE HULK AT PLYMOUTH') or (segment_id == 's3' and chunk in ('THE HULK AT GOSPORT', 'THE HULKS NEAR PORTSMOUTH'))))
+              or (spread == 136 and segment_id == 's2' and chunk == 'REMARKS ON THE GAOL-FEVER¹')):
             output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
         elif ((spread == 102 and segment_id == 's4' and chunk.startswith('that want of care respecting them'))
               or (spread == 110 and segment_id == 's3' and chunk.startswith('Before this rigorous law'))
