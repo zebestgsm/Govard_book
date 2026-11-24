@@ -18237,7 +18237,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "THE HULK AT PLYMOUTH",
           "s1": "prisoners healthy,and many were at work.The hos was cleaner and quieter than most of our county Several convicts were lately come from the county the captain justly observed,how different the h complexion of such prisoners are now,from what when I first visited the hulks.ButI must repeat my that such an assemblage is entirely destructive tot of young convicts:the profaneness of the prisoners isno checked;and some of the guards set them a bad exar “26March,1787,the number of convicts was fiv and forty-nine,ofwhom the Justitia had two hundred six, the Censor two hundred and twenty-nine,and seventy-four.Of these thirty-six were in the hosp eleven from the Justitia,twelve from the Censor,an from theCeres. “16July,1788,thenumber was seven hundred and The Justitia had two hundred and sixty-five,the C hundred and forty-eight,and the Stanislaus two hur twenty-eight. “From the Justitia ninety,and from the Stani hundred and thirty-two,were at work on the shore, ballast lighters. \"In the hospital ship were thirty-two;from the Justit from the Censor twelve,andfrom the Stanislaus eight THEHULKAT PLYMOUTH “1oNovember,1787,the convicts at Plymouth onboard thehulkof the Chatham,a seventy-gun ship, healthy and well;but theDunkirk,which is more con was repairing for them.Their bread,beef,and beer but the bread allowance of4lb.a dayto sixmen,isnot There were among them many fine young fellows,wh in total idleness,though some useful employment m easily be found.There were ninety-two men and on nine more convicts were coming on board from th Glamorgan. “28June,1788, there were three hundred and convicts in the Dunkirk,which was fitted up with severa rooms.In one of the rooms,fifty-seven feet by eigh six feet high, there were sixty-eight.Such a room,",
@@ -18253,6 +18253,10 @@
           {
             "action": "finish",
             "time": "2026-11-24T10:10:24+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-24T10:17:33+00:00"
           }
         ],
         "after": {
