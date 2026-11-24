@@ -19028,7 +19028,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "CONCLUSION",
           "s1": "habitof industryinto ourbridewells,andrestrainingthe debauchery andimmoralitywhichprevail in our gaols prisons-if any of these beneficial consequences sha the writer will behappy in the pleasing reflection th not lived without doing some good to his fellow-creat will think himself abundantly repaid for all thepain taken,the time hehas spent,and thehazardshehasen CONCLUSION To THE ACCOUNT OF LAZARETTOS \"IN my late inquiries into the stateof the prisons of thi it has given me sincere pleasure tofind,that,from the of the magistrates,and the operation of the salutar preserving the health of prisoners,the gaols of th though crowded,have been freed from that disea formerly destroyed more persons than the hand of cutioner;and those in the country have been somuch that mostof them may now be visited without infection;whilst the judges are secured from those ri formerly attended them in the discharge of their office.With satisfactionIhavealsoobservedtheli humane spirit which engages the public to alleviate the of prisoners in general,and particularly，to release ma trious,though unfortunate,debtors.But at this spirit of improvement unhappily seems to stop,scarcel upon that still more important object,the reformation in our prisons:yet it is obvious thatif thisbe neglecte the evil consequences that must result from such a wickedness,a suspicion will arise,that what has bee done has proceeded,chiefly，from the selfish motive the danger to our own health,in attending courts of j \"In this further reformation,it will be absolutely tobegin with the capital:for as,in my former visit have met with the gaol-fever in county prisons,I almost constantly told,thatitwasderivedfromthosein so the corruption of manners also,flowing fromt fountain,spreads far andwide its malignant streams. prisonin London is there aproper separation of crin",
@@ -19052,6 +19052,10 @@
           {
             "action": "finish",
             "time": "2026-11-24T10:33:30+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-24T10:36:31+00:00"
           }
         ],
         "after": {
