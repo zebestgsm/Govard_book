@@ -67,7 +67,7 @@ T149_LEFT = _rows(H4, [
     ['Marshalsea',37,0,0],['Newgate',114,499,0],['New Ludgate',24,0,0],['Poultry Compter',35,19,0],['Savoy',0,0,45],
     ['Tothill-fields Bridewell',3,0,135],['Tower Hamlets',0,0,1],['Westminster Prison',0,0,94],['Wood Street Compter',44,48,0],
     ['Total',1195,1030,634],
-    ['Lostwithiel',5,0,0],['Ludlow',6,0,1],['Macclesfield',6,0,0],['Maidstone',31,80,0],['Bridewell',0,0,25],
+    ['Lostwithiel',5,0,0],['Ludlow',0,0,1],['Macclesfield',6,0,0],['Maidstone',31,80,0],['Bridewell',0,0,25],
     ['Manchester',0,0,53],['Marlborough',0,0,5],['Middlewich',0,0,24],['Monmouth',6,10,0],['Town',0,2,0],
     ['Montgomery',9,12,0],['Bridewell',0,0,0],['Morpeth',15,12,0],['Bridewell',0,0,2],['Nantwich',0,0,2],
     ['Newcastle',14,10,0],['Bridewell',0,0,6],['Newport, Essex',0,0,13],['Northampton',9,20,0],['Town',0,1,0],

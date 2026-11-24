@@ -62,7 +62,7 @@ OCR_ISSUES = {
 # Manual scan proofreading is distinct from automated whole-book collation.
 # Restored fragments/tables alone do not certify an entire spread.
 VERIFIED_SPREADS = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106,
-                    107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 151, 153, 161, 162, 163, 164, 165}
+                    107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 151, 153, 161, 162, 163, 164, 165}
 for _number in range(1, len(PAGES) + 1):
     if _number in VERIFIED_SPREADS:
         OCR_ISSUES.pop(_number, None)
@@ -675,7 +675,7 @@ def segment_state(number, edits=None, query='', rules=None):
             base = base.replace('<article class="book-page"', '<article class="book-page verified-prose-page spread-' + str(number) + '"')
         if number in (145, 146, 147, 148, 149, 150):
             base = base.replace('<div class="book-spread">', '<div class="book-spread wide-table-spread">', 1)
-        if number in (145, 146):
+        if number in (145, 146, 147, 148, 149):
             # Both pages now have restored, scan-checked cells, not raw OCR.
             base = base.replace('<p class="table-warning">Табличная разметка OCR утрачена; строки приведены без восстановления ячеек. Сверяйте со сканом.</p>', '')
         if number in (5, 6):
@@ -830,6 +830,8 @@ def _reader_page(number, query=''):
         page_notice += '<p class="notice" style="padding:0 20px">Между разворотами 50 и 51 в предоставленных сканах отсутствуют печатные страницы 86–87. Их текст не подменялся другим изданием.</p>'
     if number == 18:
         page_notice += '<p class="notice" style="padding:0 20px">Жирным отмечены слова, которые пересекает искажённая полоса скана на странице 20, для сравнения. Выделение не означает, что каждое слово было изменено или прочитано неуверенно.</p>'
+    if number == 147:
+        page_notice += '<p class="scan-fallback">На странице 281 итоги таблицы за 1782 год напечатаны как 194, 12, 90 и 125, хотя сумма приведённых выше строк — 92, 8, 27 и 21. Сохранены числа оригинала.</p>'
     if number == 146:
         page_notice += '<p class="scan-fallback">На странице 278 в итоге столбца мелких правонарушителей за 1779 год напечатано 262, хотя сумма строк равна 282. Оставлено значение из книги.</p>'
     page_notice += ('<p class="scan-fallback">В таблице VIII за 1782–1783 в оригинале напечатано 49, хотя сумма чисел строки — 59. Оставлено значение из книги.</p>' if number == 152 else '')

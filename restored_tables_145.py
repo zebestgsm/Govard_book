@@ -284,6 +284,9 @@ TOTALS = ('\t1779\t1782\n'
           'Supposed omitted\t60\t30\n'
           'Total number of Prisoners\t4379\t4439')
 
+EXPLANATION_1783 = ('Though I have visited all the county gaols, and almost all the other prisons; yet as there are some few of the corporation prisons which I did not see, I have added sixty more prisoners to the number in 1779, and thirty in 1782; so that probably, we have nearly the average number of persons confined at one time in the prisons of this kingdom.\n\n'
+                    'I subjoin the numbers, confined in the London prisons and in the hulks,¹ at the time they were visited in 1783, which are as follows.')
+
 LONDON1783 = ('London prisons and hulks, 1783\tDebtors Men\tWom.\tFelons etc.\tPetty Offenders\n'
               'Bridewell\t0\t0\t0\t38\n'
               'Borough Compter\t25\t3\t0\t2\n'
@@ -314,6 +317,6 @@ VERIFIED_TABLE_SPREADS = {
         's0': ('TABLES', 'TABLES'),
         's1': ('1779\nDebtors Felons', T147L),
         's2': ('TABLES', 'TABLES'),
-        's3': ('1782\nI779', T147R + '\n\n' + SUMMARY + '\n\n' + TOTALS + '\n\n' + LONDON1783 + '\n\n¹ I do not include those sickly convicts on board the Censor.'),
+        's3': ('1782\nI779', T147R + '\n\n' + SUMMARY + '\n\n' + TOTALS + '\n\n' + EXPLANATION_1783 + '\n\n' + LONDON1783 + '\n\n¹ I do not include those sickly convicts on board the Censor.'),
     },
 }
