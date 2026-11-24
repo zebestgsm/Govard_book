@@ -241,6 +241,32 @@ def render_verified_block(value, spread, segment_id, query):
                          + '</span><span class="profile-value">' + text_html(body) + '</span></span>' + ending)
         return ''.join(parts) + '</span>'
 
+    if spread == 137 and segment_id == 's3' and value.startswith('Divine Providence,'):
+        # The previous spread's note ends here; two new notes follow. The
+        # receipts and their headerless table are all part of note 2.
+        chunks = value.split('\n\n')
+        parts = []
+        for i, chunk in enumerate(chunks):
+            if i:
+                parts.append('\n\n')
+            if i == 0:
+                parts.append('<span class="book-footnote verified-footnote previous-page-note">' + text_html(chunk) + '</span>')
+            elif i in (1, 2):
+                parts.append('<span class="book-footnote verified-footnote" id="footnote-137-s3-' + str(i) + '">' + text_html(chunk, True) + '</span>')
+            elif '\t' in chunk:
+                parts.append('<span class="restored-table fee-table long-note-part" role="table" aria-label="Contractors’ receipt">')
+                for line in chunk.splitlines(keepends=True):
+                    row = line.rstrip('\n'); ending = line[len(row):]
+                    cells = row.split('\t')
+                    parts.append('<span class="restored-row" role="row" style="--numeric-cols:' + str(len(cells)-1) + '">')
+                    for j, cell in enumerate(cells):
+                        parts.append('<span class="restored-cell" role="cell">' + text_html(('\t' if j else '') + cell) + '</span>')
+                    parts.append('</span>' + ending)
+                parts.append('</span>')
+            else:
+                parts.append('<span class="long-note-part">' + text_html(chunk) + '</span>')
+        return ''.join(parts)
+
     if spread == 75 and segment_id == 's4' and value.startswith('power of any,'):
         # A note begun on the preceding spread ends here, followed by two
         # separate notes on this page. Keep each independently styled.
@@ -442,7 +468,8 @@ def render_verified_block(value, spread, segment_id, query):
               or (spread == 132 and ((segment_id == 's1' and chunk == 'INSTRUCTIONS TO SCHOOL-MASTERS') or (segment_id == 's5' and chunk.startswith('GENERAL RULES to be strictly observed'))))
               or (spread == 133 and segment_id == 's1' and chunk == 'HULKS ON THE THAMES')
               or (spread == 134 and ((segment_id == 's1' and chunk == 'THE HULK AT PLYMOUTH') or (segment_id == 's3' and chunk in ('THE HULK AT GOSPORT', 'THE HULKS NEAR PORTSMOUTH'))))
-              or (spread == 136 and segment_id == 's2' and chunk == 'REMARKS ON THE GAOL-FEVER¹')):
+              or (spread == 136 and segment_id == 's2' and chunk == 'REMARKS ON THE GAOL-FEVER¹')
+              or (spread == 137 and segment_id == 's2' and chunk == 'REMARKS ON PENITENTIARY HOUSES')):
             output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
         elif ((spread == 102 and segment_id == 's4' and chunk.startswith('that want of care respecting them'))
               or (spread == 110 and segment_id == 's3' and chunk.startswith('Before this rigorous law'))

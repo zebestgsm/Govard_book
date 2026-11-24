@@ -1359,6 +1359,23 @@ class SequentialProofreadTests(unittest.TestCase):
         self.assertIn('href="#footnote-136-s2-1"', h136)
         self.assertIn('href="#footnote-136-s5-3"', h136)
 
+    def test_spread_137_continuing_and_new_notes(self):
+        from html.parser import HTMLParser
+        html, segments = reader.segment_state(137)
+        self.assertIn('href="#footnote-137-s3-1"', html)
+        self.assertIn('href="#footnote-137-s3-2"', html)
+        self.assertIn('previous-page-note', html)
+        self.assertIn('aria-label="Contractors’ receipt"', html)
+        self.assertIn('I was fully persuaded that many of those unhappy wretches', segments['s6'])
+        class Text(HTMLParser):
+            def __init__(self):
+                super().__init__(); self.value = []
+            def handle_data(self, data):
+                self.value.append(data)
+        parsed = Text()
+        parsed.feed(inline_editor.render_verified_block(segments['s3'], 137, 's3', ''))
+        self.assertEqual(''.join(parsed.value), segments['s3'])
+
     def test_every_guarded_transcription_applies_without_changing_segment_ids(self):
         from verified_prose import VERIFIED_PROSE
         for number, replacements in VERIFIED_PROSE.items():
