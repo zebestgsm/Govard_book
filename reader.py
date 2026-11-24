@@ -972,24 +972,9 @@ def parallel_page(number, query=''):
             else:
                 highlighted = inline_editor.highlight(txt, query) if query else escape(txt)
                 en_blocks_raw.append((seg_id, f'<p data-seg="{seg_id}">{highlighted}</p>', txt))
-        # На развороте 1 скан показывает: "The abuse existed..." и три "There..." — один абзац без отступов
-        # В OCR они разбиты на s5 и s6 — склеиваем, чтобы совпадало со сканом (5 абзацев на правой странице)
-        en_blocks = []
-        i = 0
-        while i < len(en_blocks_raw):
-            seg_id, html, raw = en_blocks_raw[i]
-            # Склейка s5 (The abuse existed...) + s6 (There the innocent...) в один абзац только для spread 1
-            if number == 1 and seg_id == 's5' and i + 1 < len(en_blocks_raw) and en_blocks_raw[i+1][0] == 's6':
-                next_seg_id, next_html, next_raw = en_blocks_raw[i+1]
-                # Извлекаем внутренний текст next_html без <p> обертки и склеиваем
-                # Проще: склеиваем сырые тексты с пробелом и заново хайлайтим
-                merged_raw = raw.strip() + ' ' + next_raw.strip()
-                merged_hl = inline_editor.highlight(merged_raw, query) if query else escape(merged_raw)
-                en_blocks.append(f'<p data-seg="s5+s6">{merged_hl}</p>')
-                i += 2
-                continue
-            en_blocks.append(html)
-            i += 1
+        # Сегменты берём как сохранено в принятых правках (text_edits.json) — без хаков.
+        # Для 001 правка s5+s6 уже сохранена в данных (см. accepted_english), поэтому здесь просто список.
+        en_blocks = [html for _, html, _ in en_blocks_raw]
         en_html = ''.join(en_blocks) or '<p class="empty">Нет английского текста</p>'
         ru_text, _, _ = translation.translation_state(number, translation.load_edits())
         if ru_text:
