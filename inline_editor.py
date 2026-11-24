@@ -241,6 +241,9 @@ def render_verified_block(value, spread, segment_id, query):
                          + '</span><span class="profile-value">' + text_html(body) + '</span></span>' + ending)
         return ''.join(parts) + '</span>'
 
+    if spread == 142 and segment_id == 's2' and value.startswith('the proposed dietary'):
+        return '<span class="book-footnote verified-footnote previous-spread-note">' + text_html(value) + '</span>'
+
     if spread == 137 and segment_id == 's3' and value.startswith('Divine Providence,'):
         # The previous spread's note ends here; two new notes follow. The
         # receipts and their headerless table are all part of note 2.
@@ -471,7 +474,9 @@ def render_verified_block(value, spread, segment_id, query):
               or (spread == 136 and segment_id == 's2' and chunk == 'REMARKS ON THE GAOL-FEVER¹')
               or (spread == 137 and segment_id == 's2' and chunk == 'REMARKS ON PENITENTIARY HOUSES')
               or (spread == 138 and segment_id == 's5' and chunk == 'GENERAL HEADS OF REGULATIONS. PROPOSED TO BE ESTABLISHED IN PENITENTIARY HOUSES OR HOUSES OF CORRECTION')
-              or (spread == 140 and segment_id == 's3' and chunk in ('CONCLUSION', 'TO THE STATE OF THE PRISONS'))):
+              or (spread == 140 and segment_id == 's3' and chunk in ('CONCLUSION', 'TO THE STATE OF THE PRISONS'))
+              or (spread == 141 and segment_id == 's1' and chunk in ('CONCLUSION', 'TO THE ACCOUNT OF LAZARETTOS'))
+              or (spread == 142 and segment_id == 's1' and chunk == 'DRAUGHT OF A BILL')):
             output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
         elif ((spread == 102 and segment_id == 's4' and chunk.startswith('that want of care respecting them'))
               or (spread == 110 and segment_id == 's3' and chunk.startswith('Before this rigorous law'))
