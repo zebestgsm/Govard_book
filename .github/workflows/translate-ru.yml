@@ -74,6 +74,15 @@ jobs:
                   body += '\n=== ' + name + ' ===\n' + open(name, encoding='utf-8', errors='replace').read()[-12000:]
               except FileNotFoundError:
                   body += '\n=== ' + name + ' === не создан\n'
+          # Небольшой черновик (контрольный прогон по нескольким разворотам)
+          # прикладываем прямо в комментарий: артефакт не всегда доступен.
+          try:
+              import os
+              size = os.path.getsize('translation_sources/ru-mt.json')
+          except OSError:
+              size = 0
+          if 0 < size < 40000:
+              body += '\n=== черновик (ru-mt.json) ===\n' + open('translation_sources/ru-mt.json', encoding='utf-8').read()
           req = urllib.request.Request(
               'https://api.github.com/repos/' + os.environ['GITHUB_REPOSITORY'] + '/issues/2/comments',
               data=json.dumps({'body': 'CI translation log:\n```' + body[:55000] + '\n```'}).encode(),
