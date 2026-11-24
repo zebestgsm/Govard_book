@@ -62,7 +62,7 @@ OCR_ISSUES = {
 # Manual scan proofreading is distinct from automated whole-book collation.
 # Restored fragments/tables alone do not certify an entire spread.
 VERIFIED_SPREADS = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106,
-                    107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 151, 153, 161, 162, 163, 164, 165}
+                    107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 151, 153, 161, 162, 163, 164, 165}
 for _number in range(1, len(PAGES) + 1):
     if _number in VERIFIED_SPREADS:
         OCR_ISSUES.pop(_number, None)
@@ -344,6 +344,12 @@ STYLE = '''
 /* Scale the transcription only; the scan and editor controls remain unchanged. */
 .text-size-tools{display:flex;align-items:center;flex-wrap:wrap;gap:6px;padding:8px 20px;border-bottom:1px solid var(--line);font:12px Arial,sans-serif;color:var(--muted)}
 .text-size-tools .button{padding:5px 10px;min-width:34px}.text-size-tools output{min-width:3.5em;text-align:center}.book-text{zoom:var(--text-size-scale,1)}
+
+/* The conclusion starts on page 267, without a running head in the scan. */
+.spread-140:nth-child(2) .running-head{display:none}
+.spread-140:nth-child(2)::after{content:"267";display:block;text-align:center;font:14px Georgia,serif;margin-top:1.5em}
+.spread-138:nth-child(2) .restored-heading{font-size:15px;line-height:1.35;margin:2em 0 1em}
+.spread-140:nth-child(2) .restored-heading:first-child{margin-top:2em}
 
 /* Full-workspace scan viewer. The original image link remains usable without JS. */
 .scan-fullscreen[hidden]{display:none}.scan-fullscreen{position:fixed;inset:0;z-index:1000;background:#282a27;color:#fff;display:flex;flex-direction:column;min-width:0}
@@ -662,7 +668,7 @@ def segment_state(number, edits=None, query='', rules=None):
     token = _current_corrections.set(rules)
     try:
         base = render_pages(number, PAGES[number - 1][1], '')
-        if 1 <= number <= 4 or 7 <= number <= 136 or number in (68, 79, 88, 90, 91, 95, 106, 107, 112, 119, 137, 144, 145, 146, 147, 148, 149, 150):
+        if 1 <= number <= 4 or 7 <= number <= 140 or number in (68, 79, 88, 90, 91, 95, 106, 107, 112, 119, 144, 145, 146, 147, 148, 149, 150):
             base = base.replace('<article class="book-page"', '<article class="book-page verified-prose-page spread-' + str(number) + '"')
         if number in (145, 146, 147, 148, 149, 150):
             base = base.replace('<div class="book-spread">', '<div class="book-spread wide-table-spread">', 1)

@@ -469,7 +469,9 @@ def render_verified_block(value, spread, segment_id, query):
               or (spread == 133 and segment_id == 's1' and chunk == 'HULKS ON THE THAMES')
               or (spread == 134 and ((segment_id == 's1' and chunk == 'THE HULK AT PLYMOUTH') or (segment_id == 's3' and chunk in ('THE HULK AT GOSPORT', 'THE HULKS NEAR PORTSMOUTH'))))
               or (spread == 136 and segment_id == 's2' and chunk == 'REMARKS ON THE GAOL-FEVER¹')
-              or (spread == 137 and segment_id == 's2' and chunk == 'REMARKS ON PENITENTIARY HOUSES')):
+              or (spread == 137 and segment_id == 's2' and chunk == 'REMARKS ON PENITENTIARY HOUSES')
+              or (spread == 138 and segment_id == 's5' and chunk == 'GENERAL HEADS OF REGULATIONS. PROPOSED TO BE ESTABLISHED IN PENITENTIARY HOUSES OR HOUSES OF CORRECTION')
+              or (spread == 140 and segment_id == 's3' and chunk in ('CONCLUSION', 'TO THE STATE OF THE PRISONS'))):
             output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
         elif ((spread == 102 and segment_id == 's4' and chunk.startswith('that want of care respecting them'))
               or (spread == 110 and segment_id == 's3' and chunk.startswith('Before this rigorous law'))
