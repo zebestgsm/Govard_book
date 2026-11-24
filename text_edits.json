@@ -18663,6 +18663,28 @@
           }
         ]
       }
+    },
+    "140": {
+      "segments": {},
+      "history": [],
+      "spread_review": {
+        "state": "working",
+        "before": {
+          "s0": "REMARKS ON PENITENTIARY",
+          "s1": "\"Iwould wish that the rooms for solitary con night were not too small,and would plead for influence of light,as well as of air,in them.The Zante came up to my ideas of the construction of a house,or house of correction,more,I think,than I have yet seen. It also had that exposure to influence of the breezes,and that cheerfulness of a are so necessary to relieve the languor attending confinement. \"I conclude this subject in the words of an elega the prefatory observations on adraught ofaBill imprisonment and hard labour,etc.,that,ifa begin made,by adopting such a plan as may appear th to objections (fornone can be entirely free from th be left to time,experience,and the wisdom of sessions,to revise,improve,and mature it.Man essential amendments may,even at present,beex others who will give their immediate attention:ano ultimately depend on the active,judicious,and dis rence of magistrates and gentlemen of weight in parts of the kingdom: for it will be impossible, introduction of so great an establishment,toforesee the whole detail of rules necessary tobe observed it will be better,in every respect,to leave that proper checks and restrictions,to be hereafter settled in the several districts tobe established. [From An Account of Lazarettos,",
+          "s2": "HOUSES",
+          "s3": "finement at the cheering lazaretto at penitentiary anybuilding CONCLUSION the salutary spect,which To THE STATE OF THE PRISONS sickness and IT was once my intention to have published the preceding account of English prisons,without any of the introductory ntwriter,in matter which composes the former part of this volume.But opunishby thinking,from a close attention to the subject,that it was in iningbeonce eleastliable of which I had been witness;and awareof the common proverbial nem)itmust objection“that it is easier to find faults than to mend them”; subsequent Iimagined I should be culpable in suppressing anything which yuseful and might conduce to improvement in a matterI had so much pected from atheart. muchmust A person of more ability，with my knowledge of facts,would creetconcur- have written better:but the object of my ambition was not the the different fame ofan author.Hearing the cryof the miserable,I devoted in the first my time to their relief.",
+          "s4": "In order toprocure it,Imade itmy andprescribe business to collectmaterials,the authenticity of which could ;and indeed not be disputed.For the warmth of some expressions where detail,under my subject obliges me to complain,and for my eagerness to planned and remove the several grievances,my apology must be drawn from the deep distress of the sufferers,and the impression the pp.226-30.] viewof itmade uponme-an impression too deep to be effaced byanylengthoftime!",
+          "s5": "What I have proposed throughout my work is liable,I am sensible,to some objections;and these will, doubtless,be heightened by the cavils of those whose interest it is to prevent the reformation of abuses onwhich their ease or emolument may depend.YetIhope not to be entirely deserted in the conflict:and if this publication should be the means of exciting the attention of my countrymen to this important national concern-of alleviating the distresses ofpoor debtors andother prisoners;of procuring for them cleanly and wholesome abodes, and exterminating the gaol-fever,which has so often spread abroaditsdreadful contagion;of abolishing,orat least reducing, the oppressive fees of clerks of assize, and of the peace;of preventing the sale of liquors in prisons; of checking the imposi- tions of gaolers,and the extortions of bailiffs;of introducing a T835 267"
+        },
+        "cycles": [],
+        "events": [
+          {
+            "action": "start",
+            "time": "2026-11-24T10:27:42+00:00"
+          }
+        ]
+      }
     }
   }
 }
