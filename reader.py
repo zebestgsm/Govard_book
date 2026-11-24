@@ -967,8 +967,25 @@ def parallel_page(number, query=''):
             if heading_line(txt.strip()):
                 continue
             if '\t' in txt:
-                highlighted = inline_editor.highlight(txt, query) if query else escape(txt)
-                en_blocks_raw.append((seg_id, f'<pre class="ocr-table" data-seg="{seg_id}">{highlighted}</pre>', txt))
+                # Смешанный сегмент (проза + маленькие таблицы как в 084): режем по абзацам,
+                # проза → <p>, табличные блоки → настоящая <table>, иначе был один <pre> на весь s5
+                for sub in txt.split('\n\n'):
+                    if not sub.strip():
+                        continue
+                    if '\t' in sub:
+                        rows = []
+                        for line in sub.split('\n'):
+                            if not line.strip():
+                                continue
+                            cells = line.split('\t')
+                            tds = ''.join(f'<td>{(inline_editor.highlight(c, query) if query else escape(c))}</td>' for c in cells)
+                            rows.append(f'<tr>{tds}</tr>')
+                        if rows:
+                            table_html = f'<div class="table-wrap" data-seg="{seg_id}"><table class="book-table"><tbody>{"".join(rows)}</tbody></table></div>'
+                            en_blocks_raw.append((seg_id, table_html, sub))
+                    else:
+                        highlighted = inline_editor.highlight(sub, query) if query else escape(sub)
+                        en_blocks_raw.append((seg_id, f'<p data-seg="{seg_id}">{highlighted}</p>', sub))
             else:
                 highlighted = inline_editor.highlight(txt, query) if query else escape(txt)
                 en_blocks_raw.append((seg_id, f'<p data-seg="{seg_id}">{highlighted}</p>', txt))
