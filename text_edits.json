@@ -18576,7 +18576,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "REMARKS ON PENITENTIARY",
           "s1": "REMARKSONPENITENTIARYHOUSH",
@@ -18598,6 +18598,10 @@
           {
             "action": "finish",
             "time": "2026-11-24T10:25:42+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-24T10:30:35+00:00"
           }
         ],
         "after": {
