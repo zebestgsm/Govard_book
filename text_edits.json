@@ -18812,7 +18812,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "REMARKS ON PENITENTIARY",
           "s1": "admitting visitors;only to be admitted at certain da not many at once;to be searched for tools,spirituou HEALTH.Fresh and sweet air;open windows for a thorough draught of air;prisoners made to g themse!ves at proper times;privies properly situate spacious.",
@@ -18834,6 +18834,10 @@
           {
             "action": "finish",
             "time": "2026-11-24T10:30:14+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-24T10:34:16+00:00"
           }
         ],
         "after": {
