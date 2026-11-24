@@ -1446,7 +1446,7 @@
       "segments": {},
       "history": [],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "VIEW OF DISTRESS IN PRISONS",
           "s1": "Few prisons separate men and women in the daytime. In some counties the gaol is also the bridewell: in others those prisons are contiguous, and the courtyard common. There the petty offender is committed for instruction to the most profligate. In some gaols you see (and who can see it without sorrow) boys of twelve or fourteen eagerly listening to the stories told by practised and experienced criminals, of their adventures, successes, stratagems, and escapes.",
@@ -1527,6 +1527,10 @@
           {
             "action": "finish",
             "time": "2026-11-18T08:11:58+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-24T22:40:57+00:00"
           }
         ],
         "after": {
