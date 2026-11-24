@@ -111,20 +111,24 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertEqual(reader.segment_state(1)[1][key], second)
 
     def test_accept_and_restore_suggestion(self):
-        suggestion = None
-        for number in range(1, 166):
-            _, segments = reader.segment_state(number)
-            for candidate in reader.review_suggestions(number):
-                if segments.get(candidate['segment'], '').count(candidate['old']) == 1:
-                    suggestion = candidate
-                    break
-            if suggestion:
-                break
-        self.assertIsNotNone(suggestion)
-        self.assertEqual(self.form(f'/review/{number}', {'id': suggestion['id'], 'action': 'accept'})[0], 200)
-        state = inline_editor.load_edits()['spreads'][str(number)]
-        self.assertEqual(state['suggestions'][suggestion['id']]['status'], 'accepted')
-        self.assertEqual(self.form(f'/restore/{number}', {'index': len(state['history']) - 1})[0], 200)
+        # Every earlier spread is now transcribed by hand, so the automated
+        # comparison no longer matches live text. Exercise the flow with a
+        # suggestion built against the current segment instead.
+        number = 156
+        _, segments = reader.segment_state(number)
+        segment_id, original = next((key, value) for key, value in segments.items()
+                                    if 'the' in value and len(value) > 200)
+        at = original.index('the ')
+        suggestion = {'id': '156-1', 'segment': segment_id,
+                      'old': original[at:at + 30], 'new': original[at:at + 30].replace('the ', 'the  ')}
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / 'suggestions.json'
+            path.write_text(json.dumps({'156': [suggestion]}), encoding='utf-8')
+            with patch.object(reader, 'OCR_REVIEW_FILE', path):
+                self.assertEqual(self.form(f'/review/{number}', {'id': suggestion['id'], 'action': 'accept'})[0], 200)
+                state = inline_editor.load_edits()['spreads'][str(number)]
+                self.assertEqual(state['suggestions'][suggestion['id']]['status'], 'accepted')
+                self.assertEqual(self.form(f'/restore/{number}', {'index': len(state['history']) - 1})[0], 200)
         self.assertNotIn(suggestion['id'], inline_editor.load_edits()['spreads'][str(number)]['suggestions'])
 
     def test_static_access_is_restricted(self):
@@ -798,6 +802,27 @@ assert.equal(elements['text-size-value'].textContent,'110%');
         for number in (147, 148, 149):
             self.assertNotIn('☑ OCR', reader.quality_label(number))
 
+    def test_reviewed_notes_154_and_155(self):
+        html154, segments154 = reader.segment_state(154)
+        self.assertIn('three main periods can be distinguished', segments154['s1'])
+        self.assertIn('Blackstone, Eden, Romilly, Nield, Paul, Buxton, Elizabeth Fry', segments154['s2'])
+        self.assertIn('Prison fees were abolished by law in 1815', segments154['s3'])
+        self.assertIn('applied only to the county gaols', segments154['s3'])
+        self.assertIn('It’s Never Too Late to Mend', segments154['s7'])
+        self.assertIn('Borstal Institutions', segments154['s10'])
+        html155, segments155 = reader.segment_state(155)
+        self.assertIn('NOTE C.—CONVICTS', segments155['s2'])
+        self.assertIn('NOTE D.—TRANSPORTATION AND THE HULKS', segments155['s2'])
+        self.assertIn('NOTE E.—PENITENTIARY HOUSES', segments155['s6'])
+        self.assertIn('NOTE F.—EXECUTIONS IN ENGLAND', segments155['s6'])
+        self.assertIn('the last being closed in 1857', segments155['s3'])
+        self.assertIn('The last consignment sailed in 1867', segments155['s4'])
+        self.assertEqual(html155.count('s153-subtitle'), 4)
+        self.assertEqual(html154.count('s153-title'), 2)
+        for number in (154, 155):
+            self.assertIn('Редакторские примечания', self.request('/spread/' + str(number))[1])
+            self.assertNotIn('☑ OCR', reader.quality_label(number))
+
     def test_reviewed_tables_150_to_152(self):
         html150, segments150 = reader.segment_state(150)
         self.assertEqual(segments150['s1'], 'TABLE IV')
@@ -831,11 +856,11 @@ assert.equal(elements['text-size-value'].textContent,'110%');
         self.assertEqual(self.form('/scan-action/14', {'action':'restore-scan-mark'})[0], 200)
         self.assertTrue(reader.scan_dropdown_label(14))
         # Automated collation does not replace manual proofreading.
-        self.assertIn('☑ OCR', reader.quality_label(154))
-        self.assertEqual(self.form('/scan-action/154', {'action':'dismiss-ocr'})[0], 200)
-        self.assertNotIn('OCR', reader.quality_label(154))
+        self.assertIn('☑ OCR', reader.quality_label(156))
+        self.assertEqual(self.form('/scan-action/156', {'action':'dismiss-ocr'})[0], 200)
+        self.assertNotIn('OCR', reader.quality_label(156))
         self.assertIn('скан повёрнут', reader.quality_label(14))
-        self.assertIn('пометка OCR снята', self.request('/spread/154')[1])
+        self.assertIn('пометка OCR снята', self.request('/spread/156')[1])
 
         pdf = reader.pymupdf.open()
         pdf.new_page(width=100, height=50)
@@ -856,8 +881,8 @@ assert.equal(elements['text-size-value'].textContent,'110%');
         self.assertFalse(reader.replacement_path(14).exists())
         self.assertTrue(reader.scan_dropdown_label(14))
         self.assertNotIn('OCR', reader.quality_label(14))
-        self.assertEqual(self.form('/scan-action/154', {'action':'restore-ocr'})[0], 200)
-        self.assertIn('☑ OCR', reader.quality_label(154))
+        self.assertEqual(self.form('/scan-action/156', {'action':'restore-ocr'})[0], 200)
+        self.assertIn('☑ OCR', reader.quality_label(156))
 
     def test_legacy_quality_decisions_are_preserved_when_migrated(self):
         reader.QUALITY_FILE.write_text(json.dumps({'dismissed': [2, 14, 153], 'other': 'keep'}))
@@ -954,9 +979,9 @@ assert.equal(elements['text-size-value'].textContent,'110%');
         self.assertIn('сумма чисел строки — 59', self.request('/spread/152')[1])
 
     def test_verified_spreads_and_pending_ocr_labels(self):
-        for number in (5, 6, 150, 151, 152, 153, 161, 162, 163, 164, 165):
+        for number in (5, 6, 150, 151, 152, 153, 154, 155, 161, 162, 163, 164, 165):
             self.assertNotIn('OCR', reader.quality_label(number))
-        for number in (154, 155, 156):
+        for number in (156, 157, 158):
             self.assertIn('☑ OCR', reader.quality_label(number))
         self.assertNotIn('☑ OCR', reader.quality_label(107))
         self.assertIn('скан повёрнут', reader.quality_label(14))
@@ -1588,7 +1613,7 @@ class TranslationTests(unittest.TestCase):
         self.assertIn('Русский перевод', html)
         self.assertIn('ОБЗОР БЕДСТВИЙ В ТЮРЬМАХ', html)
         self.assertLess(html.index('id="editable-book"'), html.index('id="translation"'))
-        working = reader.reader_page(154)
+        working = reader.reader_page(156)
         self.assertIn('перевод по черновому английскому тексту', working)
         self.assertIn('Русский перевод', working)
 

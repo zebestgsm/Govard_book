@@ -333,6 +333,22 @@ def render_verified_block(value, spread, segment_id, query):
             parts.append('</span>')
         return ''.join(parts) + '</span>'
 
+    if spread in (154, 155):
+        # The editorial notes print their titles and page references centred,
+        # apart from the text, exactly as in the scan.
+        parts = re.split(r'(?m)^(NOTES|NOTE [A-F]\.—[A-Za-z ,\-]+|\(See page \d+\))$', value)
+        if len(parts) > 1:
+            styled = []
+            for index, part in enumerate(parts):
+                if index % 2:
+                    css = ('s153-title' if part == 'NOTES'
+                           else 's153-subtitle' if part.startswith('NOTE ')
+                           else 's153-reference')
+                    styled.append('<span class="' + css + '">' + highlight(part, query) + '</span>')
+                else:
+                    styled.append(highlight_with_note_refs(part, spread, segment_id, query))
+            return ''.join(styled)
+
     output = []
     for chunk in re.split(r'(\n\n)', value):
         if chunk == '\n\n' or not chunk:
@@ -420,6 +436,9 @@ def render_verified_block(value, spread, segment_id, query):
                     prose_lines.append(line)
             flush_table()
             flush_prose()
+        elif ((spread in (155, 156) and segment_id == 's2' and chunk in ('NOTE C.—CONVICTS', 'NOTE D.—TRANSPORTATION AND THE HULKS'))
+              or (spread == 155 and segment_id == 's6' and chunk in ('NOTE E.—PENITENTIARY HOUSES', 'NOTE F.—EXECUTIONS IN ENGLAND'))):
+            output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
         elif (spread == 18 and segment_id == 's2' and chunk == 'SITUATION') or (spread == 20 and segment_id == 's5' and chunk == 'REGULATIONS') or (spread == 26 and segment_id == 's8' and chunk == 'BRIDEWELLS') or (spread == 38 and segment_id == 's11' and chunk == 'GERMANY') or (spread == 43 and segment_id == 's13' and chunk == 'SWEDEN') or (spread == 50 and segment_id == 's1' and chunk == 'GERMANY') or (spread == 59 and segment_id == 's9' and chunk == 'GERMANY') or (spread == 62 and segment_id == 's1' and chunk == 'AUSTRIAN FLANDERS') or (spread == 66 and segment_id == 's1' and chunk == 'PORTUGAL') or (spread == 67 and segment_id == 's1' and chunk == 'SPAIN') or (spread == 69 and segment_id == 's7' and chunk == 'FRENCH FLANDERS AND FRANCE') or (spread == 57 and ((segment_id == 's1' and chunk == 'GENEVA') or (segment_id == 's6' and chunk == 'SWITZERLAND'))) or (spread == 31 and ((segment_id == 's0' and chunk in ('SECTION IV', 'AN ACCOUNT OF FOREIGN PRISONS')) or (segment_id == 's1' and chunk == 'HOLLAND'))) or (spread == 107 and chunk in ('ELY GAOL', 'NORFOLK', 'COUNTY BRIDEWELL', 'SUFFOLK', 'COUNTY GAOL AT IPSWICH')):
             output.append('<span class="restored-heading">' + text_html(chunk) + '</span>')
         elif ((spread == 77 and segment_id == 's1' and chunk in ('MALTA', 'TURKEY'))
@@ -602,6 +621,10 @@ class SegmentRenderer(HTMLParser):
                 default = TABLE152_LEFT
             elif self.spread == 152 and segment_id == 's3' and original.startswith('doned,etc.'):
                 default = TABLE152_RIGHT
+            elif self.spread in (154, 155) and segment_id in VERIFIED_PROSE.get(self.spread, {}):
+                # These notes were checked against the scan; use the guarded text
+                # from the first render so no stale OCR override survives.
+                default = VERIFIED_PROSE[self.spread][segment_id][1]
             elif self.spread == 153 and segment_id == 's1' and original.startswith('keeper of Tothill-felds bridewell'):
                 default = SPREAD_153_LEFT
             elif self.spread == 153 and segment_id == 's2' and original.startswith('posedtothe'):
@@ -731,6 +754,9 @@ class SegmentRenderer(HTMLParser):
                     content = (highlight(value[:source_at], self.query)
                                + '<span class="s153-source">' + highlight(value[source_at:note_at], self.query) + '</span>'
                                + '<span class="s153-footnote">' + highlight(value[note_at:], self.query) + '</span>')
+            if self.spread == 154 and segment_id == 's5' and value.endswith('At the same'):
+                # The sentence continues at the top of the facing page.
+                content = highlight(value[:-len('At the same')], self.query) + '<span class="book-continuation">' + highlight('At the same', self.query) + '</span>'
             if self.spread == 153 and segment_id == 's2':
                 pattern = r'(?m)^(NOTES|NOTE A.—BRIDEWELLS|NOTE B.—PROPOSED IMPROVEMENTS|\(See page (?:37|19)\))(?=\n|$)'
                 pieces = re.split(pattern, value)
