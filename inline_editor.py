@@ -44,7 +44,8 @@ TABLE_META = {
     (119, 's5'): ('Bodmin fees — debtors in general', 'fee'),
     (119, 's8'): ('Bodmin fees — felons and bridewell', 'fee'),
     (137, 's3'): ('Contractors’ receipts for passage to Maryland', 'mixed'),
-    (144, 's3'): ('Prison diet schedule', 'diet'),
+    (144, 's1'): ('Breakfast', 'diet'),
+    (144, 's3'): ('Dinner', 'diet'),
     (106, 's6'): ('Cambridge bridewell prisoners', 'mixed'),
     (110, 's6'): ('Stamford town gaol fees', 'fee'),
     (111, 's7'): ('Reading bridewell prisoners by visit date', 'mixed'),
@@ -350,7 +351,7 @@ def render_verified_block(value, spread, segment_id, query):
         elif '\t' in chunk:
             # Group only consecutive tab-separated lines. Prose introducing or
             # following a table must not become a one-cell table row.
-            has_header = not ((spread == 16 and segment_id in ('s7', 's11')) or (spread == 17 and segment_id == 's1') or (spread == 35 and segment_id == 's1') or (spread, segment_id) in ((79, 's3'), (84, 's5'), (89, 's4'), (91, 's2'), (95, 's3'), (101, 's7'), (106, 's6'), (111, 's7'), (112, 's0'), (136, 's1')))
+            has_header = not ((spread == 16 and segment_id in ('s7', 's11')) or (spread == 17 and segment_id == 's1') or (spread == 35 and segment_id == 's1') or (spread, segment_id) in ((79, 's3'), (84, 's5'), (89, 's4'), (91, 's2'), (95, 's3'), (101, 's7'), (106, 's6'), (111, 's7'), (112, 's0'), (136, 's1'), (144, 's1'), (144, 's3')))
             if spread == 119 and segment_id in ('s3', 's4', 's5', 's8'):
                 has_header = chunk.startswith('\t£\ts.\td.')
             if (spread, segment_id) == (116, 's2'):

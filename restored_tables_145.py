@@ -23,7 +23,7 @@ T145L = H + '\n' + '\n'.join([
 'Bridewell\t0\t0\t0\t2\t0\t0\t0\t4',
 'Town\t0\t0\t0\t0\t0\t0\t0\t1',
 'Berkeley\t0\t0\t0\t0\t0\t0\t0\t1',
-'Berkhamstead\t0\t0\t0\t1\t0\t0\t0\t1',
+'Berkhamstead\t0\t0\t0\t1\t0\t0\t0\t0',
 'Berwick\t2\t0\t0\t0\t2\t0\t0\t0',
 'Beverley\t0\t0\t0\t1\t0\t0\t0\t1',
 'Town\t2\t0\t0\t0\t0\t0\t0\t0',
@@ -35,7 +35,7 @@ T145L = H + '\n' + '\n'.join([
 T145R = H + '\n' + '\n'.join([
 'Bodmin\t0\t0\t0\t13\t12\t2\t4\t8',
 "Sheriff's Ward\t12\t1\t0\t0\t\t\t\t",
-'Boston\t\t\t\t\t0\t0\t0\t0',
+'Boston\t0\t0\t2\t0\t0\t0\t0\t0',
 'Bradford\t11\t1\t0\t0\t6\t1\t0\t0',
 'Brecon\t3\t0\t3\t0\t0\t1\t2\t0',
 'Brecon Bridewell\t0\t0\t0\t0\t0\t0\t0\t1',
@@ -145,6 +145,7 @@ T146L = H + '\n' + '\n'.join([
 'Total\t973\t52\t239\t262\t1102\t51\t167\t315'])
 
 T146R = H + '\n' + '\n'.join([
+'London—continued\t\t\t\t\t\t\t\t',
 'Marshalsea\t88\t4\t0\t0\t38\t9\t0\t2',
 'Newgate\t46\t5\t141\t0\t3\t0\t291\t0',
 'New Ludgate\t15\t0\t0\t0\t20\t0\t0\t0',

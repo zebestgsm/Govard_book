@@ -798,11 +798,11 @@ assert.equal(elements['text-size-value'].textContent,'110%');
         self.assertEqual(self.form('/scan-action/14', {'action':'restore-scan-mark'})[0], 200)
         self.assertTrue(reader.scan_dropdown_label(14))
         # Automated collation does not replace manual proofreading.
-        self.assertIn('☑ OCR', reader.quality_label(144))
-        self.assertEqual(self.form('/scan-action/144', {'action':'dismiss-ocr'})[0], 200)
-        self.assertNotIn('OCR', reader.quality_label(144))
+        self.assertIn('☑ OCR', reader.quality_label(147))
+        self.assertEqual(self.form('/scan-action/147', {'action':'dismiss-ocr'})[0], 200)
+        self.assertNotIn('OCR', reader.quality_label(147))
         self.assertIn('скан повёрнут', reader.quality_label(14))
-        self.assertIn('пометка OCR снята', self.request('/spread/144')[1])
+        self.assertIn('пометка OCR снята', self.request('/spread/147')[1])
 
         pdf = reader.pymupdf.open()
         pdf.new_page(width=100, height=50)
@@ -823,8 +823,8 @@ assert.equal(elements['text-size-value'].textContent,'110%');
         self.assertFalse(reader.replacement_path(14).exists())
         self.assertTrue(reader.scan_dropdown_label(14))
         self.assertNotIn('OCR', reader.quality_label(14))
-        self.assertEqual(self.form('/scan-action/144', {'action':'restore-ocr'})[0], 200)
-        self.assertIn('☑ OCR', reader.quality_label(144))
+        self.assertEqual(self.form('/scan-action/147', {'action':'restore-ocr'})[0], 200)
+        self.assertIn('☑ OCR', reader.quality_label(147))
 
     def test_legacy_quality_decisions_are_preserved_when_migrated(self):
         reader.QUALITY_FILE.write_text(json.dumps({'dismissed': [2, 14, 153], 'other': 'keep'}))
@@ -923,7 +923,7 @@ assert.equal(elements['text-size-value'].textContent,'110%');
     def test_verified_spreads_and_pending_ocr_labels(self):
         for number in (5, 6, 151, 153, 161, 162, 163, 164, 165):
             self.assertNotIn('OCR', reader.quality_label(number))
-        for number in (144, 145, 146):
+        for number in (147, 148, 149):
             self.assertIn('☑ OCR', reader.quality_label(number))
         self.assertNotIn('☑ OCR', reader.quality_label(107))
         self.assertIn('скан повёрнут', reader.quality_label(14))
@@ -1359,6 +1359,33 @@ class SequentialProofreadTests(unittest.TestCase):
         self.assertIn('href="#footnote-136-s2-1"', h136)
         self.assertIn('href="#footnote-136-s5-3"', h136)
 
+    def test_spreads_144_146_diet_and_statistical_tables(self):
+        from html.parser import HTMLParser
+        class Text(HTMLParser):
+            def __init__(self):
+                super().__init__(); self.value = []
+            def handle_data(self, data):
+                self.value.append(data)
+        h144, s144 = reader.segment_state(144)
+        self.assertIn('Good wheaten bread', s144['s1'])
+        self.assertIn('BREAKFAST.\tEvery day', s144['s1'])
+        self.assertTrue(s144['s3'].startswith('DINNER.\tSunday'))
+        self.assertNotIn('Meal\tAllowance', s144['s3'])
+        self.assertNotIn('Good wheaten bread', s144['s3'])
+        for number, keys in ((144, ('s1', 's3')), (145, ('s2', 's4')), (146, ('s1', 's3'))):
+            html, segments = reader.segment_state(number)
+            self.assertNotIn('table-warning', html)
+            self.assertNotIn('OCR', reader.quality_label(number))
+            for key in keys:
+                parser = Text(); parser.feed(inline_editor.render_verified_block(segments[key], number, key, ''))
+                self.assertEqual(''.join(parser.value), segments[key])
+        _, s145 = reader.segment_state(145)
+        self.assertIn('Boston\t0\t0\t2\t0\t0\t0\t0\t0', s145['s4'])
+        self.assertIn('Berkhamstead\t0\t0\t0\t1\t0\t0\t0\t0', s145['s2'])
+        _, s146 = reader.segment_state(146)
+        self.assertIn('London—continued', s146['s3'])
+        self.assertIn('Total\t973\t52\t239\t262', s146['s1'])
+
     def test_spreads_141_143_conclusion_and_bill(self):
         html141, s141 = reader.segment_state(141)
         self.assertIn('class="restored-heading">TO THE ACCOUNT OF LAZARETTOS', html141)
@@ -1528,7 +1555,7 @@ class TranslationTests(unittest.TestCase):
         self.assertIn('Русский перевод', html)
         self.assertIn('ОБЗОР БЕДСТВИЙ В ТЮРЬМАХ', html)
         self.assertLess(html.index('id="editable-book"'), html.index('id="translation"'))
-        working = reader.reader_page(144)
+        working = reader.reader_page(147)
         self.assertIn('перевод по черновому английскому тексту', working)
         self.assertIn('Русский перевод', working)
 
