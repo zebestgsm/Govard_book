@@ -19593,7 +19593,7 @@
       "segments": {},
       "history": [],
       "spread_review": {
-        "state": "working",
+        "state": "ready",
         "before": {
           "s0": "TABLES",
           "s1": "keeper of Tothill-fields bridewell,¹ should be exposed to the unhappiness of leaving a wife, or children, or both, without any comfortable provision for their support? This object appears the more desirable, as it may now be hoped that the abolition of the tap, and the allowance of salaries in lieu of the profits which were derived from the sale of liquors, will be the means of engaging people of more credit, and who will pay greater attention to their duty, to undertake the office of gaolers or keepers of prisons. Such persons I have observed to be placed in foreign prisons; and among them, some of their wives take a very active part, looking frequently in upon the prisoners of their own sex, and paying a kind attention to them.\n\n“Should the plan take place, during my life, of establishing a permanent charity, under some such title as that at Philadelphia, viz., “A Society for alleviating the Miseries of Public Prisons,” and annuities be engrafted thereupon for the above-mentioned purpose, I would most readily stand at the bottom of a page as a subscriber of £500; or if such a society shall be constituted within three years after my death, this sum shall be paid out of my estate.”\n\n[From An Account of Lazarettos, p. 259.]\n\n1 Mr. George Smith, who died in 1786, was keeper of Tothill-fields bridewell at my first visit in April 1774; and my many subsequent visits fully convinced me of his integrity and humanity. He was a striking example of a constant, unabated zeal in the discharge of the important trust reposed in him.",
@@ -19604,8 +19604,17 @@
           {
             "action": "start",
             "time": "2026-11-24T11:42:43+00:00"
+          },
+          {
+            "action": "finish",
+            "time": "2026-11-24T11:55:18+00:00"
           }
-        ]
+        ],
+        "after": {
+          "s0": "TABLES",
+          "s1": "keeper of Tothill-fields bridewell,¹ should be exposed to the unhappiness of leaving a wife, or children, or both, without any comfortable provision for their support? This object appears the more desirable, as it may now be hoped that the abolition of the tap, and the allowance of salaries in lieu of the profits which were derived from the sale of liquors, will be the means of engaging people of more credit, and who will pay greater attention to their duty, to undertake the office of gaolers or keepers of prisons. Such persons I have observed to be placed in foreign prisons; and among them, some of their wives take a very active part, looking frequently in upon the prisoners of their own sex, and paying a kind attention to them.\n\n“Should the plan take place, during my life, of establishing a permanent charity, under some such title as that at Philadelphia, viz., “A Society for alleviating the Miseries of Public Prisons,” and annuities be engrafted thereupon for the above-mentioned purpose, I would most readily stand at the bottom of a page as a subscriber of £500; or if such a society shall be constituted within three years after my death, this sum shall be paid out of my estate.”\n\n[From An Account of Lazarettos, p. 259.]\n\n1 Mr. George Smith, who died in 1786, was keeper of Tothill-fields bridewell at my first visit in April 1774; and my many subsequent visits fully convinced me of his integrity and humanity. He was a striking example of a constant, unabated zeal in the discharge of the important trust reposed in him.",
+          "s2": "NOTES\n\nNOTE A.—BRIDEWELLS\n(See page 37)\n\nTHE distinction between gaols and bridewells (or houses of correction) was historical, and, as is evident from Howard’s own work, had already become blurred. Thus, in 1779, an act for establishing a national penitentiary to relieve the hulks (see Note D), constituted both prisons and bridewells penitentiaries, pending the erection of such an institution, although the distinction was not abolished by law until 1865.\n\nGaols, properly speaking, were places where individuals could be kept in safe custody pending their trial, their execution, their transportation, or the payment of their debts. Detention in them, theoretically at least, was not as an end in itself, but a temporary expedient.\n\nBridewells, on the other hand, were established under the Elizabethan Poor Law Acts as houses of correction for dissolute paupers and idle apprentices. They were thus penal establishments, both in intention and in fact.\n\nNOTE B.—PROPOSED IMPROVEMENTS\n(See page 19)\n\nHoward’s recommendations for reform were obviously sane, practicable, and desirable, yet a century after he began his work they were only partially adopted, while even to-day there are particulars in which prisons could be improved on lines suggested by him. Nevertheless, the story of the prisons since 1777 is the story of the gradual approximation to Howard’s ideals.\n\nEnlightened opinion was in favour of the reforms from the first, and Parliament showed its approval of them even during Howard’s lifetime. But Parliament’s control over the prisons was rudimentary at this stage, and it was only as central control increased that an improvement in their condition became general."
+        }
       }
     },
     "155": {
