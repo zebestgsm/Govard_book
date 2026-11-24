@@ -920,17 +920,41 @@ def _reader_page(number, query=''):
 def parallel_page(number, query=''):
     with _CORRECTIONS_LOCK:
         _, segments = segment_state(number)
-        en_blocks = []
+        # Для интерлиньяжа пропускаем колонтитулы/заголовки — оставляем только содержательные абзацы
+        # (обложка s0 и колонтитул EDITOR'S INTRODUCTION s1 не считаем абзацем, как на скане)
+        en_blocks_raw = []
         for seg_id in sorted(segments, key=lambda s: int(s[1:])):
             txt = segments[seg_id]
             if not txt or not txt.strip():
                 continue
+            if seg_id in ('s0', 's1'):
+                continue
+            if heading_line(txt.strip()):
+                continue
             if '\t' in txt:
                 highlighted = inline_editor.highlight(txt, query) if query else escape(txt)
-                en_blocks.append(f'<pre class="ocr-table" data-seg="{seg_id}">{highlighted}</pre>')
+                en_blocks_raw.append((seg_id, f'<pre class="ocr-table" data-seg="{seg_id}">{highlighted}</pre>', txt))
             else:
                 highlighted = inline_editor.highlight(txt, query) if query else escape(txt)
-                en_blocks.append(f'<p data-seg="{seg_id}">{highlighted}</p>')
+                en_blocks_raw.append((seg_id, f'<p data-seg="{seg_id}">{highlighted}</p>', txt))
+        # На развороте 1 скан показывает: "The abuse existed..." и три "There..." — один абзац без отступов
+        # В OCR они разбиты на s5 и s6 — склеиваем, чтобы совпадало со сканом (5 абзацев на правой странице)
+        en_blocks = []
+        i = 0
+        while i < len(en_blocks_raw):
+            seg_id, html, raw = en_blocks_raw[i]
+            # Склейка s5 (The abuse existed...) + s6 (There the innocent...) в один абзац только для spread 1
+            if number == 1 and seg_id == 's5' and i + 1 < len(en_blocks_raw) and en_blocks_raw[i+1][0] == 's6':
+                next_seg_id, next_html, next_raw = en_blocks_raw[i+1]
+                # Извлекаем внутренний текст next_html без <p> обертки и склеиваем
+                # Проще: склеиваем сырые тексты с пробелом и заново хайлайтим
+                merged_raw = raw.strip() + ' ' + next_raw.strip()
+                merged_hl = inline_editor.highlight(merged_raw, query) if query else escape(merged_raw)
+                en_blocks.append(f'<p data-seg="s5+s6">{merged_hl}</p>')
+                i += 2
+                continue
+            en_blocks.append(html)
+            i += 1
         en_html = ''.join(en_blocks) or '<p class="empty">Нет английского текста</p>'
         ru_text, _, _ = translation.translation_state(number, translation.load_edits())
         if ru_text:
