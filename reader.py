@@ -350,11 +350,13 @@ STYLE = '''
 
 /* Printed paragraphs split by OCR on the next three spreads. */
 .spread-4 p[data-edit-id="s1"],.spread-4 p[data-edit-id="s2"],.spread-4 p[data-edit-id="s3"],.spread-4 p[data-edit-id="s5"],.spread-4 p[data-edit-id="s6"],
-.spread-5 p[data-edit-id="s3"],.spread-5 p[data-edit-id="s4"],.spread-5 p[data-edit-id="s5"],.spread-5 p[data-edit-id="s6"],
 .spread-6 p[data-edit-id="s4"],.spread-6 p[data-edit-id="s5"]{display:inline;margin:0}
 .spread-4 p[data-edit-id="s1"] .verified-paragraph,.spread-4 p[data-edit-id="s2"] .verified-paragraph,.spread-4 p[data-edit-id="s3"] .verified-paragraph,.spread-4 p[data-edit-id="s5"] .verified-paragraph:last-child,.spread-4 p[data-edit-id="s6"] .verified-paragraph{display:inline;margin:0}
-.spread-4 p[data-edit-id="s2"]::before,.spread-4 p[data-edit-id="s3"]::before,.spread-4 p[data-edit-id="s6"]::before,.spread-5 p[data-edit-id="s4"]::before,.spread-5 p[data-edit-id="s6"]::before,.spread-6 p[data-edit-id="s5"]::before{content:" "}
-.spread-4 p[data-edit-id="s3"]::after,.spread-4 p[data-edit-id="s6"]::after,.spread-5 p[data-edit-id="s4"]::after{content:"";display:block;margin:0}
+.spread-4 p[data-edit-id="s2"]::before,.spread-4 p[data-edit-id="s3"]::before,.spread-4 p[data-edit-id="s6"]::before,.spread-6 p[data-edit-id="s5"]::before{content:" "}
+.spread-4 p[data-edit-id="s3"]::after,.spread-4 p[data-edit-id="s6"]::after{content:"";display:block;margin:0}
+/* Spread 5: fixed in text — s3 now contains both sentences, s4 empty; s5 and s6 are separate paragraphs */
+.spread-5 p{display:block;margin:0}
+.spread-5 .verified-paragraph{display:block;margin:0}
 
 /* Rejoin OCR fragments belonging to the same printed paragraph. */
 .spread-7 p[data-edit-id="s2"],.spread-7 p[data-edit-id="s3"],.spread-7 p[data-edit-id="s9"],.spread-7 p[data-edit-id="s10"],.spread-7 p[data-edit-id="s12"],.spread-7 p[data-edit-id="s13"],.spread-7 p[data-edit-id="s14"],.spread-7 p[data-edit-id="s15"],.spread-8 p[data-edit-id="s5"],.spread-8 p[data-edit-id="s6"],.spread-8 p[data-edit-id="s7"],.spread-8 p[data-edit-id="s11"],.spread-8 p[data-edit-id="s12"],.spread-9 p[data-edit-id="s2"],.spread-9 p[data-edit-id="s3"],.spread-9 p[data-edit-id="s4"],.spread-9 p[data-edit-id="s6"],.spread-9 p[data-edit-id="s7"],.spread-9 p[data-edit-id="s11"],.spread-9 p[data-edit-id="s12"]{display:inline;margin:0}

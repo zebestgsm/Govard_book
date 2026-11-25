@@ -4,12 +4,14 @@ the men are buried. The latter are interred in the same dress in which they were
  The Hospital of S. Michele is a large and noble edifice. The back front is near three hundred yards long. It consists of several courts with buildings round them. In the apartments on three sides of one of the most spacious of these courts, are rooms for various manufactures and arts, in which boys who are orphans or destitute are educated and instructed. When I was there, the number was about two hundred, all learning different trades according to their different abilities and genius. Some were educated for printers, some for bookbinders, designers, smiths, carpenters, tailors, shoemakers, and barbers; and some for weavers and dyers, a cloth manufacture being carried on here in all its branches. When the boys arrive at the age of twenty years, they are completely clothed, and a certain sum is given to set them up in the business they have learned. In the middle of the court is a noble fountain, and several inscriptions to the honour of the founders of this excellent institution.
  Adjoining to another court are apartments for the aged and infirm, in which were two hundred and sixty men, and two hundred and twenty-six women. Here they find a comfortable retreat, having clean rooms and a refectory. I conversed with some of them, and they appeared happy and thankful.
  Another part of the hospital is a prison for boys or young men. Over the door is this inscription:
+
 CLEMENS XI PONT. MAX.
 PERDITIS ADOLESCENTIBUS CORRIGENDIS
 INSTITUENDISQUE
 UT QUI INERTES OBERANT
 INSTRUCTI REIPUBLICÆ SERVIANT.
 AN. SAL. MDCCIV. PONT. IV.
+
 Pope Clement XI
 For the correction and instruction
 Of profligate youth:
@@ -17,22 +19,28 @@ That they, who when idle, were injurious,
 When instructed, might be useful
 To the State.
 1704.
+
  In the room is inscribed the following admirable sentence,
 
 ITALY
 
 in which the grand purpose of all civil policy relative to criminals is expressed.
+
 PARUM EST
 COERCERE IMPROBOS
 PENA
 NISI PROBOS EFFICIAS
 DISCIPLINA.
+
 It is of little advantage
 To restrain the Bad
 By Punishment,
 Unless you render them Good
 By Discipline.
+
  Here were fifty boys spinning, and in the middle of the room an inscription hung up:
+
 SILENTIUM.
+
  CIVITA-VECCHIA. The Pope’s galleys are at Civita-vecchia. The slaves condemned to them are confined for different terms, according to the nature of their crimes: but the shortest time is three years for vagabonds, who are generally employed on board the pontons in clearing the harbour. For theft, the term is never under seven years. Persons convicted of forgery are always confined for life; and if found guilty of forging bank-notes, or any instruments by which large sums have been lost, they are punished with an iron glove. Prisoners for life are chained two and two together: those for limited terms have all a single chain, and, at their first arrival, of the same weight; but when they have no more than one or two years to serve, they have only a ring round their leg, which is lessened as the end of their term approaches. For escapes, they are obliged to finish their first condemnation, and then receive a fresh one for the same time as the former; but if the first was for life, the same is renewed, and they receive from a hundred to two hundred lashes a day, for three days after their arrival. None are sent to the galleys under the age of twenty: criminals of a younger age are kept at the Hospital of S. Michele in Rome till they are of age; and are there employed in spinning, and fed on bread and water.
  The allowance to each slave is three pounds of bread a day; and fifty-five pounds of beans or calavances to each galley, with which they generally make a kind of soup once in two or three days, and they are allowed two pounds and a half of oil to boil with their beans. At Easter, Christmas, and Carnival,
