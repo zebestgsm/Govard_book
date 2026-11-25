@@ -223,7 +223,12 @@ def panel(number, query='', english_verified=False, edits=None):
                 'Прежний перевод из репозитория не используется: на остальных разворотах '
                 'показано «перевод готовится».')
     return (f'<section class="panel translation-panel" id="translation"><div class="panel-header">'
-            f'<span class="panel-title">Русский перевод</span><span class="panel-subtitle">{escape(status)}</span></div>'
+            f'<span class="panel-title">Русский перевод</span><span class="panel-subtitle">{escape(status)}</span>'
+            '<div class="text-size-tools" id="trans-size-tools" role="group" aria-label="Размер перевода" hidden><span>Размер перевода</span>'
+            '<button class="button" type="button" id="trans-size-down" aria-label="Уменьшить размер перевода">А−</button>'
+            '<output id="trans-size-value" aria-live="polite">100%</output>'
+            '<button class="button" type="button" id="trans-size-up" aria-label="Увеличить размер перевода">А+</button>'
+            '<button class="button" type="button" id="trans-size-reset">Обычный</button></div></div>'
             f'{body}{context_notes_html(number)}<div class="translation-tools">{edit}'
             f'<a class="button" href="/translation-history/{number}">История перевода</a></div>'
             f'<p class="small translation-coverage">{coverage}</p></section>')

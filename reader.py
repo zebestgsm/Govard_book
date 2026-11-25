@@ -378,7 +378,7 @@ STYLE = '''
 
 /* Scale the transcription only; the scan and editor controls remain unchanged. */
 .text-size-tools{display:flex;align-items:center;flex-wrap:wrap;gap:6px;padding:8px 20px;border-bottom:1px solid var(--line);font:12px Arial,sans-serif;color:var(--muted)}
-.text-size-tools .button{padding:5px 10px;min-width:34px}.text-size-tools output{min-width:3.5em;text-align:center}.book-text{zoom:var(--text-size-scale,1)}
+.text-size-tools .button{padding:5px 10px;min-width:34px}.text-size-tools output{min-width:3.5em;text-align:center}.book-text{zoom:var(--text-size-scale,1)}#progress-bar{position:sticky;top:0;left:0;height:3px;width:0;background:var(--green);z-index:60;transition:width .12s linear}.resume-banner{max-width:1100px;margin:14px auto 0;padding:10px 16px;border:1px solid var(--line);border-radius:8px;background:var(--paper);font:13px/1.5 Arial,sans-serif}.resume-banner a{color:var(--green);font-weight:600;text-decoration:none}.resume-banner a:hover{text-decoration:underline}.copy-hint{font:11px Arial,sans-serif;color:var(--muted)}
 
 /* The note on page 270 continues from the preceding spread. */
 .spread-142 .previous-spread-note::before{content:"Сноска 2 · продолжение с предыдущего разворота";display:block;font:600 10px/1.4 Arial,sans-serif;color:var(--green);margin-bottom:.45em}
@@ -737,9 +737,9 @@ def render_pages(number, body, query):
 
 def shell(content, number=1, query='', active='reader'):
     options = ''.join(f'<option value="{i}"' + (' selected' if i == number else '') + f'>Разворот {i:03}' + (' — ' + escape(scan_dropdown_label(i)) if scan_dropdown_label(i) else '') + '</option>' for i in range(1, len(PAGES) + 1))
-    return f'''<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The State of the Prisons — электронная книга</title><style>{STYLE}</style></head><body id="top">
+    return f'''<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The State of the Prisons — электронная книга</title><style>{STYLE}</style></head><body id="top" data-spread="{number}"><div id="progress-bar" aria-hidden="true"></div>
 <header class="header"><a href="/" class="logo"><i>✳</i> Howard Archive</a><span class="header-note">ЦИФРОВАЯ КОЛЛЕКЦИЯ &nbsp; / &nbsp; JOHN HOWARD</span><span id="sync-status" role="status" style="font:12px Arial,sans-serif;margin-left:auto">GitHub: проверка сохранения…</span></header>
-<div class="layout"><aside class="sidebar"><span class="eyebrow">Электронная книга</span><h1>The State of<br>the Prisons</h1><div class="author">John Howard</div><hr class="divider"><div class="sidebar-links"><a class="{'current' if active == 'reader' else ''}" href="/spread/{number}">◧ &nbsp; Читать книгу</a><a class="{'current' if active == 'parallel' else ''}" href="/parallel/{number}">◫ &nbsp; Читалка 2.0</a><a class="{'current' if active == 'search' else ''}" href="/search">⌕ &nbsp; Поиск по книге</a><a class="{'current' if active == 'quality' else ''}" href="/quality">⚠ &nbsp; Проверка сканов</a><a class="{'current' if active == 'followup' else ''}" href="/followup">✎ &nbsp; Требуют доработки</a></div><hr class="divider"><form action="/search" method="get"><label class="label" for="query">Поиск по тексту</label><input class="input" id="query" name="q" type="search" placeholder="Слово в книге или переводе…" value="{escape(query, quote=True)}" maxlength="200"><button class="button primary" type="submit">Найти</button></form><hr class="divider"><form action="/go" method="get"><label class="label" for="spread">Перейти к развороту</label><select id="spread" name="spread">{options}</select><button class="button" type="submit">Открыть</button></form><p class="small">Каждый разворот соответствует одному исходному PDF-файлу.</p></aside><main class="content">{content}</main></div><script>
+<div class="layout"><aside class="sidebar"><span class="eyebrow">Электронная книга</span><h1>The State of<br>the Prisons</h1><div class="author">John Howard</div><hr class="divider"><div class="sidebar-links"><a class="{'current' if active == 'reader' else ''}" href="/spread/{number}">◧ &nbsp; Читать книгу</a><a class="{'current' if active == 'parallel' else ''}" href="/parallel/{number}">◫ &nbsp; Читалка 2.0</a><a class="{'current' if active == 'search' else ''}" href="/search">⌕ &nbsp; Поиск по книге</a><a class="{'current' if active == 'quality' else ''}" href="/quality">⚠ &nbsp; Проверка сканов</a><a class="{'current' if active == 'followup' else ''}" href="/followup">✎ &nbsp; Требуют доработки</a></div><hr class="divider"><form action="/search" method="get"><label class="label" for="query">Поиск по тексту</label><input class="input" id="query" name="q" type="search" placeholder="Слово в книге или переводе…" value="{escape(query, quote=True)}" maxlength="200"><button class="button primary" type="submit">Найти</button></form><hr class="divider"><form action="/go" method="get"><label class="label" for="spread">Перейти к развороту</label><select id="spread" name="spread">{options}</select><button class="button" type="submit">Открыть</button></form><p class="small">Каждый разворот соответствует одному исходному PDF-файлу.</p></aside><main class="content"><div id="resume-banner"></div>{content}</main></div><script>
 (function(){{const el=document.getElementById('sync-status'); async function update(){{try{{const r=await fetch('/api/sync-status',{{cache:'no-store'}});const d=await r.json();el.textContent=({{saved:'GitHub: сохранено',pending:'GitHub: ожидает сохранения',syncing:'GitHub: сохранение…',error:'GitHub: ошибка отправки, повторяем',disabled:'GitHub: автосохранение не включено'}})[d.state]||'GitHub: состояние неизвестно';el.style.color=d.state==='error'?'#a22':'';}}catch(e){{el.textContent='GitHub: нет связи с читалкой';el.style.color='#a22';}}}}update();setInterval(update,3000);}})();
 </script></body></html>'''
 
@@ -950,10 +950,10 @@ def _reader_page(number, query=''):
     omissions_link = f'<a class="button" href="/omissions/{number}">Возможные пропуски</a>'
     translation_panel = translation.panel(number, query, english_verified=number in VERIFIED_SPREADS)
     spread_decision = spread_review_panel(number)
-    content = f'''<div class="heading-row"><div><span class="eyebrow">Режим чтения</span><h2>Книжный разворот</h2><p>Читайте разворот слева и сверяйте его со сканом справа.</p>{badge}</div><div class="top-actions edit-actions"><button type="button" id="edit-toggle" class="button primary">✎ Редактировать текст</button><button type="button" id="edit-save" class="button primary" hidden>Сохранить</button><button type="button" id="edit-cancel" class="button" hidden>Отмена</button><a class="button" href="/history/{number}">История правок</a>{pilot_link}{omissions_link}<a class="button" href="#translation">Русский перевод</a><a class="button" href="#original-scan">К скану</a><a class="button" href="{scan}" target="_blank" rel="noopener">Открыть PDF ↗</a></div></div>
+    content = f'''<div class="heading-row"><div><span class="eyebrow">Режим чтения</span><h2>Книжный разворот</h2><p>Читайте разворот слева и сверяйте его со сканом справа.</p>{badge}</div><div class="top-actions edit-actions"><button type="button" id="edit-toggle" class="button primary">✎ Редактировать текст</button><button type="button" id="edit-save" class="button primary" hidden>Сохранить</button><button type="button" id="edit-cancel" class="button" hidden>Отмена</button><a class="button" href="/history/{number}">История правок</a>{pilot_link}{omissions_link}<button type="button" id="copy-text" class="button">⧉ Копировать текст</button><button type="button" id="copy-translation" class="button">⧉ Копировать перевод</button><a class="button" href="/export/text/{number}" download>Скачать текст .txt</a><a class="button" href="/export/translation/{number}" download>Скачать перевод .txt</a><a class="button" href="#translation">Русский перевод</a><a class="button" href="#original-scan">К скану</a><a class="button" href="{scan}" target="_blank" rel="noopener">Открыть PDF ↗</a></div></div>
 <nav class="nav" aria-label="Перелистывание"><div class="nav-group">{prev}{next_}</div><span class="muted">Разворот {number:03} / {len(PAGES)}</span></nav>
-{spread_decision}<p id="edit-status" class="edit-status" role="status" aria-live="polite" hidden></p><noscript><p class="notice">Для редактирования прямо в тексте включите JavaScript или используйте <a href="/edit/{number}"><u>замену слов</u></a>.</p></noscript><div class="reader"><section class="panel"><div class="panel-header"><span class="panel-title">Распознанный текст</span><span class="panel-subtitle">{text_status}</span></div><div class="text-size-tools" id="text-size-tools" role="group" aria-label="Размер распознанного текста" hidden><span>Размер текста</span><button class="button" type="button" id="text-size-down" aria-label="Уменьшить размер текста">А−</button><output id="text-size-value" aria-live="polite">100%</output><button class="button" type="button" id="text-size-up" aria-label="Увеличить размер текста">А+</button><button class="button" type="button" id="text-size-reset">Обычный</button></div>{page_notice}<div class="book-text" id="editable-book" data-spread="{number}" lang="en">{paragraphs}</div></section><section class="panel scan-panel" id="original-scan"><div class="panel-header"><span class="panel-title">{source_label}</span><span class="panel-subtitle">{escape(filename) if not replacement else "замена"}</span></div><div class="scan-zoom-toolbar" id="scan-zoom-toolbar" role="group" aria-label="Масштаб скана" hidden><button class="button" type="button" id="scan-zoom-out" aria-label="Уменьшить скан">−</button><output id="scan-zoom-level" aria-live="polite">100%</output><button class="button" type="button" id="scan-zoom-in" aria-label="Увеличить скан">+</button><button class="button" type="button" id="scan-zoom-reset">По ширине</button><span class="scan-zoom-hint">Прокручивайте увеличенный скан</span></div><div class="scan-wrap scan-zoom-viewport" id="scan-zoom-viewport" tabindex="0" aria-label="Скан: прокручиваемая область"><a id="scan-zoom-link" href="{image_url}&amp;detail=1" target="_blank" rel="noopener" title="Открыть скан на весь экран рабочей области"><img class="scan-frame scan-zoom-image" id="scan-zoom-image" src="{image_url}" data-detail-src="{image_url}&amp;detail=1" alt="Скан разворота {number}." loading="lazy"></a></div>{scan_controls}<p class="scan-fallback">Нажмите на скан, чтобы открыть его на всю рабочую область · <a href="{image_url}&amp;detail=1" target="_blank" rel="noopener"><u>Открыть скан отдельно ↗</u></a> · <a href="{scan}" target="_blank" rel="noopener"><u>Открыть оригинальный PDF ↗</u></a></p></section></div><section class="scan-fullscreen" id="scan-fullscreen" role="dialog" aria-modal="true" aria-labelledby="scan-fullscreen-title" hidden><div class="scan-fullscreen-bar"><span id="scan-fullscreen-title" class="scan-fullscreen-title">Скан · разворот {number:03}</span><button class="button" type="button" id="scan-fullscreen-out" aria-label="Уменьшить скан">−</button><output id="scan-fullscreen-level" aria-live="polite">100%</output><button class="button" type="button" id="scan-fullscreen-in" aria-label="Увеличить скан">+</button><button class="button" type="button" id="scan-fullscreen-fit">Вместить</button><span class="scan-fullscreen-help">Прокручивайте изображение · Esc — закрыть</span><button class="button" type="button" id="scan-fullscreen-close">Закрыть ✕</button></div><div class="scan-fullscreen-view" id="scan-fullscreen-view" tabindex="0" aria-label="Увеличенный скан, прокручиваемая область"><div class="scan-fullscreen-stage"><img id="scan-fullscreen-image" class="scan-fullscreen-image" alt="Скан разворота {number}" draggable="false"></div></div></section>{translation_panel}<nav class="nav bottom-nav" aria-label="Перелистывание в конце"><div class="nav-group">{prev}{next_}</div><a href="#top" class="muted">↑ В начало</a></nav><p class="notice book-note">{text_note} Скан показан рядом для сверки; на узких экранах — ниже. Номера страниц вводной части переведены из римских цифр в арабские; границы по OCR могут быть неточными.</p>'''
-    return shell(content, number, query).replace('</body>', inline_editor.SCRIPT + TEXT_SIZE_SCRIPT + SCAN_ZOOM_SCRIPT + '</body>')
+{spread_decision}<p id="edit-status" class="edit-status" role="status" aria-live="polite" hidden></p><noscript><p class="notice">Для редактирования прямо в тексте включите JavaScript или используйте <a href="/edit/{number}"><u>замену слов</u></a>.</p></noscript><div class="reader"><section class="panel"><div class="panel-header"><span class="panel-title">Распознанный текст</span><span class="panel-subtitle">{text_status}</span></div><div class="text-size-tools" id="text-size-tools" role="group" aria-label="Размер распознанного текста" hidden><span>Размер текста</span><button class="button" type="button" id="text-size-down" aria-label="Уменьшить размер текста">А−</button><output id="text-size-value" aria-live="polite">100%</output><button class="button" type="button" id="text-size-up" aria-label="Увеличить размер текста">А+</button><button class="button" type="button" id="text-size-reset">Обычный</button></div>{page_notice}<div class="book-text" id="editable-book" data-spread="{number}" lang="en">{paragraphs}</div></section><section class="panel scan-panel" id="original-scan"><div class="panel-header"><span class="panel-title">{source_label}</span><span class="panel-subtitle">{escape(filename) if not replacement else "замена"}</span></div><div class="scan-zoom-toolbar" id="scan-zoom-toolbar" role="group" aria-label="Масштаб скана" hidden><button class="button" type="button" id="scan-zoom-out" aria-label="Уменьшить скан">−</button><output id="scan-zoom-level" aria-live="polite">100%</output><button class="button" type="button" id="scan-zoom-in" aria-label="Увеличить скан">+</button><button class="button" type="button" id="scan-zoom-reset">По ширине</button><span class="scan-zoom-hint">Прокручивайте увеличенный скан</span></div><div class="scan-wrap scan-zoom-viewport" id="scan-zoom-viewport" tabindex="0" aria-label="Скан: прокручиваемая область"><a id="scan-zoom-link" href="{image_url}&amp;detail=1" target="_blank" rel="noopener" title="Открыть скан на весь экран рабочей области"><img class="scan-frame scan-zoom-image" id="scan-zoom-image" src="{image_url}" data-detail-src="{image_url}&amp;detail=1" alt="Скан разворота {number}." loading="lazy"></a></div>{scan_controls}<p class="scan-fallback">Нажмите на скан, чтобы открыть его на всю рабочую область · <a href="{image_url}&amp;detail=1" target="_blank" rel="noopener"><u>Открыть скан отдельно ↗</u></a> · <a href="{scan}" target="_blank" rel="noopener"><u>Открыть оригинальный PDF ↗</u></a></p></section></div><section class="scan-fullscreen" id="scan-fullscreen" role="dialog" aria-modal="true" aria-labelledby="scan-fullscreen-title" hidden><div class="scan-fullscreen-bar"><span id="scan-fullscreen-title" class="scan-fullscreen-title">Скан · разворот {number:03}</span><button class="button" type="button" id="scan-fullscreen-out" aria-label="Уменьшить скан">−</button><output id="scan-fullscreen-level" aria-live="polite">100%</output><button class="button" type="button" id="scan-fullscreen-in" aria-label="Увеличить скан">+</button><button class="button" type="button" id="scan-fullscreen-fit">Вместить</button><span class="scan-fullscreen-help">Прокручивайте изображение · Esc — закрыть</span><button class="button" type="button" id="scan-fullscreen-close">Закрыть ✕</button></div><div class="scan-fullscreen-view" id="scan-fullscreen-view" tabindex="0" aria-label="Увеличенный скан, прокручиваемая область"><div class="scan-fullscreen-stage"><img id="scan-fullscreen-image" class="scan-fullscreen-image" alt="Скан разворота {number}" draggable="false"></div></div></section>{translation_panel}<nav class="nav bottom-nav" aria-label="Перелистывание в конце"><div class="nav-group">{prev}{next_}</div><a href="#top" class="muted">↑ В начало</a></nav><p class="notice book-note">{text_note} Скан показан рядом для сверки; на узких экранах — ниже. Номера страниц вводной части переведены из римских цифр в арабские; границы по OCR могут быть неточными. Клавиши ← → перелистывают развороты, Ctrl+S сохраняет правки.</p>'''
+    return shell(content, number, query).replace('</body>', inline_editor.SCRIPT + TEXT_SIZE_SCRIPT + SCAN_ZOOM_SCRIPT + UX_SCRIPT + '</body>')
 
 def parallel_page(number, query=''):
     with _CORRECTIONS_LOCK:
@@ -1437,6 +1437,92 @@ SCAN_ZOOM_SCRIPT = r'''<script>
    else if(!e.shiftKey&&(current===targets.length-1||current<0)){e.preventDefault();targets[0].focus();}
   }
  });
+})();
+</script>'''
+
+
+UX_SCRIPT = r'''<script>
+(()=>{
+ const body=document.body;
+ const spread=Number(body.dataset.spread||'0');
+ // Remember the last read spread for the resume hint.
+ if(spread>0){try{localStorage.setItem('govard-reader-last',String(spread));}catch(e){}}
+ const banner=document.getElementById('resume-banner');
+ if(banner&&spread>1){
+  let last=0;try{last=Number(localStorage.getItem('govard-reader-last'))||0;}catch(e){}
+  if(last>1&&last!==spread){
+   banner.innerHTML='<p class="resume-banner">Продолжить чтение с <a href="/spread/'+last+'">разворота '+String(last).padStart(3,'0')+'</a>?</p>';
+  }
+ }
+ // Reading progress bar.
+ const bar=document.getElementById('progress-bar');
+ if(bar){
+  const onScroll=()=>{const max=document.documentElement.scrollHeight-window.innerHeight;const ratio=max>0?Math.min(1,Math.max(0,window.scrollY/max)):0;bar.style.width=(ratio*100)+'%';};
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll,{passive:true});
+  onScroll();
+ }
+ // Keyboard navigation: arrow keys between spreads, Ctrl/Cmd+S saves edits.
+ const area=document.getElementById('editable-book');
+ const fullscreen=document.getElementById('scan-fullscreen');
+ const selector=document.getElementById('spread');
+ const maxSpread=selector?selector.options.length:165;
+ function editing(){return area&&area.classList.contains('is-editing');}
+ function inField(){const el=document.activeElement;return !!el&&(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.isContentEditable);}
+ document.addEventListener('keydown',e=>{
+  if(inField())return;
+  if(e.key==='ArrowLeft'||e.key==='ArrowRight'){
+   if(editing()||(fullscreen&&!fullscreen.hidden))return;
+   const next=spread+(e.key==='ArrowLeft'?-1:1);
+   if(next>=1&&next<=maxSpread){e.preventDefault();location.href='/spread/'+next;}
+   return;
+  }
+  if((e.ctrlKey||e.metaKey)&&(e.key==='s'||e.key==='S')){
+   const save=document.getElementById('edit-save');
+   if(save&&!save.hidden){e.preventDefault();save.click();}
+  }
+ });
+ // Copy buttons with clipboard fallback.
+ function copyText(text,button){
+  const done=()=>{if(button){const old=button.textContent;button.textContent='✓ Скопировано';button.disabled=true;setTimeout(()=>{button.textContent=old;button.disabled=false;},1200);}};
+  const fail=()=>{if(button){button.textContent='Ошибка копирования';setTimeout(()=>{if(button)button.textContent='⧉ Копировать';},1500);}};
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+   navigator.clipboard.writeText(text).then(done).catch(()=>{
+    try{const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();done();}catch(err){fail();}
+   });
+   return;
+  }
+  try{const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();done();}catch(err){fail();}
+ }
+ const copyTextBtn=document.getElementById('copy-text');
+ if(copyTextBtn)copyTextBtn.addEventListener('click',()=>copyText(area?area.innerText:'',copyTextBtn));
+ const copyTransBtn=document.getElementById('copy-translation');
+ if(copyTransBtn)copyTransBtn.addEventListener('click',()=>{const t=document.querySelector('#translation .translation-text');copyText(t?t.innerText:'',copyTransBtn);});
+ // Translation font-size controls (same scale as the recognized text).
+ const transTools=document.getElementById('trans-size-tools');
+ const trans=document.querySelector('#translation .translation-text');
+ const transDown=document.getElementById('trans-size-down');
+ const transUp=document.getElementById('trans-size-up');
+ const transReset=document.getElementById('trans-size-reset');
+ const transValue=document.getElementById('trans-size-value');
+ if(transTools&&trans&&transDown&&transUp&&transReset&&transValue){
+  const steps=[80,90,100,110,120,130,140,150,160];
+  const key='govard-reader-translation-size';
+  let stored;try{stored=Number(localStorage.getItem(key));}catch(e){}
+  let index=steps.indexOf(stored);if(index<0)index=steps.indexOf(100);
+  function render(save){
+   const size=steps[index];
+   trans.style.setProperty('--text-size-scale',String(size/100));
+   transValue.textContent=size+'%';
+   transDown.disabled=index===0;transUp.disabled=index===steps.length-1;
+   if(save)try{localStorage.setItem(key,String(size));}catch(e){}
+  }
+  transDown.addEventListener('click',()=>{index=Math.max(0,index-1);render(true)});
+  transUp.addEventListener('click',()=>{index=Math.min(steps.length-1,index+1);render(true)});
+  transReset.addEventListener('click',()=>{index=steps.indexOf(100);render(true)});
+  transTools.hidden=false;
+  render(false);
+ }
 })();
 </script>'''
 
@@ -2030,6 +2116,30 @@ class Handler(SimpleHTTPRequestHandler):
                 self.send_error(404, 'Spread not found')
                 return
             return self._html_response(omissions_page(number).encode('utf-8'), head_only=head_only)
+        export_text = re.fullmatch(r'/export/text/(\d+)', path)
+        export_translation = re.fullmatch(r'/export/translation/(\d+)', path)
+        if export_text or export_translation:
+            number = int((export_text or export_translation).group(1))
+            if not 1 <= number <= len(PAGES):
+                self.send_error(404, 'Spread not found')
+                return
+            with _CORRECTIONS_LOCK:
+                if export_text:
+                    _, segments = segment_state(number)
+                    lines = '\n\n'.join(segments[key] for key in sorted(segments, key=lambda key: int(key[1:])) if segments[key])
+                else:
+                    lines = translation.current_text(number, translation.load_edits()) or ''
+            filename = ('spread_%03d.txt' % number) if export_text else ('spread_%03d_ru.txt' % number)
+            data = (lines + '\n').encode('utf-8')
+            self.send_response(200)
+            self.send_header('Content-Type', 'text/plain; charset=utf-8')
+            self.send_header('Content-Disposition', 'attachment; filename="%s"' % filename)
+            self.send_header('Content-Length', str(len(data)))
+            self.send_header('Cache-Control', 'no-store')
+            self.end_headers()
+            if not head_only:
+                self.wfile.write(data)
+            return
         review_match = re.fullmatch(r'/review/(\d+)', path)
         history_match = re.fullmatch(r'/history/(\d+)', path)
         edit_match = re.fullmatch(r'/edit/(\d+)', path)
