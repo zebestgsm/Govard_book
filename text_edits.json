@@ -15166,14 +15166,43 @@
         "s8": "SUFFOLK",
         "s9": "though they are never out in the court except on Sundays.",
         "s10": " The very small quantity of straw on the floor was worn almost to dust. There is a dungeon down eight steps with the stocks in it. It is fifteen and a half feet by eight, and six feet high; now arched with brick; a dirt floor; has two apertures at the top, of a foot diameter. The justices seem to have overlooked a clause in a late Act of Parliament (fourteenth George III, chap. xliii) “to prevent the prisoners from being kept underground, whenever they can do it conveniently,” as there is abundant room on the premises.",
-        "s11": " Neither the rooms nor the spacious court secure.",
-        "s12": " Prisoners in this bridewell are not only confined within doors, but generally in irons.",
+        "s11": " Neither the rooms nor the spacious court secure. Prisoners in this bridewell are not only confined within doors, but generally in irons.",
+        "s12": "",
         "s13": "",
         "s14": "SUFFOLK\n\nCOUNTY GAOL AT IPSWICH",
-        "s15": " This is also the town gaol: yet only one courtyard. For debtors, a kitchen, or day-room; and several chambers: one of these is lately made a free ward. For felons a day-room: and for the men a strong night-room; with beds well contrived for cleanliness and health. Each prisoner has a crib-bedstead, ten or twelve inches high; the head raised a few inches; strong feet, low sides. These are easily moved when the ward is to be washed. The county allows to each crib a straw bed, and a blanket. The women have no separate day-room: and their ward, or night-room, has no fire-place. One of the two drinking-rooms is called the garnish room. Two rooms for the sick; not distinct enough from the rest. No bath. Debtors weave in hand-frames, like those at Lincoln, good garters, etc., and make purses, nets and laces which they sell at the front grate. I found this close prison clean, though full of prisoners.",
-        "s16": " The water from the pump is conveyed through the sewers, which prevents the courtyard, which is small, from being offensive.\n In the centre of the ceiling of a neat chapel lately built, is an aperture covered by a small turret, which keeps the room airy and pleasant. (All prison chapels should be thus supplied with fresh air.) Mr. Brome, the chaplain, does not content himself merely with the regular and punctual performance of his stated duty; he is a friend to the prisoners on all occasions."
+        "s15": " This is also the town gaol: yet only one courtyard. For debtors, a kitchen, or day-room; and several chambers: one of these is lately made a free ward. For felons a day-room: and for the men a strong night-room; with beds well contrived for cleanliness and health. Each prisoner has a crib-bedstead, ten or twelve inches high; the head raised a few inches; strong feet, low sides. These are easily moved when the ward is to be washed. The county allows to each crib a straw bed, and a blanket. The women have no separate day-room: and their ward, or night-room, has no fire-place. One of the two drinking-rooms is called the garnish room. Two rooms for the sick; not distinct enough from the rest. No bath. Debtors weave in hand-frames, like those at Lincoln, good garters, etc., and make purses, nets and laces which they sell at the front grate. I found this close prison clean, though full of prisoners. The water from the pump is conveyed through the sewers, which prevents the courtyard, which is small, from being offensive.\n In the centre of the ceiling of a neat chapel lately built, is an aperture covered by a small turret, which keeps the room airy and pleasant. (All prison chapels should be thus supplied with fresh air.) Mr. Brome, the chaplain, does not content himself merely with the regular and punctual performance of his stated duty; he is a friend to the prisoners on all occasions.",
+        "s16": ""
       },
-      "history": [],
+      "history": [
+        {
+          "id": "s11",
+          "before": " Neither the rooms nor the spacious court secure.",
+          "after": " Neither the rooms nor the spacious court secure. Prisoners in this bridewell are not only confined within doors, but generally in irons.",
+          "time": "2026-11-25T22:24:11+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s12",
+          "before": " Prisoners in this bridewell are not only confined within doors, but generally in irons.",
+          "after": "",
+          "time": "2026-11-25T22:24:11+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s15",
+          "before": " This is also the town gaol: yet only one courtyard. For debtors, a kitchen, or day-room; and several chambers: one of these is lately made a free ward. For felons a day-room: and for the men a strong night-room; with beds well contrived for cleanliness and health. Each prisoner has a crib-bedstead, ten or twelve inches high; the head raised a few inches; strong feet, low sides. These are easily moved when the ward is to be washed. The county allows to each crib a straw bed, and a blanket. The women have no separate day-room: and their ward, or night-room, has no fire-place. One of the two drinking-rooms is called the garnish room. Two rooms for the sick; not distinct enough from the rest. No bath. Debtors weave in hand-frames, like those at Lincoln, good garters, etc., and make purses, nets and laces which they sell at the front grate. I found this close prison clean, though full of prisoners.",
+          "after": " This is also the town gaol: yet only one courtyard. For debtors, a kitchen, or day-room; and several chambers: one of these is lately made a free ward. For felons a day-room: and for the men a strong night-room; with beds well contrived for cleanliness and health. Each prisoner has a crib-bedstead, ten or twelve inches high; the head raised a few inches; strong feet, low sides. These are easily moved when the ward is to be washed. The county allows to each crib a straw bed, and a blanket. The women have no separate day-room: and their ward, or night-room, has no fire-place. One of the two drinking-rooms is called the garnish room. Two rooms for the sick; not distinct enough from the rest. No bath. Debtors weave in hand-frames, like those at Lincoln, good garters, etc., and make purses, nets and laces which they sell at the front grate. I found this close prison clean, though full of prisoners. The water from the pump is conveyed through the sewers, which prevents the courtyard, which is small, from being offensive.\n In the centre of the ceiling of a neat chapel lately built, is an aperture covered by a small turret, which keeps the room airy and pleasant. (All prison chapels should be thus supplied with fresh air.) Mr. Brome, the chaplain, does not content himself merely with the regular and punctual performance of his stated duty; he is a friend to the prisoners on all occasions.",
+          "time": "2026-11-25T22:24:11+00:00",
+          "kind": "edit"
+        },
+        {
+          "id": "s16",
+          "before": " The water from the pump is conveyed through the sewers, which prevents the courtyard, which is small, from being offensive.\n In the centre of the ceiling of a neat chapel lately built, is an aperture covered by a small turret, which keeps the room airy and pleasant. (All prison chapels should be thus supplied with fresh air.) Mr. Brome, the chaplain, does not content himself merely with the regular and punctual performance of his stated duty; he is a friend to the prisoners on all occasions.",
+          "after": "",
+          "time": "2026-11-25T22:24:11+00:00",
+          "kind": "edit"
+        }
+      ],
       "spread_review": {
         "state": "ready",
         "before": {
