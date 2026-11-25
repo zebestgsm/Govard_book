@@ -2034,6 +2034,7 @@ class Handler(SimpleHTTPRequestHandler):
         history_match = re.fullmatch(r'/history/(\d+)', path)
         edit_match = re.fullmatch(r'/edit/(\d+)', path)
         translation_history_match = re.fullmatch(r'/translation-history/(\d+)', path)
+        parallel_match = re.fullmatch(r'/parallel/(\d+)', path)
         if translation_history_match:
             number = int(translation_history_match.group(1))
             if not 1 <= number <= len(PAGES):
@@ -2059,8 +2060,7 @@ class Handler(SimpleHTTPRequestHandler):
                 return
             messages = {'saved': 'Исправление сохранено.', 'deleted': 'Исправление отменено.'}
             page = edit_page(number, messages.get(params.get('status', [''])[0], ''))
-        parallel_match = re.fullmatch(r'/parallel/(\d+)', path)
-        if parallel_match:
+        elif parallel_match:
             number = int(parallel_match.group(1))
             if not 1 <= number <= len(PAGES):
                 self.send_error(404, 'Spread not found')
