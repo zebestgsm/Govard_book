@@ -445,6 +445,8 @@ STYLE = '''
 .spread-89 [data-edit-id="s4"] .mixed-table{font:clamp(12px,.9vw,14px)/1.45 Georgia,serif;margin:.6em 0 1em}
 .spread-89 [data-edit-id="s4"] .mixed-table .restored-row{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr) minmax(0,1fr);border:0;gap:4px}
 .spread-89 [data-edit-id="s4"] .mixed-table .restored-cell{padding:1px 0;overflow-wrap:normal;word-break:normal}
+.spread-89 [data-edit-id="s7"]{white-space:pre-wrap}
+.spread-89 [data-edit-id="s7"] .fleet-title{text-align:center;display:block;font:600 14px/1.4 Georgia,serif;letter-spacing:.06em}
 /* Compact dated counts on the Hertfordshire and Horsham pages. */
 .spread-101 .mixed-table,.spread-103 .mixed-table,.spread-106 .mixed-table{font:clamp(10px,.75vw,13px)/1.4 Georgia,serif;max-width:100%;margin:.7em 0}
 .spread-106 .count-number,.spread-112 .count-number{white-space:normal}
