@@ -15204,7 +15204,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "NORFOLK",
           "s1": "ELY GAOL",
@@ -15289,6 +15289,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T12:36:13+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-25T22:25:04+00:00"
           }
         ],
         "after": {
