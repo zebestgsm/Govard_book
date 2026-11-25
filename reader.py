@@ -2059,6 +2059,8 @@ class Handler(SimpleHTTPRequestHandler):
                 return
             messages = {'saved': 'Исправление сохранено.', 'deleted': 'Исправление отменено.'}
             page = edit_page(number, messages.get(params.get('status', [''])[0], ''))
+        if translation_history_match or review_match or history_match or edit_match:
+            return self._html_response(page.encode('utf-8'), head_only=head_only)
         parallel_match = re.fullmatch(r'/parallel/(\d+)', path)
         if parallel_match:
             number = int(parallel_match.group(1))
