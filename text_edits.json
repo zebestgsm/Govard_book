@@ -15897,7 +15897,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "needs_work",
         "before": {
           "s0": "ABINGDON. Two dirty day-rooms; and three offensive night-rooms: that for men eight feet square: one of the women’s, nine by eight; the other four and a half feet square: the straw, worn to dust, swarmed with vermin: no court: no water accessible to prisoners. The petty offenders were in irons: at my last visit, eight were women. Allowance, if felons, threepence a day. Keeper’s salary, £18: fees, 4s. 4d., no table. At all my visits the prisoners had no employment.\n\n1776, 2 Jan.\tprisoners 3.\t1782, 25 Dec.\tprisoners 13, drs. 1.\n1779, 22 Apr.\t„ 3.\t\t\n\nWINDSOR CASTLE PRISON, for debtors. I need not observe that his Majesty is proprietor. The Duke of Montague is constable: he appoints a janitor with a salary: the janitor appoints a deputy, who for a house rent-free, and certain perquisites, does the duty. The prison out of repair. It consists of three rooms on the first floor and three rooms over them.\n\nAt my last visit I found that the old keeper had been murdered in the tap-room by a soldier, who also killed another, and was then shot himself. This is not the first instance I have known of persons being murdered in the tap-room of gaols. Such are the bad effects of selling liquors in prisons.\n\nhabit of idleness or inability to labour in future, is in danger of being acquired. The beneficial effects on the mind, of such a punishment, are speedy, proceeding from the horror of a vicious person left entirely to his own reflections. This may wear off by long continuance, and a sullen insensibility may succeed.\n\n“In all manufacturing towns it would be proper to have solitary cells for the confinement of faulty apprentices and servants for a few days, where they should be constrained to work, and have no visitors unless clergymen: for a short term would probably do more to effect a reformation, than three or four months’ confinement; as it is generally found that in the first two or three days prisoners seem to have their minds most affected and penitent.\n\n“A county magistrate said: ‘We have thought it necessary to refrain from commitment in many cases where that mode of proceeding would otherwise have been salutary, from a full persuasion of the total unfitness of the places of confinement or of correction, to answer those reformatory purposes for which a well-regulated restraint is peculiarly calculated.’”",
           "s1": "",
@@ -15982,6 +15982,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T12:19:03+00:00"
+          },
+          {
+            "action": "needs_work",
+            "time": "2026-11-25T22:27:40+00:00"
           }
         ],
         "after": {
