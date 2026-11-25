@@ -1162,6 +1162,42 @@ assert.equal(elements['text-size-value'].textContent,'110%');
             self.assertTrue(segments, n)
             self.assertTrue(reader.has_review(n), n)
 
+    def test_paragraph_merge_and_split_controls_and_roundtrip(self):
+        import html as html_mod
+        page = self.request('/spread/1')[1]
+        self.assertIn('id="edit-merge"', page)
+        self.assertIn('id="edit-split"', page)
+        self.assertIn('⇔ Соединить абзац', page)
+        self.assertIn('⇕ Разбить абзац', page)
+        self.assertIn('function applyPara(', page)
+
+        # Splitting a paragraph inserts \n\n and renders two verified-paragraph spans.
+        s2 = reader.segment_state(1)[1]['s2']
+        marker = 'Life for the privileged'
+        at = s2.index(marker)
+        split_s2 = s2[:at].rstrip(' ') + '\n\n' + s2[at:]
+        self.assertEqual(self.save(1, [{'id': 's2', 'old': s2, 'new': split_s2}])[0], 200)
+        rendered = self.request('/spread/1')[1]
+        first_part, second_part = split_s2.split('\n\n')
+        self.assertIn('<span class="verified-paragraph">' + html_mod.escape(first_part) + '</span>', rendered)
+        self.assertIn('<span class="verified-paragraph">' + html_mod.escape(second_part) + '</span>', rendered)
+
+        # Merging two sibling <p data-edit-id> segments joins text into s2 and empties s3.
+        s3 = reader.segment_state(1)[1]['s3']
+        merged_s2 = s2.rstrip(' \u2003') + ' ' + s3.lstrip(' \u2003')
+        self.assertEqual(
+            self.save(1, [
+                {'id': 's2', 'old': split_s2, 'new': merged_s2},
+                {'id': 's3', 'old': s3, 'new': ''},
+            ])[0],
+            200,
+        )
+        state = reader.segment_state(1)[1]
+        self.assertEqual(state['s2'], merged_s2)
+        self.assertEqual(state['s3'], '')
+        rendered_after_merge = self.request('/spread/1')[1]
+        self.assertIn('<p data-edit-id="s3"></p>', rendered_after_merge)
+
 
 class SequentialProofreadTests(unittest.TestCase):
     def setUp(self):

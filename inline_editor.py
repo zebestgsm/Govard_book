@@ -836,7 +836,8 @@ SCRIPT = r'''<script>
  const area=document.getElementById('editable-book');
  const number=area.dataset.spread;
  const nodes=Array.from(area.querySelectorAll('[data-edit-id]'));
- let editing=false, saving=false, originals={};
+ const mergeBtn=document.getElementById('edit-merge'), splitBtn=document.getElementById('edit-split');
+ let editing=false, saving=false, originals={}, lastNode=null, lastOffset=-1;
  const current=n=>n.textContent;
  const changed=()=>nodes.filter(n=>current(n)!==originals[n.dataset.editId]);
  function update(){const n=changed().length;save.disabled=n===0||saving;status.textContent=n?`Изменено фрагментов: ${n}. Не забудьте сохранить.`:'Нажмите на любой текст и исправьте его. Скан справа можно использовать для сверки.';}
@@ -849,14 +850,187 @@ SCRIPT = r'''<script>
   range.setStartAfter(inserted);range.collapse(true);selection.removeAllRanges();selection.addRange(range);
   node.dispatchEvent(new Event('input',{bubbles:true}));
  }
+ // Paragraph split/merge: paragraphs are separated either by blank lines
+ // (\n\n) inside one segment or across adjacent <p data-edit-id> elements on
+ // the same book page. Operate on plain text so every change flows through
+ // history and the standard /api/edits save path.
+ function selectionNode(){
+  const sel=window.getSelection();
+  if(!sel||!sel.rangeCount)return null;
+  let n=sel.getRangeAt(0).commonAncestorContainer;
+  if(n.nodeType===3)n=n.parentNode;
+  return (n&&n.closest&&n.closest('[data-edit-id]'))||null;
+ }
+ function caretOffset(node){
+  const sel=window.getSelection();
+  if(!sel||!sel.rangeCount)return -1;
+  const range=sel.getRangeAt(0);
+  if(range.startContainer!==node&&!node.contains(range.startContainer))return -1;
+  const pre=range.cloneRange();
+  pre.selectNodeContents(node);
+  pre.setEnd(range.startContainer,range.startOffset);
+  return pre.toString().length;
+ }
+ function setCaret(node,pos){
+  const sel=window.getSelection();if(!sel)return;
+  const range=document.createRange();
+  let left=Math.max(0,pos);
+  const walker=document.createTreeWalker(node,NodeFilter.SHOW_TEXT);
+  let t=null;
+  while((t=walker.nextNode())){
+   if(left<=t.length){range.setStart(t,left);range.collapse(true);sel.removeAllRanges();sel.addRange(range);return;}
+   left-=t.length;
+  }
+  range.selectNodeContents(node);range.collapse(false);sel.removeAllRanges();sel.addRange(range);
+ }
+ function breaksIn(text){
+  const res=[],re=/\n{2,}/g;
+  let m;
+  while((m=re.exec(text)))res.push({start:m.index,end:m.index+m[0].length});
+  return res;
+ }
+ function lineHasTable(text,at){
+  const s=text.lastIndexOf('\n',at-1)+1;
+  let e=text.indexOf('\n',at);if(e<0)e=text.length;
+  return text.slice(s,e).indexOf('\t')>=0;
+ }
+ function joinParas(left,right){
+  const l=left.replace(/[ \u2003]+$/,''), r=right.replace(/^[\u2003 ]+/,'');
+  if(!l)return {text:r,caret:0};
+  if(!r)return {text:l,caret:l.length};
+  const sep=(l.endsWith('\n')||r.startsWith('\n'))?'':' ';
+  return {text:l+sep+r,caret:l.length+sep.length};
+ }
+ function adjacentParaNode(node,dir){
+  if(!node||node.tagName!=='P'||!node.parentElement)return null;
+  let el=dir<0?node.previousElementSibling:node.nextElementSibling;
+  while(el){
+   if(el.tagName!=='P'||!el.hasAttribute('data-edit-id'))return null;
+   const t=current(el);
+   if(!t.trim()){el=dir<0?el.previousElementSibling:el.nextElementSibling;continue;}
+   if(t.indexOf('\t')>=0)return null;
+   return el;
+  }
+  return null;
+ }
+ function paraPlan(){
+  if(!editing||!lastNode||lastOffset<0)return null;
+  const text=current(lastNode);
+  const o=Math.max(0,Math.min(lastOffset,text.length));
+  const breaks=breaksIn(text);
+  let prevIdx=-1,nextIdx=-1;
+  for(let i=breaks.length-1;i>=0;i--){if(breaks[i].start<o){prevIdx=i;break;}}
+  for(let i=0;i<breaks.length;i++){if(breaks[i].start>=o){nextIdx=i;break;}}
+  const pStart=prevIdx>=0?Math.min(breaks[prevIdx].end,o):0;
+  const pEnd=nextIdx>=0?breaks[nextIdx].start:text.length;
+  const splitOk=!lineHasTable(text,o)&&o>pStart&&o<pEnd&&text.slice(pStart,o).trim().length>0&&text.slice(o,pEnd).trim().length>0;
+  let merge=null;
+  const curChunk=text.slice(prevIdx>=0?breaks[prevIdx].end:0,pEnd);
+  if(prevIdx>=0){
+   const b=breaks[prevIdx];
+   const ls=prevIdx>0?breaks[prevIdx-1].end:0;
+   const left=text.slice(ls,b.start),right=text.slice(b.end,pEnd);
+   if(left.indexOf('\t')<0&&right.indexOf('\t')<0&&(left.trim()||right.trim())){
+    merge={kind:'internal',brk:b,label:'Соединить с предыдущим абзацем'};
+   }
+  }else if(text.trim()&&curChunk.indexOf('\t')<0){
+   const prevP=adjacentParaNode(lastNode,-1);
+   if(prevP)merge={kind:'prevNode',other:prevP,label:'Соединить с предыдущим абзацем'};
+  }
+  if(!merge&&nextIdx>=0){
+   const b=breaks[nextIdx];
+   const re=nextIdx+1<breaks.length?breaks[nextIdx+1].start:text.length;
+   const left=text.slice(prevIdx>=0?breaks[prevIdx].end:0,b.start),right=text.slice(b.end,re);
+   if(left.indexOf('\t')<0&&right.indexOf('\t')<0&&(left.trim()||right.trim())){
+    merge={kind:'internal',brk:b,label:'Соединить со следующим абзацем'};
+   }
+  }
+  if(!merge&&nextIdx<0&&text.trim()&&curChunk.indexOf('\t')<0){
+   const nextP=adjacentParaNode(lastNode,1);
+   if(nextP)merge={kind:'nextNode',other:nextP,label:'Соединить со следующим абзацем'};
+  }
+  return {splitOk,mergeOk:Boolean(merge),merge,o,text};
+ }
+ function updateParaButtons(){
+  if(!mergeBtn||!splitBtn)return;
+  if(!editing){mergeBtn.hidden=true;splitBtn.hidden=true;return;}
+  mergeBtn.hidden=false;splitBtn.hidden=false;
+  const plan=paraPlan();
+  splitBtn.disabled=!plan||!plan.splitOk;
+  mergeBtn.disabled=!plan||!plan.mergeOk;
+  splitBtn.title=plan&&plan.splitOk?'Разбить абзац в месте курсора':'Поставьте курсор внутри текста, где нужно разбить абзац';
+  mergeBtn.title=plan&&plan.merge?plan.merge.label:'Нет соседнего абзаца для соединения';
+ }
+ function syncCaret(){
+  if(!editing)return;
+  const n=selectionNode();
+  if(n){lastNode=n;lastOffset=caretOffset(n);}
+  updateParaButtons();
+ }
+ function applyPara(kind){
+  const plan=paraPlan();if(!plan)return;
+  const node=lastNode;
+  if(kind==='split'){
+   if(!plan.splitOk)return;
+   const l=plan.text.slice(0,plan.o).replace(/[ ]+$/,'').replace(/\n$/,'');
+   const r=plan.text.slice(plan.o).replace(/^\n/,'').replace(/^[ ]+/,'');
+   node.textContent=l+'\n\n'+r;
+   node.classList.remove('is-merged-empty');
+   const caret=l.length+2;
+   node.focus();setCaret(node,caret);lastOffset=caret;
+   node.dispatchEvent(new Event('input',{bubbles:true}));
+  }else{
+   if(!plan.mergeOk||!plan.merge)return;
+   const m=plan.merge;
+   if(m.kind==='internal'){
+    const joined=joinParas(plan.text.slice(0,m.brk.start),plan.text.slice(m.brk.end));
+    node.textContent=joined.text;
+    node.classList.remove('is-merged-empty');
+    node.focus();setCaret(node,joined.caret);lastOffset=joined.caret;
+    node.dispatchEvent(new Event('input',{bubbles:true}));
+   }else if(m.kind==='prevNode'){
+    const prevP=m.other;
+    const joined=joinParas(current(prevP),plan.text);
+    prevP.textContent=joined.text;
+    prevP.classList.remove('is-merged-empty');
+    node.textContent='';
+    node.classList.add('is-merged-empty');
+    node.dispatchEvent(new Event('input',{bubbles:true}));
+    prevP.focus();setCaret(prevP,joined.caret);
+    lastNode=prevP;lastOffset=joined.caret;
+    prevP.dispatchEvent(new Event('input',{bubbles:true}));
+   }else if(m.kind==='nextNode'){
+    const nextP=m.other;
+    const joined=joinParas(plan.text,current(nextP));
+    node.textContent=joined.text;
+    node.classList.remove('is-merged-empty');
+    nextP.textContent='';
+    nextP.classList.add('is-merged-empty');
+    nextP.dispatchEvent(new Event('input',{bubbles:true}));
+    node.focus();setCaret(node,joined.caret);lastOffset=joined.caret;
+    node.dispatchEvent(new Event('input',{bubbles:true}));
+   }
+  }
+  updateParaButtons();
+ }
+ if(mergeBtn){
+  mergeBtn.addEventListener('mousedown',e=>e.preventDefault());
+  mergeBtn.addEventListener('click',()=>applyPara('merge'));
+ }
+ if(splitBtn){
+  splitBtn.addEventListener('mousedown',e=>e.preventDefault());
+  splitBtn.addEventListener('click',()=>applyPara('split'));
+ }
+ document.addEventListener('selectionchange',syncCaret);
  button.addEventListener('click',()=>{
   if(editing)return;editing=true;originals={};
-  nodes.forEach(n=>{originals[n.dataset.editId]=current(n);n.setAttribute('contenteditable','plaintext-only');n.setAttribute('role','textbox');n.setAttribute('aria-label','Редактируемый фрагмент книги');n.setAttribute('spellcheck','false');n.addEventListener('input',update);
+  nodes.forEach(n=>{originals[n.dataset.editId]=current(n);n.setAttribute('contenteditable','plaintext-only');n.setAttribute('role','textbox');n.setAttribute('aria-label','Редактируемый фрагмент книги');n.setAttribute('spellcheck','false');n.addEventListener('input',()=>{if(n.textContent)n.classList.remove('is-merged-empty');update();syncCaret()});n.addEventListener('keyup',syncCaret);n.addEventListener('mouseup',syncCaret);
    n.addEventListener('beforeinput',e=>{if(e.inputType==='insertParagraph'||e.inputType==='insertLineBreak'){e.preventDefault();insertPlain(n,'\n')}});
    n.addEventListener('paste',e=>{const text=e.clipboardData&&e.clipboardData.getData('text/plain');if(text!==undefined&&text!==null){e.preventDefault();insertPlain(n,text.replace(/\r\n?/g,'\n'))}})
   });
-  area.classList.add('is-editing');button.hidden=true;save.hidden=false;cancel.hidden=false;status.hidden=false;update();
-  if(nodes.length)nodes[0].focus();
+  area.classList.add('is-editing');button.hidden=true;save.hidden=false;cancel.hidden=false;status.hidden=false;update();updateParaButtons();
+  const initial=nodes.find(n=>n.tagName==='P'&&current(n).trim())||nodes[0];
+  if(initial){initial.focus();setCaret(initial,0);lastNode=initial;lastOffset=0;updateParaButtons();}
  });
  cancel.addEventListener('click',()=>{if(changed().length&&!confirm('Отменить несохранённые изменения?'))return;window.removeEventListener('beforeunload',warn);location.reload()});
  function warn(e){if(editing&&changed().length){e.preventDefault();e.returnValue='';}}
