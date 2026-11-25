@@ -337,7 +337,7 @@ STYLE = '''
 .spread-1 p[data-edit-id="s2"],.spread-1 p[data-edit-id="s3"],.spread-1 p[data-edit-id="s5"],.spread-1 p[data-edit-id="s6"]{display:inline;margin:0}
 .spread-1 p[data-edit-id="s2"] .verified-paragraph,.spread-1 p[data-edit-id="s3"] .verified-paragraph,.spread-1 p[data-edit-id="s5"] .verified-paragraph,.spread-1 p[data-edit-id="s6"] .verified-paragraph{display:inline;margin:0}
 .spread-1 p[data-edit-id="s3"]::before,.spread-1 p[data-edit-id="s6"]::before{content:" "}
-.spread-1 p[data-edit-id="s3"]::after,.spread-1 p[data-edit-id="s6"]::after{content:"";display:block;margin-bottom:1.15em}
+.spread-1 p[data-edit-id="s3"]::after,.spread-1 p[data-edit-id="s6"]::after{content:"";display:block;margin:0}
 
 /* Restore printed paragraph flow without changing editable segment IDs. */
 .spread-2 p[data-edit-id="s3"],.spread-2 p[data-edit-id="s4"],.spread-2 p[data-edit-id="s8"],.spread-2 p[data-edit-id="s9"],
@@ -345,7 +345,7 @@ STYLE = '''
 .spread-2 p[data-edit-id="s3"] .verified-paragraph,.spread-2 p[data-edit-id="s4"] .verified-paragraph,.spread-2 p[data-edit-id="s8"] .verified-paragraph,.spread-2 p[data-edit-id="s9"] .verified-paragraph,
 .spread-3 p[data-edit-id="s5"] .verified-paragraph,.spread-3 p[data-edit-id="s6"] .verified-paragraph,.spread-3 p[data-edit-id="s10"] .verified-paragraph,.spread-3 p[data-edit-id="s11"] .verified-paragraph,.spread-3 p[data-edit-id="s16"] .verified-paragraph,.spread-3 p[data-edit-id="s17"] .verified-paragraph{display:inline;margin:0}
 .spread-2 p[data-edit-id="s4"]::before,.spread-2 p[data-edit-id="s9"]::before,.spread-3 p[data-edit-id="s6"]::before,.spread-3 p[data-edit-id="s11"]::before,.spread-3 p[data-edit-id="s17"]::before{content:" "}
-.spread-2 p[data-edit-id="s4"]::after,.spread-2 p[data-edit-id="s9"]::after,.spread-3 p[data-edit-id="s6"]::after,.spread-3 p[data-edit-id="s11"]::after{content:"";display:block;margin-bottom:1.15em}
+.spread-2 p[data-edit-id="s4"]::after,.spread-2 p[data-edit-id="s9"]::after,.spread-3 p[data-edit-id="s6"]::after,.spread-3 p[data-edit-id="s11"]::after{content:"";display:block;margin:0}
 
 /* Printed paragraphs split by OCR on the next three spreads. */
 .spread-4 p[data-edit-id="s1"],.spread-4 p[data-edit-id="s2"],.spread-4 p[data-edit-id="s3"],.spread-4 p[data-edit-id="s5"],.spread-4 p[data-edit-id="s6"],
@@ -353,27 +353,27 @@ STYLE = '''
 .spread-6 p[data-edit-id="s4"],.spread-6 p[data-edit-id="s5"]{display:inline;margin:0}
 .spread-4 p[data-edit-id="s1"] .verified-paragraph,.spread-4 p[data-edit-id="s2"] .verified-paragraph,.spread-4 p[data-edit-id="s3"] .verified-paragraph,.spread-4 p[data-edit-id="s5"] .verified-paragraph:last-child,.spread-4 p[data-edit-id="s6"] .verified-paragraph{display:inline;margin:0}
 .spread-4 p[data-edit-id="s2"]::before,.spread-4 p[data-edit-id="s3"]::before,.spread-4 p[data-edit-id="s6"]::before,.spread-5 p[data-edit-id="s4"]::before,.spread-5 p[data-edit-id="s6"]::before,.spread-6 p[data-edit-id="s5"]::before{content:" "}
-.spread-4 p[data-edit-id="s3"]::after,.spread-4 p[data-edit-id="s6"]::after{content:"";display:block;margin-bottom:1.15em}.spread-5 p[data-edit-id="s4"]::after{content:"";display:block;margin:0}
+.spread-4 p[data-edit-id="s3"]::after,.spread-4 p[data-edit-id="s6"]::after{content:"";display:block;margin:0}.spread-5 p[data-edit-id="s4"]::after{content:"";display:block;margin:0}
 
 /* Rejoin OCR fragments belonging to the same printed paragraph. */
 .spread-7 p[data-edit-id="s2"],.spread-7 p[data-edit-id="s3"],.spread-7 p[data-edit-id="s9"],.spread-7 p[data-edit-id="s10"],.spread-7 p[data-edit-id="s12"],.spread-7 p[data-edit-id="s13"],.spread-7 p[data-edit-id="s14"],.spread-7 p[data-edit-id="s15"],.spread-8 p[data-edit-id="s5"],.spread-8 p[data-edit-id="s6"],.spread-8 p[data-edit-id="s7"],.spread-8 p[data-edit-id="s11"],.spread-8 p[data-edit-id="s12"],.spread-9 p[data-edit-id="s2"],.spread-9 p[data-edit-id="s3"],.spread-9 p[data-edit-id="s4"],.spread-9 p[data-edit-id="s6"],.spread-9 p[data-edit-id="s7"],.spread-9 p[data-edit-id="s11"],.spread-9 p[data-edit-id="s12"]{display:inline;margin:0}
 .spread-7 p[data-edit-id="s2"] .verified-paragraph,.spread-7 p[data-edit-id="s3"] .verified-paragraph,.spread-7 p[data-edit-id="s9"] .verified-paragraph,.spread-7 p[data-edit-id="s10"] .verified-paragraph,.spread-7 p[data-edit-id="s12"] .verified-paragraph,.spread-7 p[data-edit-id="s13"] .verified-paragraph,.spread-7 p[data-edit-id="s14"] .verified-paragraph,.spread-7 p[data-edit-id="s15"] .verified-paragraph,.spread-8 p[data-edit-id="s5"] .verified-paragraph,.spread-8 p[data-edit-id="s6"] .verified-paragraph,.spread-8 p[data-edit-id="s7"] .verified-paragraph,.spread-8 p[data-edit-id="s11"] .verified-paragraph,.spread-8 p[data-edit-id="s12"] .verified-paragraph,.spread-9 p[data-edit-id="s2"] .verified-paragraph,.spread-9 p[data-edit-id="s3"] .verified-paragraph,.spread-9 p[data-edit-id="s4"] .verified-paragraph,.spread-9 p[data-edit-id="s6"] .verified-paragraph,.spread-9 p[data-edit-id="s7"] .verified-paragraph,.spread-9 p[data-edit-id="s11"] .verified-paragraph,.spread-9 p[data-edit-id="s12"] .verified-paragraph{display:inline;margin:0}
 .spread-7 p[data-edit-id="s3"]::before,.spread-7 p[data-edit-id="s10"]::before,.spread-7 p[data-edit-id="s13"]::before,.spread-7 p[data-edit-id="s15"]::before,.spread-8 p[data-edit-id="s6"]::before,.spread-8 p[data-edit-id="s7"]::before,.spread-8 p[data-edit-id="s12"]::before,.spread-9 p[data-edit-id="s3"]::before,.spread-9 p[data-edit-id="s4"]::before,.spread-9 p[data-edit-id="s7"]::before,.spread-9 p[data-edit-id="s12"]::before{content:" "}
-.spread-7 p[data-edit-id="s3"]::after,.spread-7 p[data-edit-id="s10"]::after,.spread-7 p[data-edit-id="s13"]::after,.spread-7 p[data-edit-id="s15"]::after,.spread-8 p[data-edit-id="s7"]::after,.spread-8 p[data-edit-id="s12"]::after,.spread-9 p[data-edit-id="s4"]::after,.spread-9 p[data-edit-id="s7"]::after,.spread-9 p[data-edit-id="s12"]::after{content:"";display:block;margin-bottom:1.15em}
+.spread-7 p[data-edit-id="s3"]::after,.spread-7 p[data-edit-id="s10"]::after,.spread-7 p[data-edit-id="s13"]::after,.spread-7 p[data-edit-id="s15"]::after,.spread-8 p[data-edit-id="s7"]::after,.spread-8 p[data-edit-id="s12"]::after,.spread-9 p[data-edit-id="s4"]::after,.spread-9 p[data-edit-id="s7"]::after,.spread-9 p[data-edit-id="s12"]::after{content:"";display:block;margin:0}
 
 /* On spread 7, s5 contains the end of one paragraph and the start of the next. */
 .spread-7 p[data-edit-id="s4"],.spread-7 p[data-edit-id="s5"],.spread-7 p[data-edit-id="s6"],.spread-7 p[data-edit-id="s7"],.spread-7 p[data-edit-id="s8"]{display:inline;margin:0}
 .spread-7 p[data-edit-id="s4"] .verified-paragraph,.spread-7 p[data-edit-id="s5"] .verified-paragraph,.spread-7 p[data-edit-id="s6"] .verified-paragraph,.spread-7 p[data-edit-id="s7"] .verified-paragraph,.spread-7 p[data-edit-id="s8"] .verified-paragraph{display:inline;margin:0}
 .spread-7 p[data-edit-id="s5"]::before,.spread-7 p[data-edit-id="s6"]::before,.spread-7 p[data-edit-id="s7"]::before,.spread-7 p[data-edit-id="s8"]::before{content:" "}
-.spread-7 p[data-edit-id="s5"] .verified-paragraph + .verified-paragraph::before{content:"";display:block;margin-bottom:1.15em}
-.spread-7 p[data-edit-id="s8"]::after{content:"";display:block;margin-bottom:1.15em}
+.spread-7 p[data-edit-id="s5"] .verified-paragraph + .verified-paragraph::before{content:"";display:block;margin:0}
+.spread-7 p[data-edit-id="s8"]::after{content:"";display:block;margin:0}
 
 /* Keep scan-verified paragraphs continuous across OCR segment boundaries. */
 .spread-16 p[data-edit-id="s3"],.spread-16 p[data-edit-id="s4"],.spread-16 p[data-edit-id="s5"],.spread-16 p[data-edit-id="s6"],.spread-17 p[data-edit-id="s5"],.spread-17 p[data-edit-id="s6"]{display:inline;margin:0}
 .spread-16 p[data-edit-id="s3"] .verified-paragraph,.spread-16 p[data-edit-id="s4"] .verified-paragraph,.spread-16 p[data-edit-id="s5"] .verified-paragraph,.spread-16 p[data-edit-id="s6"] .verified-paragraph,.spread-17 p[data-edit-id="s5"] .verified-paragraph,.spread-17 p[data-edit-id="s6"] .verified-paragraph{display:inline;margin:0}
 .spread-16 p[data-edit-id="s4"]::before,.spread-16 p[data-edit-id="s5"]::before,.spread-16 p[data-edit-id="s6"]::before,.spread-17 p[data-edit-id="s6"]::before{content:" "}
-.spread-16 p[data-edit-id="s5"] .verified-paragraph + .verified-paragraph::before,.spread-17 p[data-edit-id="s6"] .verified-paragraph + .verified-paragraph::before{content:"";display:block;margin-bottom:1.15em}
-.spread-16 p[data-edit-id="s6"]::after,.spread-17 p[data-edit-id="s6"]::after{content:"";display:block;margin-bottom:1.15em}
+.spread-16 p[data-edit-id="s5"] .verified-paragraph + .verified-paragraph::before,.spread-17 p[data-edit-id="s6"] .verified-paragraph + .verified-paragraph::before{content:"";display:block;margin:0}
+.spread-16 p[data-edit-id="s6"]::after,.spread-17 p[data-edit-id="s6"]::after{content:"";display:block;margin:0}
 .spread-17 h3[data-edit-id="s3"]{margin-bottom:0}.spread-17 h3[data-edit-id="s4"]{margin-top:0}
 
 /* Scale the transcription only; the scan and editor controls remain unchanged. */
@@ -402,7 +402,7 @@ STYLE = '''
 .spread-19 p[data-edit-id="s2"],.spread-19 p[data-edit-id="s3"],.spread-19 p[data-edit-id="s6"],.spread-19 p[data-edit-id="s7"]{display:inline;margin:0}
 .spread-19 p[data-edit-id="s2"] .verified-paragraph,.spread-19 p[data-edit-id="s3"] .verified-paragraph:first-child,.spread-19 p[data-edit-id="s6"] .verified-paragraph:last-child,.spread-19 p[data-edit-id="s7"] .verified-paragraph:first-child{display:inline;margin:0}
 .spread-19 p[data-edit-id="s3"]::before,.spread-19 p[data-edit-id="s7"]::before{content:" "}
-.spread-19 p[data-edit-id="s6"] .verified-paragraph:first-child{display:block;margin-bottom:1.15em}
+.spread-19 p[data-edit-id="s6"] .verified-paragraph:first-child{display:block;margin:0}
 .spread-25 .footnote-continuation{white-space:pre-line}
 .spread-137 .previous-page-note::before{content:"Сноска 3 · продолжение с предыдущего разворота";display:block;font:600 10px/1.4 Arial,sans-serif;color:var(--green);margin-bottom:.45em}.spread-137 .long-note-part{display:block;font-size:.78em;line-height:1.5;margin:.6em 0;white-space:pre-line}
 /* The printed Rotterdam dietary regulation is one note with a small table. */
