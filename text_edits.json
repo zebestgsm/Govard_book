@@ -13278,7 +13278,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "LONDON",
           "s1": "every Sunday. The men and women are separated from each other, and from the rest of the congregation.\n\nOn the walls of the hall and court-room are hung up many tables of very considerable gifts and legacies to this hospital, in common with others: sufficient, to have made this prison more commodious, by providing courts; and several workrooms, and lodging-rooms, for keeping the prisoners more separate, as now is very prudently done for the faulty apprentices and Bridewell boys, who were formerly confined in one room.\n\nThe Bridewell boys are upon a quite different foundation, and foreign to my subject.",
@@ -13345,6 +13345,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T12:36:13+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-25T22:37:35+00:00"
           }
         ],
         "after": {
