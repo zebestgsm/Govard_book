@@ -17640,7 +17640,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "LANCASHIRE",
           "s1": "of 2s. 6d.a week.When prisoners are convicte or Manchester,and from thence brought hither,t a shilling a mile conduct-money for each.",
@@ -17666,6 +17666,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T11:54:08+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-25T22:34:10+00:00"
           }
         ],
         "after": {
