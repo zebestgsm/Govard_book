@@ -1,6 +1,15 @@
 name: Build Russian translation draft
 on:
   workflow_dispatch:
+    inputs:
+      model:
+        description: 'Модель перевода (по умолчанию базовая OPUS-MT)'
+        required: false
+        default: 'Helsinki-NLP/opus-mt-en-ru'
+      limit:
+        description: 'Только эти развороты, через запятую (пусто — все 165)'
+        required: false
+        default: ''
 permissions:
   contents: write
   issues: write
@@ -8,63 +17,91 @@ permissions:
 jobs:
   translate:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 300
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
       - name: Install translation dependencies
         run: |
           python -m pip install --upgrade pip
+          pip install -r requirements.txt
           pip install torch --index-url https://download.pytorch.org/whl/cpu
           pip install "transformers==4.57.1" sentencepiece sacremoses
-      - name: Translate recovered source
+      - name: Build translation document from verified English
+        run: |
+          set -o pipefail
+          python tools/build_translation_doc.py 2>&1 | tee build.log
+      - name: Translate
+        env:
+          MT_MODEL: ${{ github.event.inputs.model || 'Helsinki-NLP/opus-mt-en-ru' }}
+          LIMIT: ${{ github.event.inputs.limit }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           set -o pipefail
           python tools/translate_opus.py 2>&1 | tee translate.log
-      - name: Post diagnostic log to PR
+      - name: Check the draft against the source
+        if: always()
+        run: |
+          set -o pipefail
+          python tools/mt_report.py 2>&1 | tee report.log || true
+      - name: Commit the rebuilt source document
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Сам черновик и отчёт в репозиторий не кладём: они большие и нужны
+          # только для правки. Забирать их — из артефакта mt-draft ниже.
+          # Коммитим только пересобранный документ, если он изменился.
+          git add translation_sources/work-doc.json || true
+          if git diff --cached --quiet; then
+            echo "work-doc.json не изменился"
+          else
+            git commit -m "Rebuild translation source document" || true
+            git push origin HEAD:${{ github.ref_name }} || true
+          fi
+      - name: Post log to the diagnostics issue
         if: always()
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           python - <<'PY'
-          import json,os,urllib.request
+          import json, os, urllib.request
+          body = ''
+          for name in ('translate.log', 'report.log'):
+              try:
+                  body += '\n=== ' + name + ' ===\n' + open(name, encoding='utf-8', errors='replace').read()[-12000:]
+              except FileNotFoundError:
+                  body += '\n=== ' + name + ' === не создан\n'
+          # Небольшой черновик (контрольный прогон по нескольким разворотам)
+          # прикладываем прямо в комментарий: артефакт не всегда доступен.
           try:
-              log=open('translate.log',encoding='utf-8',errors='replace').read()[:60000]
-          except FileNotFoundError:
-              log='translate.log was not created'
-          body='CI translation log:\n```\n'+log+'\n```'
-          req=urllib.request.Request(
-              'https://api.github.com/repos/'+os.environ['GITHUB_REPOSITORY']+'/issues/2/comments',
-              data=json.dumps({'body':body}).encode(),
-              headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','Content-Type':'application/json'})
+              import os
+              size = os.path.getsize('translation_sources/ru-mt.json')
+          except OSError:
+              size = 0
+          if 0 < size < 40000:
+              body += '\n=== черновик (ru-mt.json) ===\n' + open('translation_sources/ru-mt.json', encoding='utf-8').read()
+          req = urllib.request.Request(
+              'https://api.github.com/repos/' + os.environ['GITHUB_REPOSITORY'] + '/issues/2/comments',
+              data=json.dumps({'body': 'CI translation log:\n```' + body[:55000] + '\n```'}).encode(),
+              headers={'Authorization': 'Bearer ' + os.environ['GH_TOKEN'],
+                       'Accept': 'application/vnd.github+json',
+                       'Content-Type': 'application/json'})
           try:
               print(urllib.request.urlopen(req).status)
-          except Exception as e:
-              print('comment failed',e)
+          except Exception as error:
+              print('comment failed', error)
           PY
-      - name: Commit diagnostics and any partial output
+      - name: Upload artifacts
         if: always()
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add translate.log translation_sources/ru-opus.json translation_sources/ru-opus-stats.json || true
-          git commit -m "CI translation diagnostics [skip ci]" || true
-          git push origin HEAD:${{ github.ref_name }} || true
-      - name: Upload translation log
-        if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
-          name: translate-log
-          path: translate.log
-          retention-days: 7
-      - name: Upload translation artifact
-        if: success()
-        uses: actions/upload-artifact@v4
-        with:
-          name: ru-opus-translation
+          name: mt-draft
           path: |
-            translation_sources/ru-opus.json
-            translation_sources/ru-opus-stats.json
+            translation_sources/ru-mt.json
+            translation_sources/ru-mt-stats.json
+            translate.log
+            report.log
           retention-days: 14
