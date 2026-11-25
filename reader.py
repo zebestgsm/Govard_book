@@ -448,6 +448,9 @@ STYLE = '''
 .spread-89 [data-edit-id="s7"]{white-space:pre-wrap}
 .spread-89 [data-edit-id="s7"] .fleet-title{text-align:center;display:block;font:600 14px/1.4 Georgia,serif;letter-spacing:.06em}
 .spread-89 .verified-footnote{font-size:.78em;line-height:1.5;white-space:pre-line}
+/* Fleet Number table: two date/count groups side by side, as printed. */
+.spread-89 [data-edit-id="s7"] .fee-table .restored-row[style="--numeric-cols:5"]{grid-template-columns:minmax(0,1.4fr) minmax(0,.7fr) minmax(0,.8fr) minmax(0,1.4fr) minmax(0,.7fr) minmax(0,.8fr)}
+.spread-89 [data-edit-id="s7"] .fee-table .restored-row[style="--numeric-cols:5"] .restored-cell:nth-child(4){text-align:left}
 /* Compact dated counts on the Hertfordshire and Horsham pages. */
 .spread-101 .mixed-table,.spread-103 .mixed-table,.spread-106 .mixed-table{font:clamp(10px,.75vw,13px)/1.4 Georgia,serif;max-width:100%;margin:.7em 0}
 .spread-106 .count-number,.spread-112 .count-number{white-space:normal}
