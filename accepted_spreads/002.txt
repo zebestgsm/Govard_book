@@ -14,7 +14,7 @@ estate of his father, a prosperous upholsterer. Then, after several tours abroad
 
 EDITOR'S INTRODUCTION
 
- he had once inspected every English gaol and published his investigations.
+he had once inspected every English gaol and published his investigations.
 
  Not so Howard. Before writing his book he visited every English prison two or three times, then toured Europe twice “conjecturing that something useful to my purpose might be collected abroad.” And this is the manner in which he prepared his work for the Press: “so indefatigable was he in his attention to the business that during a very severe winter he was always called up by two in the morning, though he did not retire to rest until ten, and sometimes half after ten, at night. His reason for his early rising was that he found the morning the stillest part of the day, and that in which he was least disturbed in his work of revising the sheets as they came from the Press.”
 
@@ -22,7 +22,7 @@ EDITOR'S INTRODUCTION
 
  Instead Howard devoted the remainder of his life to the cause he had taken up, and thus those who were not convinced by the argument of his book could hardly fail to be impressed by the example of his life. A second and third edition of The State of the Prisons followed in 1780 and 1784, each the result of further tours of inspection, and about this time the following note appears in one of Howard’s memorandum books:
 
-An Account of the Number of Miles Travelled on the Reform of Prisons
+ An Account of the Number of Miles Travelled on the Reform of Prisons
 
 Journeys
 
@@ -68,7 +68,7 @@ To Worcester
 
 238
 
- To Hertford, Chelmsford, and Warrington
+To Hertford, Chelmsford, and Warrington
 
 602
 
@@ -76,4 +76,4 @@ Total
 
 42,033
 
- To God alone be all praise! I do not regret the loss of many conveniences of life, but bless God who inclined my mind to such a scheme.
+To God alone be all praise! I do not regret the loss of many conveniences of life, but bless God who inclined my mind to such a scheme.
