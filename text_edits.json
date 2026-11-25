@@ -16839,7 +16839,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "needs_work",
         "before": {
           "s0": "CORNWALL",
           "s1": "allowance, have only one-sixth of what they earn. Clauses against spirituous liquors are hung up. The Act for preserving the health of prisoners is not hung up, but the gaol is now kept very neat and clean.",
@@ -16909,6 +16909,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T12:19:03+00:00"
+          },
+          {
+            "action": "needs_work",
+            "time": "2026-11-25T22:30:47+00:00"
           }
         ],
         "after": {
