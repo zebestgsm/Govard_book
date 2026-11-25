@@ -13762,7 +13762,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "SOUTHWARK",
           "s1": "work for the poor of this parish of St. Margaret’s Westminster, as also the county according to law, and for such as will beg and live idle in this city and liberty of Westminster. Anno 1655.”\n\nThis prison has—for men, two day-rooms and three night-rooms—for faulty apprentices, five rooms, ten feet by seven feet two inches; the upper and lower panels of the doors are iron-latticed. For women, a day-room, and four night-rooms. All the night-rooms have barrack beds. They are constantly washed every day; and are quite fresh. The prisoners wash their hands and faces every morning before they come for their allowance. No straw. No infirmary. A little room used as a surgery. A chapel, in which Mr. Smith reads a chapter, and part of the Common Prayer Book every morning.\n\nThe women should have another day-room: and one of the day-rooms for men should be enlarged. The courts adjacent might also be enlarged. The rooms for women, and their court, are now more airy, the garden pales being set farther off. The keeper pays window-tax, and for water. Over the gate is a paper with this inscription: “No person admitted into this prison on a Sunday after nine o’clock in the morning until five in the evening.”\n\nAt my visit in 1777, there were among the felons, two debtors from the Court of Conscience; in 1779, three; and in 1783, six. I always found this prison very clean: and the prisoners calm and placid. There is now a workshop with hemp-blocks, and a room over it. Two of the women’s night-rooms are appropriated to female convicts, who have also a separate court with water, etc. As I have seen several sick objects on the floors, the gentlemen, who are so ready to relieve the sufferings of their fellow-creatures, will forgive the intimation that an infirmary might be made over the women’s ward.\n\nTHE KING’S BENCH PRISON, FOR DEBTORS\n\nNumber:\n\tIn House\tIn Rules\n1774. 26 April\t324\t100\n1776. 28 Jan.\t364\t80\n1776. 28 May\t395 (See remarks.)\t\n1779. 11 Aug.\t511\t75\n1779. 26 Oct.\t438\t60\n1782. 2 Jan.\t450\t7\n1782. 28 Dec.\t485\t30\n1783. 23 Aug.\t532\t50\n\nThis prison was part old buildings, part new.\n\nThe old buildings were—a coffee-room just within the gate—and a street called King Street. On the right hand was the",
@@ -13844,6 +13844,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T12:36:13+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-25T22:39:23+00:00"
           }
         ],
         "after": {
