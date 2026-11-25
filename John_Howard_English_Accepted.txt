@@ -7,7 +7,7 @@ EDITOR'S INTRODUCTION
 
  “Humanitarian” is a modern word coined to express a modern idea, and it is not to be found in Johnson's Dictionary. Life for the privileged classes in his day was a more comfortable business than it had ever been before, or has been since.
 
- Power rested with them alone, and to them everything seemed for the best, in the best possible constitution. The miseries of the unfortunate, on the other hand, were not readily evident owing to the poverty of communications. So it was that glaring evils and hideous cruelties flourished and multiplied with impunity.
+Power rested with them alone, and to them everything seemed for the best, in the best possible constitution. The miseries of the unfortunate, on the other hand, were not readily evident owing to the poverty of communications. So it was that glaring evils and hideous cruelties flourished and multiplied with impunity.
 
  It is true that here and there a Goldsmith or a Cowper made music out of his sympathy for the oppressed. But these merely flattered the sensibilities of their readers: to shatter their hard-headed complacence an exposure of some intolerable abuse was needed, in plain prose, by a man of exceptional tenacity and force of character.
 
@@ -178,11 +178,11 @@ EDITOR'S NOTE
 
  The text given here is taken from the third edition of The State of the Prisons (the last published in Howard’s lifetime) and from the first edition of Lazarettos. In view of the fact that the former work contains five hundred and five quarto pages and the latter two hundred and seventy-two, it is evident that all that Howard wrote could not be reproduced in an “Everyman” volume. Nor would it be desirable to reproduce it all. The greater part of both books consists of detailed descriptions of hundreds of prisons at home and abroad, all of which, with a few exceptions abroad and none at home, have long since been pulled down, and these descriptions now make tedious and unprofitable reading. Accordingly the following pages contain an abridgment of The State of the Prisons, together with some extracts from the volume on lazarettos. All Howard’s general observations on prisons have been retained as written, but a number of descriptions of individual prisons have been omitted altogether, and others much condensed, the principle aimed at being to retain only so much as will give a clear idea of the conditions prevailing at the time. 
 
- A complete list of the English prisons found by Howard to be inhabited will be found among the statistical tables at the end of the book.
+A complete list of the English prisons found by Howard to be inhabited will be found among the statistical tables at the end of the book.
 
  All descriptions of hospitals and lazarettos have also been omitted, but his description of his own experience of quarantine has been retained, for its intrinsic interest. 
 
- Some observations on schools and education, which appear in the Lazaretto volume, also seemed too interesting to be omitted.
+Some observations on schools and education, which appear in the Lazaretto volume, also seemed too interesting to be omitted.
 
 ============================================================
 SOURCE: govard006.pdf (accepted accepted)
