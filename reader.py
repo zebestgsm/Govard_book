@@ -333,47 +333,9 @@ STYLE = '''
 .scan-zoom-viewport:focus-visible{outline:3px solid var(--green);outline-offset:-3px}.scan-zoom-viewport.is-zoomed{max-height:min(70vh,850px);overflow:auto;overscroll-behavior:contain}
 .scan-zoom-viewport .scan-zoom-image{max-width:none}.scan-zoom-hint{font-size:12px;color:var(--muted)}
 
-/* Scan 001: OCR split two printed paragraphs into separate editable pieces. */
-.spread-1 p[data-edit-id="s2"],.spread-1 p[data-edit-id="s3"],.spread-1 p[data-edit-id="s5"],.spread-1 p[data-edit-id="s6"]{display:inline;margin:0}
-.spread-1 p[data-edit-id="s2"] .verified-paragraph,.spread-1 p[data-edit-id="s3"] .verified-paragraph,.spread-1 p[data-edit-id="s5"] .verified-paragraph,.spread-1 p[data-edit-id="s6"] .verified-paragraph{display:inline;margin:0}
-.spread-1 p[data-edit-id="s3"]::before,.spread-1 p[data-edit-id="s6"]::before{content:" "}
-.spread-1 p[data-edit-id="s3"]::after,.spread-1 p[data-edit-id="s6"]::after{content:"";display:block;margin-bottom:1.15em}
-
-/* Restore printed paragraph flow without changing editable segment IDs. */
-.spread-2 p[data-edit-id="s3"],.spread-2 p[data-edit-id="s4"],.spread-2 p[data-edit-id="s8"],.spread-2 p[data-edit-id="s9"],
-.spread-3 p[data-edit-id="s5"],.spread-3 p[data-edit-id="s6"],.spread-3 p[data-edit-id="s10"],.spread-3 p[data-edit-id="s11"],.spread-3 p[data-edit-id="s16"],.spread-3 p[data-edit-id="s17"]{display:inline;margin:0}
-.spread-2 p[data-edit-id="s3"] .verified-paragraph,.spread-2 p[data-edit-id="s4"] .verified-paragraph,.spread-2 p[data-edit-id="s8"] .verified-paragraph,.spread-2 p[data-edit-id="s9"] .verified-paragraph,
-.spread-3 p[data-edit-id="s5"] .verified-paragraph,.spread-3 p[data-edit-id="s6"] .verified-paragraph,.spread-3 p[data-edit-id="s10"] .verified-paragraph,.spread-3 p[data-edit-id="s11"] .verified-paragraph,.spread-3 p[data-edit-id="s16"] .verified-paragraph,.spread-3 p[data-edit-id="s17"] .verified-paragraph{display:inline;margin:0}
-.spread-2 p[data-edit-id="s4"]::before,.spread-2 p[data-edit-id="s9"]::before,.spread-3 p[data-edit-id="s6"]::before,.spread-3 p[data-edit-id="s11"]::before,.spread-3 p[data-edit-id="s17"]::before{content:" "}
-.spread-2 p[data-edit-id="s4"]::after,.spread-2 p[data-edit-id="s9"]::after,.spread-3 p[data-edit-id="s6"]::after,.spread-3 p[data-edit-id="s11"]::after{content:"";display:block;margin-bottom:1.15em}
-
-/* Printed paragraphs split by OCR on the next three spreads. */
-.spread-4 p[data-edit-id="s1"],.spread-4 p[data-edit-id="s2"],.spread-4 p[data-edit-id="s3"],.spread-4 p[data-edit-id="s5"],.spread-4 p[data-edit-id="s6"],
-.spread-5 p[data-edit-id="s3"],.spread-5 p[data-edit-id="s4"],.spread-5 p[data-edit-id="s5"],.spread-5 p[data-edit-id="s6"],
-.spread-6 p[data-edit-id="s4"],.spread-6 p[data-edit-id="s5"]{display:inline;margin:0}
-.spread-4 p[data-edit-id="s1"] .verified-paragraph,.spread-4 p[data-edit-id="s2"] .verified-paragraph,.spread-4 p[data-edit-id="s3"] .verified-paragraph,.spread-4 p[data-edit-id="s5"] .verified-paragraph:last-child,.spread-4 p[data-edit-id="s6"] .verified-paragraph{display:inline;margin:0}
-.spread-4 p[data-edit-id="s2"]::before,.spread-4 p[data-edit-id="s3"]::before,.spread-4 p[data-edit-id="s6"]::before,.spread-5 p[data-edit-id="s4"]::before,.spread-5 p[data-edit-id="s6"]::before,.spread-6 p[data-edit-id="s5"]::before{content:" "}
-.spread-4 p[data-edit-id="s3"]::after,.spread-4 p[data-edit-id="s6"]::after,.spread-5 p[data-edit-id="s4"]::after{content:"";display:block;margin-bottom:1.15em}
-
-/* Rejoin OCR fragments belonging to the same printed paragraph. */
-.spread-7 p[data-edit-id="s2"],.spread-7 p[data-edit-id="s3"],.spread-7 p[data-edit-id="s9"],.spread-7 p[data-edit-id="s10"],.spread-7 p[data-edit-id="s12"],.spread-7 p[data-edit-id="s13"],.spread-7 p[data-edit-id="s14"],.spread-7 p[data-edit-id="s15"],.spread-8 p[data-edit-id="s5"],.spread-8 p[data-edit-id="s6"],.spread-8 p[data-edit-id="s7"],.spread-8 p[data-edit-id="s11"],.spread-8 p[data-edit-id="s12"],.spread-9 p[data-edit-id="s2"],.spread-9 p[data-edit-id="s3"],.spread-9 p[data-edit-id="s4"],.spread-9 p[data-edit-id="s6"],.spread-9 p[data-edit-id="s7"],.spread-9 p[data-edit-id="s11"],.spread-9 p[data-edit-id="s12"]{display:inline;margin:0}
-.spread-7 p[data-edit-id="s2"] .verified-paragraph,.spread-7 p[data-edit-id="s3"] .verified-paragraph,.spread-7 p[data-edit-id="s9"] .verified-paragraph,.spread-7 p[data-edit-id="s10"] .verified-paragraph,.spread-7 p[data-edit-id="s12"] .verified-paragraph,.spread-7 p[data-edit-id="s13"] .verified-paragraph,.spread-7 p[data-edit-id="s14"] .verified-paragraph,.spread-7 p[data-edit-id="s15"] .verified-paragraph,.spread-8 p[data-edit-id="s5"] .verified-paragraph,.spread-8 p[data-edit-id="s6"] .verified-paragraph,.spread-8 p[data-edit-id="s7"] .verified-paragraph,.spread-8 p[data-edit-id="s11"] .verified-paragraph,.spread-8 p[data-edit-id="s12"] .verified-paragraph,.spread-9 p[data-edit-id="s2"] .verified-paragraph,.spread-9 p[data-edit-id="s3"] .verified-paragraph,.spread-9 p[data-edit-id="s4"] .verified-paragraph,.spread-9 p[data-edit-id="s6"] .verified-paragraph,.spread-9 p[data-edit-id="s7"] .verified-paragraph,.spread-9 p[data-edit-id="s11"] .verified-paragraph,.spread-9 p[data-edit-id="s12"] .verified-paragraph{display:inline;margin:0}
-.spread-7 p[data-edit-id="s3"]::before,.spread-7 p[data-edit-id="s10"]::before,.spread-7 p[data-edit-id="s13"]::before,.spread-7 p[data-edit-id="s15"]::before,.spread-8 p[data-edit-id="s6"]::before,.spread-8 p[data-edit-id="s7"]::before,.spread-8 p[data-edit-id="s12"]::before,.spread-9 p[data-edit-id="s3"]::before,.spread-9 p[data-edit-id="s4"]::before,.spread-9 p[data-edit-id="s7"]::before,.spread-9 p[data-edit-id="s12"]::before{content:" "}
-.spread-7 p[data-edit-id="s3"]::after,.spread-7 p[data-edit-id="s10"]::after,.spread-7 p[data-edit-id="s13"]::after,.spread-7 p[data-edit-id="s15"]::after,.spread-8 p[data-edit-id="s7"]::after,.spread-8 p[data-edit-id="s12"]::after,.spread-9 p[data-edit-id="s4"]::after,.spread-9 p[data-edit-id="s7"]::after,.spread-9 p[data-edit-id="s12"]::after{content:"";display:block;margin-bottom:1.15em}
-
-/* On spread 7, s5 contains the end of one paragraph and the start of the next. */
-.spread-7 p[data-edit-id="s4"],.spread-7 p[data-edit-id="s5"],.spread-7 p[data-edit-id="s6"],.spread-7 p[data-edit-id="s7"],.spread-7 p[data-edit-id="s8"]{display:inline;margin:0}
-.spread-7 p[data-edit-id="s4"] .verified-paragraph,.spread-7 p[data-edit-id="s5"] .verified-paragraph,.spread-7 p[data-edit-id="s6"] .verified-paragraph,.spread-7 p[data-edit-id="s7"] .verified-paragraph,.spread-7 p[data-edit-id="s8"] .verified-paragraph{display:inline;margin:0}
-.spread-7 p[data-edit-id="s5"]::before,.spread-7 p[data-edit-id="s6"]::before,.spread-7 p[data-edit-id="s7"]::before,.spread-7 p[data-edit-id="s8"]::before{content:" "}
-.spread-7 p[data-edit-id="s5"] .verified-paragraph + .verified-paragraph::before{content:"";display:block;margin-bottom:1.15em}
-.spread-7 p[data-edit-id="s8"]::after{content:"";display:block;margin-bottom:1.15em}
-
-/* Keep scan-verified paragraphs continuous across OCR segment boundaries. */
-.spread-16 p[data-edit-id="s3"],.spread-16 p[data-edit-id="s4"],.spread-16 p[data-edit-id="s5"],.spread-16 p[data-edit-id="s6"],.spread-17 p[data-edit-id="s5"],.spread-17 p[data-edit-id="s6"]{display:inline;margin:0}
-.spread-16 p[data-edit-id="s3"] .verified-paragraph,.spread-16 p[data-edit-id="s4"] .verified-paragraph,.spread-16 p[data-edit-id="s5"] .verified-paragraph,.spread-16 p[data-edit-id="s6"] .verified-paragraph,.spread-17 p[data-edit-id="s5"] .verified-paragraph,.spread-17 p[data-edit-id="s6"] .verified-paragraph{display:inline;margin:0}
-.spread-16 p[data-edit-id="s4"]::before,.spread-16 p[data-edit-id="s5"]::before,.spread-16 p[data-edit-id="s6"]::before,.spread-17 p[data-edit-id="s6"]::before{content:" "}
-.spread-16 p[data-edit-id="s5"] .verified-paragraph + .verified-paragraph::before,.spread-17 p[data-edit-id="s6"] .verified-paragraph + .verified-paragraph::before{content:"";display:block;margin-bottom:1.15em}
-.spread-16 p[data-edit-id="s6"]::after,.spread-17 p[data-edit-id="s6"]::after{content:"";display:block;margin-bottom:1.15em}
+/* Verified text now has correct paragraph breaks (EM), no OCR-split hacks needed. */
+.spread-1 p,.spread-2 p,.spread-3 p,.spread-4 p,.spread-5 p,.spread-6 p,.spread-7 p,.spread-8 p,.spread-9 p,.spread-16 p,.spread-17 p{display:block;margin:0}
+.spread-1 .verified-paragraph,.spread-2 .verified-paragraph,.spread-3 .verified-paragraph,.spread-4 .verified-paragraph,.spread-5 .verified-paragraph,.spread-6 .verified-paragraph,.spread-7 .verified-paragraph,.spread-8 .verified-paragraph,.spread-9 .verified-paragraph,.spread-16 .verified-paragraph,.spread-17 .verified-paragraph{display:block;margin:0}
 .spread-17 h3[data-edit-id="s3"]{margin-bottom:0}.spread-17 h3[data-edit-id="s4"]{margin-top:0}
 
 /* Scale the transcription only; the scan and editor controls remain unchanged. */
