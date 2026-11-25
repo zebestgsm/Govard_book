@@ -17313,7 +17313,7 @@
         }
       ],
       "spread_review": {
-        "state": "ready",
+        "state": "accepted",
         "before": {
           "s0": "NORTHUMBERLAND",
           "s1": "weeks;and were very sickly.Their straw on the st almost worn to dust.Long confinement,and not ha king’s allowance of 2s.6d.a week,had urged them to an escape:after which the gaoler chained them as above is another dungeon for women felons twelve feetH and upstairs a separate room or two.",
@@ -17333,6 +17333,10 @@
           {
             "action": "finish",
             "time": "2026-11-20T11:51:53+00:00"
+          },
+          {
+            "action": "accept",
+            "time": "2026-11-25T22:32:59+00:00"
           }
         ],
         "after": {
