@@ -785,9 +785,6 @@ class SegmentRenderer(HTMLParser):
                                + highlight(value[at:], self.query) + '</span>')
             if self.spread in VERIFIED_PROSE and value:
                 content = render_verified_block(value, self.spread, segment_id, self.query)
-            # одиночные переносы внутри абзаца (как в 089 s3/s7) — показываем как на скане
-            if '\n' in content and '\t' not in value and 'restored-table' not in content and 'restored-row' not in content:
-                content = content.replace('\n', '<br>')
             self.output.append(raw_tag[:-1] + ' data-edit-id="' + segment_id + '">' + content + '</' + tag + '>')
         self.active = None
         self.captured = []
