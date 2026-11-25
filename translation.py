@@ -15,28 +15,25 @@ from pathlib import Path
 import re
 from tempfile import NamedTemporaryFile
 
-from ru_translations_front import TRANSLATIONS as FRONT
-from ru_translations_core import TRANSLATIONS as CORE
-from ru_translations_core2 import TRANSLATIONS as CORE2
-from ru_translations_tables import TRANSLATIONS as TABLES
-from ru_translations_007_009 import TRANSLATIONS as SPREADS_007_009
-from ru_translations_tables2 import TRANSLATIONS as TABLES2
 import ru_context
 
 ROOT = Path(__file__).resolve().parent
 EDITS_FILE = ROOT / 'translation_edits.json'
 MAX_TRANSLATION_CHARS = 50000
 
-BASE_TRANSLATIONS = {}
-for _part in (FRONT, CORE, CORE2, TABLES, SPREADS_007_009, TABLES2):
-    BASE_TRANSLATIONS.update(_part)
-MANUAL_SPREADS = set(BASE_TRANSLATIONS)
+# Единственный источник перевода — новый слой ru_translations_v2.py.
+# Прежние слои (ru_translations_front/core/core2/tables/tables2/007_009 и
+# машинный ru_translations_opus) забракованы заказчиком: они не используются
+# ни для показа, ни как образец, ни как основа. Файлы остались в репозитории
+# только как архив и на работу читалки не влияют.
 try:
-    from ru_translations_opus import TRANSLATIONS as OPUS
-except ImportError:  # the CI draft may not have been generated yet
-    OPUS = {}
-WORKING_SPREADS = set(OPUS) - MANUAL_SPREADS
-BASE_TRANSLATIONS = {**OPUS, **BASE_TRANSLATIONS}
+    from ru_translations_v2 import TRANSLATIONS as V2
+except ImportError:  # the new layer starts empty
+    V2 = {}
+BASE_TRANSLATIONS = dict(V2)
+MANUAL_SPREADS = set(V2)
+WORKING_SPREADS = set()
+TOTAL_SPREADS = 165
 
 
 def load_edits():
@@ -97,8 +94,7 @@ def translation_state(number, edits=None):
     if user:
         return text, 'ваш перевод', True
     if text:
-        status = 'рабочий перевод' if number in WORKING_SPREADS else 'перевод подготовлен'
-        return text, status, False
+        return text, 'новый перевод · ждёт проверки', False
     return '', 'перевод готовится', False
 
 
@@ -223,12 +219,9 @@ def panel(number, query='', english_verified=False, edits=None):
             f'В таблицах разделяйте ячейки табуляцией, строки — переносом строки.</p>'
             f'<button class="button primary" type="submit">Сохранить перевод</button>'
             f'</form></details>')
-    if len(BASE_TRANSLATIONS) >= 165:
-        coverage = (f'Перевод есть для всех 165 разворотов. {len(WORKING_SPREADS)} разворотов — '
-                    'рабочий машинный перевод, требующий редакторской вычитки; '
-                    f'{len(MANUAL_SPREADS)} разворотов подготовлены вручную.')
-    else:
-        coverage = f'Подготовлено переводов: {len(BASE_TRANSLATIONS)} из 165 разворотов. Это частичный перевод книги.'
+    coverage = (f'Перевод сделан заново для {len(BASE_TRANSLATIONS)} разворотов из {TOTAL_SPREADS}. '
+                'Прежний перевод из репозитория не используется: на остальных разворотах '
+                'показано «перевод готовится».')
     return (f'<section class="panel translation-panel" id="translation"><div class="panel-header">'
             f'<span class="panel-title">Русский перевод</span><span class="panel-subtitle">{escape(status)}</span></div>'
             f'{body}{context_notes_html(number)}<div class="translation-tools">{edit}'

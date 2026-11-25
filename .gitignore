@@ -3,3 +3,11 @@ __pycache__/
 .venv/
 scan_overrides/
 translation_edits.json
+
+# Черновик машинного перевода и отчёт CI (создаются workflow, в репозитории не нужны)
+translation_sources/ru-mt.json
+translation_sources/ru-mt-stats.json
+build.log
+translate.log
+report.log
+mt-report.md

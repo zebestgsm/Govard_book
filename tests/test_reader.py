@@ -1,5 +1,7 @@
 """Regression tests for the reader; tests never modify the user's edits."""
 import json
+import shutil
+import subprocess
 import tempfile
 import threading
 import unittest
@@ -109,20 +111,24 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertEqual(reader.segment_state(1)[1][key], second)
 
     def test_accept_and_restore_suggestion(self):
-        suggestion = None
-        for number in range(1, 166):
-            _, segments = reader.segment_state(number)
-            for candidate in reader.review_suggestions(number):
-                if segments.get(candidate['segment'], '').count(candidate['old']) == 1:
-                    suggestion = candidate
-                    break
-            if suggestion:
-                break
-        self.assertIsNotNone(suggestion)
-        self.assertEqual(self.form(f'/review/{number}', {'id': suggestion['id'], 'action': 'accept'})[0], 200)
-        state = inline_editor.load_edits()['spreads'][str(number)]
-        self.assertEqual(state['suggestions'][suggestion['id']]['status'], 'accepted')
-        self.assertEqual(self.form(f'/restore/{number}', {'index': len(state['history']) - 1})[0], 200)
+        # Every earlier spread is now transcribed by hand, so the automated
+        # comparison no longer matches live text. Exercise the flow with a
+        # suggestion built against the current segment instead.
+        number = 160
+        _, segments = reader.segment_state(number)
+        segment_id, original = next((key, value) for key, value in segments.items()
+                                    if 'the' in value and len(value) > 200)
+        at = original.index('the ')
+        suggestion = {'id': '160-1', 'segment': segment_id,
+                      'old': original[at:at + 30], 'new': original[at:at + 30].replace('the ', 'the  ')}
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / 'suggestions.json'
+            path.write_text(json.dumps({'160': [suggestion]}), encoding='utf-8')
+            with patch.object(reader, 'OCR_REVIEW_FILE', path):
+                self.assertEqual(self.form(f'/review/{number}', {'id': suggestion['id'], 'action': 'accept'})[0], 200)
+                state = inline_editor.load_edits()['spreads'][str(number)]
+                self.assertEqual(state['suggestions'][suggestion['id']]['status'], 'accepted')
+                self.assertEqual(self.form(f'/restore/{number}', {'index': len(state['history']) - 1})[0], 200)
         self.assertNotIn(suggestion['id'], inline_editor.load_edits()['spreads'][str(number)]['suggestions'])
 
     def test_static_access_is_restricted(self):
@@ -138,6 +144,706 @@ class ReaderHTTPTests(unittest.TestCase):
                 'Content-Type: application/octet-stream\r\n\r\n').encode() + payload + f'\r\n--{boundary}--\r\n'.encode()
         return self.request(f'/scan-upload/{number}', body, f'multipart/form-data; boundary={boundary}')
 
+    def test_front_spreads_spacing_and_footnote_with_saved_edits(self):
+        # Previously saved partial OCR corrections take priority over the clean
+        # transcription; corrections must be saved to the history as well.
+        examples = {1: ('s2', 'express a modern idea, and', 'classes in his day was a more'),
+                    2: ('s3', 'Courage, for instance, had', 'gaol-fever¹ was not only'),
+                    3: ('s11', 'Minor poets forsook their birthday', 'while in 1780, when Howard')}
+        for number, (segment, first, second) in examples.items():
+            current = reader.segment_state(number)[1][segment]
+            self.assertIn(first, current)
+            self.assertIn(second, current)
+            self.assertEqual(self.save(number, [{'id': segment, 'old': current, 'new': current + ' '}])[0], 200)
+            self.assertEqual(reader.segment_state(number)[1][segment], current + ' ')
+            self.assertEqual(inline_editor.load_edits()['spreads'][str(number)]['history'][-1]['before'], current)
+        page = self.request('/spread/2')[1]
+        self.assertIn('href="#footnote-2-s6-1"', page)
+        self.assertIn('id="footnote-2-s6-1"', page)
+        self.assertIn('might have thought his work well done', page)
+
+    def test_history_review_decisions_persist_without_changing_text(self):
+        original = reader.segment_state(1)[1]['s2']
+        revised = original + ' corrected'
+        self.assertEqual(self.save(1, [{'id': 's2', 'old': original, 'new': revised}])[0], 200)
+        entry = inline_editor.load_edits()['spreads']['1']['history'][0]
+        first_token = reader.history_review_token(entry)
+        page = self.request('/history/1')[1]
+        self.assertIn('Ожидает вашего решения', page)
+        self.assertIn('name="review_token"', page)
+        def decide(token, decision):
+            return self.form('/history-review/1', {'index': '0', 'review_token': token, 'decision': decision})
+        self.assertEqual(decide(first_token, 'accepted')[0], 200)
+        self.assertEqual(reader.segment_state(1)[1]['s2'], revised)
+        self.assertIn('Вы приняли', self.request('/history/1')[1])
+        self.assertEqual(decide(first_token, 'rejected')[0], 409)
+        entry = inline_editor.load_edits()['spreads']['1']['history'][0]
+        self.assertEqual(decide(reader.history_review_token(entry), 'rejected')[0], 200)
+        self.assertIn('требуется продолжить исправление', self.request('/history/1')[1])
+        self.assertIn('/history/1#history-0', self.request('/followup')[1])
+        # Further editing does not silently close the outstanding decision.
+        self.assertEqual(self.save(1, [{'id': 's2', 'old': revised, 'new': revised + '!'}])[0], 200)
+        self.assertIn('/history/1#history-0', self.request('/followup')[1])
+        entry = inline_editor.load_edits()['spreads']['1']['history'][0]
+        self.assertEqual(decide(reader.history_review_token(entry), 'pending')[0], 200)
+        self.assertNotIn('/history/1#history-0', self.request('/followup')[1])
+        self.assertEqual(self.form('/restore/1', {'index': '1'})[0], 200)
+        entry = inline_editor.load_edits()['spreads']['1']['history'][0]
+        self.assertEqual([e['after'] for e in entry['review_history']], ['accepted', 'rejected', 'pending'])
+        self.assertEqual(reader.segment_state(1)[1]['s2'], revised)
+        self.assertEqual(self.form('/restore/1', {'index': '0'})[0], 200)
+        self.assertEqual(reader.segment_state(1)[1]['s2'], original)
+
+    def test_spread_review_workflow_and_safe_restore(self):
+        for n in (1, 2, 3, 107, 165):
+            page = self.request(f'/spread/{n}')[1]
+            for label in ('Решение по развороту', 'Принять', 'Доработать', 'Вернуть предыдущее'):
+                self.assertIn(label, page)
+        def state(n=1):
+            return inline_editor.load_edits()['spreads'].get(str(n), {}).get('spread_review', {})
+        def decision(action, token=None):
+            return self.form('/spread-review/1', {'action': action, 'token': token or reader.history_review_token(state())})
+        initial = reader.segment_state(1)[1]['s2']
+        stale = reader.history_review_token(state())
+        self.assertEqual(decision('start')[0], 200)
+        self.assertEqual(decision('accept', stale)[0], 409)
+        self.assertEqual(self.save(1, [{'id': 's2', 'old': initial, 'new': initial + ' changed'}])[0], 200)
+        self.assertEqual(decision('finish')[0], 200)
+        self.assertIn('ожидает вашего решения', self.request('/spread/1')[1])
+        self.assertEqual(decision('needs_work')[0], 200)
+        self.assertIn('/spread/1#spread-review', self.request('/followup')[1])
+        self.assertEqual(decision('accept')[0], 200)
+        self.assertNotIn('/spread/1#spread-review', self.request('/followup')[1])
+        self.assertEqual(decision('restore')[0], 200)
+        self.assertEqual(reader.segment_state(1)[1]['s2'], initial)
+        self.assertEqual(inline_editor.load_edits()['spreads']['1']['history'][-1]['kind'], 'restore')
+        self.assertEqual(state()['state'], 'restored')
+        # A later change to a modified segment must not be overwritten.
+        self.assertEqual(decision('start')[0], 200)
+        self.assertEqual(self.save(1, [{'id': 's2', 'old': initial, 'new': initial + ' one'}])[0], 200)
+        self.assertEqual(decision('finish')[0], 200)
+        self.assertEqual(self.save(1, [{'id': 's2', 'old': initial + ' one', 'new': initial + ' two'}])[0], 200)
+        self.assertEqual(decision('restore')[0], 409)
+        self.assertEqual(reader.segment_state(1)[1]['s2'], initial + ' two')
+        self.assertEqual(state()['state'], 'ready')
+        self.assertEqual(len(state()['cycles']), 1)
+
+    def test_spread_review_without_prior_snapshot(self):
+        token = reader.history_review_token({})
+        self.assertEqual(self.form('/spread-review/2', {'action': 'needs_work', 'token': token})[0], 200)
+        page = self.request('/spread/2')[1]
+        self.assertIn('Требует продолжения исправлений', page)
+        self.assertIn('value="restore" disabled', page)
+        self.assertIn('/spread/2#spread-review', self.request('/followup')[1])
+
+    def test_spread_14_restored_running_heads_preserve_segment_ids(self):
+        html, segments = reader.segment_state(14)
+        self.assertEqual(html.count('<span class="running-title">BAD CUSTOMS IN PRISONS</span>'), 2)
+        self.assertIn('Into the horrors of the gloomy jail?', segments['s1'])
+        self.assertTrue(segments['s3'].startswith('prison, 20th March'))
+        old = segments['s1']
+        self.assertEqual(self.save(14, [{'id': 's1', 'old': old, 'new': old.replace('horrors', 'horrors corrected')}])[0], 200)
+        self.assertIn('horrors corrected of the gloomy jail', reader.segment_state(14)[1]['s1'])
+
+    def test_spread_17_tables_have_no_invented_or_bold_headers(self):
+        page = self.request('/spread/17')[1]
+        self.assertIn('.spread-17 .fee-table .restored-row:first-child{font-weight:normal;border-bottom:1px solid #e7e3d9}', page)
+        self.assertNotIn('data-editorial-caption', page)
+        self.assertNotIn('editorial-header', page)
+        rendered, _ = reader.segment_state(17)
+        self.assertEqual(rendered.count('role="table"'), 3)
+        self.assertNotIn('role="columnheader"', rendered)
+
+    def test_spread_18_restored_heading_and_running_head(self):
+        _, segments = reader.segment_state(18)
+        original = segments['s2']
+        self.assertEqual(self.save(18, [{'id': 's2', 'old': original, 'new': 'SITUATION\n\n' + original.lstrip()}])[0], 200)
+        rendered, segments = reader.segment_state(18)
+        self.assertIn('<span class="restored-heading">SITUATION</span>', rendered)
+        self.assertEqual(segments['s2'], 'SITUATION\n\n' + original.lstrip())
+        self.assertEqual(rendered.count('PROPOSED IMPROVEMENTS'), 2)
+        self.assertIn('href="#footnote-18-s3-1"', rendered)
+
+    def test_spread_18_fold_words_are_highlighted_without_changing_text(self):
+        from html.parser import HTMLParser
+        class Text(HTMLParser):
+            def __init__(self): super().__init__(); self.parts = []
+            def handle_data(self, text): self.parts.append(text)
+        _, segments = reader.segment_state(18)
+        for key in ('s0', 's1', 's2', 's3'):
+            html = inline_editor.render_verified_block(segments[key], 18, key, '')
+            self.assertIn('class="scan-fold-word"', html)
+            parser = Text(); parser.feed(html)
+            self.assertEqual(''.join(parser.parts), segments[key])
+        html = inline_editor.render_verified_block(segments['s0'], 18, 's0', 'lamented')
+        self.assertIn('<strong class="scan-fold-word"><mark>lamented</mark></strong>', html)
+        edited = segments['s0'].replace('being cherished,', 'being treasured,')
+        self.assertNotIn('<strong class="scan-fold-word">treasured</strong>', inline_editor.render_verified_block(edited, 18, 's0', ''))
+        self.assertIn('Жирным отмечены слова', self.request('/spread/18')[1])
+
+    def test_spread_20_section_heading_remains_editable_text(self):
+        _, segments = reader.segment_state(20)
+        original = segments['s5']
+        self.assertEqual(self.save(20, [{'id': 's5', 'old': original, 'new': 'REGULATIONS\n\n' + original.lstrip()}])[0], 200)
+        rendered, segments = reader.segment_state(20)
+        self.assertIn('<span class="restored-heading">REGULATIONS</span>', rendered)
+        self.assertTrue(segments['s5'].startswith('REGULATIONS\n\n'))
+
+    def test_spread_21_fourth_footnote_link_and_editing(self):
+        html = inline_editor.render_verified_block('Glasgow⁴ said it.\n\n⁴ The note.', 21, 's8', '')
+        self.assertIn('href="#footnote-21-s8-4"', html)
+        self.assertIn('id="footnote-21-s8-4"', html)
+        self.assertEqual(inline_editor.render_verified_block('ordinary ⁴ text', 22, 's8', ''), '<span class="verified-paragraph">ordinary ⁴ text</span>')
+
+    def test_spreads_22_23_restored_and_notes_linked(self):
+        for number, refs in ((22, (('s1', 's2', '1'), ('s1', 's2', '2'), ('s1', 's2', '3'), ('s11', 's11', '1'))),
+                             (23, (('s1', 's1', '1'), ('s10', 's10', '1'), ('s10', 's10', '2'), ('s10', 's10', '3')))):
+            rendered, segments = reader.segment_state(number)
+            for source, target, note in refs:
+                self.assertIn(f'href="#footnote-{number}-{target}-{note}"', rendered)
+                self.assertIn(f'id="footnote-{number}-{target}-{note}"', rendered)
+            self.assertTrue(segments['s1'].startswith('the sick.' if number == 22 else 'according to the act,'))
+            self.assertNotIn('☑ OCR', reader.quality_label(number))
+        self.assertIn('Visitants who are there', reader.segment_state(22)[1]['s11'])
+        self.assertIn('taken care of by the same gentlemen', reader.segment_state(23)[1]['s1'])
+
+    def test_spread_24_restores_text_and_page_local_notes(self):
+        rendered, segments = reader.segment_state(24)
+        self.assertIn('Sir John Pringle observes, p. 51', segments['s1'])
+        self.assertIn('prayers. This would divert them', segments['s7'])
+        for segment, number in (('s1', '1'), ('s1', '2'), ('s7', '1')):
+            self.assertIn(f'href="#footnote-24-{segment}-{number}"', rendered)
+            self.assertIn(f'id="footnote-24-{segment}-{number}"', rendered)
+
+    def test_spread_25_footnote_continues_on_right_page(self):
+        rendered, segments = reader.segment_state(25)
+        self.assertIn('href="#footnote-25-s4-1"', rendered)
+        self.assertIn('id="footnote-25-s4-1"', rendered)
+        self.assertIn('id="footnote-25-s9-1"', rendered)
+        self.assertIn('footnote-continuation', rendered)
+        self.assertTrue(segments['s9'].startswith('of each of the two smaller fines'))
+        self.assertIn('href="#footnote-25-s10-2"', rendered)
+        self.assertIn('id="footnote-25-s10-2"', rendered)
+
+    def test_spreads_26_28_heading_and_cross_page_footnotes(self):
+        h26, s26 = reader.segment_state(26)
+        self.assertIn('<span class="restored-heading">BRIDEWELLS</span>', h26)
+        self.assertIn('id="footnote-26-s5-2"', h26)
+        self.assertTrue(s26['s5'].startswith('orders . . . are hung up'))
+        self.assertIn('href="#footnote-26-s6-1"', h26)
+        h27, s27 = reader.segment_state(27)
+        self.assertIn('href="#footnote-27-s9-5"', h27)
+        self.assertIn('id="footnote-27-s9-5"', h27)
+        self.assertTrue(s27['s9'].endswith('as of'))
+        h28, s28 = reader.segment_state(28)
+        self.assertIn('id="footnote-28-s5-5"', h28)
+        self.assertTrue(s28['s5'].startswith('oak.'))
+        self.assertIn('href="#footnote-28-s6-2"', h28)
+
+    def test_spreads_29_31_section_and_footnotes(self):
+        h29, s29 = reader.segment_state(29)
+        self.assertIn('href="#footnote-29-s10-4"', h29)
+        self.assertIn('id="footnote-29-s10-4"', h29)
+        self.assertTrue(s29['s9'].endswith('charged;'))
+        h30, s30 = reader.segment_state(30)
+        self.assertTrue(s30['s1'].startswith('and was preparing'))
+        self.assertIn('href="#footnote-30-s3-2"', h30)
+        h31, s31 = reader.segment_state(31)
+        for title in ('SECTION IV', 'AN ACCOUNT OF FOREIGN PRISONS', 'HOLLAND'):
+            self.assertIn('<span class="restored-heading">' + title + '</span>', h31)
+        self.assertIn('href="#footnote-31-s4-1"', h31)
+        self.assertTrue(s31['s3'].startswith('cleaned.'))
+
+    def test_spread_33_diet_note_and_beer_table_round_trip(self):
+        from html.parser import HTMLParser
+        class Text(HTMLParser):
+            def __init__(self): super().__init__(); self.parts = []
+            def handle_data(self, text): self.parts.append(text)
+        _, segments = reader.segment_state(33)
+        value = segments['s7']
+        html = inline_editor.render_verified_block(value, 33, 's7', '')
+        self.assertIn('href="#footnote-33-s7-1"', html)
+        self.assertIn('id="footnote-33-s7-1"', html)
+        self.assertIn('role="table" aria-label="Daily beer allowance in cans"', html)
+        self.assertIn('role="columnheader"', html)
+        self.assertIn('\t2½', value)
+        parser = Text(); parser.feed(html)
+        self.assertEqual(''.join(parser.parts), value)
+        self.assertIn('href="#footnote-34-s11-2"', reader.segment_state(34)[0])
+
+    def test_spreads_35_37_table_verse_and_diet_notes(self):
+        from html.parser import HTMLParser
+        class Text(HTMLParser):
+            def __init__(self): super().__init__(); self.parts = []
+            def handle_data(self, text): self.parts.append(text)
+        h35, s35 = reader.segment_state(35)
+        self.assertIn('aria-label="Executions at Amsterdam, 1693–1766"', h35)
+        self.assertNotIn('role="columnheader"', h35)
+        self.assertIn('<span class="book-verse">Virtutis est domare', h35)
+        block = inline_editor.render_verified_block(s35['s1'], 35, 's1', '')
+        parser = Text(); parser.feed(block)
+        self.assertEqual(''.join(parser.parts), s35['s1'])
+        self.assertIn('href="#footnote-36-s9-1"', reader.segment_state(36)[0])
+        self.assertIn('href="#footnote-37-s1-1"', reader.segment_state(37)[0])
+        self.assertIn('href="#footnote-37-s9-3"', reader.segment_state(37)[0])
+
+    def test_spreads_38_40_germany_and_footnotes(self):
+        h38, s38 = reader.segment_state(38)
+        self.assertIn('<span class="restored-heading">GERMANY</span>', h38)
+        self.assertTrue(s38['s1'].endswith('magistrates,'))
+        self.assertTrue(s38['s11'].startswith('he may take in as boarders'))
+        h39, s39 = reader.segment_state(39)
+        self.assertIn('href="#footnote-39-s1-1"', h39)
+        self.assertIn('six sous (3¼d.)', s39['s8'])
+        self.assertIn('two marien grosche (or 2½d.)', s39['s8'])
+        h40, s40 = reader.segment_state(40)
+        self.assertIn('href="#footnote-40-s6-1"', h40)
+        self.assertTrue(s40['s6'].endswith('Of Torture.'))
+
+    def test_spreads_41_43_prose_and_note(self):
+        _, s41 = reader.segment_state(41)
+        self.assertTrue(s41['s1'].endswith('keys to the'))
+        self.assertTrue(s41['s8'].startswith('turnkey.'))
+        h42, s42 = reader.segment_state(42)
+        self.assertIn('href="#footnote-42-s8-1"', h42)
+        self.assertIn('peeled barley, oats or buck-wheat', s42['s1'])
+        h43, s43 = reader.segment_state(43)
+        self.assertIn('<span class="restored-heading">SWEDEN</span>', h43)
+        self.assertIn('since 1771, whipping, and slavery for life', s43['s1'])
+        self.assertTrue(s43['s13'].endswith('When'))
+
+    def test_spreads_44_46_prose_and_footnotes(self):
+        h44, s44 = reader.segment_state(44)
+        self.assertIn('href="#footnote-44-s1-1"', h44)
+        self.assertIn('href="#footnote-44-s7-1"', h44)
+        self.assertIn('the cellar still open', s44['s1'])
+        h45, s45 = reader.segment_state(45)
+        for number in ('1', '2', '3'):
+            self.assertIn('href="#footnote-45-s11-' + number + '"', h45)
+        self.assertIn('salary of £50 per annum', s45['s1'])
+        _, s46 = reader.segment_state(46)
+        self.assertTrue(s46['s1'].endswith('deserters, and criminals'))
+        self.assertTrue(s46['s10'].startswith('of various sorts'))
+
+    def test_spreads_47_49_prose_and_footnotes(self):
+        h47, s47 = reader.segment_state(47)
+        self.assertIn('href="#footnote-47-s8-1"', h47)
+        self.assertIn('For some months at first they are allowed meat', s47['s1'])
+        h48, s48 = reader.segment_state(48)
+        self.assertIn('href="#footnote-48-s1-1"', h48)
+        self.assertIn('href="#footnote-48-s9-1"', h48)
+        self.assertIn('the prisoners subsisting chiefly by charitable contributions', s48['s9'])
+        h49, s49 = reader.segment_state(49)
+        self.assertIn('href="#footnote-49-s6-1"', h49)
+        self.assertIn('twenty copecks (6½d.)', s49['s1'])
+        self.assertIn('two grosche (3¼d.)', s49['s6'])
+
+    def test_spreads_50_52_and_missing_scan_notice(self):
+        h50, s50 = reader.segment_state(50)
+        for number in ('1', '2', '3'):
+            self.assertIn('href="#footnote-50-s7-' + number + '"', h50)
+        self.assertIn('<span class="restored-heading">GERMANY</span>', h50)
+        h51, s51 = reader.segment_state(51)
+        self.assertIn('href="#footnote-51-s1-1"', h51)
+        self.assertIn('href="#footnote-51-s11-2"', h51)
+        self.assertIn('страницы 86–87', reader.reader_page(50))
+        self.assertIn('страницы 86–87', reader.reader_page(51))
+        h52, s52 = reader.segment_state(52)
+        self.assertIn('href="#footnote-52-s6-2"', h52)
+        self.assertIn('book-verse inscription', h52)
+        self.assertIn('JUSTITIÆ ET CLEMENTIÆ', s52['s6'])
+        self.assertTrue(s52['s1'].endswith('other public buildings.'))
+
+    def test_arabic_numbered_footnotes_are_styled_and_links_resolve(self):
+        from html.parser import HTMLParser
+        class Text(HTMLParser):
+            def __init__(self):
+                super().__init__()
+                self.text = ''
+            def handle_data(self, data):
+                self.text += data
+        for number, targets in {
+            42: [('s8', '1')], 44: [('s1', '1'), ('s7', '1')],
+            45: [('s11', '1'), ('s11', '2'), ('s11', '3')],
+            47: [('s8', '1')], 48: [('s1', '1'), ('s9', '1')],
+            49: [('s6', '1')], 50: [('s7', '1'), ('s7', '2'), ('s7', '3')],
+            51: [('s1', '1'), ('s11', '1'), ('s11', '2')],
+            52: [('s1', '1'), ('s6', '1'), ('s6', '2')],
+        }.items():
+            html, segments = reader.segment_state(number)
+            for segment, note in targets:
+                target = f'footnote-{number}-{segment}-{note}'
+                self.assertIn(f'href="#{target}"', html)
+                self.assertIn(f'class="book-footnote verified-footnote" id="{target}"', html)
+                block = inline_editor.render_verified_block(segments[segment], number, segment, '')
+                parser = Text()
+                parser.feed(block)
+                self.assertEqual(parser.text, segments[segment])
+        ordinary = inline_editor.render_verified_block('1 This is numbered prose.', 42, 's1', '')
+        self.assertIn('verified-paragraph', ordinary)
+        self.assertNotIn('verified-footnote', ordinary)
+        self.assertIn('font-size:.78em', reader.reader_page(42))
+
+    def test_spreads_53_55_inscriptions_and_footnotes(self):
+        h53, s53 = reader.segment_state(53)
+        self.assertIn('href="#footnote-53-s7-1"', h53)
+        self.assertIn('class="book-footnote verified-footnote" id="footnote-53-s7-1"', h53)
+        self.assertIn('Domine, cum veneris judicare', s53['s7'])
+        h54, s54 = reader.segment_state(54)
+        self.assertEqual(h54.count('book-verse inscription'), 5)
+        self.assertIn('INSTRUCTI REIPUBLICÆ SERVIANT.', s54['s1'])
+        h55, s55 = reader.segment_state(55)
+        for segment in ('s1', 's8'):
+            for number in ('1', '2'):
+                target = f'footnote-55-{segment}-{number}'
+                self.assertIn(f'href="#{target}"', h55)
+                self.assertIn(f'class="book-footnote verified-footnote" id="{target}"', h55)
+        self.assertIn('From the heat of the climate', s55['s8'])
+        self.assertIn('350,061', s55['s1'])
+
+    def test_spreads_56_58_headings_and_footnotes(self):
+        for number, destinations in {
+            56: [('s1', '1'), ('s1', '2'), ('s1', '3')],
+            57: [('s1', '1'), ('s6', '1'), ('s6', '2')],
+            58: [('s1', '1'), ('s10', '1'), ('s10', '2')],
+        }.items():
+            html, segments = reader.segment_state(number)
+            for segment, note in destinations:
+                target = f'footnote-{number}-{segment}-{note}'
+                self.assertIn(f'href="#{target}"', html)
+                self.assertIn(f'class="book-footnote verified-footnote" id="{target}"', html)
+        h57, s57 = reader.segment_state(57)
+        self.assertIn('<span class="restored-heading">GENEVA</span>', h57)
+        self.assertIn('<span class="restored-heading">SWITZERLAND</span>', h57)
+        self.assertIn('two feet five inches by one foot five', s57['s1'])
+        self.assertIn('a hundred to two hundred', reader.segment_state(54)[1]['s5'])
+
+    def test_spreads_59_61_heading_inscription_and_footnotes(self):
+        for number, destinations in {59: [('s1', '1'), ('s1', '2'), ('s9', '1')], 60: [('s1', '1')]}.items():
+            html, segments = reader.segment_state(number)
+            for segment, note in destinations:
+                target = f'footnote-{number}-{segment}-{note}'
+                self.assertIn(f'href="#{target}"', html)
+                self.assertIn(f'class="book-footnote verified-footnote" id="{target}"', html)
+        h59, s59 = reader.segment_state(59)
+        self.assertIn('<span class="restored-heading">GERMANY</span>', h59)
+        h60, s60 = reader.segment_state(60)
+        self.assertIn('book-verse inscription', h60)
+        self.assertIn('upon bread and water can work hard', s60['s13'])
+        _, s61 = reader.segment_state(61)
+        self.assertTrue(s61['s8'].startswith('we should not despair'))
+
+    def test_spreads_62_64_notes_regulations_and_list(self):
+        h62, s62 = reader.segment_state(62)
+        for segment in ('s1', 's5'):
+            target = f'footnote-62-{segment}-1'
+            self.assertIn(f'href="#{target}"', h62)
+            self.assertIn(f'class="book-footnote verified-footnote" id="{target}"', h62)
+        self.assertIn('<span class="restored-heading">AUSTRIAN FLANDERS</span>', h62)
+        self.assertIn('regulation-extract', h62)
+        h63, s63 = reader.segment_state(63)
+        self.assertIn('regulation-extract', h63)
+        self.assertIn('no prisoners sleep underground', s63['s10'])
+        h64, s64 = reader.segment_state(64)
+        self.assertIn('class="book-footnote verified-footnote" id="footnote-64-s1-1"', h64)
+        self.assertIn('class="book-list"', h64)
+        self.assertIn('14. Punishment for the default.', s64['s7'])
+
+    def test_spreads_65_67_headings_and_notes(self):
+        for number, destinations in {66: [('s1', '1')], 67: [('s1', '1'), ('s1', '2'), ('s5', '1')]}.items():
+            html, segments = reader.segment_state(number)
+            for segment, note in destinations:
+                target = f'footnote-{number}-{segment}-{note}'
+                self.assertIn(f'href="#{target}"', html)
+                self.assertIn(f'class="book-footnote verified-footnote" id="{target}"', html)
+        h66, s66 = reader.segment_state(66)
+        self.assertIn('<span class="restored-heading">PORTUGAL</span>', h66)
+        h67, s67 = reader.segment_state(67)
+        self.assertIn('<span class="restored-heading">SPAIN</span>', h67)
+        self.assertIn('three hundred and nine men and five hundred and forty-seven women', s67['s5'])
+        self.assertTrue(reader.segment_state(65)[1]['s5'].endswith('In consequence of this vile policy I'))
+
+    def test_spreads_68_70_diet_and_text(self):
+        html, segments = reader.segment_state(68)
+        self.assertIn('href="#footnote-68-s2-1"', html)
+        self.assertIn('id="footnote-68-s2-1"', html)
+        self.assertIn('href="#footnote-68-s6-2"', html)
+        self.assertIn('id="footnote-68-s6-2"', html)
+        self.assertIn('verified-footnote diet-note', html)
+        self.assertIn('²ollas', segments['s3'])
+        h69, s69 = reader.segment_state(69)
+        self.assertIn('<span class="restored-heading">FRENCH FLANDERS AND FRANCE</span>', h69)
+        self.assertIn('AN ACCOUNT OF FOREIGN PRISONS', s69['s0'])
+        _, s70 = reader.segment_state(70)
+        self.assertIn('offensive smell which I had often perceived', s70['s10'])
+
+    def test_spreads_71_73_prose_and_notes(self):
+        h71, s71 = reader.segment_state(71)
+        self.assertIn('a contagious disease', s71['s1'])
+        self.assertIn('data-edit-id="s5"><span class="verified-paragraph">FRANCE', h71)
+        h72, s72 = reader.segment_state(72)
+        self.assertIn('the debtor pays no costs of arrests', s72['s1'])
+        self.assertIn('<span class="running-title">FRANCE</span>', h72)
+        h73, s73 = reader.segment_state(73)
+        self.assertIn('href="#footnote-73-s7-1"', h73)
+        self.assertIn('href="#footnote-73-s12-1"', h73)
+        self.assertIn('id="footnote-73-s7-1"', h73)
+        self.assertIn('id="footnote-73-s12-1"', h73)
+        self.assertIn('role="table" aria-label="Prisoners in the Grand Châtelet"', h73)
+        self.assertIn('Total\t305', s73['s7'])
+
+    def test_spreads_74_76_cross_page_notes(self):
+        h74, s74 = reader.segment_state(74)
+        self.assertIn('href="#footnote-74-s7-1"', h74)
+        self.assertIn('Sir William Blackstone', s74['s7'])
+        h75, s75 = reader.segment_state(75)
+        self.assertIn('footnote-continuation', h75)
+        for note in ('1', '2'):
+            self.assertIn('href="#footnote-75-s4-' + note + '"', h75)
+            self.assertIn('id="footnote-75-s4-' + note + '"', h75)
+            self.assertIn('href="#footnote-75-s5-' + note + '"', h75)
+            self.assertIn('id="footnote-75-s5-' + note + '"', h75)
+        self.assertIn('54,000 lettres de cachet', s75['s4'])
+        h76, s76 = reader.segment_state(76)
+        self.assertIn('href="#footnote-76-s6-1"', h76)
+        self.assertIn('id="footnote-76-s6-1"', h76)
+        self.assertIn('Protestants are not compelled', s76['s6'])
+
+    def test_spreads_77_79_headings_notes_and_table(self):
+        h77, s77 = reader.segment_state(77)
+        self.assertIn('<span class="restored-heading">MALTA</span>', h77)
+        self.assertIn('<span class="restored-heading">TURKEY</span>', h77)
+        self.assertIn('href="#footnote-77-s1-1"', h77)
+        self.assertIn('href="#footnote-77-s4-1"', h77)
+        self.assertIn('nine sous (4½d.)', s77['s1'])
+        h78, s78 = reader.segment_state(78)
+        self.assertEqual('SECTION V', s78['s0'])
+        self.assertIn('<span class="restored-heading">PRISONERS OF WAR IN ENGLAND, ETC.</span>', h78)
+        self.assertIn('href="#footnote-78-s1-1"', h78)
+        self.assertIn('href="#footnote-78-s6-1"', h78)
+        h79, s79 = reader.segment_state(79)
+        self.assertIn('href="#footnote-79-s7-1"', h79)
+        self.assertIn('role="table" aria-label="Prisoners of war received at Forton, 1777–1782"', h79)
+        self.assertIn('Total\t\t\t16,882\t419', s79['s3'])
+        self.assertIn('<span class="restored-heading">AMERICAN PRISONERS</span>', h79)
+
+    def test_spreads_80_82_scotland_and_ireland(self):
+        h80, s80 = reader.segment_state(80)
+        self.assertIn('<span class="restored-heading">SECTION VI</span>', h80)
+        self.assertIn('<span class="restored-heading">SCOTCH AND IRISH PRISONS</span>', h80)
+        self.assertIn('the Judges thereof shall continue', s80['s2'])
+        h81, s81 = reader.segment_state(81)
+        self.assertIn('role="table" aria-label="Prisoners in Scotland, September 1782"', h81)
+        self.assertIn('Edinburgh Tolbooth\t13\t22', s81['s8'])
+        self.assertIn('href="#footnote-81-s1-2"', h81)
+        self.assertIn('id="footnote-81-s8-1"', h81)
+        h82, s82 = reader.segment_state(82)
+        self.assertIn('href="#footnote-82-s1-2"', h82)
+        for number in '1234':
+            self.assertIn('id="footnote-82-s1-' + number + '"', h82)
+        self.assertIn('href="#footnote-82-s8-1"', h82)
+        self.assertIn('prisoners thus confined', s82['s8'])
+
+    def test_spreads_83_85_irish_prisons_and_new_section(self):
+        h83, s83 = reader.segment_state(83)
+        self.assertIn('Criminals are made turnkeys', s83['s5'])
+        for note in ('1', '2'):
+            self.assertIn('href="#footnote-83-s5-' + note + '"', h83)
+            self.assertIn('id="footnote-83-s5-' + note + '"', h83)
+        h84, s84 = reader.segment_state(84)
+        self.assertEqual(3, h84.count('role="table" aria-label="Dublin prisoners by visit date"'))
+        self.assertEqual(6, h84.count('class="restored-row" role="row"'))
+        self.assertNotIn('role="columnheader"', h84)
+        self.assertIn('1787, 29 May.\tDebtor 1.\tFelons, etc. 190.', s84['s5'])
+        self.assertIn('1788, 24 March.\t„ „ 12.', s84['s5'])
+        self.assertIn('.spread-84 [data-edit-id="s5"] .mixed-table', reader.STYLE)
+        self.assertIn('3s. 9½d.', s84['s5'])
+        self.assertIn('href="#footnote-84-s2-1"', h84)
+        self.assertIn('href="#footnote-84-s5-2"', h84)
+        h85, s85 = reader.segment_state(85)
+        self.assertIn('href="#footnote-85-s1-1"', h85)
+        self.assertIn('<span class="restored-heading">SECTION VII</span>', h85)
+        self.assertIn('<span class="restored-heading">A PARTICULAR ACCOUNT OF ENGLISH PRISONS</span>', h85)
+        self.assertIn('his salary, nor the fees', s85['s1'])
+
+    def test_spreads_86_88_newgate_tables_and_notes(self):
+        h86, s86 = reader.segment_state(86)
+        self.assertIn('<span class="restored-heading">THE TOWER</span>', h86)
+        self.assertIn('id="footnote-86-s1-2"', h86)
+        self.assertIn('the Office of Ordnance', s86['s10'])
+        h87, s87 = reader.segment_state(87)
+        self.assertIn('href="#footnote-87-s20-1"', h87)
+        self.assertIn('href="#footnote-87-s20-2"', h87)
+        self.assertIn('role="table" aria-label="Newgate prisoners by visit date"', h87)
+        self.assertIn('8½ oz. August 1783, 9½ oz.', s87['s2'])
+        self.assertIn('1783. 22 Aug.\t113\t224', s87['s2'])
+        h88, s88 = reader.segment_state(88)
+        self.assertIn('href="#footnote-88-s1-1"', h88)
+        self.assertIn('href="#footnote-88-s12-1"', h88)
+        self.assertIn('footnote-continuation', h88)
+        self.assertIn('For every felon’s discharge\t0\t18\t10', s88['s12'])
+
+    def test_spreads_89_91_fleet_and_rules(self):
+        h89, s89 = reader.segment_state(89)
+        self.assertIn('role="table" aria-label="Newgate fees continued"', h89)
+        self.assertIn('For every bailable warrant\t3\t6\t8', s89['s1'])
+        for number in ('1', '2'):
+            self.assertIn('href="#footnote-89-s7-' + number + '"', h89)
+            self.assertIn('id="footnote-89-s7-' + number + '"', h89)
+        self.assertIn('1782. 8 Jan.\t62\t6', s89['s7'])
+        h90, s90 = reader.segment_state(90)
+        self.assertIn('href="#footnote-90-s1-1"', h90)
+        self.assertIn('Honourable XX of the Court', s90['s10'])
+        self.assertIn('role="table" aria-label="Fleet Prison — Clerk of the Papers fees, 1727"', h90)
+        h91, s91 = reader.segment_state(91)
+        self.assertIn('<span class="restored-heading">HILARY 3d GEORGE II. 1729</span>', h91)
+        self.assertIn('book-list', h91)
+        self.assertIn('they were to raise contributions', s91['s7'].lower())
+
+    def test_spreads_92_94_tables_and_continued_notes(self):
+        h92, s92 = reader.segment_state(92)
+        self.assertIn('role="table" aria-label="Fleet warden’s fees, 1729"', h92)
+        self.assertIn('role="table" aria-label="Fleet warden’s fees, continued"', h92)
+        self.assertIn('warden per week\t0\t0\t7½', s92['s7'])
+        self.assertIn('href="#footnote-92-s7-1"', h92)
+        self.assertIn('<span class="restored-heading">POULTRY COMPTER</span>', h92)
+        h93, s93 = reader.segment_state(93)
+        self.assertIn('href="#footnote-93-s1-1"', h93)
+        self.assertIn('id="footnote-93-s17-1"', h93)
+        self.assertIn('footnote-continuation', h93)
+        self.assertIn('Dr. Smith’s attention', s93['s17'])
+        self.assertIn('<span class="restored-heading">WOOD STREET COMPTER</span>', h93)
+        h94, s94 = reader.segment_state(94)
+        self.assertIn('<span class="restored-heading">BRIDEWELL</span>', h94)
+        for number in ('1', '2'):
+            self.assertIn('href="#footnote-94-s3-' + number + '"', h94)
+            self.assertIn('id="footnote-94-s3-' + number + '"', h94)
+        self.assertIn('eight and a half ounces', s94['s9'])
+
+    def test_spreads_95_97_prisons_and_tables(self):
+        h95, s95 = reader.segment_state(95)
+        self.assertIn('faulty apprentices and Bridewell boys', s95['s1'])
+        self.assertIn('1772\t1709\t1778\t1027', s95['s3'])
+        self.assertIn('<span class="restored-heading">WHITECHAPEL PRISON FOR DEBTORS</span>', h95)
+        self.assertIn('<span class="restored-heading">THE SAVOY</span>', h95)
+        self.assertIn('2s. 10½d.', s95['s6'])
+        h96, s96 = reader.segment_state(96)
+        self.assertIn('<span class="restored-heading">TOTHILL-FIELDS BRIDEWELL</span>', h96)
+        self.assertIn('Dec. 1782, 8½ oz. Oct. 1783, 9½ oz.', s96['s8'])
+        self.assertIn('role="table" aria-label="Tothill-fields prisoners by visit date"', h96)
+        h97, s97 = reader.segment_state(97)
+        self.assertIn('<span class="restored-heading">THE KING’S BENCH PRISON, FOR DEBTORS</span>', h97)
+        self.assertIn('1783. 23 Aug.\t532\t50', s97['s1'])
+        self.assertIn('role="table" aria-label="King’s Bench prisoners by visit date"', h97)
+        self.assertIn('a hundred and eight new rooms', s97['s8'])
+
+    def test_text_size_controls_and_browser_preference(self):
+        page = self.request('/spread/107')[1]
+        for marker in ('text-size-tools', 'text-size-down', 'text-size-up', 'text-size-reset', '--text-size-scale'):
+            self.assertIn(marker, page)
+        if not shutil.which('node'):
+            self.skipTest('node is needed to exercise browser controls')
+        script = reader.TEXT_SIZE_SCRIPT.removeprefix('<script>').removesuffix('</script>')
+        harness = r'''
+const assert = require('assert');
+let stored = '130', throws = false;
+const localStorage = {getItem(){if(throws)throw Error(); return stored}, setItem(k,v){if(throws)throw Error(); stored=v}};
+let elements;
+function load(){
+ elements={};
+ for(const id of ['text-size-tools','editable-book','text-size-down','text-size-up','text-size-reset','text-size-value'])
+   elements[id]={hidden:true, disabled:false, textContent:'', style:{setProperty(k,v){this[k]=v}}, addEventListener(k,f){this[k]=f}};
+ const document={getElementById(id){return elements[id]}};
+ new Function('document','localStorage', SCRIPT)(document,localStorage);
+}
+load();
+assert.equal(elements['text-size-value'].textContent,'130%');
+elements['text-size-up'].click(); assert.equal(stored,'140');
+load(); assert.equal(elements['editable-book'].style['--text-size-scale'],'1.4');
+for(let i=0;i<20;i++) elements['text-size-up'].click();
+assert.equal(elements['text-size-value'].textContent,'160%'); assert(elements['text-size-up'].disabled);
+elements['text-size-reset'].click(); assert.equal(stored,'100');
+for(let i=0;i<20;i++) elements['text-size-down'].click();
+assert.equal(elements['text-size-value'].textContent,'80%'); assert(elements['text-size-down'].disabled);
+throws=true; load(); assert.equal(elements['text-size-value'].textContent,'100%'); elements['text-size-up'].click();
+assert.equal(elements['text-size-value'].textContent,'110%');
+'''
+        subprocess.run(['node', '-e', 'const SCRIPT=' + json.dumps(script) + ';' + harness], check=True)
+
+    def test_scan_zoom_controls_and_detail_image(self):
+        page = self.request('/spread/107')[1]
+        for marker in ('scan-zoom-toolbar', 'scan-zoom-in', 'scan-zoom-out', 'scan-zoom-reset', 'data-detail-src', 'detail=1', 'scan-fullscreen', 'scan-fullscreen-close', 'scan-fullscreen-view', 'aria-modal="true"'):
+            self.assertIn(marker, page)
+        normal = reader.pymupdf.Pixmap(reader.scan_image(107))
+        detail = reader.pymupdf.Pixmap(reader.scan_image(107, detail=True))
+        self.assertGreater(detail.width, normal.width)
+        self.assertGreater(detail.height, normal.height)
+        self.assertEqual(self.request('/scan/107.jpg?detail=1')[0], 200)
+        original = reader.pymupdf.Pixmap(reader.scan_image(14))
+        rotated_detail = reader.pymupdf.Pixmap(reader.scan_image(14, detail=True))
+        self.assertGreater(rotated_detail.width, rotated_detail.height)
+        self.assertGreater(rotated_detail.width, original.width)
+        pdf = reader.pymupdf.open(); pdf.new_page(width=100, height=50)
+        payload = pdf.tobytes(); pdf.close()
+        self.assertEqual(self.upload_scan(107, payload)[0], 200)
+        replaced = reader.pymupdf.Pixmap(reader.scan_image(107, detail=True))
+        self.assertEqual((replaced.width, replaced.height), (350, 175))
+        self.assertIn('Загруженный вами скан', self.request('/spread/107')[1])
+
+    def test_reviewed_tables_147_to_149(self):
+        html147, segments147 = reader.segment_state(147)
+        html149, segments149 = reader.segment_state(149)
+        self.assertIn('Though I have visited all the county gaols', segments147['s3'])
+        self.assertIn('in the hulks,¹', segments147['s3'])
+        self.assertIn('id="footnote-147-s3-1"', html147)
+        self.assertIn('Ludlow\t0\t0\t1', segments149['s1'])
+        self.assertNotIn('Ludlow\t6\t0\t1', segments149['s1'])
+        self.assertIn('194', html147)
+        for number in (147, 148, 149):
+            self.assertNotIn('☑ OCR', reader.quality_label(number))
+
+    def test_reviewed_notes_154_and_155(self):
+        html154, segments154 = reader.segment_state(154)
+        self.assertIn('three main periods can be distinguished', segments154['s1'])
+        self.assertIn('Blackstone, Eden, Romilly, Nield, Paul, Buxton, Elizabeth Fry', segments154['s2'])
+        self.assertIn('Prison fees were abolished by law in 1815', segments154['s3'])
+        self.assertIn('applied only to the county gaols', segments154['s3'])
+        self.assertIn('It’s Never Too Late to Mend', segments154['s7'])
+        self.assertIn('Borstal Institutions', segments154['s10'])
+        html155, segments155 = reader.segment_state(155)
+        self.assertIn('NOTE C.—CONVICTS', segments155['s2'])
+        self.assertIn('NOTE D.—TRANSPORTATION AND THE HULKS', segments155['s2'])
+        self.assertIn('NOTE E.—PENITENTIARY HOUSES', segments155['s6'])
+        self.assertIn('NOTE F.—EXECUTIONS IN ENGLAND', segments155['s6'])
+        self.assertIn('the last being closed in 1857', segments155['s3'])
+        self.assertIn('The last consignment sailed in 1867', segments155['s4'])
+        self.assertEqual(html155.count('s153-subtitle'), 4)
+        self.assertEqual(html154.count('s153-title'), 2)
+        for number in (154, 155):
+            self.assertIn('Редакторские примечания', self.request('/spread/' + str(number))[1])
+            self.assertNotIn('☑ OCR', reader.quality_label(number))
+
+    def test_reviewed_tables_150_to_152(self):
+        html150, segments150 = reader.segment_state(150)
+        self.assertEqual(segments150['s1'], 'TABLE IV')
+        self.assertEqual(html150.count('TABLE IV'), 1)
+        self.assertNotIn('table-warning', html150)
+        self.assertIn('Great Total\t4571\t1493\t6064\t960', segments150['s5'])
+        html151, segments151 = reader.segment_state(151)
+        self.assertIn('id="footnote-151-s2-1"', html151)
+        self.assertIn('id="footnote-151-s2-2"', html151)
+        self.assertIn('href="#footnote-151-s2-1"', html151)
+        self.assertIn('Clerks of Assize¹', segments151['s2'])
+        self.assertIn('Recording every ignoramus in felony\t0\t6\t4²', segments151['s2'])
+        self.assertIn('Grand total\t\t\t\t\t\t\t1179', segments151['s5'])
+        html152, segments152 = reader.segment_state(152)
+        self.assertIn('THE RESPECTIVE OFFENCES', html152)
+        self.assertIn('TOTAL (1749–1771)\t1121\t678\t443', segments152['s1'])
+        self.assertIn('Sentenced to Death\t81\t208\t362\t90\t95\t11\t31\t3\t240\t1121', segments152['s1'])
+        for number in (150, 151, 152):
+            self.assertNotIn('☑ OCR', reader.quality_label(number))
+            self.assertIn('verified-prose-page', reader.segment_state(number)[0])
+
     def test_scan_replacement_and_quality_decision(self):
         self.assertIn('скан повёрнут', self.request('/spread/14')[1])
         self.assertEqual(self.form('/scan-action/14', {'action':'dismiss-scan'})[0], 200)
@@ -149,12 +855,15 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertFalse(reader.scan_dropdown_label(14))  # persisted
         self.assertEqual(self.form('/scan-action/14', {'action':'restore-scan-mark'})[0], 200)
         self.assertTrue(reader.scan_dropdown_label(14))
-        # All 165 spreads have passed the completeness collation, so there is
-        # no pending-OCR mark left to dismiss; scan marks remain independent.
-        self.assertEqual(self.form('/scan-action/21', {'action':'dismiss-ocr'})[0], 400)
-        self.assertNotIn('OCR', reader.quality_label(21))
+        # Automated collation does not replace manual proofreading.
+        reader.OCR_ISSUES[156] = 'проверка'
+        self.assertIn('☑ OCR', reader.quality_label(156))
+        self.assertEqual(self.form('/scan-action/156', {'action':'dismiss-ocr'})[0], 200)
+        self.assertNotIn('OCR', reader.quality_label(156))
         self.assertIn('скан повёрнут', reader.quality_label(14))
-        self.assertNotIn('пометка OCR снята', self.request('/spread/21')[1])
+        # The spread is transcribed against the scan, so the status shows that
+        # instead of the dismissed-OCR note.
+        self.assertIn('сверено', self.request('/spread/156')[1])
 
         pdf = reader.pymupdf.open()
         pdf.new_page(width=100, height=50)
@@ -175,8 +884,9 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertFalse(reader.replacement_path(14).exists())
         self.assertTrue(reader.scan_dropdown_label(14))
         self.assertNotIn('OCR', reader.quality_label(14))
-        self.assertEqual(self.form('/scan-action/21', {'action':'restore-ocr'})[0], 400)
-        self.assertNotIn('☑ OCR', reader.quality_label(21))
+        self.assertEqual(self.form('/scan-action/156', {'action':'restore-ocr'})[0], 200)
+        self.assertIn('☑ OCR', reader.quality_label(156))
+        reader.OCR_ISSUES.pop(156, None)
 
     def test_legacy_quality_decisions_are_preserved_when_migrated(self):
         reader.QUALITY_FILE.write_text(json.dumps({'dismissed': [2, 14, 153], 'other': 'keep'}))
@@ -272,11 +982,27 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertIn('1782–1783\t—\t—\t6\t—\t52\t1\t—\t—\t49', s152['s3'])
         self.assertIn('сумма чисел строки — 59', self.request('/spread/152')[1])
 
+    def test_index_spreads_render_printed_lines_not_joined_prose(self):
+        from verified_index import INDEX_LINES
+        for number in (156, 157, 158, 159, 160):
+            html, segments = reader.segment_state(number)
+            self.assertIn('index-column', html)
+            self.assertIn('verified-prose-page', html)
+            columns = [value for value in segments.values() if len(value) > 100]
+            expected = ['\n'.join(INDEX_LINES[number][column]) for column in sorted(INDEX_LINES[number])]
+            self.assertEqual(columns, expected, number)
+        self.assertIn('Knoot', reader.segment_state(158)[1]['s4'])
+        self.assertIn('Prisoners, acquitted, discharged in', reader.segment_state(159)[1]['s2'])
+        self.assertEqual(reader.page_labels(159), ['304', '305'])
+        self.assertEqual(reader.page_labels(160), ['306', None])
+        self.assertIn('class="book-page everyman-page"', reader.reader_page(160))
+        self.assertNotIn('class="book-page everyman-page"', reader.reader_page(159))
+
     def test_verified_spreads_and_pending_ocr_labels(self):
-        for number in (5, 6, 151, 153, 161, 162, 163, 164, 165):
+        for number in (5, 6, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160,
+                       161, 162, 163, 164, 165):
             self.assertNotIn('OCR', reader.quality_label(number))
-        for number in range(1, 166):
-            self.assertNotIn('☑ OCR', reader.quality_label(number))
+        self.assertNotIn('☑ OCR', reader.quality_label(107))
         self.assertIn('скан повёрнут', reader.quality_label(14))
         _, s5 = reader.segment_state(5)
         self.assertIn('descriptions of individual prisons have been omitted', s5['s3'])
@@ -408,21 +1134,24 @@ class ReaderHTTPTests(unittest.TestCase):
         self.assertEqual(translation.current_text(10), 'Мой проверенный перевод')
         history = self.request('/translation-history/10')[1]
         self.assertIn('Мой проверенный перевод', history)
-        # Clearing the override restores the authored translation, not English.
-        self.assertEqual(self.form('/translation/10', {'text': '', 'expected': current})[0], 200)
-        self.assertIn('ОБЗОР БЕДСТВИЙ', translation.current_text(10))
-        self.assertNotIn('text', translation.load_edits()['spreads']['10'])
-        reset_token = translation.revision(10)
-        self.assertEqual(self.form('/translation-history/10', {'index': '1', 'expected': reset_token})[0], 200)
-        self.assertEqual(translation.current_text(10), 'Мой проверенный перевод')
-        self.assertEqual(len(translation.load_edits()['spreads']['10']['history']), 3)
+        # Clearing the override restores the v2 text, not English.
+        # Разворот 10 в новом слое отсутствует, поэтому берём разворот 2.
+        self.assertEqual(self.form('/translation/2', {'text': 'Мой перевод', 'expected': translation.revision(2)})[0], 200)
+        self.assertEqual(self.form('/translation/2', {'text': '', 'expected': translation.revision(2)})[0], 200)
+        self.assertIn('обойщика', translation.current_text(2))
+        self.assertNotIn('text', translation.load_edits()['spreads']['2'])
+        # Возврат прежнего варианта из истории — на развороте 2.
+        reset_token = translation.revision(2)
+        self.assertEqual(self.form('/translation-history/2', {'index': '1', 'expected': reset_token})[0], 200)
+        self.assertEqual(translation.current_text(2), 'Мой перевод')
+        self.assertEqual(len(translation.load_edits()['spreads']['2']['history']), 3)
         self.assertEqual(reader.segment_state(10)[1], english_before)
         self.assertEqual(self.request('/translation/0', data=b'text=x', content_type='application/x-www-form-urlencoded')[0], 404)
         self.assertEqual(self.request('/translation/10', data=b'{}', content_type='application/json')[0], 415)
 
     def test_bilingual_search_links_to_the_translation_anchor(self):
-        page = reader.search_page('подлинного целебного дара жизни')
-        self.assertIn('/spread/10?q=', page)
+        page = reader.search_page('ГУМАНИТАРНЫЙ')
+        self.assertIn('/spread/1?q=', page)
         self.assertIn('#translation', page)
         self.assertIn('Русский перевод', page)
         self.assertIn('РАЗВОРОТ 010', reader.search_page('salutiferous'))
@@ -444,14 +1173,388 @@ class SequentialProofreadTests(unittest.TestCase):
         self.patch.stop()
         self.tmp.cleanup()
 
+    def test_spreads_98_to_100_rules_and_marshalsea(self):
+        h98, s98 = reader.segment_state(98)
+        self.assertIn('25. All money brought in', s98['s7'])
+        self.assertIn('href="#footnote-98-s1-1"', h98)
+        self.assertIn('class="book-list"', h98)
+        h99, s99 = reader.segment_state(99)
+        self.assertIn('not superseded shall be forthwith discharged', s99['s3'])
+        self.assertIn('class="restored-heading"', h99)
+        h100, s100 = reader.segment_state(100)
+        self.assertIn('MARSHALSEA PRISON', s100['s1'])
+        self.assertIn('href="#footnote-100-s1-1"', h100)
+        self.assertIn('id="footnote-100-s1-2"', h100)
+        self.assertIn('class="scan-fold-word"', h100)
+
+    def test_tables_keep_columns_and_editable_text(self):
+        from html.parser import HTMLParser
+        class Text(HTMLParser):
+            def __init__(self):
+                super().__init__()
+                self.parts = []
+            def handle_data(self, data):
+                self.parts.append(data)
+        for spread, segment, value in (
+            (84, 's5', '1787, 29 May.\tDebtor 1.\tFelons, etc. 190.\n1788, 20 March.\t„ 0.\t„ 220.'),
+            (95, 's3', '1772\t1709\t1778\t1027\n1777\t544'),
+            (89, 's4', '1787, 18 March,\tDebtors 140.\tFelons, etc. 350.\n1788, 26 Aug.,\t„ 114.\t„ 499, viz.'),
+            (101, 's7', '1776. 14 Feb.\tprisoners 2\t1782. 9 April\tprisoners 1\n1779. 21 Oct.\t„ 0\t1782. 2 Dec.\t„ 3'),
+            (103, 's7', 'Fees: Debtors, Felons, £1 4s. 10d.'),
+            (87, 's2', 'Allowance: Debtors, Felons, a penny loaf a day'),
+        ):
+            html = inline_editor.render_verified_block(value, spread, segment, '')
+            parser = Text()
+            parser.feed(html)
+            self.assertEqual(value, ''.join(parser.parts))
+            if spread in (84, 89, 101):
+                self.assertIn('class="count-number"', html)
+            if spread in (87, 103):
+                self.assertIn('class="shared-brace"', html)
+            if spread == 95:
+                self.assertEqual(2, html.count('style="--numeric-cols:3"'))
+                self.assertEqual(2, html.count('class="restored-cell empty-cell"'))
+
+    def test_spreads_101_to_103_county_gaols(self):
+        h101, s101 = reader.segment_state(101)
+        self.assertIn('gaol-fever prevailed', s101['s3'])
+        self.assertIn('href="#footnote-101-s3-1"', h101)
+        self.assertEqual(3, h101.count('role="table" aria-label="Hertfordshire bridewells, prisoners by visit date"'))
+        h102, s102 = reader.segment_state(102)
+        self.assertIn('£4 2s. 6d. a quarter', s102['s4'])
+        self.assertIn('footnote-continuation', h102)
+        self.assertIn('href="#footnote-102-s1-1"', h102)
+        h103, s103 = reader.segment_state(103)
+        self.assertIn('1774. 29 Sept.\t5\t13', s103['s7'])
+        self.assertIn('href="#footnote-103-s1-1"', h103)
+        self.assertIn('Horsham prisoners by visit date', h103)
+
+    def test_spreads_104_to_106_prose_notes_and_cambridge_table(self):
+        h104, s104 = reader.segment_state(104)
+        self.assertIn('The keeper told me (in September 1774)', s104['s8'])
+        self.assertIn('<span class="restored-heading">COUNTY BRIDEWELL</span>', h104)
+        h105, s105 = reader.segment_state(105)
+        self.assertIn('href="#footnote-105-s1-1"', h105)
+        self.assertIn('href="#footnote-105-s1-2"', h105)
+        self.assertIn('href="#footnote-105-s8-1"', h105)
+        h106, s106 = reader.segment_state(106)
+        self.assertIn('1779. 23 Sept.\tprisoners 6 and one lunatic', s106['s6'])
+        self.assertIn('Cambridge bridewell prisoners', h106)
+        self.assertIn('<span class="restored-heading">HUNTINGDONSHIRE</span>', h106)
+
+    def test_spreads_107_to_109_notes_and_headings(self):
+        h107, s107 = reader.segment_state(107)
+        self.assertIn('3s. 5½d.', s107['s7'])
+        self.assertIn('href="#footnote-107-s7-2"', h107)
+        h108, s108 = reader.segment_state(108)
+        self.assertIn('£15 14s. 8d.', s108['s2'])
+        self.assertIn('href="#footnote-108-s3-1"', h108)
+        self.assertIn('<span class="restored-heading">MIDLAND CIRCUIT</span>', h108)
+        h109, s109 = reader.segment_state(109)
+        self.assertIn('£6 1s. 9d.', s109['s5'])
+        self.assertIn('href="#footnote-109-s1-1"', h109)
+        self.assertIn('href="#footnote-109-s5-1"', h109)
+
+    def test_spreads_110_to_112_tables_verse_and_continued_note(self):
+        h110, s110 = reader.segment_state(110)
+        self.assertIn('£18 12s. 0d.', s110['s3'])
+        self.assertIn('href="#footnote-110-s3-1"', h110)
+        self.assertIn('Stamford town gaol fees', h110)
+        h111, s111 = reader.segment_state(111)
+        self.assertIn('Behold the seat of pain and want and woe:', s111['s3'])
+        self.assertIn('class="book-verse"', h111)
+        self.assertIn('href="#footnote-111-s7-1"', h111)
+        h112, s112 = reader.segment_state(112)
+        self.assertIn('habit of idleness or inability to labour', s112['s0'])
+        self.assertIn('footnote-continuation', h112)
+        self.assertIn('Oxford Castle prisoners', h112)
+        self.assertIn('1782. 25 Dec.\t25\t31', s112['s4'])
+
+    def test_spreads_113_to_115_headings_and_notes(self):
+        h113, s113 = reader.segment_state(113)
+        self.assertIn('£24 a year', s113['s0'])
+        self.assertIn('href="#footnote-113-s0-1"', h113)
+        self.assertIn('footnote-continuation', h113)
+        self.assertIn('<span class="running-title">OXFORDSHIRE</span>', h113)
+        h114, s114 = reader.segment_state(114)
+        self.assertIn('all night chained together', s114['s9'])
+        for number in ('1', '2', '3'):
+            self.assertIn('href="#footnote-114-s1-' + number + '"', h114)
+        h115, s115 = reader.segment_state(115)
+        self.assertIn('thirteen were transports', s115['s6'])
+        self.assertIn('href="#footnote-115-s6-1"', h115)
+        self.assertIn('href="#footnote-115-s6-2"', h115)
+
+    def test_spreads_116_to_118_lists_and_notes(self):
+        h116, s116 = reader.segment_state(116)
+        self.assertIn('1771.\tNothing expended,\tnothing earned\t21', s116['s2'])
+        self.assertIn('1781.\t„\t„\t12\t8', s116['s2'])
+        self.assertEqual(3, h116.count('aria-label="Berkeley bridewell returns and prisoners"'))
+        self.assertIn('href="#footnote-116-s2-1"', h116)
+        h117, s117 = reader.segment_state(117)
+        self.assertIn('Sherborn, Dorset.', s117['s4'])
+        self.assertIn('class="regulation-extract"', h117)
+        h118, s118 = reader.segment_state(118)
+        self.assertIn('£1 1s. 4d.', s118['s1'])
+        self.assertIn('href="#footnote-118-s1-1"', h118)
+        self.assertIn('COUNTY GAOL AT BODMIN', s118['s5'])
+
+    def test_spreads_119_to_121_scan_transcription(self):
+        h119, s119 = reader.segment_state(119)
+        self.assertIn('Clauses against spirituous liquors', s119['s1'])
+        self.assertIn('towards the expense of their maintenance', s119['s10'])
+        self.assertNotIn('Fee\t£', s119['s3'])
+        self.assertIn('\t£\ts.\td.', s119['s3'])
+        self.assertIn('For every person discharged from bridewell\t0\t13\t4', s119['s8'])
+        h120, s120 = reader.segment_state(120)
+        self.assertIn('PENZANCE', s120['s1'])
+        self.assertIn('BRISTOL NEWGATE', s120['s5'])
+        self.assertIn('class="restored-heading">PENZANCE', h120)
+        h121, s121 = reader.segment_state(121)
+        self.assertIn('A sewer in one of the passages often makes these parts', s121['s2'])
+        self.assertIn('class="restored-heading">NORTHERN CIRCUIT', h121)
+
+    def test_spreads_122_to_124_notes_and_headings(self):
+        h122, s122 = reader.segment_state(122)
+        self.assertIn('1782, 20 Nov.', s122['s2'])
+        self.assertIn('href="#footnote-122-s2-1"', h122)
+        self.assertIn('footnote-continuation', h122)
+        h123, s123 = reader.segment_state(123)
+        self.assertIn('£40 12s. 8d.', s123['s5'])
+        self.assertIn('class="restored-heading">COUNTY GAOL AT MORPETH', h123)
+        h124, s124 = reader.segment_state(124)
+        self.assertIn('£7000 in mortgages', s124['s1'])
+        self.assertIn('href="#footnote-124-s7-2"', h124)
+        self.assertIn('footnote-continuation', h124)
+
+    def test_spreads_125_to_127_prose_and_notes(self):
+        h125, s125 = reader.segment_state(125)
+        self.assertIn('£40', reader.segment_state(123)[1]['s5'])
+        self.assertIn('COUNTY BRIDEWELL', s125['s1'])
+        self.assertIn('class="restored-heading">LIVERPOOL BOROUGH GAOL', h125)
+        h126, s126 = reader.segment_state(126)
+        self.assertIn('a thorough ducking', s126['s1'])
+        self.assertIn('href="#footnote-126-s4-1"', h126)
+        self.assertIn('href="#footnote-126-s4-2"', h126)
+        h127, s127 = reader.segment_state(127)
+        self.assertIn('Black Hole at Calcutta', s127['s3'])
+        self.assertIn('href="#footnote-127-s8-1"', h127)
+
+    def test_spreads_128_to_130_tables_and_notes(self):
+        h128, s128 = reader.segment_state(128)
+        self.assertIn('1782. 21 June\t7\t0', s128['s3'])
+        self.assertIn('aria-label="Carnarvon prisoners by visit date"', h128)
+        self.assertIn('href="#footnote-128-s20-1"', h128)
+        h129, s129 = reader.segment_state(129)
+        self.assertIn('a pilot-boat to her proper moorings', s129['s1'])
+        self.assertIn('href="#footnote-129-s5-1"', h129)
+        h130, s130 = reader.segment_state(130)
+        self.assertIn('Tunisian privateer', s130['s1'])
+        self.assertIn('href="#footnote-130-s5-2"', h130)
+        self.assertIn('class="restored-heading">REMARKS ON CHARTER SCHOOLS', h130)
+
+    def test_spreads_131_to_133_schools_and_hulks(self):
+        h131, s131 = reader.segment_state(131)
+        self.assertIn('3s. 3d. Irish per quarter', s131['s6'])
+        self.assertIn('Bluecoat Hospital', s131['s6'])
+        h132, s132 = reader.segment_state(132)
+        self.assertIn('books is 1s. 3½d. and in coals 4½d.', s132['s1'])
+        self.assertIn('class="restored-heading">INSTRUCTIONS TO SCHOOL-MASTERS', h132)
+        self.assertIn('class="book-list"', h132)
+        h133, s133 = reader.segment_state(133)
+        self.assertIn('six hundred and thirty-two prisoners', s133['s1'])
+        self.assertIn('one hundred and seventy-six had died', s133['s6'])
+        self.assertIn('class="restored-heading">HULKS ON THE THAMES', h133)
+
+    def test_prison_profiles_and_reviewed_tables_preserve_editable_text(self):
+        from html.parser import HTMLParser
+        class Text(HTMLParser):
+            def __init__(self):
+                super().__init__()
+                self.value = ''
+            def handle_data(self, data):
+                self.value += data
+        for number, key in ((87, 's2'), (96, 's8'), (103, 's7'), (112, 's4'), (128, 's3')):
+            _, segments = reader.segment_state(number)
+            html = inline_editor.render_verified_block(segments[key], number, key, '')
+            parsed = Text(); parsed.feed(html)
+            self.assertEqual(parsed.value, segments[key], (number, key))
+            self.assertIn('class="prison-profile"', html)
+            self.assertIn('class="profile-row"', html)
+        h128, _ = reader.segment_state(128)
+        self.assertIn('class="profile-label">Fees: ', h128)
+        self.assertIn('class="profile-category">Debtors, ', h128)
+        self.assertIn('class="profile-value">£0 3s. 6d. entrance.', h128)
+        self.assertEqual(3, h128.count('class="profile-row profile-fees"'))
+        h87, _ = reader.segment_state(87)
+        self.assertIn('class="shared-brace"', h87)
+        h103, _ = reader.segment_state(103)
+        self.assertIn('class="shared-brace"', h103)
+        h119, _ = reader.segment_state(119)
+        self.assertIn('class="fee-subheading">Second Class', h119)
+        self.assertIn('class="book-list">I. No garnish', h119)
+        h116, _ = reader.segment_state(116)
+        self.assertIn('class="book-signature">FRANCIS NORMAN.', h116)
+
+    def test_followup_tables_and_ely_paragraphs(self):
+        from html.parser import HTMLParser
+        class Capture(HTMLParser):
+            def __init__(self):
+                super().__init__(); self.text = ''; self.rows = []; self.table = False
+            def handle_starttag(self, tag, attrs):
+                a = dict(attrs)
+                if a.get('role') == 'table': self.table = True
+                if a.get('role') == 'row': self.rows.append([])
+                if a.get('role') in ('cell', 'columnheader') and self.rows:
+                    self.rows[-1].append(a['role'])
+            def handle_data(self, value): self.text += value
+        for n, key in ((84, 's5'), (95, 's3'), (95, 's6'), (97, 's1'), (101, 's7'), (107, 's7')):
+            _, segments = reader.segment_state(n)
+            markup = inline_editor.render_verified_block(segments[key], n, key, '')
+            c = Capture(); c.feed(markup)
+            self.assertEqual(c.text, segments[key], (n, key))
+            if n in (84, 95, 101) and key != 's6':
+                self.assertTrue(c.rows)
+                self.assertTrue(all(role == 'cell' for row in c.rows for role in row), (n, key))
+        h95, _ = reader.segment_state(95)
+        self.assertIn('class="book-signature">GEORGE GARRED', h95)
+        h97, _ = reader.segment_state(97)
+        self.assertIn('role="columnheader">\tIn House', h97)
+        h107, _ = reader.segment_state(107)
+        self.assertIn('href="#footnote-107-s7-1"', h107)
+        self.assertIn('href="#footnote-107-s7-2"', h107)
+        self.assertIn('.spread-107 p[data-edit-id="s3"]::before', reader.reader_page(107))
+
+    def test_spreads_134_to_136_hulks_and_footnotes(self):
+        h134, s134 = reader.segment_state(134)
+        self.assertIn('short term: among them were boys of only ten years of age', s134['s3'])
+        self.assertIn('class="restored-heading">THE HULK AT GOSPORT', h134)
+        h135, s135 = reader.segment_state(135)
+        self.assertIn('particularly the Ceres', s135['s1'])
+        self.assertIn('href="#footnote-135-s1-1"', h135)
+        self.assertIn('href="#footnote-135-s1-2"', h135)
+        h136, s136 = reader.segment_state(136)
+        self.assertIn('\t\tTotal\t1937”', s136['s1'])
+        self.assertIn('aria-label="Convicts in the hulks in 1788"', h136)
+        self.assertIn('href="#footnote-136-s2-1"', h136)
+        self.assertIn('href="#footnote-136-s5-3"', h136)
+
+    def test_spreads_144_146_diet_and_statistical_tables(self):
+        from html.parser import HTMLParser
+        class Text(HTMLParser):
+            def __init__(self):
+                super().__init__(); self.value = []
+            def handle_data(self, data):
+                self.value.append(data)
+        h144, s144 = reader.segment_state(144)
+        self.assertIn('Good wheaten bread', s144['s1'])
+        self.assertIn('BREAKFAST.\tEvery day', s144['s1'])
+        self.assertTrue(s144['s3'].startswith('DINNER.\tSunday'))
+        self.assertNotIn('Meal\tAllowance', s144['s3'])
+        self.assertNotIn('Good wheaten bread', s144['s3'])
+        for number, keys in ((144, ('s1', 's3')), (145, ('s2', 's4')), (146, ('s1', 's3'))):
+            html, segments = reader.segment_state(number)
+            self.assertNotIn('table-warning', html)
+            self.assertNotIn('OCR', reader.quality_label(number))
+            for key in keys:
+                parser = Text(); parser.feed(inline_editor.render_verified_block(segments[key], number, key, ''))
+                self.assertEqual(''.join(parser.value), segments[key])
+        _, s145 = reader.segment_state(145)
+        self.assertIn('Boston\t0\t0\t2\t0\t0\t0\t0\t0', s145['s4'])
+        self.assertIn('Berkhamstead\t0\t0\t0\t1\t0\t0\t0\t0', s145['s2'])
+        _, s146 = reader.segment_state(146)
+        self.assertIn('London—continued', s146['s3'])
+        self.assertIn('Total\t973\t52\t239\t262', s146['s1'])
+
+    def test_spreads_141_143_conclusion_and_bill(self):
+        html141, s141 = reader.segment_state(141)
+        self.assertIn('class="restored-heading">TO THE ACCOUNT OF LAZARETTOS', html141)
+        self.assertIn('prohibit the introduction of any kind of liquor except milk', s141['s3'])
+        self.assertIn('href="#footnote-141-s3-2"', html141)
+        self.assertIn('id="footnote-141-s3-2"', html141)
+        html142, s142 = reader.segment_state(142)
+        self.assertIn('previous-spread-note', html142)
+        self.assertIn('class="restored-heading">DRAUGHT OF A BILL', html142)
+        self.assertIn('the twenty-ninth', s142['s1'])
+        self.assertIn('day of September one thousand seven hundred and ——', s142['s4'])
+        html143, s143 = reader.segment_state(143)
+        self.assertIn('Monday, Wednesday and Friday', s143['s3'])
+        self.assertIn('the straw thereof to be changed once in every month', s143['s1'])
+        self.assertTrue(s143['s3'].endswith('nor any'))
+        for number in (141, 142, 143):
+            self.assertNotIn('OCR', reader.quality_label(number))
+
+    def test_spreads_138_140_penitentiary_and_conclusion(self):
+        html138, s138 = reader.segment_state(138)
+        self.assertIn('their overseers to them, they may perhaps be a little reformed', s138['s1'])
+        self.assertIn('GENERAL HEADS OF REGULATIONS.', s138['s5'])
+        self.assertIn('class="restored-heading">GENERAL HEADS', html138)
+        html139, s139 = reader.segment_state(139)
+        self.assertIn('grace at meals; no gaming or drinking', s139['s1'])
+        self.assertIn('Pontanus’s Latin and Wagenaar’s Dutch', s139['s6'])
+        self.assertIn('href="#footnote-139-s6-1"', html139)
+        self.assertIn('id="footnote-139-s6-1"', html139)
+        html140, s140 = reader.segment_state(140)
+        self.assertIn('in my power in some instances to suggest remedies', s140['s3'])
+        self.assertIn('class="restored-heading">CONCLUSION', html140)
+        self.assertIn('class="restored-heading">TO THE STATE OF THE PRISONS', html140)
+        self.assertTrue(s140['s3'].endswith('of introducing a'))
+        for n in (138, 139, 140):
+            self.assertNotIn('OCR', reader.quality_label(n))
+
+    def test_spread_137_continuing_and_new_notes(self):
+        from html.parser import HTMLParser
+        html, segments = reader.segment_state(137)
+        self.assertIn('href="#footnote-137-s3-1"', html)
+        self.assertIn('href="#footnote-137-s3-2"', html)
+        self.assertIn('previous-page-note', html)
+        self.assertIn('aria-label="Contractors’ receipt"', html)
+        self.assertIn('I was fully persuaded that many of those unhappy wretches', segments['s6'])
+        class Text(HTMLParser):
+            def __init__(self):
+                super().__init__(); self.value = []
+            def handle_data(self, data):
+                self.value.append(data)
+        parsed = Text()
+        parsed.feed(inline_editor.render_verified_block(segments['s3'], 137, 's3', ''))
+        self.assertEqual(''.join(parsed.value), segments['s3'])
+
     def test_every_guarded_transcription_applies_without_changing_segment_ids(self):
         from verified_prose import VERIFIED_PROSE
         for number, replacements in VERIFIED_PROSE.items():
             html, segments = reader.segment_state(number)
             for key, (prefix, expected) in replacements.items():
                 self.assertEqual(segments[key], expected, (number, key))
-            self.assertNotIn('☑ OCR', reader.quality_label(number))
             self.assertIn('verified-prose-page', html)
+
+    def test_spreads_7_to_9_restored_words_and_footnotes(self):
+        page7, seg7 = reader.segment_state(7)
+        self.assertIn('Newgate and Ludgate', seg7['s2'])
+        self.assertIn('myself from infection in the prisons and hospitals', seg7['s17'])
+        self.assertIn('href="#footnote-7-s17-1"', page7)
+        self.assertIn('id="footnote-7-s17-1"', page7)
+        _, seg8 = reader.segment_state(8)
+        self.assertIn('sallow meagre countenances', seg8['s5'])
+        self.assertIn('in loathsome cells', seg8['s7'])
+        page9, seg9 = reader.segment_state(9)
+        self.assertIn('In 1782, the weight of a twopenny white loaf', seg9['s16'])
+        for target in ('footnote-9-s8-1', 'footnote-9-s9-2', 'footnote-9-s16-1', 'footnote-9-s16-2'):
+            self.assertIn('href="#' + target + '"', page9)
+            self.assertIn('id="' + target + '"', page9)
+        self.assertIn('My own text', reader.segment_state(7, {'spreads': {'7': {'segments': {'s1': 'My own text'}}}})[1]['s1'])
+
+    def test_spread_107_transcription_notes_and_overrides(self):
+        page, segments = reader.segment_state(107)
+        self.assertIn('3s. 5½d.', segments['s7'])
+        self.assertIn('¹ This was by chaining', segments['s7'])
+        self.assertIn('² An unhappy debtor', segments['s7'])
+        self.assertIn('footnote-107-s7-1', page)
+        self.assertIn('footnote-107-s7-2', page)
+        self.assertIn('restored-heading', page)
+        self.assertEqual(segments['s13'], '')
+        self.assertNotIn('☑ OCR', reader.quality_label(107))
+        overrides = {'spreads': {'107': {'segments': {'s2': 'My correction'}}}}
+        self.assertEqual(reader.segment_state(107, edits=overrides)[1]['s2'], 'My correction')
 
     def test_restored_omissions_follow_the_scan_not_the_other_editions(self):
         cases = {
@@ -527,26 +1630,26 @@ class TranslationTests(unittest.TestCase):
         self.tmp.cleanup()
 
     def test_translation_panel_below_original_and_editable(self):
-        html = reader.reader_page(10)
+        html = reader.reader_page(1)
         self.assertIn('id="translation"', html)
         self.assertIn('Русский перевод', html)
-        self.assertIn('ОБЗОР БЕДСТВИЙ В ТЮРЬМАХ', html)
+        self.assertIn('ГУМАНИТАРНЫЙ', html)
         self.assertLess(html.index('id="editable-book"'), html.index('id="translation"'))
-        working = reader.reader_page(21)
-        self.assertIn('рабочий перевод', working)
+        working = reader.reader_page(2)
+        self.assertIn('Русский перевод', working)
         self.assertIn('Русский перевод', working)
 
     def test_translation_override_and_restore(self):
         saved = translation.load_edits()
-        saved['spreads']['10'] = {'text': 'Мой перевод', 'history': []}
+        saved['spreads']['2'] = {'text': 'Мой перевод', 'history': []}
         translation.save_edits(saved)
-        text, status, user = translation.translation_state(10)
+        text, status, user = translation.translation_state(2)
         self.assertEqual(text, 'Мой перевод')
         self.assertTrue(user)
-        saved['spreads']['10']['text'] = ''
+        saved['spreads']['2']['text'] = ''
         translation.save_edits(saved)
-        text, status, user = translation.translation_state(10)
-        self.assertIn('ОБЗОР БЕДСТВИЙ', text)
+        text, status, user = translation.translation_state(2)
+        self.assertIn('обойщика', text)
         self.assertFalse(user)
 
     def test_translation_tables_have_nine_columns_and_matching_numbers(self):
@@ -560,17 +1663,16 @@ class TranslationTests(unittest.TestCase):
                 if a.get('role')=='table': self.tables.append({'statistical':'statistical-table' in a.get('class',''),'rows':[]})
                 elif a.get('role')=='row' and self.tables: self.tables[-1]['rows'].append(0)
                 elif a.get('role') in ('cell','columnheader') and self.tables and self.tables[-1]['rows']: self.tables[-1]['rows'][-1]+=1
-        for number in (145,146,147):
+        # Старые табличные слои забракованы; структуру проверяем на таблице
+        # миль из нового слоя (разворот 2, две колонки).
+        for number in (2,):
             html=translation.render_translation(translation.BASE_TRANSLATIONS[number])
             parser=Rows(); parser.feed(html)
             self.assertTrue(parser.tables)
             for table in parser.tables:
                 widths=set(table['rows'])
                 self.assertEqual(len(widths),1,(number,table['rows']))
-                if table['statistical']:
-                    self.assertEqual(widths,{9})
-                else:
-                    self.assertIn(widths,({3},{5}))
+                self.assertIn(widths,({2},{3},{5},{9}))
                 self.assertNotIn(17,widths)
         def numeric_cells(text):
             values=[]
@@ -588,19 +1690,18 @@ class TranslationTests(unittest.TestCase):
             self.assertEqual(numeric_cells(en),numeric_cells(ru),number)
 
     def test_translation_coverage_footnotes_and_source_status_are_explicit(self):
-        self.assertEqual(len(translation.BASE_TRANSLATIONS),165)
+        # В читалке только новый слой: старые переводы не показываются вовсе.
+        self.assertEqual(len(translation.BASE_TRANSLATIONS), len(translation.V2))
+        self.assertTrue(set(translation.BASE_TRANSLATIONS) <= set(range(1, 166)))
         panel=translation.panel(1,english_verified=False)
-        self.assertIn('всех 165',panel)
-        self.assertIn('черновому английскому тексту',panel)
-        self.assertIn('рабочий машинный перевод',panel)
-        self.assertIn('footnote-continuation',reader.reader_page(20))
-        self.assertIn('[Сноска 1, продолжение]',translation.BASE_TRANSLATIONS[20])
-        self.assertIn('тисками для больших пальцев',translation.BASE_TRANSLATIONS[16])
-        self.assertNotIn('можно приходится',translation.BASE_TRANSLATIONS[16])
-        self.assertIn('бесстыдными и развратными мерзостями',translation.BASE_TRANSLATIONS[13])
-        html=reader.reader_page(147)
-        self.assertIn('Арифметика оригинала',html)
-        self.assertIn('282',html); self.assertIn('262',html)
+        self.assertIn('из 165',panel)
+        self.assertIn('Прежний перевод из репозитория не используется',panel)
+        self.assertIn('перевод готовится',panel)
+        # Разворот 10 ещё не переведён заново: текста быть не должно.
+        self.assertEqual(translation.current_text(10), '')
+        self.assertIn('перевод готовится', reader.reader_page(10))
+        # Сноска в новом слое (разворот 2) на месте.
+        self.assertIn('тюремной горячки в Ньюгейте', translation.BASE_TRANSLATIONS[2])
 
     def test_context_notes_are_separate_from_editable_translation(self):
         panel = translation.panel(1, english_verified=True)
@@ -619,22 +1720,22 @@ class TranslationTests(unittest.TestCase):
     def test_semantic_terminology_and_script_regressions(self):
         import re
         text = '\n'.join(translation.BASE_TRANSLATIONS.values()).lower()
-        for bad in ('фелон', 'гарнир', 'коттер', 'окружные тюрьмы', 'тюремь', 'чумаж'):
+        for bad in ('фелон', 'гарнир', 'коттер', 'окружные тюрьмы', 'тюремь', 'чумаж',
+                    'гаол', 'кран', 'бридвелл'):
             self.assertNotIn(bad, text)
         self.assertFalse(re.search(r'[\u3400-\u9fff]', text))
-        for good in ('тюрьмы графств', 'вступительный побор', 'уголовных заключённых',
-                     'ссыльных', 'кеннет рак', 'эвримен'):
+        for good in ('тюремная горячка', 'тюремщики', 'должник'):
             self.assertIn(good, text)
-        self.assertIn('42 033', translation.BASE_TRANSLATIONS[2])
-        self.assertIn('1909', translation.BASE_TRANSLATIONS[4])
+        # Итог миль в таблице сохраняется как в скане, с запятой разрядов.
+        self.assertIn('42,033', translation.BASE_TRANSLATIONS[2])
 
-    def test_statistical_table_labels_are_translated_but_places_remain_cross_checkable(self):
-        table = translation.BASE_TRANSLATIONS[145]
-        self.assertIn('Испр. дом', table)
-        self.assertIn('Должницы, ж.', table)
-        self.assertIn('Уголовные и пр.', table)
-        self.assertIn('Abingdon', table)
-        self.assertNotIn('\nBridewell\t', table)
+    def test_table_labels_are_translated_but_numbers_stay_verbatim(self):
+        # Старые статистические таблицы (145 и далее) не используются;
+        # проверяем таблицу миль из нового слоя.
+        table = translation.BASE_TRANSLATIONS[2]
+        self.assertIn('Путешествия\tМили', table)
+        self.assertIn('Всего\t42,033', table)
+        self.assertIn('В Великобритании и Ирландии, 1773–6\t10,318', table)
 
     def test_every_spread_renders_with_translation_below_english(self):
         for number in range(1,166):

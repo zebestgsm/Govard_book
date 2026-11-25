@@ -23,7 +23,7 @@ T145L = H + '\n' + '\n'.join([
 'Bridewell\t0\t0\t0\t2\t0\t0\t0\t4',
 'Town\t0\t0\t0\t0\t0\t0\t0\t1',
 'Berkeley\t0\t0\t0\t0\t0\t0\t0\t1',
-'Berkhamstead\t0\t0\t0\t1\t0\t0\t0\t1',
+'Berkhamstead\t0\t0\t0\t1\t0\t0\t0\t0',
 'Berwick\t2\t0\t0\t0\t2\t0\t0\t0',
 'Beverley\t0\t0\t0\t1\t0\t0\t0\t1',
 'Town\t2\t0\t0\t0\t0\t0\t0\t0',
@@ -35,7 +35,7 @@ T145L = H + '\n' + '\n'.join([
 T145R = H + '\n' + '\n'.join([
 'Bodmin\t0\t0\t0\t13\t12\t2\t4\t8',
 "Sheriff's Ward\t12\t1\t0\t0\t\t\t\t",
-'Boston\t\t\t\t\t0\t0\t0\t0',
+'Boston\t0\t0\t2\t0\t0\t0\t0\t0',
 'Bradford\t11\t1\t0\t0\t6\t1\t0\t0',
 'Brecon\t3\t0\t3\t0\t0\t1\t2\t0',
 'Brecon Bridewell\t0\t0\t0\t0\t0\t0\t0\t1',
@@ -145,6 +145,7 @@ T146L = H + '\n' + '\n'.join([
 'Total\t973\t52\t239\t262\t1102\t51\t167\t315'])
 
 T146R = H + '\n' + '\n'.join([
+'London—continued\t\t\t\t\t\t\t\t',
 'Marshalsea\t88\t4\t0\t0\t38\t9\t0\t2',
 'Newgate\t46\t5\t141\t0\t3\t0\t291\t0',
 'New Ludgate\t15\t0\t0\t0\t20\t0\t0\t0',
@@ -283,6 +284,9 @@ TOTALS = ('\t1779\t1782\n'
           'Supposed omitted\t60\t30\n'
           'Total number of Prisoners\t4379\t4439')
 
+EXPLANATION_1783 = ('Though I have visited all the county gaols, and almost all the other prisons; yet as there are some few of the corporation prisons which I did not see, I have added sixty more prisoners to the number in 1779, and thirty in 1782; so that probably, we have nearly the average number of persons confined at one time in the prisons of this kingdom.\n\n'
+                    'I subjoin the numbers, confined in the London prisons and in the hulks,¹ at the time they were visited in 1783, which are as follows.')
+
 LONDON1783 = ('London prisons and hulks, 1783\tDebtors Men\tWom.\tFelons etc.\tPetty Offenders\n'
               'Bridewell\t0\t0\t0\t38\n'
               'Borough Compter\t25\t3\t0\t2\n'
@@ -313,6 +317,6 @@ VERIFIED_TABLE_SPREADS = {
         's0': ('TABLES', 'TABLES'),
         's1': ('1779\nDebtors Felons', T147L),
         's2': ('TABLES', 'TABLES'),
-        's3': ('1782\nI779', T147R + '\n\n' + SUMMARY + '\n\n' + TOTALS + '\n\n' + LONDON1783 + '\n\n¹ I do not include those sickly convicts on board the Censor.'),
+        's3': ('1782\nI779', T147R + '\n\n' + SUMMARY + '\n\n' + TOTALS + '\n\n' + EXPLANATION_1783 + '\n\n' + LONDON1783 + '\n\n¹ I do not include those sickly convicts on board the Censor.'),
     },
 }
